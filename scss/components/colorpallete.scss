@@ -1,0 +1,72 @@
+/*** ColorPallete Start ***/
+@import "./vars.scss";
+
+$tolerance: 67;
+
+@each $name, $col in $primaryColors {
+  @each $weight in -bright, -lightest, -light, "", -dark, -darkest {
+    $color: map-get(
+      $map: $colors,
+      $key: "#{$name}#{$weight}",
+    );
+
+    @if $color {
+      .focus\:border-#{$name}#{$weight}:focus,
+      .active\:border-#{$name}#{$weight}:active,
+      .hover\:border-#{$name}#{$weight}:hover,
+      .after\:border-#{$name}#{$weight}::after,
+      .before\:border-#{$name}#{$weight}::before,
+      .border-#{$name}#{$weight} {
+        border-color: var(--#{$name}#{$weight});
+        color: if(
+          lightness($color) < 55,
+          var(--#{$name}#{$weight}),
+          var(--#{$name})
+        );
+      }
+
+      .focus\:bg-#{$name}#{$weight}:focus,
+      .active\:bg-#{$name}#{$weight}:active,
+      .hover\:bg-#{$name}#{$weight}:hover,
+      .after\:bg-#{$name}#{$weight}::after,
+      .before\:bg-#{$name}#{$weight}::before,
+      .bg-#{$name}#{$weight} {
+        background-color: var(--#{$name}#{$weight});
+        color: if(
+          lightness($color) > 55,
+          var(--#{$name}-darkest),
+          var(--#{$name}-bright)
+        );
+      }
+
+      .focus\:color-#{$name}#{$weight}:focus,
+      .active\:color-#{$name}#{$weight}:active,
+      .hover\:color-#{$name}#{$weight}:hover,
+      .after\:color-#{$name}#{$weight}::after,
+      .before\:color-#{$name}#{$weight}::before,
+      .color-#{$name}#{$weight} {
+        color: var(--#{$name}#{$weight});
+      }
+    }
+  }
+}
+
+.has-error{
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.has-success{
+  border-color: var(--success);
+  color: var(--success);
+}
+
+.has-warning{
+  border-color: var(--warning);
+  color: var(--warning);
+}
+
+.has-info{
+  border-color: var(--info);
+  color: var(--info);
+}

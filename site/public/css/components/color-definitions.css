@@ -1,0 +1,71 @@
+:root {
+  --primary: #009be0
+  ;
+  --primary-lightest: #c1ecff
+  ;
+  --primary-light: #51c9ff
+  ;
+  --primary-dark: #004d70
+  ;
+  --primary-darkest: #002738
+  ;
+  --accent: #953ca5
+  ;
+  --accent-lightest: #ebd3ef
+  ;
+  --accent-light: #c580d1
+  ;
+  --accent-dark: #4b1e53
+  ;
+  --accent-darkest: #260f2a
+  ;
+  --success: #2ab7a9
+  ;
+  --success-lightest: #cef4f0
+  ;
+  --success-light: #72dfd4
+  ;
+  --success-dark: #155c55
+  ;
+  --success-darkest: #0b2e2b
+  ;
+  --info: #00c3e0
+  ;
+  --info-lightest: #c1f7ff
+  ;
+  --info-light: #51e8ff
+  ;
+  --info-dark: #006170
+  ;
+  --info-darkest: #003038
+  ;
+  --warning: #bf7921
+  ;
+  --warning-lightest: #f6e3ca
+  ;
+  --warning-light: #e5af6b
+  ;
+  --warning-dark: #5f3c10
+  ;
+  --warning-darkest: #2f1e08
+  ;
+  --danger: #bb2626
+  ;
+  --danger-lightest: #f5cdcd
+  ;
+  --danger-light: #e26f6f
+  ;
+  --danger-dark: #5e1313
+  ;
+  --danger-darkest: #2f0a0a
+  ;
+  --default: #646c8a
+  ;
+  --default-lightest: #e3e5eb
+  ;
+  --default-light: #a2a8bc
+  ;
+  --default-dark: #353949
+  ;
+  --default-darkest: #1d2028
+  ; }

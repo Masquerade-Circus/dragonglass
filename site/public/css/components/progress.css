@@ -1,0 +1,53 @@
+progress {
+  appearance: none;
+  border: none;
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 0.5em;
+  background-color: var(--default-bright);
+  color: var(--primary);
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2); }
+
+progress::-moz-progress-bar {
+  background: var(--primary);
+  box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.4), 0 2px 5px 0px rgba(0, 0, 0, 0.3);
+  animation: animate-stripes 5s infinite;
+  background-image: -moz-linear-gradient(135deg, transparent, transparent 33%, rgba(0, 0, 0, 0.1) 33%, rgba(0, 0, 0, 0.1) 66%, transparent 66%), -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.2)), -moz-linear-gradient(left, #09c, #f44);
+  background-size: 35px 20px, 100% 100%, 100% 100%;
+  border-radius: 3px; }
+
+progress::-webkit-progress-value {
+  background: var(--primary);
+  box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.4), 0 2px 5px 0px rgba(0, 0, 0, 0.3);
+  animation: animate-stripes 5s infinite;
+  background-image: -webkit-linear-gradient(-45deg, transparent 33%, rgba(0, 0, 0, 0.1) 33%, rgba(0, 0, 0, 0.1) 66%, transparent 66%), -webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25)), -webkit-linear-gradient(left, #09c, #f44);
+  border-radius: 2px;
+  background-size: 35px 20px, 100% 100%, 100% 100%; }
+
+progress::-webkit-progress-bar {
+  background: transparent; }
+
+@keyframes animate-stripes {
+  0% {
+    background-position: 0 0; }
+  100% {
+    background-position: -100px 0; } }
+
+@-moz-keyframes animate-stripes {
+  0% {
+    background-position: 0 0; }
+  100% {
+    background-position: -100px 0; } }
+
+@-webkit-keyframes animate-stripes {
+  0% {
+    background-position: 0 0; }
+  100% {
+    background-position: -100px 0; } }
+
+@-o-keyframes animate-stripes {
+  0% {
+    background-position: 0 0; }
+  100% {
+    background-position: -100px 0; } }

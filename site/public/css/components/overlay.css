@@ -1,0 +1,16 @@
+.overlay {
+  transition: var(--animate-all);
+  z-index: -10;
+  background: var(--default-dark);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  cursor: pointer;
+  display: none;
+  content: ' ';
+  width: 9999rem;
+  height: 9999rem;
+  transform: translate(-50%, -50%); }

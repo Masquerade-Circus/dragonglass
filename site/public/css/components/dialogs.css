@@ -1,0 +1,499 @@
+/*** Dialog Enhancement ***/
+:root {
+  --animate-all: all 0.3s ease-in-out;
+  --animate-all-fastest: all 0.1s ease-in-out;
+  --animate-all-fast: all 0.2s ease-in-out;
+  --animate-all-slow: all 0.4s ease-in-out;
+  --animate-all-slowest: all 0.6s ease-in-out;
+  --xs2: 0.25rem;
+  --xs: 0.5rem;
+  --sm: 0.75rem;
+  --md: 1rem;
+  --lg: 1.25rem;
+  --xl: 1.5rem;
+  --xl2: 1.965rem;
+  --xl3: 2rem;
+  --xl4: 2.25rem;
+  --xl5: 2.5rem;
+  --xl6: 2.75rem;
+  --xl7: 3rem;
+  --xl8: 4rem;
+  --white: #ffffff;
+  --primary: #3244ad;
+  --primary-bright: #e2e5f7;
+  --primary-lightest: #abb4e7;
+  --primary-light: #8390db;
+  --primary-dark: #151d4a;
+  --primary-darkest: #0a0e23;
+  --accent: #953ca5;
+  --accent-bright: #f3e5f6;
+  --accent-lightest: #dbb1e3;
+  --accent-light: #ca8cd5;
+  --accent-dark: #411a48;
+  --accent-darkest: #1f0c22;
+  --success: #2ab7a9;
+  --success-bright: #e2f8f6;
+  --success-lightest: #a8ebe4;
+  --success-light: #7fe2d8;
+  --success-dark: #124f49;
+  --success-darkest: #092623;
+  --info: #00c3e0;
+  --info-bright: #dbfaff;
+  --info-lightest: #94f1ff;
+  --info-light: #61eaff;
+  --info-dark: #005461;
+  --info-darkest: #00282e;
+  --warning: #bf7921;
+  --warning-bright: #faeee0;
+  --warning-lightest: #efcea3;
+  --warning-light: #e8b678;
+  --warning-dark: #52340e;
+  --warning-darkest: #271907;
+  --danger: #bb2626;
+  --danger-bright: #f9e2e2;
+  --danger-lightest: #eda6a6;
+  --danger-light: #e47c7c;
+  --danger-dark: #511010;
+  --danger-darkest: #270808;
+  --default: #646c8a;
+  --default-bright: #f2f3f6;
+  --default-lightest: #c9ccd8;
+  --default-light: #abb0c2;
+  --default-dark: #2e3240;
+  --default-darkest: #191b23;
+  --font-size-xs: 0.8rem;
+  --font-size-sm: 0.9rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-xl2: 1.965rem;
+  --font-size-xl3: 2rem;
+  --font-size-xl4: 2.25rem;
+  --font-size-xl5: 2.5rem;
+  --font-size-xl6: 2.75rem;
+  --font-size-xl7: 3rem;
+  --font-size-xl8: 4rem;
+  --border-size-xs2: 0.06rem;
+  --border-size-xs: 0.13rem;
+  --border-size-sm: 0.19rem;
+  --border-size-md: 0.25rem;
+  --border-size-lg: 0.38rem;
+  --border-size-xl: 0.5rem;
+  --border-size-xl2: 0.75rem;
+  --border-size-xl3: 1rem;
+  --border-size-xl4: 1.25rem;
+  --border-size-xl5: 2.25rem;
+  --border-size-xl6: 2rem;
+  --border-size-xl7: 2.5rem;
+  --border-size-xl8: 3rem; }
+
+/*** Helper classes End ***/
+:root {
+  --animate-all: all 0.3s ease-in-out;
+  --animate-all-fastest: all 0.1s ease-in-out;
+  --animate-all-fast: all 0.2s ease-in-out;
+  --animate-all-slow: all 0.4s ease-in-out;
+  --animate-all-slowest: all 0.6s ease-in-out;
+  --xs2: 0.25rem;
+  --xs: 0.5rem;
+  --sm: 0.75rem;
+  --md: 1rem;
+  --lg: 1.25rem;
+  --xl: 1.5rem;
+  --xl2: 1.965rem;
+  --xl3: 2rem;
+  --xl4: 2.25rem;
+  --xl5: 2.5rem;
+  --xl6: 2.75rem;
+  --xl7: 3rem;
+  --xl8: 4rem;
+  --white: #ffffff;
+  --primary: #3244ad;
+  --primary-bright: #e2e5f7;
+  --primary-lightest: #abb4e7;
+  --primary-light: #8390db;
+  --primary-dark: #151d4a;
+  --primary-darkest: #0a0e23;
+  --accent: #953ca5;
+  --accent-bright: #f3e5f6;
+  --accent-lightest: #dbb1e3;
+  --accent-light: #ca8cd5;
+  --accent-dark: #411a48;
+  --accent-darkest: #1f0c22;
+  --success: #2ab7a9;
+  --success-bright: #e2f8f6;
+  --success-lightest: #a8ebe4;
+  --success-light: #7fe2d8;
+  --success-dark: #124f49;
+  --success-darkest: #092623;
+  --info: #00c3e0;
+  --info-bright: #dbfaff;
+  --info-lightest: #94f1ff;
+  --info-light: #61eaff;
+  --info-dark: #005461;
+  --info-darkest: #00282e;
+  --warning: #bf7921;
+  --warning-bright: #faeee0;
+  --warning-lightest: #efcea3;
+  --warning-light: #e8b678;
+  --warning-dark: #52340e;
+  --warning-darkest: #271907;
+  --danger: #bb2626;
+  --danger-bright: #f9e2e2;
+  --danger-lightest: #eda6a6;
+  --danger-light: #e47c7c;
+  --danger-dark: #511010;
+  --danger-darkest: #270808;
+  --default: #646c8a;
+  --default-bright: #f2f3f6;
+  --default-lightest: #c9ccd8;
+  --default-light: #abb0c2;
+  --default-dark: #2e3240;
+  --default-darkest: #191b23;
+  --font-size-xs: 0.8rem;
+  --font-size-sm: 0.9rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-xl2: 1.965rem;
+  --font-size-xl3: 2rem;
+  --font-size-xl4: 2.25rem;
+  --font-size-xl5: 2.5rem;
+  --font-size-xl6: 2.75rem;
+  --font-size-xl7: 3rem;
+  --font-size-xl8: 4rem;
+  --border-size-xs2: 0.06rem;
+  --border-size-xs: 0.13rem;
+  --border-size-sm: 0.19rem;
+  --border-size-md: 0.25rem;
+  --border-size-lg: 0.38rem;
+  --border-size-xl: 0.5rem;
+  --border-size-xl2: 0.75rem;
+  --border-size-xl3: 1rem;
+  --border-size-xl4: 1.25rem;
+  --border-size-xl5: 2.25rem;
+  --border-size-xl6: 2rem;
+  --border-size-xl7: 2.5rem;
+  --border-size-xl8: 3rem; }
+
+/*** Helper classes End ***/
+nav a,
+button,
+.btn,
+[data-trigger] summary,
+.fab {
+  border-width: 0;
+  border-style: solid;
+  border-radius: .25em;
+  position: relative;
+  min-width: 3em;
+  padding: .75em .75em;
+  line-height: 1;
+  display: inline-block;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  margin: .25rem;
+  background-color: transparent;
+  transition: var(--animate-all-fastest);
+  width: auto;
+  cursor: pointer; }
+  nav a[disabled],
+  button[disabled],
+  .btn[disabled],
+  [data-trigger] summary[disabled],
+  .fab[disabled] {
+    opacity: 0.85;
+    cursor: default; }
+  nav a::after,
+  button::after,
+  .btn::after,
+  [data-trigger] summary::after,
+  .fab::after {
+    content: ' ';
+    opacity: 0;
+    transition: var(--animate-all-fastest);
+    background-color: var(--default-dark);
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: .25em; }
+  nav a:hover::after,
+  button:hover::after,
+  .btn:hover::after,
+  [data-trigger] summary:hover::after,
+  .fab:hover::after {
+    opacity: 0.1; }
+  nav a:active,
+  button:active,
+  .btn:active,
+  [data-trigger] summary:active,
+  .fab:active {
+    box-shadow: var(--emboss-4); }
+    nav a:active::after,
+    button:active::after,
+    .btn:active::after,
+    [data-trigger] summary:active::after,
+    .fab:active::after {
+      opacity: 0; }
+
+.fab {
+  border-radius: 50%;
+  font-size: var(--font-size-xl);
+  height: 2.5em;
+  width: 2.5em;
+  min-width: 2.5em;
+  padding: 0;
+  line-height: 100%;
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  box-shadow: var(--elevation-4); }
+
+[data-trigger] {
+  position: relative;
+  z-index: 0; }
+  [data-trigger] summary {
+    list-style: none; }
+    [data-trigger] summary::-webkit-details-marker {
+      display: none; }
+    [data-trigger] summary::after {
+      transition: var(--animate-all);
+      z-index: -10;
+      background: var(--default-dark);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0;
+      cursor: pointer;
+      display: none;
+      content: ' ';
+      width: 9999rem;
+      height: 9999rem;
+      transform: translate(-50%, -50%);
+      z-index: 1; }
+  [data-trigger][open] {
+    z-index: 1; }
+    [data-trigger][open] summary::after {
+      z-index: 0;
+      display: block; }
+    [data-trigger][open] summary:active {
+      box-shadow: none; }
+
+:root {
+  --animate-all: all 0.3s ease-in-out;
+  --animate-all-fastest: all 0.1s ease-in-out;
+  --animate-all-fast: all 0.2s ease-in-out;
+  --animate-all-slow: all 0.4s ease-in-out;
+  --animate-all-slowest: all 0.6s ease-in-out;
+  --xs2: 0.25rem;
+  --xs: 0.5rem;
+  --sm: 0.75rem;
+  --md: 1rem;
+  --lg: 1.25rem;
+  --xl: 1.5rem;
+  --xl2: 1.965rem;
+  --xl3: 2rem;
+  --xl4: 2.25rem;
+  --xl5: 2.5rem;
+  --xl6: 2.75rem;
+  --xl7: 3rem;
+  --xl8: 4rem;
+  --white: #ffffff;
+  --primary: #3244ad;
+  --primary-bright: #e2e5f7;
+  --primary-lightest: #abb4e7;
+  --primary-light: #8390db;
+  --primary-dark: #151d4a;
+  --primary-darkest: #0a0e23;
+  --accent: #953ca5;
+  --accent-bright: #f3e5f6;
+  --accent-lightest: #dbb1e3;
+  --accent-light: #ca8cd5;
+  --accent-dark: #411a48;
+  --accent-darkest: #1f0c22;
+  --success: #2ab7a9;
+  --success-bright: #e2f8f6;
+  --success-lightest: #a8ebe4;
+  --success-light: #7fe2d8;
+  --success-dark: #124f49;
+  --success-darkest: #092623;
+  --info: #00c3e0;
+  --info-bright: #dbfaff;
+  --info-lightest: #94f1ff;
+  --info-light: #61eaff;
+  --info-dark: #005461;
+  --info-darkest: #00282e;
+  --warning: #bf7921;
+  --warning-bright: #faeee0;
+  --warning-lightest: #efcea3;
+  --warning-light: #e8b678;
+  --warning-dark: #52340e;
+  --warning-darkest: #271907;
+  --danger: #bb2626;
+  --danger-bright: #f9e2e2;
+  --danger-lightest: #eda6a6;
+  --danger-light: #e47c7c;
+  --danger-dark: #511010;
+  --danger-darkest: #270808;
+  --default: #646c8a;
+  --default-bright: #f2f3f6;
+  --default-lightest: #c9ccd8;
+  --default-light: #abb0c2;
+  --default-dark: #2e3240;
+  --default-darkest: #191b23;
+  --font-size-xs: 0.8rem;
+  --font-size-sm: 0.9rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-xl2: 1.965rem;
+  --font-size-xl3: 2rem;
+  --font-size-xl4: 2.25rem;
+  --font-size-xl5: 2.5rem;
+  --font-size-xl6: 2.75rem;
+  --font-size-xl7: 3rem;
+  --font-size-xl8: 4rem;
+  --border-size-xs2: 0.06rem;
+  --border-size-xs: 0.13rem;
+  --border-size-sm: 0.19rem;
+  --border-size-md: 0.25rem;
+  --border-size-lg: 0.38rem;
+  --border-size-xl: 0.5rem;
+  --border-size-xl2: 0.75rem;
+  --border-size-xl3: 1rem;
+  --border-size-xl4: 1.25rem;
+  --border-size-xl5: 2.25rem;
+  --border-size-xl6: 2rem;
+  --border-size-xl7: 2.5rem;
+  --border-size-xl8: 3rem; }
+
+/*** Helper classes End ***/
+[data-card], dialog {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  overflow: hidden;
+  text-align: left;
+  max-width: 22rem;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  overflow: visible;
+  padding: 0;
+  box-shadow: var(--elevation-2);
+  background-color: var(--white); }
+  [data-card] > *, dialog > * {
+    z-index: 1; }
+  [data-card] > section, dialog > section {
+    padding: 1rem; }
+  [data-card] > [data-media], dialog > [data-media] {
+    order: 0;
+    flex: 1 1 auto;
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding: 0 0 56% 0;
+    overflow: hidden;
+    border: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 0%;
+    color: var(--default-bright); }
+    [data-card] > [data-media]:first-child, dialog > [data-media]:first-child {
+      border-top-left-radius: .25rem;
+      border-top-right-radius: .25rem; }
+    [data-card] > [data-media]:last-child, dialog > [data-media]:last-child {
+      border-bottom-left-radius: .25rem;
+      border-bottom-right-radius: .25rem; }
+    [data-card] > [data-media] > header, dialog > [data-media] > header {
+      margin: 0;
+      position: absolute;
+      bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      border: 0;
+      height: auto;
+      z-index: 1;
+      text-shadow: 0.06rem 0.06rem 0.13rem var(--default-darkest);
+      background-color: rgba(33, 33, 33, 0.3); }
+      [data-card] > [data-media] > header > h1, dialog > [data-media] > header > h1, [data-card] > [data-media] > header > h2, dialog > [data-media] > header > h2, [data-card] > [data-media] > header > h3, dialog > [data-media] > header > h3 {
+        position: absolute;
+        bottom: 0;
+        font-size: 1.5rem; }
+      [data-card] > [data-media] > header nav, dialog > [data-media] > header nav {
+        position: absolute;
+        top: 0;
+        right: 0; }
+        [data-card] > [data-media] > header nav a, dialog > [data-media] > header nav a, [data-card] > [data-media] > header nav .btn, dialog > [data-media] > header nav .btn, [data-card] > [data-media] > header nav [data-trigger] summary, [data-trigger] [data-card] > [data-media] > header nav summary, dialog > [data-media] > header nav [data-trigger] summary, [data-trigger] dialog > [data-media] > header nav summary, [data-card] > [data-media] > header nav button, dialog > [data-media] > header nav button {
+          text-shadow: 0.06rem 0.06rem 0.13rem var(--default-darkest); }
+
+[data-card~="squared"], [data-dialog~="squared"] {
+  max-width: 16rem;
+  min-width: 16rem; }
+  [data-card~="squared"] > [data-media], [data-dialog~="squared"] > [data-media] {
+    padding-bottom: 100%; }
+    [data-card~="squared"] > [data-media] > header, [data-dialog~="squared"] > [data-media] > header {
+      top: auto;
+      height: 3.5rem; }
+      [data-card~="squared"] > [data-media] > header > h1, [data-dialog~="squared"] > [data-media] > header > h1, [data-card~="squared"] > [data-media] > header > h2, [data-dialog~="squared"] > [data-media] > header > h2, [data-card~="squared"] > [data-media] > header > h3, [data-dialog~="squared"] > [data-media] > header > h3 {
+        position: static;
+        font-size: 1rem; }
+      [data-card~="squared"] > [data-media] > header nav, [data-dialog~="squared"] > [data-media] > header nav {
+        position: static; }
+    [data-card~="squared"] > [data-media] > section, [data-dialog~="squared"] > [data-media] > section {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      font-size: 1.5rem;
+      padding: 1rem 25% 1rem 1rem;
+      font-weight: 400; }
+
+[data-card~="full-width"], [data-dialog~="full-width"] {
+  max-width: 100%;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem; }
+
+dialog {
+  transition: var(--animate-all);
+  opacity: 0;
+  position: fixed;
+  top: calc(50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  right: auto;
+  padding: 0;
+  border: 0;
+  z-index: -1;
+  color: inherit;
+  box-shadow: var(--elevation-12); }
+  dialog > * {
+    background-color: var(--white); }
+  dialog::after {
+    content: ' ';
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; }
+
+dialog[open], [data-trigger][open] dialog {
+  z-index: 1000;
+  opacity: 1; }
+
+[data-dialog~="full-width"] {
+  width: calc(100% - 1rem);
+  left: calc(50% - 0.5rem); }

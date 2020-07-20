@@ -1,0 +1,69 @@
+@import './helpers.scss';
+@import './colorpallete.scss';
+
+header, footer {
+  @include flexContainer(row);
+  overflow: visible;
+  height: 3.5rem;
+  padding: 1rem;
+  >button {
+    flex: 0 0 auto;
+    padding: 1rem;
+    &:first-child {
+      margin-right: -1rem;
+    }
+  }
+  > h1, > h2, > h3 {
+    margin: 0;
+    flex: 0 0 auto;
+    font-size: 1rem;
+  }
+}
+
+footer:last-child{
+  border-top: 0.06em solid var(--default-lightest);
+}
+
+footer:first-child{
+  border-top: none;
+}
+
+header:first-child{
+  border-bottom: 0.06em solid var(--default-lightest);
+}
+
+header:last-child{
+  border-bottom: none;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  flex: 1 1 auto;
+  overflow: visible;
+  color: inherit;
+  > .fab {
+    box-shadow: none;
+    position: relative;
+    display: inline-block;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    vertical-align: middle;
+    font-size: 1em;
+  }
+  >a, >.btn, >button, >input[type="submit"]{
+    @extend .btn;
+    text-transform: none;
+    color: inherit;
+    font-size: 1em;
+  }
+}
+
+body>header, body>footer{
+  @extend .bg-primary
+}

@@ -1,0 +1,313 @@
+/*** Fonts Start ***/
+/* font-size */
+.focus\:text-xs:focus,
+.active\:text-xs:active,
+.hover\:text-xs:hover,
+.text-xs {
+  font-size: var(--font-size-xs); }
+
+.focus\:text-sm:focus,
+.active\:text-sm:active,
+.hover\:text-sm:hover,
+.text-sm {
+  font-size: var(--font-size-sm); }
+
+.focus\:text-md:focus,
+.active\:text-md:active,
+.hover\:text-md:hover,
+.text-md {
+  font-size: var(--font-size-md); }
+
+.focus\:text-lg:focus,
+.active\:text-lg:active,
+.hover\:text-lg:hover,
+.text-lg {
+  font-size: var(--font-size-lg); }
+
+.focus\:text-xl:focus,
+.active\:text-xl:active,
+.hover\:text-xl:hover,
+.text-xl {
+  font-size: var(--font-size-xl); }
+
+.focus\:text-xl2:focus,
+.active\:text-xl2:active,
+.hover\:text-xl2:hover,
+.text-xl2 {
+  font-size: var(--font-size-xl2); }
+
+.focus\:text-xl3:focus,
+.active\:text-xl3:active,
+.hover\:text-xl3:hover,
+.text-xl3 {
+  font-size: var(--font-size-xl3); }
+
+.focus\:text-xl4:focus,
+.active\:text-xl4:active,
+.hover\:text-xl4:hover,
+.text-xl4 {
+  font-size: var(--font-size-xl4); }
+
+.focus\:text-xl5:focus,
+.active\:text-xl5:active,
+.hover\:text-xl5:hover,
+.text-xl5 {
+  font-size: var(--font-size-xl5); }
+
+.focus\:text-xl6:focus,
+.active\:text-xl6:active,
+.hover\:text-xl6:hover,
+.text-xl6 {
+  font-size: var(--font-size-xl6); }
+
+.focus\:text-xl7:focus,
+.active\:text-xl7:active,
+.hover\:text-xl7:hover,
+.text-xl7 {
+  font-size: var(--font-size-xl7); }
+
+.focus\:text-xl8:focus,
+.active\:text-xl8:active,
+.hover\:text-xl8:hover,
+.text-xl8 {
+  font-size: var(--font-size-xl8); }
+
+/* style */
+.focus\:text-style-normal:focus,
+.active\:text-style-normal:active,
+.hover\:text-style-normal:hover,
+.text-style-normal {
+  font-style: normal; }
+
+.focus\:text-style-italic:focus,
+.active\:text-style-italic:active,
+.hover\:text-style-italic:hover,
+.text-style-italic {
+  font-style: italic; }
+
+.focus\:text-style-oblique:focus,
+.active\:text-style-oblique:active,
+.hover\:text-style-oblique:hover,
+.text-style-oblique {
+  font-style: oblique; }
+
+.focus\:text-style-inherit:focus,
+.active\:text-style-inherit:active,
+.hover\:text-style-inherit:hover,
+.text-style-inherit {
+  font-style: inherit; }
+
+/* variant */
+.focus\:text-variant-normal:focus,
+.active\:text-variant-normal:active,
+.hover\:text-variant-normal:hover,
+.text-variant-normal {
+  font-variant: normal; }
+
+.focus\:text-variant-small-caps:focus,
+.active\:text-variant-small-caps:active,
+.hover\:text-variant-small-caps:hover,
+.text-variant-small-caps {
+  font-variant: small-caps; }
+
+/* weight */
+.focus\:text-weight-normal:focus,
+.active\:text-weight-normal:active,
+.hover\:text-weight-normal:hover,
+.text-weight-normal {
+  font-weight: normal; }
+
+.focus\:text-weight-bold:focus,
+.active\:text-weight-bold:active,
+.hover\:text-weight-bold:hover,
+.text-weight-bold {
+  font-weight: bold; }
+
+.focus\:text-weight-lighter:focus,
+.active\:text-weight-lighter:active,
+.hover\:text-weight-lighter:hover,
+.text-weight-lighter {
+  font-weight: lighter; }
+
+.focus\:text-weight-bolder:focus,
+.active\:text-weight-bolder:active,
+.hover\:text-weight-bolder:hover,
+.text-weight-bolder {
+  font-weight: bolder; }
+
+.focus\:text-weight-100:focus,
+.active\:text-weight-100:active,
+.hover\:text-weight-100:hover,
+.text-weight-100 {
+  font-weight: 100; }
+
+.focus\:text-weight-200:focus,
+.active\:text-weight-200:active,
+.hover\:text-weight-200:hover,
+.text-weight-200 {
+  font-weight: 200; }
+
+.focus\:text-weight-300:focus,
+.active\:text-weight-300:active,
+.hover\:text-weight-300:hover,
+.text-weight-300 {
+  font-weight: 300; }
+
+.focus\:text-weight-400:focus,
+.active\:text-weight-400:active,
+.hover\:text-weight-400:hover,
+.text-weight-400 {
+  font-weight: 400; }
+
+.focus\:text-weight-500:focus,
+.active\:text-weight-500:active,
+.hover\:text-weight-500:hover,
+.text-weight-500 {
+  font-weight: 500; }
+
+.focus\:text-weight-600:focus,
+.active\:text-weight-600:active,
+.hover\:text-weight-600:hover,
+.text-weight-600 {
+  font-weight: 600; }
+
+.focus\:text-weight-700:focus,
+.active\:text-weight-700:active,
+.hover\:text-weight-700:hover,
+.text-weight-700 {
+  font-weight: 700; }
+
+.focus\:text-weight-800:focus,
+.active\:text-weight-800:active,
+.hover\:text-weight-800:hover,
+.text-weight-800 {
+  font-weight: 800; }
+
+.focus\:text-weight-900:focus,
+.active\:text-weight-900:active,
+.hover\:text-weight-900:hover,
+.text-weight-900 {
+  font-weight: 900; }
+
+.focus\:text-weight-inherit:focus,
+.active\:text-weight-inherit:active,
+.hover\:text-weight-inherit:hover,
+.text-weight-inherit {
+  font-weight: inherit; }
+
+/* text transform */
+.focus\:text-transform-none:focus,
+.active\:text-transform-none:active,
+.hover\:text-transform-none:hover,
+.text-transform-none {
+  text-transform: none; }
+
+.focus\:text-transform-capitalize:focus,
+.active\:text-transform-capitalize:active,
+.hover\:text-transform-capitalize:hover,
+.text-transform-capitalize {
+  text-transform: capitalize; }
+
+.focus\:text-transform-uppercase:focus,
+.active\:text-transform-uppercase:active,
+.hover\:text-transform-uppercase:hover,
+.text-transform-uppercase {
+  text-transform: uppercase; }
+
+.focus\:text-transform-lowercase:focus,
+.active\:text-transform-lowercase:active,
+.hover\:text-transform-lowercase:hover,
+.text-transform-lowercase {
+  text-transform: lowercase; }
+
+/* line height */
+.focus\:line-height-100:focus,
+.active\:line-height-100:active,
+.hover\:line-height-100:hover,
+.line-height-100 {
+  line-height: 100%; }
+
+.focus\:line-height-110:focus,
+.active\:line-height-110:active,
+.hover\:line-height-110:hover,
+.line-height-110 {
+  line-height: 110%; }
+
+.focus\:line-height-120:focus,
+.active\:line-height-120:active,
+.hover\:line-height-120:hover,
+.line-height-120 {
+  line-height: 120%; }
+
+.focus\:line-height-130:focus,
+.active\:line-height-130:active,
+.hover\:line-height-130:hover,
+.line-height-130 {
+  line-height: 130%; }
+
+.focus\:line-height-140:focus,
+.active\:line-height-140:active,
+.hover\:line-height-140:hover,
+.line-height-140 {
+  line-height: 140%; }
+
+.focus\:line-height-150:focus,
+.active\:line-height-150:active,
+.hover\:line-height-150:hover,
+.line-height-150 {
+  line-height: 150%; }
+
+.focus\:line-height-160:focus,
+.active\:line-height-160:active,
+.hover\:line-height-160:hover,
+.line-height-160 {
+  line-height: 160%; }
+
+.focus\:line-height-170:focus,
+.active\:line-height-170:active,
+.hover\:line-height-170:hover,
+.line-height-170 {
+  line-height: 170%; }
+
+.focus\:line-height-180:focus,
+.active\:line-height-180:active,
+.hover\:line-height-180:hover,
+.line-height-180 {
+  line-height: 180%; }
+
+.focus\:line-height-190:focus,
+.active\:line-height-190:active,
+.hover\:line-height-190:hover,
+.line-height-190 {
+  line-height: 190%; }
+
+.focus\:line-height-200:focus,
+.active\:line-height-200:active,
+.hover\:line-height-200:hover,
+.line-height-200 {
+  line-height: 200%; }
+
+/* align */
+.focus\:text-left:focus,
+.active\:text-left:active,
+.hover\:text-left:hover,
+.text-left {
+  text-align: left; }
+
+.focus\:text-right:focus,
+.active\:text-right:active,
+.hover\:text-right:hover,
+.text-right {
+  text-align: right; }
+
+.focus\:text-center:focus,
+.active\:text-center:active,
+.hover\:text-center:hover,
+.text-center {
+  text-align: center; }
+
+.focus\:text-justify:focus,
+.active\:text-justify:active,
+.hover\:text-justify:hover,
+.text-justify {
+  text-align: justify; }

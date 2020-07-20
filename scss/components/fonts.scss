@@ -1,0 +1,72 @@
+/*** Fonts Start ***/
+/* font-size */
+@import './vars.scss';
+
+@each $name, $val in $fontSizes {
+  .focus\:text-#{$name}:focus,
+  .active\:text-#{$name}:active,
+  .hover\:text-#{$name}:hover,
+  .text-#{$name} {
+    font-size: var(--font-size-#{$name});
+  }
+}
+
+/* style */
+@each $val in normal, italic, oblique, inherit {
+  .focus\:text-style-#{$val}:focus,
+  .active\:text-style-#{$val}:active,
+  .hover\:text-style-#{$val}:hover,
+  .text-style-#{$val} {
+    font-style: $val;
+  }
+}
+
+/* variant */
+@each $val in normal, small-caps {
+  .focus\:text-variant-#{$val}:focus,
+  .active\:text-variant-#{$val}:active,
+  .hover\:text-variant-#{$val}:hover,
+  .text-variant-#{$val}  {
+    font-variant: $val;
+  }
+}
+
+/* weight */
+@each $val in normal, bold, lighter, bolder, 100, 200, 300, 400, 500, 600, 700, 800, 900, inherit {
+  .focus\:text-weight-#{$val}:focus,
+  .active\:text-weight-#{$val}:active,
+  .hover\:text-weight-#{$val}:hover,
+  .text-weight-#{$val} {
+    font-weight: $val;
+  }
+}
+
+/* text transform */
+@each $val in none, capitalize, uppercase, lowercase {
+  .focus\:text-transform-#{$val}:focus,
+  .active\:text-transform-#{$val}:active,
+  .hover\:text-transform-#{$val}:hover,
+  .text-transform-#{$val}  {
+    text-transform: $val;
+  }
+}
+
+/* line height */
+@each $val in 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200 {
+  .focus\:line-height-#{$val}:focus,
+  .active\:line-height-#{$val}:active,
+  .hover\:line-height-#{$val}:hover,
+  .line-height-#{$val}  {
+    line-height: #{$val}#{'%'};
+  }
+}
+
+/* align */
+@each $val in left, right, center, justify {
+  .focus\:text-#{$val}:focus,
+  .active\:text-#{$val}:active,
+  .hover\:text-#{$val}:hover,
+  .text-#{$val}  {
+    text-align: $val;
+  }
+}

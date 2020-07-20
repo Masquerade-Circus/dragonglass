@@ -1,0 +1,170 @@
+table {
+  position: relative;
+  border-collapse: collapse;
+  text-align: right;
+  border-radius: 0.5em;
+  background-color: var(--white);
+  overflow: hidden;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em; }
+
+caption {
+  background-color: inherit;
+  color: inherit;
+  border-bottom: 0.06em solid;
+  border-color: inherit;
+  border-radius: 0.5em 0.5em 0 0;
+  font-size: 0.9em;
+  padding: 1em; }
+
+thead {
+  text-align: center;
+  background-color: inherit;
+  color: inherit;
+  border-bottom: 0.06em solid;
+  border-color: inherit; }
+
+td, th {
+  font-weight: normal;
+  padding: 1em 2em;
+  font-size: 0.9em;
+  border-color: inherit; }
+
+tbody > tr {
+  border-color: inherit; }
+
+td::before {
+  content: attr(data-label);
+  display: none;
+  font-size: 0.75em;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  position: absolute;
+  text-transform: uppercase;
+  top: 0;
+  left: 0;
+  border-radius: 0 0 0.5em 0; }
+
+/* Simple CSS for flexbox table on mobile */
+@media (max-width: 800px) {
+  table {
+    width: 100%;
+    border-radius: 0 0 0.5em 0.5em; }
+  thead {
+    display: none; }
+  tbody > tr {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 1rem;
+    border-radius: 0.5em;
+    overflow: hidden;
+    border: 0.06em solid;
+    border-color: inherit; }
+  td {
+    padding-top: 1.5em;
+    position: relative;
+    width: 50%;
+    margin-bottom: -0.06em;
+    border-bottom: 0.06em solid;
+    border-color: inherit; }
+    td::before {
+      display: block; } }
+
+table.ui-primary caption, table.ui-primary thead {
+  background-color: var(--primary);
+  color: var(--primary-bright);
+  border-color: var(--primary-dark); }
+
+table.ui-primary tbody > tr {
+  border-color: var(--primary-lightest); }
+  table.ui-primary tbody > tr:nth-child(even) {
+    background-color: var(--primary-bright); }
+
+table.ui-primary td:before {
+  background-color: var(--primary);
+  color: var(--primary-bright); }
+
+table.ui-accent caption, table.ui-accent thead {
+  background-color: var(--accent);
+  color: var(--accent-bright);
+  border-color: var(--accent-dark); }
+
+table.ui-accent tbody > tr {
+  border-color: var(--accent-lightest); }
+  table.ui-accent tbody > tr:nth-child(even) {
+    background-color: var(--accent-bright); }
+
+table.ui-accent td:before {
+  background-color: var(--accent);
+  color: var(--accent-bright); }
+
+table.ui-success caption, table.ui-success thead {
+  background-color: var(--success);
+  color: var(--success-bright);
+  border-color: var(--success-dark); }
+
+table.ui-success tbody > tr {
+  border-color: var(--success-lightest); }
+  table.ui-success tbody > tr:nth-child(even) {
+    background-color: var(--success-bright); }
+
+table.ui-success td:before {
+  background-color: var(--success);
+  color: var(--success-bright); }
+
+table.ui-info caption, table.ui-info thead {
+  background-color: var(--info);
+  color: var(--info-bright);
+  border-color: var(--info-dark); }
+
+table.ui-info tbody > tr {
+  border-color: var(--info-lightest); }
+  table.ui-info tbody > tr:nth-child(even) {
+    background-color: var(--info-bright); }
+
+table.ui-info td:before {
+  background-color: var(--info);
+  color: var(--info-bright); }
+
+table.ui-warning caption, table.ui-warning thead {
+  background-color: var(--warning);
+  color: var(--warning-bright);
+  border-color: var(--warning-dark); }
+
+table.ui-warning tbody > tr {
+  border-color: var(--warning-lightest); }
+  table.ui-warning tbody > tr:nth-child(even) {
+    background-color: var(--warning-bright); }
+
+table.ui-warning td:before {
+  background-color: var(--warning);
+  color: var(--warning-bright); }
+
+table.ui-danger caption, table.ui-danger thead {
+  background-color: var(--danger);
+  color: var(--danger-bright);
+  border-color: var(--danger-dark); }
+
+table.ui-danger tbody > tr {
+  border-color: var(--danger-lightest); }
+  table.ui-danger tbody > tr:nth-child(even) {
+    background-color: var(--danger-bright); }
+
+table.ui-danger td:before {
+  background-color: var(--danger);
+  color: var(--danger-bright); }
+
+table.ui-default caption, table.ui-default thead {
+  background-color: var(--default);
+  color: var(--default-bright);
+  border-color: var(--default-dark); }
+
+table.ui-default tbody > tr {
+  border-color: var(--default-lightest); }
+  table.ui-default tbody > tr:nth-child(even) {
+    background-color: var(--default-bright); }
+
+table.ui-default td:before {
+  background-color: var(--default);
+  color: var(--default-bright); }

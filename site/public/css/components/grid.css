@@ -1,0 +1,30 @@
+[class*=grid] {
+  clear: both;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: center;
+  position: relative; }
+  [class*=grid]:after, [class*=grid]::before {
+    clear: both;
+    content: " ";
+    display: block; }
+  [class*=grid] > * {
+    width: 100%;
+    order: 0;
+    flex: 0 1 auto;
+    min-height: 0.5rem; }
+
+[class~=grid-end] {
+  justify-content: flex-end; }
+
+[class~=grid-center] {
+  justify-content: center; }
+
+[class~=grid-gutters] {
+  margin-left: -.8rem;
+  margin-right: -.8rem; }
+  [class~=grid-gutters] > * {
+    padding: .8rem; }

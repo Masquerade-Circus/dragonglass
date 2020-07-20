@@ -1,0 +1,17 @@
+[data-badge] {
+  position: relative; }
+  [data-badge]::after {
+    content: attr(data-badge);
+    display: block;
+    position: absolute;
+    border-radius: 50%;
+    font-size: var(--font-size-sm);
+    height: var(--lg);
+    width: var(--lg);
+    line-height: var(--lg);
+    font-weight: bold;
+    top: calc(0% - var(--sm));
+    right: calc(0% - var(--sm));
+    z-index: 2;
+    text-align: center;
+    background-color: var(--white); }

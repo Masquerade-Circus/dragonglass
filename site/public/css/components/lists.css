@@ -1,0 +1,178 @@
+:root {
+  --animate-all: all 0.3s ease-in-out;
+  --animate-all-fastest: all 0.1s ease-in-out;
+  --animate-all-fast: all 0.2s ease-in-out;
+  --animate-all-slow: all 0.4s ease-in-out;
+  --animate-all-slowest: all 0.6s ease-in-out;
+  --xs2: 0.25rem;
+  --xs: 0.5rem;
+  --sm: 0.75rem;
+  --md: 1rem;
+  --lg: 1.25rem;
+  --xl: 1.5rem;
+  --xl2: 1.965rem;
+  --xl3: 2rem;
+  --xl4: 2.25rem;
+  --xl5: 2.5rem;
+  --xl6: 2.75rem;
+  --xl7: 3rem;
+  --xl8: 4rem;
+  --white: #ffffff;
+  --primary: #3244ad;
+  --primary-bright: #e2e5f7;
+  --primary-lightest: #abb4e7;
+  --primary-light: #8390db;
+  --primary-dark: #151d4a;
+  --primary-darkest: #0a0e23;
+  --accent: #953ca5;
+  --accent-bright: #f3e5f6;
+  --accent-lightest: #dbb1e3;
+  --accent-light: #ca8cd5;
+  --accent-dark: #411a48;
+  --accent-darkest: #1f0c22;
+  --success: #2ab7a9;
+  --success-bright: #e2f8f6;
+  --success-lightest: #a8ebe4;
+  --success-light: #7fe2d8;
+  --success-dark: #124f49;
+  --success-darkest: #092623;
+  --info: #00c3e0;
+  --info-bright: #dbfaff;
+  --info-lightest: #94f1ff;
+  --info-light: #61eaff;
+  --info-dark: #005461;
+  --info-darkest: #00282e;
+  --warning: #bf7921;
+  --warning-bright: #faeee0;
+  --warning-lightest: #efcea3;
+  --warning-light: #e8b678;
+  --warning-dark: #52340e;
+  --warning-darkest: #271907;
+  --danger: #bb2626;
+  --danger-bright: #f9e2e2;
+  --danger-lightest: #eda6a6;
+  --danger-light: #e47c7c;
+  --danger-dark: #511010;
+  --danger-darkest: #270808;
+  --default: #646c8a;
+  --default-bright: #f2f3f6;
+  --default-lightest: #c9ccd8;
+  --default-light: #abb0c2;
+  --default-dark: #2e3240;
+  --default-darkest: #191b23;
+  --font-size-xs: 0.8rem;
+  --font-size-sm: 0.9rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-xl2: 1.965rem;
+  --font-size-xl3: 2rem;
+  --font-size-xl4: 2.25rem;
+  --font-size-xl5: 2.5rem;
+  --font-size-xl6: 2.75rem;
+  --font-size-xl7: 3rem;
+  --font-size-xl8: 4rem;
+  --border-size-xs2: 0.06rem;
+  --border-size-xs: 0.13rem;
+  --border-size-sm: 0.19rem;
+  --border-size-md: 0.25rem;
+  --border-size-lg: 0.38rem;
+  --border-size-xl: 0.5rem;
+  --border-size-xl2: 0.75rem;
+  --border-size-xl3: 1rem;
+  --border-size-xl4: 1.25rem;
+  --border-size-xl5: 2.25rem;
+  --border-size-xl6: 2rem;
+  --border-size-xl7: 2.5rem;
+  --border-size-xl8: 3rem; }
+
+/*** Helper classes End ***/
+dl {
+  padding: 0; }
+  dl > dt {
+    display: flex;
+    line-height: 1.25;
+    background-color: var(--white);
+    padding: 0.5em;
+    align-items: center; }
+    dl > dt > * {
+      position: relative;
+      color: inherit;
+      padding: 0.5em;
+      margin: -0.5em;
+      line-height: inherit;
+      align-self: normal; }
+      dl > dt > *:nth-child(1):not(dd):not([class*="icon"]) {
+        display: flex;
+        align-items: center;
+        min-height: 4em;
+        text-align: left;
+        font-weight: 400; }
+      dl > dt > *:nth-child(1) {
+        flex-grow: 1; }
+        dl > dt > *:nth-child(1) > * {
+          display: inline-block;
+          vertical-align: middle; }
+          dl > dt > *:nth-child(1) > * > small {
+            display: block;
+            padding: 0;
+            white-space: pre-wrap;
+            font-size: 0.8em; }
+        dl > dt > *:nth-child(1) > small {
+          display: block;
+          padding: 0;
+          white-space: pre-wrap;
+          font-size: 0.8em; }
+        dl > dt > *:nth-child(1) > [class*="icon"], dl > dt > *:nth-child(1)[class*="icon"] {
+          font-size: 2.5em;
+          border-radius: 50%;
+          background-color: var(--default-lightest);
+          color: inherit;
+          margin: 0;
+          margin-right: 0.25em;
+          padding: 0.1em;
+          width: 1.2em;
+          flex-grow: 0; }
+      dl > dt > *:nth-child(2) {
+        margin-left: 0.5em;
+        flex-shrink: 0; }
+        dl > dt > *:nth-child(2) > small {
+          display: block;
+          position: relative;
+          padding: 0;
+          text-align: center;
+          margin-bottom: -1em;
+          font-size: 0.8em;
+          opacity: 0.7;
+          line-height: 1; }
+        dl > dt > *:nth-child(2) > [class*="icon"], dl > dt > *:nth-child(2)[class*="icon"] {
+          font-size: 1.5em;
+          color: inherit;
+          width: 2em;
+          height: 2em;
+          text-align: center;
+          line-height: 2em;
+          margin: 0;
+          flex-grow: 0; }
+        dl > dt > *:nth-child(2)[class*="icon"] {
+          line-height: 1; }
+    dl > dt > a, dl > dt > button, dl > dt > [data-trigger] {
+      cursor: pointer; }
+      dl > dt > a::after, dl > dt > button::after, dl > dt > [data-trigger]::after {
+        content: ' ';
+        opacity: 0;
+        transition: var(--animate-all-fastest);
+        background-color: var(--default-dark);
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: .25em; }
+      dl > dt > a:hover::after, dl > dt > button:hover::after, dl > dt > [data-trigger]:hover::after {
+        opacity: 0.1; }
+      dl > dt > a:active, dl > dt > button:active, dl > dt > [data-trigger]:active {
+        box-shadow: var(--emboss-4); }
+        dl > dt > a:active::after, dl > dt > button:active::after, dl > dt > [data-trigger]:active::after {
+          opacity: 0; }

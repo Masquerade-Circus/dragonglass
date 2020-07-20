@@ -1,0 +1,232 @@
+:root {
+  --emboss-1: 0 1px 1.5px 0 rgba(0, 0, 0, 0.2) inset, 0 1.5px 1px -1.5px rgba(0, 0, 0, 0.2) inset;
+  --elevation-1: 0 1px 1.5px 0 rgba(0, 0, 0, 0.2), 0 1.5px 1px -1.5px rgba(0, 0, 0, 0.2);
+  --emboss-2: 0 2px 3px 0 rgba(0, 0, 0, 0.2) inset, 0 3px 2px -3px rgba(0, 0, 0, 0.2) inset;
+  --elevation-2: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 3px 2px -3px rgba(0, 0, 0, 0.2);
+  --emboss-3: 0 3px 4.5px 0 rgba(0, 0, 0, 0.2) inset, 0 4.5px 3px -4.5px rgba(0, 0, 0, 0.2) inset;
+  --elevation-3: 0 3px 4.5px 0 rgba(0, 0, 0, 0.2), 0 4.5px 3px -4.5px rgba(0, 0, 0, 0.2);
+  --emboss-4: 0 4px 6px 0 rgba(0, 0, 0, 0.2) inset, 0 6px 4px -6px rgba(0, 0, 0, 0.2) inset;
+  --elevation-4: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 4px -6px rgba(0, 0, 0, 0.2);
+  --emboss-5: 0 5px 7.5px 0 rgba(0, 0, 0, 0.2) inset, 0 7.5px 5px -7.5px rgba(0, 0, 0, 0.2) inset;
+  --elevation-5: 0 5px 7.5px 0 rgba(0, 0, 0, 0.2), 0 7.5px 5px -7.5px rgba(0, 0, 0, 0.2);
+  --emboss-6: 0 6px 9px 0 rgba(0, 0, 0, 0.2) inset, 0 9px 6px -9px rgba(0, 0, 0, 0.2) inset;
+  --elevation-6: 0 6px 9px 0 rgba(0, 0, 0, 0.2), 0 9px 6px -9px rgba(0, 0, 0, 0.2);
+  --emboss-7: 0 7px 10.5px 0 rgba(0, 0, 0, 0.2) inset, 0 10.5px 7px -10.5px rgba(0, 0, 0, 0.2) inset;
+  --elevation-7: 0 7px 10.5px 0 rgba(0, 0, 0, 0.2), 0 10.5px 7px -10.5px rgba(0, 0, 0, 0.2);
+  --emboss-8: 0 8px 12px 0 rgba(0, 0, 0, 0.2) inset, 0 12px 8px -12px rgba(0, 0, 0, 0.2) inset;
+  --elevation-8: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 12px 8px -12px rgba(0, 0, 0, 0.2);
+  --emboss-9: 0 9px 13.5px 0 rgba(0, 0, 0, 0.2) inset, 0 13.5px 9px -13.5px rgba(0, 0, 0, 0.2) inset;
+  --elevation-9: 0 9px 13.5px 0 rgba(0, 0, 0, 0.2), 0 13.5px 9px -13.5px rgba(0, 0, 0, 0.2);
+  --emboss-10: 0 10px 15px 0 rgba(0, 0, 0, 0.2) inset, 0 15px 10px -15px rgba(0, 0, 0, 0.2) inset;
+  --elevation-10: 0 10px 15px 0 rgba(0, 0, 0, 0.2), 0 15px 10px -15px rgba(0, 0, 0, 0.2);
+  --emboss-11: 0 11px 16.5px 0 rgba(0, 0, 0, 0.2) inset, 0 16.5px 11px -16.5px rgba(0, 0, 0, 0.2) inset;
+  --elevation-11: 0 11px 16.5px 0 rgba(0, 0, 0, 0.2), 0 16.5px 11px -16.5px rgba(0, 0, 0, 0.2);
+  --emboss-12: 0 12px 18px 0 rgba(0, 0, 0, 0.2) inset, 0 18px 12px -18px rgba(0, 0, 0, 0.2) inset;
+  --elevation-12: 0 12px 18px 0 rgba(0, 0, 0, 0.2), 0 18px 12px -18px rgba(0, 0, 0, 0.2); }
+
+.animated {
+  transition: var(--animate-all); }
+
+.focus\:el-1:focus,
+.active\:el-1:active,
+.hover\:el-1:hover,
+.el-1 {
+  position: relative;
+  transition: var(--animate-all);
+  z-index: 1;
+  box-shadow: var(--elevation-1); }
+
+.focus\:el-2:focus,
+.active\:el-2:active,
+.hover\:el-2:hover,
+.el-2 {
+  position: relative;
+  transition: var(--animate-all);
+  z-index: 2;
+  box-shadow: var(--elevation-2); }
+
+.focus\:el-3:focus,
+.active\:el-3:active,
+.hover\:el-3:hover,
+.el-3 {
+  position: relative;
+  transition: var(--animate-all);
+  z-index: 3;
+  box-shadow: var(--elevation-3); }
+
+.focus\:el-4:focus,
+.active\:el-4:active,
+.hover\:el-4:hover,
+.el-4 {
+  position: relative;
+  transition: var(--animate-all);
+  z-index: 4;
+  box-shadow: var(--elevation-4); }
+
+.focus\:el-5:focus,
+.active\:el-5:active,
+.hover\:el-5:hover,
+.el-5 {
+  position: relative;
+  transition: var(--animate-all);
+  z-index: 5;
+  box-shadow: var(--elevation-5); }
+
+.focus\:el-6:focus,
+.active\:el-6:active,
+.hover\:el-6:hover,
+.el-6 {
+  position: relative;
+  transition: var(--animate-all);
+  z-index: 6;
+  box-shadow: var(--elevation-6); }
+
+.focus\:el-7:focus,
+.active\:el-7:active,
+.hover\:el-7:hover,
+.el-7 {
+  position: relative;
+  transition: var(--animate-all);
+  z-index: 7;
+  box-shadow: var(--elevation-7); }
+
+.focus\:el-8:focus,
+.active\:el-8:active,
+.hover\:el-8:hover,
+.el-8 {
+  position: relative;
+  transition: var(--animate-all);
+  z-index: 8;
+  box-shadow: var(--elevation-8); }
+
+.focus\:el-9:focus,
+.active\:el-9:active,
+.hover\:el-9:hover,
+.el-9 {
+  position: relative;
+  transition: var(--animate-all);
+  z-index: 9;
+  box-shadow: var(--elevation-9); }
+
+.focus\:el-10:focus,
+.active\:el-10:active,
+.hover\:el-10:hover,
+.el-10 {
+  position: relative;
+  transition: var(--animate-all);
+  z-index: 10;
+  box-shadow: var(--elevation-10); }
+
+.focus\:el-11:focus,
+.active\:el-11:active,
+.hover\:el-11:hover,
+.el-11 {
+  position: relative;
+  transition: var(--animate-all);
+  z-index: 11;
+  box-shadow: var(--elevation-11); }
+
+.focus\:el-12:focus,
+.active\:el-12:active,
+.hover\:el-12:hover,
+.el-12 {
+  position: relative;
+  transition: var(--animate-all);
+  z-index: 12;
+  box-shadow: var(--elevation-12); }
+
+.focus\:em-1:focus,
+.active\:em-1:active,
+.hover\:em-1:hover,
+.em-1 {
+  position: relative;
+  transition: var(--animate-all);
+  box-shadow: var(--emboss-1); }
+
+.focus\:em-2:focus,
+.active\:em-2:active,
+.hover\:em-2:hover,
+.em-2 {
+  position: relative;
+  transition: var(--animate-all);
+  box-shadow: var(--emboss-2); }
+
+.focus\:em-3:focus,
+.active\:em-3:active,
+.hover\:em-3:hover,
+.em-3 {
+  position: relative;
+  transition: var(--animate-all);
+  box-shadow: var(--emboss-3); }
+
+.focus\:em-4:focus,
+.active\:em-4:active,
+.hover\:em-4:hover,
+.em-4 {
+  position: relative;
+  transition: var(--animate-all);
+  box-shadow: var(--emboss-4); }
+
+.focus\:em-5:focus,
+.active\:em-5:active,
+.hover\:em-5:hover,
+.em-5 {
+  position: relative;
+  transition: var(--animate-all);
+  box-shadow: var(--emboss-5); }
+
+.focus\:em-6:focus,
+.active\:em-6:active,
+.hover\:em-6:hover,
+.em-6 {
+  position: relative;
+  transition: var(--animate-all);
+  box-shadow: var(--emboss-6); }
+
+.focus\:em-7:focus,
+.active\:em-7:active,
+.hover\:em-7:hover,
+.em-7 {
+  position: relative;
+  transition: var(--animate-all);
+  box-shadow: var(--emboss-7); }
+
+.focus\:em-8:focus,
+.active\:em-8:active,
+.hover\:em-8:hover,
+.em-8 {
+  position: relative;
+  transition: var(--animate-all);
+  box-shadow: var(--emboss-8); }
+
+.focus\:em-9:focus,
+.active\:em-9:active,
+.hover\:em-9:hover,
+.em-9 {
+  position: relative;
+  transition: var(--animate-all);
+  box-shadow: var(--emboss-9); }
+
+.focus\:em-10:focus,
+.active\:em-10:active,
+.hover\:em-10:hover,
+.em-10 {
+  position: relative;
+  transition: var(--animate-all);
+  box-shadow: var(--emboss-10); }
+
+.focus\:em-11:focus,
+.active\:em-11:active,
+.hover\:em-11:hover,
+.em-11 {
+  position: relative;
+  transition: var(--animate-all);
+  box-shadow: var(--emboss-11); }
+
+.focus\:em-12:focus,
+.active\:em-12:active,
+.hover\:em-12:hover,
+.em-12 {
+  position: relative;
+  transition: var(--animate-all);
+  box-shadow: var(--emboss-12); }

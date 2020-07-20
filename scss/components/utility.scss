@@ -1,0 +1,82 @@
+@import './vars.scss';
+
+@each $name, $val in $sizes {
+  .u-p-#{$name} {padding: $val;}
+  .u-pt-#{$name} {padding-top: $val;}
+  .u-pr-#{$name} {padding-right: $val;}
+  .u-pb-#{$name} {padding-bottom: $val;}
+  .u-pl-#{$name} {padding-left: $val;}
+  
+
+  .u-m-#{$name} {margin: $val;}
+  .u-mt-#{$name} {margin-top: $val;}
+  .u-mr-#{$name} {margin-right: $val;}
+  .u-mb-#{$name} {margin-bottom: $val;}
+  .u-ml-#{$name} {margin-left: $val;}
+}
+
+@each $val in relative, static, absolute, fixed, sticky {
+  .u-position-#{$val} {
+    position: $val;
+  }
+}
+
+/*** Helper classes Start ***/
+.u-scrollable {
+  max-height: 360rem;
+}
+
+@mixin generate($width, $id) {
+  @media screen and (min-width: $width) {
+    @each $size in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12{
+      @each $var in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12{
+        @if $size > $var {
+          .#{$id}\:w-#{$var}\/#{$size} {
+            width: percentage($var/$size);
+          }
+        }
+      }
+    }
+  }
+}
+
+@each $size in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12{
+  @each $var in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12{
+    @if $size > $var {
+      .w-#{$var}\/#{$size} {
+        width: percentage($var/$size);
+      }
+    }
+  }
+}
+@include generate(576px, sm);
+@include generate(768px, md);
+@include generate(992px, lg);
+@include generate(1200px, xl);
+
+[class*="border-"]{
+  border-width: var(--border-size-xs2);
+}
+
+@each $name, $val in $borderSizes {
+  .focus\:border-#{$name}:focus,
+  .active\:border-#{$name}:active,
+  .hover\:border-#{$name}:hover,
+  .border-#{$name} {
+    border-width: var(--border-size-#{$name});
+  }
+}
+
+.inline,
+[class*=":inline"],
+code {
+  position: relative;
+  display: inline-block;
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  vertical-align: middle;
+}
+
+/*** Helper classes End ***/

@@ -1,0 +1,24 @@
+/*** Same as Card ***/
+pre, code {
+  text-align: left;
+  border-radius: 0;
+  padding: .5em .75em;
+  overflow: auto;
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  clear: both;
+  display: block;
+  background-color: var(--default-light);
+  margin: .25em;
+  box-shadow: var(--emboss-1);
+  line-height: 1;
+}
+
+code{
+  display: inline-block;
+}
+
+pre>code {
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+}

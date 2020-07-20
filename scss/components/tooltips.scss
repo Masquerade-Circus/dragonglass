@@ -1,0 +1,55 @@
+
+[data-tooltip] {
+  position: relative;
+  &::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    border-radius: 0.25em;
+    font-size: var(--font-size-sm);
+    line-height: var(--lg);
+    font-weight: bold;
+    top: 100%;
+    left: 50%;
+    z-index: 2;
+    text-align: center;
+    opacity: 0;
+    transform: translate(-50%) scale(0);
+    box-shadow: var(--elevation-2);
+    transform-origin: top center;
+    white-space: nowrap;
+    padding: 0 0.5em;
+    background-color: var(--white);
+    pointer-events: none;
+  }
+  &:hover::after{
+    display: block;
+    opacity: 1;
+    transform: translate(-50%) scale(1);
+  }
+
+  &.ui-top::after {
+    transform-origin: bottom center;
+    top: -100%;
+  }
+  
+  &.ui-left::after {
+    transform-origin: right center;
+    top: 0;
+    right: 100%;
+    left: auto;
+    transform: translate(0) scale(1);
+  }
+  
+  &.ui-right {
+    &::after {
+      transform-origin: left center;
+      top: 0;
+      left: 100%;
+      transform: translate(0) scale(0);
+    }
+    &:hover::after {
+      transform: translate(0) scale(1);
+    }
+  }
+}
+

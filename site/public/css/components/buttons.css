@@ -1,0 +1,163 @@
+:root {
+  --animate-all: all 0.3s ease-in-out;
+  --animate-all-fastest: all 0.1s ease-in-out;
+  --animate-all-fast: all 0.2s ease-in-out;
+  --animate-all-slow: all 0.4s ease-in-out;
+  --animate-all-slowest: all 0.6s ease-in-out;
+  --xs2: 0.25rem;
+  --xs: 0.5rem;
+  --sm: 0.75rem;
+  --md: 1rem;
+  --lg: 1.25rem;
+  --xl: 1.5rem;
+  --xl2: 1.965rem;
+  --xl3: 2rem;
+  --xl4: 2.25rem;
+  --xl5: 2.5rem;
+  --xl6: 2.75rem;
+  --xl7: 3rem;
+  --xl8: 4rem;
+  --white: #ffffff;
+  --primary: #3244ad;
+  --primary-bright: #e2e5f7;
+  --primary-lightest: #abb4e7;
+  --primary-light: #8390db;
+  --primary-dark: #151d4a;
+  --primary-darkest: #0a0e23;
+  --accent: #953ca5;
+  --accent-bright: #f3e5f6;
+  --accent-lightest: #dbb1e3;
+  --accent-light: #ca8cd5;
+  --accent-dark: #411a48;
+  --accent-darkest: #1f0c22;
+  --success: #2ab7a9;
+  --success-bright: #e2f8f6;
+  --success-lightest: #a8ebe4;
+  --success-light: #7fe2d8;
+  --success-dark: #124f49;
+  --success-darkest: #092623;
+  --info: #00c3e0;
+  --info-bright: #dbfaff;
+  --info-lightest: #94f1ff;
+  --info-light: #61eaff;
+  --info-dark: #005461;
+  --info-darkest: #00282e;
+  --warning: #bf7921;
+  --warning-bright: #faeee0;
+  --warning-lightest: #efcea3;
+  --warning-light: #e8b678;
+  --warning-dark: #52340e;
+  --warning-darkest: #271907;
+  --danger: #bb2626;
+  --danger-bright: #f9e2e2;
+  --danger-lightest: #eda6a6;
+  --danger-light: #e47c7c;
+  --danger-dark: #511010;
+  --danger-darkest: #270808;
+  --default: #646c8a;
+  --default-bright: #f2f3f6;
+  --default-lightest: #c9ccd8;
+  --default-light: #abb0c2;
+  --default-dark: #2e3240;
+  --default-darkest: #191b23;
+  --font-size-xs: 0.8rem;
+  --font-size-sm: 0.9rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-xl2: 1.965rem;
+  --font-size-xl3: 2rem;
+  --font-size-xl4: 2.25rem;
+  --font-size-xl5: 2.5rem;
+  --font-size-xl6: 2.75rem;
+  --font-size-xl7: 3rem;
+  --font-size-xl8: 4rem;
+  --border-size-xs2: 0.06rem;
+  --border-size-xs: 0.13rem;
+  --border-size-sm: 0.19rem;
+  --border-size-md: 0.25rem;
+  --border-size-lg: 0.38rem;
+  --border-size-xl: 0.5rem;
+  --border-size-xl2: 0.75rem;
+  --border-size-xl3: 1rem;
+  --border-size-xl4: 1.25rem;
+  --border-size-xl5: 2.25rem;
+  --border-size-xl6: 2rem;
+  --border-size-xl7: 2.5rem;
+  --border-size-xl8: 3rem; }
+
+/*** Helper classes End ***/
+nav a,
+button,
+.btn,
+.fab {
+  border-width: 0;
+  border-style: solid;
+  border-radius: .25em;
+  position: relative;
+  min-width: 3em;
+  padding: .75em .75em;
+  line-height: 1;
+  display: inline-block;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  margin: .25rem;
+  background-color: transparent;
+  transition: var(--animate-all-fastest);
+  width: auto;
+  cursor: pointer; }
+  nav a[disabled],
+  button[disabled],
+  .btn[disabled],
+  .fab[disabled] {
+    opacity: 0.85;
+    cursor: default; }
+  nav a::after,
+  button::after,
+  .btn::after,
+  .fab::after {
+    content: ' ';
+    opacity: 0;
+    transition: var(--animate-all-fastest);
+    background-color: var(--default-dark);
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: .25em; }
+  nav a:hover::after,
+  button:hover::after,
+  .btn:hover::after,
+  .fab:hover::after {
+    opacity: 0.1; }
+  nav a:active,
+  button:active,
+  .btn:active,
+  .fab:active {
+    box-shadow: var(--emboss-4); }
+    nav a:active::after,
+    button:active::after,
+    .btn:active::after,
+    .fab:active::after {
+      opacity: 0; }
+
+.fab {
+  border-radius: 50%;
+  font-size: var(--font-size-xl);
+  height: 2.5em;
+  width: 2.5em;
+  min-width: 2.5em;
+  padding: 0;
+  line-height: 100%;
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  box-shadow: var(--elevation-4); }

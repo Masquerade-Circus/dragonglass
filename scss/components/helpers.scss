@@ -1,0 +1,82 @@
+@import './vars.scss';
+:root{
+  --animate-all: all 0.3s ease-in-out;
+  --animate-all-fastest: all 0.1s ease-in-out;
+  --animate-all-fast: all 0.2s ease-in-out;
+  --animate-all-slow: all 0.4s ease-in-out;
+  --animate-all-slowest: all 0.6s ease-in-out;
+
+  @each $name, $val in $sizes {
+    --#{$name}: #{$val};
+  }
+
+  @each $name, $color in $colors {
+    --#{$name}: #{$color};
+  }
+
+  @each $name, $size in $fontSizes {
+    --font-size-#{$name}: #{$size};
+  }
+
+  @each $name, $size in $borderSizes {
+    --border-size-#{$name}: #{$size};
+  }
+}
+
+@mixin flexContainer($direction) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+@mixin hover(){
+  cursor: pointer;
+  &::after{
+    content: ' ';
+    opacity: 0;
+    transition: var(--animate-all-fastest);
+    background-color: var(--default-dark);
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: .25em;
+  }
+  &:hover::after{
+    opacity: 0.1;
+  }
+  &:active{
+    box-shadow: var(--emboss-4);
+    &::after{
+      opacity: 0;
+    }
+  }
+}
+
+@mixin overlay() {
+  transition: var(--animate-all);
+  z-index: -10;
+  background: var(--default-dark);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  cursor: pointer;
+  display: none;
+  content: ' ';
+    width: 9999rem;
+    height: 9999rem;
+    transform: translate(-50%, -50%);
+}
+
+@mixin overlayHover() {
+  z-index: 0;
+  display: block;
+}
+
+/*** Helper classes End ***/

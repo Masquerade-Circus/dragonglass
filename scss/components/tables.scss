@@ -1,0 +1,108 @@
+@import './vars.scss';
+
+table{
+  position: relative;
+  border-collapse: collapse;
+  text-align: right;
+  border-radius: 0.5em;
+  background-color: var(--white);
+  overflow: hidden;
+  margin-top: 0.5em; 
+  margin-bottom: 0.5em; 
+}
+
+caption{
+  background-color: inherit;
+  color: inherit;
+  border-bottom: 0.06em solid;
+  border-color: inherit;
+
+  border-radius: 0.5em 0.5em 0 0;
+  font-size: 0.9em;
+  padding: 1em;
+}
+
+thead {
+  text-align: center;
+  background-color: inherit;
+  color: inherit;
+  border-bottom: 0.06em solid;
+  border-color: inherit;
+}
+
+td, th {
+  font-weight: normal;
+  padding: 1em 2em;
+  font-size: 0.9em;
+  border-color: inherit;
+}
+
+tbody>tr{
+  border-color: inherit;
+}
+
+td::before {
+  content: attr(data-label);
+  display: none;
+  font-size: 0.75em;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  position: absolute;
+  text-transform: uppercase;
+  top: 0;
+  left: 0;
+  border-radius: 0 0 0.5em 0;
+}
+
+/* Simple CSS for flexbox table on mobile */
+@media(max-width: 800px) {
+  table{
+    width: 100%;
+    border-radius: 0 0 0.5em 0.5em;
+  }
+  thead {
+    display:none;
+  }
+  tbody>tr {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 1rem;
+    border-radius: 0.5em;
+    overflow: hidden;
+    border: 0.06em solid;
+    border-color: inherit;
+  }
+
+  td {
+    padding-top: 1.5em;
+    position: relative;
+    width: 50%;
+    margin-bottom: -0.06em;
+    border-bottom: 0.06em solid;
+    border-color: inherit;
+    &::before {
+      display: block;
+    }
+  }
+}
+
+@each $name, $col in $primaryColors {
+  table.ui-#{$name}{
+    caption, thead{
+      background-color: var(--#{$name});
+      color: var(--#{$name}-bright);
+      border-color: var(--#{$name}-dark);
+    }
+    tbody>tr{
+      border-color: var(--#{$name}-lightest);
+      &:nth-child(even){
+        background-color: var(--#{$name}-bright);
+      }
+    }
+    td:before{
+      background-color: var(--#{$name});
+      color: var(--#{$name}-bright);
+    }
+  }
+}
