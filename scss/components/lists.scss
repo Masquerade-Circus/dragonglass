@@ -2,19 +2,24 @@
 
 dl {
   padding: 0;
+  border-color: var(--default-light);
   & > dt {
     display: flex;
     line-height: 1.25;
     background-color: var(--white);
-    padding: 0.5em;
+    padding:0;
     align-items: center;
+    border-bottom: 0.06em solid;
+    border-color: inherit;
+    &:last-child{
+      border-bottom-width: 0;
+    }
     & > * {
       position: relative;
       color: inherit;
       padding: 0.5em;
-      margin: -0.5em;
       line-height: inherit;
-      align-self: normal;
+      align-self: auto;
       &:nth-child(1):not(dd):not([class*="icon"]) {
         display: flex;
         align-items: center;
@@ -43,8 +48,6 @@ dl {
         & > [class*="icon"], &[class*="icon"] {
           font-size: 2.5em;
           border-radius: 50%;
-          background-color: var(--default-lightest);
-          color: inherit;
           margin: 0;
           margin-right: 0.25em;
           padding: 0.1em;
@@ -53,7 +56,6 @@ dl {
         }
       }
       &:nth-child(2) {
-        margin-left: 0.5em;
         flex-shrink: 0;
         &>small{
           display: block;
@@ -82,8 +84,9 @@ dl {
       
     }
     
-    & > a, &>button, &>[data-trigger] {
+    & > a, &>button, &>[data-trigger], &>.btn {
       @include hover();
+      margin: 0;
     }
   }
 }

@@ -4,27 +4,29 @@
 [data-trigger]{
   position: relative;
   z-index: 0;
-  summary {
+  >summary {
     @extend .btn;
+    color: inherit;
     list-style: none;
     &::-webkit-details-marker {
       display: none;
     }
     &::after {
       @include overlay();
-      z-index: 1;
+      z-index: -1;
+      display: none;
     }
   }
 
   &[open] {
     z-index: 1;
     summary{
+      overflow: visible;
       &::after{
         @include overlayHover();
-      }
-
-      &:active{
-        box-shadow: none;
+        position: fixed;
+        opacity: 0;
+        display: block;
       }
     }
   }

@@ -32,7 +32,7 @@ export default () => <Layout>
       <div class="el-2 active:el-12 bg-white">class="el-2 active:el-12"</div>
     </div>
     <div class="lg:w-3/12 lg:w-4/12 md:w-6/12">
-      <input class="el-2 focus:el-12 bg-white" value="class=&quot;el-2 focus:el-12&quot;" />
+      <input class="el-2 focus:el-12 bg-white" value={'class="el-2 focus:el-12"'}/>
     </div>
     <hr/>
     <div class="lg:w-3/12 lg:w-4/12 md:w-6/12">
@@ -42,7 +42,7 @@ export default () => <Layout>
       <div class="em-2 active:em-12 bg-white">class="em-2 active:em-12"</div>
     </div>
     <div class="lg:w-3/12 lg:w-4/12 md:w-6/12">
-      <input class="em-2 focus:em-12 bg-white" value="class=&quot;em-2 focus:em-12&quot;" />
+      <input class="em-2 focus:em-12 bg-white" value={'class="em-2 focus:em-12"'} />
     </div>
   </div>
 </Layout>;

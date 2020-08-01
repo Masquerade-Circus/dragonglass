@@ -1206,6 +1206,10 @@ header, footer {
   overflow: visible;
   height: 3.5rem;
   padding: 1rem; }
+  header > nav:first-child, footer > nav:first-child {
+    margin-left: -1rem; }
+  header > nav:last-child, footer > nav:last-child {
+    margin-right: -1rem; }
   header > button, footer > button {
     flex: 0 0 auto;
     padding: 1rem; }
@@ -1213,7 +1217,7 @@ header, footer {
       margin-right: -1rem; }
   header > h1, header > h2, header > h3, footer > h1, footer > h2, footer > h3 {
     margin: 0;
-    flex: 0 0 auto;
+    flex: 1 0 auto;
     font-size: 1rem; }
 
 footer:last-child {
@@ -1234,7 +1238,7 @@ nav {
   align-items: center;
   flex-wrap: nowrap;
   justify-content: flex-end;
-  flex: 1 1 auto;
+  flex: 0 1 auto;
   overflow: visible;
   color: inherit; }
   nav > .fab {
@@ -1251,3 +1255,12 @@ nav {
     text-transform: none;
     color: inherit;
     font-size: 1em; }
+
+header ~ section, header ~ article {
+  z-index: 0; }
+
+header {
+  z-index: 2; }
+
+footer {
+  z-index: 1; }

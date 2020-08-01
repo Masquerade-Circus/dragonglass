@@ -88,20 +88,24 @@
 
 /*** Helper classes End ***/
 dl {
-  padding: 0; }
+  padding: 0;
+  border-color: var(--default-light); }
   dl > dt {
     display: flex;
     line-height: 1.25;
     background-color: var(--white);
-    padding: 0.5em;
-    align-items: center; }
+    padding: 0;
+    align-items: center;
+    border-bottom: 0.06em solid;
+    border-color: inherit; }
+    dl > dt:last-child {
+      border-bottom-width: 0; }
     dl > dt > * {
       position: relative;
       color: inherit;
       padding: 0.5em;
-      margin: -0.5em;
       line-height: inherit;
-      align-self: normal; }
+      align-self: auto; }
       dl > dt > *:nth-child(1):not(dd):not([class*="icon"]) {
         display: flex;
         align-items: center;
@@ -126,15 +130,12 @@ dl {
         dl > dt > *:nth-child(1) > [class*="icon"], dl > dt > *:nth-child(1)[class*="icon"] {
           font-size: 2.5em;
           border-radius: 50%;
-          background-color: var(--default-lightest);
-          color: inherit;
           margin: 0;
           margin-right: 0.25em;
           padding: 0.1em;
           width: 1.2em;
           flex-grow: 0; }
       dl > dt > *:nth-child(2) {
-        margin-left: 0.5em;
         flex-shrink: 0; }
         dl > dt > *:nth-child(2) > small {
           display: block;
@@ -156,9 +157,10 @@ dl {
           flex-grow: 0; }
         dl > dt > *:nth-child(2)[class*="icon"] {
           line-height: 1; }
-    dl > dt > a, dl > dt > button, dl > dt > [data-trigger] {
-      cursor: pointer; }
-      dl > dt > a::after, dl > dt > button::after, dl > dt > [data-trigger]::after {
+    dl > dt > a, dl > dt > button, dl > dt > [data-trigger], dl > dt > .btn {
+      cursor: pointer;
+      margin: 0; }
+      dl > dt > a::after, dl > dt > button::after, dl > dt > [data-trigger]::after, dl > dt > .btn::after {
         content: ' ';
         opacity: 0;
         transition: var(--animate-all-fastest);
@@ -170,9 +172,9 @@ dl {
         right: 0;
         bottom: 0;
         border-radius: .25em; }
-      dl > dt > a:hover::after, dl > dt > button:hover::after, dl > dt > [data-trigger]:hover::after {
+      dl > dt > a:hover::after, dl > dt > button:hover::after, dl > dt > [data-trigger]:hover::after, dl > dt > .btn:hover::after {
         opacity: 0.1; }
-      dl > dt > a:active, dl > dt > button:active, dl > dt > [data-trigger]:active {
+      dl > dt > a:active, dl > dt > button:active, dl > dt > [data-trigger]:active, dl > dt > .btn:active {
         box-shadow: var(--emboss-4); }
-        dl > dt > a:active::after, dl > dt > button:active::after, dl > dt > [data-trigger]:active::after {
+        dl > dt > a:active::after, dl > dt > button:active::after, dl > dt > [data-trigger]:active::after, dl > dt > .btn:active::after {
           opacity: 0; }

@@ -198,7 +198,7 @@ a, img {
   margin: 0;
   text-decoration: none; }
 
-a, .btn, nav > a, nav > .btn, nav > button, nav > input[type="submit"], [data-trigger] summary, input[type="submit"], button {
+a, .btn, nav > a, nav > .btn, nav > button, nav > input[type="submit"], [data-trigger] > summary, input[type="submit"], button {
   color: var(--primary); }
 
 small {
@@ -712,7 +712,7 @@ progress::-webkit-progress-bar {
 
 /*** Helper classes End ***/
 nav a,
-button, .btn, nav > a, nav > .btn, nav > button, nav > input[type="submit"], [data-trigger] summary, input[type="submit"],
+button, .btn, nav > a, nav > .btn, nav > button, nav > input[type="submit"], [data-trigger] > summary, input[type="submit"],
 .fab {
   border-width: 0;
   border-style: solid;
@@ -724,7 +724,6 @@ button, .btn, nav > a, nav > .btn, nav > button, nav > input[type="submit"], [da
   display: inline-block;
   font-weight: 500;
   white-space: nowrap;
-  overflow: hidden;
   outline: none;
   cursor: pointer;
   text-decoration: none;
@@ -734,13 +733,14 @@ button, .btn, nav > a, nav > .btn, nav > button, nav > input[type="submit"], [da
   background-color: transparent;
   transition: var(--animate-all-fastest);
   width: auto;
+  overflow: hidden;
   cursor: pointer; }
   nav a[disabled],
   button[disabled],
   .btn[disabled],
   nav > a[disabled],
   nav > button[disabled],
-  [data-trigger] summary[disabled],
+  [data-trigger] > summary[disabled],
   input[disabled][type="submit"],
   .fab[disabled] {
     opacity: 0.85;
@@ -750,7 +750,7 @@ button, .btn, nav > a, nav > .btn, nav > button, nav > input[type="submit"], [da
   .btn::after,
   nav > a::after,
   nav > button::after,
-  [data-trigger] summary::after,
+  [data-trigger] > summary::after,
   input[type="submit"]::after,
   .fab::after {
     content: ' ';
@@ -769,7 +769,7 @@ button, .btn, nav > a, nav > .btn, nav > button, nav > input[type="submit"], [da
   .btn:hover::after,
   nav > a:hover::after,
   nav > button:hover::after,
-  [data-trigger] summary:hover::after,
+  [data-trigger] > summary:hover::after,
   input[type="submit"]:hover::after,
   .fab:hover::after {
     opacity: 0.1; }
@@ -778,7 +778,7 @@ button, .btn, nav > a, nav > .btn, nav > button, nav > input[type="submit"], [da
   .btn:active,
   nav > a:active,
   nav > button:active,
-  [data-trigger] summary:active,
+  [data-trigger] > summary:active,
   input:active[type="submit"],
   .fab:active {
     box-shadow: var(--emboss-4); }
@@ -787,7 +787,7 @@ button, .btn, nav > a, nav > .btn, nav > button, nav > input[type="submit"], [da
     .btn:active::after,
     nav > a:active::after,
     nav > button:active::after,
-    [data-trigger] summary:active::after,
+    [data-trigger] > summary:active::after,
     input[type="submit"]:active::after,
     .fab:active::after {
       opacity: 0; }
@@ -2014,6 +2014,10 @@ header, footer {
   overflow: visible;
   height: 3.5rem;
   padding: 1rem; }
+  header > nav:first-child, footer > nav:first-child {
+    margin-left: -1rem; }
+  header > nav:last-child, footer > nav:last-child {
+    margin-right: -1rem; }
   header > button, footer > button {
     flex: 0 0 auto;
     padding: 1rem; }
@@ -2021,7 +2025,7 @@ header, footer {
       margin-right: -1rem; }
   header > h1, header > h2, header > h3, footer > h1, footer > h2, footer > h3 {
     margin: 0;
-    flex: 0 0 auto;
+    flex: 1 0 auto;
     font-size: 1rem; }
 
 footer:last-child {
@@ -2042,7 +2046,7 @@ nav {
   align-items: center;
   flex-wrap: nowrap;
   justify-content: flex-end;
-  flex: 1 1 auto;
+  flex: 0 1 auto;
   overflow: visible;
   color: inherit; }
   nav > .fab {
@@ -2055,10 +2059,19 @@ nav {
     bottom: auto;
     vertical-align: middle;
     font-size: 1em; }
-  nav > a, nav > a, nav > .btn, nav > button, [data-trigger] nav > summary, nav > input[type="submit"], nav > button, nav > input[type="submit"] {
+  nav > a, nav > a, nav > .btn, nav > button, nav[data-trigger] > summary, nav > input[type="submit"], nav > button, nav > input[type="submit"] {
     text-transform: none;
     color: inherit;
     font-size: 1em; }
+
+header ~ section, header ~ article {
+  z-index: 0; }
+
+header {
+  z-index: 2; }
+
+footer {
+  z-index: 1; }
 
 /*** Lists ***/
 :root {
@@ -2151,20 +2164,24 @@ nav {
 
 /*** Helper classes End ***/
 dl {
-  padding: 0; }
+  padding: 0;
+  border-color: var(--default-light); }
   dl > dt {
     display: flex;
     line-height: 1.25;
     background-color: var(--white);
-    padding: 0.5em;
-    align-items: center; }
+    padding: 0;
+    align-items: center;
+    border-bottom: 0.06em solid;
+    border-color: inherit; }
+    dl > dt:last-child {
+      border-bottom-width: 0; }
     dl > dt > * {
       position: relative;
       color: inherit;
       padding: 0.5em;
-      margin: -0.5em;
       line-height: inherit;
-      align-self: normal; }
+      align-self: auto; }
       dl > dt > *:nth-child(1):not(dd):not([class*="icon"]) {
         display: flex;
         align-items: center;
@@ -2189,15 +2206,12 @@ dl {
         dl > dt > *:nth-child(1) > [class*="icon"], dl > dt > *:nth-child(1)[class*="icon"] {
           font-size: 2.5em;
           border-radius: 50%;
-          background-color: var(--default-lightest);
-          color: inherit;
           margin: 0;
           margin-right: 0.25em;
           padding: 0.1em;
           width: 1.2em;
           flex-grow: 0; }
       dl > dt > *:nth-child(2) {
-        margin-left: 0.5em;
         flex-shrink: 0; }
         dl > dt > *:nth-child(2) > small {
           display: block;
@@ -2219,9 +2233,10 @@ dl {
           flex-grow: 0; }
         dl > dt > *:nth-child(2)[class*="icon"] {
           line-height: 1; }
-    dl > dt > a, dl > dt > button, dl > dt > [data-trigger] {
-      cursor: pointer; }
-      dl > dt > a::after, dl > dt > button::after, dl > dt > [data-trigger]::after {
+    dl > dt > a, dl > dt > button, dl > dt > [data-trigger], dl > dt > .btn, dl > dt[data-trigger] > summary, dl > dt > input[type="submit"] {
+      cursor: pointer;
+      margin: 0; }
+      dl > dt > a::after, dl > dt > button::after, dl > dt > [data-trigger]::after, dl > dt > .btn::after, dl > dt[data-trigger] > summary::after, dl > dt > input[type="submit"]::after {
         content: ' ';
         opacity: 0;
         transition: var(--animate-all-fastest);
@@ -2233,11 +2248,11 @@ dl {
         right: 0;
         bottom: 0;
         border-radius: .25em; }
-      dl > dt > a:hover::after, dl > dt > button:hover::after, dl > dt > [data-trigger]:hover::after {
+      dl > dt > a:hover::after, dl > dt > button:hover::after, dl > dt > [data-trigger]:hover::after, dl > dt > .btn:hover::after, dl > dt[data-trigger] > summary:hover::after, dl > dt > input[type="submit"]:hover::after {
         opacity: 0.1; }
-      dl > dt > a:active, dl > dt > button:active, dl > dt > [data-trigger]:active {
+      dl > dt > a:active, dl > dt > button:active, dl > dt > [data-trigger]:active, dl > dt > .btn:active, dl > dt[data-trigger] > summary:active, dl > dt > input:active[type="submit"] {
         box-shadow: var(--emboss-4); }
-        dl > dt > a:active::after, dl > dt > button:active::after, dl > dt > [data-trigger]:active::after {
+        dl > dt > a:active::after, dl > dt > button:active::after, dl > dt > [data-trigger]:active::after, dl > dt > .btn:active::after, dl > dt[data-trigger] > summary:active::after, dl > dt > input[type="submit"]:active::after {
           opacity: 0; }
 
 /*** Menus ***/
@@ -2589,7 +2604,7 @@ table.ui-default td:before {
         position: absolute;
         top: 0;
         right: 0; }
-        [data-card] > [data-media] > header nav a, dialog > [data-media] > header nav a, [data-card] > [data-media] > header nav .btn, dialog > [data-media] > header nav .btn, [data-card] > [data-media] > header nav > a, dialog > [data-media] > header nav > a, dialog > [data-media] > header nav > .btn, [data-card] > [data-media] > header nav > button, dialog > [data-media] > header nav > button, dialog > [data-media] > header nav > input[type="submit"], [data-card] > [data-media] > header nav [data-trigger] summary, [data-trigger] [data-card] > [data-media] > header nav summary, dialog > [data-media] > header nav [data-trigger] summary, [data-trigger] dialog > [data-media] > header nav summary, [data-card] > [data-media] > header nav input[type="submit"], dialog > [data-media] > header nav input[type="submit"], [data-card] > [data-media] > header nav button, dialog > [data-media] > header nav button {
+        [data-card] > [data-media] > header nav a, dialog > [data-media] > header nav a, [data-card] > [data-media] > header nav .btn, dialog > [data-media] > header nav .btn, [data-card] > [data-media] > header nav > a, dialog > [data-media] > header nav > a, dialog > [data-media] > header nav > .btn, [data-card] > [data-media] > header nav > button, dialog > [data-media] > header nav > button, dialog > [data-media] > header nav > input[type="submit"], [data-card] > [data-media] > header nav [data-trigger] > summary, dialog > [data-media] > header nav [data-trigger] > summary, [data-card] > [data-media] > header nav input[type="submit"], dialog > [data-media] > header nav input[type="submit"], [data-card] > [data-media] > header nav button, dialog > [data-media] > header nav button {
           text-shadow: 0.06rem 0.06rem 0.13rem var(--default-darkest); }
 
 [data-card~="squared"], [data-dialog~="squared"] {
@@ -2800,7 +2815,7 @@ table.ui-default td:before {
 
 /*** Helper classes End ***/
 nav a,
-button, .btn, nav > a, nav > .btn, nav > button, nav > input[type="submit"], [data-trigger] summary, input[type="submit"],
+button, .btn, nav > a, nav > .btn, nav > button, nav > input[type="submit"], [data-trigger] > summary, input[type="submit"],
 .fab {
   border-width: 0;
   border-style: solid;
@@ -2812,7 +2827,6 @@ button, .btn, nav > a, nav > .btn, nav > button, nav > input[type="submit"], [da
   display: inline-block;
   font-weight: 500;
   white-space: nowrap;
-  overflow: hidden;
   outline: none;
   cursor: pointer;
   text-decoration: none;
@@ -2822,13 +2836,14 @@ button, .btn, nav > a, nav > .btn, nav > button, nav > input[type="submit"], [da
   background-color: transparent;
   transition: var(--animate-all-fastest);
   width: auto;
+  overflow: hidden;
   cursor: pointer; }
   nav a[disabled],
   button[disabled],
   .btn[disabled],
   nav > a[disabled],
   nav > button[disabled],
-  [data-trigger] summary[disabled],
+  [data-trigger] > summary[disabled],
   input[disabled][type="submit"],
   .fab[disabled] {
     opacity: 0.85;
@@ -2838,7 +2853,7 @@ button, .btn, nav > a, nav > .btn, nav > button, nav > input[type="submit"], [da
   .btn::after,
   nav > a::after,
   nav > button::after,
-  [data-trigger] summary::after,
+  [data-trigger] > summary::after,
   input[type="submit"]::after,
   .fab::after {
     content: ' ';
@@ -2857,7 +2872,7 @@ button, .btn, nav > a, nav > .btn, nav > button, nav > input[type="submit"], [da
   .btn:hover::after,
   nav > a:hover::after,
   nav > button:hover::after,
-  [data-trigger] summary:hover::after,
+  [data-trigger] > summary:hover::after,
   input[type="submit"]:hover::after,
   .fab:hover::after {
     opacity: 0.1; }
@@ -2866,7 +2881,7 @@ button, .btn, nav > a, nav > .btn, nav > button, nav > input[type="submit"], [da
   .btn:active,
   nav > a:active,
   nav > button:active,
-  [data-trigger] summary:active,
+  [data-trigger] > summary:active,
   input:active[type="submit"],
   .fab:active {
     box-shadow: var(--emboss-4); }
@@ -2875,7 +2890,7 @@ button, .btn, nav > a, nav > .btn, nav > button, nav > input[type="submit"], [da
     .btn:active::after,
     nav > a:active::after,
     nav > button:active::after,
-    [data-trigger] summary:active::after,
+    [data-trigger] > summary:active::after,
     input[type="submit"]:active::after,
     .fab:active::after {
       opacity: 0; }
@@ -2896,11 +2911,12 @@ button, .btn, nav > a, nav > .btn, nav > button, nav > input[type="submit"], [da
 [data-trigger] {
   position: relative;
   z-index: 0; }
-  [data-trigger] summary {
+  [data-trigger] > summary {
+    color: inherit;
     list-style: none; }
-    [data-trigger] summary::-webkit-details-marker {
+    [data-trigger] > summary::-webkit-details-marker {
       display: none; }
-    [data-trigger] summary::after {
+    [data-trigger] > summary::after {
       transition: var(--animate-all);
       z-index: -10;
       background: var(--default-dark);
@@ -2916,14 +2932,18 @@ button, .btn, nav > a, nav > .btn, nav > button, nav > input[type="submit"], [da
       width: 9999rem;
       height: 9999rem;
       transform: translate(-50%, -50%);
-      z-index: 1; }
+      z-index: -1;
+      display: none; }
   [data-trigger][open] {
     z-index: 1; }
-    [data-trigger][open] summary::after {
-      z-index: 0;
-      display: block; }
-    [data-trigger][open] summary:active {
-      box-shadow: none; }
+    [data-trigger][open] summary {
+      overflow: visible; }
+      [data-trigger][open] summary::after {
+        z-index: 0;
+        display: block;
+        position: fixed;
+        opacity: 0;
+        display: block; }
 
 :root {
   --animate-all: all 0.3s ease-in-out;
@@ -3070,7 +3090,7 @@ button, .btn, nav > a, nav > .btn, nav > button, nav > input[type="submit"], [da
         position: absolute;
         top: 0;
         right: 0; }
-        [data-card] > [data-media] > header nav a, dialog > [data-media] > header nav a, [data-card] > [data-media] > header nav .btn, dialog > [data-media] > header nav .btn, [data-card] > [data-media] > header nav > a, dialog > [data-media] > header nav > a, dialog > [data-media] > header nav > .btn, [data-card] > [data-media] > header nav > button, dialog > [data-media] > header nav > button, dialog > [data-media] > header nav > input[type="submit"], [data-card] > [data-media] > header nav [data-trigger] summary, [data-trigger] [data-card] > [data-media] > header nav summary, dialog > [data-media] > header nav [data-trigger] summary, [data-trigger] dialog > [data-media] > header nav summary, [data-card] > [data-media] > header nav input[type="submit"], dialog > [data-media] > header nav input[type="submit"], [data-card] > [data-media] > header nav button, dialog > [data-media] > header nav button {
+        [data-card] > [data-media] > header nav a, dialog > [data-media] > header nav a, [data-card] > [data-media] > header nav .btn, dialog > [data-media] > header nav .btn, [data-card] > [data-media] > header nav > a, dialog > [data-media] > header nav > a, dialog > [data-media] > header nav > .btn, [data-card] > [data-media] > header nav > button, dialog > [data-media] > header nav > button, dialog > [data-media] > header nav > input[type="submit"], [data-card] > [data-media] > header nav [data-trigger] > summary, dialog > [data-media] > header nav [data-trigger] > summary, [data-card] > [data-media] > header nav input[type="submit"], dialog > [data-media] > header nav input[type="submit"], [data-card] > [data-media] > header nav button, dialog > [data-media] > header nav button {
           text-shadow: 0.06rem 0.06rem 0.13rem var(--default-darkest); }
 
 [data-card~="squared"], [data-dialog~="squared"] {
@@ -3134,6 +3154,189 @@ dialog[open], [data-trigger][open] dialog {
   left: calc(50% - 0.5rem); }
 
 /*** Forms ***/
+:root {
+  --animate-all: all 0.3s ease-in-out;
+  --animate-all-fastest: all 0.1s ease-in-out;
+  --animate-all-fast: all 0.2s ease-in-out;
+  --animate-all-slow: all 0.4s ease-in-out;
+  --animate-all-slowest: all 0.6s ease-in-out;
+  --xs2: 0.25rem;
+  --xs: 0.5rem;
+  --sm: 0.75rem;
+  --md: 1rem;
+  --lg: 1.25rem;
+  --xl: 1.5rem;
+  --xl2: 1.965rem;
+  --xl3: 2rem;
+  --xl4: 2.25rem;
+  --xl5: 2.5rem;
+  --xl6: 2.75rem;
+  --xl7: 3rem;
+  --xl8: 4rem;
+  --white: #ffffff;
+  --primary: #3244ad;
+  --primary-bright: #e2e5f7;
+  --primary-lightest: #abb4e7;
+  --primary-light: #8390db;
+  --primary-dark: #151d4a;
+  --primary-darkest: #0a0e23;
+  --accent: #953ca5;
+  --accent-bright: #f3e5f6;
+  --accent-lightest: #dbb1e3;
+  --accent-light: #ca8cd5;
+  --accent-dark: #411a48;
+  --accent-darkest: #1f0c22;
+  --success: #2ab7a9;
+  --success-bright: #e2f8f6;
+  --success-lightest: #a8ebe4;
+  --success-light: #7fe2d8;
+  --success-dark: #124f49;
+  --success-darkest: #092623;
+  --info: #00c3e0;
+  --info-bright: #dbfaff;
+  --info-lightest: #94f1ff;
+  --info-light: #61eaff;
+  --info-dark: #005461;
+  --info-darkest: #00282e;
+  --warning: #bf7921;
+  --warning-bright: #faeee0;
+  --warning-lightest: #efcea3;
+  --warning-light: #e8b678;
+  --warning-dark: #52340e;
+  --warning-darkest: #271907;
+  --danger: #bb2626;
+  --danger-bright: #f9e2e2;
+  --danger-lightest: #eda6a6;
+  --danger-light: #e47c7c;
+  --danger-dark: #511010;
+  --danger-darkest: #270808;
+  --default: #646c8a;
+  --default-bright: #f2f3f6;
+  --default-lightest: #c9ccd8;
+  --default-light: #abb0c2;
+  --default-dark: #2e3240;
+  --default-darkest: #191b23;
+  --font-size-xs: 0.8rem;
+  --font-size-sm: 0.9rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-xl2: 1.965rem;
+  --font-size-xl3: 2rem;
+  --font-size-xl4: 2.25rem;
+  --font-size-xl5: 2.5rem;
+  --font-size-xl6: 2.75rem;
+  --font-size-xl7: 3rem;
+  --font-size-xl8: 4rem;
+  --border-size-xs2: 0.06rem;
+  --border-size-xs: 0.13rem;
+  --border-size-sm: 0.19rem;
+  --border-size-md: 0.25rem;
+  --border-size-lg: 0.38rem;
+  --border-size-xl: 0.5rem;
+  --border-size-xl2: 0.75rem;
+  --border-size-xl3: 1rem;
+  --border-size-xl4: 1.25rem;
+  --border-size-xl5: 2.25rem;
+  --border-size-xl6: 2rem;
+  --border-size-xl7: 2.5rem;
+  --border-size-xl8: 3rem; }
+
+/*** Helper classes End ***/
+nav a,
+button, .btn, nav > a, nav > .btn, nav > button, nav > input[type="submit"], [data-trigger] > summary, input[type="submit"],
+.fab {
+  border-width: 0;
+  border-style: solid;
+  border-radius: .25em;
+  position: relative;
+  min-width: 3em;
+  padding: .75em .75em;
+  line-height: 1;
+  display: inline-block;
+  font-weight: 500;
+  white-space: nowrap;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  margin: .25rem;
+  background-color: transparent;
+  transition: var(--animate-all-fastest);
+  width: auto;
+  overflow: hidden;
+  cursor: pointer; }
+  nav a[disabled],
+  button[disabled],
+  .btn[disabled],
+  nav > a[disabled],
+  nav > button[disabled],
+  [data-trigger] > summary[disabled],
+  input[disabled][type="submit"],
+  .fab[disabled] {
+    opacity: 0.85;
+    cursor: default; }
+  nav a::after,
+  button::after,
+  .btn::after,
+  nav > a::after,
+  nav > button::after,
+  [data-trigger] > summary::after,
+  input[type="submit"]::after,
+  .fab::after {
+    content: ' ';
+    opacity: 0;
+    transition: var(--animate-all-fastest);
+    background-color: var(--default-dark);
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: .25em; }
+  nav a:hover::after,
+  button:hover::after,
+  .btn:hover::after,
+  nav > a:hover::after,
+  nav > button:hover::after,
+  [data-trigger] > summary:hover::after,
+  input[type="submit"]:hover::after,
+  .fab:hover::after {
+    opacity: 0.1; }
+  nav a:active,
+  button:active,
+  .btn:active,
+  nav > a:active,
+  nav > button:active,
+  [data-trigger] > summary:active,
+  input:active[type="submit"],
+  .fab:active {
+    box-shadow: var(--emboss-4); }
+    nav a:active::after,
+    button:active::after,
+    .btn:active::after,
+    nav > a:active::after,
+    nav > button:active::after,
+    [data-trigger] > summary:active::after,
+    input[type="submit"]:active::after,
+    .fab:active::after {
+      opacity: 0; }
+
+.fab {
+  border-radius: 50%;
+  font-size: var(--font-size-xl);
+  height: 2.5em;
+  width: 2.5em;
+  min-width: 2.5em;
+  padding: 0;
+  line-height: 100%;
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  box-shadow: var(--elevation-4); }
+
 input,
 select,
 textarea {
@@ -3260,7 +3463,7 @@ fieldset {
       padding: 0;
       left: 0.5em; }
     fieldset > *:not(label):focus ~ legend {
-      padding: 0 0.5em;
+      padding: 0;
       top: -1em;
       opacity: 1;
       left: 0;
@@ -3282,7 +3485,7 @@ fieldset {
     position: absolute;
     line-height: 2;
     background-color: inherit;
-    padding: 0 0.5em;
+    padding: 0;
     top: -1em;
     opacity: 1;
     left: 0;
@@ -3291,18 +3494,30 @@ fieldset {
     transition: var(--animate-all-fastest);
     z-index: 1;
     width: auto;
-    border: 0;
-    border-radius: 0.25em;
-    border-color: inherit;
-    border-bottom: 0.06em solid var(--default-lightest);
     color: inherit;
     position: absolute;
     line-height: 1;
-    background-color: inherit;
-    padding: 0.25em 0.5em;
     bottom: -1em;
     right: 0;
-    font-size: 0.8em; }
+    font-size: 0.8em;
+    padding: 0; }
+
+/*** Drawers ***/
+[data-drawer] {
+  position: fixed;
+  z-index: 1;
+  overflow: hidden;
+  min-width: 20rem;
+  box-shadow: var(--elevation-12);
+  top: 0rem;
+  bottom: 0;
+  max-height: 100%;
+  overflow-y: auto;
+  left: 0;
+  color: var(--default-dark); }
+  [data-drawer].ui-right {
+    right: 0;
+    left: auto; }
 
 /*** Fonts ***/
 /*** Fonts Start ***/

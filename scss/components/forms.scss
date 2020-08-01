@@ -1,3 +1,5 @@
+@import './buttons';
+
 input,
 select,
 textarea {
@@ -139,7 +141,7 @@ fieldset {
       left: 0.5em;
     }
     &:focus ~ legend {
-      padding: 0 0.5em;
+      padding: 0;
       top: -1em;
       opacity: 1;
       left: 0;
@@ -169,7 +171,7 @@ fieldset {
     position: absolute;
     line-height: 2;
     background-color: inherit;
-    padding: 0 0.5em;
+    padding: 0;
     top: -1em;
     opacity: 1;
     left: 0;
@@ -180,18 +182,13 @@ fieldset {
     transition: var(--animate-all-fastest);
     z-index: 1;
     width: auto;
-    border: 0;
-    border-radius: 0.25em;
-    border-color: inherit;
-    border-bottom: 0.06em solid var(--default-lightest);
     color: inherit;
     position: absolute;
     line-height: 1;
-    background-color: inherit;
-    padding: 0.25em 0.5em;
     bottom: -1em;
     right: 0;
     font-size: 0.8em;
+    padding: 0;
   }
 }
 

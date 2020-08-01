@@ -180,7 +180,7 @@
 nav a,
 button,
 .btn,
-[data-trigger] summary,
+[data-trigger] > summary,
 .fab {
   border-width: 0;
   border-style: solid;
@@ -192,7 +192,6 @@ button,
   display: inline-block;
   font-weight: 500;
   white-space: nowrap;
-  overflow: hidden;
   outline: none;
   cursor: pointer;
   text-decoration: none;
@@ -202,18 +201,19 @@ button,
   background-color: transparent;
   transition: var(--animate-all-fastest);
   width: auto;
+  overflow: hidden;
   cursor: pointer; }
   nav a[disabled],
   button[disabled],
   .btn[disabled],
-  [data-trigger] summary[disabled],
+  [data-trigger] > summary[disabled],
   .fab[disabled] {
     opacity: 0.85;
     cursor: default; }
   nav a::after,
   button::after,
   .btn::after,
-  [data-trigger] summary::after,
+  [data-trigger] > summary::after,
   .fab::after {
     content: ' ';
     opacity: 0;
@@ -229,19 +229,19 @@ button,
   nav a:hover::after,
   button:hover::after,
   .btn:hover::after,
-  [data-trigger] summary:hover::after,
+  [data-trigger] > summary:hover::after,
   .fab:hover::after {
     opacity: 0.1; }
   nav a:active,
   button:active,
   .btn:active,
-  [data-trigger] summary:active,
+  [data-trigger] > summary:active,
   .fab:active {
     box-shadow: var(--emboss-4); }
     nav a:active::after,
     button:active::after,
     .btn:active::after,
-    [data-trigger] summary:active::after,
+    [data-trigger] > summary:active::after,
     .fab:active::after {
       opacity: 0; }
 
@@ -261,11 +261,12 @@ button,
 [data-trigger] {
   position: relative;
   z-index: 0; }
-  [data-trigger] summary {
+  [data-trigger] > summary {
+    color: inherit;
     list-style: none; }
-    [data-trigger] summary::-webkit-details-marker {
+    [data-trigger] > summary::-webkit-details-marker {
       display: none; }
-    [data-trigger] summary::after {
+    [data-trigger] > summary::after {
       transition: var(--animate-all);
       z-index: -10;
       background: var(--default-dark);
@@ -281,14 +282,18 @@ button,
       width: 9999rem;
       height: 9999rem;
       transform: translate(-50%, -50%);
-      z-index: 1; }
+      z-index: -1;
+      display: none; }
   [data-trigger][open] {
     z-index: 1; }
-    [data-trigger][open] summary::after {
-      z-index: 0;
-      display: block; }
-    [data-trigger][open] summary:active {
-      box-shadow: none; }
+    [data-trigger][open] summary {
+      overflow: visible; }
+      [data-trigger][open] summary::after {
+        z-index: 0;
+        display: block;
+        position: fixed;
+        opacity: 0;
+        display: block; }
 
 :root {
   --animate-all: all 0.3s ease-in-out;
@@ -435,7 +440,7 @@ button,
         position: absolute;
         top: 0;
         right: 0; }
-        [data-card] > [data-media] > header nav a, dialog > [data-media] > header nav a, [data-card] > [data-media] > header nav .btn, dialog > [data-media] > header nav .btn, [data-card] > [data-media] > header nav [data-trigger] summary, [data-trigger] [data-card] > [data-media] > header nav summary, dialog > [data-media] > header nav [data-trigger] summary, [data-trigger] dialog > [data-media] > header nav summary, [data-card] > [data-media] > header nav button, dialog > [data-media] > header nav button {
+        [data-card] > [data-media] > header nav a, dialog > [data-media] > header nav a, [data-card] > [data-media] > header nav .btn, dialog > [data-media] > header nav .btn, [data-card] > [data-media] > header nav [data-trigger] > summary, dialog > [data-media] > header nav [data-trigger] > summary, [data-card] > [data-media] > header nav button, dialog > [data-media] > header nav button {
           text-shadow: 0.06rem 0.06rem 0.13rem var(--default-darkest); }
 
 [data-card~="squared"], [data-dialog~="squared"] {

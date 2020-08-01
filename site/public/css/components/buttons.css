@@ -101,7 +101,6 @@ button,
   display: inline-block;
   font-weight: 500;
   white-space: nowrap;
-  overflow: hidden;
   outline: none;
   cursor: pointer;
   text-decoration: none;
@@ -111,6 +110,7 @@ button,
   background-color: transparent;
   transition: var(--animate-all-fastest);
   width: auto;
+  overflow: hidden;
   cursor: pointer; }
   nav a[disabled],
   button[disabled],

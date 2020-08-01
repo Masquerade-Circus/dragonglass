@@ -15,9 +15,9 @@ export default () => (
       <h2>Data list</h2>
       <hr />
       <dl>
-        <dt>Bryan Cranston</dt>
-        <dt>Aaron Paul</dt>
-        <dt>Bob Odenkirk</dt>
+        <dt><span>Bryan Cranston</span></dt>
+        <dt><span>Aaron Paul</span></dt>
+        <dt><span>Bob Odenkirk</span></dt>
       </dl>
 
       <h2>List with avatar</h2>

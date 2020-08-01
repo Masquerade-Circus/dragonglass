@@ -1,0 +1,15 @@
+[data-drawer] {
+  position: fixed;
+  z-index: 1;
+  overflow: hidden;
+  min-width: 20rem;
+  box-shadow: var(--elevation-12);
+  top: 0rem;
+  bottom: 0;
+  max-height: 100%;
+  overflow-y: auto;
+  left: 0;
+  color: var(--default-dark); }
+  [data-drawer].ui-right {
+    right: 0;
+    left: auto; }
