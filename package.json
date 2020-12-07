@@ -1,6 +1,6 @@
 {
   "name": "dragonglass",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "HTML5-first and pure CSS framework for fast UI building",
   "source": "scss/main.css",
   "main": "dist/main.css",
@@ -30,7 +30,7 @@
     "dev:server": "cross-env NODE_ENV=development node-dev --notify=false index.js",
     "dev:sass": "nodemon -e scss -w ./site/public/scss build.js",
     "dev": "run-all 'yarn dev:server' 'yarn dev:sass'",
-    "build": "node-sass -r --precision 4 --output-style compressed scss/main.scss -o dist",
+    "build": "node build.js",
     "remark": "remark . -o",
     "commit": "git add . && git-cz",
     "release": "release-it --verbose",
