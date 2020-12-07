@@ -1,0 +1,20 @@
+details:not([data-trigger]) {
+  background-color: var(--default-bright);
+}
+
+details:not([data-trigger]) summary {
+  position: relative;
+  padding: 0.75em 0.75em;
+  line-height: 1;
+  display: block;
+  font-weight: 500;
+  white-space: nowrap;
+  outline: none;
+  text-decoration: none;
+  text-align: left;
+  background-color: var(--white);
+  transition: var(--animate-all-fastest);
+  overflow: hidden;
+  cursor: pointer;
+  color: var(--primary);
+}

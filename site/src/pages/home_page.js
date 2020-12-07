@@ -1,4 +1,2 @@
-import Layout from './layout';
-export default () => <Layout>
-
-</Layout>;
+const Layout = require("./layout");
+module.exports = () => <Layout />;

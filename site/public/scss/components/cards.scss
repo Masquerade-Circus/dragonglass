@@ -1,4 +1,4 @@
-@import './helpers.scss';
+@import "./helpers.scss";
 
 [data-card] {
   @include flexContainer(column);
@@ -10,13 +10,13 @@
   padding: 0;
   box-shadow: var(--elevation-2);
   background-color: var(--white);
-  >*{
+  > * {
     z-index: 1;
   }
-  &>section{
+  & > section {
     padding: 1rem;
   }
-  &>[data-media] {
+  & > [data-media] {
     order: 0;
     flex: 1 1 auto;
     position: relative;
@@ -29,15 +29,15 @@
     background-repeat: no-repeat;
     background-position: 50% 0%;
     color: var(--default-bright);
-    &:first-child{
-      border-top-left-radius: .25rem;
-      border-top-right-radius: .25rem;
+    &:first-child {
+      border-top-left-radius: 0.25rem;
+      border-top-right-radius: 0.25rem;
     }
-    &:last-child{
-      border-bottom-left-radius: .25rem;
-      border-bottom-right-radius: .25rem;
+    &:last-child {
+      border-bottom-left-radius: 0.25rem;
+      border-bottom-right-radius: 0.25rem;
     }
-    &>header {
+    & > header {
       margin: 0;
       position: absolute;
       bottom: 0;
@@ -48,8 +48,10 @@
       height: auto;
       z-index: 1;
       text-shadow: 0.06rem 0.06rem 0.13rem var(--default-darkest);
-      background-color: rgba(33,33,33, 0.3);
-      > h1, > h2, > h3 {
+      background-color: rgba(33, 33, 33, 0.3);
+      > h1,
+      > h2,
+      > h3 {
         position: absolute;
         bottom: 0;
         font-size: 1.5rem;
@@ -58,7 +60,9 @@
         position: absolute;
         top: 0;
         right: 0;
-        a, .btn, button{
+        a,
+        .btn,
+        button {
           text-shadow: 0.06rem 0.06rem 0.13rem var(--default-darkest);
         }
       }
@@ -69,12 +73,14 @@
 [data-card~="squared"] {
   max-width: 16rem;
   min-width: 16rem;
-  &>[data-media] {
+  & > [data-media] {
     padding-bottom: 100%;
-    &>header {
+    & > header {
       top: auto;
       height: 3.5rem;
-      > h1, > h2, > h3 {
+      > h1,
+      > h2,
+      > h3 {
         position: static;
         font-size: 1rem;
       }
@@ -82,7 +88,7 @@
         position: static;
       }
     }
-    &>section {
+    & > section {
       position: absolute;
       top: 0;
       left: 0;
@@ -97,6 +103,6 @@
 
 [data-card~="full-width"] {
   max-width: 100%;
-  margin-right: 0.5rem;
-  margin-left: 0.5rem;
+  margin-right: 0;
+  margin-left: 0;
 }

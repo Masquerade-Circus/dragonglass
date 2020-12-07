@@ -1091,6 +1091,54 @@
 .color-default-darkest {
   color: var(--default-darkest); }
 
+.focus\:border-white:focus,
+.active\:border-white:active,
+.hover\:border-white:hover,
+.after\:border-white::after,
+.before\:border-white::before,
+.border-white {
+  border-color: var(--white); }
+
+.focus\:bg-white:focus,
+.active\:bg-white:active,
+.hover\:bg-white:hover,
+.after\:bg-white::after,
+.before\:bg-white::before,
+.bg-white {
+  background-color: var(--white); }
+
+.focus\:color-white:focus,
+.active\:color-white:active,
+.hover\:color-white:hover,
+.after\:color-white::after,
+.before\:color-white::before,
+.color-white {
+  color: var(--white); }
+
+.focus\:border-black:focus,
+.active\:border-black:active,
+.hover\:border-black:hover,
+.after\:border-black::after,
+.before\:border-black::before,
+.border-black {
+  border-color: var(--black); }
+
+.focus\:bg-black:focus,
+.active\:bg-black:active,
+.hover\:bg-black:hover,
+.after\:bg-black::after,
+.before\:bg-black::before,
+.bg-black {
+  background-color: var(--black); }
+
+.focus\:color-black:focus,
+.active\:color-black:active,
+.hover\:color-black:hover,
+.after\:color-black::after,
+.before\:color-black::before,
+.color-black {
+  color: var(--black); }
+
 .has-error {
   border-color: var(--danger);
   color: var(--danger); }

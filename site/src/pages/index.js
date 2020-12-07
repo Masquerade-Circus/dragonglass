@@ -1,21 +1,21 @@
-import Html from './html_page';
-import Home from './home_page';
-import Grid from './grid_page';
-import Elevations from './elevations_page';
-import Colors from './colors_page';
-import Fonts from './fonts_page';
-import Badges from './badges_page';
-import Buttons from './buttons_page';
-import Cards from './cards_page';
-import Dialogs from './dialogs_page';
-import Lists from './lists_page';
-import Forms from './forms_page';
-import Tooltips from './tooltips_page';
-import Menus from './menus_page';
-import Tables from './tables_page';
-import Progress from './progress_page';
+const Html = require("./html_page");
+const Home = require("./home_page");
+const Grid = require("./grid_page");
+const Elevations = require("./elevations_page");
+const Colors = require("./colors_page");
+const Fonts = require("./fonts_page");
+const Badges = require("./badges_page");
+const Buttons = require("./buttons_page");
+const Cards = require("./cards_page");
+const Dialogs = require("./dialogs_page");
+const Lists = require("./lists_page");
+const Forms = require("./forms_page");
+const Tooltips = require("./tooltips_page");
+const Menus = require("./menus_page");
+const Tables = require("./tables_page");
+const Progress = require("./progress_page");
 
-export default {
+module.exports = {
   Html,
   Home,
   Grid,

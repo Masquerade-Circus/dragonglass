@@ -7,7 +7,7 @@ $tolerance: 67;
   @each $weight in -bright, -lightest, -light, "", -dark, -darkest {
     $color: map-get(
       $map: $colors,
-      $key: "#{$name}#{$weight}",
+      $key: "#{$name}#{$weight}"
     );
 
     @if $color {
@@ -18,11 +18,7 @@ $tolerance: 67;
       .before\:border-#{$name}#{$weight}::before,
       .border-#{$name}#{$weight} {
         border-color: var(--#{$name}#{$weight});
-        color: if(
-          lightness($color) < 55,
-          var(--#{$name}#{$weight}),
-          var(--#{$name})
-        );
+        color: if(lightness($color) < 55, var(--#{$name}#{$weight}), var(--#{$name}));
       }
 
       .focus\:bg-#{$name}#{$weight}:focus,
@@ -32,11 +28,7 @@ $tolerance: 67;
       .before\:bg-#{$name}#{$weight}::before,
       .bg-#{$name}#{$weight} {
         background-color: var(--#{$name}#{$weight});
-        color: if(
-          lightness($color) > 55,
-          var(--#{$name}-darkest),
-          var(--#{$name}-bright)
-        );
+        color: if(lightness($color) > 55, var(--#{$name}-darkest), var(--#{$name}-bright));
       }
 
       .focus\:color-#{$name}#{$weight}:focus,
@@ -51,22 +43,58 @@ $tolerance: 67;
   }
 }
 
-.has-error{
+@each $name, $col in $secondaryColors {
+  $color: map-get(
+    $map: $colors,
+    $key: "#{$name}"
+  );
+
+  @if $color {
+    .focus\:border-#{$name}:focus,
+    .active\:border-#{$name}:active,
+    .hover\:border-#{$name}:hover,
+    .after\:border-#{$name}::after,
+    .before\:border-#{$name}::before,
+    .border-#{$name} {
+      border-color: var(--#{$name});
+    }
+
+    .focus\:bg-#{$name}:focus,
+    .active\:bg-#{$name}:active,
+    .hover\:bg-#{$name}:hover,
+    .after\:bg-#{$name}::after,
+    .before\:bg-#{$name}::before,
+    .bg-#{$name} {
+      background-color: var(--#{$name});
+    }
+
+    .focus\:color-#{$name}:focus,
+    .active\:color-#{$name}:active,
+    .hover\:color-#{$name}:hover,
+    .after\:color-#{$name}::after,
+    .before\:color-#{$name}::before,
+    .color-#{$name} {
+      color: var(--#{$name});
+    }
+  }
+}
+
+.has-error {
   border-color: var(--danger);
   color: var(--danger);
 }
 
-.has-success{
+.has-success {
   border-color: var(--success);
   color: var(--success);
 }
 
-.has-warning{
+.has-warning {
   border-color: var(--warning);
   color: var(--warning);
 }
 
-.has-info{
+.has-info {
   border-color: var(--info);
   color: var(--info);
 }

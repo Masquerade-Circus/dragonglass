@@ -19,6 +19,7 @@
   --xl7: 3rem;
   --xl8: 4rem;
   --white: #ffffff;
+  --black: #ffffff;
   --primary: #3244ad;
   --primary-bright: #e2e5f7;
   --primary-lightest: #abb4e7;
@@ -73,6 +74,7 @@
   --font-size-xl6: 2.75rem;
   --font-size-xl7: 3rem;
   --font-size-xl8: 4rem;
+  --border-size-no-border: 0;
   --border-size-xs2: 0.06rem;
   --border-size-xs: 0.13rem;
   --border-size-sm: 0.19rem;
@@ -108,6 +110,7 @@
   --xl7: 3rem;
   --xl8: 4rem;
   --white: #ffffff;
+  --black: #ffffff;
   --primary: #3244ad;
   --primary-bright: #e2e5f7;
   --primary-lightest: #abb4e7;
@@ -162,6 +165,7 @@
   --font-size-xl6: 2.75rem;
   --font-size-xl7: 3rem;
   --font-size-xl8: 4rem;
+  --border-size-no-border: 0;
   --border-size-xs2: 0.06rem;
   --border-size-xs: 0.13rem;
   --border-size-sm: 0.19rem;
@@ -315,6 +319,7 @@ button,
   --xl7: 3rem;
   --xl8: 4rem;
   --white: #ffffff;
+  --black: #ffffff;
   --primary: #3244ad;
   --primary-bright: #e2e5f7;
   --primary-lightest: #abb4e7;
@@ -369,6 +374,7 @@ button,
   --font-size-xl6: 2.75rem;
   --font-size-xl7: 3rem;
   --font-size-xl8: 4rem;
+  --border-size-no-border: 0;
   --border-size-xs2: 0.06rem;
   --border-size-xs: 0.13rem;
   --border-size-sm: 0.19rem;
@@ -415,11 +421,11 @@ button,
     background-position: 50% 0%;
     color: var(--default-bright); }
     [data-card] > [data-media]:first-child, dialog > [data-media]:first-child {
-      border-top-left-radius: .25rem;
-      border-top-right-radius: .25rem; }
+      border-top-left-radius: 0.25rem;
+      border-top-right-radius: 0.25rem; }
     [data-card] > [data-media]:last-child, dialog > [data-media]:last-child {
-      border-bottom-left-radius: .25rem;
-      border-bottom-right-radius: .25rem; }
+      border-bottom-left-radius: 0.25rem;
+      border-bottom-right-radius: 0.25rem; }
     [data-card] > [data-media] > header, dialog > [data-media] > header {
       margin: 0;
       position: absolute;
@@ -432,7 +438,11 @@ button,
       z-index: 1;
       text-shadow: 0.06rem 0.06rem 0.13rem var(--default-darkest);
       background-color: rgba(33, 33, 33, 0.3); }
-      [data-card] > [data-media] > header > h1, dialog > [data-media] > header > h1, [data-card] > [data-media] > header > h2, dialog > [data-media] > header > h2, [data-card] > [data-media] > header > h3, dialog > [data-media] > header > h3 {
+      [data-card] > [data-media] > header > h1, dialog > [data-media] > header > h1,
+      [data-card] > [data-media] > header > h2,
+      dialog > [data-media] > header > h2,
+      [data-card] > [data-media] > header > h3,
+      dialog > [data-media] > header > h3 {
         position: absolute;
         bottom: 0;
         font-size: 1.5rem; }
@@ -440,7 +450,13 @@ button,
         position: absolute;
         top: 0;
         right: 0; }
-        [data-card] > [data-media] > header nav a, dialog > [data-media] > header nav a, [data-card] > [data-media] > header nav .btn, dialog > [data-media] > header nav .btn, [data-card] > [data-media] > header nav [data-trigger] > summary, dialog > [data-media] > header nav [data-trigger] > summary, [data-card] > [data-media] > header nav button, dialog > [data-media] > header nav button {
+        [data-card] > [data-media] > header nav a, dialog > [data-media] > header nav a,
+        [data-card] > [data-media] > header nav .btn,
+        dialog > [data-media] > header nav .btn,
+        [data-card] > [data-media] > header nav [data-trigger] > summary,
+        dialog > [data-media] > header nav [data-trigger] > summary,
+        [data-card] > [data-media] > header nav button,
+        dialog > [data-media] > header nav button {
           text-shadow: 0.06rem 0.06rem 0.13rem var(--default-darkest); }
 
 [data-card~="squared"], [data-dialog~="squared"] {
@@ -451,7 +467,11 @@ button,
     [data-card~="squared"] > [data-media] > header, [data-dialog~="squared"] > [data-media] > header {
       top: auto;
       height: 3.5rem; }
-      [data-card~="squared"] > [data-media] > header > h1, [data-dialog~="squared"] > [data-media] > header > h1, [data-card~="squared"] > [data-media] > header > h2, [data-dialog~="squared"] > [data-media] > header > h2, [data-card~="squared"] > [data-media] > header > h3, [data-dialog~="squared"] > [data-media] > header > h3 {
+      [data-card~="squared"] > [data-media] > header > h1, [data-dialog~="squared"] > [data-media] > header > h1,
+      [data-card~="squared"] > [data-media] > header > h2,
+      [data-dialog~="squared"] > [data-media] > header > h2,
+      [data-card~="squared"] > [data-media] > header > h3,
+      [data-dialog~="squared"] > [data-media] > header > h3 {
         position: static;
         font-size: 1rem; }
       [data-card~="squared"] > [data-media] > header nav, [data-dialog~="squared"] > [data-media] > header nav {
@@ -468,8 +488,8 @@ button,
 
 [data-card~="full-width"], [data-dialog~="full-width"] {
   max-width: 100%;
-  margin-right: 0.5rem;
-  margin-left: 0.5rem; }
+  margin-right: 0;
+  margin-left: 0; }
 
 dialog {
   transition: var(--animate-all);

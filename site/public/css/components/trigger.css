@@ -18,6 +18,7 @@
   --xl7: 3rem;
   --xl8: 4rem;
   --white: #ffffff;
+  --black: #ffffff;
   --primary: #3244ad;
   --primary-bright: #e2e5f7;
   --primary-lightest: #abb4e7;
@@ -72,6 +73,7 @@
   --font-size-xl6: 2.75rem;
   --font-size-xl7: 3rem;
   --font-size-xl8: 4rem;
+  --border-size-no-border: 0;
   --border-size-xs2: 0.06rem;
   --border-size-xs: 0.13rem;
   --border-size-sm: 0.19rem;
@@ -107,6 +109,7 @@
   --xl7: 3rem;
   --xl8: 4rem;
   --white: #ffffff;
+  --black: #ffffff;
   --primary: #3244ad;
   --primary-bright: #e2e5f7;
   --primary-lightest: #abb4e7;
@@ -161,6 +164,7 @@
   --font-size-xl6: 2.75rem;
   --font-size-xl7: 3rem;
   --font-size-xl8: 4rem;
+  --border-size-no-border: 0;
   --border-size-xs2: 0.06rem;
   --border-size-xs: 0.13rem;
   --border-size-sm: 0.19rem;

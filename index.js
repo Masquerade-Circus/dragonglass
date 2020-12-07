@@ -1,2 +1,3 @@
-require('colors');
-require('./site/server');
+require("colors");
+require("valyrian.js/register");
+require("./site/server");

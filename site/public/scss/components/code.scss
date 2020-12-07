@@ -8,36 +8,43 @@ code {
   clear: both;
   display: block;
   background-color: var(--default-bright);
-  margin: 0.25em;
+  margin: 0.25em 0;
   box-shadow: var(--emboss-1);
-  line-height: 1; }
+  line-height: 1;
+}
 
 pre {
   margin: 1rem 0;
-  border-radius: 0.5rem; }
+  border-radius: 0.5rem;
+}
 
 code {
   display: inline-block;
   overflow: hidden;
   padding: 0 0.5em;
-  border-radius: 0.25rem; }
+  border-radius: 0.25rem;
+  font-size: 0.9em;
+}
 
 pre > code {
   padding: 0;
   margin: 0;
   box-shadow: none;
-  display: block; }
+  display: block;
+}
 
 pre,
 code,
 pre > *,
 code > * {
   font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
-  line-height: inherit; }
+  line-height: inherit;
+}
 
 samp {
   border: 1px solid var(--default-light);
   padding: 1rem;
   display: block;
   border-radius: 0.5rem;
-  margin: 1rem; }
+  margin: 1rem;
+}

@@ -1,31 +1,29 @@
-import 'valyrian.js';
-import Router from 'valyrian.js/plugins/router.js';
-
-import Pages from './pages';
+require("valyrian.js");
+const Router = require("valyrian.js/plugins/router.js");
+const Pages = require("./pages");
 
 // Create a router
 v.usePlugin(Router);
 let router = v.Router();
 router
-  .get('/', () => Pages.Home)
-  .get('/grid', () => Pages.Grid)
-  .get('/elevations', () => Pages.Elevations)
-  .get('/colors', () => Pages.Colors)
-  .get('/fonts', () => Pages.Fonts)
-  .get('/badges', () => Pages.Badges)
-  .get('/buttons', () => Pages.Buttons)
-  .get('/cards', () => Pages.Cards)
-  .get('/dialogs', () => Pages.Dialogs)
-  .get('/lists', () => Pages.Lists)
-  .get('/forms', () => Pages.Forms)
-  .get('/tooltips', () => Pages.Tooltips)
-  .get('/menus', () => Pages.Menus)
-  .get('/tables', () => Pages.Tables)
-  .get('/progress', () => Pages.Progress)
-;
+  .get("/", () => Pages.Home)
+  .get("/grid.html", () => Pages.Grid)
+  .get("/elevations.html", () => Pages.Elevations)
+  .get("/colors.html", () => Pages.Colors)
+  .get("/fonts.html", () => Pages.Fonts)
+  .get("/badges.html", () => Pages.Badges)
+  .get("/buttons.html", () => Pages.Buttons)
+  .get("/cards.html", () => Pages.Cards)
+  .get("/dialogs.html", () => Pages.Dialogs)
+  .get("/lists.html", () => Pages.Lists)
+  .get("/forms.html", () => Pages.Forms)
+  .get("/tooltips.html", () => Pages.Tooltips)
+  .get("/menus.html", () => Pages.Menus)
+  .get("/tables.html", () => Pages.Tables)
+  .get("/progress.html", () => Pages.Progress);
 
 // Assign routes to ValyrianJs
-v.routes('body', router);
+v.routes("body", router);
 
 // // Export what is needed for the backend
-export default { Pages };
+module.exports = { Pages };

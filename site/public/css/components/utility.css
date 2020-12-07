@@ -1144,6 +1144,12 @@
 [class*="border-"] {
   border-width: var(--border-size-xs2); }
 
+.focus\:border-no-border:focus,
+.active\:border-no-border:active,
+.hover\:border-no-border:hover,
+.border-no-border {
+  border-width: var(--border-size-no-border); }
+
 .focus\:border-xs2:focus,
 .active\:border-xs2:active,
 .hover\:border-xs2:hover,

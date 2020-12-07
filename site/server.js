@@ -1,35 +1,44 @@
-let Router = require('micro-ex-router');
-let compression = require('compression');
-require('colors');
+let micro = require("micro");
+let Router = require("micro-ex-router");
+let compression = require("compression");
 
 // Require valyrian and main app
-let App = require('./public/js/index.min');
-let nodePlugin = require('valyrian.js/plugins/node');
+let App = require("./src/index");
+let nodePlugin = require("../../valyrian.js/plugins/node");
 v.usePlugin(nodePlugin);
 
-// Create a new router
-let router = Router();
+const DefaultRefreshFileListTime = 1000 * 60; // 1 minute
 
-// Add api routes
-router
-  .use((req, res) => new Promise((next) => compression()(req, res, next)))
-  .use(Router.serveDir('./site/public'))
-  .get('/favicon.ico', () => 'Not found');
+const DefaultHeaders = {
+  any: {
+    "Cache-Control": "public, no-cache, no-store, must-revalidate"
+  }
+};
 
-// Add Valyrian routes
-v.routes
-  .get()
-  .forEach((path) =>
-    router.get(path, async (req, res) => '<!DOCTYPE html>' + (await v.routes.go(App.Pages.Html, req.url)))
-  );
+let init = async () => {
+  await v.inline.js("./site/src/index.js");
+  await v.inline.css("./site/public/css/main.css");
 
-// Uncaught error handler
-process.on('unhandledRejection', (reason) => {
-  process.stderr.write(`    ${reason}\n`.italic.strikethrough.red);
-  throw reason;
-});
+  // Create a new router
+  let router = Router();
 
-let micro = require('micro');
-micro(router).listen(3001, () => {
-  process.stdout.write('Micro listening on port 3001\n');
-});
+  // Add api routes
+  router
+    .use((req, res) => new Promise((next) => compression()(req, res, next)))
+    .use(Router.serveDir("./site/public", DefaultHeaders, DefaultRefreshFileListTime))
+    .get("/favicon.ico", () => "Not found");
+
+  // Add Valyrian routes
+  v.routes.get().forEach((path) => router.get(path, (req, res) => v.routes.go(App.Pages.Html, req.url)));
+
+  // If we get to this point throw a 404 not found error
+  router.use((req, res) => {
+    res.statusCode = 404;
+    res.end("Not found");
+  });
+
+  // Init micro server
+  micro(router).listen(3004, () => process.stdout.write(`Micro listening on port ${3004}\n`));
+};
+
+init();
