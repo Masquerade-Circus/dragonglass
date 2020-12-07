@@ -6,21 +6,21 @@ const Pages = require("./pages");
 v.usePlugin(Router);
 let router = v.Router();
 router
-  .get("/", () => Pages.Home)
-  .get("/grid.html", () => Pages.Grid)
-  .get("/elevations.html", () => Pages.Elevations)
-  .get("/colors.html", () => Pages.Colors)
-  .get("/fonts.html", () => Pages.Fonts)
-  .get("/badges.html", () => Pages.Badges)
-  .get("/buttons.html", () => Pages.Buttons)
-  .get("/cards.html", () => Pages.Cards)
-  .get("/dialogs.html", () => Pages.Dialogs)
-  .get("/lists.html", () => Pages.Lists)
-  .get("/forms.html", () => Pages.Forms)
-  .get("/tooltips.html", () => Pages.Tooltips)
-  .get("/menus.html", () => Pages.Menus)
-  .get("/tables.html", () => Pages.Tables)
-  .get("/progress.html", () => Pages.Progress);
+  .get("/dragonglass", () => Pages.Home)
+  .get("/dragonglass/grid.html", () => Pages.Grid)
+  .get("/dragonglass/elevations.html", () => Pages.Elevations)
+  .get("/dragonglass/colors.html", () => Pages.Colors)
+  .get("/dragonglass/fonts.html", () => Pages.Fonts)
+  .get("/dragonglass/badges.html", () => Pages.Badges)
+  .get("/dragonglass/buttons.html", () => Pages.Buttons)
+  .get("/dragonglass/cards.html", () => Pages.Cards)
+  .get("/dragonglass/dialogs.html", () => Pages.Dialogs)
+  .get("/dragonglass/lists.html", () => Pages.Lists)
+  .get("/dragonglass/forms.html", () => Pages.Forms)
+  .get("/dragonglass/tooltips.html", () => Pages.Tooltips)
+  .get("/dragonglass/menus.html", () => Pages.Menus)
+  .get("/dragonglass/tables.html", () => Pages.Tables)
+  .get("/dragonglass/progress.html", () => Pages.Progress);
 
 // Assign routes to ValyrianJs
 v.routes("body", router);
