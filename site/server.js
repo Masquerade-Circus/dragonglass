@@ -4,7 +4,7 @@ let compression = require("compression");
 
 // Require valyrian and main app
 let App = require("./src/index");
-let nodePlugin = require("../../valyrian.js/plugins/node");
+let nodePlugin = require("valyrian.js/plugins/node");
 v.usePlugin(nodePlugin);
 
 const DefaultRefreshFileListTime = 1000 * 60; // 1 minute

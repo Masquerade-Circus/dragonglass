@@ -56,7 +56,7 @@
     "remark-cli": "^9.0.0",
     "run-all": "^1.0.1",
     "sass": "^1.30.0",
-    "valyrian.js": "^5.0.7"
+    "valyrian.js": "^5.0.8"
   },
   "config": {
     "commitizen": {

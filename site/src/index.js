@@ -1,5 +1,5 @@
 require("valyrian.js");
-const Router = require("../../../valyrian.js/plugins/router.js");
+const Router = require("valyrian.js/plugins/router");
 const Pages = require("./pages");
 
 // Create a router

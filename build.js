@@ -42,7 +42,7 @@ let build = async () => {
 
   console.log("Compiling docs start");
   let App = require("./site/src/index");
-  let nodePlugin = require("../valyrian.js/plugins/node");
+  let nodePlugin = require("valyrian.js/plugins/node");
   v.usePlugin(nodePlugin);
 
   await v.inline.css("./dist/dragonglass.min.css");
