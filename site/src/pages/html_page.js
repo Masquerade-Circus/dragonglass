@@ -1,5 +1,5 @@
 let Html = function view(props, content) {
-  let isDevelopment = process.env.NODE_ENV !== "development";
+  let isDevelopment = process.env.NODE_ENV === "development";
   return (
     <html lang="en">
       <head>
