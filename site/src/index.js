@@ -1,5 +1,5 @@
 require("valyrian.js");
-const Router = require("valyrian.js/plugins/router.js");
+const Router = require("../../../valyrian.js/plugins/router.js");
 const Pages = require("./pages");
 
 // Create a router
@@ -7,7 +7,6 @@ v.usePlugin(Router);
 let router = v.Router();
 router
   .get("/dragonglass", () => Pages.Home)
-  .get("/dragonglass/", () => Pages.Home)
   .get("/dragonglass/grid.html", () => Pages.Grid)
   .get("/dragonglass/elevations.html", () => Pages.Elevations)
   .get("/dragonglass/colors.html", () => Pages.Colors)
@@ -26,5 +25,5 @@ router
 // Assign routes to ValyrianJs
 v.routes("body", router);
 
-// // Export what is needed for the backend
+// Export what is needed for the backend
 module.exports = { Pages };
