@@ -7,6 +7,7 @@ v.usePlugin(Router);
 let router = v.Router();
 router
   .get("/dragonglass", () => Pages.Home)
+  .get("/dragonglass/", () => Pages.Home)
   .get("/dragonglass/grid.html", () => Pages.Grid)
   .get("/dragonglass/elevations.html", () => Pages.Elevations)
   .get("/dragonglass/colors.html", () => Pages.Colors)

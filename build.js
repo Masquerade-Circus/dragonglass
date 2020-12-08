@@ -52,7 +52,7 @@ let build = async () => {
 
   for (let path of v.routes.get()) {
     let html = await v.routes.go(App.Pages.Html, path);
-    let fileName = path === "/dragonglass" ? "/index.html" : path;
+    let fileName = path === "/dragonglass" || path === "/dragonglass/" ? "/index.html" : path.replace("/dragonglass", "");
     fs.writeFileSync(`./docs${fileName}`, html, "utf8");
   }
 
