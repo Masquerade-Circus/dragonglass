@@ -11,7 +11,7 @@ menu {
   transform: scale(0);
   transform-origin: top left;
   min-width: 20rem;
-  box-shadow: var(--elevation-12);
+  box-shadow: var(--shadow-2xl);
   &.ui-top {
     transform-origin: bottom left;
     bottom: 100%;

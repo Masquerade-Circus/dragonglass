@@ -6,12 +6,12 @@
     position: absolute;
     border-radius: 50%;
     font-size: var(--font-size-sm);
-    height: var(--lg);
-    width: var(--lg);
-    line-height: var(--lg);
+    height: var(--spacing-5);
+    width: var(--spacing-5);
+    line-height: var(--spacing-5);
     font-weight: bold;
-    top: calc(0% - var(--sm));
-    right: calc(0% - var(--sm));
+    top: calc(0% - var(--spacing-3));
+    right: calc(0% - var(--spacing-3));
     z-index: 2;
     text-align: center;
     background-color: var(--white);

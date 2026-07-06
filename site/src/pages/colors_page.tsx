@@ -9,7 +9,7 @@ export default () => (
       {colors.map((color) => {
         return (
           <div class="md:w-1/4 lg:w-1/7">
-            <div class="el-2">
+            <div class="shadow">
               {weights.map((weight) => {
                 return (
                   <div style="padding: 10px" class={`bg-${color}${weight}`}>
@@ -19,7 +19,7 @@ export default () => (
               })}
               {weights.map((weight) => {
                 return (
-                  <div style="padding: 10px" class={`color-${color}${weight}`}>
+                  <div style="padding: 10px" class={`text-${color}${weight}`}>
                     {`${color}${weight}`}
                   </div>
                 );
@@ -32,13 +32,13 @@ export default () => (
     <h2>Utility</h2>
     <div class="grid-gutters">
       <div class="md:w-1/3 lg:w-1/4">
-        <div class="color-primary-dark hover:color-primary">class="color-primary-dark hover:color-primary"</div>
+        <div class="text-primary-dark hover:text-primary">class="text-primary-dark hover:text-primary"</div>
       </div>
       <div class="md:w-1/3 lg:w-1/4">
-        <div class="color-primary-dark active:color-primary">class="color-primary-dark active:color-primary"</div>
+        <div class="text-primary-dark active:text-primary">class="text-primary-dark active:text-primary"</div>
       </div>
       <div class="md:w-1/3 lg:w-1/4">
-        <input class="color-primary-dark focus:color-primary" value={'class="color-primary-dark focus:color-primary"'} />
+        <input class="text-primary-dark focus:text-primary" value={'class="text-primary-dark focus:text-primary"'} />
       </div>
     </div>
     <div class="grid-gutters">

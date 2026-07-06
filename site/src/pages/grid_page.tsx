@@ -7,10 +7,10 @@ function getGrid(size) {
     let classString2 = `w-${size - i}/${size}`;
     return [
       <div class={classString}>
-        <div class="el-1">class="{classString}"</div>
+        <div class="shadow-xs">class="{classString}"</div>
       </div>,
       <div class={classString2}>
-        <div class="el-1">class="{classString2}"</div>
+        <div class="shadow-xs">class="{classString2}"</div>
       </div>
     ];
   });
@@ -69,22 +69,22 @@ export default () => (
     <h2>Responsive columns</h2>
     <div class="grid-gutters">
       <div class="sm:w-6/12 md:w-4/12 lg:w-3/12 xl:w-2/12">
-        <div class="el-1 hover:el-12">sm:w-6/12 md:w-4/12 lg:w-3/12 xl:w-2/12</div>
+        <div class="shadow-xs hover:shadow-3xl">sm:w-6/12 md:w-4/12 lg:w-3/12 xl:w-2/12</div>
       </div>
       <div class="sm:w-6/12 md:w-4/12 lg:w-3/12 xl:w-2/12">
-        <div class="el-1 hover:el-12">sm:w-6/12 md:w-4/12 lg:w-3/12 xl:w-2/12</div>
+        <div class="shadow-xs hover:shadow-3xl">sm:w-6/12 md:w-4/12 lg:w-3/12 xl:w-2/12</div>
       </div>
       <div class="sm:w-6/12 md:w-4/12 lg:w-3/12 xl:w-2/12">
-        <div class="el-1 hover:el-12">sm:w-6/12 md:w-4/12 lg:w-3/12 xl:w-2/12</div>
+        <div class="shadow-xs hover:shadow-3xl">sm:w-6/12 md:w-4/12 lg:w-3/12 xl:w-2/12</div>
       </div>
       <div class="sm:w-6/12 md:w-4/12 lg:w-3/12 xl:w-2/12">
-        <div class="el-1 hover:el-12">sm:w-6/12 md:w-4/12 lg:w-3/12 xl:w-2/12</div>
+        <div class="shadow-xs hover:shadow-3xl">sm:w-6/12 md:w-4/12 lg:w-3/12 xl:w-2/12</div>
       </div>
       <div class="sm:w-6/12 md:w-4/12 lg:w-3/12 xl:w-2/12">
-        <div class="el-1 hover:el-12">sm:w-6/12 md:w-4/12 lg:w-3/12 xl:w-2/12</div>
+        <div class="shadow-xs hover:shadow-3xl">sm:w-6/12 md:w-4/12 lg:w-3/12 xl:w-2/12</div>
       </div>
       <div class="sm:w-6/12 md:w-4/12 lg:w-3/12 xl:w-2/12">
-        <div class="el-1 hover:el-12">sm:w-6/12 md:w-4/12 lg:w-3/12 xl:w-2/12</div>
+        <div class="shadow-xs hover:shadow-3xl">sm:w-6/12 md:w-4/12 lg:w-3/12 xl:w-2/12</div>
       </div>
     </div>
     <h2>Other row sizes</h2>

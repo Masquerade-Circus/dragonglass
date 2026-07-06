@@ -19,7 +19,7 @@ export default () => (
           <section>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia...</section>
           <footer>
             <nav>
-              <button class="color-primary">Get started</button>
+              <button class="text-primary">Get started</button>
             </nav>
           </footer>
         </dialog>
@@ -40,7 +40,7 @@ export default () => (
           <section>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia...</section>
           <footer>
             <nav>
-              <button class="color-primary">Get started</button>
+              <button class="text-primary">Get started</button>
             </nav>
           </footer>
         </dialog>
@@ -92,7 +92,7 @@ export default () => (
           <section>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia...</section>
           <footer>
             <nav>
-              <button class="color-primary">Get started</button>
+              <button class="text-primary">Get started</button>
             </nav>
           </footer>
         </dialog>

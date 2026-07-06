@@ -12,52 +12,71 @@
 }
 
 /* style */
-@each $val in normal, italic, oblique, inherit {
-  .focus\:text-style-#{$val}:focus,
-  .active\:text-style-#{$val}:active,
-  .hover\:text-style-#{$val}:hover,
-  .text-style-#{$val} {
+.focus\:normal-style:focus,
+.active\:normal-style:active,
+.hover\:normal-style:hover,
+.normal-style {
+  font-style: normal;
+}
+
+@each $val in italic, oblique {
+  .focus\:#{$val}:focus,
+  .active\:#{$val}:active,
+  .hover\:#{$val}:hover,
+  .#{$val} {
     font-style: $val;
   }
 }
 
-/* variant */
-@each $val in normal, small-caps {
-  .focus\:text-variant-#{$val}:focus,
-  .active\:text-variant-#{$val}:active,
-  .hover\:text-variant-#{$val}:hover,
-  .text-variant-#{$val}  {
-    font-variant: $val;
-  }
-}
-
 /* weight */
-@each $val in normal, bold, lighter, bolder, 100, 200, 300, 400, 500, 600, 700, 800, 900, inherit {
-  .focus\:text-weight-#{$val}:focus,
-  .active\:text-weight-#{$val}:active,
-  .hover\:text-weight-#{$val}:hover,
-  .text-weight-#{$val} {
+@each $name, $val in (
+  "thin": 100,
+  "extralight": 200,
+  "light": 300,
+  "normal": 400,
+  "medium": 500,
+  "semibold": 600,
+  "bold": 700,
+  "extrabold": 800,
+  "black": 900
+) {
+  .focus\:font-#{$name}:focus,
+  .active\:font-#{$name}:active,
+  .hover\:font-#{$name}:hover,
+  .font-#{$name} {
     font-weight: $val;
   }
 }
 
 /* text transform */
-@each $val in none, capitalize, uppercase, lowercase {
-  .focus\:text-transform-#{$val}:focus,
-  .active\:text-transform-#{$val}:active,
-  .hover\:text-transform-#{$val}:hover,
-  .text-transform-#{$val}  {
+@each $name, $val in (
+  uppercase: uppercase,
+  lowercase: lowercase,
+  capitalize: capitalize,
+  normal-case: none
+) {
+  .focus\:#{$name}:focus,
+  .active\:#{$name}:active,
+  .hover\:#{$name}:hover,
+  .#{$name} {
     text-transform: $val;
   }
 }
 
 /* line height */
-@each $val in 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200 {
-  .focus\:line-height-#{$val}:focus,
-  .active\:line-height-#{$val}:active,
-  .hover\:line-height-#{$val}:hover,
-  .line-height-#{$val}  {
-    line-height: #{$val}#{'%'};
+@each $name, $val in (
+  none: 1,
+  tight: 1.25,
+  snug: 1.375,
+  normal: 1.5,
+  relaxed: 1.625,
+  loose: 2
+) {
+  .focus\:leading-#{$name}:focus,
+  .active\:leading-#{$name}:active,
+  .hover\:leading-#{$name}:hover,
+  .leading-#{$name}  {
+    line-height: $val;
   }
 }
 

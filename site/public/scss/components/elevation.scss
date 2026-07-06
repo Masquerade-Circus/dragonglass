@@ -1,10 +1,11 @@
+@use "sass:map";
 @use './vars' as *;
 
 :root{
-  @each $base in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 {
-    --emboss-#{$base}: #{0 $base * 1px $base * 1.5px 0 rgba(0, 0, 0, 0.2) inset, 
+  @each $name, $base in $shadowSizes {
+    --shadow-inner-#{$name}: #{0 $base * 1px $base * 1.5px 0 rgba(0, 0, 0, 0.2) inset,
       0 $base * 1.5px $base * 1px $base * -1.5px rgba(0, 0, 0, 0.2) inset};
-    --elevation-#{$base}: #{0 $base * 1px $base * 1.5px 0 rgba(0, 0, 0, 0.2), 
+    --shadow-#{$name}: #{0 $base * 1px $base * 1.5px 0 rgba(0, 0, 0, 0.2),
       0 $base * 1.5px $base * 1px $base * -1.5px rgba(0, 0, 0, 0.2)};
   }
 }
@@ -17,27 +18,34 @@
   position: relative;
   transition: var(--animate-all);
   @if $isInset {
-    box-shadow: var(--emboss-#{$base}#{$color});
-  } @else {  
-    z-index: $base;
-    box-shadow: var(--elevation-#{$base}#{$color});
+    box-shadow: var(--shadow-inner-#{$base}#{$color});
+  } @else {
+    z-index: round(map.get($shadowSizes, $base));
+    box-shadow: var(--shadow-#{$base}#{$color});
   }
 }
 
-@each $size in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 {
-  .focus\:el-#{$size}:focus, 
-  .active\:el-#{$size}:active, 
-  .hover\:el-#{$size}:hover, 
-  .el-#{$size} {
+@each $size, $base in $shadowSizes {
+  .focus\:shadow-#{$size}:focus,
+  .active\:shadow-#{$size}:active,
+  .hover\:shadow-#{$size}:hover,
+  .shadow-#{$size} {
     @include elevation($size);
   }
 }
 
-@each $size in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 {
-  .focus\:em-#{$size}:focus, 
-  .active\:em-#{$size}:active, 
-  .hover\:em-#{$size}:hover, 
-  .em-#{$size} {
+@each $size, $base in $shadowSizes {
+  .focus\:shadow-inner-#{$size}:focus,
+  .active\:shadow-inner-#{$size}:active,
+  .hover\:shadow-inner-#{$size}:hover,
+  .shadow-inner-#{$size} {
     @include elevation($size, true);
   }
+}
+
+.focus\:shadow-none:focus,
+.active\:shadow-none:active,
+.hover\:shadow-none:hover,
+.shadow-none {
+  box-shadow: none;
 }

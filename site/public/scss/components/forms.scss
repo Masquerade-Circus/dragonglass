@@ -3,7 +3,6 @@
 input,
 select,
 textarea {
-  outline: 0;
   transition: var(--animate-all-fastest);
   border: 0;
   border-bottom: 0.06em solid;
@@ -43,7 +42,6 @@ label {
   will-change: transform;
   width: 1.5em;
   height: 1.5em;
-  outline: none;
   overflow: hidden;
   border: 0.15em solid var(--default-light);
   padding: 0;

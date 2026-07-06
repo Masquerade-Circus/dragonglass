@@ -1,23 +1,22 @@
 @use "sass:math";
 @use './vars' as *;
 
-@each $name, $val in $sizes {
-  .u-p-#{$name} {padding: $val;}
-  .u-pt-#{$name} {padding-top: $val;}
-  .u-pr-#{$name} {padding-right: $val;}
-  .u-pb-#{$name} {padding-bottom: $val;}
-  .u-pl-#{$name} {padding-left: $val;}
-  
+@each $name, $val in $spacing {
+  .p-#{$name} {padding: var(--spacing-#{$name});}
+  .pt-#{$name} {padding-top: var(--spacing-#{$name});}
+  .pr-#{$name} {padding-right: var(--spacing-#{$name});}
+  .pb-#{$name} {padding-bottom: var(--spacing-#{$name});}
+  .pl-#{$name} {padding-left: var(--spacing-#{$name});}
 
-  .u-m-#{$name} {margin: $val;}
-  .u-mt-#{$name} {margin-top: $val;}
-  .u-mr-#{$name} {margin-right: $val;}
-  .u-mb-#{$name} {margin-bottom: $val;}
-  .u-ml-#{$name} {margin-left: $val;}
+  .m-#{$name} {margin: var(--spacing-#{$name});}
+  .mt-#{$name} {margin-top: var(--spacing-#{$name});}
+  .mr-#{$name} {margin-right: var(--spacing-#{$name});}
+  .mb-#{$name} {margin-bottom: var(--spacing-#{$name});}
+  .ml-#{$name} {margin-left: var(--spacing-#{$name});}
 }
 
 @each $val in relative, static, absolute, fixed, sticky {
-  .u-position-#{$val} {
+  .#{$val} {
     position: $val;
   }
 }
@@ -56,15 +55,67 @@
 @include generate(1200px, xl);
 
 [class*="border-"]{
-  border-width: var(--border-size-xs2);
+  border-width: var(--border-size-1);
 }
 
 @each $name, $val in $borderSizes {
+  @if $name == 1 {
+    .focus\:border:focus,
+    .active\:border:active,
+    .hover\:border:hover,
+    .border {
+      border-width: var(--border-size-1);
+    }
+  }
+
   .focus\:border-#{$name}:focus,
   .active\:border-#{$name}:active,
   .hover\:border-#{$name}:hover,
   .border-#{$name} {
     border-width: var(--border-size-#{$name});
+  }
+}
+
+.focus\:outline:focus,
+.active\:outline:active,
+.hover\:outline:hover,
+.outline {
+  outline-width: var(--border-size-1);
+  outline-style: solid;
+}
+
+.focus\:outline-none:focus,
+.active\:outline-none:active,
+.hover\:outline-none:hover,
+.outline-none {
+  outline: none;
+}
+
+@each $name, $val in $borderSizes {
+  .focus\:outline-#{$name}:focus,
+  .active\:outline-#{$name}:active,
+  .hover\:outline-#{$name}:hover,
+  .outline-#{$name} {
+    outline-width: var(--border-size-#{$name});
+    outline-style: solid;
+  }
+}
+
+@each $val in solid, dashed, dotted, double {
+  .focus\:outline-#{$val}:focus,
+  .active\:outline-#{$val}:active,
+  .hover\:outline-#{$val}:hover,
+  .outline-#{$val} {
+    outline-style: $val;
+  }
+}
+
+@each $name, $val in $spacing {
+  .focus\:outline-offset-#{$name}:focus,
+  .active\:outline-offset-#{$name}:active,
+  .hover\:outline-offset-#{$name}:hover,
+  .outline-offset-#{$name} {
+    outline-offset: var(--spacing-#{$name});
   }
 }
 

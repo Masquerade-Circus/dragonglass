@@ -14,7 +14,6 @@ button,
   display: inline-block;
   font-weight: 500;
   white-space: nowrap;
-  outline: none;
   cursor: pointer;
   text-decoration: none;
   text-align: center;
@@ -42,5 +41,5 @@ button,
   position: fixed;
   right: 1rem;
   bottom: 1rem;
-  box-shadow: var(--elevation-4);
+  box-shadow: var(--shadow-base);
 }

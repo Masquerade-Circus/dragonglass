@@ -6,7 +6,7 @@
     position: absolute;
     border-radius: 0.25em;
     font-size: var(--font-size-sm);
-    line-height: var(--lg);
+    line-height: var(--spacing-5);
     font-weight: bold;
     top: 100%;
     left: 50%;
@@ -14,7 +14,7 @@
     text-align: center;
     opacity: 0;
     transform: translate(-50%) scale(0);
-    box-shadow: var(--elevation-2);
+    box-shadow: var(--shadow);
     transform-origin: top center;
     white-space: nowrap;
     padding: 0 0.5em;
@@ -52,4 +52,3 @@
     }
   }
 }
-

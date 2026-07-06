@@ -1,52 +1,58 @@
 @use "sass:color";
 @use "sass:map";
 
-$sizes: (
-  xs2: 0.25rem,
-  xs: 0.5rem,
-  sm: 0.75rem,
-  md: 1rem,
-  lg: 1.25rem,
-  xl: 1.5rem,
-  xl2: 1.965rem,
-  xl3: 2rem,
-  xl4: 2.25rem,
-  xl5: 2.5rem,
-  xl6: 2.75rem,
-  xl7: 3rem,
-  xl8: 4rem
+$spacing: (
+  0: 0,
+  px: 1px,
+  1: 0.25rem,
+  2: 0.5rem,
+  3: 0.75rem,
+  4: 1rem,
+  5: 1.25rem,
+  6: 1.5rem,
+  8: 2rem,
+  10: 2.5rem,
+  12: 3rem,
+  16: 4rem
 );
 
 $fontSizes: (
+  2xs: 0.75rem,
   xs: 0.8rem,
   sm: 0.9rem,
-  md: 1rem,
+  base: 1rem,
   lg: 1.25rem,
   xl: 1.5rem,
-  xl2: 1.965rem,
-  xl3: 2rem,
-  xl4: 2.25rem,
-  xl5: 2.5rem,
-  xl6: 2.75rem,
-  xl7: 3rem,
-  xl8: 4rem
+  2xl: 1.965rem,
+  3xl: 2.25rem
 );
 
 $borderSizes: (
-  no-border: 0,
-  xs2: 0.06rem,
-  xs: 0.13rem,
-  sm: 0.19rem,
-  md: 0.25rem,
-  lg: 0.38rem,
-  xl: 0.5rem,
-  xl2: 0.75rem,
-  xl3: 1rem,
-  xl4: 1.25rem,
-  xl5: 2.25rem,
-  xl6: 2rem,
-  xl7: 2.5rem,
-  xl8: 3rem
+  0: 0,
+  1: 0.06rem,
+  2: 0.13rem,
+  3: 0.19rem,
+  4: 0.25rem,
+  5: 0.38rem,
+  6: 0.5rem,
+  7: 0.75rem,
+  8: 1rem,
+  9: 1.25rem,
+  10: 2rem,
+  11: 2.25rem,
+  12: 2.5rem,
+  13: 3rem
+);
+
+$shadowSizes: (
+  2xs: 0.5,
+  xs: 1,
+  sm: 2,
+  base: 4,
+  lg: 6,
+  xl: 8,
+  2xl: 12,
+  3xl: 16
 );
 
 $primaryColors: (

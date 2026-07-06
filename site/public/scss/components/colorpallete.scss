@@ -36,6 +36,15 @@ $tolerance: 67;
         color: border-text-color($color, $name, $weight);
       }
 
+      .focus\:outline-#{$name}#{$weight}:focus,
+      .active\:outline-#{$name}#{$weight}:active,
+      .hover\:outline-#{$name}#{$weight}:hover,
+      .after\:outline-#{$name}#{$weight}::after,
+      .before\:outline-#{$name}#{$weight}::before,
+      .outline-#{$name}#{$weight} {
+        outline-color: var(--#{$name}#{$weight});
+      }
+
       .focus\:bg-#{$name}#{$weight}:focus,
       .active\:bg-#{$name}#{$weight}:active,
       .hover\:bg-#{$name}#{$weight}:hover,
@@ -46,12 +55,12 @@ $tolerance: 67;
         color: background-text-color($color, $name);
       }
 
-      .focus\:color-#{$name}#{$weight}:focus,
-      .active\:color-#{$name}#{$weight}:active,
-      .hover\:color-#{$name}#{$weight}:hover,
-      .after\:color-#{$name}#{$weight}::after,
-      .before\:color-#{$name}#{$weight}::before,
-      .color-#{$name}#{$weight} {
+      .focus\:text-#{$name}#{$weight}:focus,
+      .active\:text-#{$name}#{$weight}:active,
+      .hover\:text-#{$name}#{$weight}:hover,
+      .after\:text-#{$name}#{$weight}::after,
+      .before\:text-#{$name}#{$weight}::before,
+      .text-#{$name}#{$weight} {
         color: var(--#{$name}#{$weight});
       }
     }
@@ -71,6 +80,15 @@ $tolerance: 67;
       border-color: var(--#{$name});
     }
 
+    .focus\:outline-#{$name}:focus,
+    .active\:outline-#{$name}:active,
+    .hover\:outline-#{$name}:hover,
+    .after\:outline-#{$name}::after,
+    .before\:outline-#{$name}::before,
+    .outline-#{$name} {
+      outline-color: var(--#{$name});
+    }
+
     .focus\:bg-#{$name}:focus,
     .active\:bg-#{$name}:active,
     .hover\:bg-#{$name}:hover,
@@ -80,12 +98,12 @@ $tolerance: 67;
       background-color: var(--#{$name});
     }
 
-    .focus\:color-#{$name}:focus,
-    .active\:color-#{$name}:active,
-    .hover\:color-#{$name}:hover,
-    .after\:color-#{$name}::after,
-    .before\:color-#{$name}::before,
-    .color-#{$name} {
+    .focus\:text-#{$name}:focus,
+    .active\:text-#{$name}:active,
+    .hover\:text-#{$name}:hover,
+    .after\:text-#{$name}::after,
+    .before\:text-#{$name}::before,
+    .text-#{$name} {
       color: var(--#{$name});
     }
   }

@@ -20,7 +20,7 @@ export default () => (
       {colors.map((item) => (
         <div>
           <span data-tooltip="This is a tooltip" class={"inline after:bg-" + item}>
-            This element has a <span class={`color-${item}`}>{item}</span> tooltip
+            This element has a <span class={`text-${item}`}>{item}</span> tooltip
           </span>
         </div>
       ))}
@@ -28,8 +28,8 @@ export default () => (
       <h2>Directions</h2>
       {directions.map((item) => (
         <div>
-          <span data-tooltip="This is a tooltip" class={"inline u-ml-xl8 ui-" + item}>
-            This element has a <span class={`color-info`}>{item}</span> tooltip
+          <span data-tooltip="This is a tooltip" class={"inline ml-16 ui-" + item}>
+            This element has a <span class={`text-info`}>{item}</span> tooltip
           </span>
         </div>
       ))}
