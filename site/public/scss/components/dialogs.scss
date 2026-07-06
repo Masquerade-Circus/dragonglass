@@ -1,6 +1,6 @@
 /*** Dialog Enhancement ***/
-@import './trigger.scss';
-@import './cards.scss';
+@use './trigger';
+@use './cards';
 
 dialog {
   @extend [data-card];

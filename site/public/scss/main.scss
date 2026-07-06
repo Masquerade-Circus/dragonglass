@@ -1,64 +1,64 @@
 /************************** Main styles **************************/
 /*** Helpers ***/
-@import "components/helpers";
+@use "components/helpers";
 /*** Css Resets ***/
-@import "../../../node_modules/modern-css-reset/dist/reset";
-@import "components/reset.scss";
+@use "../../../node_modules/modern-css-reset/dist/reset" as modernReset;
+@use "components/reset" as dragonglassReset;
 
 // /*** Animation Definitions ***/
-// @import "components/animations";
+// @use "components/animations";
 /*** Grid ***/
-@import "components/grid";
+@use "components/grid";
 /*** Elevation classes ***/
-@import "components/elevation";
+@use "components/elevation";
 
 // /*** Overlay ***/
-// @import "components/overlay";
+// @use "components/overlay";
 // /*** Ripple ***/
-// @import "components/ripple";
+// @use "components/ripple";
 
 // /************************** Components **************************/
 /*** Code ***/
-@import "components/code";
+@use "components/code";
 /*** Progress ***/
-@import "components/progress";
+@use "components/progress";
 // /*** Spinners ***/
-// @import "components/spinners";
+// @use "components/spinners";
 /*** Tooltips ***/
-@import "components/tooltips";
+@use "components/tooltips";
 /*** Badges ***/
-@import "components/badges";
+@use "components/badges";
 /*** Buttons ***/
-@import "components/buttons";
+@use "components/buttons";
 /*** ToolBar ***/
-@import "components/tool-bar";
+@use "components/tool-bar";
 // /*** Hr ***/
-// @import "components/hr";
+// @use "components/hr";
 /*** Lists ***/
-@import "components/lists";
+@use "components/lists";
 /*** Details ***/
-@import "components/details";
+@use "components/details";
 /*** Menus ***/
-@import "components/menus";
+@use "components/menus";
 /*** Tables ***/
-@import "components/tables";
+@use "components/tables";
 /*** Cards ***/
-@import "components/cards";
+@use "components/cards";
 // /*** Dialogs ***/
-@import "components/dialogs";
+@use "components/dialogs";
 /*** Forms ***/
-@import "components/forms";
+@use "components/forms";
 // /*** Flexible Bar ***/
-// @import "components/flexible-bar";
+// @use "components/flexible-bar";
 /*** Drawers ***/
-@import "components/drawers";
+@use "components/drawers";
 // /*** Layout ***/
-// @import "components/layout";
+// @use "components/layout";
 /*** Fonts ***/
-@import "components/fonts";
+@use "components/fonts";
 
 /*** Colorpallete ***/
-@import "components/colorpallete";
+@use "components/colorpallete";
 
 // /************************** Utility classes **************************/
-@import "components/utility";
+@use "components/utility";

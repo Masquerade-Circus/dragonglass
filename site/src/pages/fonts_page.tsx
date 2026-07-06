@@ -1,4 +1,4 @@
-const Layout = require("./layout");
+import Layout from "./layout";
 
 let sizes = {
   xs: 0.8, // 8px
@@ -14,7 +14,7 @@ let sizes = {
   xl7: 3 // 48px
 };
 
-module.exports = () => (
+export default () => (
   <Layout>
     <h2>Fonts</h2>
     <hr />

@@ -1,4 +1,4 @@
-const Layout = require("./layout");
+import Layout from "./layout";
 
 let primaryColors = ["primary", "accent", "success", "info", "warning", "danger", "default"];
 
@@ -55,7 +55,7 @@ const Table = (props) => (
     </tbody>
   </table>
 );
-module.exports = () => (
+export default () => (
   <Layout>
     <h2>Tables</h2>
     <hr />

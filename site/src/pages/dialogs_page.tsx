@@ -1,6 +1,6 @@
-const Layout = require("./layout");
+import Layout from "./layout";
 
-module.exports = () => (
+export default () => (
   <Layout>
     <h2>Dialogs</h2>
     <hr />

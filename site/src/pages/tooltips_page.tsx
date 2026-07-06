@@ -1,9 +1,9 @@
-const Layout = require("./layout");
+import Layout from "./layout";
 
 let colors = ["primary", "accent", "info", "success", "warning", "danger", "default"];
 let directions = ["left", "right", "top"];
 
-module.exports = () => (
+export default () => (
   <Layout>
     <h2>Tooltips</h2>
     <hr />

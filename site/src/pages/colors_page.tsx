@@ -1,8 +1,8 @@
-const Layout = require("./layout");
+import Layout from "./layout";
 let colors = ["primary", "accent", "info", "success", "warning", "danger", "default"];
 let weights = ["-bright", "-lightest", "-light", "", "-dark", "-darkest"];
 
-module.exports = () => (
+export default () => (
   <Layout>
     <h2>Colors</h2>
     <div class="grid">

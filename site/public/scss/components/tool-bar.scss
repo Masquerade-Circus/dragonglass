@@ -1,5 +1,5 @@
-@import './helpers.scss';
-@import './colorpallete.scss';
+@use './helpers' as *;
+@use './colorpallete';
 
 header, footer {
   @include flexContainer(row);

@@ -1,4 +1,4 @@
-const Layout = require("./layout");
+import Layout from "./layout";
 
 function getGrid(size) {
   return Array.from(new Array(size - 1)).map((i, idx) => {
@@ -15,7 +15,7 @@ function getGrid(size) {
     ];
   });
 }
-module.exports = () => (
+export default () => (
   <Layout>
     <h2>
       Simple grid <small>Columns without gutters</small>

@@ -1,14 +1,29 @@
 /*** ColorPallete Start ***/
-@import "./vars.scss";
+@use "sass:color";
+@use "sass:map";
+@use "./vars" as *;
 
 $tolerance: 67;
 
+@function border-text-color($color, $name, $weight) {
+  @if color.channel($color, "lightness", $space: hsl) < 55% {
+    @return var(--#{$name}#{$weight});
+  }
+
+  @return var(--#{$name});
+}
+
+@function background-text-color($color, $name) {
+  @if color.channel($color, "lightness", $space: hsl) > 55% {
+    @return var(--#{$name}-darkest);
+  }
+
+  @return var(--#{$name}-bright);
+}
+
 @each $name, $col in $primaryColors {
   @each $weight in -bright, -lightest, -light, "", -dark, -darkest {
-    $color: map-get(
-      $map: $colors,
-      $key: "#{$name}#{$weight}"
-    );
+    $color: map.get($colors, "#{$name}#{$weight}");
 
     @if $color {
       .focus\:border-#{$name}#{$weight}:focus,
@@ -18,7 +33,7 @@ $tolerance: 67;
       .before\:border-#{$name}#{$weight}::before,
       .border-#{$name}#{$weight} {
         border-color: var(--#{$name}#{$weight});
-        color: if(lightness($color) < 55, var(--#{$name}#{$weight}), var(--#{$name}));
+        color: border-text-color($color, $name, $weight);
       }
 
       .focus\:bg-#{$name}#{$weight}:focus,
@@ -28,7 +43,7 @@ $tolerance: 67;
       .before\:bg-#{$name}#{$weight}::before,
       .bg-#{$name}#{$weight} {
         background-color: var(--#{$name}#{$weight});
-        color: if(lightness($color) > 55, var(--#{$name}-darkest), var(--#{$name}-bright));
+        color: background-text-color($color, $name);
       }
 
       .focus\:color-#{$name}#{$weight}:focus,
@@ -44,10 +59,7 @@ $tolerance: 67;
 }
 
 @each $name, $col in $secondaryColors {
-  $color: map-get(
-    $map: $colors,
-    $key: "#{$name}"
-  );
+  $color: map.get($colors, "#{$name}");
 
   @if $color {
     .focus\:border-#{$name}:focus,

@@ -1,6 +1,6 @@
 /*** Fonts Start ***/
 /* font-size */
-@import './vars.scss';
+@use './vars' as *;
 
 @each $name, $val in $fontSizes {
   .focus\:text-#{$name}:focus,

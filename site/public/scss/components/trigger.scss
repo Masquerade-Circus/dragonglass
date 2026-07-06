@@ -1,5 +1,5 @@
-@import './helpers.scss';
-@import './buttons.scss';
+@use './helpers' as *;
+@use './buttons';
 
 [data-trigger]{
   position: relative;

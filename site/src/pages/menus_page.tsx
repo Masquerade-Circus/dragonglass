@@ -1,4 +1,4 @@
-const Layout = require("./layout");
+import Layout from "./layout";
 
 let DataList = (
   <dl>
@@ -16,7 +16,7 @@ let DataList = (
   </dl>
 );
 
-module.exports = () => (
+export default () => (
   <Layout>
     <h2>Menus</h2>
     <hr />

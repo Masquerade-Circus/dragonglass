@@ -1,8 +1,8 @@
-const Layout = require("./layout");
+import Layout from "./layout";
 
 let primaryColors = ["primary", "accent", "success", "info", "warning", "danger", "default"];
 
-module.exports = () => (
+export default () => (
   <Layout>
     <h2>Progress</h2>
     <hr />

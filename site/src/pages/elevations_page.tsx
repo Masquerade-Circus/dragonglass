@@ -1,4 +1,4 @@
-const Layout = require("./layout");
+import Layout from "./layout";
 let colors = ["primary", "accent", "info", "success", "warning", "danger", "default"];
 function getElevations(emboss = false) {
   return Array.from(new Array(12)).map((el, index) => {
@@ -18,7 +18,7 @@ function getElevations(emboss = false) {
     );
   });
 }
-module.exports = () => (
+export default () => (
   <Layout>
     <h2>Elevations</h2>
     <div class="grid-gutters">{getElevations()}</div>

@@ -1,4 +1,4 @@
-const Layout = require("./layout");
+import Layout from "./layout";
 let colors = ["primary", "accent", "info", "success", "warning", "danger", "default"];
 let weights = ["-bright", "-lightest", "-light", "", "-dark", "-darkest"];
 
@@ -16,7 +16,7 @@ let sizes = {
   xl7: 3 // 48px
 };
 
-module.exports = () => (
+export default () => (
   <Layout>
     <h1>Default Buttons</h1>
     <button>Default Button</button>
