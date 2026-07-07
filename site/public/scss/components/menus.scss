@@ -4,7 +4,9 @@ menu {
   opacity: 0;
   overflow: hidden;
   transition: all 0.2s ease-in-out;
-  border-radius: 0.25em;
+  border-radius: var(--card-radius);
+  background-color: var(--white);
+  color: var(--default-dark);
   list-style: none;
   margin: 0;
   padding: 0;
@@ -17,18 +19,16 @@ menu {
     bottom: 100%;
     top: auto;
   }
-  
+
   &.ui-right {
     transform-origin: top right;
     right: 0;
   }
-  
+
   &.ui-top.ui-right {
     transform-origin: bottom right;
   }
 }
-
-
 menu[open], [data-trigger][open] menu {
   display: block;
   opacity: 1;

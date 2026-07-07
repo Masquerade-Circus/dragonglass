@@ -1,32 +1,38 @@
 @use './helpers' as *;
 
-nav a,
 button,
 .btn, 
 .fab {
   border-width: 0;
   border-style: solid;
-  border-radius: .25em;
+  border-radius: var(--button-radius);
   position: relative;
   min-width: 3em;
-  padding: .75em .75em;
+  padding: var(--button-padding-y) var(--button-padding-x);
   line-height: 1;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-1);
   font-weight: 500;
   white-space: nowrap;
   cursor: pointer;
   text-decoration: none;
   text-align: center;
   vertical-align: middle;
-  margin: .25rem;
+  margin: 0;
   background-color: transparent;
   transition: var(--animate-all-fastest);
   width: auto;
-  overflow: hidden;
-  &[disabled] {
-    opacity: 0.85;
-    cursor: default;
+
+  &:disabled,
+  &[disabled],
+  &[aria-disabled="true"] {
+    opacity: var(--button-disabled-opacity);
+    cursor: not-allowed;
+    pointer-events: none;
   }
+
   @include hover();
 }
 

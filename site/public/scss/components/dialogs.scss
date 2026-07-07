@@ -13,11 +13,12 @@ dialog {
   right: auto;
   padding: 0;
   border: 0;
+  border-radius: var(--dialog-radius);
   z-index: -1;
   color: inherit;
   box-shadow: var(--shadow-2xl);
   >*{
-    background-color: var(--white);
+    background-color: inherit;
   }
   &::after {
     content: ' ';
@@ -43,4 +44,24 @@ dialog[open], [data-trigger][open] dialog {
   @extend [data-card~="full-width"];
   width: calc(100% - 1rem);
   left: calc(50% - 0.5rem);
+}
+
+dialog[data-bottom-sheet] {
+  width: min(100%, 42rem);
+  max-width: 100%;
+  margin: auto auto 0;
+  border-radius: var(--dialog-radius) var(--dialog-radius) 0 0;
+  top: auto;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: none;
+}
+
+dialog[data-bottom-sheet][open] {
+  display: flex;
+}
+
+dialog[data-bottom-sheet]::backdrop {
+  background-color: color-mix(in srgb, var(--black) 40%, transparent);
 }

@@ -1,28 +1,190 @@
 # dragonglass
 
-Framework de CSS puro, con HTML5 como punto de partida, orientado a construir interfaces rápido con HTML semántico, clases utilitarias, atributos declarativos y componentes predefinidos.
+Dragonglass is an HTML5-first, pure CSS framework for building modern app interfaces with semantic markup, useful defaults, utility classes, declarative attributes, and native browser behavior.
 
-## Propósito
+It starts from the HTML a developer already knows. A plain `button`, `form`, `dialog`, `details`, `progress`, `nav`, `search`, `menu`, or `dl` should look ready for an app before you reach for a pile of classes. Utilities exist for explicit adjustments, not for fixing weak defaults.
 
-`dragonglass` reduce la fricción al crear UI sin depender de JavaScript para la capa visual. El proyecto usa Bun para ejecutar el build, compila SCSS a CSS distribuible y mantiene un sitio local de documentación y demos para revisar y probar componentes, utilidades y ejemplos de uso.
+## What Dragonglass gives you
 
-El repositorio produce dos salidas principales:
+- Semantic HTML as the default UI layer.
+- Pure CSS output in `dist/dragonglass.css` and `dist/dragonglass.min.css`.
+- Modern app components built on native elements and declarative attributes.
+- Utility classes for spacing, color, borders, outlines, shadows, typography, and responsive adjustments.
+- Documentation and demos generated as static HTML in `docs/`.
+- A Bun-powered local development flow for the source repo.
 
-- Un paquete CSS distribuible en `dist/`.
-- Un sitio estático de documentación generado en `docs/`.
+## Design stance
 
-## Enfoque de diseño
+Dragonglass targets modern app development. It does not drag legacy CSS APIs or old-browser workarounds into new code. When a modern browser exposes the actual rendering surface through current CSS, Dragonglass styles that surface directly.
 
-El framework se apoya en estas decisiones:
+This keeps the framework clear for the developer who uses it:
 
-- HTML5 como base de composición.
-- CSS puro como producto publicable.
-- Clases utilitarias para resolver ajustes comunes.
-- Atributos declarativos para expresar variantes o estados desde el marcado.
-- Componentes SCSS separados para mantener la fuente organizada.
-- Variables centrales para tamaños, tipografía, bordes, colores primarios, colores secundarios y variantes.
+- Modern browsers are the baseline.
+- Modern CSS is allowed when it improves the component.
+- Legacy class names do not stay alive after the API changes.
+- The browser is the source of truth for visual behavior.
+- Native pseudo-elements get styled where they actually render.
+- A composed component gets adjusted or removed when it does not hold up visually.
 
-## Estructura del repositorio
+The result is a smaller mental model. You write semantic HTML, add a declarative attribute or a utility when the interface needs one, and move on.
+
+## Component model
+
+Dragonglass treats native elements as the base layer.
+
+```html
+<button>Save changes</button>
+
+<progress value="64" max="100">64%</progress>
+
+<details>
+  <summary>Account settings</summary>
+  <p>Update your profile, password, and notification preferences.</p>
+</details>
+```
+
+Composed components inherit that base and adapt it with a more specific selector.
+
+```html
+<nav data-toolbar>
+  <a href="/dashboard.html">Dashboard</a>
+  <button>New project</button>
+</nav>
+
+<dialog data-bottom-sheet>
+  <header>
+    <h2>Confirm action</h2>
+  </header>
+  <section>This action changes the current workspace.</section>
+  <footer>
+    <button>Cancel</button>
+    <button>Confirm</button>
+  </footer>
+</dialog>
+```
+
+This rule keeps the API honest. A drawer link can inherit from `nav a` and then adjust width, alignment, height, and radius. A bottom sheet can inherit from `dialog` and then adapt placement. The component does not pretend to be a separate universe when it lives inside another flow.
+
+## Utility API
+
+Use utilities when you need an explicit adjustment.
+
+```html
+<section class="bg-primary p-4 shadow-lg">
+  <h2 class="text-xl font-semibold">Project status</h2>
+  <p class="text-sm">Everything important is visible without custom CSS.</p>
+</section>
+```
+
+The naming follows a simple rule:
+
+- Measurable values use numbers: `p-4`, `ml-16`, `border-2`, `outline-4`.
+- Visual scales use semantic names: `shadow-sm`, `shadow-base`, `shadow-xl`.
+- Colors use role names: `bg-primary`, `text-danger`, `border-success`, `outline-danger-light`.
+- Typography uses direct class names: `text-sm`, `text-lg`, `font-semibold`, `italic`, `uppercase`, `leading-relaxed`.
+- Responsive variants use breakpoint prefixes: `sm:`, `md:`, `lg:`, `xl:`.
+
+## Components included
+
+Dragonglass includes styles for native and composed app patterns:
+
+- Buttons and floating action buttons.
+- Forms, floating fields, validation states, sliders, and native pickers.
+- Cards, dialogs, bottom sheets, drawers, menus, and lists.
+- Navigation, toolbars, search, chips, alerts, notifications, tabs, steppers, and expansion panels.
+- Progress bars, indeterminate progress, and spinner-style progress.
+- Spacing, color, border, outline, elevation, position, and typography utilities.
+
+## Install
+
+Install the package with your package manager:
+
+```sh
+bun add dragonglass
+```
+
+Then load the distributed CSS from your app entry point or HTML:
+
+```js
+import "dragonglass/dist/dragonglass.css";
+```
+
+or:
+
+```html
+<link rel="stylesheet" href="./node_modules/dragonglass/dist/dragonglass.css" />
+```
+
+## Use it with plain HTML
+
+Start with semantic markup. Add attributes and utilities only when the interface needs a variant, state, or layout adjustment.
+
+```html
+<body>
+  <header>
+    <nav>
+      <a href="/projects.html" aria-current="page">Projects</a>
+      <a href="/teams.html">Teams</a>
+      <button>New project</button>
+    </nav>
+  </header>
+
+  <article>
+    <header>
+      <h1>Projects</h1>
+      <search>
+        <form role="search">
+          <input type="search" placeholder="Search projects" />
+          <button>Search</button>
+        </form>
+      </search>
+    </header>
+
+    <section>
+      <h2>Website refresh</h2>
+      <p>The team is reviewing the final interface states.</p>
+      <progress value="72" max="100">72%</progress>
+    </section>
+  </article>
+</body>
+```
+
+## Local development from the source repo
+
+Dragonglass uses Bun for the repo workflow.
+
+Install dependencies:
+
+```sh
+bun install
+```
+
+Start the local docs server and Sass watcher:
+
+```sh
+bun run dev
+```
+
+Open the local docs:
+
+```txt
+http://localhost:3004/dragonglass
+```
+
+Run the build:
+
+```sh
+bun run build
+```
+
+The build writes:
+
+- `site/public/css/main.css`.
+- `dist/dragonglass.css`.
+- `dist/dragonglass.min.css`.
+- `docs/`.
+
+## Source structure
 
 ```txt
 dragonglass/
@@ -48,108 +210,13 @@ dragonglass/
 └── README.md
 ```
 
-## Requisitos
+The SCSS source lives in `site/public/scss/main.scss` and `site/public/scss/components/*.scss`.
 
-- Bun.
-- Dependencias instaladas con `bun install`.
+The documentation pages live in `site/src/pages/*_page.tsx`. The docs site uses Valyrian.js with automatic TSX runtime through `jsxImportSource: "valyrian.js"`, and the local server uses `Bun.serve`.
 
-## Instalación
+## Release scripts
 
-Instala las dependencias del proyecto:
-
-```sh
-bun install
-```
-
-## Desarrollo local
-
-Ejecuta el servidor local y el watcher de Sass:
-
-```sh
-bun run dev
-```
-
-Luego abre:
-
-```txt
-http://localhost:3004/dragonglass
-```
-
-También puedes ejecutar cada proceso por separado:
-
-```sh
-bun run dev:server
-```
-
-```sh
-bun run dev:sass
-```
-
-## Build
-
-Genera el CSS compilado, los archivos de distribución y la documentación estática:
-
-```sh
-bun run build
-```
-
-El build ejecuta `bun build.ts` y produce estos artefactos:
-
-- `site/public/css/main.css`
-- `dist/dragonglass.css`
-- `dist/dragonglass.min.css`
-- `docs/`
-
-El proyecto usa el runtime automático de TSX de Valyrian.js con `jsxImportSource: "valyrian.js"`. No uses la factory global `v` para compilar TSX.
-
-## Cómo trabajar en componentes SCSS
-
-La fuente principal del framework vive en:
-
-```txt
-site/public/scss/main.scss
-```
-
-Los componentes viven en:
-
-```txt
-site/public/scss/components/*.scss
-```
-
-Para agregar o modificar un componente:
-
-1. Edita o crea el archivo SCSS del componente dentro de `site/public/scss/components/`.
-2. Verifica que `main.scss` incluya ese componente si el build depende de una importación explícita.
-3. Usa las variables base cuando necesites tamaños, tipografía, bordes, colores o variantes.
-4. Ejecuta `bun run dev` durante el desarrollo para revisar los cambios en el sitio local.
-5. Ejecuta `bun run build` antes de preparar una publicación o revisar los artefactos finales.
-
-## Cómo trabajar en páginas de documentación
-
-Las páginas de documentación y demo viven en:
-
-```txt
-site/src/pages/*_page.tsx
-```
-
-El sitio usa Valyrian.js y `Bun.serve` desde:
-
-```txt
-site/src/index.ts
-site/server.ts
-```
-
-Para agregar o modificar documentación:
-
-1. Edita la página correspondiente en `site/src/pages/`.
-2. Mantén los ejemplos cerca del HTML real que esperas que use una persona desarrolladora.
-3. Registra rutas nuevas en `site/src/index.ts` cuando agregues una página nueva.
-4. Revisa el resultado con `bun run dev`.
-5. Ejecuta `bun run build` para regenerar la versión estática en `docs/`.
-
-## Publicación y release
-
-El proyecto incluye scripts relacionados con publicación:
+The repo includes release helpers:
 
 ```sh
 bun run release-test
@@ -159,29 +226,8 @@ bun run release-test
 bun run release
 ```
 
-Úsalos con cautela. Antes de publicar conviene verificar al menos lo siguiente:
+Before publishing, verify the build output, the static docs, the package metadata, and the version you plan to ship.
 
-- El build termina correctamente.
-- `dist/dragonglass.css` y `dist/dragonglass.min.css` existen y contienen la versión esperada.
-- La documentación estática en `docs/` fue regenerada.
-- Los metadatos de `package.json` apuntan a los archivos reales de distribución.
-- La versión del paquete corresponde al cambio que se va a publicar.
+## License
 
-## Estado actual y pendientes
-
-Estado observado:
-
-- El producto publicable se genera en `dist/dragonglass.css` y `dist/dragonglass.min.css`.
-- La fuente real del framework está en `site/public/scss/main.scss` y `site/public/scss/components/*.scss`.
-- El sistema base de tamaños, tipografía, bordes, colores primarios, colores secundarios y variantes vive en `site/public/scss/components/vars.scss`.
-- El sitio de documentación y demo usa Valyrian.js y `Bun.serve`.
-- No hay tests configurados.
-- ESLint aparece en `devDependencies`, pero no hay una configuración activa.
-
-Pendiente importante antes de publicar:
-
-- El flujo de desarrollo usa Bun. Si agregas scripts nuevos, usa `bun run` para mantener una sola ruta operativa.
-
-## Licencia
-
-Este proyecto usa licencia Apache-2.0. Consulta `LICENSE` para el texto completo.
+Apache-2.0. See `LICENSE` for the full license text.

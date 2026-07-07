@@ -1,0 +1,65 @@
+[data-notification] {
+  --notification-color: var(--primary);
+  position: relative;
+  display: block;
+  max-width: 28rem;
+  margin: 0 0 var(--spacing-3) auto;
+  padding: var(--spacing-3) var(--spacing-4);
+  border: var(--border-size-1) solid var(--notification-color);
+  border-radius: var(--card-radius);
+  background-color: var(--white);
+  color: var(--default-dark);
+  box-shadow: var(--shadow-lg);
+}
+
+[data-notification]:has(> button[aria-label="Close"]),
+[data-notification]:has(> button[aria-label="Dismiss"]) {
+  padding-right: calc(var(--spacing-4) + 2rem);
+}
+
+[data-notification] > button[aria-label="Close"],
+[data-notification] > button[aria-label="Dismiss"] {
+  position: absolute;
+  top: var(--spacing-2);
+  right: var(--spacing-2);
+  width: 2rem;
+  min-width: 2rem;
+  height: 2rem;
+  min-height: 2rem;
+  padding: 0;
+  border: 0;
+  border-radius: 999rem;
+  background-color: transparent;
+  color: inherit;
+  line-height: 1;
+}
+
+[data-notification] > button[aria-label="Close"]::after,
+[data-notification] > button[aria-label="Dismiss"]::after {
+  content: none;
+}
+
+[data-notification] > button[aria-label="Close"]:hover,
+[data-notification] > button[aria-label="Dismiss"]:hover {
+  background-color: var(--default-lightest);
+}
+
+[data-notification="info"] {
+  --notification-color: var(--info);
+}
+
+[data-notification="success"] {
+  --notification-color: var(--success);
+}
+
+[data-notification="warning"] {
+  --notification-color: var(--warning);
+}
+
+[data-notification="danger"] {
+  --notification-color: var(--danger);
+}
+
+[data-notification] > :last-child {
+  margin-bottom: 0;
+}

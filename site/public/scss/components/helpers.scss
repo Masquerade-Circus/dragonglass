@@ -21,6 +21,23 @@
   @each $name, $size in $borderSizes {
     --border-size-#{$name}: #{$size};
   }
+
+  --radius-base: 0.25rem;
+  --button-padding-x: var(--spacing-3);
+  --button-padding-y: var(--spacing-2);
+  --button-radius: var(--radius-base);
+  --button-disabled-opacity: 0.6;
+  --control-bg: inherit;
+  --control-border: var(--default-light);
+  --control-accent: var(--primary);
+  --control-padding-x: var(--spacing-2);
+  --control-padding-y: var(--spacing-1);
+  --control-radius: var(--radius-base);
+  --control-disabled-opacity: 0.6;
+  --card-padding: var(--spacing-4);
+  --card-radius: var(--radius-base);
+  --card-shadow: var(--shadow-base);
+  --dialog-radius: var(--card-radius);
 }
 
 @mixin flexContainer($direction) {
@@ -43,7 +60,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    border-radius: .25em;
+    border-radius: var(--radius-base);
   }
   &:hover::after{
     opacity: 0.1;

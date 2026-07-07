@@ -22,6 +22,14 @@
 @use "components/code";
 /*** Progress ***/
 @use "components/progress";
+/*** Toolbars ***/
+@use "components/toolbars";
+/*** Search ***/
+@use "components/search";
+/*** Chips ***/
+@use "components/chips";
+/*** Alerts ***/
+@use "components/alerts";
 // /*** Spinners ***/
 // @use "components/spinners";
 /*** Tooltips ***/
@@ -38,6 +46,10 @@
 @use "components/lists";
 /*** Details ***/
 @use "components/details";
+/*** Notifications ***/
+@use "components/notifications";
+/*** Steppers ***/
+@use "components/steppers";
 /*** Menus ***/
 @use "components/menus";
 /*** Tables ***/

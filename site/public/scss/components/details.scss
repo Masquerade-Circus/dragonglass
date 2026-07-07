@@ -1,10 +1,13 @@
 details:not([data-trigger]) {
   background-color: var(--default-bright);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
 }
 
 details:not([data-trigger]) summary {
   position: relative;
-  padding: 0.75em 0.75em;
+  padding: var(--button-padding-y) var(--button-padding-x);
   line-height: 1;
   display: block;
   font-weight: 500;
@@ -16,4 +19,87 @@ details:not([data-trigger]) summary {
   overflow: hidden;
   cursor: pointer;
   color: var(--primary);
+}
+
+details[data-expansion-panel] {
+  display: block;
+  width: 100%;
+  border: var(--border-size-1) solid var(--default-light);
+  border-radius: var(--card-radius);
+  background-color: var(--white);
+  box-shadow: var(--shadow-xs);
+}
+
+details[data-expansion-panel] > summary {
+  position: relative;
+  min-height: 3rem;
+  padding: var(--spacing-3) calc(var(--spacing-4) + 1.5rem) var(--spacing-3) var(--spacing-4);
+  cursor: pointer;
+}
+
+details[data-expansion-panel] > summary::after {
+  content: ">";
+  position: absolute;
+  top: var(--spacing-3);
+  right: var(--spacing-4);
+  transition: transform 0.2s ease-in-out;
+}
+
+details[data-expansion-panel][open] > summary::after {
+  transform: rotate(90deg);
+}
+
+details[data-expansion-panel] > :not(summary) {
+  padding: 0 var(--spacing-4) var(--spacing-4);
+}
+
+[data-tabs] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  border-bottom: var(--border-size-1) solid var(--default-light);
+}
+
+[data-tabs] > details {
+  display: flex;
+  flex: 1 1 8rem;
+  flex-wrap: wrap;
+}
+
+[data-tabs] > details > summary {
+  flex: 1 1 100%;
+  order: 1;
+  padding: var(--spacing-3) var(--spacing-4);
+  border-bottom: var(--border-size-2) solid transparent;
+  cursor: pointer;
+  list-style: none;
+  text-align: center;
+}
+
+[data-tabs] > details > summary::-webkit-details-marker {
+  display: none;
+}
+
+[data-tabs] > details[open] > summary {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+[data-tabs] > details > :not(summary) {
+  flex: 0 0 100%;
+  order: 2;
+  padding: var(--spacing-4) 0;
+}
+
+[data-tabs] > details[open] {
+  flex-basis: 100%;
+  order: 2;
+}
+
+[data-tabs] > details:not([open]) {
+  order: 1;
+}
+
+[data-tabs] > details:not([open]) > :not(summary) {
+  display: none;
 }

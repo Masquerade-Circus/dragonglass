@@ -8,13 +8,14 @@
   margin-bottom: 1rem;
   overflow: visible;
   padding: 0;
-  box-shadow: var(--shadow);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
   background-color: var(--white);
   > * {
     z-index: 1;
   }
   & > section {
-    padding: 1rem;
+    padding: var(--card-padding);
   }
   & > [data-media] {
     order: 0;
@@ -30,12 +31,12 @@
     background-position: 50% 0%;
     color: var(--default-bright);
     &:first-child {
-      border-top-left-radius: 0.25rem;
-      border-top-right-radius: 0.25rem;
+      border-top-left-radius: var(--card-radius);
+      border-top-right-radius: var(--card-radius);
     }
     &:last-child {
-      border-bottom-left-radius: 0.25rem;
-      border-bottom-right-radius: 0.25rem;
+      border-bottom-left-radius: var(--card-radius);
+      border-bottom-right-radius: var(--card-radius);
     }
     & > header {
       margin: 0;

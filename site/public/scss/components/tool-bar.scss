@@ -49,10 +49,40 @@ nav {
   flex-direction: row;
   align-items: center;
   flex-wrap: nowrap;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  gap: var(--spacing-1);
+  padding: var(--spacing-1);
   flex: 0 1 auto;
   overflow: visible;
   color: inherit;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.25rem;
+    padding: 0 var(--spacing-3);
+    border-radius: 0.25rem;
+    color: inherit;
+    font-size: 1em;
+    font-weight: 500;
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: var(--animate-all-fastest);
+
+    &:hover {
+      background-color: var(--default-lightest);
+      color: var(--default-dark);
+    }
+
+    &[aria-current="page"] {
+      background-color: var(--primary-bright);
+      color: var(--primary);
+    }
+  }
+
   > .fab {
     box-shadow: none;
     position: relative;
@@ -62,12 +92,6 @@ nav {
     right: auto;
     bottom: auto;
     vertical-align: middle;
-    font-size: 1em;
-  }
-  >a, >.btn, >button, >input[type="submit"]{
-    @extend .btn;
-    text-transform: none;
-    color: inherit;
     font-size: 1em;
   }
 }

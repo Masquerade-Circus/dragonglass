@@ -1,0 +1,29 @@
+nav[data-toolbar] {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-3);
+  border-bottom: var(--border-size-1) solid var(--default-light);
+}
+
+nav[data-toolbar] > button,
+nav[data-toolbar] > a,
+nav[data-toolbar] > [data-chip] {
+  margin: 0;
+}
+
+header > nav[data-toolbar],
+footer > nav[data-toolbar],
+header nav[data-toolbar],
+footer nav[data-toolbar] {
+  padding: 0;
+  border-bottom: 0;
+}
+
+header nav[data-toolbar] > button,
+footer nav[data-toolbar] > button,
+header nav[data-toolbar] > a,
+footer nav[data-toolbar] > a {
+  margin-bottom: 0;
+}

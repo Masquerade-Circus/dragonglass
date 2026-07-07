@@ -1,0 +1,38 @@
+[data-chip] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-1);
+  min-height: 2rem;
+  padding: 0 var(--spacing-3);
+  border: var(--border-size-1) solid var(--default-light);
+  border-radius: 999rem;
+  background-color: var(--white);
+  color: var(--default-dark);
+  font-size: var(--font-size-sm);
+  line-height: 1;
+  text-decoration: none;
+}
+
+a[data-chip],
+button[data-chip],
+label[data-chip] {
+  cursor: pointer;
+}
+
+[data-chip]:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+[data-chip]:has(input:checked),
+[data-chip][aria-pressed="true"],
+[data-chip][aria-current="true"] {
+  border-color: var(--primary);
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+[data-chip] > input {
+  margin: 0;
+}

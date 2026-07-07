@@ -16,7 +16,10 @@ let sizes = {
 export default () => (
   <Layout>
     <h1>Default Buttons</h1>
+    <p>Plain button elements are styled by default. Utilities are optional.</p>
     <button>Default Button</button>
+    <button disabled>Disabled Button</button>
+    <button aria-disabled="true">ARIA Disabled Button</button>
     <div v-for={colors}>{(color) => <button class={`bg-${color}`}>class="bg-{color}"</button>}</div>
     <hr />
 

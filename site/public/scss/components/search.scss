@@ -1,0 +1,24 @@
+search,
+form[role="search"] {
+  display: block;
+}
+
+search > form,
+form[role="search"] {
+  display: flex;
+  align-items: end;
+  gap: var(--spacing-2);
+}
+
+search label,
+form[role="search"] label {
+  flex: 1 1 auto;
+}
+
+input[type="search"] {
+  width: 100%;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  cursor: pointer;
+}
