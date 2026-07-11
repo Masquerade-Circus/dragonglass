@@ -6,7 +6,10 @@ let DataList = (
       <button>
         <i class="material-icons bg-info">person</i>
         <span>
-          Bryan Cranston <small>Bryan Cranston played the role of Walter in Breaking Bad. </small>
+          Bryan Cranston{" "}
+          <small>
+            Bryan Cranston played the role of Walter in Breaking Bad.{" "}
+          </small>
         </span>
       </button>
       <button>
@@ -28,17 +31,17 @@ export default () => (
 
       <details data-trigger>
         <summary>Menu top</summary>
-        <menu class="ui-top">{DataList}</menu>
+        <menu data-menu="top">{DataList}</menu>
       </details>
 
       <details data-trigger>
         <summary>Menu right</summary>
-        <menu class="ui-right">{DataList}</menu>
+        <menu data-menu="right">{DataList}</menu>
       </details>
 
       <details data-trigger>
         <summary>Menu top right</summary>
-        <menu class="ui-top ui-right">{DataList}</menu>
+        <menu data-menu="top right">{DataList}</menu>
       </details>
     </div>
   </Layout>

@@ -14,6 +14,7 @@ export default () => (
           {item}
         </a>
       ))}
+      <button type="button">Refresh</button>
     </nav>
 
     <h2>Navigation inside a header</h2>

@@ -10,22 +10,22 @@ blockquote[data-alert] {
   color: var(--default-dark);
 }
 
-blockquote[data-alert="info"] {
+blockquote[data-alert~="info"] {
   --alert-color: var(--info);
   --alert-bg: var(--info-light);
 }
 
-blockquote[data-alert="success"] {
+blockquote[data-alert~="success"] {
   --alert-color: var(--success);
   --alert-bg: var(--success-light);
 }
 
-blockquote[data-alert="warning"] {
+blockquote[data-alert~="warning"] {
   --alert-color: var(--warning);
   --alert-bg: var(--warning-light);
 }
 
-blockquote[data-alert="danger"] {
+blockquote[data-alert~="danger"] {
   --alert-color: var(--danger);
   --alert-bg: var(--danger-light);
 }

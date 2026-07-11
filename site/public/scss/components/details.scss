@@ -1,7 +1,8 @@
 details:not([data-trigger]) {
   background-color: var(--default-bright);
+  border: var(--border-size-1) solid var(--default-light);
   border-radius: var(--card-radius);
-  box-shadow: var(--card-shadow);
+  box-shadow: none;
   overflow: hidden;
 }
 
@@ -21,19 +22,24 @@ details:not([data-trigger]) summary {
   color: var(--primary);
 }
 
+details:not([data-trigger]) > :not(summary) {
+  padding: 0 var(--spacing-4) var(--spacing-4);
+}
+
 details[data-expansion-panel] {
   display: block;
   width: 100%;
   border: var(--border-size-1) solid var(--default-light);
   border-radius: var(--card-radius);
   background-color: var(--white);
-  box-shadow: var(--shadow-xs);
+  box-shadow: none;
 }
 
 details[data-expansion-panel] > summary {
   position: relative;
   min-height: 3rem;
-  padding: var(--spacing-3) calc(var(--spacing-4) + 1.5rem) var(--spacing-3) var(--spacing-4);
+  padding: var(--spacing-3) calc(var(--spacing-4) + 1.5rem) var(--spacing-3)
+    var(--spacing-4);
   cursor: pointer;
 }
 
@@ -47,10 +53,6 @@ details[data-expansion-panel] > summary::after {
 
 details[data-expansion-panel][open] > summary::after {
   transform: rotate(90deg);
-}
-
-details[data-expansion-panel] > :not(summary) {
-  padding: 0 var(--spacing-4) var(--spacing-4);
 }
 
 [data-tabs] {

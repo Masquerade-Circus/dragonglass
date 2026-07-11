@@ -8,8 +8,9 @@
   margin-bottom: 1rem;
   overflow: visible;
   padding: 0;
+  border: var(--border-size-1) solid var(--default-light);
   border-radius: var(--card-radius);
-  box-shadow: var(--card-shadow);
+  box-shadow: none;
   background-color: var(--white);
   > * {
     z-index: 1;
@@ -39,6 +40,7 @@
       border-bottom-right-radius: var(--card-radius);
     }
     & > header {
+      @include flexContainer(row);
       margin: 0;
       position: absolute;
       bottom: 0;
@@ -50,6 +52,8 @@
       z-index: 1;
       text-shadow: 0.06rem 0.06rem 0.13rem var(--default-darkest);
       background-color: rgba(33, 33, 33, 0.3);
+      overflow: visible;
+      padding: 1rem;
       > h1,
       > h2,
       > h3 {
@@ -62,13 +66,18 @@
         top: 0;
         right: 0;
         a,
-        .btn,
+        [data-button],
         button {
           text-shadow: 0.06rem 0.06rem 0.13rem var(--default-darkest);
         }
       }
     }
   }
+}
+
+[data-card~="elevated"] {
+  border-color: transparent;
+  box-shadow: var(--card-shadow);
 }
 
 [data-card~="squared"] {

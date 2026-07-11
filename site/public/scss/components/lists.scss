@@ -1,4 +1,4 @@
-@use './helpers' as *;
+@use "./helpers" as *;
 
 dl {
   padding: 0;
@@ -7,11 +7,11 @@ dl {
     display: flex;
     line-height: 1.25;
     background-color: inherit;
-    padding:0;
+    padding: 0;
     align-items: center;
     border-bottom: 0.06em solid;
     border-color: inherit;
-    &:last-child{
+    &:last-child {
       border-bottom-width: 0;
     }
     & > * {
@@ -29,7 +29,7 @@ dl {
       }
       &:nth-child(1) {
         flex-grow: 1;
-          > * {
+        > * {
           display: inline-block;
           vertical-align: middle;
           > small {
@@ -45,7 +45,8 @@ dl {
           white-space: pre-wrap;
           font-size: 0.8em;
         }
-        & > [class*="icon"], &[class*="icon"] {
+        & > [class*="icon"],
+        &[class*="icon"] {
           font-size: 2.5em;
           border-radius: 50%;
           margin: 0;
@@ -57,7 +58,7 @@ dl {
       }
       &:nth-child(2) {
         flex-shrink: 0;
-        &>small{
+        & > small {
           display: block;
           position: relative;
           padding: 0;
@@ -67,7 +68,8 @@ dl {
           opacity: 0.7;
           line-height: 1;
         }
-        & > [class*="icon"], &[class*="icon"] {
+        & > [class*="icon"],
+        &[class*="icon"] {
           font-size: 1.5em;
           color: inherit;
           width: 2em;
@@ -77,13 +79,16 @@ dl {
           margin: 0;
           flex-grow: 0;
         }
-        &[class*="icon"]{
+        &[class*="icon"] {
           line-height: 1;
         }
       }
     }
 
-    & > a, &>button, &>[data-trigger], &>.btn {
+    & > a,
+    & > button,
+    & > [data-trigger],
+    & > [data-button] {
       @include hover();
       justify-content: flex-start;
       margin: 0;
@@ -97,7 +102,7 @@ dl {
     & > a:nth-child(2),
     & > button:nth-child(2),
     & > [data-trigger]:nth-child(2),
-    & > .btn:nth-child(2) {
+    & > [data-button]:nth-child(2) {
       justify-content: center;
       width: auto;
       min-width: 3em;

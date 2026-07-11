@@ -13,31 +13,31 @@ progress {
   accent-color: var(--progress-color);
 }
 
-progress[data-color="primary"] {
+progress[data-progress~="primary"] {
   --progress-color: var(--primary);
 }
 
-progress[data-color="accent"] {
+progress[data-progress~="accent"] {
   --progress-color: var(--accent);
 }
 
-progress[data-color="secondary"] {
+progress[data-progress~="secondary"] {
   --progress-color: var(--secondary);
 }
 
-progress[data-color="success"] {
+progress[data-progress~="success"] {
   --progress-color: var(--success);
 }
 
-progress[data-color="warning"] {
+progress[data-progress~="warning"] {
   --progress-color: var(--warning);
 }
 
-progress[data-color="danger"] {
+progress[data-progress~="danger"] {
   --progress-color: var(--danger);
 }
 
-progress[data-color="info"] {
+progress[data-progress~="info"] {
   --progress-color: var(--info);
 }
 
@@ -57,14 +57,24 @@ progress::-moz-progress-bar {
 
 progress:not([value]) {
   background-color: var(--progress-track);
-  background-image: linear-gradient(90deg, var(--progress-track) 0 35%, var(--progress-color) 50%, var(--progress-track) 65% 100%);
+  background-image: linear-gradient(
+    90deg,
+    var(--progress-track) 0 35%,
+    var(--progress-color) 50%,
+    var(--progress-track) 65% 100%
+  );
   background-size: 200% 100%;
   animation: dragonglass-progress-indeterminate 1.2s ease-in-out infinite;
 }
 
 progress:not([value])::-webkit-progress-bar {
   background-color: var(--progress-track);
-  background-image: linear-gradient(90deg, var(--progress-track) 0 35%, var(--progress-color) 50%, var(--progress-track) 65% 100%);
+  background-image: linear-gradient(
+    90deg,
+    var(--progress-track) 0 35%,
+    var(--progress-color) 50%,
+    var(--progress-track) 65% 100%
+  );
   background-size: 200% 100%;
   animation: dragonglass-progress-indeterminate 1.2s ease-in-out infinite;
 }
@@ -78,20 +88,24 @@ progress:not([value])::-moz-progress-bar {
   animation: dragonglass-progress-indeterminate 1.2s ease-in-out infinite;
 }
 
-progress[data-spinner] {
+progress[data-progress~="spinner"] {
   width: 2rem;
   height: 2rem;
   border-radius: 999rem;
-  background: conic-gradient(from 90deg, transparent 0 25%, var(--progress-color) 25% 100%);
+  background: conic-gradient(
+    from 90deg,
+    transparent 0 25%,
+    var(--progress-color) 25% 100%
+  );
   animation: dragonglass-spin 0.8s linear infinite;
 }
 
-progress[data-spinner]::-webkit-progress-bar,
-progress[data-spinner]::-webkit-progress-value {
+progress[data-progress~="spinner"]::-webkit-progress-bar,
+progress[data-progress~="spinner"]::-webkit-progress-value {
   background: transparent;
 }
 
-progress[data-spinner]::-moz-progress-bar {
+progress[data-progress~="spinner"]::-moz-progress-bar {
   background: transparent;
 }
 

@@ -1,46 +1,50 @@
-@use './helpers' as *;
-@use './colorpallete';
+@use "./helpers" as *;
 
-header, footer {
+header,
+footer {
   @include flexContainer(row);
   overflow: visible;
   height: 3.5rem;
   padding: 1rem;
-  &>nav{
-    &:first-child{
+  & > nav {
+    &:first-child {
       margin-left: -1rem;
     }
-    &:last-child{
+    &:last-child {
       margin-right: -1rem;
+      justify-content: flex-end;
+      flex: 1;
     }
   }
-  >button {
+  > button {
     flex: 0 0 auto;
     padding: 1rem;
     &:first-child {
       margin-right: -1rem;
     }
   }
-  > h1, > h2, > h3 {
+  > h1,
+  > h2,
+  > h3 {
     margin: 0;
     flex: 1 0 auto;
     font-size: 1rem;
   }
 }
 
-footer:last-child{
+:where(body, main, article, dialog, [data-card]) > footer:last-child {
   border-top: 0.06em solid var(--default-lightest);
 }
 
-footer:first-child{
+:where(body, main, article, dialog, [data-card]) > footer:first-child {
   border-top: none;
 }
 
-header:first-child{
+:where(body, main, article, dialog, [data-card]) > header:first-child {
   border-bottom: 0.06em solid var(--default-lightest);
 }
 
-header:last-child{
+:where(body, main, article, dialog, [data-card]) > header:last-child {
   border-bottom: none;
 }
 
@@ -56,7 +60,7 @@ nav {
   overflow: visible;
   color: inherit;
 
-  a {
+  :where(a, button) {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -83,7 +87,7 @@ nav {
     }
   }
 
-  > .fab {
+  > [data-button~="fab"] {
     box-shadow: none;
     position: relative;
     display: inline-block;
@@ -96,16 +100,18 @@ nav {
   }
 }
 
-body>header, body>footer{
-  @extend .bg-primary
+body > header,
+body > footer {
+  background-color: var(--white);
+  color: var(--default-dark);
 }
-header~section, header~article{
-  z-index: 0;
+:where(body, main, article, dialog, [data-card]) > :is(main, section, article) {
+  z-index: 1;
 }
 
-header{
-  z-index: 2;
+:where(body, main, article, dialog, [data-card]) > header {
+  z-index: 3;
 }
-footer{
-  z-index: 1
+:where(body, main, article, dialog, [data-card]) > footer {
+  z-index: 2;
 }

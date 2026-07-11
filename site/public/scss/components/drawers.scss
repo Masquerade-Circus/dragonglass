@@ -3,7 +3,8 @@
   z-index: 8;
   overflow: hidden;
   min-width: 20rem;
-  box-shadow: var(--shadow-2xl);
+  border-right: var(--border-size-1) solid var(--default-light);
+  box-shadow: none;
   top: 0rem;
   bottom: 0;
   max-height: 100%;
@@ -21,8 +22,10 @@
     text-align: left;
   }
 
-  &.ui-right {
+  &[data-drawer~="right"] {
     right: 0;
     left: auto;
+    border-right: 0;
+    border-left: var(--border-size-1) solid var(--default-light);
   }
 }

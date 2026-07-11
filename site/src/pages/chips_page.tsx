@@ -8,9 +8,23 @@ export default () => (
     <section aria-labelledby="chips-basic-title">
       <h3 id="chips-basic-title">Basic chips</h3>
       <p>
-        <button data-chip type="button">Action</button>{" "}
-        <a data-chip href="/dragonglass/forms.html">Link</a>{" "}
+        <button data-chip type="button">
+          Action
+        </button>{" "}
+        <a data-chip href="/dragonglass/forms.html">
+          Link
+        </a>{" "}
         <span data-chip>Read only</span>
+      </p>
+    </section>
+
+    <section aria-labelledby="chips-semantic-title">
+      <h3 id="chips-semantic-title">Semantic chips</h3>
+      <p>
+        <span data-chip="success">Passed</span>{" "}
+        <span data-chip="info">Queued</span>{" "}
+        <span data-chip="warning">Review</span>{" "}
+        <span data-chip="danger">Blocked</span>
       </p>
     </section>
 

@@ -28,6 +28,12 @@ let Header = () => (
 );
 
 let Footer = () => <footer />;
-let Layout: any = (props: any, ...content: any[]) => [<Header />, <article>{content}</article>, <Footer />];
+let Layout: any = (props: any, ...content: any[]) => [
+  <Header />,
+  <main>
+    <section>{content}</section>
+  </main>,
+  <Footer />,
+];
 
 export default Layout;

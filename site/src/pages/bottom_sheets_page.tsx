@@ -7,7 +7,7 @@ export default () => (
 
     <section aria-labelledby="bottom-sheet-open-title">
       <h3 id="bottom-sheet-open-title">Open sheet</h3>
-      <dialog data-bottom-sheet open>
+      <dialog data-dialog="bottom-sheet" open>
         <header>
           <h4>Filters</h4>
         </header>
@@ -33,7 +33,7 @@ export default () => (
 
     <section aria-labelledby="bottom-sheet-closed-title">
       <h3 id="bottom-sheet-closed-title">Closed sheet markup</h3>
-      <dialog data-bottom-sheet>
+      <dialog data-dialog="bottom-sheet no-shadow">
         <header>
           <h4>Share</h4>
         </header>

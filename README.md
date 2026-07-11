@@ -32,6 +32,20 @@ The result is a smaller mental model. You write semantic HTML, add a declarative
 
 Dragonglass treats native elements as the base layer.
 
+`body`, `main`, `article`, `dialog`, and any element with `data-card` share the same container contract. Each container can have a direct `header`, content `section`, and `footer`. The header and footer are optional. A direct `main` fills the height available inside `body`, while its content section handles overflow.
+
+```html
+<body>
+  <header>Application navigation</header>
+  <main>
+    <header>Current workspace</header>
+    <section>Application content</section>
+    <footer>Workspace actions</footer>
+  </main>
+  <footer>Application status</footer>
+</body>
+```
+
 ```html
 <button>Save changes</button>
 
@@ -51,7 +65,7 @@ Composed components inherit that base and adapt it with a more specific selector
   <button>New project</button>
 </nav>
 
-<dialog data-bottom-sheet>
+<dialog data-dialog="bottom-sheet">
   <header>
     <h2>Confirm action</h2>
   </header>
@@ -64,6 +78,39 @@ Composed components inherit that base and adapt it with a more specific selector
 ```
 
 This rule keeps the API honest. A drawer link can inherit from `nav a` and then adjust width, alignment, height, and radius. A bottom sheet can inherit from `dialog` and then adapt placement. The component does not pretend to be a separate universe when it lives inside another flow.
+
+Component attributes identify the component and accept whitespace-separated variants. Native HTML and ARIA expose real state. Classes remain available for generic, one-purpose adjustments.
+
+```html
+<section data-card="full-width elevated">
+  <header>Release</header>
+  <section>Release details</section>
+</section>
+
+<span data-chip="warning">Review required</span>
+<progress data-progress="spinner warning" aria-label="Saving"></progress>
+<button data-button="fab" class="bg-primary">+</button>
+```
+
+Dragonglass uses border-only defaults for structural components. Floating dialogs, notifications, and FABs include elevation by default and accept `no-shadow`. Cards opt into elevation through `data-card="elevated"` or a generic utility such as `shadow-lg`.
+
+Common component APIs:
+
+| Component             | Markup                                                        |
+| --------------------- | ------------------------------------------------------------- |
+| Button variant        | `<button data-button="fab no-shadow">`                        |
+| Card variants         | `<article data-card="full-width elevated">`                   |
+| Chip tone             | `<span data-chip="warning">`                                  |
+| Dialog variants       | `<dialog data-dialog="bottom-sheet full-width no-shadow">`    |
+| Drawer position       | `<nav data-drawer="right">`                                   |
+| Menu position         | `<menu data-menu="top right">`                                |
+| Notification variants | `<aside data-notification="warning bottom center no-shadow">` |
+| Progress variants     | `<progress data-progress="spinner warning">`                  |
+| Stepper layout        | `<ol data-stepper="vertical numbers">`                        |
+| Step status           | `<li data-step="done">`                                       |
+| Table tone            | `<table data-table="primary">`                                |
+| Toggle                | `<input type="checkbox" data-toggle>`                         |
+| Tooltip position      | `<span data-tooltip="Help" data-tooltip-position="top">`      |
 
 ## Utility API
 
@@ -129,7 +176,7 @@ Start with semantic markup. Add attributes and utilities only when the interface
     </nav>
   </header>
 
-  <article>
+  <main>
     <header>
       <h1>Projects</h1>
       <search>
@@ -145,7 +192,7 @@ Start with semantic markup. Add attributes and utilities only when the interface
       <p>The team is reviewing the final interface states.</p>
       <progress value="72" max="100">72%</progress>
     </section>
-  </article>
+  </main>
 </body>
 ```
 

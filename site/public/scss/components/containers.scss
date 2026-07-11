@@ -1,0 +1,71 @@
+:where(body, main, article, dialog, [data-card]) {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+:where(body, main) {
+  min-height: 0;
+}
+
+body {
+  overflow: hidden;
+}
+
+body > :where(main, article, section) {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+body > :where(main, article) {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body > section {
+  overflow: auto;
+  padding: var(--container-padding);
+}
+
+:where(body, main, article, dialog, [data-card]) > header,
+:where(body, main, article, dialog, [data-card]) > footer {
+  flex: 0 0 auto;
+}
+
+:where(main) > section {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  padding: var(--container-padding);
+}
+
+body > article > section {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  padding: var(--container-padding);
+}
+
+:where(article, dialog, [data-card]) > section {
+  min-width: 0;
+  padding: var(--card-padding);
+}
+
+:where(body > main, body > article) > section:has(> aside) {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(18rem, 1fr);
+  align-items: start;
+  gap: var(--spacing-4);
+}
+
+:where(body > main, body > article) > section:has(> aside) > * {
+  min-width: 0;
+}
+
+@media (max-width: 991px) {
+  :where(body > main, body > article) > section:has(> aside) {
+    grid-template-columns: 1fr;
+  }
+}

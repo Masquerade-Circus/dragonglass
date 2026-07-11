@@ -1,4 +1,4 @@
-@use './buttons';
+@use "./buttons";
 
 input,
 select,
@@ -28,19 +28,19 @@ textarea {
     cursor: not-allowed;
   }
 
-  &:invalid:not(:placeholder-shown),
+  &:user-invalid,
   &[aria-invalid="true"] {
     border-color: var(--danger);
     color: var(--danger);
   }
 
-  &:invalid:not(:placeholder-shown):focus,
+  &:user-invalid:focus,
   &[aria-invalid="true"]:focus {
     border-color: var(--danger);
   }
 }
 
-label[for]{
+label[for] {
   cursor: pointer;
   padding: 0 0.25em;
   margin-right: 0.5em;
@@ -74,7 +74,7 @@ label {
     border-color: var(--control-accent);
   }
 
-  &:after{
+  &:after {
     content: " ";
     display: block;
     margin-top: 0.23em;
@@ -100,13 +100,13 @@ label {
   }
 }
 
-.toggle {
+[type="checkbox"][data-toggle] {
   background-color: var(--default-lightest);
   width: 4em;
   height: 2em;
   border-radius: 1em;
   border: 0;
-  &:after{
+  &:after {
     background-color: var(--default-light);
     width: 2em;
     height: 2em;
@@ -155,7 +155,17 @@ input[type="month"],
 input[type="week"],
 input[type="color"],
 select {
-  color-scheme: light dark;
+  color-scheme: light;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator,
+input[type="datetime-local"]::-webkit-calendar-picker-indicator,
+input[type="month"]::-webkit-calendar-picker-indicator,
+input[type="week"]::-webkit-calendar-picker-indicator {
+  display: block;
+  opacity: 1;
+  cursor: pointer;
 }
 
 input[type="color"] {
@@ -219,7 +229,7 @@ fieldset {
 
   &[aria-invalid="true"],
   &:has([aria-invalid="true"]),
-  &:has(:invalid:not(:placeholder-shown)) {
+  &:has(:user-invalid) {
     > legend,
     > small {
       color: var(--danger);
@@ -232,6 +242,18 @@ fieldset {
       color: var(--danger);
     }
   }
+}
+
+fieldset[data-field~="warning"] {
+  color: var(--warning);
+}
+
+fieldset[data-field~="success"] {
+  color: var(--success);
+}
+
+fieldset[data-field] > :is(input, select, textarea) {
+  border-color: currentColor;
 }
 
 fieldset[data-floating] {
@@ -286,7 +308,7 @@ fieldset[data-floating] {
     padding-top: 0.5em;
   }
 
-  > select[multiple]{
+  > select[multiple] {
     margin-top: 0.5em;
   }
 
@@ -320,7 +342,7 @@ fieldset[data-floating] {
   }
 }
 
-input[type="submit"]{
-  @extend .btn;
+input[type="submit"] {
+  @extend [data-button];
   width: auto;
 }

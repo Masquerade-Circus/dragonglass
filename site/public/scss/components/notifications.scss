@@ -1,15 +1,96 @@
 [data-notification] {
   --notification-color: var(--primary);
-  position: relative;
+  position: fixed;
+  z-index: 8;
+  top: var(--spacing-4);
+  right: var(--spacing-4);
+  bottom: auto;
+  left: auto;
   display: block;
-  max-width: 28rem;
-  margin: 0 0 var(--spacing-3) auto;
+  width: max-content;
+  max-width: calc(100vw - (var(--spacing-4) * 2));
+  margin: 0;
   padding: var(--spacing-3) var(--spacing-4);
   border: var(--border-size-1) solid var(--notification-color);
   border-radius: var(--card-radius);
   background-color: var(--white);
   color: var(--default-dark);
   box-shadow: var(--shadow-lg);
+}
+
+[data-notification~="top"] {
+  top: var(--spacing-4);
+  bottom: auto;
+}
+
+[data-notification~="right"] {
+  right: var(--spacing-4);
+  left: auto;
+}
+
+[data-notification~="bottom"] {
+  top: auto;
+  bottom: var(--spacing-4);
+}
+
+[data-notification~="left"] {
+  right: auto;
+  left: var(--spacing-4);
+}
+
+[data-notification~="center"] {
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+[data-notification~="top"][data-notification~="center"] {
+  top: var(--spacing-4);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+[data-notification~="bottom"][data-notification~="center"] {
+  top: auto;
+  bottom: var(--spacing-4);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+[data-notification~="left"][data-notification~="center"] {
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  left: var(--spacing-4);
+  transform: translateY(-50%);
+}
+
+[data-notification~="right"][data-notification~="center"] {
+  top: 50%;
+  right: var(--spacing-4);
+  bottom: auto;
+  left: auto;
+  transform: translateY(-50%);
+}
+
+[data-notification~="no-shadow"] {
+  box-shadow: none;
+}
+
+[data-notification~="inline"] {
+  position: relative;
+  z-index: auto;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  left: auto;
+  display: inline-block;
+  width: auto;
+  max-width: 100%;
+  margin: 0 var(--spacing-3) var(--spacing-3) 0;
+  transform: none;
 }
 
 [data-notification]:has(> button[aria-label="Close"]),
@@ -44,19 +125,19 @@
   background-color: var(--default-lightest);
 }
 
-[data-notification="info"] {
+[data-notification~="info"] {
   --notification-color: var(--info);
 }
 
-[data-notification="success"] {
+[data-notification~="success"] {
   --notification-color: var(--success);
 }
 
-[data-notification="warning"] {
+[data-notification~="warning"] {
   --notification-color: var(--warning);
 }
 
-[data-notification="danger"] {
+[data-notification~="danger"] {
   --notification-color: var(--danger);
 }
 

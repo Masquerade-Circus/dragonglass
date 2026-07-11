@@ -1,5 +1,5 @@
-@use './vars' as *;
-:root{
+@use "./vars" as *;
+:root {
   --animate-all: all 0.3s ease-in-out;
   --animate-all-fastest: all 0.1s ease-in-out;
   --animate-all-fast: all 0.2s ease-in-out;
@@ -34,6 +34,7 @@
   --control-padding-y: var(--spacing-1);
   --control-radius: var(--radius-base);
   --control-disabled-opacity: 0.6;
+  --container-padding: var(--spacing-4);
   --card-padding: var(--spacing-4);
   --card-radius: var(--radius-base);
   --card-shadow: var(--shadow-base);
@@ -47,10 +48,10 @@
   overflow: hidden;
 }
 
-@mixin hover(){
+@mixin hover() {
   cursor: pointer;
-  &::after{
-    content: ' ';
+  &::after {
+    content: " ";
     opacity: 0;
     transition: var(--animate-all-fastest);
     background-color: var(--default-dark);
@@ -62,12 +63,12 @@
     bottom: 0;
     border-radius: var(--radius-base);
   }
-  &:hover::after{
+  &:hover::after {
     opacity: 0.1;
   }
-  &:active{
-    box-shadow: var(--shadow-inner-base);
-    &::after{
+  &:active {
+    box-shadow: none;
+    &::after {
       opacity: 0;
     }
   }
@@ -85,10 +86,10 @@
   opacity: 0;
   cursor: pointer;
   display: none;
-  content: ' ';
-    width: 9999rem;
-    height: 9999rem;
-    transform: translate(-50%, -50%);
+  content: " ";
+  width: 9999rem;
+  height: 9999rem;
+  transform: translate(-50%, -50%);
 }
 
 @mixin overlayHover() {

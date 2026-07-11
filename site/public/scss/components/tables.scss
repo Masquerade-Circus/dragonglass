@@ -1,17 +1,18 @@
-@use './vars' as *;
+@use "./vars" as *;
 
-table{
+table {
   position: relative;
+  width: 100%;
   border-collapse: collapse;
   text-align: right;
   border-radius: 0.5em;
   background-color: var(--white);
   overflow: hidden;
-  margin-top: 0.5em; 
-  margin-bottom: 0.5em; 
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 
-caption{
+caption {
   background-color: inherit;
   color: inherit;
   border-bottom: 0.06em solid;
@@ -30,14 +31,15 @@ thead {
   border-color: inherit;
 }
 
-td, th {
+td,
+th {
   font-weight: normal;
   padding: 1em 2em;
   font-size: 0.9em;
   border-color: inherit;
 }
 
-tbody>tr{
+tbody > tr {
   border-color: inherit;
 }
 
@@ -55,15 +57,15 @@ td::before {
 }
 
 /* Simple CSS for flexbox table on mobile */
-@media(max-width: 800px) {
-  table{
+@media (max-width: 800px) {
+  table {
     width: 100%;
     border-radius: 0 0 0.5em 0.5em;
   }
   thead {
-    display:none;
+    display: none;
   }
-  tbody>tr {
+  tbody > tr {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -87,20 +89,27 @@ td::before {
   }
 }
 
+@media (max-width: 480px) {
+  td {
+    width: 100%;
+  }
+}
+
 @each $name, $col in $primaryColors {
-  table.ui-#{$name}{
-    caption, thead{
+  table[data-table~="#{$name}"] {
+    caption,
+    thead {
       background-color: var(--#{$name});
       color: var(--#{$name}-bright);
       border-color: var(--#{$name}-dark);
     }
-    tbody>tr{
+    tbody > tr {
       border-color: var(--#{$name}-lightest);
-      &:nth-child(even){
+      &:nth-child(even) {
         background-color: var(--#{$name}-bright);
       }
     }
-    td:before{
+    td:before {
       background-color: var(--#{$name});
       color: var(--#{$name}-bright);
     }

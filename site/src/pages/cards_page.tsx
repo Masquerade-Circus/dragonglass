@@ -8,12 +8,23 @@ export default () => (
       <h2>Simple card</h2>
       <hr />
       <section data-card>
-        <section>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia...</section>
+        <section>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+          sagittis pellentesque lacus eleifend lacinia...
+        </section>
+      </section>
+      <h2>Elevated card</h2>
+      <hr />
+      <section data-card="elevated">
+        <section>Elevation is an explicit card variant.</section>
       </section>
       <h2>Card with footer</h2>
       <hr />
       <section data-card>
-        <section>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia...</section>
+        <section>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+          sagittis pellentesque lacus eleifend lacinia...
+        </section>
         <footer>
           <nav>
             <button class="text-primary">Get started</button>
@@ -26,12 +37,15 @@ export default () => (
         <header>
           <h2>Title</h2>
           <nav>
-            <button class="fab">
+            <button data-button="fab">
               <i class="material-icons">share</i>
             </button>
           </nav>
         </header>
-        <section>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia...</section>
+        <section>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+          sagittis pellentesque lacus eleifend lacinia...
+        </section>
         <footer>
           <nav>
             <button class="text-primary">Get started</button>
@@ -41,17 +55,23 @@ export default () => (
       <h2>Card with media</h2>
       <hr />
       <section data-card>
-        <section data-media style="background-image: url('https://picsum.photos/480/480')">
+        <section
+          data-media
+          style="background-image: url('https://picsum.photos/480/480')"
+        >
           <header>
             <h2>Title</h2>
             <nav>
-              <button class="fab">
+              <button data-button="fab">
                 <i class="material-icons">share</i>
               </button>
             </nav>
           </header>
         </section>
-        <section>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia...</section>
+        <section>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+          sagittis pellentesque lacus eleifend lacinia...
+        </section>
         <footer>
           <nav>
             <button class="text-primary">Get started</button>
@@ -61,11 +81,14 @@ export default () => (
       <h2>Card squared</h2>
       <hr />
       <section data-card="squared">
-        <section data-media style="background-image: url('https://picsum.photos/200/300')">
+        <section
+          data-media
+          style="background-image: url('https://picsum.photos/200/300')"
+        >
           <header>
             <h2>Title</h2>
             <nav>
-              <button class="fab">
+              <button data-button="fab">
                 <i class="material-icons">share</i>
               </button>
             </nav>
@@ -79,7 +102,7 @@ export default () => (
           <header>
             <h2>Title</h2>
             <nav>
-              <button class="fab">
+              <button data-button="fab">
                 <i class="material-icons">share</i>
               </button>
             </nav>
@@ -95,12 +118,15 @@ export default () => (
         <header>
           <h2>Title</h2>
           <nav>
-            <button class="fab">
+            <button data-button="fab">
               <i class="material-icons">share</i>
             </button>
           </nav>
         </header>
-        <section>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia...</section>
+        <section>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+          sagittis pellentesque lacus eleifend lacinia...
+        </section>
         <footer>
           <nav>
             <button class="text-primary">Get started</button>

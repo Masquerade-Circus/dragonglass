@@ -4,12 +4,15 @@ code {
   text-align: left;
   padding: 0.5em 0.75em;
   overflow: auto;
-  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  font-family:
+    "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter",
+    monospace;
   clear: both;
   display: block;
   background-color: var(--default-bright);
+  border: var(--border-size-1) solid var(--default-light);
   margin: 0.25em 0;
-  box-shadow: var(--shadow-inner-sm);
+  box-shadow: none;
   line-height: 1;
 }
 
@@ -37,7 +40,9 @@ pre,
 code,
 pre > *,
 code > * {
-  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  font-family:
+    "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter",
+    monospace;
   line-height: inherit;
 }
 

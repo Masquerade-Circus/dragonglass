@@ -1,6 +1,14 @@
 import Layout from "./layout";
 
-let primaryColors = ["primary", "accent", "success", "info", "warning", "danger", "default"];
+let primaryColors = [
+  "primary",
+  "accent",
+  "success",
+  "info",
+  "warning",
+  "danger",
+  "default",
+];
 
 const Table = (props) => (
   <table {...props}>
@@ -66,8 +74,8 @@ export default () => (
       <Table />
       <hr />
       <h2>Colors</h2>
-      <code>{'<table class="ui-{color}>...</table>'}</code>
-      <div v-for={primaryColors}>{(item) => <Table class={`ui-${item}`} />}</div>
+      <code>{'<table data-table="{color}">...</table>'}</code>
+      <div v-for={primaryColors}>{(item) => <Table data-table={item} />}</div>
     </div>
   </Layout>
 );

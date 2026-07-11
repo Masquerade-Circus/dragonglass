@@ -17,6 +17,7 @@ header > nav[data-toolbar],
 footer > nav[data-toolbar],
 header nav[data-toolbar],
 footer nav[data-toolbar] {
+  flex-wrap: nowrap;
   padding: 0;
   border-bottom: 0;
 }

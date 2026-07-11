@@ -1,6 +1,14 @@
 import Layout from "./layout";
 
-let colors = ["primary", "accent", "info", "success", "warning", "danger", "default"];
+let colors = [
+  "primary",
+  "accent",
+  "info",
+  "success",
+  "warning",
+  "danger",
+  "default",
+];
 let directions = ["left", "right", "top"];
 
 export default () => (
@@ -19,8 +27,12 @@ export default () => (
       <hr />
       {colors.map((item) => (
         <div>
-          <span data-tooltip="This is a tooltip" class={"inline after:bg-" + item}>
-            This element has a <span class={`text-${item}`}>{item}</span> tooltip
+          <span
+            data-tooltip="This is a tooltip"
+            class={"inline after:bg-" + item}
+          >
+            This element has a <span class={`text-${item}`}>{item}</span>{" "}
+            tooltip
           </span>
         </div>
       ))}
@@ -28,14 +40,18 @@ export default () => (
       <h2>Directions</h2>
       {directions.map((item) => (
         <div>
-          <span data-tooltip="This is a tooltip" class={"inline ml-16 ui-" + item}>
+          <span
+            data-tooltip="This is a tooltip"
+            data-tooltip-position={item}
+            class="inline ml-16"
+          >
             This element has a <span class={`text-info`}>{item}</span> tooltip
           </span>
         </div>
       ))}
       {directions.map((item) => (
         <div>
-          <code>{`<div data-tooltip="This is a tooltip" class="ui-${item}">...</div>`}</code>
+          <code>{`<div data-tooltip="This is a tooltip" data-tooltip-position="${item}">...</div>`}</code>
         </div>
       ))}
     </div>

@@ -108,23 +108,3 @@ $tolerance: 67;
     }
   }
 }
-
-.has-error {
-  border-color: var(--danger);
-  color: var(--danger);
-}
-
-.has-success {
-  border-color: var(--success);
-  color: var(--success);
-}
-
-.has-warning {
-  border-color: var(--warning);
-  color: var(--warning);
-}
-
-.has-info {
-  border-color: var(--info);
-  color: var(--info);
-}

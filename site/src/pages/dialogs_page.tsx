@@ -11,12 +11,15 @@ export default () => (
           <header>
             <h2>Title</h2>
             <nav>
-              <button class="fab">
+              <button data-button="fab">
                 <i class="material-icons">share</i>
               </button>
             </nav>
           </header>
-          <section>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia...</section>
+          <section>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+            sagittis pellentesque lacus eleifend lacinia...
+          </section>
           <footer>
             <nav>
               <button class="text-primary">Get started</button>
@@ -27,17 +30,23 @@ export default () => (
       <details data-trigger>
         <summary>Dialog with media</summary>
         <dialog>
-          <section data-media style="background-image: url('https://picsum.photos/480/480')">
+          <section
+            data-media
+            style="background-image: url('https://picsum.photos/480/480')"
+          >
             <header>
               <h2>Title</h2>
               <nav>
-                <button class="fab">
+                <button data-button="fab">
                   <i class="material-icons">share</i>
                 </button>
               </nav>
             </header>
           </section>
-          <section>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia...</section>
+          <section>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+            sagittis pellentesque lacus eleifend lacinia...
+          </section>
           <footer>
             <nav>
               <button class="text-primary">Get started</button>
@@ -48,11 +57,14 @@ export default () => (
       <details data-trigger>
         <summary>Dialog squared</summary>
         <dialog data-dialog="squared">
-          <section data-media style="background-image: url('https://picsum.photos/200/300')">
+          <section
+            data-media
+            style="background-image: url('https://picsum.photos/200/300')"
+          >
             <header>
               <h2>Title</h2>
               <nav>
-                <button class="fab">
+                <button data-button="fab">
                   <i class="material-icons">share</i>
                 </button>
               </nav>
@@ -67,7 +79,7 @@ export default () => (
             <header>
               <h2>Title</h2>
               <nav>
-                <button class="fab">
+                <button data-button="fab">
                   <i class="material-icons">share</i>
                 </button>
               </nav>
@@ -84,17 +96,31 @@ export default () => (
           <header>
             <h2>Title</h2>
             <nav>
-              <button class="fab">
+              <button data-button="fab">
                 <i class="material-icons">share</i>
               </button>
             </nav>
           </header>
-          <section>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia...</section>
+          <section>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+            sagittis pellentesque lacus eleifend lacinia...
+          </section>
           <footer>
             <nav>
               <button class="text-primary">Get started</button>
             </nav>
           </footer>
+        </dialog>
+      </details>
+      <details data-trigger>
+        <summary>Dialog without shadow</summary>
+        <dialog data-dialog="no-shadow">
+          <header>
+            <h2>No shadow</h2>
+          </header>
+          <section>
+            This dialog removes its default elevation explicitly.
+          </section>
         </dialog>
       </details>
     </div>

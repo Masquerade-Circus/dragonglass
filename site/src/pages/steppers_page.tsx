@@ -8,7 +8,7 @@ export default () => (
     <section aria-labelledby="stepper-basic-title">
       <h3 id="stepper-basic-title">Horizontal stepper</h3>
       <ol data-stepper>
-        <li data-state="done">Account</li>
+        <li data-step="done">Account</li>
         <li aria-current="step">Billing</li>
         <li>Confirm</li>
       </ol>
@@ -17,8 +17,10 @@ export default () => (
     <section aria-labelledby="stepper-error-title">
       <h3 id="stepper-error-title">Error state</h3>
       <ol data-stepper>
-        <li data-state="done">Profile</li>
-        <li data-state="error" aria-current="step">Payment</li>
+        <li data-step="done">Profile</li>
+        <li data-step="error" aria-current="step">
+          Payment
+        </li>
         <li>Receipt</li>
       </ol>
     </section>
@@ -26,7 +28,7 @@ export default () => (
     <section aria-labelledby="stepper-vertical-title">
       <h3 id="stepper-vertical-title">Vertical stepper</h3>
       <ol data-stepper="vertical">
-        <li data-state="done">Account</li>
+        <li data-step="done">Account</li>
         <li aria-current="step">Billing</li>
         <li>Confirm</li>
       </ol>
@@ -35,7 +37,7 @@ export default () => (
     <section aria-labelledby="stepper-numbers-title">
       <h3 id="stepper-numbers-title">Numbers only</h3>
       <ol data-stepper="numbers">
-        <li data-state="done">Account</li>
+        <li data-step="done">Account</li>
         <li aria-current="step">Billing</li>
         <li>Receipt</li>
       </ol>
@@ -45,8 +47,8 @@ export default () => (
       <section>
         <h3 id="stepper-card-title">Stepper inside a card</h3>
         <ol data-stepper>
-          <li data-state="done">Draft</li>
-          <li data-state="done">Review</li>
+          <li data-step="done">Draft</li>
+          <li data-step="done">Review</li>
           <li aria-current="step">Publish</li>
         </ol>
       </section>

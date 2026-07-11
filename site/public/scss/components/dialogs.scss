@@ -1,6 +1,6 @@
 /*** Dialog Enhancement ***/
-@use './trigger';
-@use './cards';
+@use "./trigger";
+@use "./cards";
 
 dialog {
   @extend [data-card];
@@ -12,16 +12,16 @@ dialog {
   transform: translate(-50%, -50%);
   right: auto;
   padding: 0;
-  border: 0;
+  border: var(--border-size-1) solid var(--default-light);
   border-radius: var(--dialog-radius);
   z-index: -1;
   color: inherit;
   box-shadow: var(--shadow-2xl);
-  >*{
+  > * {
     background-color: inherit;
   }
   &::after {
-    content: ' ';
+    content: " ";
     z-index: -1;
     position: fixed;
     top: 0;
@@ -31,22 +31,27 @@ dialog {
   }
 }
 
-dialog[open], [data-trigger][open] dialog {
+dialog[open],
+[data-trigger][open] dialog {
   z-index: 1000;
   opacity: 1;
 }
 
-[data-dialog~="squared"]{
+dialog[data-dialog~="squared"] {
   @extend [data-card~="squared"];
 }
 
-[data-dialog~="full-width"]{
+dialog[data-dialog~="full-width"] {
   @extend [data-card~="full-width"];
   width: calc(100% - 1rem);
   left: calc(50% - 0.5rem);
 }
 
-dialog[data-bottom-sheet] {
+dialog[data-dialog~="no-shadow"] {
+  box-shadow: none;
+}
+
+dialog[data-dialog~="bottom-sheet"] {
   width: min(100%, 42rem);
   max-width: 100%;
   margin: auto auto 0;
@@ -58,10 +63,10 @@ dialog[data-bottom-sheet] {
   transform: none;
 }
 
-dialog[data-bottom-sheet][open] {
+dialog[data-dialog~="bottom-sheet"][open] {
   display: flex;
 }
 
-dialog[data-bottom-sheet]::backdrop {
+dialog[data-dialog~="bottom-sheet"]::backdrop {
   background-color: color-mix(in srgb, var(--black) 40%, transparent);
 }

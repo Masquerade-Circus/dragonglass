@@ -1,11 +1,11 @@
-@use './helpers' as *;
-@use './buttons';
+@use "./helpers" as *;
+@use "./buttons";
 
-[data-trigger]{
+[data-trigger] {
   position: relative;
   z-index: 0;
-  >summary {
-    @extend .btn;
+  > summary {
+    @extend [data-button];
     color: inherit;
     list-style: none;
     &::-webkit-details-marker {
@@ -20,9 +20,9 @@
 
   &[open] {
     z-index: 1;
-    summary{
+    summary {
       overflow: visible;
-      &::after{
+      &::after {
         @include overlayHover();
         position: fixed;
         opacity: 0;
@@ -30,4 +30,9 @@
       }
     }
   }
+}
+
+details[data-trigger] {
+  display: inline-block;
+  vertical-align: middle;
 }
