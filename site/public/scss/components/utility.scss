@@ -1,18 +1,38 @@
 @use "sass:math";
-@use './vars' as *;
+@use "./vars" as *;
 
 @each $name, $val in $spacing {
-  .p-#{$name} {padding: var(--spacing-#{$name});}
-  .pt-#{$name} {padding-top: var(--spacing-#{$name});}
-  .pr-#{$name} {padding-right: var(--spacing-#{$name});}
-  .pb-#{$name} {padding-bottom: var(--spacing-#{$name});}
-  .pl-#{$name} {padding-left: var(--spacing-#{$name});}
+  .p-#{$name} {
+    padding: var(--spacing-#{$name});
+  }
+  .pt-#{$name} {
+    padding-top: var(--spacing-#{$name});
+  }
+  .pr-#{$name} {
+    padding-right: var(--spacing-#{$name});
+  }
+  .pb-#{$name} {
+    padding-bottom: var(--spacing-#{$name});
+  }
+  .pl-#{$name} {
+    padding-left: var(--spacing-#{$name});
+  }
 
-  .m-#{$name} {margin: var(--spacing-#{$name});}
-  .mt-#{$name} {margin-top: var(--spacing-#{$name});}
-  .mr-#{$name} {margin-right: var(--spacing-#{$name});}
-  .mb-#{$name} {margin-bottom: var(--spacing-#{$name});}
-  .ml-#{$name} {margin-left: var(--spacing-#{$name});}
+  .m-#{$name} {
+    margin: var(--spacing-#{$name});
+  }
+  .mt-#{$name} {
+    margin-top: var(--spacing-#{$name});
+  }
+  .mr-#{$name} {
+    margin-right: var(--spacing-#{$name});
+  }
+  .mb-#{$name} {
+    margin-bottom: var(--spacing-#{$name});
+  }
+  .ml-#{$name} {
+    margin-left: var(--spacing-#{$name});
+  }
 }
 
 @each $val in relative, static, absolute, fixed, sticky {
@@ -28,8 +48,8 @@
 
 @mixin generate($width, $id) {
   @media screen and (min-width: $width) {
-    @each $size in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12{
-      @each $var in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12{
+    @each $size in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 {
+      @each $var in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 {
         @if $size > $var {
           .#{$id}\:w-#{$var}\/#{$size} {
             width: math.percentage(math.div($var, $size));
@@ -40,8 +60,8 @@
   }
 }
 
-@each $size in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12{
-  @each $var in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12{
+@each $size in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 {
+  @each $var in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 {
     @if $size > $var {
       .w-#{$var}\/#{$size} {
         width: math.percentage(math.div($var, $size));
@@ -54,7 +74,7 @@
 @include generate(992px, lg);
 @include generate(1200px, xl);
 
-[class*="border-"]{
+[class*="border-"] {
   border-width: var(--border-size-1);
 }
 

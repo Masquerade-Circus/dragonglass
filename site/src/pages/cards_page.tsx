@@ -1,138 +1,227 @@
-import Layout from "./layout";
+import ApiTable from "../docs/api_table";
+import CodeExample from "../docs/code_example";
+import DemoSection from "../docs/demo_section";
+import DocPage from "../docs/doc_page";
+
+const basicCardExample = `<article data-card>
+  <section>
+    <h3>Release notes</h3>
+    <p>Review the latest component changes.</p>
+  </section>
+</article>`;
+
+const elevatedCardExample = `<article data-card="elevated">
+  <section>
+    <h3>Elevated card</h3>
+    <p>Elevation adds emphasis without changing the content structure.</p>
+  </section>
+</article>`;
+
+const structuredCardExample = `<article data-card>
+  <header>
+    <h3>Project update</h3>
+    <nav aria-label="Card actions">
+      <button data-button="fab" type="button" aria-label="Share project update">
+        <i class="material-icons" aria-hidden="true">share</i>
+      </button>
+    </nav>
+  </header>
+  <section>
+    <p>The accessibility review is ready.</p>
+  </section>
+  <footer>
+    <a href="/dragonglass/alerts.html">Review alerts</a>
+  </footer>
+</article>`;
+
+const mediaCardExample = `<article data-card>
+  <section data-media role="img" aria-label="Mountain ridge under a cloudy sky" style="background-image: url('https://picsum.photos/480/480')"></section>
+  <section>
+    <h3>Field report</h3>
+    <p>The background image has an equivalent accessible name.</p>
+  </section>
+</article>`;
+
+const squareCardExample = `<article data-card="squared">
+  <section data-media class="bg-primary">
+    <header>
+      <h3>May release</h3>
+    </header>
+    <section>Available May 24 from 7 to 11 p.m.</section>
+  </section>
+</article>`;
+
+const fullWidthCardExample = `<article data-card="full-width">
+  <header>
+    <h3>Documentation status</h3>
+  </header>
+  <section>
+    <p>Use the full available content width for longer summaries.</p>
+  </section>
+  <footer>
+    <a href="/dragonglass">Browse documentation</a>
+  </footer>
+</article>`;
 
 export default () => (
-  <Layout>
-    <h2>Cards</h2>
-    <hr />
-    <div>
-      <h2>Simple card</h2>
-      <hr />
-      <section data-card>
+  <DocPage page="Cards">
+    <DemoSection id="cards-basic-title" title="Basic and elevated cards">
+      <p>
+        Use a basic card for grouped content in the normal page flow. Use the
+        elevated variant when the same structure needs stronger visual emphasis.
+      </p>
+      <article data-card>
         <section>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
-          sagittis pellentesque lacus eleifend lacinia...
+          <h3>Release notes</h3>
+          <p>Review the latest component changes.</p>
         </section>
-      </section>
-      <h2>Elevated card</h2>
-      <hr />
-      <section data-card="elevated">
-        <section>Elevation is an explicit card variant.</section>
-      </section>
-      <h2>Card with footer</h2>
-      <hr />
-      <section data-card>
+      </article>
+      <CodeExample code={basicCardExample} />
+      <article data-card="elevated">
         <section>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
-          sagittis pellentesque lacus eleifend lacinia...
+          <h3>Elevated card</h3>
+          <p>Elevation adds emphasis without changing the content structure.</p>
         </section>
-        <footer>
-          <nav>
-            <button class="text-primary">Get started</button>
-          </nav>
-        </footer>
-      </section>
-      <h2>Card with header and footer</h2>
-      <hr />
-      <section data-card>
+      </article>
+      <CodeExample code={elevatedCardExample} />
+    </DemoSection>
+
+    <DemoSection id="cards-structured-title" title="Header, content and footer">
+      <p>
+        Use direct header, section and footer regions when a card needs a title,
+        supporting content and a separate action area.
+      </p>
+      <article data-card>
         <header>
-          <h2>Title</h2>
-          <nav>
-            <button data-button="fab">
-              <i class="material-icons">share</i>
+          <h3>Project update</h3>
+          <nav aria-label="Card actions">
+            <button
+              data-button="fab"
+              type="button"
+              aria-label="Share project update"
+            >
+              <i class="material-icons" aria-hidden="true">
+                share
+              </i>
             </button>
           </nav>
         </header>
         <section>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
-          sagittis pellentesque lacus eleifend lacinia...
+          <p>The accessibility review is ready.</p>
         </section>
         <footer>
-          <nav>
-            <button class="text-primary">Get started</button>
-          </nav>
+          <a href="/dragonglass/alerts.html">Review alerts</a>
         </footer>
-      </section>
-      <h2>Card with media</h2>
-      <hr />
-      <section data-card>
+      </article>
+      <CodeExample code={structuredCardExample} />
+    </DemoSection>
+
+    <DemoSection id="cards-media-title" title="Media and square cards">
+      <p>
+        Use a media region for an image that supports the card content. Use the
+        squared variant for compact, equal-ratio tiles whose content fits the
+        constrained shape.
+      </p>
+      <article data-card>
         <section
           data-media
+          role="img"
+          aria-label="Mountain ridge under a cloudy sky"
           style="background-image: url('https://picsum.photos/480/480')"
-        >
-          <header>
-            <h2>Title</h2>
-            <nav>
-              <button data-button="fab">
-                <i class="material-icons">share</i>
-              </button>
-            </nav>
-          </header>
-        </section>
+        />
         <section>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
-          sagittis pellentesque lacus eleifend lacinia...
+          <h3>Field report</h3>
+          <p>The background image has an equivalent accessible name.</p>
         </section>
-        <footer>
-          <nav>
-            <button class="text-primary">Get started</button>
-          </nav>
-        </footer>
-      </section>
-      <h2>Card squared</h2>
-      <hr />
-      <section data-card="squared">
-        <section
-          data-media
-          style="background-image: url('https://picsum.photos/200/300')"
-        >
-          <header>
-            <h2>Title</h2>
-            <nav>
-              <button data-button="fab">
-                <i class="material-icons">share</i>
-              </button>
-            </nav>
-          </header>
-        </section>
-      </section>
-      <h2>Card squared with text instead of media</h2>
-      <hr />
-      <section data-card="squared">
+      </article>
+      <CodeExample code={mediaCardExample} />
+      <article data-card="squared">
         <section data-media class="bg-primary">
           <header>
-            <h2>Title</h2>
-            <nav>
-              <button data-button="fab">
-                <i class="material-icons">share</i>
-              </button>
-            </nav>
+            <h3>May release</h3>
           </header>
-          <section>
-            Feautred event: <br /> May 24, 2016 <br /> 7-11pm
-          </section>
+          <section>Available May 24 from 7 to 11 p.m.</section>
         </section>
-      </section>
-      <h2>Full width card</h2>
-      <hr />
-      <section data-card="full-width">
+      </article>
+      <CodeExample code={squareCardExample} />
+    </DemoSection>
+
+    <DemoSection id="cards-full-width-title" title="Full-width card">
+      <p>
+        Use the full-width variant for summaries that need the complete content
+        row instead of a compact card column.
+      </p>
+      <article data-card="full-width">
         <header>
-          <h2>Title</h2>
-          <nav>
-            <button data-button="fab">
-              <i class="material-icons">share</i>
-            </button>
-          </nav>
+          <h3>Documentation status</h3>
         </header>
         <section>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
-          sagittis pellentesque lacus eleifend lacinia...
+          <p>Use the full available content width for longer summaries.</p>
         </section>
         <footer>
-          <nav>
-            <button class="text-primary">Get started</button>
-          </nav>
+          <a href="/dragonglass">Browse documentation</a>
         </footer>
-      </section>
-    </div>
-  </Layout>
+      </article>
+      <CodeExample code={fullWidthCardExample} />
+    </DemoSection>
+
+    <DemoSection id="cards-api-title" title="API">
+      <ApiTable
+        caption="Card elements, attributes, tokens and states"
+        rows={[
+          {
+            name: "article / section",
+            type: "Element",
+            defaultValue: "Contextual",
+            description:
+              "Use article for standalone content or section for grouped content.",
+          },
+          {
+            name: "data-card",
+            type: "Attribute",
+            defaultValue: "Basic",
+            description:
+              "Accepts elevated, squared or full-width variant tokens.",
+          },
+          {
+            name: "data-media",
+            type: "Attribute",
+            defaultValue: "Absent",
+            description: "Creates a cover media region inside the card.",
+          },
+          {
+            name: "--card-padding / --card-radius / --card-shadow",
+            type: "Token",
+            defaultValue: "Theme",
+            description:
+              "Control content spacing, corners and elevated shadow.",
+          },
+          {
+            name: "basic / elevated / squared / full-width",
+            type: "State / variant",
+            defaultValue: "Basic",
+            description:
+              "Selects border, elevation, aspect ratio or width behavior.",
+          },
+        ]}
+      />
+    </DemoSection>
+
+    <DemoSection id="cards-accessibility-title" title="Accessibility">
+      <p>
+        Preserve heading order inside each card. Give icon-only buttons an
+        accessible name. A meaningful background image needs equivalent text,
+        such as <code>role="img"</code> with <code>aria-label</code>. Decorative
+        media should be hidden from assistive technology instead.
+      </p>
+    </DemoSection>
+
+    <DemoSection id="cards-errors-title" title="Composition and common errors">
+      <p>
+        Keep media, content and actions as direct card regions so the component
+        selectors apply. Do not make the entire card clickable when it also
+        contains independent buttons or links.
+      </p>
+    </DemoSection>
+  </DocPage>
 );

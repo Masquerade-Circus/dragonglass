@@ -1,0 +1,7 @@
+/node_modules
+/docs
+/dist
+site/public/css
+/tmp
+/coverage
+/.nyc_output

@@ -1,35 +1,51 @@
-import Layout from "./layout";
+import {
+  catalog,
+  categoryOrder,
+  type DocumentationCategory,
+} from "../docs/catalog";
+import DemoSection from "../docs/demo_section";
+import DocPage from "../docs/doc_page";
 
-const appComponentLinks = [
-  ["Toolbars", "/dragonglass/toolbars.html"],
-  ["Search", "/dragonglass/search.html"],
-  ["Chips", "/dragonglass/chips.html"],
-  ["Alerts", "/dragonglass/alerts.html"],
-  ["Expansion panels", "/dragonglass/expansion-panels.html"],
-  ["Notifications", "/dragonglass/notifications.html"],
-  ["Steppers", "/dragonglass/steppers.html"],
-  ["Bottom sheets", "/dragonglass/bottom-sheets.html"],
-  ["Tabs", "/dragonglass/tabs.html"],
-];
+const excludedCategories = new Set<DocumentationCategory>([
+  "Getting started",
+  "Foundations",
+  "Utilities",
+]);
+
+const componentPages = catalog.filter(
+  ({ category, page }) =>
+    !excludedCategories.has(category) &&
+    page !== "Home" &&
+    page !== "AppComponents",
+);
+
+const componentCategories = categoryOrder.filter((category) =>
+  componentPages.some((route) => route.category === category),
+);
 
 export default () => (
-  <Layout>
-    <h2>App components</h2>
-    <hr />
-    <section data-card>
-      <section>
-        <h3>HTML5 app patterns</h3>
-        <p>Each component page shows native HTML examples with Dragonglass styles.</p>
-      </section>
-      <dl>
-        {appComponentLinks.map(([label, path]) => (
-          <dt>
-            <a href={path} v-route={path}>
-              {label}
-            </a>
-          </dt>
-        ))}
-      </dl>
-    </section>
-  </Layout>
+  <DocPage page="AppComponents">
+    <p>
+      Browse component guides by purpose. Each guide documents the semantic
+      markup, variants, and behavior for that component.
+    </p>
+
+    {componentCategories.map((category) => (
+      <DemoSection
+        id={`${category.toLowerCase().replaceAll(" ", "-")}-components`}
+        title={category}
+      >
+        <ul>
+          {componentPages
+            .filter((route) => route.category === category)
+            .map(({ path, label, description }) => (
+              <li>
+                <a href={path}>{label}</a>
+                <p>{description}</p>
+              </li>
+            ))}
+        </ul>
+      </DemoSection>
+    ))}
+  </DocPage>
 );

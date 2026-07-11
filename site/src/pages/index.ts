@@ -17,7 +17,6 @@ import Tables from "./tables_page";
 import Progress from "./progress_page";
 import AppComponents from "./app_components_page";
 import Toolbars from "./toolbars_page";
-import Search from "./search_page";
 import Chips from "./chips_page";
 import Alerts from "./alerts_page";
 import ExpansionPanels from "./expansion_panels_page";
@@ -46,12 +45,11 @@ export default {
   Progress,
   AppComponents,
   Toolbars,
-  Search,
   Chips,
   Alerts,
   ExpansionPanels,
   Notifications,
   Steppers,
   BottomSheets,
-  Tabs
+  Tabs,
 };

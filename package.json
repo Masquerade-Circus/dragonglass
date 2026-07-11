@@ -27,6 +27,8 @@
     "html5-first"
   ],
   "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "dev:server": "NODE_ENV=development bun --watch index.ts",
     "dev:sass": "bun --watch build.ts",
     "dev": "bun run dev:server & bun run dev:sass",
@@ -51,6 +53,7 @@
     "eslint-plugin-sonarjs": "^4.1.0",
     "fs-extra": "^11.3.6",
     "modern-css-reset": "^1.4.0",
+    "prettier": "^3.9.5",
     "release-it": "^20.2.1",
     "remark-cli": "^12.0.1",
     "sass": "^1.101.0",

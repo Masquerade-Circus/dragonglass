@@ -10,10 +10,10 @@
   opacity: 0;
   cursor: pointer;
   display: none;
-  content: ' ';
-    width: 9999rem;
-    height: 9999rem;
-    transform: translate(-50%, -50%);
+  content: " ";
+  width: 9999rem;
+  height: 9999rem;
+  transform: translate(-50%, -50%);
 }
 
 @mixin overlayHover() {

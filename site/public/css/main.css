@@ -20,7 +20,7 @@
   --spacing-12: 3rem;
   --spacing-16: 4rem;
   --white: #ffffff;
-  --black: #ffffff;
+  --black: #333333;
   --primary: #3244ad;
   --primary-bright: rgb(226.2183856502, 229.2130044843, 246.6816143498);
   --primary-lightest: rgb(170.8273542601, 179.5852017937, 230.6726457399);
@@ -385,22 +385,38 @@ body > article > section {
 
 /*** Elevation classes ***/
 :root {
-  --shadow-inner-2xs: 0 0.5px 0.75px 0 rgba(0, 0, 0, 0.2) inset, 0 0.75px 0.5px -0.75px rgba(0, 0, 0, 0.2) inset;
-  --shadow-2xs: 0 0.5px 0.75px 0 rgba(0, 0, 0, 0.2), 0 0.75px 0.5px -0.75px rgba(0, 0, 0, 0.2);
-  --shadow-inner-xs: 0 1px 1.5px 0 rgba(0, 0, 0, 0.2) inset, 0 1.5px 1px -1.5px rgba(0, 0, 0, 0.2) inset;
-  --shadow-xs: 0 1px 1.5px 0 rgba(0, 0, 0, 0.2), 0 1.5px 1px -1.5px rgba(0, 0, 0, 0.2);
-  --shadow-inner-sm: 0 2px 3px 0 rgba(0, 0, 0, 0.2) inset, 0 3px 2px -3px rgba(0, 0, 0, 0.2) inset;
-  --shadow-sm: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 3px 2px -3px rgba(0, 0, 0, 0.2);
-  --shadow-inner-base: 0 4px 6px 0 rgba(0, 0, 0, 0.2) inset, 0 6px 4px -6px rgba(0, 0, 0, 0.2) inset;
-  --shadow-base: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 4px -6px rgba(0, 0, 0, 0.2);
-  --shadow-inner-lg: 0 6px 9px 0 rgba(0, 0, 0, 0.2) inset, 0 9px 6px -9px rgba(0, 0, 0, 0.2) inset;
-  --shadow-lg: 0 6px 9px 0 rgba(0, 0, 0, 0.2), 0 9px 6px -9px rgba(0, 0, 0, 0.2);
-  --shadow-inner-xl: 0 8px 12px 0 rgba(0, 0, 0, 0.2) inset, 0 12px 8px -12px rgba(0, 0, 0, 0.2) inset;
-  --shadow-xl: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 12px 8px -12px rgba(0, 0, 0, 0.2);
-  --shadow-inner-2xl: 0 12px 18px 0 rgba(0, 0, 0, 0.2) inset, 0 18px 12px -18px rgba(0, 0, 0, 0.2) inset;
-  --shadow-2xl: 0 12px 18px 0 rgba(0, 0, 0, 0.2), 0 18px 12px -18px rgba(0, 0, 0, 0.2);
-  --shadow-inner-3xl: 0 16px 24px 0 rgba(0, 0, 0, 0.2) inset, 0 24px 16px -24px rgba(0, 0, 0, 0.2) inset;
-  --shadow-3xl: 0 16px 24px 0 rgba(0, 0, 0, 0.2), 0 24px 16px -24px rgba(0, 0, 0, 0.2);
+  --shadow-inner-2xs:
+    0 0.5px 0.75px 0 rgba(0, 0, 0, 0.2) inset, 0 0.75px 0.5px -0.75px rgba(0, 0, 0, 0.2) inset;
+  --shadow-2xs:
+    0 0.5px 0.75px 0 rgba(0, 0, 0, 0.2), 0 0.75px 0.5px -0.75px rgba(0, 0, 0, 0.2);
+  --shadow-inner-xs:
+    0 1px 1.5px 0 rgba(0, 0, 0, 0.2) inset, 0 1.5px 1px -1.5px rgba(0, 0, 0, 0.2) inset;
+  --shadow-xs:
+    0 1px 1.5px 0 rgba(0, 0, 0, 0.2), 0 1.5px 1px -1.5px rgba(0, 0, 0, 0.2);
+  --shadow-inner-sm:
+    0 2px 3px 0 rgba(0, 0, 0, 0.2) inset, 0 3px 2px -3px rgba(0, 0, 0, 0.2) inset;
+  --shadow-sm:
+    0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 3px 2px -3px rgba(0, 0, 0, 0.2);
+  --shadow-inner-base:
+    0 4px 6px 0 rgba(0, 0, 0, 0.2) inset, 0 6px 4px -6px rgba(0, 0, 0, 0.2) inset;
+  --shadow-base:
+    0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 4px -6px rgba(0, 0, 0, 0.2);
+  --shadow-inner-lg:
+    0 6px 9px 0 rgba(0, 0, 0, 0.2) inset, 0 9px 6px -9px rgba(0, 0, 0, 0.2) inset;
+  --shadow-lg:
+    0 6px 9px 0 rgba(0, 0, 0, 0.2), 0 9px 6px -9px rgba(0, 0, 0, 0.2);
+  --shadow-inner-xl:
+    0 8px 12px 0 rgba(0, 0, 0, 0.2) inset, 0 12px 8px -12px rgba(0, 0, 0, 0.2) inset;
+  --shadow-xl:
+    0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 12px 8px -12px rgba(0, 0, 0, 0.2);
+  --shadow-inner-2xl:
+    0 12px 18px 0 rgba(0, 0, 0, 0.2) inset, 0 18px 12px -18px rgba(0, 0, 0, 0.2) inset;
+  --shadow-2xl:
+    0 12px 18px 0 rgba(0, 0, 0, 0.2), 0 18px 12px -18px rgba(0, 0, 0, 0.2);
+  --shadow-inner-3xl:
+    0 16px 24px 0 rgba(0, 0, 0, 0.2) inset, 0 24px 16px -24px rgba(0, 0, 0, 0.2) inset;
+  --shadow-3xl:
+    0 16px 24px 0 rgba(0, 0, 0, 0.2), 0 24px 16px -24px rgba(0, 0, 0, 0.2);
 }
 
 .animated {
@@ -643,10 +659,6 @@ progress[data-progress~=accent] {
   --progress-color: var(--accent);
 }
 
-progress[data-progress~=secondary] {
-  --progress-color: var(--secondary);
-}
-
 progress[data-progress~=success] {
   --progress-color: var(--success);
 }
@@ -771,17 +783,19 @@ form[role=search] {
 search > form,
 form[role=search] {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   gap: var(--spacing-2);
 }
 
-search label,
-form[role=search] label {
+search fieldset,
+form[role=search] fieldset {
   flex: 1 1 auto;
+  margin-bottom: 0;
 }
 
 input[type=search] {
   width: 100%;
+  margin-bottom: 0;
 }
 
 input[type=search]::-webkit-search-cancel-button {
@@ -815,6 +829,7 @@ a[data-chip],
 button[data-chip],
 label[data-chip] {
   cursor: pointer;
+  margin: 0;
 }
 
 :is(a, button, label)[data-chip]:hover {
@@ -832,6 +847,10 @@ label[data-chip] {
 
 [data-chip] > input {
   margin: 0;
+}
+
+[data-chip]:has(input:checked) > input {
+  --control-accent: var(--chip-active-text);
 }
 
 [data-chip~=primary] {
@@ -938,7 +957,7 @@ blockquote[data-alert] > :last-child {
   font-size: var(--font-size-sm);
   line-height: var(--spacing-5);
   font-weight: bold;
-  top: 100%;
+  bottom: 100%;
   left: 50%;
   z-index: 2;
   text-align: center;
@@ -946,36 +965,44 @@ blockquote[data-alert] > :last-child {
   transform: translate(-50%) scale(0);
   border: var(--border-size-1) solid var(--default-light);
   box-shadow: none;
-  transform-origin: top center;
+  transform-origin: bottom center;
   white-space: nowrap;
   padding: 0 0.5em;
   background-color: var(--white);
   pointer-events: none;
 }
-[data-tooltip]:hover::after {
+[data-tooltip]:hover::after, [data-tooltip]:focus-visible::after {
   display: block;
   opacity: 1;
   transform: translate(-50%) scale(1);
 }
 [data-tooltip][data-tooltip-position=top]::after {
+  top: auto;
+  bottom: 100%;
   transform-origin: bottom center;
-  top: -100%;
+}
+[data-tooltip][data-tooltip-position=bottom]::after {
+  top: 100%;
+  bottom: auto;
+  transform-origin: top center;
+}
+[data-tooltip][data-tooltip-position=left]::after, [data-tooltip][data-tooltip-position=right]::after {
+  top: 50%;
+  bottom: auto;
+  transform: translateY(-50%) scale(0);
 }
 [data-tooltip][data-tooltip-position=left]::after {
-  transform-origin: right center;
-  top: 0;
   right: 100%;
   left: auto;
-  transform: translate(0) scale(1);
+  transform-origin: right center;
 }
 [data-tooltip][data-tooltip-position=right]::after {
-  transform-origin: left center;
-  top: 0;
+  right: auto;
   left: 100%;
-  transform: translate(0) scale(0);
+  transform-origin: left center;
 }
-[data-tooltip][data-tooltip-position=right]:hover::after {
-  transform: translate(0) scale(1);
+[data-tooltip][data-tooltip-position=left]:is(:hover, :focus-visible)::after, [data-tooltip][data-tooltip-position=right]:is(:hover, :focus-visible)::after {
+  transform: translateY(-50%) scale(1);
 }
 
 /*** Badges ***/
@@ -1230,11 +1257,35 @@ body > footer {
 /*** Lists ***/
 /************************** Main styles **************************/
 /*** Helpers ***/
+:is(ul, ol)[data-list],
+menu,
 dl {
   padding: 0;
   border-color: var(--default-light);
 }
-dl > dt {
+
+ul[data-list],
+menu {
+  list-style: none;
+}
+
+ol[data-list] {
+  list-style: none;
+  counter-reset: data-list;
+}
+ol[data-list] > li {
+  counter-increment: data-list;
+}
+ol[data-list] > li::before {
+  content: counter(data-list) ".";
+  flex: 0 0 auto;
+  align-self: center;
+  padding: 0.5em;
+  font-weight: 600;
+}
+
+:is(ul, ol)[data-list] > li,
+menu > li {
   display: flex;
   line-height: 1.25;
   background-color: inherit;
@@ -1243,43 +1294,52 @@ dl > dt {
   border-bottom: 0.06em solid;
   border-color: inherit;
 }
-dl > dt:last-child {
+:is(ul, ol)[data-list] > li:last-child,
+menu > li:last-child {
   border-bottom-width: 0;
 }
-dl > dt > * {
+:is(ul, ol)[data-list] > li > *,
+menu > li > * {
   position: relative;
   color: inherit;
   padding: 0.5em;
   line-height: inherit;
   align-self: auto;
 }
-dl > dt > *:nth-child(1):not(dd):not([class*=icon]) {
+:is(ul, ol)[data-list] > li > *:nth-child(1):not(dd):not([class*=icon]),
+menu > li > *:nth-child(1):not(dd):not([class*=icon]) {
   display: flex;
   align-items: center;
   min-height: 4em;
   text-align: left;
   font-weight: 400;
 }
-dl > dt > *:nth-child(1) {
+:is(ul, ol)[data-list] > li > *:nth-child(1),
+menu > li > *:nth-child(1) {
   flex-grow: 1;
 }
-dl > dt > *:nth-child(1) > * {
+:is(ul, ol)[data-list] > li > *:nth-child(1) > *,
+menu > li > *:nth-child(1) > * {
   display: inline-block;
   vertical-align: middle;
 }
-dl > dt > *:nth-child(1) > * > small {
+:is(ul, ol)[data-list] > li > *:nth-child(1) > * > small,
+menu > li > *:nth-child(1) > * > small {
   display: block;
   padding: 0;
   white-space: pre-wrap;
   font-size: 0.8em;
 }
-dl > dt > *:nth-child(1) > small {
+:is(ul, ol)[data-list] > li > *:nth-child(1) > small,
+menu > li > *:nth-child(1) > small {
   display: block;
   padding: 0;
   white-space: pre-wrap;
   font-size: 0.8em;
 }
-dl > dt > *:nth-child(1) > [class*=icon], dl > dt > *:nth-child(1)[class*=icon] {
+:is(ul, ol)[data-list] > li > *:nth-child(1) > [class*=icon], :is(ul, ol)[data-list] > li > *:nth-child(1)[class*=icon],
+menu > li > *:nth-child(1) > [class*=icon],
+menu > li > *:nth-child(1)[class*=icon] {
   font-size: 2.5em;
   border-radius: 50%;
   margin: 0;
@@ -1288,20 +1348,24 @@ dl > dt > *:nth-child(1) > [class*=icon], dl > dt > *:nth-child(1)[class*=icon] 
   width: 1.2em;
   flex-grow: 0;
 }
-dl > dt > *:nth-child(2) {
+:is(ul, ol)[data-list] > li > *:nth-child(2),
+menu > li > *:nth-child(2) {
   flex-shrink: 0;
 }
-dl > dt > *:nth-child(2) > small {
+:is(ul, ol)[data-list] > li > *:nth-child(2) > small,
+menu > li > *:nth-child(2) > small {
   display: block;
   position: relative;
   padding: 0;
   text-align: center;
-  margin-bottom: -1em;
+  margin-bottom: 0;
   font-size: 0.8em;
   opacity: 0.7;
   line-height: 1;
 }
-dl > dt > *:nth-child(2) > [class*=icon], dl > dt > *:nth-child(2)[class*=icon] {
+:is(ul, ol)[data-list] > li > *:nth-child(2) > [class*=icon], :is(ul, ol)[data-list] > li > *:nth-child(2)[class*=icon],
+menu > li > *:nth-child(2) > [class*=icon],
+menu > li > *:nth-child(2)[class*=icon] {
   font-size: 1.5em;
   color: inherit;
   width: 2em;
@@ -1311,13 +1375,28 @@ dl > dt > *:nth-child(2) > [class*=icon], dl > dt > *:nth-child(2)[class*=icon] 
   margin: 0;
   flex-grow: 0;
 }
-dl > dt > *:nth-child(2)[class*=icon] {
+:is(ul, ol)[data-list] > li > *:nth-child(2)[class*=icon],
+menu > li > *:nth-child(2)[class*=icon] {
   line-height: 1;
 }
-dl > dt > a, dl > dt > button, dl > dt > [data-trigger], dl > dt > [data-button] {
+:is(ul, ol)[data-list] > li > a,
+:is(ul, ol)[data-list] > li > button,
+:is(ul, ol)[data-list] > li > [data-trigger],
+:is(ul, ol)[data-list] > li > [data-button],
+menu > li > a,
+menu > li > button,
+menu > li > [data-trigger],
+menu > li > [data-button] {
   cursor: pointer;
 }
-dl > dt > a::after, dl > dt > button::after, dl > dt > [data-trigger]::after, dl > dt > [data-button]::after {
+:is(ul, ol)[data-list] > li > a::after,
+:is(ul, ol)[data-list] > li > button::after,
+:is(ul, ol)[data-list] > li > [data-trigger]::after,
+:is(ul, ol)[data-list] > li > [data-button]::after,
+menu > li > a::after,
+menu > li > button::after,
+menu > li > [data-trigger]::after,
+menu > li > [data-button]::after {
   content: " ";
   opacity: 0;
   transition: var(--animate-all-fastest);
@@ -1330,16 +1409,44 @@ dl > dt > a::after, dl > dt > button::after, dl > dt > [data-trigger]::after, dl
   bottom: 0;
   border-radius: var(--radius-base);
 }
-dl > dt > a:hover::after, dl > dt > button:hover::after, dl > dt > [data-trigger]:hover::after, dl > dt > [data-button]:hover::after {
+:is(ul, ol)[data-list] > li > a:hover::after,
+:is(ul, ol)[data-list] > li > button:hover::after,
+:is(ul, ol)[data-list] > li > [data-trigger]:hover::after,
+:is(ul, ol)[data-list] > li > [data-button]:hover::after,
+menu > li > a:hover::after,
+menu > li > button:hover::after,
+menu > li > [data-trigger]:hover::after,
+menu > li > [data-button]:hover::after {
   opacity: 0.1;
 }
-dl > dt > a:active, dl > dt > button:active, dl > dt > [data-trigger]:active, dl > dt > [data-button]:active {
+:is(ul, ol)[data-list] > li > a:active,
+:is(ul, ol)[data-list] > li > button:active,
+:is(ul, ol)[data-list] > li > [data-trigger]:active,
+:is(ul, ol)[data-list] > li > [data-button]:active,
+menu > li > a:active,
+menu > li > button:active,
+menu > li > [data-trigger]:active,
+menu > li > [data-button]:active {
   box-shadow: none;
 }
-dl > dt > a:active::after, dl > dt > button:active::after, dl > dt > [data-trigger]:active::after, dl > dt > [data-button]:active::after {
+:is(ul, ol)[data-list] > li > a:active::after,
+:is(ul, ol)[data-list] > li > button:active::after,
+:is(ul, ol)[data-list] > li > [data-trigger]:active::after,
+:is(ul, ol)[data-list] > li > [data-button]:active::after,
+menu > li > a:active::after,
+menu > li > button:active::after,
+menu > li > [data-trigger]:active::after,
+menu > li > [data-button]:active::after {
   opacity: 0;
 }
-dl > dt > a, dl > dt > button, dl > dt > [data-trigger], dl > dt > [data-button] {
+:is(ul, ol)[data-list] > li > a,
+:is(ul, ol)[data-list] > li > button,
+:is(ul, ol)[data-list] > li > [data-trigger],
+:is(ul, ol)[data-list] > li > [data-button],
+menu > li > a,
+menu > li > button,
+menu > li > [data-trigger],
+menu > li > [data-button] {
   justify-content: flex-start;
   margin: 0;
   width: 100%;
@@ -1348,13 +1455,46 @@ dl > dt > a, dl > dt > button, dl > dt > [data-trigger], dl > dt > [data-button]
   text-align: left;
   white-space: normal;
 }
-dl > dt > a:nth-child(2), dl > dt > button:nth-child(2), dl > dt > [data-trigger]:nth-child(2), dl > dt > [data-button]:nth-child(2) {
+:is(ul, ol)[data-list] > li > a:nth-child(2),
+:is(ul, ol)[data-list] > li > button:nth-child(2),
+:is(ul, ol)[data-list] > li > [data-trigger]:nth-child(2),
+:is(ul, ol)[data-list] > li > [data-button]:nth-child(2),
+menu > li > a:nth-child(2),
+menu > li > button:nth-child(2),
+menu > li > [data-trigger]:nth-child(2),
+menu > li > [data-button]:nth-child(2) {
+  flex-direction: column;
   justify-content: center;
+  gap: 0;
   width: auto;
   min-width: 3em;
   flex-grow: 0;
   text-align: center;
   white-space: nowrap;
+}
+
+dl {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  margin: 0 0 var(--spacing-4);
+}
+dl > dt,
+dl > dd {
+  display: flex;
+  align-items: center;
+  min-height: 4em;
+  padding: 0.5em;
+  border-bottom: 0.06em solid var(--default-light);
+}
+dl > dt {
+  font-weight: 600;
+}
+dl > dd {
+  margin: 0;
+  text-align: right;
+}
+dl > :nth-last-child(-n+2) {
+  border-bottom-width: 0;
 }
 
 /*** Details ***/
@@ -1815,6 +1955,10 @@ th {
   border-color: inherit;
 }
 
+table td {
+  text-align: left;
+}
+
 tbody > tr {
   border-color: inherit;
 }
@@ -2191,6 +2335,14 @@ dialog {
 dialog > * {
   background-color: inherit;
 }
+dialog > :first-child {
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+dialog > :last-child {
+  border-bottom-right-radius: inherit;
+  border-bottom-left-radius: inherit;
+}
 dialog::after {
   content: " ";
   z-index: -1;
@@ -2205,6 +2357,12 @@ dialog[open],
 [data-trigger][open] dialog {
   z-index: 1000;
   opacity: 1;
+}
+
+dialog.static {
+  inset: auto;
+  transform: none;
+  margin: 1rem auto;
 }
 
 dialog[data-dialog~=full-width] {
@@ -2290,6 +2448,7 @@ label[for] {
   cursor: pointer;
   padding: 0 0.25em;
   margin-right: 0.5em;
+  white-space: nowrap;
 }
 
 [type=checkbox],

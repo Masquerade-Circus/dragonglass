@@ -1,6 +1,6 @@
 /*** Fonts Start ***/
 /* font-size */
-@use './vars' as *;
+@use "./vars" as *;
 
 @each $name, $val in $fontSizes {
   .focus\:text-#{$name}:focus,
@@ -29,17 +29,20 @@
 }
 
 /* weight */
-@each $name, $val in (
-  "thin": 100,
-  "extralight": 200,
-  "light": 300,
-  "normal": 400,
-  "medium": 500,
-  "semibold": 600,
-  "bold": 700,
-  "extrabold": 800,
-  "black": 900
-) {
+@each $name,
+  $val
+    in (
+      "thin": 100,
+      "extralight": 200,
+      "light": 300,
+      "normal": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700,
+      "extrabold": 800,
+      "black": 900
+    )
+{
   .focus\:font-#{$name}:focus,
   .active\:font-#{$name}:active,
   .hover\:font-#{$name}:hover,
@@ -49,12 +52,15 @@
 }
 
 /* text transform */
-@each $name, $val in (
-  uppercase: uppercase,
-  lowercase: lowercase,
-  capitalize: capitalize,
-  normal-case: none
-) {
+@each $name,
+  $val
+    in (
+      uppercase: uppercase,
+      lowercase: lowercase,
+      capitalize: capitalize,
+      normal-case: none
+    )
+{
   .focus\:#{$name}:focus,
   .active\:#{$name}:active,
   .hover\:#{$name}:hover,
@@ -64,18 +70,21 @@
 }
 
 /* line height */
-@each $name, $val in (
-  none: 1,
-  tight: 1.25,
-  snug: 1.375,
-  normal: 1.5,
-  relaxed: 1.625,
-  loose: 2
-) {
+@each $name,
+  $val
+    in (
+      none: 1,
+      tight: 1.25,
+      snug: 1.375,
+      normal: 1.5,
+      relaxed: 1.625,
+      loose: 2
+    )
+{
   .focus\:leading-#{$name}:focus,
   .active\:leading-#{$name}:active,
   .hover\:leading-#{$name}:hover,
-  .leading-#{$name}  {
+  .leading-#{$name} {
     line-height: $val;
   }
 }
@@ -85,7 +94,7 @@
   .focus\:text-#{$val}:focus,
   .active\:text-#{$val}:active,
   .hover\:text-#{$val}:hover,
-  .text-#{$val}  {
+  .text-#{$val} {
     text-align: $val;
   }
 }

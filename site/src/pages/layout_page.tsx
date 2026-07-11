@@ -1,32 +1,173 @@
-import Layout from "./layout";
+import ApiTable from "../docs/api_table";
+import CodeExample from "../docs/code_example";
+import DemoSection from "../docs/demo_section";
+import DocPage from "../docs/doc_page";
 
-let items = ["Overview", "Activity", "Reports", "Settings"];
+const appShellCode = `<article>
+  <header>
+    <h3>Project Atlas</h3>
+    <nav data-toolbar aria-label="Project actions">
+      <a href="/projects.html">All projects</a>
+      <button type="button">New task</button>
+    </nav>
+  </header>
+  <section>
+    <p>Track the work that is ready for review.</p>
+  </section>
+  <footer>
+    <nav aria-label="Project sections">
+      <a href="/overview.html" aria-current="page">Overview</a>
+      <a href="/activity.html">Activity</a>
+      <a href="/reports.html">Reports</a>
+    </nav>
+  </footer>
+</article>`;
+
+const standaloneToolbarCode = `<nav data-toolbar aria-label="Result actions">
+  <button type="button">Filter</button>
+  <a href="/exports.html">View exports</a>
+</nav>`;
+
+const apiRows = [
+  {
+    name: "main, article",
+    type: "Element",
+    defaultValue: "Column container",
+    description:
+      "Establishes the container contract for direct header, section and footer children.",
+  },
+  {
+    name: "header, footer",
+    type: "Element",
+    defaultValue: "Intrinsic height",
+    description:
+      "Keeps page-level or container-level chrome outside the scrolling content region.",
+  },
+  {
+    name: "section",
+    type: "Element",
+    defaultValue: "Flexible and scrollable",
+    description:
+      "Fills the remaining container space and owns content padding when it is a direct child.",
+  },
+  {
+    name: "nav",
+    type: "Element",
+    defaultValue: "Semantic navigation",
+    description:
+      "Groups links or related actions and accepts an accessible label.",
+  },
+  {
+    name: "data-toolbar",
+    type: "Attribute",
+    defaultValue: "Absent",
+    description:
+      "Turns a nav into a wrapping action row. Toolbars inside a header or footer stay on one row.",
+  },
+  {
+    name: 'aria-current="page"',
+    type: "State",
+    defaultValue: "Absent",
+    description:
+      "Identifies the link for the current page to assistive technology.",
+  },
+  {
+    name: "--container-padding",
+    type: "Token",
+    defaultValue: "Theme value",
+    description: "Controls padding on the direct, scrollable content section.",
+  },
+];
 
 export default () => (
-  <Layout>
-    <h1>Layout</h1>
+  <DocPage page="Layouts">
+    <DemoSection id="layout-shell" title="Application shell">
+      <article>
+        <header>
+          <h3>Project Atlas</h3>
+          <nav data-toolbar aria-label="Project actions">
+            <a href="/projects.html">All projects</a>
+            <button type="button">New task</button>
+          </nav>
+        </header>
+        <section>
+          <p>Track the work that is ready for review.</p>
+        </section>
+        <footer>
+          <nav aria-label="Project sections">
+            <a href="/overview.html" aria-current="page">
+              Overview
+            </a>
+            <a href="/activity.html">Activity</a>
+            <a href="/reports.html">Reports</a>
+          </nav>
+        </footer>
+      </article>
+      <CodeExample code={appShellCode} />
+    </DemoSection>
 
-    <h2>Navigation</h2>
-    <p>Semantic nav with a current page.</p>
-    <nav>
-      {items.map((item) => (
-        <a href="#" aria-current={item === "Overview" ? "page" : false}>
-          {item}
-        </a>
-      ))}
-      <button type="button">Refresh</button>
-    </nav>
-
-    <h2>Navigation inside a header</h2>
-    <header>
-      <h1>Project</h1>
-      <nav>
-        {items.map((item) => (
-          <a href="#" aria-current={item === "Reports" ? "page" : false}>
-            {item}
-          </a>
-        ))}
+    <DemoSection id="layout-toolbar" title="Standalone toolbar">
+      <nav data-toolbar aria-label="Result actions">
+        <button type="button">Filter</button>
+        <a href="/exports.html">View exports</a>
       </nav>
-    </header>
-  </Layout>
+      <CodeExample code={standaloneToolbarCode} />
+    </DemoSection>
+
+    <DemoSection id="layout-composition" title="Composition">
+      <p>
+        A container is a <code>main</code> or <code>article</code> with direct
+        <code> header</code>, <code>section</code> and <code>footer</code>
+        children. The header and footer keep their natural height. The section
+        receives the remaining height, padding and overflow.
+      </p>
+      <p>
+        Use <code>nav</code> for destination links. Add
+        <code> data-toolbar</code> when the same row mixes compact links,
+        buttons or chips as controls.
+      </p>
+    </DemoSection>
+
+    <DemoSection id="layout-responsive" title="Responsive behavior">
+      <p>
+        Standalone toolbars wrap when their actions need more room. A toolbar
+        nested in a header or footer stays on one row, so keep those action sets
+        short. Content sections scroll instead of forcing the page shell beyond
+        the viewport.
+      </p>
+    </DemoSection>
+
+    <DemoSection id="layout-accessibility" title="Accessibility">
+      <p>
+        Give every navigation region a distinct <code>aria-label</code> when a
+        page contains more than one. Mark only the active destination with
+        <code> aria-current="page"</code>. Keep headings in document order and
+        use buttons for actions rather than links without destinations.
+      </p>
+    </DemoSection>
+
+    <DemoSection id="layout-errors" title="Common mistakes">
+      <ul>
+        <li>
+          Wrapping the content section in an extra element breaks the direct
+          child container contract.
+        </li>
+        <li>
+          Using <code>data-toolbar</code> for primary site navigation gives an
+          action bar semantics it does not need.
+        </li>
+        <li>
+          Putting many actions in a header or footer toolbar can cause overflow
+          because nested toolbars do not wrap.
+        </li>
+      </ul>
+    </DemoSection>
+
+    <DemoSection id="layout-api" title="API">
+      <ApiTable
+        caption="Layout elements, attributes, states and tokens"
+        rows={apiRows}
+      />
+    </DemoSection>
+  </DocPage>
 );

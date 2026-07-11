@@ -1,5 +1,11 @@
-
-@mixin checkboxHack($id, $duration, $iddefault, $idactive, $labeldefault, $labelactive) {
+@mixin checkboxHack(
+  $id,
+  $duration,
+  $iddefault,
+  $idactive,
+  $labeldefault,
+  $labelactive
+) {
   ##{id}-input {
     position: absolute;
     top: -9999rem;
@@ -23,7 +29,9 @@
   ##{id}-label {
     animation-duration: $duration s;
     animation-fill-mode: both;
-    transition: all, $duration s linear;
+    transition:
+      all,
+      $duration s linear;
     @each $prop in $$labeldefault {
       #{$prop}: val;
     }

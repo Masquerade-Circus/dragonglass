@@ -1,25 +1,38 @@
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   overflow: hidden;
 }
 
-:after, :before, body, input, select, textarea {
-  font-family: -apple-system, Roboto, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+:after,
+:before,
+body,
+input,
+select,
+textarea {
+  font-family:
+    -apple-system, Roboto, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-weight: 300;
 }
 
 body {
   font-weight: 300;
   height: 100%;
-  flexContainer: column;
+  flexcontainer: column;
   justify-content: space-between;
 }
 
-header, footer {
+header,
+footer {
   flex: 0 0 auto;
 }
 
@@ -31,12 +44,14 @@ header, footer {
   flex: 0 0 auto;
 }
 
-article, section {
+article,
+section {
   flex: 1 1 auto;
   padding: 16rem;
   overflow-x: auto;
   z-index: 0;
-  &::after, &::before {
+  &::after,
+  &::before {
     clear: both;
     content: " ";
     display: block;
@@ -46,12 +61,13 @@ article, section {
 section {
   overflow: auto;
   font-size: 14rem;
-  &>[data-list] {
+  & > [data-list] {
     margin: -16rem;
   }
 }
 
-footer, body>footer {
+footer,
+body > footer {
   z-index: 3;
   order: 9999;
 }

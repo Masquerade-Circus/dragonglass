@@ -1,76 +1,197 @@
-import Layout from "./layout";
+import ApiTable from "../docs/api_table";
+import CodeExample from "../docs/code_example";
+import DemoSection from "../docs/demo_section";
+import DocPage from "../docs/doc_page";
+
+const semanticNotificationsCode = `<aside data-notification="info inline" role="status">Sync started.</aside>
+<aside data-notification="success inline" role="status">File uploaded successfully.</aside>
+<aside data-notification="warning inline" role="status">Storage is almost full.</aside>
+<aside data-notification="danger inline" role="alert">Upload failed.</aside>`;
+
+const contentNotificationCode = `<aside data-notification="success inline" role="status">
+  <button type="button" aria-label="Dismiss">
+    <span aria-hidden="true">×</span>
+  </button>
+  <strong>Export ready.</strong>
+  <p>Your report can be downloaded now.</p>
+</aside>`;
+
+const positionsCode = `<aside data-notification="info top right" role="status">Saved.</aside>
+<aside data-notification="warning bottom center" role="status">Storage is almost full.</aside>
+<aside data-notification="danger center left" role="alert">Connection lost.</aside>`;
+
+const shadowCode = `<aside data-notification="info inline" role="status">Default shadow</aside>
+<aside data-notification="info inline no-shadow" role="status">No shadow</aside>`;
+
+const apiRows = [
+  {
+    name: "aside",
+    type: "Element",
+    defaultValue: "Fixed notification",
+    description:
+      "Provides a complementary message container for notification content.",
+  },
+  {
+    name: "data-notification",
+    type: "Attribute",
+    defaultValue: "Primary border, top right",
+    description:
+      "Activates notification layout and accepts tone, position and shadow tokens.",
+  },
+  {
+    name: "info|success|warning|danger",
+    type: "Attribute token",
+    defaultValue: "Primary",
+    description:
+      "Sets the semantic border color without choosing announcement urgency.",
+  },
+  {
+    name: "inline",
+    type: "Attribute token",
+    defaultValue: "Fixed",
+    description:
+      "Keeps a notification in document flow and resets position transforms.",
+  },
+  {
+    name: "top|right|bottom|left|center",
+    type: "Attribute token",
+    defaultValue: "top right",
+    description:
+      "Combines vertical and horizontal placement for fixed notifications.",
+  },
+  {
+    name: "no-shadow",
+    type: "Attribute token",
+    defaultValue: "--shadow-lg",
+    description:
+      "Removes elevation when a border or surrounding surface is sufficient.",
+  },
+  {
+    name: 'role="status"',
+    type: "State",
+    defaultValue: "Recommended",
+    description:
+      "Politely announces non-urgent updates without interrupting current speech.",
+  },
+  {
+    name: 'role="alert"',
+    type: "State",
+    defaultValue: "Urgent errors only",
+    description:
+      "Immediately announces a time-sensitive problem that needs attention.",
+  },
+  {
+    name: "--notification-color",
+    type: "Token",
+    defaultValue: "--primary",
+    description:
+      "Controls the notification border and is set by semantic tone tokens.",
+  },
+];
 
 export default () => (
-  <Layout>
-    <h2>Notifications</h2>
-    <hr />
-
-    <section aria-labelledby="notifications-colors-title">
-      <h3 id="notifications-colors-title">Semantic notifications</h3>
+  <DocPage page="Notifications">
+    <DemoSection id="notification-semantics" title="Status and alert messages">
       <aside data-notification="info inline" role="status">
         Sync started.
       </aside>
       <aside data-notification="success inline" role="status">
         File uploaded successfully.
       </aside>
-      <aside data-notification="warning inline" role="alert">
+      <aside data-notification="warning inline" role="status">
         Storage is almost full.
       </aside>
       <aside data-notification="danger inline" role="alert">
         Upload failed.
       </aside>
-    </section>
+      <CodeExample code={semanticNotificationsCode} />
+    </DemoSection>
 
-    <section aria-labelledby="notifications-content-title">
-      <h3 id="notifications-content-title">Notification with content</h3>
+    <DemoSection id="notification-content" title="Content and close action">
       <aside data-notification="success inline" role="status">
+        <button type="button" aria-label="Dismiss">
+          <span aria-hidden="true">×</span>
+        </button>
         <strong>Export ready.</strong>
         <p>Your report can be downloaded now.</p>
       </aside>
-    </section>
+      <CodeExample code={contentNotificationCode} />
+    </DemoSection>
 
-    <section aria-labelledby="notifications-close-title">
-      <h3 id="notifications-close-title">Notification with close action</h3>
+    <DemoSection id="notification-positions" title="Fixed positions">
+      <p>
+        Combine one vertical token with one horizontal token. The default is top
+        right. Center can stand alone or pair with top, right, bottom or left.
+      </p>
+      <CodeExample code={positionsCode} />
+    </DemoSection>
+
+    <DemoSection id="notification-shadow" title="Shadow">
       <aside data-notification="info inline" role="status">
-        <button type="button" aria-label="Close">
-          ×
-        </button>
-        <strong>Draft saved.</strong>
-        <p>The close button is optional markup.</p>
-      </aside>
-    </section>
-
-    <section aria-labelledby="notifications-position-title">
-      <h3 id="notifications-position-title">Fixed positions</h3>
-      <code>{'<aside data-notification="info top right">...</aside>'}</code>
-      <code>
-        {'<aside data-notification="warning bottom center">...</aside>'}
-      </code>
-      <code>{'<aside data-notification="danger center left">...</aside>'}</code>
-    </section>
-
-    <section aria-labelledby="notifications-shadow-title">
-      <h3 id="notifications-shadow-title">Default shadow</h3>
-      <aside data-notification="info inline" role="status">
-        Notifications include elevation by default.
+        Default shadow
       </aside>
       <aside data-notification="info inline no-shadow" role="status">
-        This notification removes its shadow explicitly.
+        No shadow
       </aside>
-    </section>
+      <CodeExample code={shadowCode} />
+    </DemoSection>
 
-    <section aria-labelledby="notifications-stack-title">
-      <h3 id="notifications-stack-title">Inline stack</h3>
-      <div>
-        <aside data-notification="info inline" role="status">
-          One task is queued.
-        </aside>
-      </div>
-      <div>
-        <aside data-notification="warning inline" role="alert">
-          Two tasks need review.
-        </aside>
-      </div>
-    </section>
-  </Layout>
+    <DemoSection id="notification-composition" title="Composition">
+      <p>
+        Use short text for a single update. Add a <code>strong</code> heading
+        and paragraph when the message needs context. Place an optional close
+        button as a direct child so the notification reserves space for it.
+        Application behavior must remove the message when that button is
+        activated.
+      </p>
+    </DemoSection>
+
+    <DemoSection id="notification-responsive" title="Responsive behavior">
+      <p>
+        Fixed notifications stay within the viewport with a maximum width based
+        on the page gap. Inline notifications use the available content width
+        and remain in document flow. Prefer inline placement for persistent
+        guidance or narrow layouts where fixed messages could cover controls.
+      </p>
+    </DemoSection>
+
+    <DemoSection id="notification-accessibility" title="Accessibility">
+      <p>
+        Use <code>role="status"</code> for successful, informational and most
+        warning updates. Reserve <code>role="alert"</code> for urgent failures
+        that need immediate attention. Insert the live region when the message
+        changes instead of rendering it long before the update. Give the close
+        button an accessible name and mark its visual symbol
+        <code> aria-hidden="true"</code>.
+      </p>
+    </DemoSection>
+
+    <DemoSection id="notification-errors" title="Common mistakes">
+      <ul>
+        <li>
+          Assigning <code>role="alert"</code> to every message interrupts screen
+          reader users for routine updates.
+        </li>
+        <li>
+          Choosing a danger tone does not add alert semantics. Set the role from
+          urgency, not color.
+        </li>
+        <li>
+          Positioning several fixed messages in the same corner can cover
+          content unless the application manages a stack.
+        </li>
+        <li>
+          A close icon without an accessible name leaves its action
+          unidentified.
+        </li>
+      </ul>
+    </DemoSection>
+
+    <DemoSection id="notification-api" title="API">
+      <ApiTable
+        caption="Notification elements, attributes, states and tokens"
+        rows={apiRows}
+      />
+    </DemoSection>
+  </DocPage>
 );

@@ -1,39 +1,83 @@
-import { routes } from "../routes";
+import { categoryOrder, routes } from "../docs/catalog";
 
-let Header = () => (
+type LayoutProps = {
+  currentPath?: string;
+};
+
+type DrawerLinkProps = {
+  path: string;
+  label: string;
+  icon: string;
+  color: string;
+  currentPath?: string;
+};
+
+const DrawerLink = ({
+  path,
+  label,
+  icon,
+  color,
+  currentPath,
+}: DrawerLinkProps) => {
+  const content = [
+    <i class={`material-icons ${color}`} aria-hidden="true">
+      {icon}
+    </i>,
+    label,
+  ];
+
+  if (currentPath === path) {
+    return (
+      <a href={path} aria-current="page">
+        {content}
+      </a>
+    );
+  }
+
+  return <a href={path}>{content}</a>;
+};
+
+const Header = ({ currentPath }: LayoutProps) => (
   <header>
     <nav>
       <details data-trigger>
-        <summary>
-          <span class="material-icons">menu</span>
+        <summary aria-label="Open documentation navigation">
+          <span class="material-icons" aria-hidden="true">
+            menu
+          </span>
         </summary>
         <section data-drawer>
-          <dl>
-            {routes
-              .filter(({ label }) => label !== "Home")
-              .map(({ path, label, icon, color }) => (
-                <dt>
-                  <a href={path} v-route={path}>
-                    <i class={`material-icons ${color}`}>{icon}</i>
-                    {label}
-                  </a>
-                </dt>
-              ))}
-          </dl>
+          {categoryOrder.flatMap((category) => [
+            <header>{category}</header>,
+            <hr />,
+            <ul data-list>
+              {routes
+                .filter((route) => route.category === category)
+                .map(({ path, label, icon, color }) => (
+                  <li>
+                    <DrawerLink
+                      path={path}
+                      label={label}
+                      icon={icon}
+                      color={color}
+                      currentPath={currentPath}
+                    />
+                  </li>
+                ))}
+            </ul>,
+          ])}
         </section>
       </details>
     </nav>
-    <h1>Dragonglass</h1>
+    <span>Dragonglass</span>
   </header>
 );
 
-let Footer = () => <footer />;
-let Layout: any = (props: any, ...content: any[]) => [
-  <Header />,
-  <main>
+const Layout: any = (props: LayoutProps, ...content: any[]) => [
+  <Header currentPath={props.currentPath} />,
+  <main id="main-content">
     <section>{content}</section>
   </main>,
-  <Footer />,
 ];
 
 export default Layout;

@@ -1,5 +1,6 @@
 [data-tooltip] {
   position: relative;
+
   &::after {
     content: attr(data-tooltip);
     position: absolute;
@@ -7,7 +8,7 @@
     font-size: var(--font-size-sm);
     line-height: var(--spacing-5);
     font-weight: bold;
-    top: 100%;
+    bottom: 100%;
     left: 50%;
     z-index: 2;
     text-align: center;
@@ -15,40 +16,53 @@
     transform: translate(-50%) scale(0);
     border: var(--border-size-1) solid var(--default-light);
     box-shadow: none;
-    transform-origin: top center;
+    transform-origin: bottom center;
     white-space: nowrap;
     padding: 0 0.5em;
     background-color: var(--white);
     pointer-events: none;
   }
-  &:hover::after {
+
+  &:hover::after,
+  &:focus-visible::after {
     display: block;
     opacity: 1;
     transform: translate(-50%) scale(1);
   }
 
   &[data-tooltip-position="top"]::after {
+    top: auto;
+    bottom: 100%;
     transform-origin: bottom center;
-    top: -100%;
+  }
+
+  &[data-tooltip-position="bottom"]::after {
+    top: 100%;
+    bottom: auto;
+    transform-origin: top center;
+  }
+
+  &[data-tooltip-position="left"]::after,
+  &[data-tooltip-position="right"]::after {
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%) scale(0);
   }
 
   &[data-tooltip-position="left"]::after {
-    transform-origin: right center;
-    top: 0;
     right: 100%;
     left: auto;
-    transform: translate(0) scale(1);
+    transform-origin: right center;
   }
 
-  &[data-tooltip-position="right"] {
-    &::after {
-      transform-origin: left center;
-      top: 0;
-      left: 100%;
-      transform: translate(0) scale(0);
-    }
-    &:hover::after {
-      transform: translate(0) scale(1);
-    }
+  &[data-tooltip-position="right"]::after {
+    right: auto;
+    left: 100%;
+    transform-origin: left center;
+  }
+
+  &[data-tooltip-position="left"]:is(:hover, :focus-visible)::after,
+  &[data-tooltip-position="right"]:is(:hover, :focus-visible)::after {
+    transform: translateY(-50%) scale(1);
   }
 }

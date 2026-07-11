@@ -6,17 +6,19 @@ form[role="search"] {
 search > form,
 form[role="search"] {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   gap: var(--spacing-2);
 }
 
-search label,
-form[role="search"] label {
+search fieldset,
+form[role="search"] fieldset {
   flex: 1 1 auto;
+  margin-bottom: 0;
 }
 
 input[type="search"] {
   width: 100%;
+  margin-bottom: 0;
 }
 
 input[type="search"]::-webkit-search-cancel-button {

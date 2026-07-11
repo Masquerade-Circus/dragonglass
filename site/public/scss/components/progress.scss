@@ -21,10 +21,6 @@ progress[data-progress~="accent"] {
   --progress-color: var(--accent);
 }
 
-progress[data-progress~="secondary"] {
-  --progress-color: var(--secondary);
-}
-
 progress[data-progress~="success"] {
   --progress-color: var(--success);
 }

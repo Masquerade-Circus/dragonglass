@@ -26,6 +26,7 @@ a[data-chip],
 button[data-chip],
 label[data-chip] {
   cursor: pointer;
+  margin: 0;
 }
 
 :is(a, button, label)[data-chip]:hover {
@@ -43,6 +44,10 @@ label[data-chip] {
 
 [data-chip] > input {
   margin: 0;
+}
+
+[data-chip]:has(input:checked) > input {
+  --control-accent: var(--chip-active-text);
 }
 
 @each $name, $color in $primaryColors {

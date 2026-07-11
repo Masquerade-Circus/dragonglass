@@ -13,7 +13,7 @@ $spacing: (
   8: 2rem,
   10: 2.5rem,
   12: 3rem,
-  16: 4rem
+  16: 4rem,
 );
 
 $fontSizes: (
@@ -24,7 +24,7 @@ $fontSizes: (
   lg: 1.25rem,
   xl: 1.5rem,
   2xl: 1.965rem,
-  3xl: 2.25rem
+  3xl: 2.25rem,
 );
 
 $borderSizes: (
@@ -41,7 +41,7 @@ $borderSizes: (
   10: 2rem,
   11: 2.25rem,
   12: 2.5rem,
-  13: 3rem
+  13: 3rem,
 );
 
 $shadowSizes: (
@@ -52,7 +52,7 @@ $shadowSizes: (
   lg: 6,
   xl: 8,
   2xl: 12,
-  3xl: 16
+  3xl: 16,
 );
 
 $primaryColors: (
@@ -62,18 +62,18 @@ $primaryColors: (
   "info": #00c3e0,
   "warning": #bf7921,
   "danger": #bb2626,
-  "default": #646c8a
+  "default": #646c8a,
 );
 
 $secondaryColors: (
   "white": #ffffff,
-  "black": #333333
+  "black": #333333,
 );
 
 $amount: 25;
 $colors: (
   "white": map.get($secondaryColors, "white"),
-  "black": map.get($secondaryColors, "white")
+  "black": map.get($secondaryColors, "black"),
 );
 
 @each $name, $baseColor in $primaryColors {
@@ -85,7 +85,7 @@ $colors: (
       "#{$name}-lightest": color.adjust($baseColor, $lightness: $amount * 1.4%),
       "#{$name}-light": color.adjust($baseColor, $lightness: $amount * 1%),
       "#{$name}-dark": color.adjust($baseColor, $lightness: -$amount * 1%),
-      "#{$name}-darkest": color.adjust($baseColor, $lightness: -$amount * 1.4%)
+      "#{$name}-darkest": color.adjust($baseColor, $lightness: -$amount * 1.4%),
     )
   );
 }
