@@ -33,7 +33,7 @@ footer {
 }
 
 :where(body, main, article, dialog, [data-card]) > footer:last-child {
-  border-top: 0.06em solid var(--default-lightest);
+  border-top: 0.06em solid var(--default-lighter);
 }
 
 :where(body, main, article, dialog, [data-card]) > footer:first-child {
@@ -41,7 +41,7 @@ footer {
 }
 
 :where(body, main, article, dialog, [data-card]) > header:first-child {
-  border-bottom: 0.06em solid var(--default-lightest);
+  border-bottom: 0.06em solid var(--default-lighter);
 }
 
 :where(body, main, article, dialog, [data-card]) > header:last-child {
@@ -77,12 +77,12 @@ nav {
     transition: var(--animate-all-fastest);
 
     &:hover {
-      background-color: var(--default-lightest);
+      background-color: var(--default-lighter);
       color: var(--default-dark);
     }
 
     &[aria-current="page"] {
-      background-color: var(--primary-bright);
+      background-color: var(--primary-lightest);
       color: var(--primary);
     }
   }

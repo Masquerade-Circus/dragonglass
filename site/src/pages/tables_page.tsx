@@ -15,7 +15,7 @@ const colors = [
 
 const tableCode = (
   color?: string,
-) => `<table${color ? ` data-table="${color}"` : ""}>
+) => `<table data-table${color ? `="${color}"` : ""}>
   <caption>Food details</caption>
   <thead>
     <tr>
@@ -61,14 +61,16 @@ const tableRows = [
   {
     name: "data-table",
     type: "Table attribute",
-    defaultValue: "Uncolored table",
+    defaultValue: "Required for compact layout",
     description:
-      "Accepts primary, accent, success, info, warning, danger or default.",
+      "Its presence enables the responsive layout. It accepts primary, accent, success, info, warning, danger or default for an optional tone.",
   },
 ];
 
 const Table = ({ color }: { color?: string }) => {
-  const attributes = color ? { "data-table": color } : {};
+  const attributes = {
+    "data-table": typeof color === "string" ? color : "",
+  };
 
   return (
     <table {...attributes}>
@@ -139,8 +141,8 @@ export default () => (
           columns describe real data relationships.
         </li>
         <li>
-          The current responsive CSS hides <code>thead</code> visually. The
-          semantic headers remain in the markup, while data labels provide the
+          The responsive CSS hides <code>thead</code> only from view. Assistive
+          technology retains the semantic headers, while data labels provide the
           compact visual headings.
         </li>
       </ul>

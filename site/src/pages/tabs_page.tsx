@@ -32,7 +32,7 @@ const richTabsExample = `<section data-tabs>
 
 export default () => (
   <DocPage page="Tabs">
-    <DemoSection id="tabs-basic-title" title="Grouped disclosures">
+    <DemoSection id="tabs-basic-title" title="Native grouped disclosures">
       <section data-tabs>
         <details name="account-tabs" open>
           <summary>Overview</summary>
@@ -84,7 +84,7 @@ export default () => (
             type: "Attribute",
             defaultValue: "Required",
             description:
-              "Applies the tab-like layout to grouped details elements.",
+              "Aligns grouped details controls and places the open content below.",
           },
           {
             name: "name",
@@ -122,9 +122,14 @@ export default () => (
     <DemoSection id="tabs-errors-title" title="Composition and common errors">
       <p>
         Give sibling details the same non-empty <code>name</code> when they must
-        behave as a group. Do not add <code>role="tablist"</code> or
-        <code> role="tab"</code> without also implementing the complete ARIA
-        keyboard and focus contract.
+        behave as a group. Keep only <code>details</code> as direct children of
+        the tabs container because the enhanced layout derives each tab position
+        from that sibling order.
+      </p>
+      <p>
+        Browsers without the required modern CSS keep the native disclosures in
+        a stacked layout. Do not add ARIA tab roles without implementing the
+        complete keyboard and focus contract.
       </p>
     </DemoSection>
   </DocPage>

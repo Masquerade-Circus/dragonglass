@@ -45,40 +45,40 @@ const defaultFieldsCode = `<form data-card>
 
 const floatingFieldsCode = `<form data-card>
   <section>
-  <fieldset data-floating>
-    <input id="floating-name" name="name" type="text" placeholder="Full name" aria-labelledby="floating-name-label" aria-describedby="floating-name-help">
-    <legend id="floating-name-label">Full name</legend>
+  <div data-floating>
+    <input id="floating-name" name="name" type="text" placeholder="Full name" aria-describedby="floating-name-help">
+    <label for="floating-name">Full name</label>
     <small id="floating-name-help">Enter the name shown to teammates.</small>
-  </fieldset>
-  <fieldset data-floating data-field="warning">
-    <input id="floating-slug" name="slug" type="text" value="draft-name" placeholder="Project slug" aria-labelledby="floating-slug-label" aria-describedby="floating-slug-help">
-    <legend id="floating-slug-label">Project slug</legend>
+  </div>
+  <div data-floating data-field="warning">
+    <input id="floating-slug" name="slug" type="text" value="draft-name" placeholder="Project slug" aria-describedby="floating-slug-help">
+    <label for="floating-slug">Project slug</label>
     <small id="floating-slug-help">Changing this value updates shared links.</small>
-  </fieldset>
-  <fieldset data-floating data-field="success">
-    <input id="floating-domain" name="domain" type="text" value="example.com" placeholder="Domain" aria-labelledby="floating-domain-label" aria-describedby="floating-domain-help">
-    <legend id="floating-domain-label">Domain</legend>
+  </div>
+  <div data-floating data-field="success">
+    <input id="floating-domain" name="domain" type="text" value="example.com" placeholder="Domain" aria-describedby="floating-domain-help">
+    <label for="floating-domain">Domain</label>
     <small id="floating-domain-help">This domain is available.</small>
-  </fieldset>
-  <fieldset data-floating>
-    <input id="floating-code" name="code" type="text" value="bad code" placeholder="Invite code" aria-labelledby="floating-code-label" aria-describedby="floating-code-error" aria-invalid="true">
-    <legend id="floating-code-label">Invite code</legend>
+  </div>
+  <div data-floating>
+    <input id="floating-code" name="code" type="text" value="bad code" placeholder="Invite code" aria-describedby="floating-code-error" aria-invalid="true">
+    <label for="floating-code">Invite code</label>
     <small id="floating-code-error">Remove the space from the invite code.</small>
-  </fieldset>
-  <fieldset data-floating>
-    <textarea id="floating-notes" name="notes" placeholder="Notes" aria-labelledby="floating-notes-label" aria-describedby="floating-notes-help"></textarea>
-    <legend id="floating-notes-label">Notes</legend>
+  </div>
+  <div data-floating>
+    <textarea id="floating-notes" name="notes" placeholder="Notes" aria-describedby="floating-notes-help"></textarea>
+    <label for="floating-notes">Notes</label>
     <small id="floating-notes-help">Add context for reviewers.</small>
-  </fieldset>
-  <fieldset data-floating>
-    <select id="floating-team" name="team" aria-labelledby="floating-team-label" aria-describedby="floating-team-help">
+  </div>
+  <div data-floating>
+    <select id="floating-team" name="team" aria-describedby="floating-team-help">
       <option value="">Select a team</option>
       <option value="design">Design</option>
       <option value="engineering">Engineering</option>
     </select>
-    <legend id="floating-team-label">Team</legend>
+    <label for="floating-team">Team</label>
     <small id="floating-team-help">Choose the team that owns this work.</small>
-  </fieldset>
+  </div>
   </section>
 </form>`;
 
@@ -159,11 +159,11 @@ const coloredSurfaceCode = `<form data-card class="bg-primary">
       <input id="invite-name" name="name" type="text" aria-describedby="invite-name-help">
       <small id="invite-name-help">Enter the name shown on the invitation.</small>
     </fieldset>
-    <fieldset data-floating>
-      <input id="invite-email" name="email" type="email" placeholder="Email" aria-labelledby="invite-email-label" aria-describedby="invite-email-help">
-      <legend id="invite-email-label">Email</legend>
+    <div data-floating>
+      <input id="invite-email" name="email" type="email" placeholder="Email" aria-describedby="invite-email-help">
+      <label for="invite-email">Email</label>
       <small id="invite-email-help">We will send the invitation to this address.</small>
-    </fieldset>
+    </div>
   </section>
   <footer>
     <nav aria-label="Invitation actions">
@@ -222,22 +222,21 @@ const apiRows = [
     name: "fieldset and legend",
     type: "Element",
     defaultValue: "No border",
-    description:
-      "Groups related controls and names radio, checkbox or floating-field groups.",
+    description: "Groups related controls and names radio or checkbox groups.",
   },
   {
     name: "data-floating",
     type: "Attribute",
     defaultValue: "Absent",
     description:
-      "Positions a following legend as a floating label for the control.",
+      "Turns a neutral wrapper with a control, label and small into a floating field.",
   },
   {
     name: 'data-field="warning|success"',
     type: "Attribute token",
     defaultValue: "Neutral",
     description:
-      "Applies a non-error semantic state to a fieldset and its control.",
+      "Applies a non-error semantic state to a field container and its control.",
   },
   {
     name: "data-toggle",
@@ -368,91 +367,85 @@ export default () => (
     <DemoSection id="floating-labels" title="Floating labels">
       <form data-card>
         <section>
-          <fieldset data-floating>
+          <div data-floating>
             <input
               id="floating-name"
               name="name"
               type="text"
               placeholder="Full name"
-              aria-labelledby="floating-name-label"
               aria-describedby="floating-name-help"
             />
-            <legend id="floating-name-label">Full name</legend>
+            <label for="floating-name">Full name</label>
             <small id="floating-name-help">
               Enter the name shown to teammates.
             </small>
-          </fieldset>
-          <fieldset data-floating data-field="warning">
+          </div>
+          <div data-floating data-field="warning">
             <input
               id="floating-slug"
               name="slug"
               type="text"
               value="draft-name"
               placeholder="Project slug"
-              aria-labelledby="floating-slug-label"
               aria-describedby="floating-slug-help"
             />
-            <legend id="floating-slug-label">Project slug</legend>
+            <label for="floating-slug">Project slug</label>
             <small id="floating-slug-help">
               Changing this value updates shared links.
             </small>
-          </fieldset>
-          <fieldset data-floating data-field="success">
+          </div>
+          <div data-floating data-field="success">
             <input
               id="floating-domain"
               name="domain"
               type="text"
               value="example.com"
               placeholder="Domain"
-              aria-labelledby="floating-domain-label"
               aria-describedby="floating-domain-help"
             />
-            <legend id="floating-domain-label">Domain</legend>
+            <label for="floating-domain">Domain</label>
             <small id="floating-domain-help">This domain is available.</small>
-          </fieldset>
-          <fieldset data-floating>
+          </div>
+          <div data-floating>
             <input
               id="floating-code"
               name="code"
               type="text"
               value="bad code"
               placeholder="Invite code"
-              aria-labelledby="floating-code-label"
               aria-describedby="floating-code-error"
               aria-invalid="true"
             />
-            <legend id="floating-code-label">Invite code</legend>
+            <label for="floating-code">Invite code</label>
             <small id="floating-code-error">
               Remove the space from the invite code.
             </small>
-          </fieldset>
-          <fieldset data-floating>
+          </div>
+          <div data-floating>
             <textarea
               id="floating-notes"
               name="notes"
               placeholder="Notes"
-              aria-labelledby="floating-notes-label"
               aria-describedby="floating-notes-help"
             />
-            <legend id="floating-notes-label">Notes</legend>
+            <label for="floating-notes">Notes</label>
             <small id="floating-notes-help">Add context for reviewers.</small>
-          </fieldset>
-          <fieldset data-floating>
+          </div>
+          <div data-floating>
             <select
               id="floating-team"
               name="team"
-              aria-labelledby="floating-team-label"
               aria-describedby="floating-team-help"
             >
               <option value="">Select a team</option>
               <option value="design">Design</option>
               <option value="engineering">Engineering</option>
             </select>
-            <legend id="floating-team-label">Team</legend>
+            <label for="floating-team">Team</label>
             <small id="floating-team-help">
               Choose the team that owns this work.
             </small>
-          </fieldset>
+          </div>
         </section>
       </form>
       <CodeExample code={floatingFieldsCode} />
@@ -597,20 +590,19 @@ export default () => (
               Enter the name shown on the invitation.
             </small>
           </fieldset>
-          <fieldset data-floating>
+          <div data-floating>
             <input
               id="invite-email"
               name="email"
               type="email"
               placeholder="Email"
-              aria-labelledby="invite-email-label"
               aria-describedby="invite-email-help"
             />
-            <legend id="invite-email-label">Email</legend>
+            <label for="invite-email">Email</label>
             <small id="invite-email-help">
               We will send the invitation to this address.
             </small>
-          </fieldset>
+          </div>
         </section>
         <footer>
           <nav aria-label="Invitation actions">
@@ -675,10 +667,11 @@ export default () => (
 
     <DemoSection id="forms-composition" title="Composition">
       <p>
-        Place each control and its help text in a <code>fieldset</code>. Use a
-        visible <code>label</code> for ordinary fields. Floating fields keep the
-        control before the <code>legend</code> because that sibling order drives
-        the visual label state.
+        Wrap ordinary fields as needed and use <code>fieldset</code> with
+        <code>legend</code> for related control groups. Floating fields use a
+        neutral <code>data-floating</code> container and keep the control before
+        its <code>label</code> because that sibling order drives the visual
+        label state.
       </p>
       <p>
         Radio buttons share a <code>name</code> and a group legend. Checkboxes
@@ -699,11 +692,11 @@ export default () => (
     <DemoSection id="forms-accessibility" title="Accessibility">
       <p>
         Every control needs a stable <code>name</code> for submission and an
-        accessible name from <code>label</code> or <code>aria-labelledby</code>.
-        Connect help and error text with <code>aria-describedby</code>. Put
-        <code> aria-invalid="true"</code> on the invalid control after
-        validation, and move focus to the first invalid field when submission
-        fails.
+        accessible name from a <code>label</code> whose <code>for</code> matches
+        the control ID. Connect help and error text with
+        <code>aria-describedby</code>. Put <code> aria-invalid="true"</code> on
+        the invalid control after validation, and move focus to the first
+        invalid field when submission fails.
       </p>
     </DemoSection>
 

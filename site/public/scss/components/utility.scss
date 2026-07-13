@@ -41,6 +41,12 @@
   }
 }
 
+@each $name, $value in $zIndexes {
+  .z-#{$name} {
+    z-index: $value;
+  }
+}
+
 /*** Helper classes Start ***/
 .u-scrollable {
   max-height: 360rem;
@@ -85,6 +91,7 @@
     .hover\:border:hover,
     .border {
       border-width: var(--border-size-1);
+      border-style: solid;
     }
   }
 

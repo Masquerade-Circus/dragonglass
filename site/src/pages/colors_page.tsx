@@ -12,13 +12,21 @@ const colors = [
   "danger",
   "default",
 ];
-const weights = ["-bright", "-lightest", "-light", "", "-dark", "-darkest"];
+const weights = [
+  "-lightest",
+  "-lighter",
+  "-light",
+  "",
+  "-dark",
+  "-darker",
+  "-darkest",
+];
 
 const paletteExample = `<div class="bg-primary p-3">Primary background</div>
 <p class="text-primary-dark">Primary dark text</p>`;
 const stateExample = `<button type="button" class="bg-primary-dark hover:bg-primary active:bg-primary-light">Background states</button>
 <input aria-label="Color focus example" class="p-3 text-primary-dark focus:text-primary" value="Focus this field">`;
-const colorTokenExample = `<div style="background-color: var(--primary); color: var(--primary-darkest)">
+const colorTokenExample = `<div style="background-color: var(--primary); color: var(--primary-darker)">
   Primary token preview
 </div>`;
 
@@ -35,8 +43,9 @@ export default () => (
   <DocPage page="Colors">
     <DemoSection id="color-palette" title="Background and text colors">
       <p>
-        Each semantic color includes bright, lightest, light, base, dark and
-        darkest tokens.
+        Each semantic color includes lightest, lighter, light, base, dark,
+        darker and darkest tokens. White and black remain the global contrast
+        extremes.
       </p>
       <div class="bg-primary p-3">Primary background</div>
       <p class="text-primary-dark">Primary dark text</p>
@@ -79,7 +88,7 @@ export default () => (
         Use the semantic custom properties when a component needs token values
         directly instead of a generated color utility class.
       </p>
-      <div style="background-color: var(--primary); color: var(--primary-darkest)">
+      <div style="background-color: var(--primary); color: var(--primary-darker)">
         Primary token preview
       </div>
       <CodeExample code={colorTokenExample} />

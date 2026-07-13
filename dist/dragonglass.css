@@ -22,47 +22,54 @@
   --white: #ffffff;
   --black: #333333;
   --primary: #3244ad;
-  --primary-bright: rgb(226.2183856502, 229.2130044843, 246.6816143498);
-  --primary-lightest: rgb(170.8273542601, 179.5852017937, 230.6726457399);
+  --primary-lightest: rgb(226.2183856502, 229.2130044843, 246.6816143498);
+  --primary-lighter: rgb(170.8273542601, 179.5852017937, 230.6726457399);
   --primary-light: rgb(131.2623318386, 144.1367713004, 219.2376681614);
   --primary-dark: rgb(21.4125560538, 29.1210762332, 74.0874439462);
-  --primary-darkest: rgb(9.9775784753, 13.5695067265, 34.5224215247);
+  --primary-darker: rgb(9.9775784753, 13.5695067265, 34.5224215247);
+  --primary-darkest: rgb(5, 6.8, 17.3);
   --accent: #953ca5;
-  --accent-bright: rgb(243.144, 229.26, 245.64);
-  --accent-lightest: rgb(219.0266666667, 176.9, 226.6);
+  --accent-lightest: rgb(243.144, 229.26, 245.64);
+  --accent-lighter: rgb(219.0266666667, 176.9, 226.6);
   --accent-light: rgb(201.8, 139.5, 213);
   --accent-dark: rgb(64.5666666667, 26, 71.5);
-  --accent-darkest: rgb(30.7933333333, 12.4, 34.1);
+  --accent-darker: rgb(30.7933333333, 12.4, 34.1);
+  --accent-darkest: rgb(14.9, 6, 16.5);
   --success: #2ab7a9;
-  --success-bright: rgb(226.452, 248.448, 246.264);
-  --success-lightest: rgb(168.38, 235.12, 228.4933333333);
+  --success-lightest: rgb(226.452, 248.448, 246.264);
+  --success-lighter: rgb(168.38, 235.12, 228.4933333333);
   --success-light: rgb(126.9, 225.6, 215.8);
   --success-dark: rgb(18.2, 79.3, 73.2333333333);
-  --success-darkest: rgb(8.68, 37.82, 34.9266666667);
+  --success-darker: rgb(8.68, 37.82, 34.9266666667);
+  --success-darkest: rgb(4.2, 18.3, 16.9);
   --info: #00c3e0;
-  --info-bright: rgb(218.9, 250.3263392857, 255);
-  --info-lightest: rgb(147.5, 241.0825892857, 255);
+  --info-lightest: rgb(218.9, 250.3263392857, 255);
+  --info-lighter: rgb(147.5, 241.0825892857, 255);
   --info-light: rgb(96.5, 234.4799107143, 255);
   --info-dark: rgb(0, 84.0066964286, 96.5);
-  --info-darkest: rgb(0, 39.609375, 45.5);
+  --info-darker: rgb(0, 39.609375, 45.5);
+  --info-darkest: rgb(0, 19.5, 22.4);
   --warning: #bf7921;
-  --warning-bright: rgb(249.6816964286, 238.4004464286, 224.2183035714);
-  --warning-lightest: rgb(239.1629464286, 205.5691964286, 163.3370535714);
+  --warning-lightest: rgb(249.6816964286, 238.4004464286, 224.2183035714);
+  --warning-lighter: rgb(239.1629464286, 205.5691964286, 163.3370535714);
   --warning-light: rgb(231.6495535714, 182.1183035714, 119.8504464286);
   --warning-dark: rgb(82.2834821429, 52.1272321429, 14.2165178571);
-  --warning-darkest: rgb(38.796875, 24.578125, 6.703125);
+  --warning-darker: rgb(38.796875, 24.578125, 6.703125);
+  --warning-darkest: rgb(19.1, 12.1, 3.3);
   --danger: #bb2626;
-  --danger-bright: rgb(249.072, 225.828, 225.828);
-  --danger-lightest: rgb(237.0133333333, 166.4866666667, 166.4866666667);
+  --danger-lightest: rgb(249.072, 225.828, 225.828);
+  --danger-lighter: rgb(237.0133333333, 166.4866666667, 166.4866666667);
   --danger-light: rgb(228.4, 124.1, 124.1);
   --danger-dark: rgb(81.0333333333, 16.4666666667, 16.4666666667);
-  --danger-darkest: rgb(38.6466666667, 7.8533333333, 7.8533333333);
+  --danger-darker: rgb(38.6466666667, 7.8533333333, 7.8533333333);
+  --danger-darkest: rgb(18.7, 3.8, 3.8);
   --default: #646c8a;
-  --default-bright: rgb(242.1857142857, 242.9285714286, 245.7142857143);
-  --default-lightest: rgb(200.7857142857, 203.9285714286, 215.7142857143);
+  --default-lightest: rgb(242.1857142857, 242.9285714286, 245.7142857143);
+  --default-lighter: rgb(200.7857142857, 203.9285714286, 215.7142857143);
   --default-light: rgb(171.2142857143, 176.0714285714, 194.2857142857);
   --default-dark: rgb(46.4285714286, 50.1428571429, 64.0714285714);
-  --default-darkest: rgb(25, 27, 34.5);
+  --default-darker: rgb(25, 27, 34.5);
+  --default-darkest: rgb(10, 10.8, 13.8);
   --font-size-2xs: 0.75rem;
   --font-size-xs: 0.8rem;
   --font-size-sm: 0.9rem;
@@ -193,7 +200,7 @@ body {
   padding: 0;
   overflow-x: hidden;
   height: 100%;
-  background: var(--default-bright);
+  background: var(--default-lightest);
 }
 
 a,
@@ -264,7 +271,7 @@ hr {
   border: 0;
   height: 0.1rem;
   clear: both;
-  background: var(--default-lightest);
+  background: var(--default-lighter);
 }
 hr:after, hr::before {
   clear: both;
@@ -345,7 +352,10 @@ body > article > section {
   }
 }
 /*** Grid ***/
-[class*=grid] {
+.grid,
+.grid-end,
+.grid-center,
+.grid-gutters {
   clear: both;
   display: flex;
   flex-direction: row;
@@ -355,12 +365,21 @@ body > article > section {
   align-content: center;
   position: relative;
 }
-[class*=grid]:after, [class*=grid]::before {
+.grid:after, .grid::before,
+.grid-end:after,
+.grid-end::before,
+.grid-center:after,
+.grid-center::before,
+.grid-gutters:after,
+.grid-gutters::before {
   clear: both;
   content: " ";
   display: block;
 }
-[class*=grid] > * {
+.grid > *,
+.grid-end > *,
+.grid-center > *,
+.grid-gutters > * {
   width: 100%;
   order: 0;
   flex: 0 1 auto;
@@ -592,7 +611,7 @@ code {
   font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
   clear: both;
   display: block;
-  background-color: var(--default-bright);
+  background-color: var(--default-lightest);
   border: var(--border-size-1) solid var(--default-light);
   margin: 0.25em 0;
   box-shadow: none;
@@ -638,7 +657,7 @@ samp {
 /*** Progress ***/
 progress {
   --progress-color: var(--primary);
-  --progress-track: var(--default-lightest);
+  --progress-track: var(--default-lighter);
   appearance: none;
   display: block;
   width: 100%;
@@ -660,19 +679,23 @@ progress[data-progress~=accent] {
 }
 
 progress[data-progress~=success] {
-  --progress-color: var(--success);
+  --progress-color: var(--success-dark);
+}
+
+progress[data-progress~=info] {
+  --progress-color: var(--info-dark);
 }
 
 progress[data-progress~=warning] {
-  --progress-color: var(--warning);
+  --progress-color: var(--warning-dark);
 }
 
 progress[data-progress~=danger] {
   --progress-color: var(--danger);
 }
 
-progress[data-progress~=info] {
-  --progress-color: var(--info);
+progress[data-progress~=default] {
+  --progress-color: var(--default);
 }
 
 progress::-webkit-progress-bar {
@@ -808,7 +831,7 @@ input[type=search]::-webkit-search-cancel-button {
   --chip-background: var(--white);
   --chip-text: var(--default-dark);
   --chip-active: var(--primary);
-  --chip-active-text: var(--white);
+  --chip-active-text: var(--primary-lightest);
   --control-accent: var(--chip-active);
   display: inline-flex;
   align-items: center;
@@ -858,7 +881,7 @@ label[data-chip] {
   --chip-background: var(--primary-light);
   --chip-text: var(--default-dark);
   --chip-active: var(--primary);
-  --chip-active-text: var(--primary-bright);
+  --chip-active-text: var(--primary-lightest);
 }
 
 [data-chip~=accent] {
@@ -866,7 +889,7 @@ label[data-chip] {
   --chip-background: var(--accent-light);
   --chip-text: var(--default-dark);
   --chip-active: var(--accent);
-  --chip-active-text: var(--accent-bright);
+  --chip-active-text: var(--accent-lightest);
 }
 
 [data-chip~=success] {
@@ -874,7 +897,7 @@ label[data-chip] {
   --chip-background: var(--success-light);
   --chip-text: var(--default-dark);
   --chip-active: var(--success);
-  --chip-active-text: var(--success-bright);
+  --chip-active-text: var(--success-darker);
 }
 
 [data-chip~=info] {
@@ -882,7 +905,7 @@ label[data-chip] {
   --chip-background: var(--info-light);
   --chip-text: var(--default-dark);
   --chip-active: var(--info);
-  --chip-active-text: var(--info-bright);
+  --chip-active-text: var(--info-darker);
 }
 
 [data-chip~=warning] {
@@ -890,7 +913,7 @@ label[data-chip] {
   --chip-background: var(--warning-light);
   --chip-text: var(--default-dark);
   --chip-active: var(--warning);
-  --chip-active-text: var(--warning-bright);
+  --chip-active-text: var(--warning-darker);
 }
 
 [data-chip~=danger] {
@@ -898,7 +921,7 @@ label[data-chip] {
   --chip-background: var(--danger-light);
   --chip-text: var(--default-dark);
   --chip-active: var(--danger);
-  --chip-active-text: var(--danger-bright);
+  --chip-active-text: var(--danger-lightest);
 }
 
 [data-chip~=default] {
@@ -906,11 +929,11 @@ label[data-chip] {
   --chip-background: var(--default-light);
   --chip-text: var(--default-dark);
   --chip-active: var(--default);
-  --chip-active-text: var(--default-bright);
+  --chip-active-text: var(--default-lightest);
 }
 
 /*** Alerts ***/
-blockquote[data-alert] {
+[data-alert] {
   --alert-color: var(--primary);
   --alert-bg: var(--primary-light);
   display: block;
@@ -922,27 +945,27 @@ blockquote[data-alert] {
   color: var(--default-dark);
 }
 
-blockquote[data-alert~=info] {
+[data-alert~=info] {
   --alert-color: var(--info);
   --alert-bg: var(--info-light);
 }
 
-blockquote[data-alert~=success] {
+[data-alert~=success] {
   --alert-color: var(--success);
   --alert-bg: var(--success-light);
 }
 
-blockquote[data-alert~=warning] {
+[data-alert~=warning] {
   --alert-color: var(--warning);
   --alert-bg: var(--warning-light);
 }
 
-blockquote[data-alert~=danger] {
+[data-alert~=danger] {
   --alert-color: var(--danger);
   --alert-bg: var(--danger-light);
 }
 
-blockquote[data-alert] > :last-child {
+[data-alert] > :last-child {
   margin-bottom: 0;
 }
 
@@ -1005,6 +1028,13 @@ blockquote[data-alert] > :last-child {
   transform: translateY(-50%) scale(1);
 }
 
+@media (max-width: 575px) {
+  [data-tooltip]::after {
+    width: max-content;
+    max-width: calc(100vw - var(--spacing-4) * 2);
+    white-space: normal;
+  }
+}
 /*** Badges ***/
 [data-badge] {
   position: relative;
@@ -1173,7 +1203,7 @@ footer > h3 {
 }
 
 :where(body, main, article, dialog, [data-card]) > footer:last-child {
-  border-top: 0.06em solid var(--default-lightest);
+  border-top: 0.06em solid var(--default-lighter);
 }
 
 :where(body, main, article, dialog, [data-card]) > footer:first-child {
@@ -1181,7 +1211,7 @@ footer > h3 {
 }
 
 :where(body, main, article, dialog, [data-card]) > header:first-child {
-  border-bottom: 0.06em solid var(--default-lightest);
+  border-bottom: 0.06em solid var(--default-lighter);
 }
 
 :where(body, main, article, dialog, [data-card]) > header:last-child {
@@ -1217,11 +1247,11 @@ nav :where(a, button) {
   transition: var(--animate-all-fastest);
 }
 nav :where(a, button):hover {
-  background-color: var(--default-lightest);
+  background-color: var(--default-lighter);
   color: var(--default-dark);
 }
 nav :where(a, button)[aria-current=page] {
-  background-color: var(--primary-bright);
+  background-color: var(--primary-lightest);
   color: var(--primary);
 }
 nav > [data-button~=fab] {
@@ -1499,7 +1529,7 @@ dl > :nth-last-child(-n+2) {
 
 /*** Details ***/
 details:not([data-trigger]) {
-  background-color: var(--default-bright);
+  background-color: var(--default-lightest);
   border: var(--border-size-1) solid var(--default-light);
   border-radius: var(--card-radius);
   box-shadow: none;
@@ -1554,57 +1584,59 @@ details[data-expansion-panel][open] > summary::after {
   transform: rotate(90deg);
 }
 
-[data-tabs] {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0;
-  border-bottom: var(--border-size-1) solid var(--default-light);
+@property --dragonglass-tab-index {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 1;
 }
-
-[data-tabs] > details {
-  display: flex;
-  flex: 1 1 8rem;
-  flex-wrap: wrap;
+@property --dragonglass-tab-count {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 1;
 }
-
-[data-tabs] > details > summary {
-  flex: 1 1 100%;
-  order: 1;
-  padding: var(--spacing-3) var(--spacing-4);
-  border-bottom: var(--border-size-2) solid transparent;
-  cursor: pointer;
-  list-style: none;
-  text-align: center;
+@supports (width: calc(100% / sibling-count())) and selector(details::details-content) {
+  [data-tabs]::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  [data-tabs] > details {
+    --dragonglass-tab-index: sibling-index();
+    --dragonglass-tab-count: sibling-count();
+    float: left;
+    width: calc(100% / var(--dragonglass-tab-count));
+    overflow: visible;
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+  }
+  [data-tabs] > details > summary {
+    box-sizing: border-box;
+    width: 100%;
+    padding: var(--spacing-3) var(--spacing-4);
+    border-bottom: var(--border-size-2) solid var(--default-light);
+    list-style: none;
+    text-align: center;
+  }
+  [data-tabs] > details > summary::-webkit-details-marker {
+    display: none;
+  }
+  [data-tabs] > details[open] > summary {
+    color: var(--primary);
+    border-color: var(--primary);
+  }
+  [data-tabs] > details > :not(summary) {
+    padding: 0;
+  }
+  [data-tabs] > details::details-content {
+    position: relative;
+    left: calc((1 - var(--dragonglass-tab-index)) * 100%);
+    float: left;
+    box-sizing: border-box;
+    width: calc(100% * var(--dragonglass-tab-count));
+    padding: var(--spacing-4) 0;
+  }
 }
-
-[data-tabs] > details > summary::-webkit-details-marker {
-  display: none;
-}
-
-[data-tabs] > details[open] > summary {
-  border-color: var(--primary);
-  color: var(--primary);
-}
-
-[data-tabs] > details > :not(summary) {
-  flex: 0 0 100%;
-  order: 2;
-  padding: var(--spacing-4) 0;
-}
-
-[data-tabs] > details[open] {
-  flex-basis: 100%;
-  order: 2;
-}
-
-[data-tabs] > details:not([open]) {
-  order: 1;
-}
-
-[data-tabs] > details:not([open]) > :not(summary) {
-  display: none;
-}
-
 /*** Notifications ***/
 [data-notification] {
   --notification-color: var(--primary);
@@ -1701,13 +1733,11 @@ details[data-expansion-panel][open] > summary::after {
   transform: none;
 }
 
-[data-notification]:has(> button[aria-label=Close]),
-[data-notification]:has(> button[aria-label=Dismiss]) {
+[data-notification]:has(> button[data-notification-close]) {
   padding-right: calc(var(--spacing-4) + 2rem);
 }
 
-[data-notification] > button[aria-label=Close],
-[data-notification] > button[aria-label=Dismiss] {
+[data-notification] > button[data-notification-close] {
   position: absolute;
   top: var(--spacing-2);
   right: var(--spacing-2);
@@ -1723,14 +1753,12 @@ details[data-expansion-panel][open] > summary::after {
   line-height: 1;
 }
 
-[data-notification] > button[aria-label=Close]::after,
-[data-notification] > button[aria-label=Dismiss]::after {
+[data-notification] > button[data-notification-close]::after {
   content: none;
 }
 
-[data-notification] > button[aria-label=Close]:hover,
-[data-notification] > button[aria-label=Dismiss]:hover {
-  background-color: var(--default-lightest);
+[data-notification] > button[data-notification-close]:hover {
+  background-color: var(--default-lighter);
 }
 
 [data-notification~=info] {
@@ -1877,7 +1905,7 @@ ol[data-stepper~=numbers] > li::before {
 }
 
 /*** Menus ***/
-menu {
+[data-trigger] > menu {
   position: absolute;
   z-index: -1;
   opacity: 0;
@@ -1895,21 +1923,20 @@ menu {
   border: var(--border-size-1) solid var(--default-light);
   box-shadow: none;
 }
-menu[data-menu~=top] {
+[data-trigger] > menu[data-menu~=top] {
   transform-origin: bottom left;
   bottom: 100%;
   top: auto;
 }
-menu[data-menu~=right] {
+[data-trigger] > menu[data-menu~=right] {
   transform-origin: top right;
   right: 0;
 }
-menu[data-menu~=top][data-menu~=right] {
+[data-trigger] > menu[data-menu~=top][data-menu~=right] {
   transform-origin: bottom right;
 }
 
-menu[open],
-[data-trigger][open] menu {
+[data-trigger][open] > menu {
   display: block;
   opacity: 1;
   z-index: 8;
@@ -1963,7 +1990,7 @@ tbody > tr {
   border-color: inherit;
 }
 
-td::before {
+table[data-table] td::before {
   content: attr(data-label);
   display: none;
   font-size: 0.75em;
@@ -1978,14 +2005,22 @@ td::before {
 
 /* Simple CSS for flexbox table on mobile */
 @media (max-width: 800px) {
-  table {
+  table[data-table] {
     width: 100%;
     border-radius: 0 0 0.5em 0.5em;
   }
-  thead {
-    display: none;
+  table[data-table] thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
-  tbody > tr {
+  table[data-table] tbody > tr {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -1995,7 +2030,7 @@ td::before {
     border: 0.06em solid;
     border-color: inherit;
   }
-  td {
+  table[data-table] td {
     padding-top: 1.5em;
     position: relative;
     width: 50%;
@@ -2003,132 +2038,132 @@ td::before {
     border-bottom: 0.06em solid;
     border-color: inherit;
   }
-  td::before {
+  table[data-table] td::before {
     display: block;
   }
 }
 @media (max-width: 480px) {
-  td {
+  table[data-table] td {
     width: 100%;
   }
 }
 table[data-table~=primary] caption,
 table[data-table~=primary] thead {
   background-color: var(--primary);
-  color: var(--primary-bright);
+  color: var(--primary-lightest);
   border-color: var(--primary-dark);
 }
 table[data-table~=primary] tbody > tr {
-  border-color: var(--primary-lightest);
+  border-color: var(--primary-lighter);
 }
 table[data-table~=primary] tbody > tr:nth-child(even) {
-  background-color: var(--primary-bright);
+  background-color: var(--primary-lightest);
 }
 table[data-table~=primary] td:before {
   background-color: var(--primary);
-  color: var(--primary-bright);
+  color: var(--primary-lightest);
 }
 
 table[data-table~=accent] caption,
 table[data-table~=accent] thead {
   background-color: var(--accent);
-  color: var(--accent-bright);
+  color: var(--accent-lightest);
   border-color: var(--accent-dark);
 }
 table[data-table~=accent] tbody > tr {
-  border-color: var(--accent-lightest);
+  border-color: var(--accent-lighter);
 }
 table[data-table~=accent] tbody > tr:nth-child(even) {
-  background-color: var(--accent-bright);
+  background-color: var(--accent-lightest);
 }
 table[data-table~=accent] td:before {
   background-color: var(--accent);
-  color: var(--accent-bright);
+  color: var(--accent-lightest);
 }
 
 table[data-table~=success] caption,
 table[data-table~=success] thead {
   background-color: var(--success);
-  color: var(--success-bright);
+  color: var(--success-darker);
   border-color: var(--success-dark);
 }
 table[data-table~=success] tbody > tr {
-  border-color: var(--success-lightest);
+  border-color: var(--success-lighter);
 }
 table[data-table~=success] tbody > tr:nth-child(even) {
-  background-color: var(--success-bright);
+  background-color: var(--success-lightest);
 }
 table[data-table~=success] td:before {
   background-color: var(--success);
-  color: var(--success-bright);
+  color: var(--success-darker);
 }
 
 table[data-table~=info] caption,
 table[data-table~=info] thead {
   background-color: var(--info);
-  color: var(--info-bright);
+  color: var(--info-darker);
   border-color: var(--info-dark);
 }
 table[data-table~=info] tbody > tr {
-  border-color: var(--info-lightest);
+  border-color: var(--info-lighter);
 }
 table[data-table~=info] tbody > tr:nth-child(even) {
-  background-color: var(--info-bright);
+  background-color: var(--info-lightest);
 }
 table[data-table~=info] td:before {
   background-color: var(--info);
-  color: var(--info-bright);
+  color: var(--info-darker);
 }
 
 table[data-table~=warning] caption,
 table[data-table~=warning] thead {
   background-color: var(--warning);
-  color: var(--warning-bright);
+  color: var(--warning-darker);
   border-color: var(--warning-dark);
 }
 table[data-table~=warning] tbody > tr {
-  border-color: var(--warning-lightest);
+  border-color: var(--warning-lighter);
 }
 table[data-table~=warning] tbody > tr:nth-child(even) {
-  background-color: var(--warning-bright);
+  background-color: var(--warning-lightest);
 }
 table[data-table~=warning] td:before {
   background-color: var(--warning);
-  color: var(--warning-bright);
+  color: var(--warning-darker);
 }
 
 table[data-table~=danger] caption,
 table[data-table~=danger] thead {
   background-color: var(--danger);
-  color: var(--danger-bright);
+  color: var(--danger-lightest);
   border-color: var(--danger-dark);
 }
 table[data-table~=danger] tbody > tr {
-  border-color: var(--danger-lightest);
+  border-color: var(--danger-lighter);
 }
 table[data-table~=danger] tbody > tr:nth-child(even) {
-  background-color: var(--danger-bright);
+  background-color: var(--danger-lightest);
 }
 table[data-table~=danger] td:before {
   background-color: var(--danger);
-  color: var(--danger-bright);
+  color: var(--danger-lightest);
 }
 
 table[data-table~=default] caption,
 table[data-table~=default] thead {
   background-color: var(--default);
-  color: var(--default-bright);
+  color: var(--default-lightest);
   border-color: var(--default-dark);
 }
 table[data-table~=default] tbody > tr {
-  border-color: var(--default-lightest);
+  border-color: var(--default-lighter);
 }
 table[data-table~=default] tbody > tr:nth-child(even) {
-  background-color: var(--default-bright);
+  background-color: var(--default-lightest);
 }
 table[data-table~=default] td:before {
   background-color: var(--default);
-  color: var(--default-bright);
+  color: var(--default-lightest);
 }
 
 /*** Cards ***/
@@ -2168,7 +2203,7 @@ table[data-table~=default] td:before {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 0%;
-  color: var(--default-bright);
+  color: var(--default-lightest);
 }
 [data-card] > [data-media]:first-child, dialog > [data-media]:first-child {
   border-top-left-radius: var(--card-radius);
@@ -2192,7 +2227,7 @@ table[data-table~=default] td:before {
   border: 0;
   height: auto;
   z-index: 1;
-  text-shadow: 0.06rem 0.06rem 0.13rem var(--default-darkest);
+  text-shadow: 0.06rem 0.06rem 0.13rem var(--default-darker);
   background-color: rgba(33, 33, 33, 0.3);
   overflow: visible;
   padding: 1rem;
@@ -2216,7 +2251,7 @@ dialog > [data-media] > header > h3 {
 dialog > [data-media] > header nav [data-button],
 [data-card] > [data-media] > header nav button,
 dialog > [data-media] > header nav button {
-  text-shadow: 0.06rem 0.06rem 0.13rem var(--default-darkest);
+  text-shadow: 0.06rem 0.06rem 0.13rem var(--default-darker);
 }
 
 [data-card~=elevated] {
@@ -2331,9 +2366,20 @@ dialog {
   z-index: -1;
   color: inherit;
   box-shadow: var(--shadow-2xl);
+  max-height: calc(100vh - 2rem);
+  max-height: calc(100dvh - 2rem);
+  overflow: hidden;
 }
 dialog > * {
   background-color: inherit;
+}
+dialog > header,
+dialog > footer {
+  flex-shrink: 0;
+}
+dialog > section {
+  min-height: 0;
+  overflow-y: auto;
 }
 dialog > :first-child {
   border-top-left-radius: inherit;
@@ -2353,13 +2399,18 @@ dialog::after {
   bottom: 0;
 }
 
-dialog[open],
-[data-trigger][open] dialog {
+dialog:not([open]) {
+  display: none;
+}
+
+dialog[open] {
+  display: flex;
   z-index: 1000;
   opacity: 1;
 }
 
 dialog.static {
+  position: static;
   inset: auto;
   transform: none;
   margin: 1rem auto;
@@ -2508,7 +2559,7 @@ label {
 }
 
 [type=checkbox][data-toggle] {
-  background-color: var(--default-lightest);
+  background-color: var(--default-lighter);
   width: 4em;
   height: 2em;
   border-radius: 1em;
@@ -2652,25 +2703,28 @@ fieldset:has(:user-invalid) > textarea {
   color: var(--danger);
 }
 
-fieldset[data-field~=warning] {
+:is(fieldset, [data-floating])[data-field~=warning] {
   color: var(--warning);
 }
 
-fieldset[data-field~=success] {
+:is(fieldset, [data-floating])[data-field~=success] {
   color: var(--success);
 }
 
-fieldset[data-field] > :is(input, select, textarea) {
+:is(fieldset, [data-floating])[data-field] > :is(input, select, textarea) {
   border-color: currentColor;
 }
 
-fieldset[data-floating] {
+[data-floating] {
+  position: relative;
+  padding: 0;
+  margin: 0 0 1.5em;
+  border: 0;
   background-color: inherit;
-  margin-bottom: 1.5em;
 }
-fieldset[data-floating] > input,
-fieldset[data-floating] > select,
-fieldset[data-floating] > textarea {
+[data-floating] > input,
+[data-floating] > select,
+[data-floating] > textarea {
   width: 100%;
   background-color: transparent;
   margin-bottom: 0em;
@@ -2680,58 +2734,58 @@ fieldset[data-floating] > textarea {
   min-height: 2.25em;
   padding: 0 0.5em;
 }
-fieldset[data-floating] > input::-webkit-input-placeholder,
-fieldset[data-floating] > select::-webkit-input-placeholder,
-fieldset[data-floating] > textarea::-webkit-input-placeholder {
+[data-floating] > input::-webkit-input-placeholder,
+[data-floating] > select::-webkit-input-placeholder,
+[data-floating] > textarea::-webkit-input-placeholder {
   opacity: 0;
 }
-fieldset[data-floating] > input:-moz-placeholder,
-fieldset[data-floating] > select:-moz-placeholder,
-fieldset[data-floating] > textarea:-moz-placeholder {
+[data-floating] > input:-moz-placeholder,
+[data-floating] > select:-moz-placeholder,
+[data-floating] > textarea:-moz-placeholder {
   opacity: 0;
 }
-fieldset[data-floating] > input::-moz-placeholder,
-fieldset[data-floating] > select::-moz-placeholder,
-fieldset[data-floating] > textarea::-moz-placeholder {
+[data-floating] > input::-moz-placeholder,
+[data-floating] > select::-moz-placeholder,
+[data-floating] > textarea::-moz-placeholder {
   opacity: 0;
 }
-fieldset[data-floating] > input:-ms-input-placeholder,
-fieldset[data-floating] > select:-ms-input-placeholder,
-fieldset[data-floating] > textarea:-ms-input-placeholder {
+[data-floating] > input:-ms-input-placeholder,
+[data-floating] > select:-ms-input-placeholder,
+[data-floating] > textarea:-ms-input-placeholder {
   opacity: 0;
 }
-fieldset[data-floating] > input:placeholder-shown ~ legend,
-fieldset[data-floating] > select:placeholder-shown ~ legend,
-fieldset[data-floating] > textarea:placeholder-shown ~ legend {
+[data-floating] > input:placeholder-shown ~ label[for],
+[data-floating] > select:placeholder-shown ~ label[for],
+[data-floating] > textarea:placeholder-shown ~ label[for] {
   font-size: 1em;
   top: 0;
   opacity: 0.6;
   padding: 0;
   left: 0.5em;
 }
-fieldset[data-floating] > input:focus ~ legend,
-fieldset[data-floating] > select:focus ~ legend,
-fieldset[data-floating] > textarea:focus ~ legend {
+[data-floating] > input:focus ~ label[for],
+[data-floating] > select:focus ~ label[for],
+[data-floating] > textarea:focus ~ label[for] {
   padding: 0;
   top: -1em;
   opacity: 1;
   left: 0;
   font-size: 0.8em;
 }
-fieldset[data-floating] > input:focus ~ legend::after,
-fieldset[data-floating] > select:focus ~ legend::after,
-fieldset[data-floating] > textarea:focus ~ legend::after {
+[data-floating] > input:focus ~ label[for]::after,
+[data-floating] > select:focus ~ label[for]::after,
+[data-floating] > textarea:focus ~ label[for]::after {
   width: 100%;
 }
-fieldset[data-floating] > textarea {
+[data-floating] > textarea {
   height: auto;
   margin-bottom: -0.5em;
   padding-top: 0.5em;
 }
-fieldset[data-floating] > select[multiple] {
+[data-floating] > select[multiple] {
   margin-top: 0.5em;
 }
-fieldset[data-floating] > legend {
+[data-floating] > label[for] {
   transition: var(--animate-all-fastest);
   z-index: 0;
   width: auto;
@@ -2745,8 +2799,10 @@ fieldset[data-floating] > legend {
   opacity: 1;
   left: 0;
   font-size: 0.8em;
+  min-height: 0;
+  margin: 0;
 }
-fieldset[data-floating] > small {
+[data-floating] > small {
   transition: var(--animate-all-fastest);
   z-index: 1;
   width: auto;
@@ -2758,6 +2814,22 @@ fieldset[data-floating] > small {
   font-size: 0.8em;
   padding: 0;
 }
+[data-floating][aria-invalid=true] > label[for],
+[data-floating][aria-invalid=true] > small, [data-floating]:has([aria-invalid=true]) > label[for],
+[data-floating]:has([aria-invalid=true]) > small, [data-floating]:has(:user-invalid) > label[for],
+[data-floating]:has(:user-invalid) > small {
+  color: var(--danger);
+}
+[data-floating][aria-invalid=true] > input,
+[data-floating][aria-invalid=true] > select,
+[data-floating][aria-invalid=true] > textarea, [data-floating]:has([aria-invalid=true]) > input,
+[data-floating]:has([aria-invalid=true]) > select,
+[data-floating]:has([aria-invalid=true]) > textarea, [data-floating]:has(:user-invalid) > input,
+[data-floating]:has(:user-invalid) > select,
+[data-floating]:has(:user-invalid) > textarea {
+  border-color: var(--danger);
+  color: var(--danger);
+}
 
 input[type=submit] {
   width: auto;
@@ -2768,7 +2840,8 @@ input[type=submit] {
   position: fixed;
   z-index: 8;
   overflow: hidden;
-  min-width: 20rem;
+  width: 20rem;
+  max-width: 100vw;
   border-right: var(--border-size-1) solid var(--default-light);
   box-shadow: none;
   top: 0rem;
@@ -3042,44 +3115,6 @@ input[type=submit] {
 
 /*** Colorpallete ***/
 /*** ColorPallete Start ***/
-.focus\:border-primary-bright:focus,
-.active\:border-primary-bright:active,
-.hover\:border-primary-bright:hover,
-.after\:border-primary-bright::after,
-.before\:border-primary-bright::before,
-.border-primary-bright {
-  border-color: var(--primary-bright);
-  color: var(--primary);
-}
-
-.focus\:outline-primary-bright:focus,
-.active\:outline-primary-bright:active,
-.hover\:outline-primary-bright:hover,
-.after\:outline-primary-bright::after,
-.before\:outline-primary-bright::before,
-.outline-primary-bright {
-  outline-color: var(--primary-bright);
-}
-
-.focus\:bg-primary-bright:focus,
-.active\:bg-primary-bright:active,
-.hover\:bg-primary-bright:hover,
-.after\:bg-primary-bright::after,
-.before\:bg-primary-bright::before,
-.bg-primary-bright {
-  background-color: var(--primary-bright);
-  color: var(--primary-darkest);
-}
-
-.focus\:text-primary-bright:focus,
-.active\:text-primary-bright:active,
-.hover\:text-primary-bright:hover,
-.after\:text-primary-bright::after,
-.before\:text-primary-bright::before,
-.text-primary-bright {
-  color: var(--primary-bright);
-}
-
 .focus\:border-primary-lightest:focus,
 .active\:border-primary-lightest:active,
 .hover\:border-primary-lightest:hover,
@@ -3106,7 +3141,7 @@ input[type=submit] {
 .before\:bg-primary-lightest::before,
 .bg-primary-lightest {
   background-color: var(--primary-lightest);
-  color: var(--primary-darkest);
+  color: var(--primary);
 }
 
 .focus\:text-primary-lightest:focus,
@@ -3116,6 +3151,44 @@ input[type=submit] {
 .before\:text-primary-lightest::before,
 .text-primary-lightest {
   color: var(--primary-lightest);
+}
+
+.focus\:border-primary-lighter:focus,
+.active\:border-primary-lighter:active,
+.hover\:border-primary-lighter:hover,
+.after\:border-primary-lighter::after,
+.before\:border-primary-lighter::before,
+.border-primary-lighter {
+  border-color: var(--primary-lighter);
+  color: var(--primary);
+}
+
+.focus\:outline-primary-lighter:focus,
+.active\:outline-primary-lighter:active,
+.hover\:outline-primary-lighter:hover,
+.after\:outline-primary-lighter::after,
+.before\:outline-primary-lighter::before,
+.outline-primary-lighter {
+  outline-color: var(--primary-lighter);
+}
+
+.focus\:bg-primary-lighter:focus,
+.active\:bg-primary-lighter:active,
+.hover\:bg-primary-lighter:hover,
+.after\:bg-primary-lighter::after,
+.before\:bg-primary-lighter::before,
+.bg-primary-lighter {
+  background-color: var(--primary-lighter);
+  color: var(--primary-dark);
+}
+
+.focus\:text-primary-lighter:focus,
+.active\:text-primary-lighter:active,
+.hover\:text-primary-lighter:hover,
+.after\:text-primary-lighter::after,
+.before\:text-primary-lighter::before,
+.text-primary-lighter {
+  color: var(--primary-lighter);
 }
 
 .focus\:border-primary-light:focus,
@@ -3144,7 +3217,7 @@ input[type=submit] {
 .before\:bg-primary-light::before,
 .bg-primary-light {
   background-color: var(--primary-light);
-  color: var(--primary-darkest);
+  color: var(--primary-dark);
 }
 
 .focus\:text-primary-light:focus,
@@ -3182,7 +3255,7 @@ input[type=submit] {
 .before\:bg-primary::before,
 .bg-primary {
   background-color: var(--primary);
-  color: var(--primary-bright);
+  color: var(--primary-lightest);
 }
 
 .focus\:text-primary:focus,
@@ -3220,7 +3293,7 @@ input[type=submit] {
 .before\:bg-primary-dark::before,
 .bg-primary-dark {
   background-color: var(--primary-dark);
-  color: var(--primary-bright);
+  color: var(--primary-light);
 }
 
 .focus\:text-primary-dark:focus,
@@ -3230,6 +3303,44 @@ input[type=submit] {
 .before\:text-primary-dark::before,
 .text-primary-dark {
   color: var(--primary-dark);
+}
+
+.focus\:border-primary-darker:focus,
+.active\:border-primary-darker:active,
+.hover\:border-primary-darker:hover,
+.after\:border-primary-darker::after,
+.before\:border-primary-darker::before,
+.border-primary-darker {
+  border-color: var(--primary-darker);
+  color: var(--primary-darker);
+}
+
+.focus\:outline-primary-darker:focus,
+.active\:outline-primary-darker:active,
+.hover\:outline-primary-darker:hover,
+.after\:outline-primary-darker::after,
+.before\:outline-primary-darker::before,
+.outline-primary-darker {
+  outline-color: var(--primary-darker);
+}
+
+.focus\:bg-primary-darker:focus,
+.active\:bg-primary-darker:active,
+.hover\:bg-primary-darker:hover,
+.after\:bg-primary-darker::after,
+.before\:bg-primary-darker::before,
+.bg-primary-darker {
+  background-color: var(--primary-darker);
+  color: var(--primary-light);
+}
+
+.focus\:text-primary-darker:focus,
+.active\:text-primary-darker:active,
+.hover\:text-primary-darker:hover,
+.after\:text-primary-darker::after,
+.before\:text-primary-darker::before,
+.text-primary-darker {
+  color: var(--primary-darker);
 }
 
 .focus\:border-primary-darkest:focus,
@@ -3258,7 +3369,7 @@ input[type=submit] {
 .before\:bg-primary-darkest::before,
 .bg-primary-darkest {
   background-color: var(--primary-darkest);
-  color: var(--primary-bright);
+  color: var(--primary-light);
 }
 
 .focus\:text-primary-darkest:focus,
@@ -3268,44 +3379,6 @@ input[type=submit] {
 .before\:text-primary-darkest::before,
 .text-primary-darkest {
   color: var(--primary-darkest);
-}
-
-.focus\:border-accent-bright:focus,
-.active\:border-accent-bright:active,
-.hover\:border-accent-bright:hover,
-.after\:border-accent-bright::after,
-.before\:border-accent-bright::before,
-.border-accent-bright {
-  border-color: var(--accent-bright);
-  color: var(--accent);
-}
-
-.focus\:outline-accent-bright:focus,
-.active\:outline-accent-bright:active,
-.hover\:outline-accent-bright:hover,
-.after\:outline-accent-bright::after,
-.before\:outline-accent-bright::before,
-.outline-accent-bright {
-  outline-color: var(--accent-bright);
-}
-
-.focus\:bg-accent-bright:focus,
-.active\:bg-accent-bright:active,
-.hover\:bg-accent-bright:hover,
-.after\:bg-accent-bright::after,
-.before\:bg-accent-bright::before,
-.bg-accent-bright {
-  background-color: var(--accent-bright);
-  color: var(--accent-darkest);
-}
-
-.focus\:text-accent-bright:focus,
-.active\:text-accent-bright:active,
-.hover\:text-accent-bright:hover,
-.after\:text-accent-bright::after,
-.before\:text-accent-bright::before,
-.text-accent-bright {
-  color: var(--accent-bright);
 }
 
 .focus\:border-accent-lightest:focus,
@@ -3334,7 +3407,7 @@ input[type=submit] {
 .before\:bg-accent-lightest::before,
 .bg-accent-lightest {
   background-color: var(--accent-lightest);
-  color: var(--accent-darkest);
+  color: var(--accent);
 }
 
 .focus\:text-accent-lightest:focus,
@@ -3344,6 +3417,44 @@ input[type=submit] {
 .before\:text-accent-lightest::before,
 .text-accent-lightest {
   color: var(--accent-lightest);
+}
+
+.focus\:border-accent-lighter:focus,
+.active\:border-accent-lighter:active,
+.hover\:border-accent-lighter:hover,
+.after\:border-accent-lighter::after,
+.before\:border-accent-lighter::before,
+.border-accent-lighter {
+  border-color: var(--accent-lighter);
+  color: var(--accent);
+}
+
+.focus\:outline-accent-lighter:focus,
+.active\:outline-accent-lighter:active,
+.hover\:outline-accent-lighter:hover,
+.after\:outline-accent-lighter::after,
+.before\:outline-accent-lighter::before,
+.outline-accent-lighter {
+  outline-color: var(--accent-lighter);
+}
+
+.focus\:bg-accent-lighter:focus,
+.active\:bg-accent-lighter:active,
+.hover\:bg-accent-lighter:hover,
+.after\:bg-accent-lighter::after,
+.before\:bg-accent-lighter::before,
+.bg-accent-lighter {
+  background-color: var(--accent-lighter);
+  color: var(--accent-dark);
+}
+
+.focus\:text-accent-lighter:focus,
+.active\:text-accent-lighter:active,
+.hover\:text-accent-lighter:hover,
+.after\:text-accent-lighter::after,
+.before\:text-accent-lighter::before,
+.text-accent-lighter {
+  color: var(--accent-lighter);
 }
 
 .focus\:border-accent-light:focus,
@@ -3372,7 +3483,7 @@ input[type=submit] {
 .before\:bg-accent-light::before,
 .bg-accent-light {
   background-color: var(--accent-light);
-  color: var(--accent-darkest);
+  color: var(--accent-dark);
 }
 
 .focus\:text-accent-light:focus,
@@ -3410,7 +3521,7 @@ input[type=submit] {
 .before\:bg-accent::before,
 .bg-accent {
   background-color: var(--accent);
-  color: var(--accent-bright);
+  color: var(--accent-lightest);
 }
 
 .focus\:text-accent:focus,
@@ -3448,7 +3559,7 @@ input[type=submit] {
 .before\:bg-accent-dark::before,
 .bg-accent-dark {
   background-color: var(--accent-dark);
-  color: var(--accent-bright);
+  color: var(--accent-light);
 }
 
 .focus\:text-accent-dark:focus,
@@ -3458,6 +3569,44 @@ input[type=submit] {
 .before\:text-accent-dark::before,
 .text-accent-dark {
   color: var(--accent-dark);
+}
+
+.focus\:border-accent-darker:focus,
+.active\:border-accent-darker:active,
+.hover\:border-accent-darker:hover,
+.after\:border-accent-darker::after,
+.before\:border-accent-darker::before,
+.border-accent-darker {
+  border-color: var(--accent-darker);
+  color: var(--accent-darker);
+}
+
+.focus\:outline-accent-darker:focus,
+.active\:outline-accent-darker:active,
+.hover\:outline-accent-darker:hover,
+.after\:outline-accent-darker::after,
+.before\:outline-accent-darker::before,
+.outline-accent-darker {
+  outline-color: var(--accent-darker);
+}
+
+.focus\:bg-accent-darker:focus,
+.active\:bg-accent-darker:active,
+.hover\:bg-accent-darker:hover,
+.after\:bg-accent-darker::after,
+.before\:bg-accent-darker::before,
+.bg-accent-darker {
+  background-color: var(--accent-darker);
+  color: var(--accent-light);
+}
+
+.focus\:text-accent-darker:focus,
+.active\:text-accent-darker:active,
+.hover\:text-accent-darker:hover,
+.after\:text-accent-darker::after,
+.before\:text-accent-darker::before,
+.text-accent-darker {
+  color: var(--accent-darker);
 }
 
 .focus\:border-accent-darkest:focus,
@@ -3486,7 +3635,7 @@ input[type=submit] {
 .before\:bg-accent-darkest::before,
 .bg-accent-darkest {
   background-color: var(--accent-darkest);
-  color: var(--accent-bright);
+  color: var(--accent-light);
 }
 
 .focus\:text-accent-darkest:focus,
@@ -3496,44 +3645,6 @@ input[type=submit] {
 .before\:text-accent-darkest::before,
 .text-accent-darkest {
   color: var(--accent-darkest);
-}
-
-.focus\:border-success-bright:focus,
-.active\:border-success-bright:active,
-.hover\:border-success-bright:hover,
-.after\:border-success-bright::after,
-.before\:border-success-bright::before,
-.border-success-bright {
-  border-color: var(--success-bright);
-  color: var(--success);
-}
-
-.focus\:outline-success-bright:focus,
-.active\:outline-success-bright:active,
-.hover\:outline-success-bright:hover,
-.after\:outline-success-bright::after,
-.before\:outline-success-bright::before,
-.outline-success-bright {
-  outline-color: var(--success-bright);
-}
-
-.focus\:bg-success-bright:focus,
-.active\:bg-success-bright:active,
-.hover\:bg-success-bright:hover,
-.after\:bg-success-bright::after,
-.before\:bg-success-bright::before,
-.bg-success-bright {
-  background-color: var(--success-bright);
-  color: var(--success-darkest);
-}
-
-.focus\:text-success-bright:focus,
-.active\:text-success-bright:active,
-.hover\:text-success-bright:hover,
-.after\:text-success-bright::after,
-.before\:text-success-bright::before,
-.text-success-bright {
-  color: var(--success-bright);
 }
 
 .focus\:border-success-lightest:focus,
@@ -3562,7 +3673,7 @@ input[type=submit] {
 .before\:bg-success-lightest::before,
 .bg-success-lightest {
   background-color: var(--success-lightest);
-  color: var(--success-darkest);
+  color: var(--success-dark);
 }
 
 .focus\:text-success-lightest:focus,
@@ -3572,6 +3683,44 @@ input[type=submit] {
 .before\:text-success-lightest::before,
 .text-success-lightest {
   color: var(--success-lightest);
+}
+
+.focus\:border-success-lighter:focus,
+.active\:border-success-lighter:active,
+.hover\:border-success-lighter:hover,
+.after\:border-success-lighter::after,
+.before\:border-success-lighter::before,
+.border-success-lighter {
+  border-color: var(--success-lighter);
+  color: var(--success);
+}
+
+.focus\:outline-success-lighter:focus,
+.active\:outline-success-lighter:active,
+.hover\:outline-success-lighter:hover,
+.after\:outline-success-lighter::after,
+.before\:outline-success-lighter::before,
+.outline-success-lighter {
+  outline-color: var(--success-lighter);
+}
+
+.focus\:bg-success-lighter:focus,
+.active\:bg-success-lighter:active,
+.hover\:bg-success-lighter:hover,
+.after\:bg-success-lighter::after,
+.before\:bg-success-lighter::before,
+.bg-success-lighter {
+  background-color: var(--success-lighter);
+  color: var(--success-dark);
+}
+
+.focus\:text-success-lighter:focus,
+.active\:text-success-lighter:active,
+.hover\:text-success-lighter:hover,
+.after\:text-success-lighter::after,
+.before\:text-success-lighter::before,
+.text-success-lighter {
+  color: var(--success-lighter);
 }
 
 .focus\:border-success-light:focus,
@@ -3600,7 +3749,7 @@ input[type=submit] {
 .before\:bg-success-light::before,
 .bg-success-light {
   background-color: var(--success-light);
-  color: var(--success-darkest);
+  color: var(--success-dark);
 }
 
 .focus\:text-success-light:focus,
@@ -3638,7 +3787,7 @@ input[type=submit] {
 .before\:bg-success::before,
 .bg-success {
   background-color: var(--success);
-  color: var(--success-bright);
+  color: var(--success-darker);
 }
 
 .focus\:text-success:focus,
@@ -3676,7 +3825,7 @@ input[type=submit] {
 .before\:bg-success-dark::before,
 .bg-success-dark {
   background-color: var(--success-dark);
-  color: var(--success-bright);
+  color: var(--success-light);
 }
 
 .focus\:text-success-dark:focus,
@@ -3686,6 +3835,44 @@ input[type=submit] {
 .before\:text-success-dark::before,
 .text-success-dark {
   color: var(--success-dark);
+}
+
+.focus\:border-success-darker:focus,
+.active\:border-success-darker:active,
+.hover\:border-success-darker:hover,
+.after\:border-success-darker::after,
+.before\:border-success-darker::before,
+.border-success-darker {
+  border-color: var(--success-darker);
+  color: var(--success-darker);
+}
+
+.focus\:outline-success-darker:focus,
+.active\:outline-success-darker:active,
+.hover\:outline-success-darker:hover,
+.after\:outline-success-darker::after,
+.before\:outline-success-darker::before,
+.outline-success-darker {
+  outline-color: var(--success-darker);
+}
+
+.focus\:bg-success-darker:focus,
+.active\:bg-success-darker:active,
+.hover\:bg-success-darker:hover,
+.after\:bg-success-darker::after,
+.before\:bg-success-darker::before,
+.bg-success-darker {
+  background-color: var(--success-darker);
+  color: var(--success);
+}
+
+.focus\:text-success-darker:focus,
+.active\:text-success-darker:active,
+.hover\:text-success-darker:hover,
+.after\:text-success-darker::after,
+.before\:text-success-darker::before,
+.text-success-darker {
+  color: var(--success-darker);
 }
 
 .focus\:border-success-darkest:focus,
@@ -3714,7 +3901,7 @@ input[type=submit] {
 .before\:bg-success-darkest::before,
 .bg-success-darkest {
   background-color: var(--success-darkest);
-  color: var(--success-bright);
+  color: var(--success);
 }
 
 .focus\:text-success-darkest:focus,
@@ -3724,44 +3911,6 @@ input[type=submit] {
 .before\:text-success-darkest::before,
 .text-success-darkest {
   color: var(--success-darkest);
-}
-
-.focus\:border-info-bright:focus,
-.active\:border-info-bright:active,
-.hover\:border-info-bright:hover,
-.after\:border-info-bright::after,
-.before\:border-info-bright::before,
-.border-info-bright {
-  border-color: var(--info-bright);
-  color: var(--info);
-}
-
-.focus\:outline-info-bright:focus,
-.active\:outline-info-bright:active,
-.hover\:outline-info-bright:hover,
-.after\:outline-info-bright::after,
-.before\:outline-info-bright::before,
-.outline-info-bright {
-  outline-color: var(--info-bright);
-}
-
-.focus\:bg-info-bright:focus,
-.active\:bg-info-bright:active,
-.hover\:bg-info-bright:hover,
-.after\:bg-info-bright::after,
-.before\:bg-info-bright::before,
-.bg-info-bright {
-  background-color: var(--info-bright);
-  color: var(--info-darkest);
-}
-
-.focus\:text-info-bright:focus,
-.active\:text-info-bright:active,
-.hover\:text-info-bright:hover,
-.after\:text-info-bright::after,
-.before\:text-info-bright::before,
-.text-info-bright {
-  color: var(--info-bright);
 }
 
 .focus\:border-info-lightest:focus,
@@ -3790,7 +3939,7 @@ input[type=submit] {
 .before\:bg-info-lightest::before,
 .bg-info-lightest {
   background-color: var(--info-lightest);
-  color: var(--info-darkest);
+  color: var(--info-dark);
 }
 
 .focus\:text-info-lightest:focus,
@@ -3800,6 +3949,44 @@ input[type=submit] {
 .before\:text-info-lightest::before,
 .text-info-lightest {
   color: var(--info-lightest);
+}
+
+.focus\:border-info-lighter:focus,
+.active\:border-info-lighter:active,
+.hover\:border-info-lighter:hover,
+.after\:border-info-lighter::after,
+.before\:border-info-lighter::before,
+.border-info-lighter {
+  border-color: var(--info-lighter);
+  color: var(--info);
+}
+
+.focus\:outline-info-lighter:focus,
+.active\:outline-info-lighter:active,
+.hover\:outline-info-lighter:hover,
+.after\:outline-info-lighter::after,
+.before\:outline-info-lighter::before,
+.outline-info-lighter {
+  outline-color: var(--info-lighter);
+}
+
+.focus\:bg-info-lighter:focus,
+.active\:bg-info-lighter:active,
+.hover\:bg-info-lighter:hover,
+.after\:bg-info-lighter::after,
+.before\:bg-info-lighter::before,
+.bg-info-lighter {
+  background-color: var(--info-lighter);
+  color: var(--info-dark);
+}
+
+.focus\:text-info-lighter:focus,
+.active\:text-info-lighter:active,
+.hover\:text-info-lighter:hover,
+.after\:text-info-lighter::after,
+.before\:text-info-lighter::before,
+.text-info-lighter {
+  color: var(--info-lighter);
 }
 
 .focus\:border-info-light:focus,
@@ -3828,7 +4015,7 @@ input[type=submit] {
 .before\:bg-info-light::before,
 .bg-info-light {
   background-color: var(--info-light);
-  color: var(--info-darkest);
+  color: var(--info-dark);
 }
 
 .focus\:text-info-light:focus,
@@ -3866,7 +4053,7 @@ input[type=submit] {
 .before\:bg-info::before,
 .bg-info {
   background-color: var(--info);
-  color: var(--info-bright);
+  color: var(--info-darker);
 }
 
 .focus\:text-info:focus,
@@ -3904,7 +4091,7 @@ input[type=submit] {
 .before\:bg-info-dark::before,
 .bg-info-dark {
   background-color: var(--info-dark);
-  color: var(--info-bright);
+  color: var(--info-light);
 }
 
 .focus\:text-info-dark:focus,
@@ -3914,6 +4101,44 @@ input[type=submit] {
 .before\:text-info-dark::before,
 .text-info-dark {
   color: var(--info-dark);
+}
+
+.focus\:border-info-darker:focus,
+.active\:border-info-darker:active,
+.hover\:border-info-darker:hover,
+.after\:border-info-darker::after,
+.before\:border-info-darker::before,
+.border-info-darker {
+  border-color: var(--info-darker);
+  color: var(--info-darker);
+}
+
+.focus\:outline-info-darker:focus,
+.active\:outline-info-darker:active,
+.hover\:outline-info-darker:hover,
+.after\:outline-info-darker::after,
+.before\:outline-info-darker::before,
+.outline-info-darker {
+  outline-color: var(--info-darker);
+}
+
+.focus\:bg-info-darker:focus,
+.active\:bg-info-darker:active,
+.hover\:bg-info-darker:hover,
+.after\:bg-info-darker::after,
+.before\:bg-info-darker::before,
+.bg-info-darker {
+  background-color: var(--info-darker);
+  color: var(--info);
+}
+
+.focus\:text-info-darker:focus,
+.active\:text-info-darker:active,
+.hover\:text-info-darker:hover,
+.after\:text-info-darker::after,
+.before\:text-info-darker::before,
+.text-info-darker {
+  color: var(--info-darker);
 }
 
 .focus\:border-info-darkest:focus,
@@ -3942,7 +4167,7 @@ input[type=submit] {
 .before\:bg-info-darkest::before,
 .bg-info-darkest {
   background-color: var(--info-darkest);
-  color: var(--info-bright);
+  color: var(--info);
 }
 
 .focus\:text-info-darkest:focus,
@@ -3952,44 +4177,6 @@ input[type=submit] {
 .before\:text-info-darkest::before,
 .text-info-darkest {
   color: var(--info-darkest);
-}
-
-.focus\:border-warning-bright:focus,
-.active\:border-warning-bright:active,
-.hover\:border-warning-bright:hover,
-.after\:border-warning-bright::after,
-.before\:border-warning-bright::before,
-.border-warning-bright {
-  border-color: var(--warning-bright);
-  color: var(--warning);
-}
-
-.focus\:outline-warning-bright:focus,
-.active\:outline-warning-bright:active,
-.hover\:outline-warning-bright:hover,
-.after\:outline-warning-bright::after,
-.before\:outline-warning-bright::before,
-.outline-warning-bright {
-  outline-color: var(--warning-bright);
-}
-
-.focus\:bg-warning-bright:focus,
-.active\:bg-warning-bright:active,
-.hover\:bg-warning-bright:hover,
-.after\:bg-warning-bright::after,
-.before\:bg-warning-bright::before,
-.bg-warning-bright {
-  background-color: var(--warning-bright);
-  color: var(--warning-darkest);
-}
-
-.focus\:text-warning-bright:focus,
-.active\:text-warning-bright:active,
-.hover\:text-warning-bright:hover,
-.after\:text-warning-bright::after,
-.before\:text-warning-bright::before,
-.text-warning-bright {
-  color: var(--warning-bright);
 }
 
 .focus\:border-warning-lightest:focus,
@@ -4018,7 +4205,7 @@ input[type=submit] {
 .before\:bg-warning-lightest::before,
 .bg-warning-lightest {
   background-color: var(--warning-lightest);
-  color: var(--warning-darkest);
+  color: var(--warning-dark);
 }
 
 .focus\:text-warning-lightest:focus,
@@ -4028,6 +4215,44 @@ input[type=submit] {
 .before\:text-warning-lightest::before,
 .text-warning-lightest {
   color: var(--warning-lightest);
+}
+
+.focus\:border-warning-lighter:focus,
+.active\:border-warning-lighter:active,
+.hover\:border-warning-lighter:hover,
+.after\:border-warning-lighter::after,
+.before\:border-warning-lighter::before,
+.border-warning-lighter {
+  border-color: var(--warning-lighter);
+  color: var(--warning);
+}
+
+.focus\:outline-warning-lighter:focus,
+.active\:outline-warning-lighter:active,
+.hover\:outline-warning-lighter:hover,
+.after\:outline-warning-lighter::after,
+.before\:outline-warning-lighter::before,
+.outline-warning-lighter {
+  outline-color: var(--warning-lighter);
+}
+
+.focus\:bg-warning-lighter:focus,
+.active\:bg-warning-lighter:active,
+.hover\:bg-warning-lighter:hover,
+.after\:bg-warning-lighter::after,
+.before\:bg-warning-lighter::before,
+.bg-warning-lighter {
+  background-color: var(--warning-lighter);
+  color: var(--warning-dark);
+}
+
+.focus\:text-warning-lighter:focus,
+.active\:text-warning-lighter:active,
+.hover\:text-warning-lighter:hover,
+.after\:text-warning-lighter::after,
+.before\:text-warning-lighter::before,
+.text-warning-lighter {
+  color: var(--warning-lighter);
 }
 
 .focus\:border-warning-light:focus,
@@ -4056,7 +4281,7 @@ input[type=submit] {
 .before\:bg-warning-light::before,
 .bg-warning-light {
   background-color: var(--warning-light);
-  color: var(--warning-darkest);
+  color: var(--warning-dark);
 }
 
 .focus\:text-warning-light:focus,
@@ -4094,7 +4319,7 @@ input[type=submit] {
 .before\:bg-warning::before,
 .bg-warning {
   background-color: var(--warning);
-  color: var(--warning-bright);
+  color: var(--warning-darker);
 }
 
 .focus\:text-warning:focus,
@@ -4132,7 +4357,7 @@ input[type=submit] {
 .before\:bg-warning-dark::before,
 .bg-warning-dark {
   background-color: var(--warning-dark);
-  color: var(--warning-bright);
+  color: var(--warning-light);
 }
 
 .focus\:text-warning-dark:focus,
@@ -4142,6 +4367,44 @@ input[type=submit] {
 .before\:text-warning-dark::before,
 .text-warning-dark {
   color: var(--warning-dark);
+}
+
+.focus\:border-warning-darker:focus,
+.active\:border-warning-darker:active,
+.hover\:border-warning-darker:hover,
+.after\:border-warning-darker::after,
+.before\:border-warning-darker::before,
+.border-warning-darker {
+  border-color: var(--warning-darker);
+  color: var(--warning-darker);
+}
+
+.focus\:outline-warning-darker:focus,
+.active\:outline-warning-darker:active,
+.hover\:outline-warning-darker:hover,
+.after\:outline-warning-darker::after,
+.before\:outline-warning-darker::before,
+.outline-warning-darker {
+  outline-color: var(--warning-darker);
+}
+
+.focus\:bg-warning-darker:focus,
+.active\:bg-warning-darker:active,
+.hover\:bg-warning-darker:hover,
+.after\:bg-warning-darker::after,
+.before\:bg-warning-darker::before,
+.bg-warning-darker {
+  background-color: var(--warning-darker);
+  color: var(--warning);
+}
+
+.focus\:text-warning-darker:focus,
+.active\:text-warning-darker:active,
+.hover\:text-warning-darker:hover,
+.after\:text-warning-darker::after,
+.before\:text-warning-darker::before,
+.text-warning-darker {
+  color: var(--warning-darker);
 }
 
 .focus\:border-warning-darkest:focus,
@@ -4170,7 +4433,7 @@ input[type=submit] {
 .before\:bg-warning-darkest::before,
 .bg-warning-darkest {
   background-color: var(--warning-darkest);
-  color: var(--warning-bright);
+  color: var(--warning);
 }
 
 .focus\:text-warning-darkest:focus,
@@ -4180,44 +4443,6 @@ input[type=submit] {
 .before\:text-warning-darkest::before,
 .text-warning-darkest {
   color: var(--warning-darkest);
-}
-
-.focus\:border-danger-bright:focus,
-.active\:border-danger-bright:active,
-.hover\:border-danger-bright:hover,
-.after\:border-danger-bright::after,
-.before\:border-danger-bright::before,
-.border-danger-bright {
-  border-color: var(--danger-bright);
-  color: var(--danger);
-}
-
-.focus\:outline-danger-bright:focus,
-.active\:outline-danger-bright:active,
-.hover\:outline-danger-bright:hover,
-.after\:outline-danger-bright::after,
-.before\:outline-danger-bright::before,
-.outline-danger-bright {
-  outline-color: var(--danger-bright);
-}
-
-.focus\:bg-danger-bright:focus,
-.active\:bg-danger-bright:active,
-.hover\:bg-danger-bright:hover,
-.after\:bg-danger-bright::after,
-.before\:bg-danger-bright::before,
-.bg-danger-bright {
-  background-color: var(--danger-bright);
-  color: var(--danger-darkest);
-}
-
-.focus\:text-danger-bright:focus,
-.active\:text-danger-bright:active,
-.hover\:text-danger-bright:hover,
-.after\:text-danger-bright::after,
-.before\:text-danger-bright::before,
-.text-danger-bright {
-  color: var(--danger-bright);
 }
 
 .focus\:border-danger-lightest:focus,
@@ -4246,7 +4471,7 @@ input[type=submit] {
 .before\:bg-danger-lightest::before,
 .bg-danger-lightest {
   background-color: var(--danger-lightest);
-  color: var(--danger-darkest);
+  color: var(--danger);
 }
 
 .focus\:text-danger-lightest:focus,
@@ -4256,6 +4481,44 @@ input[type=submit] {
 .before\:text-danger-lightest::before,
 .text-danger-lightest {
   color: var(--danger-lightest);
+}
+
+.focus\:border-danger-lighter:focus,
+.active\:border-danger-lighter:active,
+.hover\:border-danger-lighter:hover,
+.after\:border-danger-lighter::after,
+.before\:border-danger-lighter::before,
+.border-danger-lighter {
+  border-color: var(--danger-lighter);
+  color: var(--danger);
+}
+
+.focus\:outline-danger-lighter:focus,
+.active\:outline-danger-lighter:active,
+.hover\:outline-danger-lighter:hover,
+.after\:outline-danger-lighter::after,
+.before\:outline-danger-lighter::before,
+.outline-danger-lighter {
+  outline-color: var(--danger-lighter);
+}
+
+.focus\:bg-danger-lighter:focus,
+.active\:bg-danger-lighter:active,
+.hover\:bg-danger-lighter:hover,
+.after\:bg-danger-lighter::after,
+.before\:bg-danger-lighter::before,
+.bg-danger-lighter {
+  background-color: var(--danger-lighter);
+  color: var(--danger-dark);
+}
+
+.focus\:text-danger-lighter:focus,
+.active\:text-danger-lighter:active,
+.hover\:text-danger-lighter:hover,
+.after\:text-danger-lighter::after,
+.before\:text-danger-lighter::before,
+.text-danger-lighter {
+  color: var(--danger-lighter);
 }
 
 .focus\:border-danger-light:focus,
@@ -4284,7 +4547,7 @@ input[type=submit] {
 .before\:bg-danger-light::before,
 .bg-danger-light {
   background-color: var(--danger-light);
-  color: var(--danger-darkest);
+  color: var(--danger-dark);
 }
 
 .focus\:text-danger-light:focus,
@@ -4322,7 +4585,7 @@ input[type=submit] {
 .before\:bg-danger::before,
 .bg-danger {
   background-color: var(--danger);
-  color: var(--danger-bright);
+  color: var(--danger-lightest);
 }
 
 .focus\:text-danger:focus,
@@ -4360,7 +4623,7 @@ input[type=submit] {
 .before\:bg-danger-dark::before,
 .bg-danger-dark {
   background-color: var(--danger-dark);
-  color: var(--danger-bright);
+  color: var(--danger-light);
 }
 
 .focus\:text-danger-dark:focus,
@@ -4370,6 +4633,44 @@ input[type=submit] {
 .before\:text-danger-dark::before,
 .text-danger-dark {
   color: var(--danger-dark);
+}
+
+.focus\:border-danger-darker:focus,
+.active\:border-danger-darker:active,
+.hover\:border-danger-darker:hover,
+.after\:border-danger-darker::after,
+.before\:border-danger-darker::before,
+.border-danger-darker {
+  border-color: var(--danger-darker);
+  color: var(--danger-darker);
+}
+
+.focus\:outline-danger-darker:focus,
+.active\:outline-danger-darker:active,
+.hover\:outline-danger-darker:hover,
+.after\:outline-danger-darker::after,
+.before\:outline-danger-darker::before,
+.outline-danger-darker {
+  outline-color: var(--danger-darker);
+}
+
+.focus\:bg-danger-darker:focus,
+.active\:bg-danger-darker:active,
+.hover\:bg-danger-darker:hover,
+.after\:bg-danger-darker::after,
+.before\:bg-danger-darker::before,
+.bg-danger-darker {
+  background-color: var(--danger-darker);
+  color: var(--danger-light);
+}
+
+.focus\:text-danger-darker:focus,
+.active\:text-danger-darker:active,
+.hover\:text-danger-darker:hover,
+.after\:text-danger-darker::after,
+.before\:text-danger-darker::before,
+.text-danger-darker {
+  color: var(--danger-darker);
 }
 
 .focus\:border-danger-darkest:focus,
@@ -4398,7 +4699,7 @@ input[type=submit] {
 .before\:bg-danger-darkest::before,
 .bg-danger-darkest {
   background-color: var(--danger-darkest);
-  color: var(--danger-bright);
+  color: var(--danger-light);
 }
 
 .focus\:text-danger-darkest:focus,
@@ -4408,44 +4709,6 @@ input[type=submit] {
 .before\:text-danger-darkest::before,
 .text-danger-darkest {
   color: var(--danger-darkest);
-}
-
-.focus\:border-default-bright:focus,
-.active\:border-default-bright:active,
-.hover\:border-default-bright:hover,
-.after\:border-default-bright::after,
-.before\:border-default-bright::before,
-.border-default-bright {
-  border-color: var(--default-bright);
-  color: var(--default);
-}
-
-.focus\:outline-default-bright:focus,
-.active\:outline-default-bright:active,
-.hover\:outline-default-bright:hover,
-.after\:outline-default-bright::after,
-.before\:outline-default-bright::before,
-.outline-default-bright {
-  outline-color: var(--default-bright);
-}
-
-.focus\:bg-default-bright:focus,
-.active\:bg-default-bright:active,
-.hover\:bg-default-bright:hover,
-.after\:bg-default-bright::after,
-.before\:bg-default-bright::before,
-.bg-default-bright {
-  background-color: var(--default-bright);
-  color: var(--default-darkest);
-}
-
-.focus\:text-default-bright:focus,
-.active\:text-default-bright:active,
-.hover\:text-default-bright:hover,
-.after\:text-default-bright::after,
-.before\:text-default-bright::before,
-.text-default-bright {
-  color: var(--default-bright);
 }
 
 .focus\:border-default-lightest:focus,
@@ -4474,7 +4737,7 @@ input[type=submit] {
 .before\:bg-default-lightest::before,
 .bg-default-lightest {
   background-color: var(--default-lightest);
-  color: var(--default-darkest);
+  color: var(--default);
 }
 
 .focus\:text-default-lightest:focus,
@@ -4484,6 +4747,44 @@ input[type=submit] {
 .before\:text-default-lightest::before,
 .text-default-lightest {
   color: var(--default-lightest);
+}
+
+.focus\:border-default-lighter:focus,
+.active\:border-default-lighter:active,
+.hover\:border-default-lighter:hover,
+.after\:border-default-lighter::after,
+.before\:border-default-lighter::before,
+.border-default-lighter {
+  border-color: var(--default-lighter);
+  color: var(--default);
+}
+
+.focus\:outline-default-lighter:focus,
+.active\:outline-default-lighter:active,
+.hover\:outline-default-lighter:hover,
+.after\:outline-default-lighter::after,
+.before\:outline-default-lighter::before,
+.outline-default-lighter {
+  outline-color: var(--default-lighter);
+}
+
+.focus\:bg-default-lighter:focus,
+.active\:bg-default-lighter:active,
+.hover\:bg-default-lighter:hover,
+.after\:bg-default-lighter::after,
+.before\:bg-default-lighter::before,
+.bg-default-lighter {
+  background-color: var(--default-lighter);
+  color: var(--default-dark);
+}
+
+.focus\:text-default-lighter:focus,
+.active\:text-default-lighter:active,
+.hover\:text-default-lighter:hover,
+.after\:text-default-lighter::after,
+.before\:text-default-lighter::before,
+.text-default-lighter {
+  color: var(--default-lighter);
 }
 
 .focus\:border-default-light:focus,
@@ -4512,7 +4813,7 @@ input[type=submit] {
 .before\:bg-default-light::before,
 .bg-default-light {
   background-color: var(--default-light);
-  color: var(--default-darkest);
+  color: var(--default-dark);
 }
 
 .focus\:text-default-light:focus,
@@ -4550,7 +4851,7 @@ input[type=submit] {
 .before\:bg-default::before,
 .bg-default {
   background-color: var(--default);
-  color: var(--default-bright);
+  color: var(--default-lightest);
 }
 
 .focus\:text-default:focus,
@@ -4588,7 +4889,7 @@ input[type=submit] {
 .before\:bg-default-dark::before,
 .bg-default-dark {
   background-color: var(--default-dark);
-  color: var(--default-bright);
+  color: var(--default-light);
 }
 
 .focus\:text-default-dark:focus,
@@ -4598,6 +4899,44 @@ input[type=submit] {
 .before\:text-default-dark::before,
 .text-default-dark {
   color: var(--default-dark);
+}
+
+.focus\:border-default-darker:focus,
+.active\:border-default-darker:active,
+.hover\:border-default-darker:hover,
+.after\:border-default-darker::after,
+.before\:border-default-darker::before,
+.border-default-darker {
+  border-color: var(--default-darker);
+  color: var(--default-darker);
+}
+
+.focus\:outline-default-darker:focus,
+.active\:outline-default-darker:active,
+.hover\:outline-default-darker:hover,
+.after\:outline-default-darker::after,
+.before\:outline-default-darker::before,
+.outline-default-darker {
+  outline-color: var(--default-darker);
+}
+
+.focus\:bg-default-darker:focus,
+.active\:bg-default-darker:active,
+.hover\:bg-default-darker:hover,
+.after\:bg-default-darker::after,
+.before\:bg-default-darker::before,
+.bg-default-darker {
+  background-color: var(--default-darker);
+  color: var(--default-light);
+}
+
+.focus\:text-default-darker:focus,
+.active\:text-default-darker:active,
+.hover\:text-default-darker:hover,
+.after\:text-default-darker::after,
+.before\:text-default-darker::before,
+.text-default-darker {
+  color: var(--default-darker);
 }
 
 .focus\:border-default-darkest:focus,
@@ -4626,7 +4965,7 @@ input[type=submit] {
 .before\:bg-default-darkest::before,
 .bg-default-darkest {
   background-color: var(--default-darkest);
-  color: var(--default-bright);
+  color: var(--default-light);
 }
 
 .focus\:text-default-darkest:focus,
@@ -4663,6 +5002,7 @@ input[type=submit] {
 .before\:bg-white::before,
 .bg-white {
   background-color: var(--white);
+  color: var(--black);
 }
 
 .focus\:text-white:focus,
@@ -4699,6 +5039,7 @@ input[type=submit] {
 .before\:bg-black::before,
 .bg-black {
   background-color: var(--black);
+  color: var(--white);
 }
 
 .focus\:text-black:focus,
@@ -5208,6 +5549,58 @@ input[type=submit] {
 
 .sticky {
   position: sticky;
+}
+
+.z-auto {
+  z-index: auto;
+}
+
+.z-negative-10 {
+  z-index: -10;
+}
+
+.z-negative-1 {
+  z-index: -1;
+}
+
+.z-0 {
+  z-index: 0;
+}
+
+.z-1 {
+  z-index: 1;
+}
+
+.z-2 {
+  z-index: 2;
+}
+
+.z-3 {
+  z-index: 3;
+}
+
+.z-4 {
+  z-index: 4;
+}
+
+.z-6 {
+  z-index: 6;
+}
+
+.z-8 {
+  z-index: 8;
+}
+
+.z-12 {
+  z-index: 12;
+}
+
+.z-16 {
+  z-index: 16;
+}
+
+.z-1000 {
+  z-index: 1000;
 }
 
 /*** Helper classes Start ***/
@@ -6295,6 +6688,7 @@ input[type=submit] {
 .hover\:border:hover,
 .border {
   border-width: var(--border-size-1);
+  border-style: solid;
 }
 
 .focus\:border-1:focus,

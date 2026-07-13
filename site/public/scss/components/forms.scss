@@ -102,7 +102,7 @@ label {
 }
 
 [type="checkbox"][data-toggle] {
-  background-color: var(--default-lightest);
+  background-color: var(--default-lighter);
   width: 4em;
   height: 2em;
   border-radius: 1em;
@@ -245,21 +245,24 @@ fieldset {
   }
 }
 
-fieldset[data-field~="warning"] {
+:is(fieldset, [data-floating])[data-field~="warning"] {
   color: var(--warning);
 }
 
-fieldset[data-field~="success"] {
+:is(fieldset, [data-floating])[data-field~="success"] {
   color: var(--success);
 }
 
-fieldset[data-field] > :is(input, select, textarea) {
+:is(fieldset, [data-floating])[data-field] > :is(input, select, textarea) {
   border-color: currentColor;
 }
 
-fieldset[data-floating] {
+[data-floating] {
+  position: relative;
+  padding: 0;
+  margin: 0 0 1.5em;
+  border: 0;
   background-color: inherit;
-  margin-bottom: 1.5em;
 
   > input,
   > select,
@@ -284,14 +287,14 @@ fieldset[data-floating] {
     &:-ms-input-placeholder {
       opacity: 0;
     }
-    &:placeholder-shown ~ legend {
+    &:placeholder-shown ~ label[for] {
       font-size: 1em;
       top: 0;
       opacity: 0.6;
       padding: 0;
       left: 0.5em;
     }
-    &:focus ~ legend {
+    &:focus ~ label[for] {
       padding: 0;
       top: -1em;
       opacity: 1;
@@ -313,7 +316,7 @@ fieldset[data-floating] {
     margin-top: 0.5em;
   }
 
-  > legend {
+  > label[for] {
     transition: var(--animate-all-fastest);
     z-index: 0;
     width: auto;
@@ -327,6 +330,8 @@ fieldset[data-floating] {
     opacity: 1;
     left: 0;
     font-size: 0.8em;
+    min-height: 0;
+    margin: 0;
   }
 
   > small {
@@ -340,6 +345,22 @@ fieldset[data-floating] {
     right: 0;
     font-size: 0.8em;
     padding: 0;
+  }
+
+  &[aria-invalid="true"],
+  &:has([aria-invalid="true"]),
+  &:has(:user-invalid) {
+    > label[for],
+    > small {
+      color: var(--danger);
+    }
+
+    > input,
+    > select,
+    > textarea {
+      border-color: var(--danger);
+      color: var(--danger);
+    }
   }
 }
 

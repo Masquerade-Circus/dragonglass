@@ -1,5 +1,7 @@
 @use "sass:color";
+@use "sass:list";
 @use "sass:map";
+@use "sass:math";
 
 $spacing: (
   0: 0,
@@ -55,6 +57,22 @@ $shadowSizes: (
   3xl: 16,
 );
 
+$zIndexes: (
+  auto: auto,
+  negative-10: -10,
+  negative-1: -1,
+  0: 0,
+  1: 1,
+  2: 2,
+  3: 3,
+  4: 4,
+  6: 6,
+  8: 8,
+  12: 12,
+  16: 16,
+  1000: 1000,
+);
+
 $primaryColors: (
   "primary": #3244ad,
   "accent": #953ca5,
@@ -71,6 +89,15 @@ $secondaryColors: (
 );
 
 $amount: 25;
+$colorWeights: (
+  "-lightest",
+  "-lighter",
+  "-light",
+  "",
+  "-dark",
+  "-darker",
+  "-darkest"
+);
 $colors: (
   "white": map.get($secondaryColors, "white"),
   "black": map.get($secondaryColors, "black"),
@@ -81,11 +108,132 @@ $colors: (
     $colors,
     (
       "#{$name}": $baseColor,
-      "#{$name}-bright": color.adjust($baseColor, $lightness: $amount * 1.96%),
-      "#{$name}-lightest": color.adjust($baseColor, $lightness: $amount * 1.4%),
+      "#{$name}-lightest": color.adjust(
+          $baseColor,
+          $lightness: $amount * 1.96%
+        ),
+      "#{$name}-lighter": color.adjust($baseColor, $lightness: $amount * 1.4%),
       "#{$name}-light": color.adjust($baseColor, $lightness: $amount * 1%),
       "#{$name}-dark": color.adjust($baseColor, $lightness: -$amount * 1%),
-      "#{$name}-darkest": color.adjust($baseColor, $lightness: -$amount * 1.4%),
+      "#{$name}-darker": color.adjust($baseColor, $lightness: -$amount * 1.4%),
+      // Scaling lightness toward black preserves the family hue without becoming #000.
+      "#{$name}-darkest": color.scale($baseColor, $lightness: -90%),
     )
   );
+}
+
+@function linear-rgb-channel($channel) {
+  $srgb: math.div($channel, 255);
+
+  @if $srgb <= 0.04045 {
+    @return math.div($srgb, 12.92);
+  }
+
+  @return math.pow(math.div($srgb + 0.055, 1.055), 2.4);
+}
+
+@function relative-luminance($value) {
+  $red: linear-rgb-channel(color.channel($value, "red", $space: rgb));
+  $green: linear-rgb-channel(color.channel($value, "green", $space: rgb));
+  $blue: linear-rgb-channel(color.channel($value, "blue", $space: rgb));
+
+  @return 0.2126 * $red + 0.7152 * $green + 0.0722 * $blue;
+}
+
+@function contrast-ratio($first, $second) {
+  $first-luminance: relative-luminance($first);
+  $second-luminance: relative-luminance($second);
+  $lighter: math.max($first-luminance, $second-luminance);
+  $darker: math.min($first-luminance, $second-luminance);
+
+  @return math.div($lighter + 0.05, $darker + 0.05);
+}
+
+@function color-position($token) {
+  @each $family, $baseColor in $primaryColors {
+    @each $weight in $colorWeights {
+      @if $token == "#{$family}#{$weight}" {
+        @return list.index($colorWeights, $weight);
+      }
+    }
+  }
+
+  @return 0;
+}
+
+@function automatic-family-token(
+  $name,
+  $against,
+  $excluded-token,
+  $minimum: 4.5
+) {
+  $selected-token: "";
+  $selected-excess: 22;
+  $selected-position-distance: 99;
+  $background-position: color-position($excluded-token);
+
+  @each $weight in $colorWeights {
+    $token-name: "#{$name}#{$weight}";
+    $candidate: map.get($colors, $token-name);
+
+    @if $token-name != $excluded-token and $candidate {
+      $ratio: contrast-ratio($candidate, $against);
+      $excess: $ratio - $minimum;
+      $position-distance: math.abs(
+        color-position($token-name) - $background-position
+      );
+
+      $closer-to-threshold: $excess < $selected-excess - 0.000000001;
+      $same-excess: math.abs($excess - $selected-excess) <= 0.000000001;
+      $wins-position-tie: $same-excess and
+        $position-distance <
+        $selected-position-distance;
+
+      @if $ratio >= $minimum and ($closer-to-threshold or $wins-position-tie) {
+        $selected-token: $token-name;
+        $selected-excess: $excess;
+        $selected-position-distance: $position-distance;
+      }
+    }
+  }
+
+  @if $selected-token == "" {
+    @each $token-name in "white", "black" {
+      $candidate: map.get($colors, $token-name);
+      $ratio: contrast-ratio($candidate, $against);
+      $excess: $ratio - $minimum;
+
+      @if $ratio >= $minimum and $excess < $selected-excess {
+        $selected-token: $token-name;
+        $selected-excess: $excess;
+      }
+    }
+  }
+
+  @if $selected-token == "" {
+    @error "Contrast progression for '#{$name}' has no candidate other than '#{$excluded-token}' that reaches #{$minimum}:1 contrast.";
+  }
+
+  @return var(--#{$selected-token});
+}
+
+@function opposite-secondary-token($name, $minimum: 4.5) {
+  $opposite-name: "";
+
+  @if $name == "white" {
+    $opposite-name: "black";
+  } @else if $name == "black" {
+    $opposite-name: "white";
+  } @else {
+    @error "Secondary color '#{$name}' has no configured opposite.";
+  }
+
+  $background: map.get($secondaryColors, $name);
+  $opposite: map.get($secondaryColors, $opposite-name);
+
+  @if contrast-ratio($opposite, $background) < $minimum {
+    @error "Secondary colors '#{$name}' and '#{$opposite-name}' do not reach #{$minimum}:1 contrast.";
+  }
+
+  @return var(--#{$opposite-name});
 }

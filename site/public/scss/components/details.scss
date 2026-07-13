@@ -1,5 +1,5 @@
 details:not([data-trigger]) {
-  background-color: var(--default-bright);
+  background-color: var(--default-lightest);
   border: var(--border-size-1) solid var(--default-light);
   border-radius: var(--card-radius);
   box-shadow: none;
@@ -55,53 +55,65 @@ details[data-expansion-panel][open] > summary::after {
   transform: rotate(90deg);
 }
 
-[data-tabs] {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0;
-  border-bottom: var(--border-size-1) solid var(--default-light);
+@property --dragonglass-tab-index {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 1;
 }
 
-[data-tabs] > details {
-  display: flex;
-  flex: 1 1 8rem;
-  flex-wrap: wrap;
+@property --dragonglass-tab-count {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 1;
 }
 
-[data-tabs] > details > summary {
-  flex: 1 1 100%;
-  order: 1;
-  padding: var(--spacing-3) var(--spacing-4);
-  border-bottom: var(--border-size-2) solid transparent;
-  cursor: pointer;
-  list-style: none;
-  text-align: center;
-}
+@supports (width: calc(100% / sibling-count())) and
+  selector(details::details-content) {
+  [data-tabs]::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
 
-[data-tabs] > details > summary::-webkit-details-marker {
-  display: none;
-}
+  [data-tabs] > details {
+    --dragonglass-tab-index: sibling-index();
+    --dragonglass-tab-count: sibling-count();
+    float: left;
+    width: calc(100% / var(--dragonglass-tab-count));
+    overflow: visible;
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+  }
 
-[data-tabs] > details[open] > summary {
-  border-color: var(--primary);
-  color: var(--primary);
-}
+  [data-tabs] > details > summary {
+    box-sizing: border-box;
+    width: 100%;
+    padding: var(--spacing-3) var(--spacing-4);
+    border-bottom: var(--border-size-2) solid var(--default-light);
+    list-style: none;
+    text-align: center;
+  }
 
-[data-tabs] > details > :not(summary) {
-  flex: 0 0 100%;
-  order: 2;
-  padding: var(--spacing-4) 0;
-}
+  [data-tabs] > details > summary::-webkit-details-marker {
+    display: none;
+  }
 
-[data-tabs] > details[open] {
-  flex-basis: 100%;
-  order: 2;
-}
+  [data-tabs] > details[open] > summary {
+    color: var(--primary);
+    border-color: var(--primary);
+  }
 
-[data-tabs] > details:not([open]) {
-  order: 1;
-}
+  [data-tabs] > details > :not(summary) {
+    padding: 0;
+  }
 
-[data-tabs] > details:not([open]) > :not(summary) {
-  display: none;
+  [data-tabs] > details::details-content {
+    position: relative;
+    left: calc((1 - var(--dragonglass-tab-index)) * 100%);
+    float: left;
+    box-sizing: border-box;
+    width: calc(100% * var(--dragonglass-tab-count));
+    padding: var(--spacing-4) 0;
+  }
 }

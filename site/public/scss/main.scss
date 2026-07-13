@@ -7,17 +7,10 @@
 /*** Containers ***/
 @use "components/containers";
 
-// /*** Animation Definitions ***/
-// @use "components/animations";
 /*** Grid ***/
 @use "components/grid";
 /*** Elevation classes ***/
 @use "components/elevation";
-
-// /*** Overlay ***/
-// @use "components/overlay";
-// /*** Ripple ***/
-// @use "components/ripple";
 
 // /************************** Components **************************/
 /*** Code ***/
@@ -32,8 +25,6 @@
 @use "components/chips";
 /*** Alerts ***/
 @use "components/alerts";
-// /*** Spinners ***/
-// @use "components/spinners";
 /*** Tooltips ***/
 @use "components/tooltips";
 /*** Badges ***/
@@ -62,12 +53,8 @@
 @use "components/dialogs";
 /*** Forms ***/
 @use "components/forms";
-// /*** Flexible Bar ***/
-// @use "components/flexible-bar";
 /*** Drawers ***/
 @use "components/drawers";
-// /*** Layout ***/
-// @use "components/layout";
 /*** Fonts ***/
 @use "components/fonts";
 

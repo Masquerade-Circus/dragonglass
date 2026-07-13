@@ -13,16 +13,8 @@ $tolerance: 67;
   @return var(--#{$name});
 }
 
-@function background-text-color($color, $name) {
-  @if color.channel($color, "lightness", $space: hsl) > 55% {
-    @return var(--#{$name}-darkest);
-  }
-
-  @return var(--#{$name}-bright);
-}
-
 @each $name, $col in $primaryColors {
-  @each $weight in -bright, -lightest, -light, "", -dark, -darkest {
+  @each $weight in $colorWeights {
     $color: map.get($colors, "#{$name}#{$weight}");
 
     @if $color {
@@ -52,7 +44,7 @@ $tolerance: 67;
       .before\:bg-#{$name}#{$weight}::before,
       .bg-#{$name}#{$weight} {
         background-color: var(--#{$name}#{$weight});
-        color: background-text-color($color, $name);
+        color: automatic-family-token($name, $color, "#{$name}#{$weight}");
       }
 
       .focus\:text-#{$name}#{$weight}:focus,
@@ -96,6 +88,7 @@ $tolerance: 67;
     .before\:bg-#{$name}::before,
     .bg-#{$name} {
       background-color: var(--#{$name});
+      color: opposite-secondary-token($name);
     }
 
     .focus\:text-#{$name}:focus,

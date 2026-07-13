@@ -142,7 +142,7 @@ export default () => (
           {
             name: "--progress-color / --progress-track",
             type: "Token",
-            defaultValue: "Primary / default-lightest",
+            defaultValue: "Primary / default-lighter",
             description: "Set the indicator and track colors.",
           },
           {

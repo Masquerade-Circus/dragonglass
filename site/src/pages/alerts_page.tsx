@@ -3,23 +3,23 @@ import CodeExample from "../docs/code_example";
 import DemoSection from "../docs/demo_section";
 import DocPage from "../docs/doc_page";
 
-const alertExample = `<blockquote data-alert="warning" role="alert">
+const alertExample = `<div data-alert="warning" role="alert">
   <strong>Review required.</strong>
   <p>The billing address has missing fields.</p>
-</blockquote>`;
+</div>`;
 
-const semanticAlertsExample = `<blockquote data-alert="info" role="status">
+const semanticAlertsExample = `<div data-alert="info" role="status">
   Your profile has unsaved changes.
-</blockquote>
-<blockquote data-alert="success" role="status">
+</div>
+<div data-alert="success" role="status">
   The invoice was paid successfully.
-</blockquote>
-<blockquote data-alert="warning" role="alert">
+</div>
+<div data-alert="warning" role="alert">
   Your storage is almost full.
-</blockquote>
-<blockquote data-alert="danger" role="alert">
+</div>
+<div data-alert="danger" role="alert">
   The payment method was rejected.
-</blockquote>`;
+</div>`;
 
 export default () => (
   <DocPage page="Alerts">
@@ -28,18 +28,18 @@ export default () => (
         Match the tone to the outcome, then choose status for routine updates or
         alert for urgent information that needs immediate attention.
       </p>
-      <blockquote data-alert="info" role="status">
+      <div data-alert="info" role="status">
         Your profile has unsaved changes.
-      </blockquote>
-      <blockquote data-alert="success" role="status">
+      </div>
+      <div data-alert="success" role="status">
         The invoice was paid successfully.
-      </blockquote>
-      <blockquote data-alert="warning" role="alert">
+      </div>
+      <div data-alert="warning" role="alert">
         Your storage is almost full.
-      </blockquote>
-      <blockquote data-alert="danger" role="alert">
+      </div>
+      <div data-alert="danger" role="alert">
         The payment method was rejected.
-      </blockquote>
+      </div>
       <CodeExample code={semanticAlertsExample} />
     </DemoSection>
 
@@ -47,10 +47,10 @@ export default () => (
       id="alerts-content-title"
       title="Alert with supporting content"
     >
-      <blockquote data-alert="warning" role="alert">
+      <div data-alert="warning" role="alert">
         <strong>Review required.</strong>
         <p>The billing address has missing fields.</p>
-      </blockquote>
+      </div>
       <CodeExample code={alertExample} />
     </DemoSection>
 
@@ -59,10 +59,10 @@ export default () => (
         caption="Alert elements, attributes, tokens and states"
         rows={[
           {
-            name: "blockquote",
+            name: "div",
             type: "Element",
-            defaultValue: "Required",
-            description: "The current styled alert element.",
+            defaultValue: "Example container",
+            description: "Provides a neutral container for the alert content.",
           },
           {
             name: "data-alert",
@@ -104,9 +104,9 @@ export default () => (
 
     <DemoSection id="alerts-errors-title" title="Composition and common errors">
       <p>
-        Keep the real <code>blockquote[data-alert]</code> contract. Put the
-        outcome first, add recovery guidance when useful and never communicate
-        severity by color alone.
+        Apply <code>data-alert</code> to a suitable container. Put the outcome
+        first, add recovery guidance when useful and never communicate severity
+        by color alone.
       </p>
     </DemoSection>
   </DocPage>

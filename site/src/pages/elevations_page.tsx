@@ -10,6 +10,8 @@ const innerShadowExample = `<div class="shadow-inner-base bg-white p-4">Inset su
 const stateExample = `<button type="button" class="shadow-base hover:shadow-3xl active:shadow-sm">Change elevation</button>
 <input aria-label="Focus elevation example" class="shadow-base focus:shadow-3xl bg-white" value="Focus this field">`;
 const shadowTokenExample = `<div class="shadow-base bg-white p-4">Token-backed surface</div>`;
+const zIndexExample = `<div class="relative z-8">Navigation surface</div>
+<div class="relative z-auto">Natural stacking order</div>`;
 
 const shadowRows = shadowSizes.flatMap((size) => [
   {
@@ -88,6 +90,18 @@ export default () => (
       <div class="shadow-base bg-white p-4">Token-backed surface</div>
       <CodeExample code={shadowTokenExample} />
       <ApiTable caption="Outer and inner shadow tokens" rows={shadowRows} />
+    </DemoSection>
+
+    <DemoSection id="z-index-scale" title="Z-index scale">
+      <p>
+        Outer shadow utilities retain a z-index derived from their elevation
+        level. Use <code>z-auto</code>, <code>z-negative-10</code>,
+        <code> z-negative-1</code>, <code>z-0</code>, <code>z-1</code>,
+        <code> z-2</code>, <code>z-3</code>, <code>z-4</code>, <code>z-6</code>,
+        <code> z-8</code>, <code>z-12</code>, <code>z-16</code> or
+        <code> z-1000</code> when stacking needs an explicit override.
+      </p>
+      <CodeExample code={zIndexExample} />
     </DemoSection>
 
     <DemoSection

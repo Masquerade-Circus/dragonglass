@@ -66,3 +66,11 @@
     transform: translateY(-50%) scale(1);
   }
 }
+
+@media (max-width: 575px) {
+  [data-tooltip]::after {
+    width: max-content;
+    max-width: calc(100vw - (var(--spacing-4) * 2));
+    white-space: normal;
+  }
+}

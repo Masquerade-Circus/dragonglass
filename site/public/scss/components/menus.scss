@@ -1,4 +1,4 @@
-menu {
+[data-trigger] > menu {
   position: absolute;
   z-index: -1;
   opacity: 0;
@@ -30,8 +30,8 @@ menu {
     transform-origin: bottom right;
   }
 }
-menu[open],
-[data-trigger][open] menu {
+
+[data-trigger][open] > menu {
   display: block;
   opacity: 1;
   z-index: 8;

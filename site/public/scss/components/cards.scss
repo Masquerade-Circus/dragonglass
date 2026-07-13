@@ -30,7 +30,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 0%;
-    color: var(--default-bright);
+    color: var(--default-lightest);
     &:first-child {
       border-top-left-radius: var(--card-radius);
       border-top-right-radius: var(--card-radius);
@@ -50,7 +50,7 @@
       border: 0;
       height: auto;
       z-index: 1;
-      text-shadow: 0.06rem 0.06rem 0.13rem var(--default-darkest);
+      text-shadow: 0.06rem 0.06rem 0.13rem var(--default-darker);
       background-color: rgba(33, 33, 33, 0.3);
       overflow: visible;
       padding: 1rem;
@@ -68,7 +68,7 @@
         a,
         [data-button],
         button {
-          text-shadow: 0.06rem 0.06rem 0.13rem var(--default-darkest);
+          text-shadow: 0.06rem 0.06rem 0.13rem var(--default-darker);
         }
       }
     }

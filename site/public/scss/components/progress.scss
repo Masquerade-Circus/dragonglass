@@ -1,6 +1,16 @@
+@use "sass:map";
+@use "./vars" as *;
+
+$progress-track-color: map.get($colors, "default-lighter");
+
 progress {
-  --progress-color: var(--primary);
-  --progress-track: var(--default-lightest);
+  --progress-color: #{automatic-family-token(
+      "primary",
+      $progress-track-color,
+      "default-lighter",
+      3
+    )};
+  --progress-track: var(--default-lighter);
   appearance: none;
   display: block;
   width: 100%;
@@ -13,28 +23,15 @@ progress {
   accent-color: var(--progress-color);
 }
 
-progress[data-progress~="primary"] {
-  --progress-color: var(--primary);
-}
-
-progress[data-progress~="accent"] {
-  --progress-color: var(--accent);
-}
-
-progress[data-progress~="success"] {
-  --progress-color: var(--success);
-}
-
-progress[data-progress~="warning"] {
-  --progress-color: var(--warning);
-}
-
-progress[data-progress~="danger"] {
-  --progress-color: var(--danger);
-}
-
-progress[data-progress~="info"] {
-  --progress-color: var(--info);
+@each $name, $color in $primaryColors {
+  progress[data-progress~="#{$name}"] {
+    --progress-color: #{automatic-family-token(
+        $name,
+        $progress-track-color,
+        "default-lighter",
+        3
+      )};
+  }
 }
 
 progress::-webkit-progress-bar {

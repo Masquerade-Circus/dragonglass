@@ -47,7 +47,7 @@ tbody > tr {
   border-color: inherit;
 }
 
-td::before {
+table[data-table] td::before {
   content: attr(data-label);
   display: none;
   font-size: 0.75em;
@@ -62,14 +62,22 @@ td::before {
 
 /* Simple CSS for flexbox table on mobile */
 @media (max-width: 800px) {
-  table {
+  table[data-table] {
     width: 100%;
     border-radius: 0 0 0.5em 0.5em;
   }
-  thead {
-    display: none;
+  table[data-table] thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
-  tbody > tr {
+  table[data-table] tbody > tr {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -80,7 +88,7 @@ td::before {
     border-color: inherit;
   }
 
-  td {
+  table[data-table] td {
     padding-top: 1.5em;
     position: relative;
     width: 50%;
@@ -94,7 +102,7 @@ td::before {
 }
 
 @media (max-width: 480px) {
-  td {
+  table[data-table] td {
     width: 100%;
   }
 }
@@ -104,18 +112,18 @@ td::before {
     caption,
     thead {
       background-color: var(--#{$name});
-      color: var(--#{$name}-bright);
+      color: automatic-family-token($name, $col, $name);
       border-color: var(--#{$name}-dark);
     }
     tbody > tr {
-      border-color: var(--#{$name}-lightest);
+      border-color: var(--#{$name}-lighter);
       &:nth-child(even) {
-        background-color: var(--#{$name}-bright);
+        background-color: var(--#{$name}-lightest);
       }
     }
     td:before {
       background-color: var(--#{$name});
-      color: var(--#{$name}-bright);
+      color: automatic-family-token($name, $col, $name);
     }
   }
 }

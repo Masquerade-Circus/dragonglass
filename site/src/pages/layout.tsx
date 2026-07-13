@@ -75,7 +75,7 @@ const Header = ({ currentPath }: LayoutProps) => (
 
 const Layout: any = (props: LayoutProps, ...content: any[]) => [
   <Header currentPath={props.currentPath} />,
-  <main id="main-content">
+  <main>
     <section>{content}</section>
   </main>,
 ];

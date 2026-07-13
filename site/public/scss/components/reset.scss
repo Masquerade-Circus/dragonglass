@@ -15,7 +15,7 @@ body {
   padding: 0;
   overflow-x: hidden;
   height: 100%;
-  background: var(--default-bright);
+  background: var(--default-lightest);
 }
 
 a,
@@ -81,7 +81,7 @@ hr {
   border: 0;
   height: 0.1rem;
   clear: both;
-  background: var(--default-lightest);
+  background: var(--default-lighter);
   &:after,
   &::before {
     clear: both;

@@ -9,7 +9,7 @@ const semanticNotificationsCode = `<aside data-notification="info inline" role="
 <aside data-notification="danger inline" role="alert">Upload failed.</aside>`;
 
 const contentNotificationCode = `<aside data-notification="success inline" role="status">
-  <button type="button" aria-label="Dismiss">
+  <button type="button" data-notification-close aria-label="Dismiss">
     <span aria-hidden="true">×</span>
   </button>
   <strong>Export ready.</strong>
@@ -37,6 +37,13 @@ const apiRows = [
     defaultValue: "Primary border, top right",
     description:
       "Activates notification layout and accepts tone, position and shadow tokens.",
+  },
+  {
+    name: "data-notification-close",
+    type: "Button attribute",
+    defaultValue: "Optional",
+    description:
+      "Marks a direct child button as the close action without coupling styles to its accessible name.",
   },
   {
     name: "info|success|warning|danger",
@@ -109,7 +116,7 @@ export default () => (
 
     <DemoSection id="notification-content" title="Content and close action">
       <aside data-notification="success inline" role="status">
-        <button type="button" aria-label="Dismiss">
+        <button type="button" data-notification-close aria-label="Dismiss">
           <span aria-hidden="true">×</span>
         </button>
         <strong>Export ready.</strong>
@@ -140,9 +147,9 @@ export default () => (
       <p>
         Use short text for a single update. Add a <code>strong</code> heading
         and paragraph when the message needs context. Place an optional close
-        button as a direct child so the notification reserves space for it.
-        Application behavior must remove the message when that button is
-        activated.
+        button with <code>data-notification-close</code> as a direct child so
+        the notification reserves space for it. Application behavior must remove
+        the message when that button is activated.
       </p>
     </DemoSection>
 

@@ -1,4 +1,7 @@
-[class*="grid"] {
+.grid,
+.grid-end,
+.grid-center,
+.grid-gutters {
   clear: both;
   display: flex;
   flex-direction: row;

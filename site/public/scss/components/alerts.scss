@@ -1,4 +1,4 @@
-blockquote[data-alert] {
+[data-alert] {
   --alert-color: var(--primary);
   --alert-bg: var(--primary-light);
   display: block;
@@ -10,26 +10,26 @@ blockquote[data-alert] {
   color: var(--default-dark);
 }
 
-blockquote[data-alert~="info"] {
+[data-alert~="info"] {
   --alert-color: var(--info);
   --alert-bg: var(--info-light);
 }
 
-blockquote[data-alert~="success"] {
+[data-alert~="success"] {
   --alert-color: var(--success);
   --alert-bg: var(--success-light);
 }
 
-blockquote[data-alert~="warning"] {
+[data-alert~="warning"] {
   --alert-color: var(--warning);
   --alert-bg: var(--warning-light);
 }
 
-blockquote[data-alert~="danger"] {
+[data-alert~="danger"] {
   --alert-color: var(--danger);
   --alert-bg: var(--danger-light);
 }
 
-blockquote[data-alert] > :last-child {
+[data-alert] > :last-child {
   margin-bottom: 0;
 }

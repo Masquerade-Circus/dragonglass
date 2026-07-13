@@ -1745,7 +1745,7 @@
   ] });
   var Layout = (props, ...content) => [
     /* @__PURE__ */ jsx(Header, { currentPath: props.currentPath }),
-    /* @__PURE__ */ jsx("main", { id: "main-content", children: /* @__PURE__ */ jsx("section", { children: content }) })
+    /* @__PURE__ */ jsx("main", { children: /* @__PURE__ */ jsx("section", { children: content }) })
   ];
   var layout_default = Layout;
 
@@ -2086,6 +2086,8 @@
   var stateExample = `<button type="button" class="shadow-base hover:shadow-3xl active:shadow-sm">Change elevation</button>
 <input aria-label="Focus elevation example" class="shadow-base focus:shadow-3xl bg-white" value="Focus this field">`;
   var shadowTokenExample = `<div class="shadow-base bg-white p-4">Token-backed surface</div>`;
+  var zIndexExample = `<div class="relative z-8">Navigation surface</div>
+<div class="relative z-auto">Natural stacking order</div>`;
   var shadowRows = shadowSizes.flatMap((size) => [
     {
       name: `--shadow-${size}`,
@@ -2158,6 +2160,38 @@
       /* @__PURE__ */ jsx(code_example_default, { code: shadowTokenExample }),
       /* @__PURE__ */ jsx(api_table_default, { caption: "Outer and inner shadow tokens", rows: shadowRows })
     ] }),
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "z-index-scale", title: "Z-index scale", children: [
+      /* @__PURE__ */ jsxs("p", { children: [
+        "Outer shadow utilities retain a z-index derived from their elevation level. Use ",
+        /* @__PURE__ */ jsx("code", { children: "z-auto" }),
+        ", ",
+        /* @__PURE__ */ jsx("code", { children: "z-negative-10" }),
+        ",",
+        /* @__PURE__ */ jsx("code", { children: " z-negative-1" }),
+        ", ",
+        /* @__PURE__ */ jsx("code", { children: "z-0" }),
+        ", ",
+        /* @__PURE__ */ jsx("code", { children: "z-1" }),
+        ",",
+        /* @__PURE__ */ jsx("code", { children: " z-2" }),
+        ", ",
+        /* @__PURE__ */ jsx("code", { children: "z-3" }),
+        ", ",
+        /* @__PURE__ */ jsx("code", { children: "z-4" }),
+        ", ",
+        /* @__PURE__ */ jsx("code", { children: "z-6" }),
+        ",",
+        /* @__PURE__ */ jsx("code", { children: " z-8" }),
+        ", ",
+        /* @__PURE__ */ jsx("code", { children: "z-12" }),
+        ", ",
+        /* @__PURE__ */ jsx("code", { children: "z-16" }),
+        " or",
+        /* @__PURE__ */ jsx("code", { children: " z-1000" }),
+        " when stacking needs an explicit override."
+      ] }),
+      /* @__PURE__ */ jsx(code_example_default, { code: zIndexExample })
+    ] }),
     /* @__PURE__ */ jsx(
       demo_section_default,
       {
@@ -2182,12 +2216,20 @@
     "danger",
     "default"
   ];
-  var weights = ["-bright", "-lightest", "-light", "", "-dark", "-darkest"];
+  var weights = [
+    "-lightest",
+    "-lighter",
+    "-light",
+    "",
+    "-dark",
+    "-darker",
+    "-darkest"
+  ];
   var paletteExample = `<div class="bg-primary p-3">Primary background</div>
 <p class="text-primary-dark">Primary dark text</p>`;
   var stateExample2 = `<button type="button" class="bg-primary-dark hover:bg-primary active:bg-primary-light">Background states</button>
 <input aria-label="Color focus example" class="p-3 text-primary-dark focus:text-primary" value="Focus this field">`;
-  var colorTokenExample = `<div style="background-color: var(--primary); color: var(--primary-darkest)">
+  var colorTokenExample = `<div style="background-color: var(--primary); color: var(--primary-darker)">
   Primary token preview
 </div>`;
   var colorRows = colors.flatMap(
@@ -2200,7 +2242,7 @@
   );
   var colors_page_default = () => /* @__PURE__ */ jsxs(doc_page_default, { page: "Colors", children: [
     /* @__PURE__ */ jsxs(demo_section_default, { id: "color-palette", title: "Background and text colors", children: [
-      /* @__PURE__ */ jsx("p", { children: "Each semantic color includes bright, lightest, light, base, dark and darkest tokens." }),
+      /* @__PURE__ */ jsx("p", { children: "Each semantic color includes lightest, lighter, light, base, dark, darker and darkest tokens. White and black remain the global contrast extremes." }),
       /* @__PURE__ */ jsx("div", { class: "bg-primary p-3", children: "Primary background" }),
       /* @__PURE__ */ jsx("p", { class: "text-primary-dark", children: "Primary dark text" }),
       /* @__PURE__ */ jsx(code_example_default, { code: paletteExample }),
@@ -2230,7 +2272,7 @@
     ] }),
     /* @__PURE__ */ jsxs(demo_section_default, { id: "color-api", title: "Color tokens", children: [
       /* @__PURE__ */ jsx("p", { children: "Use the semantic custom properties when a component needs token values directly instead of a generated color utility class." }),
-      /* @__PURE__ */ jsx("div", { style: "background-color: var(--primary); color: var(--primary-darkest)", children: "Primary token preview" }),
+      /* @__PURE__ */ jsx("div", { style: "background-color: var(--primary); color: var(--primary-darker)", children: "Primary token preview" }),
       /* @__PURE__ */ jsx(code_example_default, { code: colorTokenExample }),
       /* @__PURE__ */ jsx(api_table_default, { caption: "Semantic color custom properties", rows: colorRows })
     ] }),
@@ -3475,40 +3517,40 @@
 </form>`;
   var floatingFieldsCode = `<form data-card>
   <section>
-  <fieldset data-floating>
-    <input id="floating-name" name="name" type="text" placeholder="Full name" aria-labelledby="floating-name-label" aria-describedby="floating-name-help">
-    <legend id="floating-name-label">Full name</legend>
+  <div data-floating>
+    <input id="floating-name" name="name" type="text" placeholder="Full name" aria-describedby="floating-name-help">
+    <label for="floating-name">Full name</label>
     <small id="floating-name-help">Enter the name shown to teammates.</small>
-  </fieldset>
-  <fieldset data-floating data-field="warning">
-    <input id="floating-slug" name="slug" type="text" value="draft-name" placeholder="Project slug" aria-labelledby="floating-slug-label" aria-describedby="floating-slug-help">
-    <legend id="floating-slug-label">Project slug</legend>
+  </div>
+  <div data-floating data-field="warning">
+    <input id="floating-slug" name="slug" type="text" value="draft-name" placeholder="Project slug" aria-describedby="floating-slug-help">
+    <label for="floating-slug">Project slug</label>
     <small id="floating-slug-help">Changing this value updates shared links.</small>
-  </fieldset>
-  <fieldset data-floating data-field="success">
-    <input id="floating-domain" name="domain" type="text" value="example.com" placeholder="Domain" aria-labelledby="floating-domain-label" aria-describedby="floating-domain-help">
-    <legend id="floating-domain-label">Domain</legend>
+  </div>
+  <div data-floating data-field="success">
+    <input id="floating-domain" name="domain" type="text" value="example.com" placeholder="Domain" aria-describedby="floating-domain-help">
+    <label for="floating-domain">Domain</label>
     <small id="floating-domain-help">This domain is available.</small>
-  </fieldset>
-  <fieldset data-floating>
-    <input id="floating-code" name="code" type="text" value="bad code" placeholder="Invite code" aria-labelledby="floating-code-label" aria-describedby="floating-code-error" aria-invalid="true">
-    <legend id="floating-code-label">Invite code</legend>
+  </div>
+  <div data-floating>
+    <input id="floating-code" name="code" type="text" value="bad code" placeholder="Invite code" aria-describedby="floating-code-error" aria-invalid="true">
+    <label for="floating-code">Invite code</label>
     <small id="floating-code-error">Remove the space from the invite code.</small>
-  </fieldset>
-  <fieldset data-floating>
-    <textarea id="floating-notes" name="notes" placeholder="Notes" aria-labelledby="floating-notes-label" aria-describedby="floating-notes-help"></textarea>
-    <legend id="floating-notes-label">Notes</legend>
+  </div>
+  <div data-floating>
+    <textarea id="floating-notes" name="notes" placeholder="Notes" aria-describedby="floating-notes-help"></textarea>
+    <label for="floating-notes">Notes</label>
     <small id="floating-notes-help">Add context for reviewers.</small>
-  </fieldset>
-  <fieldset data-floating>
-    <select id="floating-team" name="team" aria-labelledby="floating-team-label" aria-describedby="floating-team-help">
+  </div>
+  <div data-floating>
+    <select id="floating-team" name="team" aria-describedby="floating-team-help">
       <option value="">Select a team</option>
       <option value="design">Design</option>
       <option value="engineering">Engineering</option>
     </select>
-    <legend id="floating-team-label">Team</legend>
+    <label for="floating-team">Team</label>
     <small id="floating-team-help">Choose the team that owns this work.</small>
-  </fieldset>
+  </div>
   </section>
 </form>`;
   var selectionControlsCode = `<form data-card>
@@ -3585,11 +3627,11 @@
       <input id="invite-name" name="name" type="text" aria-describedby="invite-name-help">
       <small id="invite-name-help">Enter the name shown on the invitation.</small>
     </fieldset>
-    <fieldset data-floating>
-      <input id="invite-email" name="email" type="email" placeholder="Email" aria-labelledby="invite-email-label" aria-describedby="invite-email-help">
-      <legend id="invite-email-label">Email</legend>
+    <div data-floating>
+      <input id="invite-email" name="email" type="email" placeholder="Email" aria-describedby="invite-email-help">
+      <label for="invite-email">Email</label>
       <small id="invite-email-help">We will send the invitation to this address.</small>
-    </fieldset>
+    </div>
   </section>
   <footer>
     <nav aria-label="Invitation actions">
@@ -3642,19 +3684,19 @@
       name: "fieldset and legend",
       type: "Element",
       defaultValue: "No border",
-      description: "Groups related controls and names radio, checkbox or floating-field groups."
+      description: "Groups related controls and names radio or checkbox groups."
     },
     {
       name: "data-floating",
       type: "Attribute",
       defaultValue: "Absent",
-      description: "Positions a following legend as a floating label for the control."
+      description: "Turns a neutral wrapper with a control, label and small into a floating field."
     },
     {
       name: 'data-field="warning|success"',
       type: "Attribute token",
       defaultValue: "Neutral",
-      description: "Applies a non-error semantic state to a fieldset and its control."
+      description: "Applies a non-error semantic state to a field container and its control."
     },
     {
       name: "data-toggle",
@@ -3788,7 +3830,7 @@
     ] }),
     /* @__PURE__ */ jsxs(demo_section_default, { id: "floating-labels", title: "Floating labels", children: [
       /* @__PURE__ */ jsx("form", { "data-card": true, children: /* @__PURE__ */ jsxs("section", { children: [
-        /* @__PURE__ */ jsxs("fieldset", { "data-floating": true, children: [
+        /* @__PURE__ */ jsxs("div", { "data-floating": true, children: [
           /* @__PURE__ */ jsx(
             "input",
             {
@@ -3796,14 +3838,13 @@
               name: "name",
               type: "text",
               placeholder: "Full name",
-              "aria-labelledby": "floating-name-label",
               "aria-describedby": "floating-name-help"
             }
           ),
-          /* @__PURE__ */ jsx("legend", { id: "floating-name-label", children: "Full name" }),
+          /* @__PURE__ */ jsx("label", { for: "floating-name", children: "Full name" }),
           /* @__PURE__ */ jsx("small", { id: "floating-name-help", children: "Enter the name shown to teammates." })
         ] }),
-        /* @__PURE__ */ jsxs("fieldset", { "data-floating": true, "data-field": "warning", children: [
+        /* @__PURE__ */ jsxs("div", { "data-floating": true, "data-field": "warning", children: [
           /* @__PURE__ */ jsx(
             "input",
             {
@@ -3812,14 +3853,13 @@
               type: "text",
               value: "draft-name",
               placeholder: "Project slug",
-              "aria-labelledby": "floating-slug-label",
               "aria-describedby": "floating-slug-help"
             }
           ),
-          /* @__PURE__ */ jsx("legend", { id: "floating-slug-label", children: "Project slug" }),
+          /* @__PURE__ */ jsx("label", { for: "floating-slug", children: "Project slug" }),
           /* @__PURE__ */ jsx("small", { id: "floating-slug-help", children: "Changing this value updates shared links." })
         ] }),
-        /* @__PURE__ */ jsxs("fieldset", { "data-floating": true, "data-field": "success", children: [
+        /* @__PURE__ */ jsxs("div", { "data-floating": true, "data-field": "success", children: [
           /* @__PURE__ */ jsx(
             "input",
             {
@@ -3828,14 +3868,13 @@
               type: "text",
               value: "example.com",
               placeholder: "Domain",
-              "aria-labelledby": "floating-domain-label",
               "aria-describedby": "floating-domain-help"
             }
           ),
-          /* @__PURE__ */ jsx("legend", { id: "floating-domain-label", children: "Domain" }),
+          /* @__PURE__ */ jsx("label", { for: "floating-domain", children: "Domain" }),
           /* @__PURE__ */ jsx("small", { id: "floating-domain-help", children: "This domain is available." })
         ] }),
-        /* @__PURE__ */ jsxs("fieldset", { "data-floating": true, children: [
+        /* @__PURE__ */ jsxs("div", { "data-floating": true, children: [
           /* @__PURE__ */ jsx(
             "input",
             {
@@ -3844,35 +3883,32 @@
               type: "text",
               value: "bad code",
               placeholder: "Invite code",
-              "aria-labelledby": "floating-code-label",
               "aria-describedby": "floating-code-error",
               "aria-invalid": "true"
             }
           ),
-          /* @__PURE__ */ jsx("legend", { id: "floating-code-label", children: "Invite code" }),
+          /* @__PURE__ */ jsx("label", { for: "floating-code", children: "Invite code" }),
           /* @__PURE__ */ jsx("small", { id: "floating-code-error", children: "Remove the space from the invite code." })
         ] }),
-        /* @__PURE__ */ jsxs("fieldset", { "data-floating": true, children: [
+        /* @__PURE__ */ jsxs("div", { "data-floating": true, children: [
           /* @__PURE__ */ jsx(
             "textarea",
             {
               id: "floating-notes",
               name: "notes",
               placeholder: "Notes",
-              "aria-labelledby": "floating-notes-label",
               "aria-describedby": "floating-notes-help"
             }
           ),
-          /* @__PURE__ */ jsx("legend", { id: "floating-notes-label", children: "Notes" }),
+          /* @__PURE__ */ jsx("label", { for: "floating-notes", children: "Notes" }),
           /* @__PURE__ */ jsx("small", { id: "floating-notes-help", children: "Add context for reviewers." })
         ] }),
-        /* @__PURE__ */ jsxs("fieldset", { "data-floating": true, children: [
+        /* @__PURE__ */ jsxs("div", { "data-floating": true, children: [
           /* @__PURE__ */ jsxs(
             "select",
             {
               id: "floating-team",
               name: "team",
-              "aria-labelledby": "floating-team-label",
               "aria-describedby": "floating-team-help",
               children: [
                 /* @__PURE__ */ jsx("option", { value: "", children: "Select a team" }),
@@ -3881,7 +3917,7 @@
               ]
             }
           ),
-          /* @__PURE__ */ jsx("legend", { id: "floating-team-label", children: "Team" }),
+          /* @__PURE__ */ jsx("label", { for: "floating-team", children: "Team" }),
           /* @__PURE__ */ jsx("small", { id: "floating-team-help", children: "Choose the team that owns this work." })
         ] })
       ] }) }),
@@ -4037,7 +4073,7 @@
             ),
             /* @__PURE__ */ jsx("small", { id: "invite-name-help", children: "Enter the name shown on the invitation." })
           ] }),
-          /* @__PURE__ */ jsxs("fieldset", { "data-floating": true, children: [
+          /* @__PURE__ */ jsxs("div", { "data-floating": true, children: [
             /* @__PURE__ */ jsx(
               "input",
               {
@@ -4045,11 +4081,10 @@
                 name: "email",
                 type: "email",
                 placeholder: "Email",
-                "aria-labelledby": "invite-email-label",
                 "aria-describedby": "invite-email-help"
               }
             ),
-            /* @__PURE__ */ jsx("legend", { id: "invite-email-label", children: "Email" }),
+            /* @__PURE__ */ jsx("label", { for: "invite-email", children: "Email" }),
             /* @__PURE__ */ jsx("small", { id: "invite-email-help", children: "We will send the invitation to this address." })
           ] })
         ] }),
@@ -4107,12 +4142,14 @@
     ] }),
     /* @__PURE__ */ jsxs(demo_section_default, { id: "forms-composition", title: "Composition", children: [
       /* @__PURE__ */ jsxs("p", { children: [
-        "Place each control and its help text in a ",
+        "Wrap ordinary fields as needed and use ",
         /* @__PURE__ */ jsx("code", { children: "fieldset" }),
-        ". Use a visible ",
-        /* @__PURE__ */ jsx("code", { children: "label" }),
-        " for ordinary fields. Floating fields keep the control before the ",
+        " with",
         /* @__PURE__ */ jsx("code", { children: "legend" }),
+        " for related control groups. Floating fields use a neutral ",
+        /* @__PURE__ */ jsx("code", { children: "data-floating" }),
+        " container and keep the control before its ",
+        /* @__PURE__ */ jsx("code", { children: "label" }),
         " because that sibling order drives the visual label state."
       ] }),
       /* @__PURE__ */ jsxs("p", { children: [
@@ -4125,13 +4162,13 @@
     /* @__PURE__ */ jsx(demo_section_default, { id: "forms-accessibility", title: "Accessibility", children: /* @__PURE__ */ jsxs("p", { children: [
       "Every control needs a stable ",
       /* @__PURE__ */ jsx("code", { children: "name" }),
-      " for submission and an accessible name from ",
+      " for submission and an accessible name from a ",
       /* @__PURE__ */ jsx("code", { children: "label" }),
-      " or ",
-      /* @__PURE__ */ jsx("code", { children: "aria-labelledby" }),
-      ". Connect help and error text with ",
+      " whose ",
+      /* @__PURE__ */ jsx("code", { children: "for" }),
+      " matches the control ID. Connect help and error text with",
       /* @__PURE__ */ jsx("code", { children: "aria-describedby" }),
-      ". Put",
+      ". Put ",
       /* @__PURE__ */ jsx("code", { children: ' aria-invalid="true"' }),
       " on the invalid control after validation, and move focus to the first invalid field when submission fails."
     ] }) }),
@@ -4420,7 +4457,7 @@
     "danger",
     "default"
   ];
-  var tableCode = (color) => `<table${color ? ` data-table="${color}"` : ""}>
+  var tableCode = (color) => `<table data-table${color ? `="${color}"` : ""}>
   <caption>Food details</caption>
   <thead>
     <tr>
@@ -4464,12 +4501,14 @@
     {
       name: "data-table",
       type: "Table attribute",
-      defaultValue: "Uncolored table",
-      description: "Accepts primary, accent, success, info, warning, danger or default."
+      defaultValue: "Required for compact layout",
+      description: "Its presence enables the responsive layout. It accepts primary, accent, success, info, warning, danger or default for an optional tone."
     }
   ];
   var Table = ({ color }) => {
-    const attributes = color ? { "data-table": color } : {};
+    const attributes = {
+      "data-table": typeof color === "string" ? color : ""
+    };
     return /* @__PURE__ */ jsxs("table", { ...attributes, children: [
       /* @__PURE__ */ jsx("caption", { children: "Food details" }),
       /* @__PURE__ */ jsx("thead", { children: /* @__PURE__ */ jsxs("tr", { children: [
@@ -4527,9 +4566,9 @@
           ] }),
           /* @__PURE__ */ jsx("li", { children: "Do not use a table only for visual alignment. Use it when rows and columns describe real data relationships." }),
           /* @__PURE__ */ jsxs("li", { children: [
-            "The current responsive CSS hides ",
+            "The responsive CSS hides ",
             /* @__PURE__ */ jsx("code", { children: "thead" }),
-            " visually. The semantic headers remain in the markup, while data labels provide the compact visual headings."
+            " only from view. Assistive technology retains the semantic headers, while data labels provide the compact visual headings."
           ] })
         ] })
       }
@@ -4683,7 +4722,7 @@
           {
             name: "--progress-color / --progress-track",
             type: "Token",
-            defaultValue: "Primary / default-lightest",
+            defaultValue: "Primary / default-lighter",
             description: "Set the indicator and track colors."
           },
           {
@@ -4996,29 +5035,29 @@
   ] });
 
   // site/src/pages/alerts_page.tsx
-  var alertExample = `<blockquote data-alert="warning" role="alert">
+  var alertExample = `<div data-alert="warning" role="alert">
   <strong>Review required.</strong>
   <p>The billing address has missing fields.</p>
-</blockquote>`;
-  var semanticAlertsExample = `<blockquote data-alert="info" role="status">
+</div>`;
+  var semanticAlertsExample = `<div data-alert="info" role="status">
   Your profile has unsaved changes.
-</blockquote>
-<blockquote data-alert="success" role="status">
+</div>
+<div data-alert="success" role="status">
   The invoice was paid successfully.
-</blockquote>
-<blockquote data-alert="warning" role="alert">
+</div>
+<div data-alert="warning" role="alert">
   Your storage is almost full.
-</blockquote>
-<blockquote data-alert="danger" role="alert">
+</div>
+<div data-alert="danger" role="alert">
   The payment method was rejected.
-</blockquote>`;
+</div>`;
   var alerts_page_default = () => /* @__PURE__ */ jsxs(doc_page_default, { page: "Alerts", children: [
     /* @__PURE__ */ jsxs(demo_section_default, { id: "alerts-tones-title", title: "Semantic alerts", children: [
       /* @__PURE__ */ jsx("p", { children: "Match the tone to the outcome, then choose status for routine updates or alert for urgent information that needs immediate attention." }),
-      /* @__PURE__ */ jsx("blockquote", { "data-alert": "info", role: "status", children: "Your profile has unsaved changes." }),
-      /* @__PURE__ */ jsx("blockquote", { "data-alert": "success", role: "status", children: "The invoice was paid successfully." }),
-      /* @__PURE__ */ jsx("blockquote", { "data-alert": "warning", role: "alert", children: "Your storage is almost full." }),
-      /* @__PURE__ */ jsx("blockquote", { "data-alert": "danger", role: "alert", children: "The payment method was rejected." }),
+      /* @__PURE__ */ jsx("div", { "data-alert": "info", role: "status", children: "Your profile has unsaved changes." }),
+      /* @__PURE__ */ jsx("div", { "data-alert": "success", role: "status", children: "The invoice was paid successfully." }),
+      /* @__PURE__ */ jsx("div", { "data-alert": "warning", role: "alert", children: "Your storage is almost full." }),
+      /* @__PURE__ */ jsx("div", { "data-alert": "danger", role: "alert", children: "The payment method was rejected." }),
       /* @__PURE__ */ jsx(code_example_default, { code: semanticAlertsExample })
     ] }),
     /* @__PURE__ */ jsxs(
@@ -5027,7 +5066,7 @@
         id: "alerts-content-title",
         title: "Alert with supporting content",
         children: [
-          /* @__PURE__ */ jsxs("blockquote", { "data-alert": "warning", role: "alert", children: [
+          /* @__PURE__ */ jsxs("div", { "data-alert": "warning", role: "alert", children: [
             /* @__PURE__ */ jsx("strong", { children: "Review required." }),
             /* @__PURE__ */ jsx("p", { children: "The billing address has missing fields." })
           ] }),
@@ -5041,10 +5080,10 @@
         caption: "Alert elements, attributes, tokens and states",
         rows: [
           {
-            name: "blockquote",
+            name: "div",
             type: "Element",
-            defaultValue: "Required",
-            description: "The current styled alert element."
+            defaultValue: "Example container",
+            description: "Provides a neutral container for the alert content."
           },
           {
             name: "data-alert",
@@ -5081,9 +5120,9 @@
       " for time-sensitive errors or warnings. Add a role when content appears dynamically, not merely to make static prose interrupt a screen reader."
     ] }) }),
     /* @__PURE__ */ jsx(demo_section_default, { id: "alerts-errors-title", title: "Composition and common errors", children: /* @__PURE__ */ jsxs("p", { children: [
-      "Keep the real ",
-      /* @__PURE__ */ jsx("code", { children: "blockquote[data-alert]" }),
-      " contract. Put the outcome first, add recovery guidance when useful and never communicate severity by color alone."
+      "Apply ",
+      /* @__PURE__ */ jsx("code", { children: "data-alert" }),
+      " to a suitable container. Put the outcome first, add recovery guidance when useful and never communicate severity by color alone."
     ] }) })
   ] });
 
@@ -5185,7 +5224,7 @@
 <aside data-notification="warning inline" role="status">Storage is almost full.</aside>
 <aside data-notification="danger inline" role="alert">Upload failed.</aside>`;
   var contentNotificationCode = `<aside data-notification="success inline" role="status">
-  <button type="button" aria-label="Dismiss">
+  <button type="button" data-notification-close aria-label="Dismiss">
     <span aria-hidden="true">\xD7</span>
   </button>
   <strong>Export ready.</strong>
@@ -5208,6 +5247,12 @@
       type: "Attribute",
       defaultValue: "Primary border, top right",
       description: "Activates notification layout and accepts tone, position and shadow tokens."
+    },
+    {
+      name: "data-notification-close",
+      type: "Button attribute",
+      defaultValue: "Optional",
+      description: "Marks a direct child button as the close action without coupling styles to its accessible name."
     },
     {
       name: "info|success|warning|danger",
@@ -5262,7 +5307,7 @@
     ] }),
     /* @__PURE__ */ jsxs(demo_section_default, { id: "notification-content", title: "Content and close action", children: [
       /* @__PURE__ */ jsxs("aside", { "data-notification": "success inline", role: "status", children: [
-        /* @__PURE__ */ jsx("button", { type: "button", "aria-label": "Dismiss", children: /* @__PURE__ */ jsx("span", { "aria-hidden": "true", children: "\xD7" }) }),
+        /* @__PURE__ */ jsx("button", { type: "button", "data-notification-close": true, "aria-label": "Dismiss", children: /* @__PURE__ */ jsx("span", { "aria-hidden": "true", children: "\xD7" }) }),
         /* @__PURE__ */ jsx("strong", { children: "Export ready." }),
         /* @__PURE__ */ jsx("p", { children: "Your report can be downloaded now." })
       ] }),
@@ -5280,7 +5325,9 @@
     /* @__PURE__ */ jsx(demo_section_default, { id: "notification-composition", title: "Composition", children: /* @__PURE__ */ jsxs("p", { children: [
       "Use short text for a single update. Add a ",
       /* @__PURE__ */ jsx("code", { children: "strong" }),
-      " heading and paragraph when the message needs context. Place an optional close button as a direct child so the notification reserves space for it. Application behavior must remove the message when that button is activated."
+      " heading and paragraph when the message needs context. Place an optional close button with ",
+      /* @__PURE__ */ jsx("code", { children: "data-notification-close" }),
+      " as a direct child so the notification reserves space for it. Application behavior must remove the message when that button is activated."
     ] }) }),
     /* @__PURE__ */ jsx(demo_section_default, { id: "notification-responsive", title: "Responsive behavior", children: /* @__PURE__ */ jsx("p", { children: "Fixed notifications stay within the viewport with a maximum width based on the page gap. Inline notifications use the available content width and remain in document flow. Prefer inline placement for persistent guidance or narrow layouts where fixed messages could cover controls." }) }),
     /* @__PURE__ */ jsx(demo_section_default, { id: "notification-accessibility", title: "Accessibility", children: /* @__PURE__ */ jsxs("p", { children: [
@@ -5573,7 +5620,7 @@
   </details>
 </section>`;
   var tabs_page_default = () => /* @__PURE__ */ jsxs(doc_page_default, { page: "Tabs", children: [
-    /* @__PURE__ */ jsxs(demo_section_default, { id: "tabs-basic-title", title: "Grouped disclosures", children: [
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "tabs-basic-title", title: "Native grouped disclosures", children: [
       /* @__PURE__ */ jsxs("section", { "data-tabs": true, children: [
         /* @__PURE__ */ jsxs("details", { name: "account-tabs", open: true, children: [
           /* @__PURE__ */ jsx("summary", { children: "Overview" }),
@@ -5620,7 +5667,7 @@
             name: "data-tabs",
             type: "Attribute",
             defaultValue: "Required",
-            description: "Applies the tab-like layout to grouped details elements."
+            description: "Aligns grouped details controls and places the open content below."
           },
           {
             name: "name",
@@ -5650,15 +5697,16 @@
       /* @__PURE__ */ jsx("code", { children: " summary" }),
       " disclosures. It is not an ARIA tablist and does not implement tab, arrow-key or tabpanel roles. Keep every summary descriptive and every panel available in the document."
     ] }) }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "tabs-errors-title", title: "Composition and common errors", children: /* @__PURE__ */ jsxs("p", { children: [
-      "Give sibling details the same non-empty ",
-      /* @__PURE__ */ jsx("code", { children: "name" }),
-      " when they must behave as a group. Do not add ",
-      /* @__PURE__ */ jsx("code", { children: 'role="tablist"' }),
-      " or",
-      /* @__PURE__ */ jsx("code", { children: ' role="tab"' }),
-      " without also implementing the complete ARIA keyboard and focus contract."
-    ] }) })
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "tabs-errors-title", title: "Composition and common errors", children: [
+      /* @__PURE__ */ jsxs("p", { children: [
+        "Give sibling details the same non-empty ",
+        /* @__PURE__ */ jsx("code", { children: "name" }),
+        " when they must behave as a group. Keep only ",
+        /* @__PURE__ */ jsx("code", { children: "details" }),
+        " as direct children of the tabs container because the enhanced layout derives each tab position from that sibling order."
+      ] }),
+      /* @__PURE__ */ jsx("p", { children: "Browsers without the required modern CSS keep the native disclosures in a stacked layout. Do not add ARIA tab roles without implementing the complete keyboard and focus contract." })
+    ] })
   ] });
 
   // site/src/pages/index.ts
