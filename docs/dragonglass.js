@@ -1474,7 +1474,7 @@
 
   // site/src/docs/catalog.ts
   var basePath = "/dragonglass";
-  var themeRoutePath = (themeName) => `${basePath}/themes/${themeName}.html`;
+  var themeRoutePath = (themeName, colorScheme = "light") => colorScheme === "dark" ? `${basePath}/themes/dark/${themeName}.html` : `${basePath}/themes/${themeName}.html`;
   var categoryOrder = [
     "Getting started",
     "Foundations",
@@ -1721,9 +1721,21 @@
     page: "Theme",
     category: "Utilities",
     description: `Preview the ${theme.label} theme across semantic colors and common components.`,
-    themeName: theme.name
+    themeName: theme.name,
+    colorScheme: "light"
   }));
-  var routes = [...catalog, ...themeRoutes];
+  var darkThemeRoutes = bundledThemes.map((theme) => ({
+    path: themeRoutePath(theme.name, "dark"),
+    label: `${theme.label} dark theme`,
+    icon: "dark_mode",
+    color: "bg-primary",
+    page: "Theme",
+    category: "Utilities",
+    description: `Preview the ${theme.label} dark theme across semantic colors and common components.`,
+    themeName: theme.name,
+    colorScheme: "dark"
+  }));
+  var routes = [...catalog, ...themeRoutes, ...darkThemeRoutes];
   var routeByPage = new Map(
     catalog.map((route) => [route.page, route])
   );
@@ -1765,11 +1777,12 @@
   // site/src/pages/html_page.tsx
   var Html = function view({
     content,
+    colorScheme,
     isDevelopment,
     themeName,
     title
   }) {
-    return /* @__PURE__ */ jsxs("html", { lang: "en", children: [
+    return /* @__PURE__ */ jsxs("html", { lang: "en", "data-color-scheme": colorScheme, children: [
       /* @__PURE__ */ jsxs("head", { children: [
         /* @__PURE__ */ jsx("meta", { charset: "utf-8" }),
         /* @__PURE__ */ jsx("meta", { name: "viewport", content: "width=device-width, initial-scale=1" }),
@@ -2316,15 +2329,36 @@ import "dragonglass/dist/themes/default.css";`;
   // site/src/docs/theme_menu.tsx
   var ThemeLink = ({
     currentThemeName,
+    colorScheme,
+    currentColorScheme,
     theme
   }) => {
     const content = theme.label;
-    if (currentThemeName === theme.name) {
-      return /* @__PURE__ */ jsx("a", { href: themeRoutePath(theme.name), "aria-current": "page", children: content });
+    const path = themeRoutePath(theme.name, colorScheme);
+    if (currentThemeName === theme.name && currentColorScheme === colorScheme) {
+      return /* @__PURE__ */ jsx("a", { href: path, "aria-current": "page", children: content });
     }
-    return /* @__PURE__ */ jsx("a", { href: themeRoutePath(theme.name), children: content });
+    return /* @__PURE__ */ jsx("a", { href: path, children: content });
   };
-  var ThemeMenu = ({ currentThemeName }) => /* @__PURE__ */ jsx("nav", { "aria-label": "Theme previews", children: bundledThemes.map((theme) => /* @__PURE__ */ jsx(ThemeLink, { currentThemeName, theme })) });
+  var ThemeMenu = ({
+    colorScheme,
+    currentColorScheme,
+    currentThemeName
+  }) => /* @__PURE__ */ jsx(
+    "nav",
+    {
+      "aria-label": colorScheme === "dark" ? "Dark theme previews" : "Theme previews",
+      children: bundledThemes.map((theme) => /* @__PURE__ */ jsx(
+        ThemeLink,
+        {
+          colorScheme,
+          currentColorScheme,
+          currentThemeName,
+          theme
+        }
+      ))
+    }
+  );
   var theme_menu_default = ThemeMenu;
 
   // site/src/pages/colors_page.tsx
@@ -2375,6 +2409,7 @@ import "dragonglass/dist/themes/default.css";`;
 [data-theme="forest"] {
   @include dragonglass.tokens(#167c55);
 }`;
+  var darkModeExample = `<html data-color-scheme="dark"></html>`;
   var colorRows = colors.flatMap(
     (color) => weights.map((weight) => ({
       name: `--${color}${weight}`,
@@ -2383,7 +2418,10 @@ import "dragonglass/dist/themes/default.css";`;
       description: `Used by bg-${color}${weight}, text-${color}${weight}, border-${color}${weight} and outline-${color}${weight}.`
     }))
   );
-  var ColorsPage = ({ themeName } = {}) => {
+  var ColorsPage = ({
+    colorScheme = "auto",
+    themeName
+  } = {}) => {
     const route = routeByPage.get("Colors");
     if (!route) {
       throw new Error("Documentation metadata not found for page: Colors");
@@ -2391,7 +2429,25 @@ import "dragonglass/dist/themes/default.css";`;
     return /* @__PURE__ */ jsxs(layout_default, { currentPath: route.path, children: [
       /* @__PURE__ */ jsxs("header", { children: [
         /* @__PURE__ */ jsx("h1", { children: "Themes" }),
-        /* @__PURE__ */ jsx(theme_menu_default, { currentThemeName: themeName })
+        /* @__PURE__ */ jsx(
+          theme_menu_default,
+          {
+            colorScheme: "light",
+            currentColorScheme: colorScheme,
+            currentThemeName: themeName
+          }
+        )
+      ] }),
+      /* @__PURE__ */ jsxs("header", { children: [
+        /* @__PURE__ */ jsx("h1", { children: "Dark themes" }),
+        /* @__PURE__ */ jsx(
+          theme_menu_default,
+          {
+            colorScheme: "dark",
+            currentColorScheme: colorScheme,
+            currentThemeName: themeName
+          }
+        )
       ] }),
       /* @__PURE__ */ jsx("h1", { children: route.label }),
       /* @__PURE__ */ jsx("p", { children: route.description }),
@@ -2464,6 +2520,16 @@ import "dragonglass/dist/themes/default.css";`;
         /* @__PURE__ */ jsx("pre", { children: /* @__PURE__ */ jsx("code", { children: "bunx sass --pkg-importer=node theme.scss theme.css --style=compressed" }) }),
         /* @__PURE__ */ jsx("p", { children: "Place each mixin call inside a theme selector when one stylesheet must contain several themes." }),
         /* @__PURE__ */ jsx(code_example_default, { code: scopedThemesExample })
+      ] }),
+      /* @__PURE__ */ jsxs(demo_section_default, { id: "dark-mode", title: "Automatic dark mode", children: [
+        /* @__PURE__ */ jsxs("p", { children: [
+          "Each theme derives dark structural roles from the same primary and follows ",
+          /* @__PURE__ */ jsx("code", { children: "prefers-color-scheme" }),
+          " automatically. Set",
+          /* @__PURE__ */ jsx("code", { children: " data-color-scheme" }),
+          " on the root element only when the application must force light or dark mode."
+        ] }),
+        /* @__PURE__ */ jsx(code_example_default, { code: darkModeExample })
       ] }),
       /* @__PURE__ */ jsxs(demo_section_default, { id: "color-api", title: "Color tokens", children: [
         /* @__PURE__ */ jsx("p", { children: "Use the semantic custom properties when a component needs token values directly instead of a generated color utility class." }),
@@ -5947,10 +6013,11 @@ import "dragonglass/dist/themes/default.css";`;
   var pageForRoute = (route) => {
     if (route.page === "Theme") {
       const themeName = route.themeName;
-      if (typeof themeName !== "string") {
-        throw new Error(`Theme name not found for route: ${route.path}`);
+      const colorScheme = route.colorScheme;
+      if (typeof themeName !== "string" || colorScheme !== "light" && colorScheme !== "dark") {
+        throw new Error(`Theme metadata not found for route: ${route.path}`);
       }
-      return () => pages_default.Colors({ themeName });
+      return () => pages_default.Colors({ colorScheme, themeName });
     }
     const page = pages_default[route.page];
     return () => page();

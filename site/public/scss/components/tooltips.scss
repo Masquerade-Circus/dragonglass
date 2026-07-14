@@ -14,12 +14,13 @@
     text-align: center;
     opacity: 0;
     transform: translate(-50%) scale(0);
-    border: var(--border-size-1) solid var(--default-light);
+    border: var(--border-size-1) solid var(--border-default);
     box-shadow: none;
     transform-origin: bottom center;
     white-space: nowrap;
     padding: 0 0.5em;
-    background-color: var(--white);
+    background-color: var(--surface-raised);
+    color: var(--text-primary);
     pointer-events: none;
   }
 

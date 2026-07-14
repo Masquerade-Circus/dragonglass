@@ -15,7 +15,7 @@ body {
   padding: 0;
   overflow-x: hidden;
   height: 100%;
-  background: var(--default-lightest);
+  background: var(--canvas);
 }
 
 a,
@@ -29,7 +29,7 @@ button {
 body {
   font-size: 1rem;
   line-height: 1.618;
-  color: var(--default-dark);
+  color: var(--text-primary);
 }
 
 a,
@@ -40,7 +40,12 @@ img {
 a,
 [data-button],
 button {
-  color: var(--primary);
+  color: var(--control-accent);
+}
+
+:where(a, [data-button], button):focus-visible {
+  outline: var(--border-size-2) solid var(--focus-ring);
+  outline-offset: var(--spacing-1);
 }
 
 small {
@@ -81,7 +86,7 @@ hr {
   border: 0;
   height: 0.1rem;
   clear: both;
-  background: var(--default-lighter);
+  background: var(--border-subtle);
   &:after,
   &::before {
     clear: both;

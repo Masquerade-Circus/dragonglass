@@ -332,6 +332,160 @@ $luminous-foreground-color-weights: ("-light", "-lighter", "-lightest");
   @return $name;
 }
 
+@function _scheme-color(
+  $primary,
+  $lightness,
+  $chroma-scale,
+  $minimum-chroma,
+  $maximum-chroma
+) {
+  $oklch-primary: color.to-space($primary, oklch);
+  $primary-chroma: color.channel($oklch-primary, "chroma", $space: oklch);
+  $hue: color.channel($oklch-primary, "hue", $space: oklch);
+
+  @if $primary-chroma < 0.01 {
+    $hue: 270deg;
+  }
+
+  @return _derived-color(
+    $primary,
+    $lightness,
+    _clamp($primary-chroma * $chroma-scale, $minimum-chroma, $maximum-chroma),
+    $hue
+  );
+}
+
+@function _validated-role-color($foreground, $background, $minimum, $label) {
+  @if contrast-ratio($foreground, $background) < $minimum {
+    @error "Theme role '#{$label}' does not reach #{$minimum}:1 contrast.";
+  }
+
+  @return $foreground;
+}
+
+@mixin _light-scheme-roles($palette) {
+  color-scheme: light;
+  --canvas: var(--default-lightest);
+  --surface: var(--white);
+  --surface-muted: var(--default-lightest);
+  --surface-raised: var(--white);
+  --surface-selected: var(--primary-lightest);
+  --surface-selected-text: var(--on-primary-lightest);
+  --text-primary: var(--default-dark);
+  --text-secondary: var(--default);
+  --text-disabled: var(--default-light);
+  --text-inverse: var(--white);
+  --text-on-media: var(--white);
+  --border-subtle: var(--default-lighter);
+  --border-default: var(--default-light);
+  --border-strong: var(--default);
+  --control-bg: var(--surface);
+  --control-border: var(--default);
+  --control-accent: var(--primary);
+  --control-accent-text: var(--on-primary);
+  --focus-ring: var(--primary);
+  --hover-overlay: var(--default-dark);
+  --scrim: rgba(0, 0, 0, 0.55);
+  --media-scrim: rgba(33, 33, 33, 0.3);
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --progress-track: var(--default-lighter);
+
+  @each $name in $primary-color-names {
+    --#{$name}-surface: var(--#{$name}-lightest);
+    --#{$name}-surface-text: var(--on-#{$name}-lightest);
+    --#{$name}-accent: var(--#{$name});
+    --#{$name}-accent-text: var(--on-#{$name});
+  }
+}
+
+@mixin _dark-scheme-roles($primary, $palette) {
+  $canvas: _scheme-color($primary, 14%, 0.12, 0.008, 0.025);
+  $surface: _scheme-color($primary, 18%, 0.12, 0.008, 0.025);
+  $control-bg: _scheme-color($primary, 16%, 0.12, 0.008, 0.025);
+  $surface-muted: _scheme-color($primary, 22%, 0.12, 0.008, 0.025);
+  $surface-raised: _scheme-color($primary, 24%, 0.12, 0.008, 0.025);
+  $border-subtle: _scheme-color($primary, 32%, 0.12, 0.008, 0.025);
+  $border-default: _scheme-color($primary, 50%, 0.1, 0.006, 0.02);
+  $border-strong: _scheme-color($primary, 60%, 0.08, 0.004, 0.018);
+  $text-primary: _scheme-color($primary, 94%, 0.06, 0.003, 0.015);
+  $text-secondary: _scheme-color($primary, 78%, 0.06, 0.003, 0.015);
+  $text-disabled: _scheme-color($primary, 60%, 0.05, 0.003, 0.012);
+  $focus-ring: map.get($palette, "primary-light");
+
+  $text-primary: _validated-role-color(
+    $text-primary,
+    $canvas,
+    4.5,
+    "dark text-primary/canvas"
+  );
+  $text-primary: _validated-role-color(
+    $text-primary,
+    $surface-muted,
+    4.5,
+    "dark text-primary/surface-muted"
+  );
+  $text-secondary: _validated-role-color(
+    $text-secondary,
+    $surface,
+    4.5,
+    "dark text-secondary/surface"
+  );
+  $border-default: _validated-role-color(
+    $border-default,
+    $control-bg,
+    3,
+    "dark control-border/control-bg"
+  );
+  $focus-ring: _validated-role-color(
+    $focus-ring,
+    $surface,
+    3,
+    "dark focus-ring/surface"
+  );
+
+  color-scheme: dark;
+  --canvas: #{$canvas};
+  --surface: #{$surface};
+  --surface-muted: #{$surface-muted};
+  --surface-raised: #{$surface-raised};
+  --surface-selected: var(--primary-dark);
+  --surface-selected-text: var(--on-primary-dark);
+  --text-primary: #{$text-primary};
+  --text-secondary: #{$text-secondary};
+  --text-disabled: #{$text-disabled};
+  --text-inverse: #{$canvas};
+  --text-on-media: var(--white);
+  --border-subtle: #{$border-subtle};
+  --border-default: #{$border-default};
+  --border-strong: #{$border-strong};
+  --control-bg: #{$control-bg};
+  --control-border: #{$border-default};
+  --control-accent: var(--primary-light);
+  --control-accent-text: var(--on-primary-light);
+  --focus-ring: #{$focus-ring};
+  --hover-overlay: #{$text-primary};
+  --scrim: rgba(0, 0, 0, 0.72);
+  --media-scrim: rgba(0, 0, 0, 0.5);
+  --shadow-color: rgba(0, 0, 0, 0.55);
+  --progress-track: #{$surface-muted};
+
+  @each $name in $primary-color-names {
+    --#{$name}-surface: var(--#{$name}-dark);
+    --#{$name}-surface-text: var(--on-#{$name}-dark);
+    --#{$name}-accent: var(--#{$name}-light);
+    --#{$name}-accent-text: var(--on-#{$name}-light);
+
+    $progress-token: contrast-token(
+      $palette,
+      $name,
+      $surface-muted,
+      "default-dark",
+      3
+    );
+    --progress-#{$name}: var(--#{$progress-token});
+  }
+}
+
 @mixin tokens($primary: $default-primary) {
   $palette: palette($primary);
 
@@ -390,5 +544,17 @@ $luminous-foreground-color-weights: ("-light", "-lighter", "-lightest");
       3
     );
     --progress-#{$name}: var(--#{$progress-token});
+  }
+
+  @include _light-scheme-roles($palette);
+
+  &[data-color-scheme="dark"] {
+    @include _dark-scheme-roles($primary, $palette);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    &:not([data-color-scheme="light"]) {
+      @include _dark-scheme-roles($primary, $palette);
+    }
   }
 }

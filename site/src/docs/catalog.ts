@@ -1,8 +1,13 @@
-import { bundledThemes, type ThemeName } from "../themes";
+import { bundledThemes, type ColorScheme, type ThemeName } from "../themes";
 
 const basePath = "/dragonglass";
-const themeRoutePath = (themeName: ThemeName) =>
-  `${basePath}/themes/${themeName}.html`;
+const themeRoutePath = (
+  themeName: ThemeName,
+  colorScheme: Extract<ColorScheme, "light" | "dark"> = "light",
+) =>
+  colorScheme === "dark"
+    ? `${basePath}/themes/dark/${themeName}.html`
+    : `${basePath}/themes/${themeName}.html`;
 
 const categoryOrder = [
   "Getting started",
@@ -55,6 +60,7 @@ type DocumentationRoute = {
   category: DocumentationCategory;
   description: string;
   themeName?: ThemeName;
+  colorScheme?: ColorScheme;
 };
 
 const catalog: DocumentationRoute[] = [
@@ -299,8 +305,20 @@ const themeRoutes: DocumentationRoute[] = bundledThemes.map((theme) => ({
   category: "Utilities",
   description: `Preview the ${theme.label} theme across semantic colors and common components.`,
   themeName: theme.name,
+  colorScheme: "light",
 }));
-const routes = [...catalog, ...themeRoutes];
+const darkThemeRoutes: DocumentationRoute[] = bundledThemes.map((theme) => ({
+  path: themeRoutePath(theme.name, "dark"),
+  label: `${theme.label} dark theme`,
+  icon: "dark_mode",
+  color: "bg-primary",
+  page: "Theme",
+  category: "Utilities",
+  description: `Preview the ${theme.label} dark theme across semantic colors and common components.`,
+  themeName: theme.name,
+  colorScheme: "dark",
+}));
+const routes = [...catalog, ...themeRoutes, ...darkThemeRoutes];
 const routeByPage = new Map<DocumentationPage, DocumentationRoute>(
   catalog.map((route) => [route.page, route]),
 );
@@ -312,6 +330,7 @@ export {
   basePath,
   catalog,
   categoryOrder,
+  darkThemeRoutes,
   routeByPage,
   routeByPath,
   routes,

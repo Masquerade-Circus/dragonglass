@@ -4,7 +4,7 @@
 menu,
 dl {
   padding: 0;
-  border-color: var(--default-light);
+  border-color: var(--border-default);
 }
 
 ul[data-list],
@@ -164,7 +164,7 @@ dl {
     align-items: center;
     min-height: 4em;
     padding: 0.5em;
-    border-bottom: 0.06em solid var(--default-light);
+    border-bottom: 0.06em solid var(--border-default);
   }
 
   > dt {

@@ -85,6 +85,22 @@ that meet the configured text and progress contrast thresholds. Product context
 still matters. Keep labels, icons or another programmatic cue on status and
 validation messages instead of communicating through color alone.
 
+## Dark mode
+
+Every compiled theme derives light and dark structural roles from the same
+primary. Without an override, `prefers-color-scheme: dark` activates dark mode
+automatically. The literal palette remains stable, so utilities such as
+`bg-white` and `text-primary-light` keep their original meaning.
+
+Force a scheme on the root element when an application needs a manual choice:
+
+```html
+<html data-color-scheme="light"></html>
+<html data-color-scheme="dark"></html>
+```
+
+Remove the attribute or set it to `auto` to follow the operating system again.
+
 One stylesheet can contain several scoped themes:
 
 ```scss

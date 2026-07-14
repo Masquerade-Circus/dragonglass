@@ -6,12 +6,16 @@ const router = new Router();
 const pageForRoute = (route: DocumentationRoute) => {
   if (route.page === "Theme") {
     const themeName = route.themeName;
+    const colorScheme = route.colorScheme;
 
-    if (typeof themeName !== "string") {
-      throw new Error(`Theme name not found for route: ${route.path}`);
+    if (
+      typeof themeName !== "string" ||
+      (colorScheme !== "light" && colorScheme !== "dark")
+    ) {
+      throw new Error(`Theme metadata not found for route: ${route.path}`);
     }
 
-    return () => Pages.Colors({ themeName });
+    return () => Pages.Colors({ colorScheme, themeName });
   }
 
   const page = Pages[route.page];

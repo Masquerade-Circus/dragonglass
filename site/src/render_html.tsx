@@ -1,7 +1,7 @@
 import { render } from "valyrian.js/node";
 import Pages from "./pages";
 import { documentationAssets } from "./docs/assets";
-import type { ThemeName } from "./themes";
+import type { ColorScheme, ThemeName } from "./themes";
 
 type InlineAsset = {
   raw: string;
@@ -10,6 +10,7 @@ type InlineAsset = {
 
 type HtmlOptions = {
   scripts?: InlineAsset[];
+  colorScheme: ColorScheme;
   content: string;
   isDevelopment: boolean;
   title: string;
@@ -20,6 +21,7 @@ const CONTENT_PLACEHOLDER = "__DRAGONGLASS_SSR_CONTENT_PLACEHOLDER_6F4C2A91__";
 
 const renderHtml = ({
   scripts = [],
+  colorScheme,
   content,
   isDevelopment,
   themeName,
@@ -28,6 +30,7 @@ const renderHtml = ({
   const shell = render(
     Pages.Html({
       content: CONTENT_PLACEHOLDER,
+      colorScheme,
       isDevelopment,
       themeName,
       title,

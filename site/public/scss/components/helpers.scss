@@ -23,8 +23,8 @@
   --button-padding-y: var(--spacing-2);
   --button-radius: var(--radius-base);
   --button-disabled-opacity: 0.6;
-  --control-bg: inherit;
-  --control-border: var(--default-light);
+  --control-bg: var(--surface);
+  --control-border: var(--border-default);
   --control-accent: var(--primary);
   --control-padding-x: var(--spacing-2);
   --control-padding-y: var(--spacing-1);
@@ -50,7 +50,7 @@
     content: " ";
     opacity: 0;
     transition: var(--animate-all-fastest);
-    background-color: var(--default-dark);
+    background-color: var(--hover-overlay);
     display: block;
     position: absolute;
     top: 0;
@@ -73,7 +73,7 @@
 @mixin overlay() {
   transition: var(--animate-all);
   z-index: -10;
-  background: var(--default-dark);
+  background: var(--scrim);
   position: fixed;
   top: 0;
   left: 0;

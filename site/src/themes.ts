@@ -75,9 +75,16 @@ const bundledThemes = [
 
 type Theme = (typeof bundledThemes)[number];
 type ThemeName = Theme["name"];
+type ColorScheme = "auto" | "light" | "dark";
 
 const themeByName = new Map<ThemeName, Theme>(
   bundledThemes.map((theme) => [theme.name, theme]),
 );
 
-export { bundledThemes, themeByName, type Theme, type ThemeName };
+export {
+  bundledThemes,
+  themeByName,
+  type ColorScheme,
+  type Theme,
+  type ThemeName,
+};

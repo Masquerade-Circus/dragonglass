@@ -9,8 +9,8 @@ code {
     monospace;
   clear: both;
   display: block;
-  background-color: var(--default-lightest);
-  border: var(--border-size-1) solid var(--default-light);
+  background-color: var(--surface-muted);
+  border: var(--border-size-1) solid var(--border-default);
   margin: 0.25em 0;
   box-shadow: none;
   line-height: 1;
@@ -47,7 +47,7 @@ code > * {
 }
 
 samp {
-  border: 1px solid var(--default-light);
+  border: 1px solid var(--border-default);
   padding: 1rem;
   display: block;
   border-radius: 0.5rem;

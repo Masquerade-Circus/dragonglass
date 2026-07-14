@@ -3,7 +3,7 @@ import CodeExample from "../docs/code_example";
 import DemoSection from "../docs/demo_section";
 import { routeByPage } from "../docs/catalog";
 import ThemeMenu from "../docs/theme_menu";
-import type { ThemeName } from "../themes";
+import type { ColorScheme, ThemeName } from "../themes";
 import Layout from "./layout";
 
 const colors = [
@@ -57,6 +57,7 @@ const scopedThemesExample = `@use "pkg:dragonglass/theme" as dragonglass;
 [data-theme="forest"] {
   @include dragonglass.tokens(#167c55);
 }`;
+const darkModeExample = `<html data-color-scheme="dark"></html>`;
 const colorRows = colors.flatMap((color) =>
   weights.map((weight) => ({
     name: `--${color}${weight}`,
@@ -67,10 +68,14 @@ const colorRows = colors.flatMap((color) =>
 );
 
 type ColorsPageProps = {
+  colorScheme?: ColorScheme;
   themeName?: ThemeName;
 };
 
-const ColorsPage = ({ themeName }: ColorsPageProps = {}) => {
+const ColorsPage = ({
+  colorScheme = "auto",
+  themeName,
+}: ColorsPageProps = {}) => {
   const route = routeByPage.get("Colors");
 
   if (!route) {
@@ -81,7 +86,19 @@ const ColorsPage = ({ themeName }: ColorsPageProps = {}) => {
     <Layout currentPath={route.path}>
       <header>
         <h1>Themes</h1>
-        <ThemeMenu currentThemeName={themeName} />
+        <ThemeMenu
+          colorScheme="light"
+          currentColorScheme={colorScheme}
+          currentThemeName={themeName}
+        />
+      </header>
+      <header>
+        <h1>Dark themes</h1>
+        <ThemeMenu
+          colorScheme="dark"
+          currentColorScheme={colorScheme}
+          currentThemeName={themeName}
+        />
       </header>
       <h1>{route.label}</h1>
       <p>{route.description}</p>
@@ -188,6 +205,16 @@ const ColorsPage = ({ themeName }: ColorsPageProps = {}) => {
           contain several themes.
         </p>
         <CodeExample code={scopedThemesExample} />
+      </DemoSection>
+
+      <DemoSection id="dark-mode" title="Automatic dark mode">
+        <p>
+          Each theme derives dark structural roles from the same primary and
+          follows <code>prefers-color-scheme</code> automatically. Set
+          <code> data-color-scheme</code> on the root element only when the
+          application must force light or dark mode.
+        </p>
+        <CodeExample code={darkModeExample} />
       </DemoSection>
 
       <DemoSection id="color-api" title="Color tokens">

@@ -33,7 +33,7 @@ footer {
 }
 
 :where(body, main, article, dialog, [data-card]) > footer:last-child {
-  border-top: 0.06em solid var(--default-lighter);
+  border-top: 0.06em solid var(--border-subtle);
 }
 
 :where(body, main, article, dialog, [data-card]) > footer:first-child {
@@ -41,7 +41,7 @@ footer {
 }
 
 :where(body, main, article, dialog, [data-card]) > header:first-child {
-  border-bottom: 0.06em solid var(--default-lighter);
+  border-bottom: 0.06em solid var(--border-subtle);
 }
 
 :where(body, main, article, dialog, [data-card]) > header:last-child {
@@ -77,13 +77,13 @@ nav {
     transition: var(--animate-all-fastest);
 
     &:hover {
-      background-color: var(--default-lighter);
-      color: var(--default-dark);
+      background-color: var(--surface-muted);
+      color: var(--text-primary);
     }
 
     &[aria-current="page"] {
-      background-color: var(--primary-lightest);
-      color: var(--primary);
+      background-color: var(--surface-selected);
+      color: var(--surface-selected-text);
     }
   }
 
@@ -102,8 +102,8 @@ nav {
 
 body > header,
 body > footer {
-  background-color: var(--white);
-  color: var(--default-dark);
+  background-color: var(--surface);
+  color: var(--text-primary);
 }
 :where(body, main, article, dialog, [data-card]) > :is(main, section, article) {
   z-index: 1;

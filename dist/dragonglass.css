@@ -46,8 +46,8 @@
   --button-padding-y: var(--spacing-2);
   --button-radius: var(--radius-base);
   --button-disabled-opacity: 0.6;
-  --control-bg: inherit;
-  --control-border: var(--default-light);
+  --control-bg: var(--surface);
+  --control-border: var(--border-default);
   --control-accent: var(--primary);
   --control-padding-x: var(--spacing-2);
   --control-padding-y: var(--spacing-1);
@@ -149,7 +149,7 @@ body {
   padding: 0;
   overflow-x: hidden;
   height: 100%;
-  background: var(--default-lightest);
+  background: var(--canvas);
 }
 
 a,
@@ -163,7 +163,7 @@ button {
 body {
   font-size: 1rem;
   line-height: 1.618;
-  color: var(--default-dark);
+  color: var(--text-primary);
 }
 
 a,
@@ -175,7 +175,12 @@ img {
 a,
 [data-button],
 button {
-  color: var(--primary);
+  color: var(--control-accent);
+}
+
+:where(a, [data-button], button):focus-visible {
+  outline: var(--border-size-2) solid var(--focus-ring);
+  outline-offset: var(--spacing-1);
 }
 
 small {
@@ -220,7 +225,7 @@ hr {
   border: 0;
   height: 0.1rem;
   clear: both;
-  background: var(--default-lighter);
+  background: var(--border-subtle);
 }
 hr:after, hr::before {
   clear: both;
@@ -354,37 +359,37 @@ body > article > section {
 /*** Elevation classes ***/
 :root {
   --shadow-inner-2xs:
-    0 0.5px 0.75px 0 rgba(0, 0, 0, 0.2) inset, 0 0.75px 0.5px -0.75px rgba(0, 0, 0, 0.2) inset;
+    0 0.5px 0.75px 0 var(--shadow-color) inset, 0 0.75px 0.5px -0.75px var(--shadow-color) inset;
   --shadow-2xs:
-    0 0.5px 0.75px 0 rgba(0, 0, 0, 0.2), 0 0.75px 0.5px -0.75px rgba(0, 0, 0, 0.2);
+    0 0.5px 0.75px 0 var(--shadow-color), 0 0.75px 0.5px -0.75px var(--shadow-color);
   --shadow-inner-xs:
-    0 1px 1.5px 0 rgba(0, 0, 0, 0.2) inset, 0 1.5px 1px -1.5px rgba(0, 0, 0, 0.2) inset;
+    0 1px 1.5px 0 var(--shadow-color) inset, 0 1.5px 1px -1.5px var(--shadow-color) inset;
   --shadow-xs:
-    0 1px 1.5px 0 rgba(0, 0, 0, 0.2), 0 1.5px 1px -1.5px rgba(0, 0, 0, 0.2);
+    0 1px 1.5px 0 var(--shadow-color), 0 1.5px 1px -1.5px var(--shadow-color);
   --shadow-inner-sm:
-    0 2px 3px 0 rgba(0, 0, 0, 0.2) inset, 0 3px 2px -3px rgba(0, 0, 0, 0.2) inset;
+    0 2px 3px 0 var(--shadow-color) inset, 0 3px 2px -3px var(--shadow-color) inset;
   --shadow-sm:
-    0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 3px 2px -3px rgba(0, 0, 0, 0.2);
+    0 2px 3px 0 var(--shadow-color), 0 3px 2px -3px var(--shadow-color);
   --shadow-inner-base:
-    0 4px 6px 0 rgba(0, 0, 0, 0.2) inset, 0 6px 4px -6px rgba(0, 0, 0, 0.2) inset;
+    0 4px 6px 0 var(--shadow-color) inset, 0 6px 4px -6px var(--shadow-color) inset;
   --shadow-base:
-    0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 4px -6px rgba(0, 0, 0, 0.2);
+    0 4px 6px 0 var(--shadow-color), 0 6px 4px -6px var(--shadow-color);
   --shadow-inner-lg:
-    0 6px 9px 0 rgba(0, 0, 0, 0.2) inset, 0 9px 6px -9px rgba(0, 0, 0, 0.2) inset;
+    0 6px 9px 0 var(--shadow-color) inset, 0 9px 6px -9px var(--shadow-color) inset;
   --shadow-lg:
-    0 6px 9px 0 rgba(0, 0, 0, 0.2), 0 9px 6px -9px rgba(0, 0, 0, 0.2);
+    0 6px 9px 0 var(--shadow-color), 0 9px 6px -9px var(--shadow-color);
   --shadow-inner-xl:
-    0 8px 12px 0 rgba(0, 0, 0, 0.2) inset, 0 12px 8px -12px rgba(0, 0, 0, 0.2) inset;
+    0 8px 12px 0 var(--shadow-color) inset, 0 12px 8px -12px var(--shadow-color) inset;
   --shadow-xl:
-    0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 12px 8px -12px rgba(0, 0, 0, 0.2);
+    0 8px 12px 0 var(--shadow-color), 0 12px 8px -12px var(--shadow-color);
   --shadow-inner-2xl:
-    0 12px 18px 0 rgba(0, 0, 0, 0.2) inset, 0 18px 12px -18px rgba(0, 0, 0, 0.2) inset;
+    0 12px 18px 0 var(--shadow-color) inset, 0 18px 12px -18px var(--shadow-color) inset;
   --shadow-2xl:
-    0 12px 18px 0 rgba(0, 0, 0, 0.2), 0 18px 12px -18px rgba(0, 0, 0, 0.2);
+    0 12px 18px 0 var(--shadow-color), 0 18px 12px -18px var(--shadow-color);
   --shadow-inner-3xl:
-    0 16px 24px 0 rgba(0, 0, 0, 0.2) inset, 0 24px 16px -24px rgba(0, 0, 0, 0.2) inset;
+    0 16px 24px 0 var(--shadow-color) inset, 0 24px 16px -24px var(--shadow-color) inset;
   --shadow-3xl:
-    0 16px 24px 0 rgba(0, 0, 0, 0.2), 0 24px 16px -24px rgba(0, 0, 0, 0.2);
+    0 16px 24px 0 var(--shadow-color), 0 24px 16px -24px var(--shadow-color);
 }
 
 .animated {
@@ -560,8 +565,8 @@ code {
   font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
   clear: both;
   display: block;
-  background-color: var(--default-lightest);
-  border: var(--border-size-1) solid var(--default-light);
+  background-color: var(--surface-muted);
+  border: var(--border-size-1) solid var(--border-default);
   margin: 0.25em 0;
   box-shadow: none;
   line-height: 1;
@@ -596,7 +601,7 @@ code > * {
 }
 
 samp {
-  border: 1px solid var(--default-light);
+  border: 1px solid var(--border-default);
   padding: 1rem;
   display: block;
   border-radius: 0.5rem;
@@ -606,7 +611,6 @@ samp {
 /*** Progress ***/
 progress {
   --progress-color: var(--progress-primary);
-  --progress-track: var(--default-lighter);
   appearance: none;
   display: block;
   width: 100%;
@@ -721,7 +725,7 @@ nav[data-toolbar] {
   align-items: center;
   gap: var(--spacing-2);
   padding: var(--spacing-3);
-  border-bottom: var(--border-size-1) solid var(--default-light);
+  border-bottom: var(--border-size-1) solid var(--border-default);
 }
 
 nav[data-toolbar] > button,
@@ -776,11 +780,11 @@ input[type=search]::-webkit-search-cancel-button {
 
 /*** Chips ***/
 [data-chip] {
-  --chip-border: var(--default-light);
-  --chip-background: var(--white);
-  --chip-text: var(--default-dark);
-  --chip-active: var(--primary);
-  --chip-active-text: var(--on-primary);
+  --chip-border: var(--border-default);
+  --chip-background: var(--surface);
+  --chip-text: var(--text-primary);
+  --chip-active: var(--primary-accent);
+  --chip-active-text: var(--primary-accent-text);
   --control-accent: var(--chip-active);
   display: inline-flex;
   align-items: center;
@@ -826,92 +830,97 @@ label[data-chip] {
 }
 
 [data-chip~=primary] {
-  --chip-border: var(--primary);
-  --chip-background: var(--primary-light);
-  --chip-text: var(--default-dark);
-  --chip-active: var(--primary);
-  --chip-active-text: var(--on-primary);
+  --chip-border: var(--primary-accent);
+  --chip-background: var(--primary-surface);
+  --chip-text: var(--primary-surface-text);
+  --chip-active: var(--primary-accent);
+  --chip-active-text: var(--primary-accent-text);
 }
 
 [data-chip~=accent] {
-  --chip-border: var(--accent);
-  --chip-background: var(--accent-light);
-  --chip-text: var(--default-dark);
-  --chip-active: var(--accent);
-  --chip-active-text: var(--on-accent);
+  --chip-border: var(--accent-accent);
+  --chip-background: var(--accent-surface);
+  --chip-text: var(--accent-surface-text);
+  --chip-active: var(--accent-accent);
+  --chip-active-text: var(--accent-accent-text);
 }
 
 [data-chip~=success] {
-  --chip-border: var(--success);
-  --chip-background: var(--success-light);
-  --chip-text: var(--default-dark);
-  --chip-active: var(--success);
-  --chip-active-text: var(--on-success);
+  --chip-border: var(--success-accent);
+  --chip-background: var(--success-surface);
+  --chip-text: var(--success-surface-text);
+  --chip-active: var(--success-accent);
+  --chip-active-text: var(--success-accent-text);
 }
 
 [data-chip~=info] {
-  --chip-border: var(--info);
-  --chip-background: var(--info-light);
-  --chip-text: var(--default-dark);
-  --chip-active: var(--info);
-  --chip-active-text: var(--on-info);
+  --chip-border: var(--info-accent);
+  --chip-background: var(--info-surface);
+  --chip-text: var(--info-surface-text);
+  --chip-active: var(--info-accent);
+  --chip-active-text: var(--info-accent-text);
 }
 
 [data-chip~=warning] {
-  --chip-border: var(--warning);
-  --chip-background: var(--warning-light);
-  --chip-text: var(--default-dark);
-  --chip-active: var(--warning);
-  --chip-active-text: var(--on-warning);
+  --chip-border: var(--warning-accent);
+  --chip-background: var(--warning-surface);
+  --chip-text: var(--warning-surface-text);
+  --chip-active: var(--warning-accent);
+  --chip-active-text: var(--warning-accent-text);
 }
 
 [data-chip~=danger] {
-  --chip-border: var(--danger);
-  --chip-background: var(--danger-light);
-  --chip-text: var(--default-dark);
-  --chip-active: var(--danger);
-  --chip-active-text: var(--on-danger);
+  --chip-border: var(--danger-accent);
+  --chip-background: var(--danger-surface);
+  --chip-text: var(--danger-surface-text);
+  --chip-active: var(--danger-accent);
+  --chip-active-text: var(--danger-accent-text);
 }
 
 [data-chip~=default] {
-  --chip-border: var(--default);
-  --chip-background: var(--default-light);
-  --chip-text: var(--default-dark);
-  --chip-active: var(--default);
-  --chip-active-text: var(--on-default);
+  --chip-border: var(--default-accent);
+  --chip-background: var(--default-surface);
+  --chip-text: var(--default-surface-text);
+  --chip-active: var(--default-accent);
+  --chip-active-text: var(--default-accent-text);
 }
 
 /*** Alerts ***/
 [data-alert] {
-  --alert-color: var(--primary);
-  --alert-bg: var(--primary-light);
+  --alert-color: var(--primary-surface-text);
+  --alert-bg: var(--primary-surface);
+  --alert-text: var(--primary-surface-text);
   display: block;
   margin: 0 0 var(--spacing-3);
   padding: var(--spacing-3) var(--spacing-4);
   border-left: var(--border-size-4) solid var(--alert-color);
   border-radius: var(--radius-base);
   background-color: var(--alert-bg);
-  color: var(--default-dark);
+  color: var(--alert-text);
 }
 
 [data-alert~=info] {
-  --alert-color: var(--info);
-  --alert-bg: var(--info-light);
+  --alert-color: var(--info-surface-text);
+  --alert-bg: var(--info-surface);
+  --alert-text: var(--info-surface-text);
 }
 
 [data-alert~=success] {
-  --alert-color: var(--success);
-  --alert-bg: var(--success-light);
+  --alert-color: var(--success-surface-text);
+  --alert-bg: var(--success-surface);
+  --alert-text: var(--success-surface-text);
 }
 
 [data-alert~=warning] {
-  --alert-color: var(--warning);
-  --alert-bg: var(--warning-light);
+  --alert-color: var(--warning-surface-text);
+  --alert-bg: var(--warning-surface);
+  --alert-text: var(--warning-surface-text);
 }
 
 [data-alert~=danger] {
-  --alert-color: var(--danger);
-  --alert-bg: var(--danger-light);
+  --alert-color: var(--danger-surface-text);
+  --alert-bg: var(--danger-surface);
+  --alert-text: var(--danger-surface-text);
 }
 
 [data-alert] > :last-child {
@@ -935,12 +944,13 @@ label[data-chip] {
   text-align: center;
   opacity: 0;
   transform: translate(-50%) scale(0);
-  border: var(--border-size-1) solid var(--default-light);
+  border: var(--border-size-1) solid var(--border-default);
   box-shadow: none;
   transform-origin: bottom center;
   white-space: nowrap;
   padding: 0 0.5em;
-  background-color: var(--white);
+  background-color: var(--surface-raised);
+  color: var(--text-primary);
   pointer-events: none;
 }
 [data-tooltip]:hover::after, [data-tooltip]:focus-visible::after {
@@ -1002,7 +1012,7 @@ label[data-chip] {
   right: calc(0% - var(--spacing-3));
   z-index: 2;
   text-align: center;
-  background-color: var(--white);
+  background-color: var(--surface);
 }
 
 /*** Buttons ***/
@@ -1061,7 +1071,7 @@ input[type=submit]::after,
   content: " ";
   opacity: 0;
   transition: var(--animate-all-fastest);
-  background-color: var(--default-dark);
+  background-color: var(--hover-overlay);
   display: block;
   position: absolute;
   top: 0;
@@ -1100,7 +1110,7 @@ input[type=submit]:active::after,
   position: fixed;
   right: 1rem;
   bottom: 1rem;
-  border: var(--border-size-1) solid var(--default-light);
+  border: var(--border-size-1) solid var(--border-default);
   box-shadow: var(--shadow-base);
 }
 
@@ -1152,7 +1162,7 @@ footer > h3 {
 }
 
 :where(body, main, article, dialog, [data-card]) > footer:last-child {
-  border-top: 0.06em solid var(--default-lighter);
+  border-top: 0.06em solid var(--border-subtle);
 }
 
 :where(body, main, article, dialog, [data-card]) > footer:first-child {
@@ -1160,7 +1170,7 @@ footer > h3 {
 }
 
 :where(body, main, article, dialog, [data-card]) > header:first-child {
-  border-bottom: 0.06em solid var(--default-lighter);
+  border-bottom: 0.06em solid var(--border-subtle);
 }
 
 :where(body, main, article, dialog, [data-card]) > header:last-child {
@@ -1196,12 +1206,12 @@ nav :where(a, button) {
   transition: var(--animate-all-fastest);
 }
 nav :where(a, button):hover {
-  background-color: var(--default-lighter);
-  color: var(--default-dark);
+  background-color: var(--surface-muted);
+  color: var(--text-primary);
 }
 nav :where(a, button)[aria-current=page] {
-  background-color: var(--primary-lightest);
-  color: var(--primary);
+  background-color: var(--surface-selected);
+  color: var(--surface-selected-text);
 }
 nav > [data-button~=fab] {
   box-shadow: none;
@@ -1217,8 +1227,8 @@ nav > [data-button~=fab] {
 
 body > header,
 body > footer {
-  background-color: var(--white);
-  color: var(--default-dark);
+  background-color: var(--surface);
+  color: var(--text-primary);
 }
 
 :where(body, main, article, dialog, [data-card]) > :is(main, section, article) {
@@ -1240,7 +1250,7 @@ body > footer {
 menu,
 dl {
   padding: 0;
-  border-color: var(--default-light);
+  border-color: var(--border-default);
 }
 
 ul[data-list],
@@ -1379,7 +1389,7 @@ menu > li > [data-button]::after {
   content: " ";
   opacity: 0;
   transition: var(--animate-all-fastest);
-  background-color: var(--default-dark);
+  background-color: var(--hover-overlay);
   display: block;
   position: absolute;
   top: 0;
@@ -1463,7 +1473,7 @@ dl > dd {
   align-items: center;
   min-height: 4em;
   padding: 0.5em;
-  border-bottom: 0.06em solid var(--default-light);
+  border-bottom: 0.06em solid var(--border-default);
 }
 dl > dt {
   font-weight: 600;
@@ -1478,8 +1488,8 @@ dl > :nth-last-child(-n+2) {
 
 /*** Details ***/
 details:not([data-trigger]) {
-  background-color: var(--default-lightest);
-  border: var(--border-size-1) solid var(--default-light);
+  background-color: var(--surface-muted);
+  border: var(--border-size-1) solid var(--border-default);
   border-radius: var(--card-radius);
   box-shadow: none;
   overflow: hidden;
@@ -1494,11 +1504,11 @@ details:not([data-trigger]) summary {
   white-space: nowrap;
   text-decoration: none;
   text-align: left;
-  background-color: var(--white);
+  background-color: var(--surface);
   transition: var(--animate-all-fastest);
   overflow: hidden;
   cursor: pointer;
-  color: var(--primary);
+  color: var(--control-accent);
 }
 
 details:not([data-trigger]) > :not(summary) {
@@ -1508,9 +1518,9 @@ details:not([data-trigger]) > :not(summary) {
 details[data-expansion-panel] {
   display: block;
   width: 100%;
-  border: var(--border-size-1) solid var(--default-light);
+  border: var(--border-size-1) solid var(--border-default);
   border-radius: var(--card-radius);
-  background-color: var(--white);
+  background-color: var(--surface);
   box-shadow: none;
 }
 
@@ -1563,7 +1573,7 @@ details[data-expansion-panel][open] > summary::after {
     box-sizing: border-box;
     width: 100%;
     padding: var(--spacing-3) var(--spacing-4);
-    border-bottom: var(--border-size-2) solid var(--default-light);
+    border-bottom: var(--border-size-2) solid var(--border-default);
     list-style: none;
     text-align: center;
   }
@@ -1571,8 +1581,8 @@ details[data-expansion-panel][open] > summary::after {
     display: none;
   }
   [data-tabs] > details[open] > summary {
-    color: var(--primary);
-    border-color: var(--primary);
+    color: var(--control-accent);
+    border-color: var(--control-accent);
   }
   [data-tabs] > details > :not(summary) {
     padding: 0;
@@ -1588,7 +1598,7 @@ details[data-expansion-panel][open] > summary::after {
 }
 /*** Notifications ***/
 [data-notification] {
-  --notification-color: var(--primary);
+  --notification-color: var(--primary-accent);
   position: fixed;
   z-index: 8;
   top: var(--spacing-4);
@@ -1602,8 +1612,8 @@ details[data-expansion-panel][open] > summary::after {
   padding: var(--spacing-3) var(--spacing-4);
   border: var(--border-size-1) solid var(--notification-color);
   border-radius: var(--card-radius);
-  background-color: var(--white);
-  color: var(--default-dark);
+  background-color: var(--surface-raised);
+  color: var(--text-primary);
   box-shadow: var(--shadow-lg);
 }
 
@@ -1707,23 +1717,23 @@ details[data-expansion-panel][open] > summary::after {
 }
 
 [data-notification] > button[data-notification-close]:hover {
-  background-color: var(--default-lighter);
+  background-color: var(--surface-muted);
 }
 
 [data-notification~=info] {
-  --notification-color: var(--info);
+  --notification-color: var(--info-accent);
 }
 
 [data-notification~=success] {
-  --notification-color: var(--success);
+  --notification-color: var(--success-accent);
 }
 
 [data-notification~=warning] {
-  --notification-color: var(--warning);
+  --notification-color: var(--warning-accent);
 }
 
 [data-notification~=danger] {
-  --notification-color: var(--danger);
+  --notification-color: var(--danger-accent);
 }
 
 [data-notification] > :last-child {
@@ -1749,7 +1759,7 @@ ol[data-stepper] > li {
   gap: var(--spacing-2);
   min-width: 0;
   padding-right: var(--spacing-3);
-  color: var(--default);
+  color: var(--text-secondary);
 }
 
 ol[data-stepper] > li:last-child {
@@ -1762,7 +1772,7 @@ ol[data-stepper] > li:not(:last-child)::after {
   flex: 1 1 auto;
   min-width: 2rem;
   height: var(--border-size-1);
-  background-color: var(--default-light);
+  background-color: var(--border-default);
 }
 
 ol[data-stepper] > li::before {
@@ -1771,39 +1781,39 @@ ol[data-stepper] > li::before {
   place-items: center;
   width: 2rem;
   height: 2rem;
-  border: var(--border-size-1) solid var(--default-light);
+  border: var(--border-size-1) solid var(--border-default);
   border-radius: 999rem;
-  background-color: var(--white);
-  color: var(--default-dark);
+  background-color: var(--surface);
+  color: var(--text-primary);
 }
 
 ol[data-stepper] > li[aria-current=step] {
-  color: var(--primary);
+  color: var(--control-accent);
   font-weight: 600;
 }
 
 ol[data-stepper] > li[aria-current=step]::before {
-  border-color: var(--primary);
-  background-color: var(--primary);
-  color: var(--white);
+  border-color: var(--primary-accent);
+  background-color: var(--primary-accent);
+  color: var(--primary-accent-text);
 }
 
 ol[data-stepper] > li[data-step=done]::before {
   content: "✓";
-  border-color: var(--success);
-  background-color: var(--success);
-  color: var(--white);
+  border-color: var(--success-accent);
+  background-color: var(--success-accent);
+  color: var(--success-accent-text);
 }
 
 ol[data-stepper] > li[data-step=done]::after {
-  background-color: var(--success);
+  background-color: var(--success-accent);
 }
 
 ol[data-stepper] > li[data-step=error]::before {
   content: "!";
-  border-color: var(--danger);
-  background-color: var(--danger);
-  color: var(--white);
+  border-color: var(--danger-accent);
+  background-color: var(--danger-accent);
+  color: var(--danger-accent-text);
 }
 
 ol[data-stepper~=vertical] {
@@ -1861,15 +1871,15 @@ ol[data-stepper~=numbers] > li::before {
   overflow: hidden;
   transition: all 0.2s ease-in-out;
   border-radius: var(--card-radius);
-  background-color: var(--white);
-  color: var(--default-dark);
+  background-color: var(--surface-raised);
+  color: var(--text-primary);
   list-style: none;
   margin: 0;
   padding: 0;
   transform: scale(0);
   transform-origin: top left;
   min-width: 20rem;
-  border: var(--border-size-1) solid var(--default-light);
+  border: var(--border-size-1) solid var(--border-default);
   box-shadow: none;
 }
 [data-trigger] > menu[data-menu~=top] {
@@ -1899,7 +1909,7 @@ table {
   border-collapse: collapse;
   text-align: right;
   border-radius: 0.5em;
-  background-color: var(--white);
+  background-color: var(--surface);
   overflow: hidden;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
@@ -1998,121 +2008,128 @@ table[data-table] td::before {
 }
 table[data-table~=primary] caption,
 table[data-table~=primary] thead {
-  background-color: var(--primary);
-  color: var(--on-primary);
-  border-color: var(--primary-dark);
+  background-color: var(--primary-accent);
+  color: var(--primary-accent-text);
+  border-color: var(--primary-accent);
 }
 table[data-table~=primary] tbody > tr {
   border-color: var(--primary-lighter);
 }
 table[data-table~=primary] tbody > tr:nth-child(even) {
-  background-color: var(--primary-lightest);
+  background-color: var(--primary-surface);
+  color: var(--primary-surface-text);
 }
 table[data-table~=primary] td:before {
-  background-color: var(--primary);
-  color: var(--on-primary);
+  background-color: var(--primary-accent);
+  color: var(--primary-accent-text);
 }
 
 table[data-table~=accent] caption,
 table[data-table~=accent] thead {
-  background-color: var(--accent);
-  color: var(--on-accent);
-  border-color: var(--accent-dark);
+  background-color: var(--accent-accent);
+  color: var(--accent-accent-text);
+  border-color: var(--accent-accent);
 }
 table[data-table~=accent] tbody > tr {
   border-color: var(--accent-lighter);
 }
 table[data-table~=accent] tbody > tr:nth-child(even) {
-  background-color: var(--accent-lightest);
+  background-color: var(--accent-surface);
+  color: var(--accent-surface-text);
 }
 table[data-table~=accent] td:before {
-  background-color: var(--accent);
-  color: var(--on-accent);
+  background-color: var(--accent-accent);
+  color: var(--accent-accent-text);
 }
 
 table[data-table~=success] caption,
 table[data-table~=success] thead {
-  background-color: var(--success);
-  color: var(--on-success);
-  border-color: var(--success-dark);
+  background-color: var(--success-accent);
+  color: var(--success-accent-text);
+  border-color: var(--success-accent);
 }
 table[data-table~=success] tbody > tr {
   border-color: var(--success-lighter);
 }
 table[data-table~=success] tbody > tr:nth-child(even) {
-  background-color: var(--success-lightest);
+  background-color: var(--success-surface);
+  color: var(--success-surface-text);
 }
 table[data-table~=success] td:before {
-  background-color: var(--success);
-  color: var(--on-success);
+  background-color: var(--success-accent);
+  color: var(--success-accent-text);
 }
 
 table[data-table~=info] caption,
 table[data-table~=info] thead {
-  background-color: var(--info);
-  color: var(--on-info);
-  border-color: var(--info-dark);
+  background-color: var(--info-accent);
+  color: var(--info-accent-text);
+  border-color: var(--info-accent);
 }
 table[data-table~=info] tbody > tr {
   border-color: var(--info-lighter);
 }
 table[data-table~=info] tbody > tr:nth-child(even) {
-  background-color: var(--info-lightest);
+  background-color: var(--info-surface);
+  color: var(--info-surface-text);
 }
 table[data-table~=info] td:before {
-  background-color: var(--info);
-  color: var(--on-info);
+  background-color: var(--info-accent);
+  color: var(--info-accent-text);
 }
 
 table[data-table~=warning] caption,
 table[data-table~=warning] thead {
-  background-color: var(--warning);
-  color: var(--on-warning);
-  border-color: var(--warning-dark);
+  background-color: var(--warning-accent);
+  color: var(--warning-accent-text);
+  border-color: var(--warning-accent);
 }
 table[data-table~=warning] tbody > tr {
   border-color: var(--warning-lighter);
 }
 table[data-table~=warning] tbody > tr:nth-child(even) {
-  background-color: var(--warning-lightest);
+  background-color: var(--warning-surface);
+  color: var(--warning-surface-text);
 }
 table[data-table~=warning] td:before {
-  background-color: var(--warning);
-  color: var(--on-warning);
+  background-color: var(--warning-accent);
+  color: var(--warning-accent-text);
 }
 
 table[data-table~=danger] caption,
 table[data-table~=danger] thead {
-  background-color: var(--danger);
-  color: var(--on-danger);
-  border-color: var(--danger-dark);
+  background-color: var(--danger-accent);
+  color: var(--danger-accent-text);
+  border-color: var(--danger-accent);
 }
 table[data-table~=danger] tbody > tr {
   border-color: var(--danger-lighter);
 }
 table[data-table~=danger] tbody > tr:nth-child(even) {
-  background-color: var(--danger-lightest);
+  background-color: var(--danger-surface);
+  color: var(--danger-surface-text);
 }
 table[data-table~=danger] td:before {
-  background-color: var(--danger);
-  color: var(--on-danger);
+  background-color: var(--danger-accent);
+  color: var(--danger-accent-text);
 }
 
 table[data-table~=default] caption,
 table[data-table~=default] thead {
-  background-color: var(--default);
-  color: var(--on-default);
-  border-color: var(--default-dark);
+  background-color: var(--default-accent);
+  color: var(--default-accent-text);
+  border-color: var(--default-accent);
 }
 table[data-table~=default] tbody > tr {
   border-color: var(--default-lighter);
 }
 table[data-table~=default] tbody > tr:nth-child(even) {
-  background-color: var(--default-lightest);
+  background-color: var(--default-surface);
+  color: var(--default-surface-text);
 }
 table[data-table~=default] td:before {
-  background-color: var(--default);
-  color: var(--on-default);
+  background-color: var(--default-accent);
+  color: var(--default-accent-text);
 }
 
 /*** Cards ***/
@@ -2129,10 +2146,10 @@ table[data-table~=default] td:before {
   margin-bottom: 1rem;
   overflow: visible;
   padding: 0;
-  border: var(--border-size-1) solid var(--default-light);
+  border: var(--border-size-1) solid var(--border-default);
   border-radius: var(--card-radius);
   box-shadow: none;
-  background-color: var(--white);
+  background-color: var(--surface);
 }
 [data-card] > *, dialog > * {
   z-index: 1;
@@ -2152,7 +2169,7 @@ table[data-table~=default] td:before {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 0%;
-  color: var(--default-lightest);
+  color: var(--text-on-media);
 }
 [data-card] > [data-media]:first-child, dialog > [data-media]:first-child {
   border-top-left-radius: var(--card-radius);
@@ -2176,8 +2193,8 @@ table[data-table~=default] td:before {
   border: 0;
   height: auto;
   z-index: 1;
-  text-shadow: 0.06rem 0.06rem 0.13rem var(--default-darker);
-  background-color: rgba(33, 33, 33, 0.3);
+  text-shadow: 0.06rem 0.06rem 0.13rem var(--scrim);
+  background-color: var(--media-scrim);
   overflow: visible;
   padding: 1rem;
 }
@@ -2200,7 +2217,7 @@ dialog > [data-media] > header > h3 {
 dialog > [data-media] > header nav [data-button],
 [data-card] > [data-media] > header nav button,
 dialog > [data-media] > header nav button {
-  text-shadow: 0.06rem 0.06rem 0.13rem var(--default-darker);
+  text-shadow: 0.06rem 0.06rem 0.13rem var(--scrim);
 }
 
 [data-card~=elevated] {
@@ -2265,7 +2282,7 @@ dialog[data-dialog~=squared] > [data-media] > header > h3 {
 [data-trigger] > summary::after {
   transition: var(--animate-all);
   z-index: -10;
-  background: var(--default-dark);
+  background: var(--scrim);
   position: fixed;
   top: 0;
   left: 0;
@@ -2310,7 +2327,7 @@ dialog {
   transform: translate(-50%, -50%);
   right: auto;
   padding: 0;
-  border: var(--border-size-1) solid var(--default-light);
+  border: var(--border-size-1) solid var(--border-default);
   border-radius: var(--dialog-radius);
   z-index: -1;
   color: inherit;
@@ -2391,7 +2408,7 @@ dialog[data-dialog~=bottom-sheet][open] {
 }
 
 dialog[data-dialog~=bottom-sheet]::backdrop {
-  background-color: color-mix(in srgb, var(--black) 40%, transparent);
+  background-color: var(--scrim);
 }
 
 /*** Forms ***/
@@ -2415,8 +2432,13 @@ textarea {
 input:focus,
 select:focus,
 textarea:focus {
-  outline: none;
   border-color: var(--control-accent);
+}
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: var(--border-size-2) solid var(--focus-ring);
+  outline-offset: var(--spacing-1);
 }
 input:disabled, input[disabled], input[aria-disabled=true],
 select:disabled,
@@ -2433,15 +2455,15 @@ select:user-invalid,
 select[aria-invalid=true],
 textarea:user-invalid,
 textarea[aria-invalid=true] {
-  border-color: var(--danger);
-  color: var(--danger);
+  border-color: var(--danger-accent);
+  color: var(--danger-accent);
 }
 input:user-invalid:focus, input[aria-invalid=true]:focus,
 select:user-invalid:focus,
 select[aria-invalid=true]:focus,
 textarea:user-invalid:focus,
 textarea[aria-invalid=true]:focus {
-  border-color: var(--danger);
+  border-color: var(--danger-accent);
 }
 
 label[for] {
@@ -2476,8 +2498,12 @@ label {
 }
 [type=checkbox]:focus,
 [type=radio]:focus {
-  outline: none;
   border-color: var(--control-accent);
+}
+[type=checkbox]:focus-visible,
+[type=radio]:focus-visible {
+  outline: var(--border-size-2) solid var(--focus-ring);
+  outline-offset: var(--spacing-1);
 }
 [type=checkbox]:after,
 [type=radio]:after {
@@ -2508,14 +2534,14 @@ label {
 }
 
 [type=checkbox][data-toggle] {
-  background-color: var(--default-lighter);
+  background-color: var(--surface-muted);
   width: 4em;
   height: 2em;
   border-radius: 1em;
   border: 0;
 }
 [type=checkbox][data-toggle]:after {
-  background-color: var(--default-light);
+  background-color: var(--border-default);
   width: 2em;
   height: 2em;
   border-radius: 1em;
@@ -2542,7 +2568,7 @@ input[type=range]:disabled {
 input[type=range]::-webkit-slider-runnable-track {
   height: 0.375rem;
   border-radius: 999rem;
-  background-color: var(--default-light);
+  background-color: var(--border-default);
 }
 
 input[type=range]::-webkit-slider-thumb {
@@ -2552,17 +2578,7 @@ input[type=range]::-webkit-slider-thumb {
 input[type=range]::-moz-range-track {
   height: 0.375rem;
   border-radius: 999rem;
-  background-color: var(--default-light);
-}
-
-input[type=date],
-input[type=time],
-input[type=datetime-local],
-input[type=month],
-input[type=week],
-input[type=color],
-select {
-  color-scheme: light;
+  background-color: var(--border-default);
 }
 
 input[type=date]::-webkit-calendar-picker-indicator,
@@ -2639,7 +2655,7 @@ fieldset[aria-invalid=true] > legend,
 fieldset[aria-invalid=true] > small, fieldset:has([aria-invalid=true]) > legend,
 fieldset:has([aria-invalid=true]) > small, fieldset:has(:user-invalid) > legend,
 fieldset:has(:user-invalid) > small {
-  color: var(--danger);
+  color: var(--danger-accent);
 }
 fieldset[aria-invalid=true] > input,
 fieldset[aria-invalid=true] > select,
@@ -2648,36 +2664,36 @@ fieldset:has([aria-invalid=true]) > select,
 fieldset:has([aria-invalid=true]) > textarea, fieldset:has(:user-invalid) > input,
 fieldset:has(:user-invalid) > select,
 fieldset:has(:user-invalid) > textarea {
-  border-color: var(--danger);
-  color: var(--danger);
+  border-color: var(--danger-accent);
+  color: var(--danger-accent);
 }
 
 :is(fieldset, [data-floating])[data-field~=primary] {
-  color: var(--primary);
+  color: var(--primary-accent);
 }
 
 :is(fieldset, [data-floating])[data-field~=accent] {
-  color: var(--accent);
+  color: var(--accent-accent);
 }
 
 :is(fieldset, [data-floating])[data-field~=success] {
-  color: var(--success);
+  color: var(--success-accent);
 }
 
 :is(fieldset, [data-floating])[data-field~=info] {
-  color: var(--info);
+  color: var(--info-accent);
 }
 
 :is(fieldset, [data-floating])[data-field~=warning] {
-  color: var(--warning);
+  color: var(--warning-accent);
 }
 
 :is(fieldset, [data-floating])[data-field~=danger] {
-  color: var(--danger);
+  color: var(--danger-accent);
 }
 
 :is(fieldset, [data-floating])[data-field~=default] {
-  color: var(--default);
+  color: var(--default-accent);
 }
 
 :is(fieldset, [data-floating])[data-field] > :is(input, select, textarea) {
@@ -2787,7 +2803,7 @@ fieldset:has(:user-invalid) > textarea {
 [data-floating][aria-invalid=true] > small, [data-floating]:has([aria-invalid=true]) > label[for],
 [data-floating]:has([aria-invalid=true]) > small, [data-floating]:has(:user-invalid) > label[for],
 [data-floating]:has(:user-invalid) > small {
-  color: var(--danger);
+  color: var(--danger-accent);
 }
 [data-floating][aria-invalid=true] > input,
 [data-floating][aria-invalid=true] > select,
@@ -2796,8 +2812,8 @@ fieldset:has(:user-invalid) > textarea {
 [data-floating]:has([aria-invalid=true]) > textarea, [data-floating]:has(:user-invalid) > input,
 [data-floating]:has(:user-invalid) > select,
 [data-floating]:has(:user-invalid) > textarea {
-  border-color: var(--danger);
-  color: var(--danger);
+  border-color: var(--danger-accent);
+  color: var(--danger-accent);
 }
 
 input[type=submit] {
@@ -2811,15 +2827,15 @@ input[type=submit] {
   overflow: hidden;
   width: 20rem;
   max-width: 100vw;
-  border-right: var(--border-size-1) solid var(--default-light);
+  border-right: var(--border-size-1) solid var(--border-default);
   box-shadow: none;
   top: 0rem;
   bottom: 0;
   max-height: 100%;
   overflow-y: auto;
   left: 0;
-  color: var(--default-dark);
-  background-color: var(--white);
+  color: var(--text-primary);
+  background-color: var(--surface-raised);
 }
 [data-drawer] a {
   justify-content: flex-start;
@@ -2833,7 +2849,7 @@ input[type=submit] {
   right: 0;
   left: auto;
   border-right: 0;
-  border-left: var(--border-size-1) solid var(--default-light);
+  border-left: var(--border-size-1) solid var(--border-default);
 }
 
 /*** Fonts ***/

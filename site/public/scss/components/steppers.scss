@@ -16,7 +16,7 @@ ol[data-stepper] > li {
   gap: var(--spacing-2);
   min-width: 0;
   padding-right: var(--spacing-3);
-  color: var(--default);
+  color: var(--text-secondary);
 }
 
 ol[data-stepper] > li:last-child {
@@ -29,7 +29,7 @@ ol[data-stepper] > li:not(:last-child)::after {
   flex: 1 1 auto;
   min-width: 2rem;
   height: var(--border-size-1);
-  background-color: var(--default-light);
+  background-color: var(--border-default);
 }
 
 ol[data-stepper] > li::before {
@@ -38,39 +38,39 @@ ol[data-stepper] > li::before {
   place-items: center;
   width: 2rem;
   height: 2rem;
-  border: var(--border-size-1) solid var(--default-light);
+  border: var(--border-size-1) solid var(--border-default);
   border-radius: 999rem;
-  background-color: var(--white);
-  color: var(--default-dark);
+  background-color: var(--surface);
+  color: var(--text-primary);
 }
 
 ol[data-stepper] > li[aria-current="step"] {
-  color: var(--primary);
+  color: var(--control-accent);
   font-weight: 600;
 }
 
 ol[data-stepper] > li[aria-current="step"]::before {
-  border-color: var(--primary);
-  background-color: var(--primary);
-  color: var(--white);
+  border-color: var(--primary-accent);
+  background-color: var(--primary-accent);
+  color: var(--primary-accent-text);
 }
 
 ol[data-stepper] > li[data-step="done"]::before {
   content: "✓";
-  border-color: var(--success);
-  background-color: var(--success);
-  color: var(--white);
+  border-color: var(--success-accent);
+  background-color: var(--success-accent);
+  color: var(--success-accent-text);
 }
 
 ol[data-stepper] > li[data-step="done"]::after {
-  background-color: var(--success);
+  background-color: var(--success-accent);
 }
 
 ol[data-stepper] > li[data-step="error"]::before {
   content: "!";
-  border-color: var(--danger);
-  background-color: var(--danger);
-  color: var(--white);
+  border-color: var(--danger-accent);
+  background-color: var(--danger-accent);
+  color: var(--danger-accent-text);
 }
 
 ol[data-stepper~="vertical"] {

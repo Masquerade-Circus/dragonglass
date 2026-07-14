@@ -1,5 +1,5 @@
 [data-notification] {
-  --notification-color: var(--primary);
+  --notification-color: var(--primary-accent);
   position: fixed;
   z-index: 8;
   top: var(--spacing-4);
@@ -13,8 +13,8 @@
   padding: var(--spacing-3) var(--spacing-4);
   border: var(--border-size-1) solid var(--notification-color);
   border-radius: var(--card-radius);
-  background-color: var(--white);
-  color: var(--default-dark);
+  background-color: var(--surface-raised);
+  color: var(--text-primary);
   box-shadow: var(--shadow-lg);
 }
 
@@ -118,23 +118,23 @@
 }
 
 [data-notification] > button[data-notification-close]:hover {
-  background-color: var(--default-lighter);
+  background-color: var(--surface-muted);
 }
 
 [data-notification~="info"] {
-  --notification-color: var(--info);
+  --notification-color: var(--info-accent);
 }
 
 [data-notification~="success"] {
-  --notification-color: var(--success);
+  --notification-color: var(--success-accent);
 }
 
 [data-notification~="warning"] {
-  --notification-color: var(--warning);
+  --notification-color: var(--warning-accent);
 }
 
 [data-notification~="danger"] {
-  --notification-color: var(--danger);
+  --notification-color: var(--danger-accent);
 }
 
 [data-notification] > :last-child {

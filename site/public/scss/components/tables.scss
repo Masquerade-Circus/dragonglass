@@ -6,7 +6,7 @@ table {
   border-collapse: collapse;
   text-align: right;
   border-radius: 0.5em;
-  background-color: var(--white);
+  background-color: var(--surface);
   overflow: hidden;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
@@ -111,19 +111,20 @@ table[data-table] td::before {
   table[data-table~="#{$name}"] {
     caption,
     thead {
-      background-color: var(--#{$name});
-      color: var(--on-#{$name});
-      border-color: var(--#{$name}-dark);
+      background-color: var(--#{$name}-accent);
+      color: var(--#{$name}-accent-text);
+      border-color: var(--#{$name}-accent);
     }
     tbody > tr {
       border-color: var(--#{$name}-lighter);
       &:nth-child(even) {
-        background-color: var(--#{$name}-lightest);
+        background-color: var(--#{$name}-surface);
+        color: var(--#{$name}-surface-text);
       }
     }
     td:before {
-      background-color: var(--#{$name});
-      color: var(--on-#{$name});
+      background-color: var(--#{$name}-accent);
+      color: var(--#{$name}-accent-text);
     }
   }
 }

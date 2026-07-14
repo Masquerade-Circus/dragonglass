@@ -1,11 +1,11 @@
 @use "./vars" as *;
 
 [data-chip] {
-  --chip-border: var(--default-light);
-  --chip-background: var(--white);
-  --chip-text: var(--default-dark);
-  --chip-active: var(--primary);
-  --chip-active-text: var(--on-primary);
+  --chip-border: var(--border-default);
+  --chip-background: var(--surface);
+  --chip-text: var(--text-primary);
+  --chip-active: var(--primary-accent);
+  --chip-active-text: var(--primary-accent-text);
   --control-accent: var(--chip-active);
   display: inline-flex;
   align-items: center;
@@ -52,10 +52,10 @@ label[data-chip] {
 
 @each $name in $primaryColorNames {
   [data-chip~="#{$name}"] {
-    --chip-border: var(--#{$name});
-    --chip-background: var(--#{$name}-light);
-    --chip-text: var(--default-dark);
-    --chip-active: var(--#{$name});
-    --chip-active-text: var(--on-#{$name});
+    --chip-border: var(--#{$name}-accent);
+    --chip-background: var(--#{$name}-surface);
+    --chip-text: var(--#{$name}-surface-text);
+    --chip-active: var(--#{$name}-accent);
+    --chip-active-text: var(--#{$name}-accent-text);
   }
 }

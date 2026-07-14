@@ -4,11 +4,11 @@
 :root {
   @each $name, $base in $shadowSizes {
     --shadow-inner-#{$name}:
-      #{0 $base * 1px $base * 1.5px 0 rgba(0, 0, 0, 0.2) inset,
-      0 $base * 1.5px $base * 1px $base * -1.5px rgba(0, 0, 0, 0.2) inset};
+      #{0 $base * 1px $base * 1.5px 0 var(--shadow-color) inset,
+      0 $base * 1.5px $base * 1px $base * -1.5px var(--shadow-color) inset};
     --shadow-#{$name}:
-      #{0 $base * 1px $base * 1.5px 0 rgba(0, 0, 0, 0.2),
-      0 $base * 1.5px $base * 1px $base * -1.5px rgba(0, 0, 0, 0.2)};
+      #{0 $base * 1px $base * 1.5px 0 var(--shadow-color),
+      0 $base * 1.5px $base * 1px $base * -1.5px var(--shadow-color)};
   }
 }
 

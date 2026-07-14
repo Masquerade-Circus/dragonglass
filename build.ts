@@ -98,6 +98,7 @@ const build = async () => {
   for (const { path, route } of documentationRoutes) {
     const routeHtml = await router.go(path);
     const html = renderHtml({
+      colorScheme: route.colorScheme ?? "auto",
       content: String(routeHtml),
       isDevelopment: false,
       themeName: route.themeName ?? "default",

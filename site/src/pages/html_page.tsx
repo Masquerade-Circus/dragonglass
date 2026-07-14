@@ -1,8 +1,9 @@
 import { documentationAssets } from "../docs/assets";
-import type { ThemeName } from "../themes";
+import type { ColorScheme, ThemeName } from "../themes";
 
 type HtmlProps = {
   content: string;
+  colorScheme: ColorScheme;
   isDevelopment: boolean;
   title: string;
   themeName: ThemeName;
@@ -10,12 +11,13 @@ type HtmlProps = {
 
 let Html = function view({
   content,
+  colorScheme,
   isDevelopment,
   themeName,
   title,
 }: HtmlProps) {
   return (
-    <html lang="en">
+    <html lang="en" data-color-scheme={colorScheme}>
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

@@ -18,8 +18,12 @@ textarea {
   padding: var(--control-padding-y) var(--control-padding-x);
 
   &:focus {
-    outline: none;
     border-color: var(--control-accent);
+  }
+
+  &:focus-visible {
+    outline: var(--border-size-2) solid var(--focus-ring);
+    outline-offset: var(--spacing-1);
   }
 
   &:disabled,
@@ -31,13 +35,13 @@ textarea {
 
   &:user-invalid,
   &[aria-invalid="true"] {
-    border-color: var(--danger);
-    color: var(--danger);
+    border-color: var(--danger-accent);
+    color: var(--danger-accent);
   }
 
   &:user-invalid:focus,
   &[aria-invalid="true"]:focus {
-    border-color: var(--danger);
+    border-color: var(--danger-accent);
   }
 }
 
@@ -72,8 +76,12 @@ label {
   padding: 0;
 
   &:focus {
-    outline: none;
     border-color: var(--control-accent);
+  }
+
+  &:focus-visible {
+    outline: var(--border-size-2) solid var(--focus-ring);
+    outline-offset: var(--spacing-1);
   }
 
   &:after {
@@ -103,13 +111,13 @@ label {
 }
 
 [type="checkbox"][data-toggle] {
-  background-color: var(--default-lighter);
+  background-color: var(--surface-muted);
   width: 4em;
   height: 2em;
   border-radius: 1em;
   border: 0;
   &:after {
-    background-color: var(--default-light);
+    background-color: var(--border-default);
     width: 2em;
     height: 2em;
     border-radius: 1em;
@@ -137,7 +145,7 @@ input[type="range"]:disabled {
 input[type="range"]::-webkit-slider-runnable-track {
   height: 0.375rem;
   border-radius: 999rem;
-  background-color: var(--default-light);
+  background-color: var(--border-default);
 }
 
 input[type="range"]::-webkit-slider-thumb {
@@ -147,17 +155,7 @@ input[type="range"]::-webkit-slider-thumb {
 input[type="range"]::-moz-range-track {
   height: 0.375rem;
   border-radius: 999rem;
-  background-color: var(--default-light);
-}
-
-input[type="date"],
-input[type="time"],
-input[type="datetime-local"],
-input[type="month"],
-input[type="week"],
-input[type="color"],
-select {
-  color-scheme: light;
+  background-color: var(--border-default);
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator,
@@ -234,21 +232,21 @@ fieldset {
   &:has(:user-invalid) {
     > legend,
     > small {
-      color: var(--danger);
+      color: var(--danger-accent);
     }
 
     > input,
     > select,
     > textarea {
-      border-color: var(--danger);
-      color: var(--danger);
+      border-color: var(--danger-accent);
+      color: var(--danger-accent);
     }
   }
 }
 
 @each $name in $primaryColorNames {
   :is(fieldset, [data-floating])[data-field~="#{$name}"] {
-    color: var(--#{$name});
+    color: var(--#{$name}-accent);
   }
 }
 
@@ -351,14 +349,14 @@ fieldset {
   &:has(:user-invalid) {
     > label[for],
     > small {
-      color: var(--danger);
+      color: var(--danger-accent);
     }
 
     > input,
     > select,
     > textarea {
-      border-color: var(--danger);
-      color: var(--danger);
+      border-color: var(--danger-accent);
+      color: var(--danger-accent);
     }
   }
 }

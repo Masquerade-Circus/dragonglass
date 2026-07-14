@@ -1,6 +1,6 @@
 details:not([data-trigger]) {
-  background-color: var(--default-lightest);
-  border: var(--border-size-1) solid var(--default-light);
+  background-color: var(--surface-muted);
+  border: var(--border-size-1) solid var(--border-default);
   border-radius: var(--card-radius);
   box-shadow: none;
   overflow: hidden;
@@ -15,11 +15,11 @@ details:not([data-trigger]) summary {
   white-space: nowrap;
   text-decoration: none;
   text-align: left;
-  background-color: var(--white);
+  background-color: var(--surface);
   transition: var(--animate-all-fastest);
   overflow: hidden;
   cursor: pointer;
-  color: var(--primary);
+  color: var(--control-accent);
 }
 
 details:not([data-trigger]) > :not(summary) {
@@ -29,9 +29,9 @@ details:not([data-trigger]) > :not(summary) {
 details[data-expansion-panel] {
   display: block;
   width: 100%;
-  border: var(--border-size-1) solid var(--default-light);
+  border: var(--border-size-1) solid var(--border-default);
   border-radius: var(--card-radius);
-  background-color: var(--white);
+  background-color: var(--surface);
   box-shadow: none;
 }
 
@@ -90,7 +90,7 @@ details[data-expansion-panel][open] > summary::after {
     box-sizing: border-box;
     width: 100%;
     padding: var(--spacing-3) var(--spacing-4);
-    border-bottom: var(--border-size-2) solid var(--default-light);
+    border-bottom: var(--border-size-2) solid var(--border-default);
     list-style: none;
     text-align: center;
   }
@@ -100,8 +100,8 @@ details[data-expansion-panel][open] > summary::after {
   }
 
   [data-tabs] > details[open] > summary {
-    color: var(--primary);
-    border-color: var(--primary);
+    color: var(--control-accent);
+    border-color: var(--control-accent);
   }
 
   [data-tabs] > details > :not(summary) {
