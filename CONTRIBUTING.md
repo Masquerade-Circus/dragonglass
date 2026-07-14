@@ -45,7 +45,7 @@ The build compiles the framework CSS and static documentation. Review the genera
 
 ## Generated artifacts
 
-The build writes `dist/dragonglass.css`, `dist/dragonglass.min.css`, `site/public/css/main.css`, and the static files in `docs/`. Do not edit these generated artifacts by hand. Change their source, run `bun run build`, and review the generated diff.
+The build writes the core files in `dist/`, the default theme in `dist/themes/`, the development stylesheets in `site/public/css/`, and the static files in `docs/`. Do not edit these generated artifacts by hand. Change their source, run `bun run build`, and review the generated diff.
 
 ## Release commands
 

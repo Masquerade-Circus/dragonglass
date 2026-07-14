@@ -1,12 +1,19 @@
 import { documentationAssets } from "../docs/assets";
+import type { ThemeName } from "../themes";
 
 type HtmlProps = {
   content: string;
   isDevelopment: boolean;
   title: string;
+  themeName: ThemeName;
 };
 
-let Html = function view({ content, isDevelopment, title }: HtmlProps) {
+let Html = function view({
+  content,
+  isDevelopment,
+  themeName,
+  title,
+}: HtmlProps) {
   return (
     <html lang="en">
       <head>
@@ -22,6 +29,14 @@ let Html = function view({ content, isDevelopment, title }: HtmlProps) {
             isDevelopment
               ? "/css/main.css"
               : documentationAssets.stylesheet.path
+          }
+          rel="stylesheet"
+        />
+        <link
+          href={
+            isDevelopment
+              ? `/css/theme-${themeName}.css`
+              : documentationAssets.themeStylesheet(themeName).path
           }
           rel="stylesheet"
         />

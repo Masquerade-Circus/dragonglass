@@ -1393,8 +1393,88 @@
   }
   ensureRouteDirective();
 
+  // site/src/themes.ts
+  var bundledThemes = [
+    {
+      name: "default",
+      label: "Default",
+      primary: "#1d4ed8",
+      use: "General product interfaces"
+    },
+    {
+      name: "indigo",
+      label: "Indigo",
+      primary: "#4338ca",
+      use: "SaaS, finance and developer tools"
+    },
+    {
+      name: "violet",
+      label: "Violet",
+      primary: "#7c3aed",
+      use: "AI, developer and creative products"
+    },
+    {
+      name: "magenta",
+      label: "Magenta",
+      primary: "#a21caf",
+      use: "Media, community and consumer products"
+    },
+    {
+      name: "ruby",
+      label: "Ruby",
+      primary: "#be123c",
+      use: "Events, entertainment and campaign products"
+    },
+    {
+      name: "amber",
+      label: "Amber",
+      primary: "#92400e",
+      use: "Commerce, hospitality and editorial products"
+    },
+    {
+      name: "moss",
+      label: "Moss",
+      primary: "#3f6212",
+      use: "Health, sustainability and field operations"
+    },
+    {
+      name: "emerald",
+      label: "Emerald",
+      primary: "#047857",
+      use: "Finance, healthcare and sustainability products"
+    },
+    {
+      name: "teal",
+      label: "Teal",
+      primary: "#0f766e",
+      use: "Healthcare, collaboration and operational tools"
+    },
+    {
+      name: "ocean",
+      label: "Ocean",
+      primary: "#0369a1",
+      use: "Education, logistics and data products"
+    },
+    {
+      name: "graphite",
+      label: "Graphite",
+      primary: "#475569",
+      use: "Admin panels, documentation and public services"
+    },
+    {
+      name: "stone",
+      label: "Stone",
+      primary: "#57534e",
+      use: "Archives, publishing and content-heavy tools"
+    }
+  ];
+  var themeByName = new Map(
+    bundledThemes.map((theme) => [theme.name, theme])
+  );
+
   // site/src/docs/catalog.ts
   var basePath = "/dragonglass";
+  var themeRoutePath = (themeName) => `${basePath}/themes/${themeName}.html`;
   var categoryOrder = [
     "Getting started",
     "Foundations",
@@ -1633,12 +1713,22 @@
       description: "Show determinate and indeterminate progress states."
     }
   ];
-  var routes = catalog;
+  var themeRoutes = bundledThemes.map((theme) => ({
+    path: themeRoutePath(theme.name),
+    label: `${theme.label} theme`,
+    icon: "palette",
+    color: "bg-primary",
+    page: "Theme",
+    category: "Utilities",
+    description: `Preview the ${theme.label} theme across semantic colors and common components.`,
+    themeName: theme.name
+  }));
+  var routes = [...catalog, ...themeRoutes];
   var routeByPage = new Map(
     catalog.map((route) => [route.page, route])
   );
   var routeByPath = new Map(
-    catalog.map((route) => [route.path, route])
+    routes.map((route) => [route.path, route])
   );
 
   // site/src/docs/assets.ts
@@ -1647,6 +1737,10 @@
       fileName: "dragonglass.css",
       path: `${basePath}/dragonglass.css`
     },
+    themeStylesheet: (themeName) => ({
+      fileName: `dragonglass-theme-${themeName}.css`,
+      path: `${basePath}/dragonglass-theme-${themeName}.css`
+    }),
     script: {
       fileName: "dragonglass.js",
       path: `${basePath}/dragonglass.js`
@@ -1669,7 +1763,12 @@
   }
 
   // site/src/pages/html_page.tsx
-  var Html = function view({ content, isDevelopment, title }) {
+  var Html = function view({
+    content,
+    isDevelopment,
+    themeName,
+    title
+  }) {
     return /* @__PURE__ */ jsxs("html", { lang: "en", children: [
       /* @__PURE__ */ jsxs("head", { children: [
         /* @__PURE__ */ jsx("meta", { charset: "utf-8" }),
@@ -1686,6 +1785,13 @@
           "link",
           {
             href: isDevelopment ? "/css/main.css" : documentationAssets.stylesheet.path,
+            rel: "stylesheet"
+          }
+        ),
+        /* @__PURE__ */ jsx(
+          "link",
+          {
+            href: isDevelopment ? `/css/theme-${themeName}.css` : documentationAssets.themeStylesheet(themeName).path,
             rel: "stylesheet"
           }
         )
@@ -1729,7 +1835,7 @@
       /* @__PURE__ */ jsx("section", { "data-drawer": true, children: categoryOrder.flatMap((category) => [
         /* @__PURE__ */ jsx("header", { children: category }),
         /* @__PURE__ */ jsx("hr", {}),
-        /* @__PURE__ */ jsx("ul", { "data-list": true, children: routes.filter((route) => route.category === category).map(({ path, label, icon, color }) => /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(
+        /* @__PURE__ */ jsx("ul", { "data-list": true, children: catalog.filter((route) => route.category === category).map(({ path, label, icon, color }) => /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(
           DrawerLink,
           {
             path,
@@ -1765,7 +1871,8 @@
 
   // site/src/pages/home_page.tsx
   var installCode = `bun add dragonglass`;
-  var importCode = `import "dragonglass/dist/dragonglass.css";`;
+  var importCode = `import "dragonglass/dist/dragonglass.css";
+import "dragonglass/dist/themes/default.css";`;
   var appShellCode = `<body>
   <header>
     <nav aria-label="Primary">
@@ -1795,7 +1902,7 @@
     /* @__PURE__ */ jsxs(demo_section_default, { id: "install-dragonglass", title: "Install and import", children: [
       /* @__PURE__ */ jsx("p", { children: "Install Dragonglass with Bun." }),
       /* @__PURE__ */ jsx(code_example_default, { code: installCode }),
-      /* @__PURE__ */ jsx("p", { children: "Import the distributed CSS from your application entry point." }),
+      /* @__PURE__ */ jsx("p", { children: "Import the framework and one compiled theme from your application entry point." }),
       /* @__PURE__ */ jsx(code_example_default, { code: importCode })
     ] }),
     /* @__PURE__ */ jsxs(demo_section_default, { id: "minimal-app-shell", title: "Create an app shell", children: [
@@ -2206,6 +2313,20 @@
     )
   ] });
 
+  // site/src/docs/theme_menu.tsx
+  var ThemeLink = ({
+    currentThemeName,
+    theme
+  }) => {
+    const content = theme.label;
+    if (currentThemeName === theme.name) {
+      return /* @__PURE__ */ jsx("a", { href: themeRoutePath(theme.name), "aria-current": "page", children: content });
+    }
+    return /* @__PURE__ */ jsx("a", { href: themeRoutePath(theme.name), children: content });
+  };
+  var ThemeMenu = ({ currentThemeName }) => /* @__PURE__ */ jsx("nav", { "aria-label": "Theme previews", children: bundledThemes.map((theme) => /* @__PURE__ */ jsx(ThemeLink, { currentThemeName, theme })) });
+  var theme_menu_default = ThemeMenu;
+
   // site/src/pages/colors_page.tsx
   var colors = [
     "primary",
@@ -2229,9 +2350,31 @@
 <p class="text-primary-dark">Primary dark text</p>`;
   var stateExample2 = `<button type="button" class="bg-primary-dark hover:bg-primary active:bg-primary-light">Background states</button>
 <input aria-label="Color focus example" class="p-3 text-primary-dark focus:text-primary" value="Focus this field">`;
+  var buttonExample = colors.map((color) => `<button type="button" class="bg-${color}">${color}</button>`).join("\n");
+  var formExample = colors.map(
+    (color) => `<fieldset data-field="${color}">
+  <label for="${color}-field">${color} field</label>
+  <input id="${color}-field" name="${color}-field" type="text" aria-describedby="${color}-field-help">
+  <small id="${color}-field-help">Uses the ${color} theme color.</small>
+</fieldset>`
+  ).join("\n");
   var colorTokenExample = `<div style="background-color: var(--primary); color: var(--primary-darker)">
   Primary token preview
 </div>`;
+  var customThemeExample = `@use "pkg:dragonglass/theme" as dragonglass;
+
+:root {
+  @include dragonglass.tokens(#7c3aed);
+}`;
+  var scopedThemesExample = `@use "pkg:dragonglass/theme" as dragonglass;
+
+[data-theme="violet"] {
+  @include dragonglass.tokens(#7c3aed);
+}
+
+[data-theme="forest"] {
+  @include dragonglass.tokens(#167c55);
+}`;
   var colorRows = colors.flatMap(
     (color) => weights.map((weight) => ({
       name: `--${color}${weight}`,
@@ -2240,61 +2383,121 @@
       description: `Used by bg-${color}${weight}, text-${color}${weight}, border-${color}${weight} and outline-${color}${weight}.`
     }))
   );
-  var colors_page_default = () => /* @__PURE__ */ jsxs(doc_page_default, { page: "Colors", children: [
-    /* @__PURE__ */ jsxs(demo_section_default, { id: "color-palette", title: "Background and text colors", children: [
-      /* @__PURE__ */ jsx("p", { children: "Each semantic color includes lightest, lighter, light, base, dark, darker and darkest tokens. White and black remain the global contrast extremes." }),
-      /* @__PURE__ */ jsx("div", { class: "bg-primary p-3", children: "Primary background" }),
-      /* @__PURE__ */ jsx("p", { class: "text-primary-dark", children: "Primary dark text" }),
-      /* @__PURE__ */ jsx(code_example_default, { code: paletteExample }),
-      /* @__PURE__ */ jsx("div", { class: "grid-gutters", children: colors.map((color) => /* @__PURE__ */ jsxs("div", { class: "md:w-1/4 lg:w-1/7", children: [
-        weights.map((weight) => /* @__PURE__ */ jsx("div", { class: `bg-${color}${weight} p-3`, children: `bg-${color}${weight}` })),
-        weights.map((weight) => /* @__PURE__ */ jsx("div", { class: `text-${color}${weight} p-3`, children: `text-${color}${weight}` }))
-      ] })) })
-    ] }),
-    /* @__PURE__ */ jsxs(demo_section_default, { id: "color-states", title: "Interactive color states", children: [
-      /* @__PURE__ */ jsx(
-        "button",
-        {
-          type: "button",
-          class: "bg-primary-dark hover:bg-primary active:bg-primary-light",
-          children: "Background states"
-        }
-      ),
-      /* @__PURE__ */ jsx(
-        "input",
-        {
-          "aria-label": "Color focus example",
-          class: "p-3 text-primary-dark focus:text-primary",
-          value: "Focus this field"
-        }
-      ),
-      /* @__PURE__ */ jsx(code_example_default, { code: stateExample2 })
-    ] }),
-    /* @__PURE__ */ jsxs(demo_section_default, { id: "color-api", title: "Color tokens", children: [
-      /* @__PURE__ */ jsx("p", { children: "Use the semantic custom properties when a component needs token values directly instead of a generated color utility class." }),
-      /* @__PURE__ */ jsx("div", { style: "background-color: var(--primary); color: var(--primary-darker)", children: "Primary token preview" }),
-      /* @__PURE__ */ jsx(code_example_default, { code: colorTokenExample }),
-      /* @__PURE__ */ jsx(api_table_default, { caption: "Semantic color custom properties", rows: colorRows })
-    ] }),
-    /* @__PURE__ */ jsx(
-      demo_section_default,
-      {
-        id: "color-accessibility",
-        title: "Accessibility and common errors",
-        children: /* @__PURE__ */ jsxs("ul", { children: [
-          /* @__PURE__ */ jsx("li", { children: "Verify text and background combinations in context. A semantic token name does not guarantee sufficient contrast for every pairing." }),
-          /* @__PURE__ */ jsx("li", { children: "Never use color as the only signal for status, validation or an available action. Include text or another programmatic cue." }),
-          /* @__PURE__ */ jsxs("li", { children: [
-            "Use a generated class such as ",
-            /* @__PURE__ */ jsx("code", { children: "shadow-xs" }),
-            " for elevation. The unqualified ",
-            /* @__PURE__ */ jsx("code", { children: "shadow" }),
-            " class does not exist."
+  var ColorsPage = ({ themeName } = {}) => {
+    const route = routeByPage.get("Colors");
+    if (!route) {
+      throw new Error("Documentation metadata not found for page: Colors");
+    }
+    return /* @__PURE__ */ jsxs(layout_default, { currentPath: route.path, children: [
+      /* @__PURE__ */ jsxs("header", { children: [
+        /* @__PURE__ */ jsx("h1", { children: "Themes" }),
+        /* @__PURE__ */ jsx(theme_menu_default, { currentThemeName: themeName })
+      ] }),
+      /* @__PURE__ */ jsx("h1", { children: route.label }),
+      /* @__PURE__ */ jsx("p", { children: route.description }),
+      /* @__PURE__ */ jsxs(demo_section_default, { id: "color-palette", title: "Background and text colors", children: [
+        /* @__PURE__ */ jsx("p", { children: "Each semantic color includes lightest, lighter, light, base, dark, darker and darkest tokens. White and black remain the global contrast extremes." }),
+        /* @__PURE__ */ jsx("div", { class: "bg-primary p-3", children: "Primary background" }),
+        /* @__PURE__ */ jsx("p", { class: "text-primary-dark", children: "Primary dark text" }),
+        /* @__PURE__ */ jsx(code_example_default, { code: paletteExample }),
+        /* @__PURE__ */ jsx("div", { class: "grid-gutters", children: colors.map((color) => /* @__PURE__ */ jsxs("div", { class: "md:w-1/4 lg:w-1/7", children: [
+          weights.map((weight) => /* @__PURE__ */ jsx("div", { class: `bg-${color}${weight} p-3`, children: `bg-${color}${weight}` })),
+          weights.map((weight) => /* @__PURE__ */ jsx("div", { class: `text-${color}${weight} p-3`, children: `text-${color}${weight}` }))
+        ] })) })
+      ] }),
+      /* @__PURE__ */ jsxs(demo_section_default, { id: "color-buttons", title: "Buttons by color", children: [
+        /* @__PURE__ */ jsx("p", { children: "Each semantic family can style an action. The visible label preserves meaning when two colors look similar." }),
+        colors.map((color) => /* @__PURE__ */ jsx("button", { type: "button", class: `bg-${color}`, children: color })),
+        /* @__PURE__ */ jsx(code_example_default, { code: buttonExample })
+      ] }),
+      /* @__PURE__ */ jsxs(demo_section_default, { id: "color-fields", title: "Form fields by color", children: [
+        /* @__PURE__ */ jsx("p", { children: "Use colored fields for documented states or categories. Keep a label and supporting text because color alone cannot explain the state." }),
+        /* @__PURE__ */ jsx("form", { "data-card": true, children: /* @__PURE__ */ jsx("section", { children: colors.map((color) => /* @__PURE__ */ jsxs("fieldset", { "data-field": color, children: [
+          /* @__PURE__ */ jsxs("label", { for: `color-field-${color}`, children: [
+            color,
+            " field"
+          ] }),
+          /* @__PURE__ */ jsx(
+            "input",
+            {
+              id: `color-field-${color}`,
+              name: `color-field-${color}`,
+              type: "text",
+              value: `${color} value`,
+              "aria-describedby": `color-field-${color}-help`
+            }
+          ),
+          /* @__PURE__ */ jsxs("small", { id: `color-field-${color}-help`, children: [
+            "Uses the ",
+            color,
+            " theme color."
           ] })
-        ] })
-      }
-    )
-  ] });
+        ] })) }) }),
+        /* @__PURE__ */ jsx(code_example_default, { code: formExample })
+      ] }),
+      /* @__PURE__ */ jsxs(demo_section_default, { id: "color-states", title: "Interactive color states", children: [
+        /* @__PURE__ */ jsx(
+          "button",
+          {
+            type: "button",
+            class: "bg-primary-dark hover:bg-primary active:bg-primary-light",
+            children: "Background states"
+          }
+        ),
+        /* @__PURE__ */ jsx(
+          "input",
+          {
+            "aria-label": "Color focus example",
+            class: "p-3 text-primary-dark focus:text-primary",
+            value: "Focus this field"
+          }
+        ),
+        /* @__PURE__ */ jsx(code_example_default, { code: stateExample2 })
+      ] }),
+      /* @__PURE__ */ jsxs(demo_section_default, { id: "compile-theme", title: "Compile a theme from one color", children: [
+        /* @__PURE__ */ jsxs("p", { children: [
+          "The Sass theme module derives every semantic family, weight, foreground and progress color from one opaque primary. Every base uses its lightest family token as foreground. The primary must have OKLCH lightness between 42% and 56%, and that pair must reach 4.5:1. Compile the result and load it after ",
+          /* @__PURE__ */ jsx("code", { children: "dragonglass.css" }),
+          "."
+        ] }),
+        /* @__PURE__ */ jsx(code_example_default, { code: customThemeExample }),
+        /* @__PURE__ */ jsx("pre", { children: /* @__PURE__ */ jsx("code", { children: "bunx sass --pkg-importer=node theme.scss theme.css --style=compressed" }) }),
+        /* @__PURE__ */ jsx("p", { children: "Place each mixin call inside a theme selector when one stylesheet must contain several themes." }),
+        /* @__PURE__ */ jsx(code_example_default, { code: scopedThemesExample })
+      ] }),
+      /* @__PURE__ */ jsxs(demo_section_default, { id: "color-api", title: "Color tokens", children: [
+        /* @__PURE__ */ jsx("p", { children: "Use the semantic custom properties when a component needs token values directly instead of a generated color utility class." }),
+        /* @__PURE__ */ jsx("div", { style: "background-color: var(--primary); color: var(--primary-darker)", children: "Primary token preview" }),
+        /* @__PURE__ */ jsx(code_example_default, { code: colorTokenExample }),
+        /* @__PURE__ */ jsx(api_table_default, { caption: "Semantic color custom properties", rows: colorRows })
+      ] }),
+      /* @__PURE__ */ jsx(
+        demo_section_default,
+        {
+          id: "color-accessibility",
+          title: "Accessibility and common errors",
+          children: /* @__PURE__ */ jsxs("ul", { children: [
+            /* @__PURE__ */ jsx("li", { children: "Verify text and background combinations in context. A semantic token name does not guarantee sufficient contrast for every pairing." }),
+            /* @__PURE__ */ jsxs("li", { children: [
+              "Compile the theme again when its primary changes. Overriding only",
+              /* @__PURE__ */ jsx("code", { children: "--primary" }),
+              " does not recalculate the generated tokens."
+            ] }),
+            /* @__PURE__ */ jsx("li", { children: "Base colors always use their lightest family token as foreground. The compiler rejects a primary outside the 42% to 56% OKLCH lightness range or one that cannot support that direction." }),
+            /* @__PURE__ */ jsx("li", { children: "Never use color as the only signal for status, validation or an available action. Include text or another programmatic cue." }),
+            /* @__PURE__ */ jsxs("li", { children: [
+              "Use a generated class such as ",
+              /* @__PURE__ */ jsx("code", { children: "shadow-xs" }),
+              " for elevation. The unqualified ",
+              /* @__PURE__ */ jsx("code", { children: "shadow" }),
+              " class does not exist."
+            ] })
+          ] })
+        }
+      )
+    ] });
+  };
+  var colors_page_default = ColorsPage;
 
   // site/src/pages/fonts_page.tsx
   var sizes = [
@@ -3693,10 +3896,10 @@
       description: "Turns a neutral wrapper with a control, label and small into a floating field."
     },
     {
-      name: 'data-field="warning|success"',
+      name: 'data-field="primary|accent|info|success|warning|danger|default"',
       type: "Attribute token",
       defaultValue: "Neutral",
-      description: "Applies a non-error semantic state to a field container and its control."
+      description: "Applies a documented semantic color to a field container and its control."
     },
     {
       name: "data-toggle",
@@ -5741,11 +5944,22 @@
 
   // site/src/index.ts
   var router = new Router();
+  var pageForRoute = (route) => {
+    if (route.page === "Theme") {
+      const themeName = route.themeName;
+      if (typeof themeName !== "string") {
+        throw new Error(`Theme name not found for route: ${route.path}`);
+      }
+      return () => pages_default.Colors({ themeName });
+    }
+    const page = pages_default[route.page];
+    return () => page();
+  };
   var pagesByRoute = new Map(
-    routes.map(({ path, page }) => [path, pages_default[page]])
+    routes.map((route) => [route.path, pageForRoute(route)])
   );
-  for (const { path, page } of routes) {
-    router.add(path, pages_default[page]);
+  for (const route of routes) {
+    router.add(route.path, pageForRoute(route));
   }
   if (typeof window !== "undefined") {
     mountRouter("body", router);

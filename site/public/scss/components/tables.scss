@@ -107,12 +107,12 @@ table[data-table] td::before {
   }
 }
 
-@each $name, $col in $primaryColors {
+@each $name in $primaryColorNames {
   table[data-table~="#{$name}"] {
     caption,
     thead {
       background-color: var(--#{$name});
-      color: automatic-family-token($name, $col, $name);
+      color: var(--on-#{$name});
       border-color: var(--#{$name}-dark);
     }
     tbody > tr {
@@ -123,7 +123,7 @@ table[data-table] td::before {
     }
     td:before {
       background-color: var(--#{$name});
-      color: automatic-family-token($name, $col, $name);
+      color: var(--on-#{$name});
     }
   }
 }

@@ -1,103 +1,83 @@
 /*** ColorPallete Start ***/
-@use "sass:color";
-@use "sass:map";
 @use "./vars" as *;
 
-$tolerance: 67;
-
-@function border-text-color($color, $name, $weight) {
-  @if color.channel($color, "lightness", $space: hsl) < 55% {
-    @return var(--#{$name}#{$weight});
-  }
-
-  @return var(--#{$name});
-}
-
-@each $name, $col in $primaryColors {
+@each $name in $primaryColorNames {
   @each $weight in $colorWeights {
-    $color: map.get($colors, "#{$name}#{$weight}");
+    .focus\:border-#{$name}#{$weight}:focus,
+    .active\:border-#{$name}#{$weight}:active,
+    .hover\:border-#{$name}#{$weight}:hover,
+    .after\:border-#{$name}#{$weight}::after,
+    .before\:border-#{$name}#{$weight}::before,
+    .border-#{$name}#{$weight} {
+      border-color: var(--#{$name}#{$weight});
+      color: var(--border-text-#{$name}#{$weight});
+    }
 
-    @if $color {
-      .focus\:border-#{$name}#{$weight}:focus,
-      .active\:border-#{$name}#{$weight}:active,
-      .hover\:border-#{$name}#{$weight}:hover,
-      .after\:border-#{$name}#{$weight}::after,
-      .before\:border-#{$name}#{$weight}::before,
-      .border-#{$name}#{$weight} {
-        border-color: var(--#{$name}#{$weight});
-        color: border-text-color($color, $name, $weight);
-      }
+    .focus\:outline-#{$name}#{$weight}:focus,
+    .active\:outline-#{$name}#{$weight}:active,
+    .hover\:outline-#{$name}#{$weight}:hover,
+    .after\:outline-#{$name}#{$weight}::after,
+    .before\:outline-#{$name}#{$weight}::before,
+    .outline-#{$name}#{$weight} {
+      outline-color: var(--#{$name}#{$weight});
+    }
 
-      .focus\:outline-#{$name}#{$weight}:focus,
-      .active\:outline-#{$name}#{$weight}:active,
-      .hover\:outline-#{$name}#{$weight}:hover,
-      .after\:outline-#{$name}#{$weight}::after,
-      .before\:outline-#{$name}#{$weight}::before,
-      .outline-#{$name}#{$weight} {
-        outline-color: var(--#{$name}#{$weight});
-      }
+    .focus\:bg-#{$name}#{$weight}:focus,
+    .active\:bg-#{$name}#{$weight}:active,
+    .hover\:bg-#{$name}#{$weight}:hover,
+    .after\:bg-#{$name}#{$weight}::after,
+    .before\:bg-#{$name}#{$weight}::before,
+    .bg-#{$name}#{$weight} {
+      background-color: var(--#{$name}#{$weight});
+      color: var(--on-#{$name}#{$weight});
+    }
 
-      .focus\:bg-#{$name}#{$weight}:focus,
-      .active\:bg-#{$name}#{$weight}:active,
-      .hover\:bg-#{$name}#{$weight}:hover,
-      .after\:bg-#{$name}#{$weight}::after,
-      .before\:bg-#{$name}#{$weight}::before,
-      .bg-#{$name}#{$weight} {
-        background-color: var(--#{$name}#{$weight});
-        color: automatic-family-token($name, $color, "#{$name}#{$weight}");
-      }
-
-      .focus\:text-#{$name}#{$weight}:focus,
-      .active\:text-#{$name}#{$weight}:active,
-      .hover\:text-#{$name}#{$weight}:hover,
-      .after\:text-#{$name}#{$weight}::after,
-      .before\:text-#{$name}#{$weight}::before,
-      .text-#{$name}#{$weight} {
-        color: var(--#{$name}#{$weight});
-      }
+    .focus\:text-#{$name}#{$weight}:focus,
+    .active\:text-#{$name}#{$weight}:active,
+    .hover\:text-#{$name}#{$weight}:hover,
+    .after\:text-#{$name}#{$weight}::after,
+    .before\:text-#{$name}#{$weight}::before,
+    .text-#{$name}#{$weight} {
+      color: var(--#{$name}#{$weight});
     }
   }
 }
 
-@each $name, $col in $secondaryColors {
-  $color: map.get($colors, "#{$name}");
+@each $name in $secondaryColorNames {
+  .focus\:border-#{$name}:focus,
+  .active\:border-#{$name}:active,
+  .hover\:border-#{$name}:hover,
+  .after\:border-#{$name}::after,
+  .before\:border-#{$name}::before,
+  .border-#{$name} {
+    border-color: var(--#{$name});
+  }
 
-  @if $color {
-    .focus\:border-#{$name}:focus,
-    .active\:border-#{$name}:active,
-    .hover\:border-#{$name}:hover,
-    .after\:border-#{$name}::after,
-    .before\:border-#{$name}::before,
-    .border-#{$name} {
-      border-color: var(--#{$name});
-    }
+  .focus\:outline-#{$name}:focus,
+  .active\:outline-#{$name}:active,
+  .hover\:outline-#{$name}:hover,
+  .after\:outline-#{$name}::after,
+  .before\:outline-#{$name}::before,
+  .outline-#{$name} {
+    outline-color: var(--#{$name});
+  }
 
-    .focus\:outline-#{$name}:focus,
-    .active\:outline-#{$name}:active,
-    .hover\:outline-#{$name}:hover,
-    .after\:outline-#{$name}::after,
-    .before\:outline-#{$name}::before,
-    .outline-#{$name} {
-      outline-color: var(--#{$name});
-    }
+  .focus\:bg-#{$name}:focus,
+  .active\:bg-#{$name}:active,
+  .hover\:bg-#{$name}:hover,
+  .after\:bg-#{$name}::after,
+  .before\:bg-#{$name}::before,
+  .bg-#{$name} {
+    background-color: var(--#{$name});
+    color: var(--on-#{$name});
+  }
 
-    .focus\:bg-#{$name}:focus,
-    .active\:bg-#{$name}:active,
-    .hover\:bg-#{$name}:hover,
-    .after\:bg-#{$name}::after,
-    .before\:bg-#{$name}::before,
-    .bg-#{$name} {
-      background-color: var(--#{$name});
-      color: opposite-secondary-token($name);
-    }
-
-    .focus\:text-#{$name}:focus,
-    .active\:text-#{$name}:active,
-    .hover\:text-#{$name}:hover,
-    .after\:text-#{$name}::after,
-    .before\:text-#{$name}::before,
-    .text-#{$name} {
-      color: var(--#{$name});
-    }
+  .focus\:text-#{$name}:focus,
+  .active\:text-#{$name}:active,
+  .hover\:text-#{$name}:hover,
+  .after\:text-#{$name}::after,
+  .before\:text-#{$name}::before,
+  .text-#{$name} {
+    color: var(--#{$name});
   }
 }

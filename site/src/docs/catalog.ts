@@ -1,4 +1,8 @@
+import { bundledThemes, type ThemeName } from "../themes";
+
 const basePath = "/dragonglass";
+const themeRoutePath = (themeName: ThemeName) =>
+  `${basePath}/themes/${themeName}.html`;
 
 const categoryOrder = [
   "Getting started",
@@ -38,7 +42,8 @@ type DocumentationPage =
   | "Menus"
   | "Tables"
   | "Tooltips"
-  | "Progress";
+  | "Progress"
+  | "Theme";
 type DocumentationPath = string;
 
 type DocumentationRoute = {
@@ -49,6 +54,7 @@ type DocumentationRoute = {
   page: DocumentationPage;
   category: DocumentationCategory;
   description: string;
+  themeName?: ThemeName;
 };
 
 const catalog: DocumentationRoute[] = [
@@ -284,12 +290,22 @@ const catalog: DocumentationRoute[] = [
   },
 ];
 
-const routes = catalog;
+const themeRoutes: DocumentationRoute[] = bundledThemes.map((theme) => ({
+  path: themeRoutePath(theme.name),
+  label: `${theme.label} theme`,
+  icon: "palette",
+  color: "bg-primary",
+  page: "Theme",
+  category: "Utilities",
+  description: `Preview the ${theme.label} theme across semantic colors and common components.`,
+  themeName: theme.name,
+}));
+const routes = [...catalog, ...themeRoutes];
 const routeByPage = new Map<DocumentationPage, DocumentationRoute>(
   catalog.map((route) => [route.page, route]),
 );
 const routeByPath = new Map<DocumentationPath, DocumentationRoute>(
-  catalog.map((route) => [route.path, route]),
+  routes.map((route) => [route.path, route]),
 );
 
 export {
@@ -299,6 +315,8 @@ export {
   routeByPage,
   routeByPath,
   routes,
+  themeRoutePath,
+  themeRoutes,
   type DocumentationCategory,
   type DocumentationPage,
   type DocumentationPath,

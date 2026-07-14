@@ -81,6 +81,7 @@ const init = async () => {
           scripts,
           content: String(routeHtml),
           isDevelopment: true,
+          themeName: route.themeName ?? "default",
           title: `${route.label} | Dragonglass`,
         });
 

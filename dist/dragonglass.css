@@ -19,57 +19,6 @@
   --spacing-10: 2.5rem;
   --spacing-12: 3rem;
   --spacing-16: 4rem;
-  --white: #ffffff;
-  --black: #333333;
-  --primary: #3244ad;
-  --primary-lightest: rgb(226.2183856502, 229.2130044843, 246.6816143498);
-  --primary-lighter: rgb(170.8273542601, 179.5852017937, 230.6726457399);
-  --primary-light: rgb(131.2623318386, 144.1367713004, 219.2376681614);
-  --primary-dark: rgb(21.4125560538, 29.1210762332, 74.0874439462);
-  --primary-darker: rgb(9.9775784753, 13.5695067265, 34.5224215247);
-  --primary-darkest: rgb(5, 6.8, 17.3);
-  --accent: #953ca5;
-  --accent-lightest: rgb(243.144, 229.26, 245.64);
-  --accent-lighter: rgb(219.0266666667, 176.9, 226.6);
-  --accent-light: rgb(201.8, 139.5, 213);
-  --accent-dark: rgb(64.5666666667, 26, 71.5);
-  --accent-darker: rgb(30.7933333333, 12.4, 34.1);
-  --accent-darkest: rgb(14.9, 6, 16.5);
-  --success: #2ab7a9;
-  --success-lightest: rgb(226.452, 248.448, 246.264);
-  --success-lighter: rgb(168.38, 235.12, 228.4933333333);
-  --success-light: rgb(126.9, 225.6, 215.8);
-  --success-dark: rgb(18.2, 79.3, 73.2333333333);
-  --success-darker: rgb(8.68, 37.82, 34.9266666667);
-  --success-darkest: rgb(4.2, 18.3, 16.9);
-  --info: #00c3e0;
-  --info-lightest: rgb(218.9, 250.3263392857, 255);
-  --info-lighter: rgb(147.5, 241.0825892857, 255);
-  --info-light: rgb(96.5, 234.4799107143, 255);
-  --info-dark: rgb(0, 84.0066964286, 96.5);
-  --info-darker: rgb(0, 39.609375, 45.5);
-  --info-darkest: rgb(0, 19.5, 22.4);
-  --warning: #bf7921;
-  --warning-lightest: rgb(249.6816964286, 238.4004464286, 224.2183035714);
-  --warning-lighter: rgb(239.1629464286, 205.5691964286, 163.3370535714);
-  --warning-light: rgb(231.6495535714, 182.1183035714, 119.8504464286);
-  --warning-dark: rgb(82.2834821429, 52.1272321429, 14.2165178571);
-  --warning-darker: rgb(38.796875, 24.578125, 6.703125);
-  --warning-darkest: rgb(19.1, 12.1, 3.3);
-  --danger: #bb2626;
-  --danger-lightest: rgb(249.072, 225.828, 225.828);
-  --danger-lighter: rgb(237.0133333333, 166.4866666667, 166.4866666667);
-  --danger-light: rgb(228.4, 124.1, 124.1);
-  --danger-dark: rgb(81.0333333333, 16.4666666667, 16.4666666667);
-  --danger-darker: rgb(38.6466666667, 7.8533333333, 7.8533333333);
-  --danger-darkest: rgb(18.7, 3.8, 3.8);
-  --default: #646c8a;
-  --default-lightest: rgb(242.1857142857, 242.9285714286, 245.7142857143);
-  --default-lighter: rgb(200.7857142857, 203.9285714286, 215.7142857143);
-  --default-light: rgb(171.2142857143, 176.0714285714, 194.2857142857);
-  --default-dark: rgb(46.4285714286, 50.1428571429, 64.0714285714);
-  --default-darker: rgb(25, 27, 34.5);
-  --default-darkest: rgb(10, 10.8, 13.8);
   --font-size-2xs: 0.75rem;
   --font-size-xs: 0.8rem;
   --font-size-sm: 0.9rem;
@@ -656,7 +605,7 @@ samp {
 
 /*** Progress ***/
 progress {
-  --progress-color: var(--primary);
+  --progress-color: var(--progress-primary);
   --progress-track: var(--default-lighter);
   appearance: none;
   display: block;
@@ -671,31 +620,31 @@ progress {
 }
 
 progress[data-progress~=primary] {
-  --progress-color: var(--primary);
+  --progress-color: var(--progress-primary);
 }
 
 progress[data-progress~=accent] {
-  --progress-color: var(--accent);
+  --progress-color: var(--progress-accent);
 }
 
 progress[data-progress~=success] {
-  --progress-color: var(--success-dark);
+  --progress-color: var(--progress-success);
 }
 
 progress[data-progress~=info] {
-  --progress-color: var(--info-dark);
+  --progress-color: var(--progress-info);
 }
 
 progress[data-progress~=warning] {
-  --progress-color: var(--warning-dark);
+  --progress-color: var(--progress-warning);
 }
 
 progress[data-progress~=danger] {
-  --progress-color: var(--danger);
+  --progress-color: var(--progress-danger);
 }
 
 progress[data-progress~=default] {
-  --progress-color: var(--default);
+  --progress-color: var(--progress-default);
 }
 
 progress::-webkit-progress-bar {
@@ -831,7 +780,7 @@ input[type=search]::-webkit-search-cancel-button {
   --chip-background: var(--white);
   --chip-text: var(--default-dark);
   --chip-active: var(--primary);
-  --chip-active-text: var(--primary-lightest);
+  --chip-active-text: var(--on-primary);
   --control-accent: var(--chip-active);
   display: inline-flex;
   align-items: center;
@@ -881,7 +830,7 @@ label[data-chip] {
   --chip-background: var(--primary-light);
   --chip-text: var(--default-dark);
   --chip-active: var(--primary);
-  --chip-active-text: var(--primary-lightest);
+  --chip-active-text: var(--on-primary);
 }
 
 [data-chip~=accent] {
@@ -889,7 +838,7 @@ label[data-chip] {
   --chip-background: var(--accent-light);
   --chip-text: var(--default-dark);
   --chip-active: var(--accent);
-  --chip-active-text: var(--accent-lightest);
+  --chip-active-text: var(--on-accent);
 }
 
 [data-chip~=success] {
@@ -897,7 +846,7 @@ label[data-chip] {
   --chip-background: var(--success-light);
   --chip-text: var(--default-dark);
   --chip-active: var(--success);
-  --chip-active-text: var(--success-darker);
+  --chip-active-text: var(--on-success);
 }
 
 [data-chip~=info] {
@@ -905,7 +854,7 @@ label[data-chip] {
   --chip-background: var(--info-light);
   --chip-text: var(--default-dark);
   --chip-active: var(--info);
-  --chip-active-text: var(--info-darker);
+  --chip-active-text: var(--on-info);
 }
 
 [data-chip~=warning] {
@@ -913,7 +862,7 @@ label[data-chip] {
   --chip-background: var(--warning-light);
   --chip-text: var(--default-dark);
   --chip-active: var(--warning);
-  --chip-active-text: var(--warning-darker);
+  --chip-active-text: var(--on-warning);
 }
 
 [data-chip~=danger] {
@@ -921,7 +870,7 @@ label[data-chip] {
   --chip-background: var(--danger-light);
   --chip-text: var(--default-dark);
   --chip-active: var(--danger);
-  --chip-active-text: var(--danger-lightest);
+  --chip-active-text: var(--on-danger);
 }
 
 [data-chip~=default] {
@@ -929,7 +878,7 @@ label[data-chip] {
   --chip-background: var(--default-light);
   --chip-text: var(--default-dark);
   --chip-active: var(--default);
-  --chip-active-text: var(--default-lightest);
+  --chip-active-text: var(--on-default);
 }
 
 /*** Alerts ***/
@@ -2050,7 +1999,7 @@ table[data-table] td::before {
 table[data-table~=primary] caption,
 table[data-table~=primary] thead {
   background-color: var(--primary);
-  color: var(--primary-lightest);
+  color: var(--on-primary);
   border-color: var(--primary-dark);
 }
 table[data-table~=primary] tbody > tr {
@@ -2061,13 +2010,13 @@ table[data-table~=primary] tbody > tr:nth-child(even) {
 }
 table[data-table~=primary] td:before {
   background-color: var(--primary);
-  color: var(--primary-lightest);
+  color: var(--on-primary);
 }
 
 table[data-table~=accent] caption,
 table[data-table~=accent] thead {
   background-color: var(--accent);
-  color: var(--accent-lightest);
+  color: var(--on-accent);
   border-color: var(--accent-dark);
 }
 table[data-table~=accent] tbody > tr {
@@ -2078,13 +2027,13 @@ table[data-table~=accent] tbody > tr:nth-child(even) {
 }
 table[data-table~=accent] td:before {
   background-color: var(--accent);
-  color: var(--accent-lightest);
+  color: var(--on-accent);
 }
 
 table[data-table~=success] caption,
 table[data-table~=success] thead {
   background-color: var(--success);
-  color: var(--success-darker);
+  color: var(--on-success);
   border-color: var(--success-dark);
 }
 table[data-table~=success] tbody > tr {
@@ -2095,13 +2044,13 @@ table[data-table~=success] tbody > tr:nth-child(even) {
 }
 table[data-table~=success] td:before {
   background-color: var(--success);
-  color: var(--success-darker);
+  color: var(--on-success);
 }
 
 table[data-table~=info] caption,
 table[data-table~=info] thead {
   background-color: var(--info);
-  color: var(--info-darker);
+  color: var(--on-info);
   border-color: var(--info-dark);
 }
 table[data-table~=info] tbody > tr {
@@ -2112,13 +2061,13 @@ table[data-table~=info] tbody > tr:nth-child(even) {
 }
 table[data-table~=info] td:before {
   background-color: var(--info);
-  color: var(--info-darker);
+  color: var(--on-info);
 }
 
 table[data-table~=warning] caption,
 table[data-table~=warning] thead {
   background-color: var(--warning);
-  color: var(--warning-darker);
+  color: var(--on-warning);
   border-color: var(--warning-dark);
 }
 table[data-table~=warning] tbody > tr {
@@ -2129,13 +2078,13 @@ table[data-table~=warning] tbody > tr:nth-child(even) {
 }
 table[data-table~=warning] td:before {
   background-color: var(--warning);
-  color: var(--warning-darker);
+  color: var(--on-warning);
 }
 
 table[data-table~=danger] caption,
 table[data-table~=danger] thead {
   background-color: var(--danger);
-  color: var(--danger-lightest);
+  color: var(--on-danger);
   border-color: var(--danger-dark);
 }
 table[data-table~=danger] tbody > tr {
@@ -2146,13 +2095,13 @@ table[data-table~=danger] tbody > tr:nth-child(even) {
 }
 table[data-table~=danger] td:before {
   background-color: var(--danger);
-  color: var(--danger-lightest);
+  color: var(--on-danger);
 }
 
 table[data-table~=default] caption,
 table[data-table~=default] thead {
   background-color: var(--default);
-  color: var(--default-lightest);
+  color: var(--on-default);
   border-color: var(--default-dark);
 }
 table[data-table~=default] tbody > tr {
@@ -2163,7 +2112,7 @@ table[data-table~=default] tbody > tr:nth-child(even) {
 }
 table[data-table~=default] td:before {
   background-color: var(--default);
-  color: var(--default-lightest);
+  color: var(--on-default);
 }
 
 /*** Cards ***/
@@ -2703,12 +2652,32 @@ fieldset:has(:user-invalid) > textarea {
   color: var(--danger);
 }
 
-:is(fieldset, [data-floating])[data-field~=warning] {
-  color: var(--warning);
+:is(fieldset, [data-floating])[data-field~=primary] {
+  color: var(--primary);
+}
+
+:is(fieldset, [data-floating])[data-field~=accent] {
+  color: var(--accent);
 }
 
 :is(fieldset, [data-floating])[data-field~=success] {
   color: var(--success);
+}
+
+:is(fieldset, [data-floating])[data-field~=info] {
+  color: var(--info);
+}
+
+:is(fieldset, [data-floating])[data-field~=warning] {
+  color: var(--warning);
+}
+
+:is(fieldset, [data-floating])[data-field~=danger] {
+  color: var(--danger);
+}
+
+:is(fieldset, [data-floating])[data-field~=default] {
+  color: var(--default);
 }
 
 :is(fieldset, [data-floating])[data-field] > :is(input, select, textarea) {
@@ -3122,7 +3091,7 @@ input[type=submit] {
 .before\:border-primary-lightest::before,
 .border-primary-lightest {
   border-color: var(--primary-lightest);
-  color: var(--primary);
+  color: var(--border-text-primary-lightest);
 }
 
 .focus\:outline-primary-lightest:focus,
@@ -3141,7 +3110,7 @@ input[type=submit] {
 .before\:bg-primary-lightest::before,
 .bg-primary-lightest {
   background-color: var(--primary-lightest);
-  color: var(--primary);
+  color: var(--on-primary-lightest);
 }
 
 .focus\:text-primary-lightest:focus,
@@ -3160,7 +3129,7 @@ input[type=submit] {
 .before\:border-primary-lighter::before,
 .border-primary-lighter {
   border-color: var(--primary-lighter);
-  color: var(--primary);
+  color: var(--border-text-primary-lighter);
 }
 
 .focus\:outline-primary-lighter:focus,
@@ -3179,7 +3148,7 @@ input[type=submit] {
 .before\:bg-primary-lighter::before,
 .bg-primary-lighter {
   background-color: var(--primary-lighter);
-  color: var(--primary-dark);
+  color: var(--on-primary-lighter);
 }
 
 .focus\:text-primary-lighter:focus,
@@ -3198,7 +3167,7 @@ input[type=submit] {
 .before\:border-primary-light::before,
 .border-primary-light {
   border-color: var(--primary-light);
-  color: var(--primary);
+  color: var(--border-text-primary-light);
 }
 
 .focus\:outline-primary-light:focus,
@@ -3217,7 +3186,7 @@ input[type=submit] {
 .before\:bg-primary-light::before,
 .bg-primary-light {
   background-color: var(--primary-light);
-  color: var(--primary-dark);
+  color: var(--on-primary-light);
 }
 
 .focus\:text-primary-light:focus,
@@ -3236,7 +3205,7 @@ input[type=submit] {
 .before\:border-primary::before,
 .border-primary {
   border-color: var(--primary);
-  color: var(--primary);
+  color: var(--border-text-primary);
 }
 
 .focus\:outline-primary:focus,
@@ -3255,7 +3224,7 @@ input[type=submit] {
 .before\:bg-primary::before,
 .bg-primary {
   background-color: var(--primary);
-  color: var(--primary-lightest);
+  color: var(--on-primary);
 }
 
 .focus\:text-primary:focus,
@@ -3274,7 +3243,7 @@ input[type=submit] {
 .before\:border-primary-dark::before,
 .border-primary-dark {
   border-color: var(--primary-dark);
-  color: var(--primary-dark);
+  color: var(--border-text-primary-dark);
 }
 
 .focus\:outline-primary-dark:focus,
@@ -3293,7 +3262,7 @@ input[type=submit] {
 .before\:bg-primary-dark::before,
 .bg-primary-dark {
   background-color: var(--primary-dark);
-  color: var(--primary-light);
+  color: var(--on-primary-dark);
 }
 
 .focus\:text-primary-dark:focus,
@@ -3312,7 +3281,7 @@ input[type=submit] {
 .before\:border-primary-darker::before,
 .border-primary-darker {
   border-color: var(--primary-darker);
-  color: var(--primary-darker);
+  color: var(--border-text-primary-darker);
 }
 
 .focus\:outline-primary-darker:focus,
@@ -3331,7 +3300,7 @@ input[type=submit] {
 .before\:bg-primary-darker::before,
 .bg-primary-darker {
   background-color: var(--primary-darker);
-  color: var(--primary-light);
+  color: var(--on-primary-darker);
 }
 
 .focus\:text-primary-darker:focus,
@@ -3350,7 +3319,7 @@ input[type=submit] {
 .before\:border-primary-darkest::before,
 .border-primary-darkest {
   border-color: var(--primary-darkest);
-  color: var(--primary-darkest);
+  color: var(--border-text-primary-darkest);
 }
 
 .focus\:outline-primary-darkest:focus,
@@ -3369,7 +3338,7 @@ input[type=submit] {
 .before\:bg-primary-darkest::before,
 .bg-primary-darkest {
   background-color: var(--primary-darkest);
-  color: var(--primary-light);
+  color: var(--on-primary-darkest);
 }
 
 .focus\:text-primary-darkest:focus,
@@ -3388,7 +3357,7 @@ input[type=submit] {
 .before\:border-accent-lightest::before,
 .border-accent-lightest {
   border-color: var(--accent-lightest);
-  color: var(--accent);
+  color: var(--border-text-accent-lightest);
 }
 
 .focus\:outline-accent-lightest:focus,
@@ -3407,7 +3376,7 @@ input[type=submit] {
 .before\:bg-accent-lightest::before,
 .bg-accent-lightest {
   background-color: var(--accent-lightest);
-  color: var(--accent);
+  color: var(--on-accent-lightest);
 }
 
 .focus\:text-accent-lightest:focus,
@@ -3426,7 +3395,7 @@ input[type=submit] {
 .before\:border-accent-lighter::before,
 .border-accent-lighter {
   border-color: var(--accent-lighter);
-  color: var(--accent);
+  color: var(--border-text-accent-lighter);
 }
 
 .focus\:outline-accent-lighter:focus,
@@ -3445,7 +3414,7 @@ input[type=submit] {
 .before\:bg-accent-lighter::before,
 .bg-accent-lighter {
   background-color: var(--accent-lighter);
-  color: var(--accent-dark);
+  color: var(--on-accent-lighter);
 }
 
 .focus\:text-accent-lighter:focus,
@@ -3464,7 +3433,7 @@ input[type=submit] {
 .before\:border-accent-light::before,
 .border-accent-light {
   border-color: var(--accent-light);
-  color: var(--accent);
+  color: var(--border-text-accent-light);
 }
 
 .focus\:outline-accent-light:focus,
@@ -3483,7 +3452,7 @@ input[type=submit] {
 .before\:bg-accent-light::before,
 .bg-accent-light {
   background-color: var(--accent-light);
-  color: var(--accent-dark);
+  color: var(--on-accent-light);
 }
 
 .focus\:text-accent-light:focus,
@@ -3502,7 +3471,7 @@ input[type=submit] {
 .before\:border-accent::before,
 .border-accent {
   border-color: var(--accent);
-  color: var(--accent);
+  color: var(--border-text-accent);
 }
 
 .focus\:outline-accent:focus,
@@ -3521,7 +3490,7 @@ input[type=submit] {
 .before\:bg-accent::before,
 .bg-accent {
   background-color: var(--accent);
-  color: var(--accent-lightest);
+  color: var(--on-accent);
 }
 
 .focus\:text-accent:focus,
@@ -3540,7 +3509,7 @@ input[type=submit] {
 .before\:border-accent-dark::before,
 .border-accent-dark {
   border-color: var(--accent-dark);
-  color: var(--accent-dark);
+  color: var(--border-text-accent-dark);
 }
 
 .focus\:outline-accent-dark:focus,
@@ -3559,7 +3528,7 @@ input[type=submit] {
 .before\:bg-accent-dark::before,
 .bg-accent-dark {
   background-color: var(--accent-dark);
-  color: var(--accent-light);
+  color: var(--on-accent-dark);
 }
 
 .focus\:text-accent-dark:focus,
@@ -3578,7 +3547,7 @@ input[type=submit] {
 .before\:border-accent-darker::before,
 .border-accent-darker {
   border-color: var(--accent-darker);
-  color: var(--accent-darker);
+  color: var(--border-text-accent-darker);
 }
 
 .focus\:outline-accent-darker:focus,
@@ -3597,7 +3566,7 @@ input[type=submit] {
 .before\:bg-accent-darker::before,
 .bg-accent-darker {
   background-color: var(--accent-darker);
-  color: var(--accent-light);
+  color: var(--on-accent-darker);
 }
 
 .focus\:text-accent-darker:focus,
@@ -3616,7 +3585,7 @@ input[type=submit] {
 .before\:border-accent-darkest::before,
 .border-accent-darkest {
   border-color: var(--accent-darkest);
-  color: var(--accent-darkest);
+  color: var(--border-text-accent-darkest);
 }
 
 .focus\:outline-accent-darkest:focus,
@@ -3635,7 +3604,7 @@ input[type=submit] {
 .before\:bg-accent-darkest::before,
 .bg-accent-darkest {
   background-color: var(--accent-darkest);
-  color: var(--accent-light);
+  color: var(--on-accent-darkest);
 }
 
 .focus\:text-accent-darkest:focus,
@@ -3654,7 +3623,7 @@ input[type=submit] {
 .before\:border-success-lightest::before,
 .border-success-lightest {
   border-color: var(--success-lightest);
-  color: var(--success);
+  color: var(--border-text-success-lightest);
 }
 
 .focus\:outline-success-lightest:focus,
@@ -3673,7 +3642,7 @@ input[type=submit] {
 .before\:bg-success-lightest::before,
 .bg-success-lightest {
   background-color: var(--success-lightest);
-  color: var(--success-dark);
+  color: var(--on-success-lightest);
 }
 
 .focus\:text-success-lightest:focus,
@@ -3692,7 +3661,7 @@ input[type=submit] {
 .before\:border-success-lighter::before,
 .border-success-lighter {
   border-color: var(--success-lighter);
-  color: var(--success);
+  color: var(--border-text-success-lighter);
 }
 
 .focus\:outline-success-lighter:focus,
@@ -3711,7 +3680,7 @@ input[type=submit] {
 .before\:bg-success-lighter::before,
 .bg-success-lighter {
   background-color: var(--success-lighter);
-  color: var(--success-dark);
+  color: var(--on-success-lighter);
 }
 
 .focus\:text-success-lighter:focus,
@@ -3730,7 +3699,7 @@ input[type=submit] {
 .before\:border-success-light::before,
 .border-success-light {
   border-color: var(--success-light);
-  color: var(--success);
+  color: var(--border-text-success-light);
 }
 
 .focus\:outline-success-light:focus,
@@ -3749,7 +3718,7 @@ input[type=submit] {
 .before\:bg-success-light::before,
 .bg-success-light {
   background-color: var(--success-light);
-  color: var(--success-dark);
+  color: var(--on-success-light);
 }
 
 .focus\:text-success-light:focus,
@@ -3768,7 +3737,7 @@ input[type=submit] {
 .before\:border-success::before,
 .border-success {
   border-color: var(--success);
-  color: var(--success);
+  color: var(--border-text-success);
 }
 
 .focus\:outline-success:focus,
@@ -3787,7 +3756,7 @@ input[type=submit] {
 .before\:bg-success::before,
 .bg-success {
   background-color: var(--success);
-  color: var(--success-darker);
+  color: var(--on-success);
 }
 
 .focus\:text-success:focus,
@@ -3806,7 +3775,7 @@ input[type=submit] {
 .before\:border-success-dark::before,
 .border-success-dark {
   border-color: var(--success-dark);
-  color: var(--success-dark);
+  color: var(--border-text-success-dark);
 }
 
 .focus\:outline-success-dark:focus,
@@ -3825,7 +3794,7 @@ input[type=submit] {
 .before\:bg-success-dark::before,
 .bg-success-dark {
   background-color: var(--success-dark);
-  color: var(--success-light);
+  color: var(--on-success-dark);
 }
 
 .focus\:text-success-dark:focus,
@@ -3844,7 +3813,7 @@ input[type=submit] {
 .before\:border-success-darker::before,
 .border-success-darker {
   border-color: var(--success-darker);
-  color: var(--success-darker);
+  color: var(--border-text-success-darker);
 }
 
 .focus\:outline-success-darker:focus,
@@ -3863,7 +3832,7 @@ input[type=submit] {
 .before\:bg-success-darker::before,
 .bg-success-darker {
   background-color: var(--success-darker);
-  color: var(--success);
+  color: var(--on-success-darker);
 }
 
 .focus\:text-success-darker:focus,
@@ -3882,7 +3851,7 @@ input[type=submit] {
 .before\:border-success-darkest::before,
 .border-success-darkest {
   border-color: var(--success-darkest);
-  color: var(--success-darkest);
+  color: var(--border-text-success-darkest);
 }
 
 .focus\:outline-success-darkest:focus,
@@ -3901,7 +3870,7 @@ input[type=submit] {
 .before\:bg-success-darkest::before,
 .bg-success-darkest {
   background-color: var(--success-darkest);
-  color: var(--success);
+  color: var(--on-success-darkest);
 }
 
 .focus\:text-success-darkest:focus,
@@ -3920,7 +3889,7 @@ input[type=submit] {
 .before\:border-info-lightest::before,
 .border-info-lightest {
   border-color: var(--info-lightest);
-  color: var(--info);
+  color: var(--border-text-info-lightest);
 }
 
 .focus\:outline-info-lightest:focus,
@@ -3939,7 +3908,7 @@ input[type=submit] {
 .before\:bg-info-lightest::before,
 .bg-info-lightest {
   background-color: var(--info-lightest);
-  color: var(--info-dark);
+  color: var(--on-info-lightest);
 }
 
 .focus\:text-info-lightest:focus,
@@ -3958,7 +3927,7 @@ input[type=submit] {
 .before\:border-info-lighter::before,
 .border-info-lighter {
   border-color: var(--info-lighter);
-  color: var(--info);
+  color: var(--border-text-info-lighter);
 }
 
 .focus\:outline-info-lighter:focus,
@@ -3977,7 +3946,7 @@ input[type=submit] {
 .before\:bg-info-lighter::before,
 .bg-info-lighter {
   background-color: var(--info-lighter);
-  color: var(--info-dark);
+  color: var(--on-info-lighter);
 }
 
 .focus\:text-info-lighter:focus,
@@ -3996,7 +3965,7 @@ input[type=submit] {
 .before\:border-info-light::before,
 .border-info-light {
   border-color: var(--info-light);
-  color: var(--info);
+  color: var(--border-text-info-light);
 }
 
 .focus\:outline-info-light:focus,
@@ -4015,7 +3984,7 @@ input[type=submit] {
 .before\:bg-info-light::before,
 .bg-info-light {
   background-color: var(--info-light);
-  color: var(--info-dark);
+  color: var(--on-info-light);
 }
 
 .focus\:text-info-light:focus,
@@ -4034,7 +4003,7 @@ input[type=submit] {
 .before\:border-info::before,
 .border-info {
   border-color: var(--info);
-  color: var(--info);
+  color: var(--border-text-info);
 }
 
 .focus\:outline-info:focus,
@@ -4053,7 +4022,7 @@ input[type=submit] {
 .before\:bg-info::before,
 .bg-info {
   background-color: var(--info);
-  color: var(--info-darker);
+  color: var(--on-info);
 }
 
 .focus\:text-info:focus,
@@ -4072,7 +4041,7 @@ input[type=submit] {
 .before\:border-info-dark::before,
 .border-info-dark {
   border-color: var(--info-dark);
-  color: var(--info-dark);
+  color: var(--border-text-info-dark);
 }
 
 .focus\:outline-info-dark:focus,
@@ -4091,7 +4060,7 @@ input[type=submit] {
 .before\:bg-info-dark::before,
 .bg-info-dark {
   background-color: var(--info-dark);
-  color: var(--info-light);
+  color: var(--on-info-dark);
 }
 
 .focus\:text-info-dark:focus,
@@ -4110,7 +4079,7 @@ input[type=submit] {
 .before\:border-info-darker::before,
 .border-info-darker {
   border-color: var(--info-darker);
-  color: var(--info-darker);
+  color: var(--border-text-info-darker);
 }
 
 .focus\:outline-info-darker:focus,
@@ -4129,7 +4098,7 @@ input[type=submit] {
 .before\:bg-info-darker::before,
 .bg-info-darker {
   background-color: var(--info-darker);
-  color: var(--info);
+  color: var(--on-info-darker);
 }
 
 .focus\:text-info-darker:focus,
@@ -4148,7 +4117,7 @@ input[type=submit] {
 .before\:border-info-darkest::before,
 .border-info-darkest {
   border-color: var(--info-darkest);
-  color: var(--info-darkest);
+  color: var(--border-text-info-darkest);
 }
 
 .focus\:outline-info-darkest:focus,
@@ -4167,7 +4136,7 @@ input[type=submit] {
 .before\:bg-info-darkest::before,
 .bg-info-darkest {
   background-color: var(--info-darkest);
-  color: var(--info);
+  color: var(--on-info-darkest);
 }
 
 .focus\:text-info-darkest:focus,
@@ -4186,7 +4155,7 @@ input[type=submit] {
 .before\:border-warning-lightest::before,
 .border-warning-lightest {
   border-color: var(--warning-lightest);
-  color: var(--warning);
+  color: var(--border-text-warning-lightest);
 }
 
 .focus\:outline-warning-lightest:focus,
@@ -4205,7 +4174,7 @@ input[type=submit] {
 .before\:bg-warning-lightest::before,
 .bg-warning-lightest {
   background-color: var(--warning-lightest);
-  color: var(--warning-dark);
+  color: var(--on-warning-lightest);
 }
 
 .focus\:text-warning-lightest:focus,
@@ -4224,7 +4193,7 @@ input[type=submit] {
 .before\:border-warning-lighter::before,
 .border-warning-lighter {
   border-color: var(--warning-lighter);
-  color: var(--warning);
+  color: var(--border-text-warning-lighter);
 }
 
 .focus\:outline-warning-lighter:focus,
@@ -4243,7 +4212,7 @@ input[type=submit] {
 .before\:bg-warning-lighter::before,
 .bg-warning-lighter {
   background-color: var(--warning-lighter);
-  color: var(--warning-dark);
+  color: var(--on-warning-lighter);
 }
 
 .focus\:text-warning-lighter:focus,
@@ -4262,7 +4231,7 @@ input[type=submit] {
 .before\:border-warning-light::before,
 .border-warning-light {
   border-color: var(--warning-light);
-  color: var(--warning);
+  color: var(--border-text-warning-light);
 }
 
 .focus\:outline-warning-light:focus,
@@ -4281,7 +4250,7 @@ input[type=submit] {
 .before\:bg-warning-light::before,
 .bg-warning-light {
   background-color: var(--warning-light);
-  color: var(--warning-dark);
+  color: var(--on-warning-light);
 }
 
 .focus\:text-warning-light:focus,
@@ -4300,7 +4269,7 @@ input[type=submit] {
 .before\:border-warning::before,
 .border-warning {
   border-color: var(--warning);
-  color: var(--warning);
+  color: var(--border-text-warning);
 }
 
 .focus\:outline-warning:focus,
@@ -4319,7 +4288,7 @@ input[type=submit] {
 .before\:bg-warning::before,
 .bg-warning {
   background-color: var(--warning);
-  color: var(--warning-darker);
+  color: var(--on-warning);
 }
 
 .focus\:text-warning:focus,
@@ -4338,7 +4307,7 @@ input[type=submit] {
 .before\:border-warning-dark::before,
 .border-warning-dark {
   border-color: var(--warning-dark);
-  color: var(--warning-dark);
+  color: var(--border-text-warning-dark);
 }
 
 .focus\:outline-warning-dark:focus,
@@ -4357,7 +4326,7 @@ input[type=submit] {
 .before\:bg-warning-dark::before,
 .bg-warning-dark {
   background-color: var(--warning-dark);
-  color: var(--warning-light);
+  color: var(--on-warning-dark);
 }
 
 .focus\:text-warning-dark:focus,
@@ -4376,7 +4345,7 @@ input[type=submit] {
 .before\:border-warning-darker::before,
 .border-warning-darker {
   border-color: var(--warning-darker);
-  color: var(--warning-darker);
+  color: var(--border-text-warning-darker);
 }
 
 .focus\:outline-warning-darker:focus,
@@ -4395,7 +4364,7 @@ input[type=submit] {
 .before\:bg-warning-darker::before,
 .bg-warning-darker {
   background-color: var(--warning-darker);
-  color: var(--warning);
+  color: var(--on-warning-darker);
 }
 
 .focus\:text-warning-darker:focus,
@@ -4414,7 +4383,7 @@ input[type=submit] {
 .before\:border-warning-darkest::before,
 .border-warning-darkest {
   border-color: var(--warning-darkest);
-  color: var(--warning-darkest);
+  color: var(--border-text-warning-darkest);
 }
 
 .focus\:outline-warning-darkest:focus,
@@ -4433,7 +4402,7 @@ input[type=submit] {
 .before\:bg-warning-darkest::before,
 .bg-warning-darkest {
   background-color: var(--warning-darkest);
-  color: var(--warning);
+  color: var(--on-warning-darkest);
 }
 
 .focus\:text-warning-darkest:focus,
@@ -4452,7 +4421,7 @@ input[type=submit] {
 .before\:border-danger-lightest::before,
 .border-danger-lightest {
   border-color: var(--danger-lightest);
-  color: var(--danger);
+  color: var(--border-text-danger-lightest);
 }
 
 .focus\:outline-danger-lightest:focus,
@@ -4471,7 +4440,7 @@ input[type=submit] {
 .before\:bg-danger-lightest::before,
 .bg-danger-lightest {
   background-color: var(--danger-lightest);
-  color: var(--danger);
+  color: var(--on-danger-lightest);
 }
 
 .focus\:text-danger-lightest:focus,
@@ -4490,7 +4459,7 @@ input[type=submit] {
 .before\:border-danger-lighter::before,
 .border-danger-lighter {
   border-color: var(--danger-lighter);
-  color: var(--danger);
+  color: var(--border-text-danger-lighter);
 }
 
 .focus\:outline-danger-lighter:focus,
@@ -4509,7 +4478,7 @@ input[type=submit] {
 .before\:bg-danger-lighter::before,
 .bg-danger-lighter {
   background-color: var(--danger-lighter);
-  color: var(--danger-dark);
+  color: var(--on-danger-lighter);
 }
 
 .focus\:text-danger-lighter:focus,
@@ -4528,7 +4497,7 @@ input[type=submit] {
 .before\:border-danger-light::before,
 .border-danger-light {
   border-color: var(--danger-light);
-  color: var(--danger);
+  color: var(--border-text-danger-light);
 }
 
 .focus\:outline-danger-light:focus,
@@ -4547,7 +4516,7 @@ input[type=submit] {
 .before\:bg-danger-light::before,
 .bg-danger-light {
   background-color: var(--danger-light);
-  color: var(--danger-dark);
+  color: var(--on-danger-light);
 }
 
 .focus\:text-danger-light:focus,
@@ -4566,7 +4535,7 @@ input[type=submit] {
 .before\:border-danger::before,
 .border-danger {
   border-color: var(--danger);
-  color: var(--danger);
+  color: var(--border-text-danger);
 }
 
 .focus\:outline-danger:focus,
@@ -4585,7 +4554,7 @@ input[type=submit] {
 .before\:bg-danger::before,
 .bg-danger {
   background-color: var(--danger);
-  color: var(--danger-lightest);
+  color: var(--on-danger);
 }
 
 .focus\:text-danger:focus,
@@ -4604,7 +4573,7 @@ input[type=submit] {
 .before\:border-danger-dark::before,
 .border-danger-dark {
   border-color: var(--danger-dark);
-  color: var(--danger-dark);
+  color: var(--border-text-danger-dark);
 }
 
 .focus\:outline-danger-dark:focus,
@@ -4623,7 +4592,7 @@ input[type=submit] {
 .before\:bg-danger-dark::before,
 .bg-danger-dark {
   background-color: var(--danger-dark);
-  color: var(--danger-light);
+  color: var(--on-danger-dark);
 }
 
 .focus\:text-danger-dark:focus,
@@ -4642,7 +4611,7 @@ input[type=submit] {
 .before\:border-danger-darker::before,
 .border-danger-darker {
   border-color: var(--danger-darker);
-  color: var(--danger-darker);
+  color: var(--border-text-danger-darker);
 }
 
 .focus\:outline-danger-darker:focus,
@@ -4661,7 +4630,7 @@ input[type=submit] {
 .before\:bg-danger-darker::before,
 .bg-danger-darker {
   background-color: var(--danger-darker);
-  color: var(--danger-light);
+  color: var(--on-danger-darker);
 }
 
 .focus\:text-danger-darker:focus,
@@ -4680,7 +4649,7 @@ input[type=submit] {
 .before\:border-danger-darkest::before,
 .border-danger-darkest {
   border-color: var(--danger-darkest);
-  color: var(--danger-darkest);
+  color: var(--border-text-danger-darkest);
 }
 
 .focus\:outline-danger-darkest:focus,
@@ -4699,7 +4668,7 @@ input[type=submit] {
 .before\:bg-danger-darkest::before,
 .bg-danger-darkest {
   background-color: var(--danger-darkest);
-  color: var(--danger-light);
+  color: var(--on-danger-darkest);
 }
 
 .focus\:text-danger-darkest:focus,
@@ -4718,7 +4687,7 @@ input[type=submit] {
 .before\:border-default-lightest::before,
 .border-default-lightest {
   border-color: var(--default-lightest);
-  color: var(--default);
+  color: var(--border-text-default-lightest);
 }
 
 .focus\:outline-default-lightest:focus,
@@ -4737,7 +4706,7 @@ input[type=submit] {
 .before\:bg-default-lightest::before,
 .bg-default-lightest {
   background-color: var(--default-lightest);
-  color: var(--default);
+  color: var(--on-default-lightest);
 }
 
 .focus\:text-default-lightest:focus,
@@ -4756,7 +4725,7 @@ input[type=submit] {
 .before\:border-default-lighter::before,
 .border-default-lighter {
   border-color: var(--default-lighter);
-  color: var(--default);
+  color: var(--border-text-default-lighter);
 }
 
 .focus\:outline-default-lighter:focus,
@@ -4775,7 +4744,7 @@ input[type=submit] {
 .before\:bg-default-lighter::before,
 .bg-default-lighter {
   background-color: var(--default-lighter);
-  color: var(--default-dark);
+  color: var(--on-default-lighter);
 }
 
 .focus\:text-default-lighter:focus,
@@ -4794,7 +4763,7 @@ input[type=submit] {
 .before\:border-default-light::before,
 .border-default-light {
   border-color: var(--default-light);
-  color: var(--default);
+  color: var(--border-text-default-light);
 }
 
 .focus\:outline-default-light:focus,
@@ -4813,7 +4782,7 @@ input[type=submit] {
 .before\:bg-default-light::before,
 .bg-default-light {
   background-color: var(--default-light);
-  color: var(--default-dark);
+  color: var(--on-default-light);
 }
 
 .focus\:text-default-light:focus,
@@ -4832,7 +4801,7 @@ input[type=submit] {
 .before\:border-default::before,
 .border-default {
   border-color: var(--default);
-  color: var(--default);
+  color: var(--border-text-default);
 }
 
 .focus\:outline-default:focus,
@@ -4851,7 +4820,7 @@ input[type=submit] {
 .before\:bg-default::before,
 .bg-default {
   background-color: var(--default);
-  color: var(--default-lightest);
+  color: var(--on-default);
 }
 
 .focus\:text-default:focus,
@@ -4870,7 +4839,7 @@ input[type=submit] {
 .before\:border-default-dark::before,
 .border-default-dark {
   border-color: var(--default-dark);
-  color: var(--default-dark);
+  color: var(--border-text-default-dark);
 }
 
 .focus\:outline-default-dark:focus,
@@ -4889,7 +4858,7 @@ input[type=submit] {
 .before\:bg-default-dark::before,
 .bg-default-dark {
   background-color: var(--default-dark);
-  color: var(--default-light);
+  color: var(--on-default-dark);
 }
 
 .focus\:text-default-dark:focus,
@@ -4908,7 +4877,7 @@ input[type=submit] {
 .before\:border-default-darker::before,
 .border-default-darker {
   border-color: var(--default-darker);
-  color: var(--default-darker);
+  color: var(--border-text-default-darker);
 }
 
 .focus\:outline-default-darker:focus,
@@ -4927,7 +4896,7 @@ input[type=submit] {
 .before\:bg-default-darker::before,
 .bg-default-darker {
   background-color: var(--default-darker);
-  color: var(--default-light);
+  color: var(--on-default-darker);
 }
 
 .focus\:text-default-darker:focus,
@@ -4946,7 +4915,7 @@ input[type=submit] {
 .before\:border-default-darkest::before,
 .border-default-darkest {
   border-color: var(--default-darkest);
-  color: var(--default-darkest);
+  color: var(--border-text-default-darkest);
 }
 
 .focus\:outline-default-darkest:focus,
@@ -4965,7 +4934,7 @@ input[type=submit] {
 .before\:bg-default-darkest::before,
 .bg-default-darkest {
   background-color: var(--default-darkest);
-  color: var(--default-light);
+  color: var(--on-default-darkest);
 }
 
 .focus\:text-default-darkest:focus,
@@ -5002,7 +4971,7 @@ input[type=submit] {
 .before\:bg-white::before,
 .bg-white {
   background-color: var(--white);
-  color: var(--black);
+  color: var(--on-white);
 }
 
 .focus\:text-white:focus,
@@ -5039,7 +5008,7 @@ input[type=submit] {
 .before\:bg-black::before,
 .bg-black {
   background-color: var(--black);
-  color: var(--white);
+  color: var(--on-black);
 }
 
 .focus\:text-black:focus,

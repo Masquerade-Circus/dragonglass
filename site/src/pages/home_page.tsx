@@ -5,7 +5,8 @@ import { routeByPage, type DocumentationPage } from "../docs/catalog";
 
 const installCode = `bun add dragonglass`;
 
-const importCode = `import "dragonglass/dist/dragonglass.css";`;
+const importCode = `import "dragonglass/dist/dragonglass.css";
+import "dragonglass/dist/themes/default.css";`;
 
 const appShellCode = `<body>
   <header>
@@ -47,7 +48,10 @@ export default () => (
     <DemoSection id="install-dragonglass" title="Install and import">
       <p>Install Dragonglass with Bun.</p>
       <CodeExample code={installCode} />
-      <p>Import the distributed CSS from your application entry point.</p>
+      <p>
+        Import the framework and one compiled theme from your application entry
+        point.
+      </p>
       <CodeExample code={importCode} />
     </DemoSection>
 

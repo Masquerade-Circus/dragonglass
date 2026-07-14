@@ -1,4 +1,4 @@
-import { categoryOrder, routes } from "../docs/catalog";
+import { catalog, categoryOrder } from "../docs/catalog";
 
 type LayoutProps = {
   currentPath?: string;
@@ -51,7 +51,7 @@ const Header = ({ currentPath }: LayoutProps) => (
             <header>{category}</header>,
             <hr />,
             <ul data-list>
-              {routes
+              {catalog
                 .filter((route) => route.category === category)
                 .map(({ path, label, icon, color }) => (
                   <li>

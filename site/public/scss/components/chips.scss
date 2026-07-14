@@ -1,4 +1,3 @@
-@use "sass:map";
 @use "./vars" as *;
 
 [data-chip] {
@@ -6,11 +5,7 @@
   --chip-background: var(--white);
   --chip-text: var(--default-dark);
   --chip-active: var(--primary);
-  --chip-active-text: #{automatic-family-token(
-      "primary",
-      map.get($colors, "primary"),
-      "primary"
-    )};
+  --chip-active-text: var(--on-primary);
   --control-accent: var(--chip-active);
   display: inline-flex;
   align-items: center;
@@ -55,12 +50,12 @@ label[data-chip] {
   --control-accent: var(--chip-active-text);
 }
 
-@each $name, $color in $primaryColors {
+@each $name in $primaryColorNames {
   [data-chip~="#{$name}"] {
     --chip-border: var(--#{$name});
     --chip-background: var(--#{$name}-light);
     --chip-text: var(--default-dark);
     --chip-active: var(--#{$name});
-    --chip-active-text: #{automatic-family-token($name, $color, $name)};
+    --chip-active-text: var(--on-#{$name});
   }
 }

@@ -232,11 +232,11 @@ const apiRows = [
       "Turns a neutral wrapper with a control, label and small into a floating field.",
   },
   {
-    name: 'data-field="warning|success"',
+    name: 'data-field="primary|accent|info|success|warning|danger|default"',
     type: "Attribute token",
     defaultValue: "Neutral",
     description:
-      "Applies a non-error semantic state to a field container and its control.",
+      "Applies a documented semantic color to a field container and its control.",
   },
   {
     name: "data-toggle",

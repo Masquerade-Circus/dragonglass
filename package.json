@@ -2,15 +2,25 @@
   "name": "dragonglass",
   "version": "1.0.2",
   "description": "HTML5-first and pure CSS framework for fast UI building",
-  "source": "site/public/scss/main.scss",
   "main": "dist/dragonglass.css",
   "style": "dist/dragonglass.css",
+  "exports": {
+    ".": "./dist/dragonglass.css",
+    "./dist/*": "./dist/*",
+    "./theme": {
+      "sass": "./theme.scss",
+      "default": "./theme.scss"
+    },
+    "./package.json": "./package.json"
+  },
   "repository": "git@github.com:Masquerade-Circus/dragonglass.git",
   "author": "Masquerade <christian@masquerade-circus.net>",
   "license": "Apache-2.0",
   "private": false,
   "files": [
-    "dist"
+    "dist",
+    "scss",
+    "theme.scss"
   ],
   "keywords": [
     "Dragonglass",

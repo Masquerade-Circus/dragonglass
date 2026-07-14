@@ -1,15 +1,7 @@
-@use "sass:map";
 @use "./vars" as *;
 
-$progress-track-color: map.get($colors, "default-lighter");
-
 progress {
-  --progress-color: #{automatic-family-token(
-      "primary",
-      $progress-track-color,
-      "default-lighter",
-      3
-    )};
+  --progress-color: var(--progress-primary);
   --progress-track: var(--default-lighter);
   appearance: none;
   display: block;
@@ -23,14 +15,9 @@ progress {
   accent-color: var(--progress-color);
 }
 
-@each $name, $color in $primaryColors {
+@each $name in $primaryColorNames {
   progress[data-progress~="#{$name}"] {
-    --progress-color: #{automatic-family-token(
-        $name,
-        $progress-track-color,
-        "default-lighter",
-        3
-      )};
+    --progress-color: var(--progress-#{$name});
   }
 }
 

@@ -1,0 +1,5 @@
+@use "../../../../scss/theme" as dragonglass;
+
+:root {
+  @include dragonglass.tokens(#92400e);
+}

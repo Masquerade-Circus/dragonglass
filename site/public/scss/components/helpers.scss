@@ -10,10 +10,6 @@
     --spacing-#{$name}: #{$val};
   }
 
-  @each $name, $color in $colors {
-    --#{$name}: #{$color};
-  }
-
   @each $name, $size in $fontSizes {
     --font-size-#{$name}: #{$size};
   }

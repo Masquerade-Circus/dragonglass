@@ -1,0 +1,394 @@
+@use "sass:color";
+@use "sass:list";
+@use "sass:map";
+@use "sass:math";
+@use "sass:meta";
+
+$default-primary: #1d4ed8 !default;
+$_primary-lightness-minimum: 42%;
+$_primary-lightness-maximum: 56%;
+$primary-color-names: (
+  "primary",
+  "accent",
+  "success",
+  "info",
+  "warning",
+  "danger",
+  "default"
+);
+$secondary-color-names: ("white", "black");
+$color-weights: (
+  "-lightest",
+  "-lighter",
+  "-light",
+  "",
+  "-dark",
+  "-darker",
+  "-darkest"
+);
+$light-color-weights: ("-lightest", "-lighter", "-light");
+$dark-color-weights: ("-dark", "-darker", "-darkest");
+$dark-foreground-color-weights: ("", "-dark", "-darker", "-darkest");
+$luminous-foreground-color-weights: ("-light", "-lighter", "-lightest");
+
+@function _clamp($value, $minimum, $maximum) {
+  @return math.max($minimum, math.min($value, $maximum));
+}
+
+@function _validated-primary($primary) {
+  @if meta.type-of($primary) != "color" {
+    @error "Dragonglass theme primary must be a Sass color.";
+  }
+
+  @if color.channel($primary, "alpha") != 1 {
+    @error "Dragonglass theme primary must be fully opaque.";
+  }
+
+  $lightness: color.channel(
+    color.to-space($primary, oklch),
+    "lightness",
+    $space: oklch
+  );
+
+  @if $lightness <
+    $_primary-lightness-minimum or
+    $lightness >
+    $_primary-lightness-maximum
+  {
+    @error "Dragonglass theme primary OKLCH lightness must be between #{$_primary-lightness-minimum} and #{$_primary-lightness-maximum}. Received #{$lightness}.";
+  }
+
+  @return $primary;
+}
+
+@function _srgb($value) {
+  $in-gamut: color.to-gamut($value, $space: rgb, $method: local-minde);
+  $rgb: color.to-space($in-gamut, rgb);
+  $red: math.round(color.channel($rgb, "red", $space: rgb));
+  $green: math.round(color.channel($rgb, "green", $space: rgb));
+  $blue: math.round(color.channel($rgb, "blue", $space: rgb));
+
+  @return rgb($red, $green, $blue);
+}
+
+@function _derived-color($primary, $lightness, $chroma, $hue) {
+  $derived: color.change(
+    color.to-space($primary, oklch),
+    $lightness: $lightness,
+    $chroma: $chroma,
+    $hue: $hue,
+    $space: oklch
+  );
+
+  @return _srgb($derived);
+}
+
+@function base-colors($primary) {
+  $primary: _validated-primary($primary);
+  $oklch-primary: color.to-space($primary, oklch);
+  $lightness: color.channel($oklch-primary, "lightness", $space: oklch);
+  $chroma: color.channel($oklch-primary, "chroma", $space: oklch);
+  $hue: color.channel($oklch-primary, "hue", $space: oklch);
+
+  @if $chroma < 0.01 {
+    $hue: 270deg;
+  }
+
+  @return (
+    "primary": _srgb($primary),
+    "accent": _derived-color(
+        $primary,
+        _clamp($lightness + 8%, 45%, 70%),
+        _clamp($chroma * 1.05, 0.08, 0.2),
+        $hue + 50deg
+      ),
+    "success": _derived-color(
+        $primary,
+        _clamp($lightness + 26.5%, 60%, 75%),
+        _clamp($chroma * 0.7, 0.08, 0.16),
+        185deg
+      ),
+    "info": _derived-color(
+        $primary,
+        _clamp($lightness + 31%, 62%, 78%),
+        _clamp($chroma * 0.8, 0.08, 0.17),
+        213deg
+      ),
+    "warning": _derived-color(
+        $primary,
+        _clamp($lightness + 20%, 58%, 72%),
+        _clamp($chroma * 0.78, 0.08, 0.17),
+        66deg
+      ),
+    "danger": _derived-color(
+        $primary,
+        _clamp($lightness + 8%, 45%, 62%),
+        _clamp($chroma * 1.1, 0.1, 0.2),
+        27deg
+      ),
+    "default": _derived-color(
+        $primary,
+        _clamp($lightness + 10%, 42%, 65%),
+        _clamp($chroma * 0.3, 0.02, 0.065),
+        $hue
+      )
+  );
+}
+
+@function _tone($value, $lightness, $chroma) {
+  @return _srgb(
+    color.scale($value, $lightness: $lightness, $chroma: $chroma, $space: oklch)
+  );
+}
+
+@function _linear-rgb-channel($channel) {
+  $srgb: math.div($channel, 255);
+
+  @if $srgb <= 0.04045 {
+    @return math.div($srgb, 12.92);
+  }
+
+  @return math.pow(math.div($srgb + 0.055, 1.055), 2.4);
+}
+
+@function relative-luminance($value) {
+  $red: _linear-rgb-channel(color.channel($value, "red", $space: rgb));
+  $green: _linear-rgb-channel(color.channel($value, "green", $space: rgb));
+  $blue: _linear-rgb-channel(color.channel($value, "blue", $space: rgb));
+
+  @return 0.2126 * $red + 0.7152 * $green + 0.0722 * $blue;
+}
+
+@function contrast-ratio($first, $second) {
+  $first-luminance: relative-luminance($first);
+  $second-luminance: relative-luminance($second);
+  $lighter: math.max($first-luminance, $second-luminance);
+  $darker: math.min($first-luminance, $second-luminance);
+
+  @return math.div($lighter + 0.05, $darker + 0.05);
+}
+
+@function _validated-base-primary($primary, $minimum: 4.5) {
+  $foreground: _tone($primary, 90%, -85%);
+
+  @if contrast-ratio($foreground, $primary) < $minimum {
+    @error "Dragonglass theme primary must reach #{$minimum}:1 contrast against primary-lightest.";
+  }
+
+  @return $primary;
+}
+
+@function _normalized-derived-base($value, $name, $minimum: 4.5) {
+  $oklch-value: color.to-space($value, oklch);
+  $lightness: color.channel($oklch-value, "lightness", $space: oklch);
+  $chroma: color.channel($oklch-value, "chroma", $space: oklch);
+  $hue: color.channel($oklch-value, "hue", $space: oklch);
+
+  @for $step from 0 through 60 {
+    $candidate-lightness: math.max(10%, $lightness - $step * 1%);
+    $candidate: _derived-color($value, $candidate-lightness, $chroma, $hue);
+    $foreground: _tone($candidate, 90%, -85%);
+
+    @if contrast-ratio($foreground, $candidate) >= $minimum {
+      @return $candidate;
+    }
+  }
+
+  @error "Theme family '#{$name}' cannot reach #{$minimum}:1 contrast against its lightest token.";
+}
+
+@function palette($primary) {
+  $base-colors: base-colors($primary);
+  $palette: (
+    "white": #ffffff,
+    "black": #333333,
+  );
+
+  @each $name, $base-color in $base-colors {
+    @if $name == "primary" {
+      $base-color: _validated-base-primary($base-color);
+    } @else {
+      $base-color: _normalized-derived-base($base-color, $name);
+    }
+
+    $palette: map.merge(
+      $palette,
+      (
+        "#{$name}": $base-color,
+        "#{$name}-lightest": _tone($base-color, 90%, -85%),
+        "#{$name}-lighter": _tone($base-color, 70%, -60%),
+        "#{$name}-light": _tone($base-color, 45%, -30%),
+        "#{$name}-dark": _tone($base-color, -45%, -10%),
+        "#{$name}-darker": _tone($base-color, -70%, -25%),
+        "#{$name}-darkest": _tone($base-color, -90%, -55%),
+      )
+    );
+  }
+
+  @return $palette;
+}
+
+@function _color-position($token) {
+  @each $family in $primary-color-names {
+    @each $weight in $color-weights {
+      @if $token == "#{$family}#{$weight}" {
+        @return list.index($color-weights, $weight);
+      }
+    }
+  }
+
+  @return 0;
+}
+
+@function contrast-token(
+  $palette,
+  $name,
+  $against,
+  $excluded-token,
+  $minimum: 4.5,
+  $candidate-weights: $color-weights,
+  $allow-secondary: true
+) {
+  $selected-token: "";
+  $selected-excess: 22;
+  $selected-position-distance: 99;
+  $background-position: _color-position($excluded-token);
+
+  @each $weight in $candidate-weights {
+    $token-name: "#{$name}#{$weight}";
+    $candidate: map.get($palette, $token-name);
+
+    @if $token-name != $excluded-token and $candidate {
+      $ratio: contrast-ratio($candidate, $against);
+      $excess: $ratio - $minimum;
+      $position-distance: math.abs(
+        _color-position($token-name) - $background-position
+      );
+      $closer-to-threshold: $excess < $selected-excess - 0.000000001;
+      $same-excess: math.abs($excess - $selected-excess) <= 0.000000001;
+      $wins-position-tie: $same-excess and
+        $position-distance <
+        $selected-position-distance;
+
+      @if $ratio >= $minimum and ($closer-to-threshold or $wins-position-tie) {
+        $selected-token: $token-name;
+        $selected-excess: $excess;
+        $selected-position-distance: $position-distance;
+      }
+    }
+  }
+
+  @if $selected-token == "" and $allow-secondary {
+    @each $token-name in $secondary-color-names {
+      $candidate: map.get($palette, $token-name);
+      $ratio: contrast-ratio($candidate, $against);
+      $excess: $ratio - $minimum;
+
+      @if $ratio >= $minimum and $excess < $selected-excess {
+        $selected-token: $token-name;
+        $selected-excess: $excess;
+      }
+    }
+  }
+
+  @if $selected-token == "" {
+    @error "Theme family '#{$name}' has no candidate other than '#{$excluded-token}' that reaches #{$minimum}:1 contrast.";
+  }
+
+  @return $selected-token;
+}
+
+@function _secondary-contrast-token($palette, $name, $minimum: 4.5) {
+  $opposite-name: "";
+
+  @if $name == "white" {
+    $opposite-name: "black";
+  } @else if $name == "black" {
+    $opposite-name: "white";
+  } @else {
+    @error "Secondary color '#{$name}' has no configured opposite.";
+  }
+
+  @if contrast-ratio(
+      map.get($palette, $opposite-name),
+      map.get($palette, $name)
+    ) <
+    $minimum
+  {
+    @error "Secondary colors '#{$name}' and '#{$opposite-name}' do not reach #{$minimum}:1 contrast.";
+  }
+
+  @return $opposite-name;
+}
+
+@function _border-text-token($palette, $name, $weight) {
+  $token-name: "#{$name}#{$weight}";
+  $value: map.get($palette, $token-name);
+
+  @if color.channel($value, "lightness", $space: hsl) < 55% {
+    @return $token-name;
+  }
+
+  @return $name;
+}
+
+@mixin tokens($primary: $default-primary) {
+  $palette: palette($primary);
+
+  @each $name, $value in $palette {
+    --#{$name}: #{$value};
+  }
+
+  @each $name in $primary-color-names {
+    @each $weight in $color-weights {
+      $token-name: "#{$name}#{$weight}";
+      $value: map.get($palette, $token-name);
+      $on-token: "";
+
+      @if $weight == "" {
+        $on-token: "#{$name}-lightest";
+      } @else if list.index($light-color-weights, $weight) {
+        $on-token: contrast-token(
+          $palette,
+          $name,
+          $value,
+          $token-name,
+          $candidate-weights: $dark-foreground-color-weights,
+          $allow-secondary: false
+        );
+      } @else if list.index($dark-color-weights, $weight) {
+        $on-token: contrast-token(
+          $palette,
+          $name,
+          $value,
+          $token-name,
+          $candidate-weights: $luminous-foreground-color-weights,
+          $allow-secondary: false
+        );
+      }
+
+      $border-text-token: _border-text-token($palette, $name, $weight);
+
+      --on-#{$token-name}: var(--#{$on-token});
+      --border-text-#{$token-name}: var(--#{$border-text-token});
+    }
+  }
+
+  @each $name in $secondary-color-names {
+    $on-token: _secondary-contrast-token($palette, $name);
+    --on-#{$name}: var(--#{$on-token});
+  }
+
+  $progress-track: map.get($palette, "default-lighter");
+
+  @each $name in $primary-color-names {
+    $progress-token: contrast-token(
+      $palette,
+      $name,
+      $progress-track,
+      "default-lighter",
+      3
+    );
+    --progress-#{$name}: var(--#{$progress-token});
+  }
+}

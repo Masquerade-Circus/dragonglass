@@ -22,7 +22,91 @@ Import the distributed stylesheet from your application entry point:
 
 ```js
 import "dragonglass/dist/dragonglass.css";
+import "dragonglass/dist/themes/default.css";
 ```
+
+The first file contains components and utilities. The second file supplies the
+color tokens. Load a theme after the framework stylesheet.
+
+## Compile a custom theme
+
+Create `theme.scss` and provide one opaque primary color with OKLCH lightness
+between `42%` and `56%`. It must also support its lightest family token as text:
+
+```scss
+@use "pkg:dragonglass/theme" as dragonglass;
+
+:root {
+  @include dragonglass.tokens(#7c3aed);
+}
+```
+
+Compile it with Dart Sass:
+
+```sh
+bunx sass --pkg-importer=node theme.scss theme.css --style=compressed
+```
+
+Load the generated theme after `dragonglass.css`. The mixin derives accent,
+success, info, warning, danger, default, every light and dark step, foreground
+tokens, and progress colors. Every base uses its own lightest token as
+foreground. Dragonglass darkens the six derived bases until that pair reaches
+`4.5:1`, while preserving the supplied primary exactly. The compiler rejects
+transparent primary colors, values outside the supported lightness range, and
+any set that cannot satisfy the configured contrast thresholds.
+
+## Bundled themes
+
+Dragonglass ships twelve compiled themes. Load exactly one after the framework
+stylesheet:
+
+| Theme      | Primary   | Useful starting point                           |
+| ---------- | --------- | ----------------------------------------------- |
+| `default`  | `#1d4ed8` | General product interfaces                      |
+| `indigo`   | `#4338ca` | SaaS, finance and developer tools               |
+| `violet`   | `#7c3aed` | AI, developer and creative products             |
+| `magenta`  | `#a21caf` | Media, community and consumer products          |
+| `ruby`     | `#be123c` | Events, entertainment and campaign products     |
+| `amber`    | `#92400e` | Commerce, hospitality and editorial products    |
+| `moss`     | `#3f6212` | Health, sustainability and field operations     |
+| `emerald`  | `#047857` | Finance, healthcare and sustainability products |
+| `teal`     | `#0f766e` | Healthcare, collaboration and operational tools |
+| `ocean`    | `#0369a1` | Education, logistics and data products          |
+| `graphite` | `#475569` | Admin panels, documentation and public services |
+| `stone`    | `#57534e` | Archives, publishing and content-heavy tools    |
+
+```js
+import "dragonglass/dist/dragonglass.css";
+import "dragonglass/dist/themes/graphite.css";
+```
+
+Each theme preserves the same semantic token contract and selects foregrounds
+that meet the configured text and progress contrast thresholds. Product context
+still matters. Keep labels, icons or another programmatic cue on status and
+validation messages instead of communicating through color alone.
+
+One stylesheet can contain several scoped themes:
+
+```scss
+@use "pkg:dragonglass/theme" as dragonglass;
+
+[data-theme="violet"] {
+  @include dragonglass.tokens(#7c3aed);
+}
+
+[data-theme="forest"] {
+  @include dragonglass.tokens(#167c55);
+}
+```
+
+Apply a scoped theme on the root element:
+
+```html
+<html data-theme="forest"></html>
+```
+
+Overriding only `--primary` in the generated CSS does not recalculate the other
+tokens. Compile the mixin again when the primary changes.
 
 ## First app shell
 

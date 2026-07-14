@@ -6,29 +6,60 @@ import { documentationAssets } from "./site/src/docs/assets";
 import { routeByPath } from "./site/src/docs/catalog";
 import { router } from "./site/src/index";
 import { renderHtml } from "./site/src/render_html";
+import { bundledThemes } from "./site/src/themes";
 
 const build = async () => {
   console.log("Compiling scss source start");
-  const { css } = sass.compile("./site/public/scss/main.scss", {
-    loadPaths: ["site/", "node_modules/"],
-    sourceMap: false,
-    style: "expanded",
-  });
-  const { styles: minifiedCss } = new CleanCSS({
-    sourceMap: false,
-    level: {
-      1: {
-        roundingPrecision: "all=3",
+  const compileStylesheet = (path: string) => {
+    const { css } = sass.compile(path, {
+      loadPaths: ["site/", "node_modules/"],
+      sourceMap: false,
+      style: "expanded",
+    });
+    const minified = new CleanCSS({
+      sourceMap: false,
+      level: {
+        1: {
+          roundingPrecision: "all=3",
+        },
+        2: {
+          restructureRules: true,
+        },
       },
-      2: {
-        restructureRules: true,
-      },
-    },
-  }).minify(css);
+    }).minify(css);
 
-  fs.writeFileSync("./site/public/css/main.css", css, "utf-8");
-  fs.writeFileSync("./dist/dragonglass.css", css, "utf-8");
-  fs.writeFileSync("./dist/dragonglass.min.css", minifiedCss, "utf-8");
+    if (minified.errors.length > 0) {
+      throw new Error(minified.errors.join("\n"));
+    }
+
+    return { css, minifiedCss: minified.styles };
+  };
+
+  const core = compileStylesheet("./site/public/scss/main.scss");
+  const themes = bundledThemes.map(({ name }) => ({
+    name,
+    ...compileStylesheet(`./site/public/scss/themes/${name}.scss`),
+  }));
+
+  fs.emptyDirSync("./dist/themes");
+  fs.emptyDirSync("./site/public/css");
+  fs.writeFileSync("./site/public/css/main.css", core.css, "utf-8");
+  fs.writeFileSync("./dist/dragonglass.css", core.css, "utf-8");
+  fs.writeFileSync("./dist/dragonglass.min.css", core.minifiedCss, "utf-8");
+
+  for (const theme of themes) {
+    fs.writeFileSync(
+      `./site/public/css/theme-${theme.name}.css`,
+      theme.css,
+      "utf-8",
+    );
+    fs.writeFileSync(`./dist/themes/${theme.name}.css`, theme.css, "utf-8");
+    fs.writeFileSync(
+      `./dist/themes/${theme.name}.min.css`,
+      theme.minifiedCss,
+      "utf-8",
+    );
+  }
   console.log("Compiling scss source success");
 
   console.log("Compiling docs start");
@@ -48,9 +79,16 @@ const build = async () => {
   fs.emptyDirSync("./docs");
   fs.writeFileSync(
     `./docs/${documentationAssets.stylesheet.fileName}`,
-    minifiedCss,
+    core.minifiedCss,
     "utf-8",
   );
+  for (const theme of themes) {
+    fs.writeFileSync(
+      `./docs/${documentationAssets.themeStylesheet(theme.name).fileName}`,
+      theme.minifiedCss,
+      "utf-8",
+    );
+  }
   fs.writeFileSync(
     `./docs/${documentationAssets.script.fileName}`,
     documentationScript,
@@ -62,16 +100,17 @@ const build = async () => {
     const html = renderHtml({
       content: String(routeHtml),
       isDevelopment: false,
+      themeName: route.themeName ?? "default",
       title: `${route.label} | Dragonglass`,
     });
 
     if (path === "/dragonglass") {
-      fs.writeFileSync("./docs/index.html", html, "utf8");
+      fs.outputFileSync("./docs/index.html", html, "utf8");
       continue;
     }
 
     const routePath = path.replace("/dragonglass", "");
-    fs.writeFileSync(`./docs${routePath}`, html, "utf8");
+    fs.outputFileSync(`./docs${routePath}`, html, "utf8");
   }
   console.log("Compiling docs success");
 };
