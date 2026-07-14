@@ -1,0 +1,85 @@
+# Dragonglass
+
+> Dragonglass is an HTML5-first, pure CSS framework for semantic app interfaces, compiled color themes and focused utility classes.
+
+Use native HTML behavior first. Add Dragonglass component attributes for documented component contracts and utility classes only for focused visual adjustments. Load the core stylesheet and exactly one theme stylesheet.
+
+## Getting started
+
+- [Home](./index.html.md): Learn how Dragonglass styles semantic HTML and where to find each component.
+- [App components](./app-components.html.md): Compose common application surfaces from semantic HTML.
+
+## Foundations
+
+- [Layout](./layout.html.md): Build responsive page structures with Dragonglass layout primitives.
+
+## Actions
+
+- [Buttons](./buttons.html.md): Present primary, secondary and floating actions with buttons.
+- [Chips](./chips.html.md): Represent compact values, filters and selections with chips.
+
+## Forms
+
+- [Forms](./forms.html.md): Collect information with semantic, accessible form controls.
+
+## Navigation
+
+- [Toolbars](./toolbars.html.md): Group navigation, titles and actions in adaptable toolbars.
+- [Expansion panels](./expansion-panels.html.md): Reveal optional content in compact expansion panels.
+- [Steppers](./steppers.html.md): Guide people through ordered, multi-step tasks.
+- [Tabs](./tabs.html.md): Switch between related sections with accessible tabs.
+- [Menus](./menus.html.md): Offer compact groups of navigation links and actions.
+
+## Feedback
+
+- [Alerts](./alerts.html.md): Communicate important status and guidance with alerts.
+- [Notifications](./notifications.html.md): Deliver timely, contextual messages with notifications.
+- [Progress](./progress.html.md): Show determinate and indeterminate progress states.
+
+## Surfaces
+
+- [Bottom sheets](./bottom-sheets.html.md): Show contextual actions and content in bottom sheets.
+- [Cards](./cards.html.md): Group related content and actions in flexible cards.
+- [Dialogs](./dialogs.html.md): Focus attention on decisions and short tasks with dialogs.
+
+## Data display
+
+- [Badges](./badges.html.md): Highlight compact statuses, counts and labels with badges.
+- [Lists](./lists.html.md): Display related items, details and actions in structured lists.
+- [Tables](./tables.html.md): Present structured data in responsive tables.
+- [Tooltips](./tooltips.html.md): Add concise supporting context with tooltips.
+
+## Utilities
+
+- [Grid](./grid.html.md): Arrange content with the responsive grid system.
+- [Utilities](./utilities.html.md): Compose focused spacing, layout, border, typography, elevation and color adjustments.
+- [Elevations](./elevations.html.md): Apply consistent depth and emphasis with elevation utilities.
+- [Colors](./colors.html.md): Use the color palette for backgrounds, borders and text.
+- [Fonts](./fonts.html.md): Set readable type sizes, weights and styles.
+
+## Optional
+
+- [Default theme](./themes/default.html.md): Preview the Default theme across semantic colors and common components.
+- [Indigo theme](./themes/indigo.html.md): Preview the Indigo theme across semantic colors and common components.
+- [Violet theme](./themes/violet.html.md): Preview the Violet theme across semantic colors and common components.
+- [Magenta theme](./themes/magenta.html.md): Preview the Magenta theme across semantic colors and common components.
+- [Ruby theme](./themes/ruby.html.md): Preview the Ruby theme across semantic colors and common components.
+- [Amber theme](./themes/amber.html.md): Preview the Amber theme across semantic colors and common components.
+- [Moss theme](./themes/moss.html.md): Preview the Moss theme across semantic colors and common components.
+- [Emerald theme](./themes/emerald.html.md): Preview the Emerald theme across semantic colors and common components.
+- [Teal theme](./themes/teal.html.md): Preview the Teal theme across semantic colors and common components.
+- [Ocean theme](./themes/ocean.html.md): Preview the Ocean theme across semantic colors and common components.
+- [Graphite theme](./themes/graphite.html.md): Preview the Graphite theme across semantic colors and common components.
+- [Stone theme](./themes/stone.html.md): Preview the Stone theme across semantic colors and common components.
+- [Default dark theme](./themes/dark/default.html.md): Preview the Default dark theme across semantic colors and common components.
+- [Indigo dark theme](./themes/dark/indigo.html.md): Preview the Indigo dark theme across semantic colors and common components.
+- [Violet dark theme](./themes/dark/violet.html.md): Preview the Violet dark theme across semantic colors and common components.
+- [Magenta dark theme](./themes/dark/magenta.html.md): Preview the Magenta dark theme across semantic colors and common components.
+- [Ruby dark theme](./themes/dark/ruby.html.md): Preview the Ruby dark theme across semantic colors and common components.
+- [Amber dark theme](./themes/dark/amber.html.md): Preview the Amber dark theme across semantic colors and common components.
+- [Moss dark theme](./themes/dark/moss.html.md): Preview the Moss dark theme across semantic colors and common components.
+- [Emerald dark theme](./themes/dark/emerald.html.md): Preview the Emerald dark theme across semantic colors and common components.
+- [Teal dark theme](./themes/dark/teal.html.md): Preview the Teal dark theme across semantic colors and common components.
+- [Ocean dark theme](./themes/dark/ocean.html.md): Preview the Ocean dark theme across semantic colors and common components.
+- [Graphite dark theme](./themes/dark/graphite.html.md): Preview the Graphite dark theme across semantic colors and common components.
+- [Stone dark theme](./themes/dark/stone.html.md): Preview the Stone dark theme across semantic colors and common components.

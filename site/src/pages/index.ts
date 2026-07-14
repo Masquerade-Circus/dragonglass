@@ -24,6 +24,7 @@ import Notifications from "./notifications_page";
 import Steppers from "./steppers_page";
 import BottomSheets from "./bottom_sheets_page";
 import Tabs from "./tabs_page";
+import Utilities from "./utilities_page";
 
 export default {
   Html,
@@ -52,4 +53,5 @@ export default {
   Steppers,
   BottomSheets,
   Tabs,
+  Utilities,
 };

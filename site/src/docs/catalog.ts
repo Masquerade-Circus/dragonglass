@@ -48,6 +48,7 @@ type DocumentationPage =
   | "Tables"
   | "Tooltips"
   | "Progress"
+  | "Utilities"
   | "Theme";
 type DocumentationPath = string;
 
@@ -92,6 +93,16 @@ const catalog: DocumentationRoute[] = [
     page: "Grid",
     category: "Utilities",
     description: "Arrange content with the responsive grid system.",
+  },
+  {
+    path: `${basePath}/utilities.html`,
+    label: "Utilities",
+    icon: "tune",
+    color: "bg-default",
+    page: "Utilities",
+    category: "Utilities",
+    description:
+      "Compose focused spacing, layout, border, typography, elevation and color adjustments.",
   },
   {
     path: `${basePath}/elevations.html`,

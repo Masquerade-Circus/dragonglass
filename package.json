@@ -44,7 +44,6 @@
     "dev": "bun run dev:server & bun run dev:sass",
     "start": "bun run build && bun index.ts",
     "build": "bun build.ts",
-    "remark": "remark . -o",
     "commit": "git add . && git-cz",
     "release": "release-it --verbose",
     "release-test": "release-it --dry-run --verbose"
@@ -60,12 +59,10 @@
     "clean-css": "^5.3.3",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^10.6.0",
-    "eslint-plugin-sonarjs": "^4.1.0",
     "fs-extra": "^11.3.6",
     "modern-css-reset": "^1.4.0",
     "prettier": "^3.9.5",
     "release-it": "^20.2.1",
-    "remark-cli": "^12.0.1",
     "sass": "^1.101.0",
     "valyrian.js": "^9.1.13"
   },
@@ -93,9 +90,6 @@
     "hooks": {
       "before:init": [
         "bun run build"
-      ],
-      "after:@release-it/conventional-changelog": [
-        "bun run remark"
       ]
     }
   }

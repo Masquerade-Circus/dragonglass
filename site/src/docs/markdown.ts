@@ -1,0 +1,356 @@
+import { htmlToDom } from "valyrian.js/node";
+import { basePath, categoryOrder, type DocumentationRoute } from "./catalog";
+
+type MarkdownNode = {
+  childNodes?: MarkdownNode[];
+  getAttribute?: (name: string) => string | null;
+  nodeType?: number;
+  nodeValue?: string | null;
+  tagName?: string;
+  textContent?: string;
+};
+
+type MarkdownDocument = {
+  markdown: string;
+  markdownPath: string;
+  route: DocumentationRoute;
+};
+
+const childrenOf = (node: MarkdownNode) => node.childNodes ?? [];
+const tagOf = (node: MarkdownNode) =>
+  (node.tagName ?? "").toLowerCase().replace(/\/$/, "");
+const decodeHtmlEntities = (value: string) =>
+  value
+    .replace(/&#x([0-9a-f]+);/gi, (_, code) =>
+      String.fromCodePoint(Number.parseInt(code, 16)),
+    )
+    .replace(/&#(\d+);/g, (_, code) => String.fromCodePoint(Number(code)))
+    .replaceAll("&lt;", "<")
+    .replaceAll("&gt;", ">")
+    .replaceAll("&quot;", '"')
+    .replaceAll("&#39;", "'")
+    .replaceAll("&apos;", "'")
+    .replaceAll("&amp;", "&");
+const textOf = (node: MarkdownNode) =>
+  decodeHtmlEntities(node.textContent ?? "");
+const renderChildren = (node: MarkdownNode) =>
+  childrenOf(node).map(renderNode).join("");
+const inlineText = (value: string) =>
+  value
+    .replace(/\s+/g, " ")
+    .replace(/\s+([,.;:!?])/g, "$1")
+    .trim();
+const escapeTableCell = (value: string) =>
+  inlineText(value).replaceAll("|", "\\|");
+
+const descendantsByTag = (node: MarkdownNode, tagName: string) => {
+  const descendants: MarkdownNode[] = [];
+
+  for (const child of childrenOf(node)) {
+    if (tagOf(child) === tagName) {
+      descendants.push(child);
+    }
+
+    descendants.push(...descendantsByTag(child, tagName));
+  }
+
+  return descendants;
+};
+
+const firstByTag = (
+  node: MarkdownNode,
+  tagName: string,
+): MarkdownNode | null => {
+  if (tagOf(node) === tagName) {
+    return node;
+  }
+
+  for (const child of childrenOf(node)) {
+    const match = firstByTag(child, tagName);
+
+    if (match) {
+      return match;
+    }
+  }
+
+  return null;
+};
+
+const codeFence = (code: string, minimumLength: number) => {
+  const longestFence = Math.max(
+    0,
+    ...Array.from(code.matchAll(/`+/g), ([value]) => value.length),
+  );
+  return "`".repeat(Math.max(minimumLength, longestFence + 1));
+};
+
+const codeLanguage = (code: string) => {
+  const trimmed = code.trimStart();
+
+  if (trimmed.startsWith("<")) {
+    return "html";
+  }
+
+  if (trimmed.startsWith("@use") || trimmed.startsWith(":root")) {
+    return "scss";
+  }
+
+  if (trimmed.startsWith("import ")) {
+    return "js";
+  }
+
+  if (/^(bun|npm|pnpm|yarn|npx|bunx)\s/m.test(trimmed)) {
+    return "sh";
+  }
+
+  return "";
+};
+
+const renderCodeBlock = (node: MarkdownNode) => {
+  const code = textOf(node).replace(/^\n|\n$/g, "");
+  const fence = codeFence(code, 3);
+  const language = codeLanguage(code);
+  return `\n\n${fence}${language}\n${code}\n${fence}\n\n`;
+};
+
+const renderList = (node: MarkdownNode, ordered: boolean) => {
+  const items = childrenOf(node).filter((child) => tagOf(child) === "li");
+  const renderedItems = items.map((item, index) => {
+    const marker = ordered ? `${index + 1}.` : "-";
+    const content = inlineText(renderChildren(item));
+    return `${marker} ${content}`;
+  });
+
+  return `\n\n${renderedItems.join("\n")}\n\n`;
+};
+
+const renderTable = (node: MarkdownNode) => {
+  const rows = descendantsByTag(node, "tr")
+    .map((row) =>
+      childrenOf(row)
+        .filter((cell) => ["th", "td"].includes(tagOf(cell)))
+        .map((cell) => escapeTableCell(renderChildren(cell))),
+    )
+    .filter((row) => row.length > 0);
+
+  if (rows.length === 0) {
+    return "";
+  }
+
+  const columnCount = Math.max(...rows.map((row) => row.length));
+  const normalizedRows = rows.map((row) => [
+    ...row,
+    ...Array(columnCount - row.length).fill(""),
+  ]);
+  const captionNode = firstByTag(node, "caption");
+  const caption = captionNode
+    ? `\n\n**${inlineText(renderChildren(captionNode))}**\n\n`
+    : "\n\n";
+  const header = normalizedRows[0];
+  const separator = Array(columnCount).fill("---");
+  const body = normalizedRows.slice(1);
+  const markdownRows = [header, separator, ...body]
+    .map((row) => `| ${row.join(" | ")} |`)
+    .join("\n");
+
+  return `${caption}${markdownRows}\n\n`;
+};
+
+function renderNode(node: MarkdownNode): string {
+  if (node.nodeType === 3) {
+    return decodeHtmlEntities(node.nodeValue ?? "").replace(/\s+/g, " ");
+  }
+
+  const tagName = tagOf(node);
+
+  if (node.getAttribute?.("aria-hidden") === "true") {
+    return "";
+  }
+
+  if (/^h[1-6]$/.test(tagName)) {
+    const level = Number(tagName.slice(1));
+    return `\n\n${"#".repeat(level)} ${inlineText(renderChildren(node))}\n\n`;
+  }
+
+  if (tagName === "p") {
+    return `\n\n${inlineText(renderChildren(node))}\n\n`;
+  }
+
+  if (tagName === "pre") {
+    return renderCodeBlock(node);
+  }
+
+  if (tagName === "code") {
+    const code = inlineText(textOf(node));
+    const fence = codeFence(code, 1);
+    return ` ${fence}${code}${fence} `;
+  }
+
+  if (tagName === "a") {
+    const label = inlineText(renderChildren(node));
+    const href = node.getAttribute?.("href") ?? "";
+    const markdownHref =
+      href === basePath
+        ? `${basePath}/index.html.md`
+        : href.startsWith(`${basePath}/`) && href.endsWith(".html")
+          ? `${href}.md`
+          : href;
+    return markdownHref ? ` [${label}](${markdownHref}) ` : label;
+  }
+
+  if (tagName === "strong") {
+    return ` **${inlineText(renderChildren(node))}** `;
+  }
+
+  if (
+    [
+      "article",
+      "aside",
+      "button",
+      "details",
+      "dialog",
+      "div",
+      "fieldset",
+      "form",
+      "input",
+      "menu",
+      "nav",
+      "option",
+      "progress",
+      "search",
+      "select",
+      "textarea",
+    ].includes(tagName)
+  ) {
+    return "";
+  }
+
+  if (
+    (tagName === "ul" || tagName === "ol") &&
+    node.getAttribute?.("data-list") !== null
+  ) {
+    return "";
+  }
+
+  if (tagName === "ul") {
+    return renderList(node, false);
+  }
+
+  if (tagName === "ol") {
+    return renderList(node, true);
+  }
+
+  if (tagName === "table") {
+    return renderTable(node);
+  }
+
+  if (tagName === "dl") {
+    const entries = childrenOf(node)
+      .filter((child) => ["dt", "dd"].includes(tagOf(child)))
+      .map((child) => {
+        const content = inlineText(renderChildren(child));
+        return tagOf(child) === "dt" ? `- **${content}:**` : `  ${content}`;
+      });
+    return `\n\n${entries.join("\n")}\n\n`;
+  }
+
+  if (tagName === "hr") {
+    return "\n\n---\n\n";
+  }
+
+  if (tagName === "br") {
+    return "  \n";
+  }
+
+  return renderChildren(node);
+}
+
+const normalizeMarkdown = (markdown: string) =>
+  `${markdown.replace(/\n{3,}/g, "\n\n").trim()}\n`;
+
+const renderDocumentationMarkdown = (html: string) => {
+  const root = htmlToDom(html) as MarkdownNode;
+  const main = firstByTag(root, "main");
+
+  if (!main) {
+    throw new Error("Rendered documentation must contain a main element.");
+  }
+
+  return normalizeMarkdown(renderChildren(main));
+};
+
+const markdownPathForRoute = (path: string) => {
+  if (path === basePath) {
+    return "index.html.md";
+  }
+
+  return `${path.slice(basePath.length + 1)}.md`;
+};
+
+const markdownHref = (document: MarkdownDocument) =>
+  `./${document.markdownPath}`;
+
+const renderLlmsIndex = (documents: MarkdownDocument[]) => {
+  const canonicalDocuments = documents.filter(
+    ({ route }) => route.page !== "Theme",
+  );
+  const themeDocuments = documents.filter(
+    ({ route }) => route.page === "Theme",
+  );
+  const sections = categoryOrder
+    .map((category) => {
+      const links = canonicalDocuments
+        .filter(({ route }) => route.category === category)
+        .map(
+          (document) =>
+            `- [${document.route.label}](${markdownHref(document)}): ${document.route.description}`,
+        );
+
+      if (links.length === 0) {
+        return "";
+      }
+
+      return `## ${category}\n\n${links.join("\n")}`;
+    })
+    .filter(Boolean);
+  const optionalThemes = themeDocuments.map(
+    (document) =>
+      `- [${document.route.label}](${markdownHref(document)}): ${document.route.description}`,
+  );
+
+  return normalizeMarkdown(`# Dragonglass
+
+> Dragonglass is an HTML5-first, pure CSS framework for semantic app interfaces, compiled color themes and focused utility classes.
+
+Use native HTML behavior first. Add Dragonglass component attributes for documented component contracts and utility classes only for focused visual adjustments. Load the core stylesheet and exactly one theme stylesheet.
+
+${sections.join("\n\n")}
+
+## Optional
+
+${optionalThemes.join("\n")}`);
+};
+
+const shiftHeadings = (markdown: string) =>
+  markdown.replace(/^(#{1,5}) /gm, "$1# ");
+
+const renderLlmsFull = (documents: MarkdownDocument[]) => {
+  const pages = documents.map(
+    (document) =>
+      `---\n\nSource: ${markdownHref(document)}\n\n${shiftHeadings(document.markdown)}`,
+  );
+
+  return normalizeMarkdown(`# Dragonglass full documentation
+
+> Complete agent-oriented reference generated from the same rendered documentation as the Dragonglass website.
+
+${pages.join("\n\n")}`);
+};
+
+export {
+  markdownPathForRoute,
+  renderDocumentationMarkdown,
+  renderLlmsFull,
+  renderLlmsIndex,
+  type MarkdownDocument,
+};

@@ -970,7 +970,6 @@
       this.registeredRoutes.add(path);
     }
     // Search for a route in the tree
-    // eslint-disable-next-line sonarjs/cognitive-complexity
     findRoute(path) {
       const pathWithoutLastSlash = getPathWithoutLastSlash(path);
       const segments = pathWithoutLastSlash === "/" ? [pathWithoutLastSlash] : pathWithoutLastSlash.split("/").filter(Boolean);
@@ -1108,7 +1107,6 @@
     routes() {
       return this.getAllRoutes(this.routeTree.root, "");
     }
-    // eslint-disable-next-line sonarjs/cognitive-complexity
     async go(path, parentComponent) {
       if (!path) {
         const result = await this.handleError(new RouterError("The URL is empty."), parentComponent);
@@ -1289,7 +1287,6 @@
       }
       return this.errorHandlers.get("generic") || false;
     }
-    // eslint-disable-next-line sonarjs/cognitive-complexity
     async handleError(error, parentComponent) {
       const request = this.createRequest();
       let component = null;
@@ -1513,6 +1510,15 @@
       page: "Grid",
       category: "Utilities",
       description: "Arrange content with the responsive grid system."
+    },
+    {
+      path: `${basePath}/utilities.html`,
+      label: "Utilities",
+      icon: "tune",
+      color: "bg-default",
+      page: "Utilities",
+      category: "Utilities",
+      description: "Compose focused spacing, layout, border, typography, elevation and color adjustments."
     },
     {
       path: `${basePath}/elevations.html`,
@@ -5978,6 +5984,341 @@ import "dragonglass/dist/themes/default.css";`;
     ] })
   ] });
 
+  // site/src/docs/utility_catalog.ts
+  var interactiveVariants = "Base, focus:, active:, hover:";
+  var colorVariants = `${interactiveVariants}, before:, after:`;
+  var spacingValues = "0, px, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16";
+  var utilityGroups = [
+    {
+      id: "spacing",
+      title: "Spacing",
+      description: "Spacing utilities read the shared spacing scale and apply one physical side or every side.",
+      families: [
+        {
+          pattern: "p-{size} | pt-{size} | pr-{size} | pb-{size} | pl-{size}",
+          type: "Padding",
+          values: spacingValues,
+          variants: "Base only",
+          description: "Sets padding on every side, top, right, bottom or left respectively."
+        },
+        {
+          pattern: "m-{size} | mt-{size} | mr-{size} | mb-{size} | ml-{size}",
+          type: "Margin",
+          values: spacingValues,
+          variants: "Base only",
+          description: "Sets margin on every side, top, right, bottom or left respectively."
+        }
+      ]
+    },
+    {
+      id: "layout",
+      title: "Layout and stacking",
+      description: "Layout utilities control positioning, stacking, fractional width and compact display behavior.",
+      families: [
+        {
+          pattern: "relative | static | absolute | fixed | sticky",
+          type: "Position",
+          values: "The class name is the position value",
+          variants: "Base only",
+          description: "Sets the position property directly."
+        },
+        {
+          pattern: "z-{level}",
+          type: "Z-index",
+          values: "auto, negative-10, negative-1, 0, 1, 2, 3, 4, 6, 8, 12, 16, 1000",
+          variants: "Base only",
+          description: "Sets a documented z-index from the framework scale."
+        },
+        {
+          pattern: "w-{part}/{whole}",
+          type: "Fractional width",
+          values: "whole: 2 through 12; part: 1 through whole - 1",
+          variants: "Base, sm:, md:, lg:, xl:",
+          description: "Sets a fractional width. Responsive variants start at 576px, 768px, 992px and 1200px."
+        },
+        {
+          pattern: "inline",
+          type: "Inline display",
+          values: "No value",
+          variants: "Base only",
+          description: "Uses inline-block display, resets positioned offsets and aligns the element vertically."
+        },
+        {
+          pattern: "u-scrollable",
+          type: "Height helper",
+          values: "max-height: 360rem",
+          variants: "Base only",
+          description: "Sets a maximum height. It does not add overflow behavior by itself."
+        }
+      ]
+    },
+    {
+      id: "grid",
+      title: "Grid containers",
+      description: "Grid classes create wrapping flex rows whose direct children start at full width.",
+      families: [
+        {
+          pattern: "grid",
+          type: "Grid container",
+          values: "Start alignment without gutters",
+          variants: "Base only",
+          description: "Creates the base wrapping row."
+        },
+        {
+          pattern: "grid-center | grid-end",
+          type: "Grid alignment",
+          values: "center, end",
+          variants: "Base only",
+          description: "Aligns grid children along the row. The base grid class uses start alignment."
+        },
+        {
+          pattern: "grid-gutters",
+          type: "Guttered grid",
+          values: "0.8rem child padding",
+          variants: "Base only",
+          description: "Creates a grid row with consistent horizontal gutters."
+        }
+      ]
+    },
+    {
+      id: "borders",
+      title: "Borders and outlines",
+      description: "Border and outline utilities separate width, style, offset and color so each concern can be composed explicitly.",
+      families: [
+        {
+          pattern: "border",
+          type: "Border shorthand",
+          values: "1px-scale width and solid style",
+          variants: interactiveVariants,
+          description: "Adds the default solid border."
+        },
+        {
+          pattern: "border-{size}",
+          type: "Border width",
+          values: "0 through 13",
+          variants: interactiveVariants,
+          description: "Sets border width from the border scale."
+        },
+        {
+          pattern: "outline",
+          type: "Outline shorthand",
+          values: "1px-scale width and solid style",
+          variants: interactiveVariants,
+          description: "Adds the default solid outline."
+        },
+        {
+          pattern: "outline-none",
+          type: "Outline removal",
+          values: "none",
+          variants: interactiveVariants,
+          description: "Removes the outline. Provide another visible focus indicator before using this utility."
+        },
+        {
+          pattern: "outline-{size}",
+          type: "Outline width",
+          values: "0 through 13",
+          variants: interactiveVariants,
+          description: "Sets outline width and a solid outline style."
+        },
+        {
+          pattern: "outline-{style}",
+          type: "Outline style",
+          values: "solid, dashed, dotted, double",
+          variants: interactiveVariants,
+          description: "Sets the outline style."
+        },
+        {
+          pattern: "outline-offset-{size}",
+          type: "Outline offset",
+          values: spacingValues,
+          variants: interactiveVariants,
+          description: "Offsets the outline with a value from the spacing scale."
+        }
+      ]
+    },
+    {
+      id: "typography",
+      title: "Typography",
+      description: "Typography utilities control one font or text property and support interactive state variants.",
+      families: [
+        {
+          pattern: "text-{size}",
+          type: "Font size",
+          values: "2xs, xs, sm, base, lg, xl, 2xl, 3xl",
+          variants: interactiveVariants,
+          description: "Sets font size from the framework scale."
+        },
+        {
+          pattern: "normal-style | italic | oblique",
+          type: "Font style",
+          values: "normal, italic, oblique",
+          variants: interactiveVariants,
+          description: "Sets font style."
+        },
+        {
+          pattern: "font-{weight}",
+          type: "Font weight",
+          values: "thin, extralight, light, normal, medium, semibold, bold, extrabold, black",
+          variants: interactiveVariants,
+          description: "Sets numeric font weight from 100 through 900."
+        },
+        {
+          pattern: "normal-case | capitalize | uppercase | lowercase",
+          type: "Text transform",
+          values: "none, capitalize, uppercase, lowercase",
+          variants: interactiveVariants,
+          description: "Changes visual casing without changing source text."
+        },
+        {
+          pattern: "leading-{height}",
+          type: "Line height",
+          values: "none, tight, snug, normal, relaxed, loose",
+          variants: interactiveVariants,
+          description: "Sets line height from 1 through 2."
+        },
+        {
+          pattern: "text-{alignment}",
+          type: "Text alignment",
+          values: "left, right, center, justify",
+          variants: interactiveVariants,
+          description: "Sets physical text alignment."
+        }
+      ]
+    },
+    {
+      id: "elevation",
+      title: "Elevation",
+      description: "Elevation utilities use token-backed outer and inset shadows and can react to interactive states.",
+      families: [
+        {
+          pattern: "shadow-{size}",
+          type: "Outer shadow",
+          values: "2xs, xs, sm, base, lg, xl, 2xl, 3xl",
+          variants: interactiveVariants,
+          description: "Applies an outer shadow and its matching stacking level."
+        },
+        {
+          pattern: "shadow-inner-{size}",
+          type: "Inset shadow",
+          values: "2xs, xs, sm, base, lg, xl, 2xl, 3xl",
+          variants: interactiveVariants,
+          description: "Applies an inset shadow."
+        },
+        {
+          pattern: "shadow-none",
+          type: "Shadow removal",
+          values: "none",
+          variants: interactiveVariants,
+          description: "Removes box shadow."
+        },
+        {
+          pattern: "animated",
+          type: "Transition",
+          values: "var(--animate-all)",
+          variants: "Base only",
+          description: "Applies the framework transition to all animatable properties."
+        }
+      ]
+    },
+    {
+      id: "colors",
+      title: "Colors",
+      description: "Color utilities cover backgrounds, borders, outlines and text across every semantic family and weight.",
+      families: [
+        {
+          pattern: "{kind}-{family}{weight}",
+          type: "Semantic color",
+          values: "kind: bg, border, outline, text; family: primary, accent, success, info, warning, danger, default; weight: lightest, lighter, light, base, dark, darker, darkest",
+          variants: colorVariants,
+          description: "Applies the selected semantic token. Base weight omits the weight suffix, such as bg-primary. Border colors require a border style to become visible."
+        },
+        {
+          pattern: "{kind}-white | {kind}-black",
+          type: "Literal color",
+          values: "kind: bg, border, outline, text",
+          variants: colorVariants,
+          description: "Applies the literal white or black token. These utilities do not adapt between color schemes."
+        }
+      ]
+    }
+  ];
+
+  // site/src/pages/utilities_page.tsx
+  var compositionExample = `<article class="relative z-1 p-4 shadow-base bg-default-lightest">
+  <h2 class="text-xl font-semibold leading-tight text-primary-dark">Project summary</h2>
+  <p class="mt-2 mb-4 text-default-dark">Utilities make focused visual adjustments.</p>
+  <button class="bg-primary hover:bg-primary-dark focus:outline-2 focus:outline-primary">
+    Open project
+  </button>
+</article>`;
+  var responsiveExample2 = `<div class="grid-gutters">
+  <section class="w-6/12 md:w-4/12 xl:w-3/12 p-4">Responsive column</section>
+</div>`;
+  var utilities_page_default = () => /* @__PURE__ */ jsxs(doc_page_default, { page: "Utilities", children: [
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "utility-composition", title: "Compose focused adjustments", children: [
+      /* @__PURE__ */ jsx("p", { children: "A utility class changes one focused visual concern. Combine utilities with semantic HTML and component attributes instead of replacing the underlying element or component contract." }),
+      /* @__PURE__ */ jsx(code_example_default, { code: compositionExample })
+    ] }),
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "utility-syntax", title: "Prefixes and special characters", children: [
+      /* @__PURE__ */ jsxs("p", { children: [
+        "Interactive variants place ",
+        /* @__PURE__ */ jsx("code", { children: "focus:" }),
+        ", ",
+        /* @__PURE__ */ jsx("code", { children: "active:" }),
+        " or",
+        /* @__PURE__ */ jsx("code", { children: " hover:" }),
+        " before a supported class. Color utilities also accept ",
+        /* @__PURE__ */ jsx("code", { children: "before:" }),
+        " and ",
+        /* @__PURE__ */ jsx("code", { children: "after:" }),
+        ". Fractional widths accept the responsive prefixes ",
+        /* @__PURE__ */ jsx("code", { children: "sm:" }),
+        ", ",
+        /* @__PURE__ */ jsx("code", { children: "md:" }),
+        ",",
+        /* @__PURE__ */ jsx("code", { children: " lg:" }),
+        " and ",
+        /* @__PURE__ */ jsx("code", { children: "xl:" }),
+        "."
+      ] }),
+      /* @__PURE__ */ jsx("p", { children: "Colons and slashes are written directly inside the HTML class attribute. Escape them only when referencing the class from authored CSS or a DOM selector." }),
+      /* @__PURE__ */ jsx(code_example_default, { code: responsiveExample2 })
+    ] }),
+    utilityGroups.map((group) => /* @__PURE__ */ jsxs(demo_section_default, { id: `utilities-${group.id}`, title: group.title, children: [
+      /* @__PURE__ */ jsx("p", { children: group.description }),
+      /* @__PURE__ */ jsx(
+        api_table_default,
+        {
+          caption: `${group.title} utility families`,
+          rows: group.families.map((family) => ({
+            name: family.pattern,
+            type: family.type,
+            defaultValue: family.values,
+            description: `${family.description} Variants: ${family.variants}`
+          }))
+        }
+      )
+    ] })),
+    /* @__PURE__ */ jsx(
+      demo_section_default,
+      {
+        id: "utility-accessibility",
+        title: "Accessibility and common errors",
+        children: /* @__PURE__ */ jsxs("ul", { children: [
+          /* @__PURE__ */ jsx("li", { children: "Utilities change presentation. They do not add semantics, keyboard behavior, labels or state announcements." }),
+          /* @__PURE__ */ jsxs("li", { children: [
+            "Never use ",
+            /* @__PURE__ */ jsx("code", { children: "outline-none" }),
+            " without another visible keyboard focus indicator."
+          ] }),
+          /* @__PURE__ */ jsx("li", { children: "Pair every hover-only treatment with a focus treatment when the element supports keyboard interaction." }),
+          /* @__PURE__ */ jsx("li", { children: "Do not communicate status through a color utility alone. Preserve a text label, icon with accessible text or another programmatic cue." }),
+          /* @__PURE__ */ jsx("li", { children: "Use the smallest z-index that solves the stacking problem. Arbitrary high values make overlays and dialogs harder to compose." })
+        ] })
+      }
+    )
+  ] });
+
   // site/src/pages/index.ts
   var pages_default = {
     Html: html_page_default,
@@ -6005,7 +6346,8 @@ import "dragonglass/dist/themes/default.css";`;
     Notifications: notifications_page_default,
     Steppers: steppers_page_default,
     BottomSheets: bottom_sheets_page_default,
-    Tabs: tabs_page_default
+    Tabs: tabs_page_default,
+    Utilities: utilities_page_default
   };
 
   // site/src/index.ts
