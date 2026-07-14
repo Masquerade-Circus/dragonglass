@@ -4,7 +4,7 @@
 
 # Colors
 
-Use the color palette for backgrounds, borders and text.
+Semantic color tokens and background, border, outline and text utilities.
 
 ## Background and text colors
 
@@ -17,9 +17,17 @@ Primary dark text
 <p class="text-primary-dark">Primary dark text</p>
 ```
 
-## Buttons by color
+## Transparent backgrounds
 
-Each semantic family can style an action. The visible label preserves meaning when two colors look similar.
+These utilities change only the background color and preserve the current text color.
+
+```html
+<div class="bg-transparent p-3">Transparent background</div>
+<div class="bg-scrim text-white p-3">Scrim background</div>
+<div class="bg-media-scrim text-white p-3">Media scrim background</div>
+```
+
+## Buttons by color
 
 ```html
 <button type="button" class="bg-primary">primary</button>
@@ -32,8 +40,6 @@ Each semantic family can style an action. The visible label preserves meaning wh
 ```
 
 ## Form fields by color
-
-Use colored fields for documented states or categories. Keep a label and supporting text because color alone cannot explain the state.
 
 ```html
 <fieldset data-field="primary">
@@ -82,7 +88,7 @@ Use colored fields for documented states or categories. Keep a label and support
 
 ## Compile a theme from one color
 
-The Sass theme module derives every semantic family, weight, foreground and progress color from one opaque primary. Every base uses its lightest family token as foreground. The primary must have OKLCH lightness between 42% and 56%, and that pair must reach 4.5:1. Compile the result and load it after `dragonglass.css`.
+The Sass theme module derives every semantic family, weight, foreground and progress color from one opaque primary. Every base uses its lightest family token as foreground. The compiler accepts an OKLCH primary lightness from 42% through 56% and a contrast ratio of at least 4.5:1 for that pair. The compiled theme loads after `dragonglass.css`.
 
 ```scss
 @use "pkg:dragonglass/theme" as dragonglass;
@@ -96,7 +102,7 @@ The Sass theme module derives every semantic family, weight, foreground and prog
 bunx sass --pkg-importer=node theme.scss theme.css --style=compressed
 ```
 
-Place each mixin call inside a theme selector when one stylesheet must contain several themes.
+A theme selector around each mixin call lets one stylesheet contain several themes.
 
 ```scss
 @use "pkg:dragonglass/theme" as dragonglass;
@@ -112,7 +118,7 @@ Place each mixin call inside a theme selector when one stylesheet must contain s
 
 ## Automatic dark mode
 
-Each theme derives dark structural roles from the same primary and follows `prefers-color-scheme` automatically. Set `data-color-scheme` on the root element only when the application must force light or dark mode.
+Each theme derives dark structural roles from the same primary and follows `prefers-color-scheme` automatically. The `data-color-scheme` attribute on the root element forces light or dark mode.
 
 ```html
 <html data-color-scheme="dark"></html>
@@ -120,7 +126,7 @@ Each theme derives dark structural roles from the same primary and follows `pref
 
 ## Color tokens
 
-Use the semantic custom properties when a component needs token values directly instead of a generated color utility class.
+Semantic custom properties expose token values directly as an alternative to generated color utility classes.
 
 ```html
 <div style="background-color: var(--primary); color: var(--primary-darker)">
@@ -181,5 +187,3 @@ Use the semantic custom properties when a component needs token values directly 
 | --default-dark | CSS color token | default | Used by bg-default-dark, text-default-dark, border-default-dark and outline-default-dark. |
 | --default-darker | CSS color token | default | Used by bg-default-darker, text-default-darker, border-default-darker and outline-default-darker. |
 | --default-darkest | CSS color token | default | Used by bg-default-darkest, text-default-darkest, border-default-darkest and outline-default-darkest. |
-
-## Accessibility and common errors

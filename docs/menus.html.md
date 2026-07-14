@@ -1,6 +1,6 @@
 # Menus
 
-Offer compact groups of navigation links and actions.
+Positioned menus inside details[data-trigger].
 
 ## Action menu
 
@@ -16,7 +16,7 @@ Offer compact groups of navigation links and actions.
 
 ## Menu positions
 
-Use top or right when the default bottom-left placement lacks space. Use both tokens when the menu must open above the trigger and align to its right edge.
+The top and right tokens change the default bottom-left placement. Their combination opens the menu above the trigger and aligns it to the right edge.
 
 ```html
 <details data-trigger>
@@ -60,16 +60,8 @@ Use top or right when the default bottom-left placement lacks space. Use both to
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| details / summary / menu / li | Element | Required | Provide the trigger, positioned surface and native menu rows. |
+| details / summary / menu / li | Element | Required | Matches the trigger, its direct menu and the menu's direct rows. |
 | data-trigger | Attribute | Required | Provides the positioned disclosure context. |
 | data-menu | Attribute | Bottom left | Accepts top, right or the combined top right tokens. |
 | open | Attribute / state | Absent | Shows the menu through the parent details state. |
 | --card-radius / --default-light / --white | Token | Theme | Control menu corners, border and background. |
-
-## Accessibility
-
-Use links for navigation and buttons for commands. Give every icon-only button an accessible name and mark its decorative icon `aria-hidden="true"`. The summary remains the keyboard control for opening and closing the menu.
-
-## Composition and common errors
-
-Keep the menu inside `details[data-trigger]`. Position it with space-separated `data-menu` tokens. Keep visible items as direct `li` children, and do not use an icon as the only unlabeled description of an action.

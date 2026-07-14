@@ -12,6 +12,9 @@ const sizes = [
   ["xl", "1.5rem"],
   ["2xl", "1.965rem"],
   ["3xl", "2.25rem"],
+  ["4xl", "3rem"],
+  ["5xl", "3.75rem"],
+  ["6xl", "4.5rem"],
 ];
 const styles = ["normal-style", "italic", "oblique"];
 const weights = [
@@ -36,7 +39,7 @@ const lineHeights = [
 ];
 const alignments = ["text-left", "text-right", "text-center", "text-justify"];
 
-const composedExample = `<p class="text-base italic font-light capitalize text-justify leading-loose">Readable type combines size, style, weight, casing, alignment and line height.</p>`;
+const composedExample = `<p class="text-base italic font-light capitalize text-justify leading-loose">Dragonglass typography utility preview.</p>`;
 const sizeExample = sizes
   .map(([size, value]) => `<p class="text-${size}">text-${size} (${value})</p>`)
   .join("\n");
@@ -84,8 +87,7 @@ export default () => (
   <DocPage page="Fonts">
     <DemoSection id="composed-type" title="Composed typography">
       <p class="text-base italic font-light capitalize text-justify leading-loose">
-        Readable type combines size, style, weight, casing, alignment and line
-        height.
+        Dragonglass typography utility preview.
       </p>
       <CodeExample code={composedExample} />
     </DemoSection>
@@ -130,26 +132,6 @@ export default () => (
 
     <DemoSection id="font-api" title="Typography API">
       <ApiTable caption="Typography utilities and tokens" rows={fontRows} />
-    </DemoSection>
-
-    <DemoSection
-      id="font-accessibility"
-      title="Accessibility and common errors"
-    >
-      <ul>
-        <li>
-          Keep body copy at a readable size and line height. Smaller utilities
-          are better suited to short supporting labels.
-        </li>
-        <li>
-          Visual casing does not replace meaningful source text. Avoid long
-          uppercase passages because they are harder to scan.
-        </li>
-        <li>
-          Make the documented class match the rendered example. This page uses
-          <code> text-base</code> in both the composed sample and its snippet.
-        </li>
-      </ul>
     </DemoSection>
   </DocPage>
 );

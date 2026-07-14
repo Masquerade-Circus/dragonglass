@@ -37,7 +37,7 @@ const gridRows = [
     type: "Width utility",
     defaultValue: "1 through whole - 1",
     description:
-      "Sets a fractional width. Both numbers range from 1 to 12 and part must be smaller than whole.",
+      "Sets a fractional width. Both numbers range from 1 to 12, with part smaller than whole.",
   },
   {
     name: "sm:w-{part}/{whole}",
@@ -86,7 +86,7 @@ export default () => (
 
     <DemoSection id="guttered-grid" title="Guttered columns">
       <p>
-        Use <code>grid-gutters</code> when columns need consistent spacing.
+        <code>grid-gutters</code> adds consistent spacing between columns.
       </p>
       <div class="grid-gutters">
         <div class="w-6/12">
@@ -118,26 +118,6 @@ export default () => (
 
     <DemoSection id="grid-api" title="Grid API and breakpoints">
       <ApiTable caption="Grid classes and breakpoints" rows={gridRows} />
-    </DemoSection>
-
-    <DemoSection
-      id="grid-accessibility"
-      title="Accessibility and common errors"
-    >
-      <ul>
-        <li>
-          Keep the source order meaningful because width utilities only change
-          presentation, not reading order.
-        </li>
-        <li>
-          Do not use empty columns to create spacing. Use a guttered grid or
-          spacing utilities instead.
-        </li>
-        <li>
-          A prefixed width does not apply below its breakpoint, so provide an
-          unprefixed fraction only when the mobile layout should also be split.
-        </li>
-      </ul>
     </DemoSection>
   </DocPage>
 );

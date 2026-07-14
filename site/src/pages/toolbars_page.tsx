@@ -45,10 +45,6 @@ export default () => (
     </DemoSection>
 
     <DemoSection id="toolbar-chips-title" title="Filter chips">
-      <p>
-        Group related checkbox chips in a toolbar when users need to adjust
-        several filters before they apply the result.
-      </p>
       <nav data-toolbar aria-label="Issue filters">
         <label data-chip>
           <input type="checkbox" checked /> Open
@@ -67,8 +63,8 @@ export default () => (
     >
       <p>
         A toolbar wraps by default. Inside a header or footer it uses
-        <code> flex-wrap: nowrap</code>, so keep labels short and avoid more
-        actions than the available width can hold.
+        <code> flex-wrap: nowrap</code> and overflows when its actions exceed
+        the available width.
       </p>
       <header>
         <h3>Project settings</h3>
@@ -94,7 +90,7 @@ export default () => (
             name: "nav",
             type: "Element",
             defaultValue: "Required",
-            description: "Provides navigation semantics for the toolbar.",
+            description: "Provides the nav[data-toolbar] selector host.",
           },
           {
             name: "data-toolbar",
@@ -122,26 +118,6 @@ export default () => (
           },
         ]}
       />
-    </DemoSection>
-
-    <DemoSection id="toolbar-accessibility-title" title="Accessibility">
-      <p>
-        Give every toolbar a specific accessible name. Use links for navigation,
-        buttons for actions and labeled inputs for filters so each control keeps
-        its native keyboard behavior.
-      </p>
-    </DemoSection>
-
-    <DemoSection
-      id="toolbar-composition-title"
-      title="Composition and common errors"
-    >
-      <p>
-        Place direct links, buttons or chips inside{" "}
-        <code>nav[data-toolbar]</code>. Do not use a toolbar as a generic visual
-        row, and do not rely on a header or footer toolbar to wrap crowded
-        actions.
-      </p>
     </DemoSection>
   </DocPage>
 );

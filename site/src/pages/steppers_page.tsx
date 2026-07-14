@@ -39,9 +39,9 @@ export default () => (
 
     <DemoSection id="stepper-error-title" title="Error state">
       <p>
-        Set <code>data-step="error"</code> on the failed step and keep
-        <code> aria-current="step"</code> when that step still requires the
-        user's attention.
+        <code>data-step="error"</code> changes the marker to the danger state.
+        <code> aria-current="step"</code> adds the current-step color and
+        weight.
       </p>
       <ol data-stepper>
         <li data-step="done">Profile</li>
@@ -58,9 +58,8 @@ export default () => (
       title="Vertical and numbers-only layouts"
     >
       <p>
-        Use the vertical layout when labels need more room. The numbers layout
-        keeps the same text labels in the markup while CSS presents a compact
-        sequence.
+        The vertical layout gives labels more room. The numbers layout keeps the
+        same text labels in the markup while CSS presents a compact sequence.
       </p>
       <ol data-stepper="vertical">
         <li data-step="done">Account</li>
@@ -83,7 +82,7 @@ export default () => (
             name: "ol / li",
             type: "Element",
             defaultValue: "Required",
-            description: "Represent the ordered process and each step.",
+            description: "Matches direct li children of ol[data-stepper].",
           },
           {
             name: "data-stepper",
@@ -95,7 +94,7 @@ export default () => (
             name: "aria-current=step",
             type: "Attribute / state",
             defaultValue: "Absent",
-            description: "Identifies the single current step.",
+            description: "Applies the current-step color and weight.",
           },
           {
             name: "data-step=done / error",
@@ -111,25 +110,6 @@ export default () => (
           },
         ]}
       />
-    </DemoSection>
-
-    <DemoSection id="stepper-accessibility-title" title="Accessibility">
-      <p>
-        Preserve the ordered list and set <code>aria-current="step"</code> on
-        exactly one item. Keep text labels in numbers-only layouts because CSS
-        hides them visually while assistive technology can still announce them.
-      </p>
-    </DemoSection>
-
-    <DemoSection
-      id="stepper-errors-title"
-      title="Composition and common errors"
-    >
-      <p>
-        Use <code>data-step</code> only for <code>done</code> and
-        <code> error</code>. Do not mark every completed step as current, and do
-        not remove labels to create a visual-only numbered sequence.
-      </p>
     </DemoSection>
   </DocPage>
 );

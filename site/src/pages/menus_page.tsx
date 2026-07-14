@@ -75,9 +75,9 @@ export default () => (
 
     <DemoSection id="menus-position-title" title="Menu positions">
       <p>
-        Use top or right when the default bottom-left placement lacks space. Use
-        both tokens when the menu must open above the trigger and align to its
-        right edge.
+        The top and right tokens change the default bottom-left placement. Their
+        combination opens the menu above the trigger and aligns it to the right
+        edge.
       </p>
       <details data-trigger>
         <summary>Top menu</summary>
@@ -109,7 +109,7 @@ export default () => (
             type: "Element",
             defaultValue: "Required",
             description:
-              "Provide the trigger, positioned surface and native menu rows.",
+              "Matches the trigger, its direct menu and the menu's direct rows.",
           },
           {
             name: "data-trigger",
@@ -137,24 +137,6 @@ export default () => (
           },
         ]}
       />
-    </DemoSection>
-
-    <DemoSection id="menus-accessibility-title" title="Accessibility">
-      <p>
-        Use links for navigation and buttons for commands. Give every icon-only
-        button an accessible name and mark its decorative icon
-        <code> aria-hidden="true"</code>. The summary remains the keyboard
-        control for opening and closing the menu.
-      </p>
-    </DemoSection>
-
-    <DemoSection id="menus-errors-title" title="Composition and common errors">
-      <p>
-        Keep the menu inside <code>details[data-trigger]</code>. Position it
-        with space-separated <code>data-menu</code> tokens. Keep visible items
-        as direct <code>li</code> children, and do not use an icon as the only
-        unlabeled description of an action.
-      </p>
     </DemoSection>
   </DocPage>
 );

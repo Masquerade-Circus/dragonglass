@@ -2,60 +2,63 @@
 
 > Dragonglass is an HTML5-first, pure CSS framework for semantic app interfaces, compiled color themes and focused utility classes.
 
-Use native HTML behavior first. Add Dragonglass component attributes for documented component contracts and utility classes only for focused visual adjustments. Load the core stylesheet and exactly one theme stylesheet.
-
 ## Getting started
 
 - [Home](./index.html.md): Learn how Dragonglass styles semantic HTML and where to find each component.
-- [App components](./app-components.html.md): Compose common application surfaces from semantic HTML.
+- [App components](./app-components.html.md): Find application components by purpose and open their examples and API.
 
 ## Foundations
 
-- [Layout](./layout.html.md): Build responsive page structures with Dragonglass layout primitives.
+- [Layout](./layout.html.md): Responsive containers, direct-child content regions and toolbar layouts.
+- [Hero recipes](./heroes.html.md): Centered, split and presentation hero recipes composed from existing primitives.
 
 ## Actions
 
-- [Buttons](./buttons.html.md): Present primary, secondary and floating actions with buttons.
-- [Chips](./chips.html.md): Represent compact values, filters and selections with chips.
+- [Buttons](./buttons.html.md): Base button styles, semantic color utilities and FAB variants.
+- [Links](./links.html.md): Inline, standalone and quiet link treatments for navigation and supporting actions.
+- [Chips](./chips.html.md): Chip tones and checked, pressed and current visual states.
 
 ## Forms
 
-- [Forms](./forms.html.md): Collect information with semantic, accessible form controls.
+- [Forms](./forms.html.md): Field, floating-label, validation-state and toggle selectors.
 
 ## Navigation
 
-- [Toolbars](./toolbars.html.md): Group navigation, titles and actions in adaptable toolbars.
-- [Expansion panels](./expansion-panels.html.md): Reveal optional content in compact expansion panels.
-- [Steppers](./steppers.html.md): Guide people through ordered, multi-step tasks.
-- [Tabs](./tabs.html.md): Switch between related sections with accessible tabs.
-- [Menus](./menus.html.md): Offer compact groups of navigation links and actions.
+- [Toolbars](./toolbars.html.md): Wrapping nav[data-toolbar] rows and container variants.
+- [Breadcrumbs](./breadcrumbs.html.md): Wrapping breadcrumb trails built from direct link and button children.
+- [Expansion panels](./expansion-panels.html.md): Full-width details panels with a generated open-state marker.
+- [Steppers](./steppers.html.md): Horizontal, vertical and numbers-only stepper presentations.
+- [Tabs](./tabs.html.md): Grouped details layout selected by data-tabs.
+- [Menus](./menus.html.md): Positioned menus inside details[data-trigger].
 
 ## Feedback
 
-- [Alerts](./alerts.html.md): Communicate important status and guidance with alerts.
-- [Notifications](./notifications.html.md): Deliver timely, contextual messages with notifications.
-- [Progress](./progress.html.md): Show determinate and indeterminate progress states.
+- [Alerts](./alerts.html.md): Alert surfaces with info, success, warning and danger tones.
+- [Notifications](./notifications.html.md): Fixed and inline notifications with tone, position and shadow tokens.
+- [Progress](./progress.html.md): Determinate, indeterminate and spinner styles for progress elements.
 
 ## Surfaces
 
-- [Bottom sheets](./bottom-sheets.html.md): Show contextual actions and content in bottom sheets.
-- [Cards](./cards.html.md): Group related content and actions in flexible cards.
-- [Dialogs](./dialogs.html.md): Focus attention on decisions and short tasks with dialogs.
+- [Bottom sheets](./bottom-sheets.html.md): Bottom-anchored dialog layout with an optional shadow.
+- [Cards](./cards.html.md): Basic, elevated, squared and full-width card variants.
+- [Dialogs](./dialogs.html.md): Centered dialogs with shape, width and elevation variants.
 
 ## Data display
 
-- [Badges](./badges.html.md): Highlight compact statuses, counts and labels with badges.
-- [Lists](./lists.html.md): Display related items, details and actions in structured lists.
-- [Tables](./tables.html.md): Present structured data in responsive tables.
-- [Tooltips](./tooltips.html.md): Add concise supporting context with tooltips.
+- [Badges](./badges.html.md): Generated badge content selected by data-badge.
+- [Lists](./lists.html.md): Styled unordered, ordered and definition-list layouts.
+- [Tables](./tables.html.md): Responsive data-table layout with generated mobile cell labels.
+- [Tooltips](./tooltips.html.md): Generated tooltip content, positions and color utilities.
 
 ## Utilities
 
-- [Grid](./grid.html.md): Arrange content with the responsive grid system.
-- [Utilities](./utilities.html.md): Compose focused spacing, layout, border, typography, elevation and color adjustments.
-- [Elevations](./elevations.html.md): Apply consistent depth and emphasis with elevation utilities.
-- [Colors](./colors.html.md): Use the color palette for backgrounds, borders and text.
-- [Fonts](./fonts.html.md): Set readable type sizes, weights and styles.
+- [Grid](./grid.html.md): Wrapping flex rows, gutters and responsive fractional widths.
+- [Positioning](./positioning.html.md): Fixed and absolute placement through directional data-position tokens.
+- [Images](./images.html.md): Object-fit, focal-position and background image utilities.
+- [Utilities](./utilities.html.md): Find focused spacing, layout, border, typography, elevation and color adjustments.
+- [Elevations](./elevations.html.md): Outer shadows, inset shadows and explicit stacking utilities.
+- [Colors](./colors.html.md): Semantic color tokens and background, border, outline and text utilities.
+- [Fonts](./fonts.html.md): Font size, style, weight, transform, line-height and alignment utilities.
 
 ## Optional
 

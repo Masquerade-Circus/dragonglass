@@ -1,6 +1,6 @@
 # Tabs
 
-Switch between related sections with accessible tabs.
+Grouped details layout selected by data-tabs.
 
 ## Native grouped disclosures
 
@@ -18,8 +18,6 @@ Switch between related sections with accessible tabs.
 ```
 
 ## Rich panel content
-
-Each disclosure can contain text or form controls. Give every sibling the same name so opening one panel closes the other panels in the group.
 
 ```html
 <section data-tabs>
@@ -45,18 +43,7 @@ Each disclosure can contain text or form controls. Give every sibling the same n
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| section / details / summary | Element | Required | Build the container, disclosure panels and controls. |
+| section / details / summary | Element | Required | Matches direct details children and their direct summaries. |
 | data-tabs | Attribute | Required | Aligns grouped details controls and places the open content below. |
-| name | Attribute | Ungrouped | A shared value lets the browser keep one details panel open. |
-| open | Attribute / state | Absent | Marks the currently expanded disclosure. |
+| open | Attribute / state | Absent | Applies the active summary color and border. |
 | --primary / --default-light / --spacing-4 | Token | Theme | Control the active marker, divider and panel spacing. |
-
-## Accessibility
-
-This component uses native `details` and `summary` disclosures. It is not an ARIA tablist and does not implement tab, arrow-key or tabpanel roles. Keep every summary descriptive and every panel available in the document.
-
-## Composition and common errors
-
-Give sibling details the same non-empty `name` when they must behave as a group. Keep only `details` as direct children of the tabs container because the enhanced layout derives each tab position from that sibling order.
-
-Browsers without the required modern CSS keep the native disclosures in a stacked layout. Do not add ARIA tab roles without implementing the complete keyboard and focus contract.

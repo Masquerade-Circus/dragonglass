@@ -1,8 +1,12 @@
 # Steppers
 
-Guide people through ordered, multi-step tasks.
+Horizontal, vertical and numbers-only stepper presentations.
 
 ## Current and completed steps
+
+1. Account
+2. Billing
+3. Confirm
 
 ```html
 <ol data-stepper>
@@ -14,7 +18,11 @@ Guide people through ordered, multi-step tasks.
 
 ## Error state
 
-Set `data-step="error"` on the failed step and keep `aria-current="step"` when that step still requires the user's attention.
+`data-step="error"` changes the marker to the danger state. `aria-current="step"` adds the current-step color and weight.
+
+1. Profile
+2. Payment
+3. Receipt
 
 ```html
 <ol data-stepper>
@@ -26,7 +34,15 @@ Set `data-step="error"` on the failed step and keep `aria-current="step"` when t
 
 ## Vertical and numbers-only layouts
 
-Use the vertical layout when labels need more room. The numbers layout keeps the same text labels in the markup while CSS presents a compact sequence.
+The vertical layout gives labels more room. The numbers layout keeps the same text labels in the markup while CSS presents a compact sequence.
+
+1. Account
+2. Billing
+3. Confirm
+
+1. Account
+2. Billing
+3. Receipt
 
 ```html
 <ol data-stepper="vertical">
@@ -47,16 +63,8 @@ Use the vertical layout when labels need more room. The numbers layout keeps the
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| ol / li | Element | Required | Represent the ordered process and each step. |
+| ol / li | Element | Required | Matches direct li children of ol[data-stepper]. |
 | data-stepper | Attribute | Horizontal | Accepts vertical or numbers layout tokens. |
-| aria-current=step | Attribute / state | Absent | Identifies the single current step. |
+| aria-current=step | Attribute / state | Absent | Applies the current-step color and weight. |
 | data-step=done / error | Attribute / state | Upcoming | Marks completed or failed steps. |
 | --primary / --success / --danger | Token | Theme | Color current, completed and failed states. |
-
-## Accessibility
-
-Preserve the ordered list and set `aria-current="step"` on exactly one item. Keep text labels in numbers-only layouts because CSS hides them visually while assistive technology can still announce them.
-
-## Composition and common errors
-
-Use `data-step` only for `done` and `error`. Do not mark every completed step as current, and do not remove labels to create a visual-only numbered sequence.

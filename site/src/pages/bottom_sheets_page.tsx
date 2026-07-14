@@ -33,9 +33,8 @@ export default () => (
       title="Structured content and actions"
     >
       <p>
-        A bottom sheet can contain a header, a content section and a footer. The
-        closed markup below remains hidden until the native
-        <code> open</code> state is applied.
+        The bottom sheet CSS targets direct header, section and footer children.
+        The <code>open</code> attribute displays the sheet.
       </p>
       <CodeExample
         code={`<dialog data-dialog="bottom-sheet no-shadow" aria-labelledby="share-sheet-title">
@@ -54,7 +53,7 @@ export default () => (
             name: "dialog",
             type: "Element",
             defaultValue: "Required",
-            description: "Provides native dialog semantics and hidden state.",
+            description: "Receives the base dialog and open-state styling.",
           },
           {
             name: "data-dialog=bottom-sheet",
@@ -72,8 +71,7 @@ export default () => (
             name: "open",
             type: "Attribute / state",
             defaultValue: "Absent",
-            description:
-              "Displays the sheet. Modal behavior still requires showModal().",
+            description: "Displays the sheet.",
           },
           {
             name: "--dialog-radius / --shadow-2xl",
@@ -83,26 +81,6 @@ export default () => (
           },
         ]}
       />
-    </DemoSection>
-
-    <DemoSection id="bottom-sheet-accessibility-title" title="Accessibility">
-      <p>
-        Give every dialog an accessible name with <code>aria-labelledby</code>
-        or <code>aria-label</code>. The static <code>open</code> attribute shows
-        a non-modal example. Production modal flows must also manage opening,
-        closing and focus with the native dialog API.
-      </p>
-    </DemoSection>
-
-    <DemoSection
-      id="bottom-sheet-errors-title"
-      title="Composition and common errors"
-    >
-      <p>
-        Keep the heading inside the dialog and connect its identifier to the
-        dialog. Do not present an unnamed sheet, and do not claim that the
-        <code> open</code> attribute alone creates modal focus behavior.
-      </p>
     </DemoSection>
   </DocPage>
 );

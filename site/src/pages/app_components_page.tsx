@@ -1,6 +1,7 @@
 import {
   catalog,
   categoryOrder,
+  routeByPage,
   type DocumentationCategory,
 } from "../docs/catalog";
 import DemoSection from "../docs/demo_section";
@@ -26,8 +27,14 @@ const componentCategories = categoryOrder.filter((category) =>
 export default () => (
   <DocPage page="AppComponents">
     <p>
-      Browse component guides by purpose. Each guide documents the semantic
-      markup, variants, and behavior for that component.
+      Component guides are grouped by purpose. Each guide pairs rendered
+      examples with their markup and an API table for the relevant elements,
+      attributes, variants, states and tokens.
+    </p>
+    <p>
+      After choosing a component, open the
+      <a href={routeByPage.get("Utilities")!.path}> utility reference</a> for
+      focused spacing, color, typography, layout and elevation adjustments.
     </p>
 
     {componentCategories.map((category) => (

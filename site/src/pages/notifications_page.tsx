@@ -13,7 +13,7 @@ const contentNotificationCode = `<aside data-notification="success inline" role=
     <span aria-hidden="true">×</span>
   </button>
   <strong>Export ready.</strong>
-  <p>Your report can be downloaded now.</p>
+  <p>Your report is ready to download.</p>
 </aside>`;
 
 const positionsCode = `<aside data-notification="info top right" role="status">Saved.</aside>
@@ -25,13 +25,6 @@ const shadowCode = `<aside data-notification="info inline" role="status">Default
 
 const apiRows = [
   {
-    name: "aside",
-    type: "Element",
-    defaultValue: "Fixed notification",
-    description:
-      "Provides a complementary message container for notification content.",
-  },
-  {
     name: "data-notification",
     type: "Attribute",
     defaultValue: "Primary border, top right",
@@ -42,15 +35,13 @@ const apiRows = [
     name: "data-notification-close",
     type: "Button attribute",
     defaultValue: "Optional",
-    description:
-      "Marks a direct child button as the close action without coupling styles to its accessible name.",
+    description: "Selects and reserves space for a direct close button.",
   },
   {
     name: "info|success|warning|danger",
     type: "Attribute token",
     defaultValue: "Primary",
-    description:
-      "Sets the semantic border color without choosing announcement urgency.",
+    description: "Sets the semantic border color.",
   },
   {
     name: "inline",
@@ -70,27 +61,12 @@ const apiRows = [
     name: "no-shadow",
     type: "Attribute token",
     defaultValue: "--shadow-lg",
-    description:
-      "Removes elevation when a border or surrounding surface is sufficient.",
-  },
-  {
-    name: 'role="status"',
-    type: "State",
-    defaultValue: "Recommended",
-    description:
-      "Politely announces non-urgent updates without interrupting current speech.",
-  },
-  {
-    name: 'role="alert"',
-    type: "State",
-    defaultValue: "Urgent errors only",
-    description:
-      "Immediately announces a time-sensitive problem that needs attention.",
+    description: "Removes elevation.",
   },
   {
     name: "--notification-color",
     type: "Token",
-    defaultValue: "--primary",
+    defaultValue: "--primary-accent",
     description:
       "Controls the notification border and is set by semantic tone tokens.",
   },
@@ -120,7 +96,7 @@ export default () => (
           <span aria-hidden="true">×</span>
         </button>
         <strong>Export ready.</strong>
-        <p>Your report can be downloaded now.</p>
+        <p>Your report is ready to download.</p>
       </aside>
       <CodeExample code={contentNotificationCode} />
     </DemoSection>
@@ -128,7 +104,7 @@ export default () => (
     <DemoSection id="notification-positions" title="Fixed positions">
       <p>
         Combine one vertical token with one horizontal token. The default is top
-        right. Center can stand alone or pair with top, right, bottom or left.
+        right. Center stands alone or pairs with top, right, bottom or left.
       </p>
       <CodeExample code={positionsCode} />
     </DemoSection>
@@ -145,11 +121,9 @@ export default () => (
 
     <DemoSection id="notification-composition" title="Composition">
       <p>
-        Use short text for a single update. Add a <code>strong</code> heading
-        and paragraph when the message needs context. Place an optional close
-        button with <code>data-notification-close</code> as a direct child so
-        the notification reserves space for it. Application behavior must remove
-        the message when that button is activated.
+        A direct close button with <code>data-notification-close</code> receives
+        absolute positioning and reserved space. Dragonglass does not remove the
+        notification on activation.
       </p>
     </DemoSection>
 
@@ -157,41 +131,8 @@ export default () => (
       <p>
         Fixed notifications stay within the viewport with a maximum width based
         on the page gap. Inline notifications use the available content width
-        and remain in document flow. Prefer inline placement for persistent
-        guidance or narrow layouts where fixed messages could cover controls.
+        and remain in document flow.
       </p>
-    </DemoSection>
-
-    <DemoSection id="notification-accessibility" title="Accessibility">
-      <p>
-        Use <code>role="status"</code> for successful, informational and most
-        warning updates. Reserve <code>role="alert"</code> for urgent failures
-        that need immediate attention. Insert the live region when the message
-        changes instead of rendering it long before the update. Give the close
-        button an accessible name and mark its visual symbol
-        <code> aria-hidden="true"</code>.
-      </p>
-    </DemoSection>
-
-    <DemoSection id="notification-errors" title="Common mistakes">
-      <ul>
-        <li>
-          Assigning <code>role="alert"</code> to every message interrupts screen
-          reader users for routine updates.
-        </li>
-        <li>
-          Choosing a danger tone does not add alert semantics. Set the role from
-          urgency, not color.
-        </li>
-        <li>
-          Positioning several fixed messages in the same corner can cover
-          content unless the application manages a stack.
-        </li>
-        <li>
-          A close icon without an accessible name leaves its action
-          unidentified.
-        </li>
-      </ul>
     </DemoSection>
 
     <DemoSection id="notification-api" title="API">

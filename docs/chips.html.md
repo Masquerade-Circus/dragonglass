@@ -1,10 +1,8 @@
 # Chips
 
-Represent compact values, filters and selections with chips.
+Chip tones and checked, pressed and current visual states.
 
 ## Actions, links and values
-
-Choose a button for an action, a link for navigation and a span for a read-only value so each chip keeps the correct native behavior.
 
 [Forms](/dragonglass/forms.html.md) Read only
 
@@ -17,8 +15,6 @@ Choose a button for an action, a link for navigation and a span for a read-only 
 ```
 
 ## Semantic tones
-
-Use semantic tones to reinforce a named state or category. Keep the text meaningful because color alone does not explain the value.
 
 Primary Accent Passed Queued Review Blocked Default
 
@@ -39,9 +35,13 @@ Primary Accent Passed Queued Review Blocked Default
 Active [Chips](/dragonglass/chips.html.md)
 
 ```html
-<label data-chip="success">
-  <input type="checkbox" checked /> Active
-</label>
+<p>
+  <label data-chip="success">
+    <input type="checkbox" checked /> Active
+  </label>
+  <button data-chip type="button" aria-pressed="true">Pinned</button>
+  <a data-chip href="/dragonglass/chips.html" aria-current="true">Chips</a>
+</p>
 ```
 
 ## API
@@ -50,16 +50,8 @@ Active [Chips](/dragonglass/chips.html.md)
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| button / a / label / span | Element | Contextual | Choose semantics that match an action, link, input or value. |
+| button / a / label / span | Element | Contextual | Receives chip styling from data-chip. |
 | data-chip | Attribute | Required | Accepts primary, accent, success, info, warning, danger or default. |
 | --chip-border / --chip-background / --chip-text | Token | Theme | Set the resting border, background and text colors. |
 | --chip-active / --chip-active-text | Token | Theme | Set selected and pressed colors. |
-| input:checked / aria-pressed=true / aria-current=true | State | False | Apply the active chip appearance for supported semantics. |
-
-## Accessibility
-
-Use a checkbox when a chip toggles a form value, `aria-pressed` for a toggle button and `aria-current="true"` only for the current link. Keep the visible label descriptive.
-
-## Composition and common errors
-
-A plain `span` is display-only and must not receive click behavior. Do not set active styling without exposing the same state in the checkbox, button or link semantics.
+| input:checked / aria-pressed=true / aria-current=true | State | False | Selects the active chip appearance. |

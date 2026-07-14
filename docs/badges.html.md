@@ -1,10 +1,8 @@
 # Badges
 
-Highlight compact statuses, counts and labels with badges.
+Generated badge content selected by data-badge.
 
 ## Badge colors
-
-Keep the value in real markup because generated pseudo-element content is not a reliable accessible name.
 
 ## Badge API
 
@@ -14,5 +12,3 @@ Keep the value in real markup because generated pseudo-element content is not a 
 | --- | --- | --- | --- |
 | data-badge | HTML data attribute | Required | Supplies the short visual value rendered by the::after pseudo-element. |
 | after:bg-{color} | Pseudo-element color utility | bg-white | Sets the badge background to primary, accent, info, success, warning, danger or default. |
-
-## Accessibility and common errors

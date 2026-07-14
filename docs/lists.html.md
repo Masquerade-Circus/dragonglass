@@ -1,6 +1,6 @@
 # Lists
 
-Display related items, details and actions in structured lists.
+Styled unordered, ordered and definition-list layouts.
 
 ## Basic combinations
 
@@ -214,14 +214,8 @@ Display related items, details and actions in structured lists.
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| ul[data-list] | Element and attribute | Unordered | Creates application rows whose order carries no meaning. |
-| ol[data-list] | Element and attribute | Numbered | Creates numbered application rows whose sequence carries meaning. |
+| ul[data-list] | Element and attribute | Unordered | Removes list markers and applies the application-row layout. |
+| ol[data-list] | Element and attribute | Numbered | Generates numbered application rows with an internal counter. |
 | li | Direct child | Required per row | Creates a row with a flexible primary region and an optional compact secondary region. |
 | dl > dt + dd | Definition elements | Term and detail | Uses an intrinsic term column and a flexible detail column. |
-| a / button | Interactive element | Optional | Use a link for navigation and type=button for an action inside a row. |
-
-## Accessibility
-
-Use unordered lists for collections and ordered lists for sequences. Use links for navigation and buttons for actions. Give icon-only secondary actions a specific accessible name and hide decorative icons with `aria-hidden="true"`.
-
-## Composition and common errors
+| a / button | Interactive element | Optional | Fills the primary row region or stays compact as the second child. |

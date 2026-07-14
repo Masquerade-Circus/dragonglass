@@ -1,6 +1,6 @@
 # Dialogs
 
-Focus attention on decisions and short tasks with dialogs.
+Centered dialogs with shape, width and elevation variants.
 
 ## Dialog with actions
 
@@ -43,28 +43,22 @@ Focus attention on decisions and short tasks with dialogs.
 
 <dialog open class="static" data-dialog="full-width" aria-labelledby="workspace-dialog-title">
   <header><h3 id="workspace-dialog-title">Workspace settings</h3></header>
-  <section>Settings can use the available viewport width.</section>
+  <section>Settings use the available viewport width.</section>
 </dialog>
 
 <dialog open class="static" data-dialog="no-shadow" aria-labelledby="embedded-dialog-title">
   <header><h3 id="embedded-dialog-title">Embedded decision</h3></header>
-  <section>Remove elevation when the surrounding surface supplies separation.</section>
+  <section>The surrounding surface supplies separation without elevation.</section>
 </dialog>
 ```
 
 ## Composition
 
-Compose a dialog from direct `header`, `section` and `footer` children. Keep the decision and its actions short. The `static` utility in these previews only keeps several open examples in the document flow. Omit it when the dialog should use its default centered position.
+A dialog accepts direct `header`, `section` and `footer` children. The `static` utility keeps these open previews in the document flow. The default position centers the dialog.
 
 ## Responsive behavior
 
-Standard dialogs size to their content. The `full-width` token leaves a small viewport gap and works for wider tasks. Keep long content in the body section so it can scroll without moving the header or footer actions.
-
-## Accessibility
-
-Give every dialog a visible heading and connect it with `aria-labelledby`. Use the native `showModal()` method when the rest of the page must be inert, move focus to a useful control after opening, support Escape and return focus to the trigger after closing. Icon-only actions need an `aria-label` and a decorative icon marked `aria-hidden="true"`.
-
-## Common mistakes
+Standard dialogs size to their content. The `full-width` token leaves a one-rem viewport gap. Long body content scrolls without moving the header or footer actions.
 
 ## API
 
@@ -72,10 +66,9 @@ Give every dialog a visible heading and connect it with `aria-labelledby`. Use t
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| dialog | Element | Closed | Provides native dialog semantics and a centered, elevated surface. |
-| open | State | Absent | Makes a non-modal dialog visible. Use showModal() for modal behavior. |
-| aria-labelledby | Attribute | Required by guidance | Associates the dialog with the id of its visible heading. |
-| data-dialog="squared" | Attribute token | Standard shape | Creates a compact square surface suited to concise media or content. |
+| dialog | Element | Closed | Receives centered, elevated surface styling. |
+| open | State | Absent | Displays the dialog with its flex layout. |
+| data-dialog="squared" | Attribute token | Standard shape | Applies the squared card dimensions and media layout. |
 | full-width | Attribute token | Content width | Expands the dialog to the available viewport width with an outer gap. |
-| no-shadow | Attribute token | --shadow-2xl | Removes dialog elevation when another boundary provides separation. |
+| no-shadow | Attribute token | --shadow-2xl | Removes dialog elevation. |
 | --dialog-radius | Token | Theme value | Controls the corner radius of standard dialogs. |

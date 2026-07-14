@@ -153,14 +153,14 @@ const listRows = [
     name: "ul[data-list]",
     type: "Element and attribute",
     defaultValue: "Unordered",
-    description: "Creates application rows whose order carries no meaning.",
+    description: "Removes list markers and applies the application-row layout.",
   },
   {
     name: "ol[data-list]",
     type: "Element and attribute",
     defaultValue: "Numbered",
     description:
-      "Creates numbered application rows whose sequence carries meaning.",
+      "Generates numbered application rows with an internal counter.",
   },
   {
     name: "li",
@@ -180,7 +180,7 @@ const listRows = [
     type: "Interactive element",
     defaultValue: "Optional",
     description:
-      "Use a link for navigation and type=button for an action inside a row.",
+      "Fills the primary row region or stays compact as the second child.",
   },
 ];
 
@@ -518,30 +518,6 @@ export default () => (
 
     <DemoSection id="list-api" title="API">
       <ApiTable caption="List elements and row regions" rows={listRows} />
-    </DemoSection>
-
-    <DemoSection id="list-accessibility" title="Accessibility">
-      <p>
-        Use unordered lists for collections and ordered lists for sequences. Use
-        links for navigation and buttons for actions. Give icon-only secondary
-        actions a specific accessible name and hide decorative icons with
-        <code> aria-hidden="true"</code>.
-      </p>
-    </DemoSection>
-
-    <DemoSection id="list-errors" title="Composition and common errors">
-      <ul>
-        <li>
-          Add <code>data-list</code> to application lists that need row styling.
-        </li>
-        <li>
-          Keep each styled row as a direct <code>li</code> child of its list.
-        </li>
-        <li>
-          Reserve <code>dl</code> for direct <code>dt</code> and <code>dd</code>
-          pairs.
-        </li>
-      </ul>
     </DemoSection>
   </DocPage>
 );

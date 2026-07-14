@@ -37,10 +37,6 @@ export default () => (
     </DemoSection>
 
     <DemoSection id="progress-tones-title" title="Supported tones">
-      <p>
-        Choose a supported tone that matches the status shown beside the bar.
-        Keep a measurable value and maximum on every determinate example.
-      </p>
       <progress
         value="20"
         max="100"
@@ -97,9 +93,8 @@ export default () => (
       title="Indeterminate progress"
     >
       <p>
-        Omit <code>value</code> when the remaining duration or amount is
-        unknown. An accessible name tells assistive technology which task is
-        active.
+        Without a <code>value</code>, Dragonglass applies the animated
+        indeterminate bar.
       </p>
       <progress data-progress="primary" aria-label="Loading results" />
       <progress data-progress="warning" aria-label="Saving changes" />
@@ -108,8 +103,8 @@ export default () => (
 
     <DemoSection id="progress-spinner-title" title="Spinners">
       <p>
-        Add the <code>spinner</code> token for a compact circular indicator,
-        then pair it with one supported tone and a name for the active task.
+        The <code>spinner</code> token creates a compact circular indicator and
+        combines with one supported tone.
       </p>
       <progress data-progress="spinner primary" aria-label="Loading" />
       <progress data-progress="spinner danger" aria-label="Retrying" />
@@ -124,13 +119,14 @@ export default () => (
             name: "progress",
             type: "Element",
             defaultValue: "Required",
-            description: "Provides native progress semantics.",
+            description: "Receives the full-width base track.",
           },
           {
-            name: "value / max",
+            name: "value",
             type: "Attribute",
-            defaultValue: "Indeterminate / 1",
-            description: "Define measurable completion and its upper bound.",
+            defaultValue: "Absent",
+            description:
+              "Its absence selects the animated indeterminate presentation.",
           },
           {
             name: "data-progress",
@@ -154,26 +150,6 @@ export default () => (
           },
         ]}
       />
-    </DemoSection>
-
-    <DemoSection id="progress-accessibility-title" title="Accessibility">
-      <p>
-        Give every progress element a visible label or an accessible name. Use
-        <code> value</code> and <code>max</code> only when progress is
-        measurable. Omit <code>value</code> for an unknown duration so assistive
-        technology announces an indeterminate state.
-      </p>
-    </DemoSection>
-
-    <DemoSection
-      id="progress-errors-title"
-      title="Composition and common errors"
-    >
-      <p>
-        Choose only tones backed by existing variables. The documented set omits{" "}
-        <code>secondary</code> because no <code>--secondary</code> token is
-        defined. Do not report a guessed percentage as determinate progress.
-      </p>
     </DemoSection>
   </DocPage>
 );

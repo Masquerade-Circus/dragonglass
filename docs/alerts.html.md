@@ -1,10 +1,8 @@
 # Alerts
 
-Communicate important status and guidance with alerts.
+Alert surfaces with info, success, warning and danger tones.
 
 ## Semantic alerts
-
-Match the tone to the outcome, then choose status for routine updates or alert for urgent information that needs immediate attention.
 
 ```html
 <div data-alert="info" role="status">
@@ -36,16 +34,6 @@ Match the tone to the outcome, then choose status for routine updates or alert f
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| div | Element | Example container | Provides a neutral container for the alert content. |
 | data-alert | Attribute | Primary | Accepts info, success, warning or danger. |
-| role=status / role=alert | Attribute | None | Selects polite status or urgent alert announcement behavior. |
 | --alert-color / --alert-bg | Token | Primary theme colors | Set the accent border and alert background. |
 | info / success / warning / danger | State | Primary | Maps the alert to a supported semantic tone. |
-
-## Accessibility
-
-Use `role="status"` for non-urgent updates and `role="alert"` for time-sensitive errors or warnings. Add a role when content appears dynamically, not merely to make static prose interrupt a screen reader.
-
-## Composition and common errors
-
-Apply `data-alert` to a suitable container. Put the outcome first, add recovery guidance when useful and never communicate severity by color alone.

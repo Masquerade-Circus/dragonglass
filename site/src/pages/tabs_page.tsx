@@ -47,10 +47,6 @@ export default () => (
     </DemoSection>
 
     <DemoSection id="tabs-content-title" title="Rich panel content">
-      <p>
-        Each disclosure can contain text or form controls. Give every sibling
-        the same name so opening one panel closes the other panels in the group.
-      </p>
       <section data-tabs>
         <details name="settings-tabs" open>
           <summary>Profile</summary>
@@ -77,7 +73,8 @@ export default () => (
             name: "section / details / summary",
             type: "Element",
             defaultValue: "Required",
-            description: "Build the container, disclosure panels and controls.",
+            description:
+              "Matches direct details children and their direct summaries.",
           },
           {
             name: "data-tabs",
@@ -87,17 +84,10 @@ export default () => (
               "Aligns grouped details controls and places the open content below.",
           },
           {
-            name: "name",
-            type: "Attribute",
-            defaultValue: "Ungrouped",
-            description:
-              "A shared value lets the browser keep one details panel open.",
-          },
-          {
             name: "open",
             type: "Attribute / state",
             defaultValue: "Absent",
-            description: "Marks the currently expanded disclosure.",
+            description: "Applies the active summary color and border.",
           },
           {
             name: "--primary / --default-light / --spacing-4",
@@ -108,29 +98,6 @@ export default () => (
           },
         ]}
       />
-    </DemoSection>
-
-    <DemoSection id="tabs-accessibility-title" title="Accessibility">
-      <p>
-        This component uses native <code>details</code> and
-        <code> summary</code> disclosures. It is not an ARIA tablist and does
-        not implement tab, arrow-key or tabpanel roles. Keep every summary
-        descriptive and every panel available in the document.
-      </p>
-    </DemoSection>
-
-    <DemoSection id="tabs-errors-title" title="Composition and common errors">
-      <p>
-        Give sibling details the same non-empty <code>name</code> when they must
-        behave as a group. Keep only <code>details</code> as direct children of
-        the tabs container because the enhanced layout derives each tab position
-        from that sibling order.
-      </p>
-      <p>
-        Browsers without the required modern CSS keep the native disclosures in
-        a stacked layout. Do not add ARIA tab roles without implementing the
-        complete keyboard and focus contract.
-      </p>
     </DemoSection>
   </DocPage>
 );

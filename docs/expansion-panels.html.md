@@ -1,6 +1,6 @@
 # Expansion panels
 
-Reveal optional content in compact expansion panels.
+Full-width details panels with a generated open-state marker.
 
 ## Collapsed and open panels
 
@@ -12,8 +12,6 @@ Reveal optional content in compact expansion panels.
 ```
 
 ## Panel with form content
-
-Place related form controls inside the disclosed content so the summary names the task before the user opens it.
 
 ```html
 <details data-expansion-panel open>
@@ -32,16 +30,8 @@ Place related form controls inside the disclosed content so the summary names th
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| details / summary | Element | Required | Provide native disclosure behavior and its visible control. |
+| details / summary | Element | Required | Matches details[data-expansion-panel] and its direct summary. |
 | data-expansion-panel | Attribute | Required | Applies the full-width expansion panel treatment. |
-| open | Attribute / state | Absent | Shows the panel content and rotates the disclosure marker. |
+| open | Attribute / state | Absent | Rotates the generated disclosure marker. |
 | --card-radius / --default-light | Token | Theme | Control panel corners and border color. |
 | --spacing-3 / --spacing-4 | Token | Theme | Control summary and content spacing. |
-
-## Accessibility
-
-Keep `summary` as the first child of `details` and write a label that describes the hidden content. Native disclosure state and keyboard controls require no additional ARIA.
-
-## Composition and common errors
-
-Put interactive content after the summary. Do not replace the summary with a custom button, nest a second summary or add a competing click handler.

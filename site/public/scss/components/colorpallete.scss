@@ -81,3 +81,15 @@
     color: var(--#{$name});
   }
 }
+
+.bg-transparent {
+  background-color: transparent;
+}
+
+.bg-scrim {
+  background-color: var(--scrim);
+}
+
+.bg-media-scrim {
+  background-color: var(--media-scrim);
+}

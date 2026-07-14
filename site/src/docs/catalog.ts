@@ -26,13 +26,18 @@ type DocumentationPage =
   | "Home"
   | "Layouts"
   | "Grid"
+  | "Positioning"
+  | "Images"
   | "Elevations"
   | "Colors"
   | "Fonts"
+  | "Heroes"
   | "Badges"
   | "Buttons"
+  | "Links"
   | "AppComponents"
   | "Toolbars"
+  | "Breadcrumbs"
   | "Chips"
   | "Alerts"
   | "ExpansionPanels"
@@ -83,7 +88,17 @@ const catalog: DocumentationRoute[] = [
     page: "Layouts",
     category: "Foundations",
     description:
-      "Build responsive page structures with Dragonglass layout primitives.",
+      "Responsive containers, direct-child content regions and toolbar layouts.",
+  },
+  {
+    path: `${basePath}/heroes.html`,
+    label: "Hero recipes",
+    icon: "view_quilt",
+    color: "bg-accent",
+    page: "Heroes",
+    category: "Foundations",
+    description:
+      "Centered, split and presentation hero recipes composed from existing primitives.",
   },
   {
     path: `${basePath}/grid.html`,
@@ -92,7 +107,27 @@ const catalog: DocumentationRoute[] = [
     color: "bg-primary",
     page: "Grid",
     category: "Utilities",
-    description: "Arrange content with the responsive grid system.",
+    description:
+      "Wrapping flex rows, gutters and responsive fractional widths.",
+  },
+  {
+    path: `${basePath}/positioning.html`,
+    label: "Positioning",
+    icon: "open_with",
+    color: "bg-primary",
+    page: "Positioning",
+    category: "Utilities",
+    description:
+      "Fixed and absolute placement through directional data-position tokens.",
+  },
+  {
+    path: `${basePath}/images.html`,
+    label: "Images",
+    icon: "image",
+    color: "bg-primary",
+    page: "Images",
+    category: "Utilities",
+    description: "Object-fit, focal-position and background image utilities.",
   },
   {
     path: `${basePath}/utilities.html`,
@@ -102,7 +137,7 @@ const catalog: DocumentationRoute[] = [
     page: "Utilities",
     category: "Utilities",
     description:
-      "Compose focused spacing, layout, border, typography, elevation and color adjustments.",
+      "Find focused spacing, layout, border, typography, elevation and color adjustments.",
   },
   {
     path: `${basePath}/elevations.html`,
@@ -112,7 +147,7 @@ const catalog: DocumentationRoute[] = [
     page: "Elevations",
     category: "Utilities",
     description:
-      "Apply consistent depth and emphasis with elevation utilities.",
+      "Outer shadows, inset shadows and explicit stacking utilities.",
   },
   {
     path: `${basePath}/colors.html`,
@@ -121,7 +156,8 @@ const catalog: DocumentationRoute[] = [
     color: "bg-info",
     page: "Colors",
     category: "Utilities",
-    description: "Use the color palette for backgrounds, borders and text.",
+    description:
+      "Semantic color tokens and background, border, outline and text utilities.",
   },
   {
     path: `${basePath}/fonts.html`,
@@ -130,7 +166,8 @@ const catalog: DocumentationRoute[] = [
     color: "bg-success",
     page: "Fonts",
     category: "Utilities",
-    description: "Set readable type sizes, weights and styles.",
+    description:
+      "Font size, style, weight, transform, line-height and alignment utilities.",
   },
   {
     path: `${basePath}/badges.html`,
@@ -139,7 +176,7 @@ const catalog: DocumentationRoute[] = [
     color: "bg-warning",
     page: "Badges",
     category: "Data display",
-    description: "Highlight compact statuses, counts and labels with badges.",
+    description: "Generated badge content selected by data-badge.",
   },
   {
     path: `${basePath}/buttons.html`,
@@ -149,7 +186,17 @@ const catalog: DocumentationRoute[] = [
     page: "Buttons",
     category: "Actions",
     description:
-      "Present primary, secondary and floating actions with buttons.",
+      "Base button styles, semantic color utilities and FAB variants.",
+  },
+  {
+    path: `${basePath}/links.html`,
+    label: "Links",
+    icon: "link",
+    color: "bg-danger",
+    page: "Links",
+    category: "Actions",
+    description:
+      "Inline, standalone and quiet link treatments for navigation and supporting actions.",
   },
   {
     path: `${basePath}/app-components.html`,
@@ -158,7 +205,8 @@ const catalog: DocumentationRoute[] = [
     color: "bg-primary",
     page: "AppComponents",
     category: "Getting started",
-    description: "Compose common application surfaces from semantic HTML.",
+    description:
+      "Find application components by purpose and open their examples and API.",
   },
   {
     path: `${basePath}/toolbars.html`,
@@ -167,7 +215,17 @@ const catalog: DocumentationRoute[] = [
     color: "bg-accent",
     page: "Toolbars",
     category: "Navigation",
-    description: "Group navigation, titles and actions in adaptable toolbars.",
+    description: "Wrapping nav[data-toolbar] rows and container variants.",
+  },
+  {
+    path: `${basePath}/breadcrumbs.html`,
+    label: "Breadcrumbs",
+    icon: "chevron_right",
+    color: "bg-accent",
+    page: "Breadcrumbs",
+    category: "Navigation",
+    description:
+      "Wrapping breadcrumb trails built from direct link and button children.",
   },
   {
     path: `${basePath}/chips.html`,
@@ -176,7 +234,7 @@ const catalog: DocumentationRoute[] = [
     color: "bg-success",
     page: "Chips",
     category: "Actions",
-    description: "Represent compact values, filters and selections with chips.",
+    description: "Chip tones and checked, pressed and current visual states.",
   },
   {
     path: `${basePath}/alerts.html`,
@@ -185,7 +243,7 @@ const catalog: DocumentationRoute[] = [
     color: "bg-warning",
     page: "Alerts",
     category: "Feedback",
-    description: "Communicate important status and guidance with alerts.",
+    description: "Alert surfaces with info, success, warning and danger tones.",
   },
   {
     path: `${basePath}/expansion-panels.html`,
@@ -194,7 +252,8 @@ const catalog: DocumentationRoute[] = [
     color: "bg-danger",
     page: "ExpansionPanels",
     category: "Navigation",
-    description: "Reveal optional content in compact expansion panels.",
+    description:
+      "Full-width details panels with a generated open-state marker.",
   },
   {
     path: `${basePath}/notifications.html`,
@@ -203,7 +262,8 @@ const catalog: DocumentationRoute[] = [
     color: "bg-accent",
     page: "Notifications",
     category: "Feedback",
-    description: "Deliver timely, contextual messages with notifications.",
+    description:
+      "Fixed and inline notifications with tone, position and shadow tokens.",
   },
   {
     path: `${basePath}/steppers.html`,
@@ -212,7 +272,7 @@ const catalog: DocumentationRoute[] = [
     color: "bg-info",
     page: "Steppers",
     category: "Navigation",
-    description: "Guide people through ordered, multi-step tasks.",
+    description: "Horizontal, vertical and numbers-only stepper presentations.",
   },
   {
     path: `${basePath}/bottom-sheets.html`,
@@ -221,7 +281,7 @@ const catalog: DocumentationRoute[] = [
     color: "bg-success",
     page: "BottomSheets",
     category: "Surfaces",
-    description: "Show contextual actions and content in bottom sheets.",
+    description: "Bottom-anchored dialog layout with an optional shadow.",
   },
   {
     path: `${basePath}/tabs.html`,
@@ -230,7 +290,7 @@ const catalog: DocumentationRoute[] = [
     color: "bg-warning",
     page: "Tabs",
     category: "Navigation",
-    description: "Switch between related sections with accessible tabs.",
+    description: "Grouped details layout selected by data-tabs.",
   },
   {
     path: `${basePath}/cards.html`,
@@ -239,7 +299,7 @@ const catalog: DocumentationRoute[] = [
     color: "bg-primary",
     page: "Cards",
     category: "Surfaces",
-    description: "Group related content and actions in flexible cards.",
+    description: "Basic, elevated, squared and full-width card variants.",
   },
   {
     path: `${basePath}/dialogs.html`,
@@ -248,7 +308,7 @@ const catalog: DocumentationRoute[] = [
     color: "bg-accent",
     page: "Dialogs",
     category: "Surfaces",
-    description: "Focus attention on decisions and short tasks with dialogs.",
+    description: "Centered dialogs with shape, width and elevation variants.",
   },
   {
     path: `${basePath}/lists.html`,
@@ -257,8 +317,7 @@ const catalog: DocumentationRoute[] = [
     color: "bg-info",
     page: "Lists",
     category: "Data display",
-    description:
-      "Display related items, details and actions in structured lists.",
+    description: "Styled unordered, ordered and definition-list layouts.",
   },
   {
     path: `${basePath}/forms.html`,
@@ -267,7 +326,8 @@ const catalog: DocumentationRoute[] = [
     color: "bg-success",
     page: "Forms",
     category: "Forms",
-    description: "Collect information with semantic, accessible form controls.",
+    description:
+      "Field, floating-label, validation-state and toggle selectors.",
   },
   {
     path: `${basePath}/menus.html`,
@@ -276,7 +336,7 @@ const catalog: DocumentationRoute[] = [
     color: "bg-warning",
     page: "Menus",
     category: "Navigation",
-    description: "Offer compact groups of navigation links and actions.",
+    description: "Positioned menus inside details[data-trigger].",
   },
   {
     path: `${basePath}/tables.html`,
@@ -285,7 +345,8 @@ const catalog: DocumentationRoute[] = [
     color: "bg-danger",
     page: "Tables",
     category: "Data display",
-    description: "Present structured data in responsive tables.",
+    description:
+      "Responsive data-table layout with generated mobile cell labels.",
   },
   {
     path: `${basePath}/tooltips.html`,
@@ -294,7 +355,7 @@ const catalog: DocumentationRoute[] = [
     color: "bg-info",
     page: "Tooltips",
     category: "Data display",
-    description: "Add concise supporting context with tooltips.",
+    description: "Generated tooltip content, positions and color utilities.",
   },
   {
     path: `${basePath}/progress.html`,
@@ -303,7 +364,8 @@ const catalog: DocumentationRoute[] = [
     color: "bg-success",
     page: "Progress",
     category: "Feedback",
-    description: "Show determinate and indeterminate progress states.",
+    description:
+      "Determinate, indeterminate and spinner styles for progress elements.",
   },
 ];
 

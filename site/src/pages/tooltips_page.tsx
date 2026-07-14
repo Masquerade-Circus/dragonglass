@@ -15,8 +15,6 @@ const colors = [
 const directions = ["bottom", "left", "right"];
 
 const spanExample = `<span data-tooltip="This is a tooltip" class="inline">This span has a tooltip</span>`;
-const necessaryInformationExample = `<p id="publish-help">Publishing makes the current changes visible to everyone.</p>
-<button type="button" aria-describedby="publish-help" data-tooltip="Makes changes visible">Publish changes</button>`;
 
 const tooltipRows = [
   {
@@ -31,7 +29,7 @@ const tooltipRows = [
     type: "HTML data attribute",
     defaultValue: "Top",
     description:
-      "Accepts top, bottom, left or right. Omit it for the top position.",
+      "Accepts top, bottom, left or right. An absent attribute uses top.",
   },
   {
     name: "after:bg-{color}",
@@ -88,54 +86,11 @@ export default () => (
       })}
     </DemoSection>
 
-    <DemoSection
-      id="necessary-tooltip-information"
-      title="Necessary information"
-    >
-      <p id="publish-help">
-        Publishing makes the current changes visible to everyone.
-      </p>
-      <button
-        type="button"
-        aria-describedby="publish-help"
-        data-tooltip="Makes changes visible"
-      >
-        Publish changes
-      </button>
-      <CodeExample code={necessaryInformationExample} />
-    </DemoSection>
-
     <DemoSection id="tooltip-api" title="Tooltip API">
       <ApiTable
         caption="Tooltip attributes and color utilities"
         rows={tooltipRows}
       />
-    </DemoSection>
-
-    <DemoSection
-      id="tooltip-accessibility"
-      title="Accessibility and common errors"
-    >
-      <ul>
-        <li>
-          Focusable tooltip triggers reveal generated content on hover and
-          keyboard focus. The pseudo-element still does not provide a dependable
-          accessible description.
-        </li>
-        <li>
-          Put necessary information in real markup and associate it with a
-          focusable control using <code>aria-describedby</code>, as shown above.
-        </li>
-        <li>
-          A plain <code>span</code> is suitable only for optional visual detail.
-          Adding <code>data-tooltip</code> does not make it focusable.
-        </li>
-        <li>
-          The current CSS uses top by default and supports explicit bottom, left
-          and right positions. It does not provide collision detection or
-          touch-specific behavior.
-        </li>
-      </ul>
     </DemoSection>
   </DocPage>
 );

@@ -1,0 +1,24 @@
+a[data-link] {
+  text-decoration-line: underline;
+  text-decoration-thickness: var(--border-size-1);
+  text-underline-offset: var(--spacing-1);
+}
+
+a[data-link~="standalone"] {
+  font-weight: 600;
+  text-decoration-line: none;
+
+  &:hover,
+  &:focus-visible {
+    text-decoration-line: underline;
+  }
+}
+
+a[data-link~="quiet"] {
+  color: var(--text-secondary);
+
+  &:hover,
+  &:focus-visible {
+    color: var(--text-primary);
+  }
+}

@@ -1,6 +1,6 @@
 # Layout
 
-Build responsive page structures with Dragonglass layout primitives.
+Responsive containers, direct-child content regions and toolbar layouts.
 
 ## Application shell
 
@@ -39,17 +39,11 @@ Build responsive page structures with Dragonglass layout primitives.
 
 A container is a `main` or `article` with direct `header`, `section` and `footer` children. The header and footer keep their natural height. The section receives the remaining height, padding and overflow.
 
-Use `nav` for destination links. Add `data-toolbar` when the same row mixes compact links, buttons or chips as controls.
+The `data-toolbar` attribute turns a nav into a wrapping row with toolbar spacing and a divider.
 
 ## Responsive behavior
 
-Standalone toolbars wrap when their actions need more room. A toolbar nested in a header or footer stays on one row, so keep those action sets short. Content sections scroll instead of forcing the page shell beyond the viewport.
-
-## Accessibility
-
-Give every navigation region a distinct `aria-label` when a page contains more than one. Mark only the active destination with `aria-current="page"`. Keep headings in document order and use buttons for actions rather than links without destinations.
-
-## Common mistakes
+Standalone toolbars wrap when their actions exceed the current width. A toolbar nested in a header or footer stays on one row and overflows when its actions exceed the available width. Content sections own vertical scrolling and keep the page shell within the viewport.
 
 ## API
 
@@ -60,7 +54,7 @@ Give every navigation region a distinct `aria-label` when a page contains more t
 | main, article | Element | Column container | Establishes the container contract for direct header, section and footer children. |
 | header, footer | Element | Intrinsic height | Keeps page-level or container-level chrome outside the scrolling content region. |
 | section | Element | Flexible and scrollable | Fills the remaining container space and owns content padding when it is a direct child. |
-| nav | Element | Semantic navigation | Groups links or related actions and accepts an accessible label. |
+| nav | Element | Horizontal row | Applies a horizontal, non-wrapping layout to links and buttons. |
 | data-toolbar | Attribute | Absent | Turns a nav into a wrapping action row. Toolbars inside a header or footer stay on one row. |
-| aria-current="page" | State | Absent | Identifies the link for the current page to assistive technology. |
+| aria-current="page" | State | Absent | Applies the selected surface and text colors to a nav link. |
 | --container-padding | Token | Theme value | Controls padding on the direct, scrollable content section. |

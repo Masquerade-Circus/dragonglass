@@ -32,6 +32,8 @@ code {
 pre > code {
   padding: 0;
   margin: 0;
+  border: 0;
+  overflow: visible;
   box-shadow: none;
   display: block;
 }

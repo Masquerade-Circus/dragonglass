@@ -24,10 +24,6 @@ const semanticAlertsExample = `<div data-alert="info" role="status">
 export default () => (
   <DocPage page="Alerts">
     <DemoSection id="alerts-tones-title" title="Semantic alerts">
-      <p>
-        Match the tone to the outcome, then choose status for routine updates or
-        alert for urgent information that needs immediate attention.
-      </p>
       <div data-alert="info" role="status">
         Your profile has unsaved changes.
       </div>
@@ -59,23 +55,10 @@ export default () => (
         caption="Alert elements, attributes, tokens and states"
         rows={[
           {
-            name: "div",
-            type: "Element",
-            defaultValue: "Example container",
-            description: "Provides a neutral container for the alert content.",
-          },
-          {
             name: "data-alert",
             type: "Attribute",
             defaultValue: "Primary",
             description: "Accepts info, success, warning or danger.",
-          },
-          {
-            name: "role=status / role=alert",
-            type: "Attribute",
-            defaultValue: "None",
-            description:
-              "Selects polite status or urgent alert announcement behavior.",
           },
           {
             name: "--alert-color / --alert-bg",
@@ -91,23 +74,6 @@ export default () => (
           },
         ]}
       />
-    </DemoSection>
-
-    <DemoSection id="alerts-accessibility-title" title="Accessibility">
-      <p>
-        Use <code>role="status"</code> for non-urgent updates and
-        <code> role="alert"</code> for time-sensitive errors or warnings. Add a
-        role when content appears dynamically, not merely to make static prose
-        interrupt a screen reader.
-      </p>
-    </DemoSection>
-
-    <DemoSection id="alerts-errors-title" title="Composition and common errors">
-      <p>
-        Apply <code>data-alert</code> to a suitable container. Put the outcome
-        first, add recovery guidance when useful and never communicate severity
-        by color alone.
-      </p>
     </DemoSection>
   </DocPage>
 );

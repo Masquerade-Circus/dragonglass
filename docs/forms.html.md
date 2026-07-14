@@ -1,6 +1,6 @@
 # Forms
 
-Collect information with semantic, accessible form controls.
+Field, floating-label, validation-state and toggle selectors.
 
 ## Default HTML fields
 
@@ -242,19 +242,11 @@ Collect information with semantic, accessible form controls.
 
 ## Composition
 
-Wrap ordinary fields as needed and use `fieldset` with `legend` for related control groups. Floating fields use a neutral `data-floating` container and keep the control before its `label` because that sibling order drives the visual label state.
-
-Radio buttons share a `name` and a group legend. Checkboxes and toggles keep their native input so forms, keyboards and assistive technology receive the expected behavior.
+Inside `data-floating`, the control precedes its `label` because the sibling selectors drive the visual label state.
 
 ## Responsive behavior
 
-Text controls fill the available width, textareas resize vertically and range inputs preserve their full track. Let the surrounding form or card control column width. Native date, time and select interfaces may vary by browser and operating system.
-
-## Accessibility
-
-Every control needs a stable `name` for submission and an accessible name from a `label` whose `for` matches the control ID. Connect help and error text with `aria-describedby`. Put `aria-invalid="true"` on the invalid control after validation, and move focus to the first invalid field when submission fails.
-
-## Common mistakes
+Text controls fill the available width, textareas resize vertically and range inputs preserve their full track. The surrounding form or card controls column width.
 
 ## API
 
@@ -262,14 +254,13 @@ Every control needs a stable `name` for submission and an accessible name from a
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| input, select, textarea | Element | Full width | Provides the native control behavior and Dragonglass field styling. |
-| label[for] | Element | Required by guidance | Gives a control its visible, programmatic name through a matching id. |
-| fieldset and legend | Element | No border | Groups related controls and names radio or checkbox groups. |
+| input, select, textarea | Element | Full width | Receives full-width Dragonglass field styling. |
+| label[for] | Element | for attribute present | Receives inline label spacing and a pointer cursor. |
+| fieldset and legend | Element | No border | Removes the fieldset border and styles its direct legend. |
 | data-floating | Attribute | Absent | Turns a neutral wrapper with a control, label and small into a floating field. |
 | data-field="primary\|accent\|info\|success\|warning\|danger\|default" | Attribute token | Neutral | Applies a documented semantic color to a field container and its control. |
-| data-toggle | Attribute | Absent | Displays a checkbox as a switch while preserving native checkbox semantics. |
-| aria-invalid="true" | State | Absent | Marks the control, not its wrapper, as invalid and applies the danger state. |
-| aria-describedby | Attribute | Absent | Connects a control to persistent help or its current error message. |
+| data-toggle | Attribute | Absent | Displays a checkbox as a switch. |
+| aria-invalid="true" | State | Absent | Applies danger colors to the control and matching wrapper content. |
 | --control-accent | Token | Theme value | Controls focus, checked and range accents. |
-| search / form[role=search] | Element / attribute | Contextual | Creates a search landmark and aligns a fieldset with its submit action. |
-| input[type=search] | Element / attribute | Empty | Provides native search input and clear-button behavior. |
+| search / form[role=search] | Element / attribute | Contextual | Aligns a fieldset and submit action in a flexible row. |
+| input[type=search] | Element / attribute | Empty | Fills the available width and removes the default bottom margin. |

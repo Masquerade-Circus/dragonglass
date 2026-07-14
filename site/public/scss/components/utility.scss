@@ -35,6 +35,74 @@
   }
 }
 
+@each $name, $value in $heights {
+  .h-#{$name} {
+    height: $value;
+  }
+
+  .min-h-#{$name} {
+    min-height: $value;
+  }
+}
+
+@each $name, $value in $viewportHeights {
+  .h-#{$name} {
+    height: $value;
+  }
+
+  .min-h-#{$name} {
+    min-height: $value;
+  }
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.h-auto {
+  height: auto;
+}
+
+@each $value in cover, contain, fill, none, scale-down {
+  .object-#{$value} {
+    object-fit: $value;
+  }
+}
+
+@each $name, $value in $mediaPositions {
+  .object-#{$name} {
+    object-position: $value;
+  }
+
+  .bg-#{$name} {
+    background-position: $value;
+  }
+}
+
+.bg-auto {
+  background-size: auto;
+}
+
+.bg-cover {
+  background-size: cover;
+}
+
+.bg-contain {
+  background-size: contain;
+}
+
+.bg-repeat {
+  background-repeat: repeat;
+}
+
+.bg-no-repeat {
+  background-repeat: no-repeat;
+}
+
 @each $val in relative, static, absolute, fixed, sticky {
   .#{$val} {
     position: $val;

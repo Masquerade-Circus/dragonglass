@@ -13,7 +13,7 @@ const basicCardExample = `<article data-card>
 const elevatedCardExample = `<article data-card="elevated">
   <section>
     <h3>Elevated card</h3>
-    <p>Elevation adds emphasis without changing the content structure.</p>
+    <p>This card uses the elevated variant.</p>
   </section>
 </article>`;
 
@@ -38,7 +38,6 @@ const mediaCardExample = `<article data-card>
   <section data-media role="img" aria-label="Mountain ridge under a cloudy sky" style="background-image: url('https://picsum.photos/480/480')"></section>
   <section>
     <h3>Field report</h3>
-    <p>The background image has an equivalent accessible name.</p>
   </section>
 </article>`;
 
@@ -56,7 +55,7 @@ const fullWidthCardExample = `<article data-card="full-width">
     <h3>Documentation status</h3>
   </header>
   <section>
-    <p>Use the full available content width for longer summaries.</p>
+    <p>The summary spans the full available content width.</p>
   </section>
   <footer>
     <a href="/dragonglass">Browse documentation</a>
@@ -67,8 +66,8 @@ export default () => (
   <DocPage page="Cards">
     <DemoSection id="cards-basic-title" title="Basic and elevated cards">
       <p>
-        Use a basic card for grouped content in the normal page flow. Use the
-        elevated variant when the same structure needs stronger visual emphasis.
+        A basic card groups content in the normal page flow. The elevated
+        variant adds stronger visual emphasis to the same structure.
       </p>
       <article data-card>
         <section>
@@ -80,7 +79,7 @@ export default () => (
       <article data-card="elevated">
         <section>
           <h3>Elevated card</h3>
-          <p>Elevation adds emphasis without changing the content structure.</p>
+          <p>This card uses the elevated variant.</p>
         </section>
       </article>
       <CodeExample code={elevatedCardExample} />
@@ -88,8 +87,8 @@ export default () => (
 
     <DemoSection id="cards-structured-title" title="Header, content and footer">
       <p>
-        Use direct header, section and footer regions when a card needs a title,
-        supporting content and a separate action area.
+        Direct header, section and footer regions separate the title, supporting
+        content and action area.
       </p>
       <article data-card>
         <header>
@@ -118,9 +117,8 @@ export default () => (
 
     <DemoSection id="cards-media-title" title="Media and square cards">
       <p>
-        Use a media region for an image that supports the card content. Use the
-        squared variant for compact, equal-ratio tiles whose content fits the
-        constrained shape.
+        A media region adds an image to the card content. The squared variant
+        creates compact, equal-ratio tiles.
       </p>
       <article data-card>
         <section
@@ -131,7 +129,6 @@ export default () => (
         />
         <section>
           <h3>Field report</h3>
-          <p>The background image has an equivalent accessible name.</p>
         </section>
       </article>
       <CodeExample code={mediaCardExample} />
@@ -148,15 +145,15 @@ export default () => (
 
     <DemoSection id="cards-full-width-title" title="Full-width card">
       <p>
-        Use the full-width variant for summaries that need the complete content
-        row instead of a compact card column.
+        The full-width variant gives summaries the complete content row instead
+        of a compact card column.
       </p>
       <article data-card="full-width">
         <header>
           <h3>Documentation status</h3>
         </header>
         <section>
-          <p>Use the full available content width for longer summaries.</p>
+          <p>The summary spans the full available content width.</p>
         </section>
         <footer>
           <a href="/dragonglass">Browse documentation</a>
@@ -169,13 +166,6 @@ export default () => (
       <ApiTable
         caption="Card elements, attributes, tokens and states"
         rows={[
-          {
-            name: "article / section",
-            type: "Element",
-            defaultValue: "Contextual",
-            description:
-              "Use article for standalone content or section for grouped content.",
-          },
           {
             name: "data-card",
             type: "Attribute",
@@ -205,23 +195,6 @@ export default () => (
           },
         ]}
       />
-    </DemoSection>
-
-    <DemoSection id="cards-accessibility-title" title="Accessibility">
-      <p>
-        Preserve heading order inside each card. Give icon-only buttons an
-        accessible name. A meaningful background image needs equivalent text,
-        such as <code>role="img"</code> with <code>aria-label</code>. Decorative
-        media should be hidden from assistive technology instead.
-      </p>
-    </DemoSection>
-
-    <DemoSection id="cards-errors-title" title="Composition and common errors">
-      <p>
-        Keep media, content and actions as direct card regions so the component
-        selectors apply. Do not make the entire card clickable when it also
-        contains independent buttons or links.
-      </p>
     </DemoSection>
   </DocPage>
 );

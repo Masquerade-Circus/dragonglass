@@ -1,6 +1,6 @@
 # Toolbars
 
-Group navigation, titles and actions in adaptable toolbars.
+Wrapping nav[data-toolbar] rows and container variants.
 
 ## Actions and links
 
@@ -13,8 +13,6 @@ Group navigation, titles and actions in adaptable toolbars.
 ```
 
 ## Filter chips
-
-Group related checkbox chips in a toolbar when users need to adjust several filters before they apply the result.
 
 ```html
 <nav data-toolbar aria-label="Issue filters">
@@ -30,7 +28,7 @@ Group related checkbox chips in a toolbar when users need to adjust several filt
 
 ## Header and footer toolbars
 
-A toolbar wraps by default. Inside a header or footer it uses `flex-wrap: nowrap`, so keep labels short and avoid more actions than the available width can hold.
+A toolbar wraps by default. Inside a header or footer it uses `flex-wrap: nowrap` and overflows when its actions exceed the available width.
 
 ### Project settings
 
@@ -56,16 +54,8 @@ A toolbar wraps by default. Inside a header or footer it uses `flex-wrap: nowrap
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| nav | Element | Required | Provides navigation semantics for the toolbar. |
+| nav | Element | Required | Provides the nav[data-toolbar] selector host. |
 | data-toolbar | Attribute | Required | Applies the flexible toolbar layout to a nav. |
 | --spacing-2 / --spacing-3 | Token | Theme | Control the gap and default toolbar padding. |
 | --border-size-1 / --default-light | Token | Theme | Control the toolbar divider. |
 | header or footer ancestor | State | Wrapping | Removes padding and divider and prevents wrapping. |
-
-## Accessibility
-
-Give every toolbar a specific accessible name. Use links for navigation, buttons for actions and labeled inputs for filters so each control keeps its native keyboard behavior.
-
-## Composition and common errors
-
-Place direct links, buttons or chips inside `nav[data-toolbar]`. Do not use a toolbar as a generic visual row, and do not rely on a header or footer toolbar to wrap crowded actions.

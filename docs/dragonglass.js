@@ -1500,7 +1500,16 @@
       color: "bg-accent",
       page: "Layouts",
       category: "Foundations",
-      description: "Build responsive page structures with Dragonglass layout primitives."
+      description: "Responsive containers, direct-child content regions and toolbar layouts."
+    },
+    {
+      path: `${basePath}/heroes.html`,
+      label: "Hero recipes",
+      icon: "view_quilt",
+      color: "bg-accent",
+      page: "Heroes",
+      category: "Foundations",
+      description: "Centered, split and presentation hero recipes composed from existing primitives."
     },
     {
       path: `${basePath}/grid.html`,
@@ -1509,7 +1518,25 @@
       color: "bg-primary",
       page: "Grid",
       category: "Utilities",
-      description: "Arrange content with the responsive grid system."
+      description: "Wrapping flex rows, gutters and responsive fractional widths."
+    },
+    {
+      path: `${basePath}/positioning.html`,
+      label: "Positioning",
+      icon: "open_with",
+      color: "bg-primary",
+      page: "Positioning",
+      category: "Utilities",
+      description: "Fixed and absolute placement through directional data-position tokens."
+    },
+    {
+      path: `${basePath}/images.html`,
+      label: "Images",
+      icon: "image",
+      color: "bg-primary",
+      page: "Images",
+      category: "Utilities",
+      description: "Object-fit, focal-position and background image utilities."
     },
     {
       path: `${basePath}/utilities.html`,
@@ -1518,7 +1545,7 @@
       color: "bg-default",
       page: "Utilities",
       category: "Utilities",
-      description: "Compose focused spacing, layout, border, typography, elevation and color adjustments."
+      description: "Find focused spacing, layout, border, typography, elevation and color adjustments."
     },
     {
       path: `${basePath}/elevations.html`,
@@ -1527,7 +1554,7 @@
       color: "bg-accent",
       page: "Elevations",
       category: "Utilities",
-      description: "Apply consistent depth and emphasis with elevation utilities."
+      description: "Outer shadows, inset shadows and explicit stacking utilities."
     },
     {
       path: `${basePath}/colors.html`,
@@ -1536,7 +1563,7 @@
       color: "bg-info",
       page: "Colors",
       category: "Utilities",
-      description: "Use the color palette for backgrounds, borders and text."
+      description: "Semantic color tokens and background, border, outline and text utilities."
     },
     {
       path: `${basePath}/fonts.html`,
@@ -1545,7 +1572,7 @@
       color: "bg-success",
       page: "Fonts",
       category: "Utilities",
-      description: "Set readable type sizes, weights and styles."
+      description: "Font size, style, weight, transform, line-height and alignment utilities."
     },
     {
       path: `${basePath}/badges.html`,
@@ -1554,7 +1581,7 @@
       color: "bg-warning",
       page: "Badges",
       category: "Data display",
-      description: "Highlight compact statuses, counts and labels with badges."
+      description: "Generated badge content selected by data-badge."
     },
     {
       path: `${basePath}/buttons.html`,
@@ -1563,7 +1590,16 @@
       color: "bg-danger",
       page: "Buttons",
       category: "Actions",
-      description: "Present primary, secondary and floating actions with buttons."
+      description: "Base button styles, semantic color utilities and FAB variants."
+    },
+    {
+      path: `${basePath}/links.html`,
+      label: "Links",
+      icon: "link",
+      color: "bg-danger",
+      page: "Links",
+      category: "Actions",
+      description: "Inline, standalone and quiet link treatments for navigation and supporting actions."
     },
     {
       path: `${basePath}/app-components.html`,
@@ -1572,7 +1608,7 @@
       color: "bg-primary",
       page: "AppComponents",
       category: "Getting started",
-      description: "Compose common application surfaces from semantic HTML."
+      description: "Find application components by purpose and open their examples and API."
     },
     {
       path: `${basePath}/toolbars.html`,
@@ -1581,7 +1617,16 @@
       color: "bg-accent",
       page: "Toolbars",
       category: "Navigation",
-      description: "Group navigation, titles and actions in adaptable toolbars."
+      description: "Wrapping nav[data-toolbar] rows and container variants."
+    },
+    {
+      path: `${basePath}/breadcrumbs.html`,
+      label: "Breadcrumbs",
+      icon: "chevron_right",
+      color: "bg-accent",
+      page: "Breadcrumbs",
+      category: "Navigation",
+      description: "Wrapping breadcrumb trails built from direct link and button children."
     },
     {
       path: `${basePath}/chips.html`,
@@ -1590,7 +1635,7 @@
       color: "bg-success",
       page: "Chips",
       category: "Actions",
-      description: "Represent compact values, filters and selections with chips."
+      description: "Chip tones and checked, pressed and current visual states."
     },
     {
       path: `${basePath}/alerts.html`,
@@ -1599,7 +1644,7 @@
       color: "bg-warning",
       page: "Alerts",
       category: "Feedback",
-      description: "Communicate important status and guidance with alerts."
+      description: "Alert surfaces with info, success, warning and danger tones."
     },
     {
       path: `${basePath}/expansion-panels.html`,
@@ -1608,7 +1653,7 @@
       color: "bg-danger",
       page: "ExpansionPanels",
       category: "Navigation",
-      description: "Reveal optional content in compact expansion panels."
+      description: "Full-width details panels with a generated open-state marker."
     },
     {
       path: `${basePath}/notifications.html`,
@@ -1617,7 +1662,7 @@
       color: "bg-accent",
       page: "Notifications",
       category: "Feedback",
-      description: "Deliver timely, contextual messages with notifications."
+      description: "Fixed and inline notifications with tone, position and shadow tokens."
     },
     {
       path: `${basePath}/steppers.html`,
@@ -1626,7 +1671,7 @@
       color: "bg-info",
       page: "Steppers",
       category: "Navigation",
-      description: "Guide people through ordered, multi-step tasks."
+      description: "Horizontal, vertical and numbers-only stepper presentations."
     },
     {
       path: `${basePath}/bottom-sheets.html`,
@@ -1635,7 +1680,7 @@
       color: "bg-success",
       page: "BottomSheets",
       category: "Surfaces",
-      description: "Show contextual actions and content in bottom sheets."
+      description: "Bottom-anchored dialog layout with an optional shadow."
     },
     {
       path: `${basePath}/tabs.html`,
@@ -1644,7 +1689,7 @@
       color: "bg-warning",
       page: "Tabs",
       category: "Navigation",
-      description: "Switch between related sections with accessible tabs."
+      description: "Grouped details layout selected by data-tabs."
     },
     {
       path: `${basePath}/cards.html`,
@@ -1653,7 +1698,7 @@
       color: "bg-primary",
       page: "Cards",
       category: "Surfaces",
-      description: "Group related content and actions in flexible cards."
+      description: "Basic, elevated, squared and full-width card variants."
     },
     {
       path: `${basePath}/dialogs.html`,
@@ -1662,7 +1707,7 @@
       color: "bg-accent",
       page: "Dialogs",
       category: "Surfaces",
-      description: "Focus attention on decisions and short tasks with dialogs."
+      description: "Centered dialogs with shape, width and elevation variants."
     },
     {
       path: `${basePath}/lists.html`,
@@ -1671,7 +1716,7 @@
       color: "bg-info",
       page: "Lists",
       category: "Data display",
-      description: "Display related items, details and actions in structured lists."
+      description: "Styled unordered, ordered and definition-list layouts."
     },
     {
       path: `${basePath}/forms.html`,
@@ -1680,7 +1725,7 @@
       color: "bg-success",
       page: "Forms",
       category: "Forms",
-      description: "Collect information with semantic, accessible form controls."
+      description: "Field, floating-label, validation-state and toggle selectors."
     },
     {
       path: `${basePath}/menus.html`,
@@ -1689,7 +1734,7 @@
       color: "bg-warning",
       page: "Menus",
       category: "Navigation",
-      description: "Offer compact groups of navigation links and actions."
+      description: "Positioned menus inside details[data-trigger]."
     },
     {
       path: `${basePath}/tables.html`,
@@ -1698,7 +1743,7 @@
       color: "bg-danger",
       page: "Tables",
       category: "Data display",
-      description: "Present structured data in responsive tables."
+      description: "Responsive data-table layout with generated mobile cell labels."
     },
     {
       path: `${basePath}/tooltips.html`,
@@ -1707,7 +1752,7 @@
       color: "bg-info",
       page: "Tooltips",
       category: "Data display",
-      description: "Add concise supporting context with tooltips."
+      description: "Generated tooltip content, positions and color utilities."
     },
     {
       path: `${basePath}/progress.html`,
@@ -1716,7 +1761,7 @@
       color: "bg-success",
       page: "Progress",
       category: "Feedback",
-      description: "Show determinate and indeterminate progress states."
+      description: "Determinate, indeterminate and spinner styles for progress elements."
     }
   ];
   var themeRoutes = bundledThemes.map((theme) => ({
@@ -1824,13 +1869,6 @@
   var CodeExample = ({ code }) => /* @__PURE__ */ jsx("pre", { children: /* @__PURE__ */ jsx("code", { children: code }) });
   var code_example_default = CodeExample;
 
-  // site/src/docs/demo_section.tsx
-  var DemoSection = ({ id, title }, ...children) => /* @__PURE__ */ jsxs("section", { "aria-labelledby": id, children: [
-    /* @__PURE__ */ jsx("h2", { id, children: title }),
-    children
-  ] });
-  var demo_section_default = DemoSection;
-
   // site/src/pages/layout.tsx
   var DrawerLink = ({
     path,
@@ -1874,74 +1912,223 @@
   ];
   var layout_default = Layout;
 
-  // site/src/docs/doc_page.tsx
-  var DocPage = ({ page }, ...children) => {
-    const route = routeByPage.get(page);
-    if (!route) {
-      throw new Error(`Documentation metadata not found for page: ${page}`);
-    }
-    return /* @__PURE__ */ jsxs(layout_default, { currentPath: route.path, children: [
-      /* @__PURE__ */ jsx("h1", { children: route.label }),
-      /* @__PURE__ */ jsx("p", { children: route.description }),
-      children
-    ] });
-  };
-  var doc_page_default = DocPage;
-
   // site/src/pages/home_page.tsx
   var installCode = `bun add dragonglass`;
   var importCode = `import "dragonglass/dist/dragonglass.css";
 import "dragonglass/dist/themes/default.css";`;
-  var appShellCode = `<body>
-  <header>
-    <nav aria-label="Primary">
-      <a href="/projects" aria-current="page">Projects</a>
-      <a href="/teams">Teams</a>
-    </nav>
-  </header>
+  var cardCode = `<section data-card class="p-4">
+  <h2>Website refresh</h2>
+  <p>The team is reviewing the final interface states.</p>
+  <button>Open project</button>
+</section>`;
+  var colorSchemeCode = `<html data-color-scheme="light"></html>
+<html data-color-scheme="dark"></html>`;
+  var customThemeCode = `@use "pkg:dragonglass/theme" as dragonglass;
 
-  <main>
-    <header>
-      <h1>Projects</h1>
-    </header>
-    <section data-card class="p-4">
-      <h2>Website refresh</h2>
-      <p>The team is reviewing the final interface states.</p>
-      <button>Open project</button>
-    </section>
-  </main>
-</body>`;
-  var quickLinks = [
-    { label: "Foundations", page: "Layouts" },
-    { label: "Forms", page: "Forms" },
-    { label: "Components", page: "AppComponents" }
+:root {
+  @include dragonglass.tokens(#7c3aed);
+}`;
+  var componentGroups = [
+    ["Actions", "Buttons, links and chips."],
+    ["Forms", "Fields, floating labels, validation states and toggles."],
+    [
+      "Navigation",
+      "Breadcrumbs, toolbars, expansion panels, steppers, tabs and menus."
+    ],
+    ["Feedback", "Alerts, notifications and progress."],
+    ["Surfaces", "Bottom sheets, cards and dialogs."],
+    ["Data display", "Badges, lists, tables and tooltips."]
   ];
-  var home_page_default = () => /* @__PURE__ */ jsxs(doc_page_default, { page: "Home", children: [
-    /* @__PURE__ */ jsx("p", { children: "Dragonglass is HTML5-first. Start with semantic elements and native browser behavior, then add a declarative attribute or utility only when the interface needs a component variant or focused adjustment." }),
-    /* @__PURE__ */ jsxs(demo_section_default, { id: "install-dragonglass", title: "Install and import", children: [
-      /* @__PURE__ */ jsx("p", { children: "Install Dragonglass with Bun." }),
-      /* @__PURE__ */ jsx(code_example_default, { code: installCode }),
-      /* @__PURE__ */ jsx("p", { children: "Import the framework and one compiled theme from your application entry point." }),
-      /* @__PURE__ */ jsx(code_example_default, { code: importCode })
-    ] }),
-    /* @__PURE__ */ jsxs(demo_section_default, { id: "minimal-app-shell", title: "Create an app shell", children: [
-      /* @__PURE__ */ jsxs("p", { children: [
-        "This shell uses native landmarks for structure, ",
-        /* @__PURE__ */ jsx("code", { children: "data-card" }),
-        "for a component contract, and ",
-        /* @__PURE__ */ jsx("code", { children: "p-4" }),
-        " for one explicit spacing adjustment."
-      ] }),
-      /* @__PURE__ */ jsx(code_example_default, { code: appShellCode })
-    ] }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "choose-the-next-guide", title: "Choose the next guide", children: /* @__PURE__ */ jsx("ul", { children: quickLinks.map(({ label, page }) => {
-      const route = routeByPage.get(page);
-      return /* @__PURE__ */ jsxs("li", { children: [
-        /* @__PURE__ */ jsx("a", { href: route.path, children: label }),
-        ": ",
-        route.description
-      ] });
-    }) }) })
+  var pathFor = (page) => routeByPage.get(page).path;
+  var introMeasure = "md:w-10/12 lg:w-8/12 xl:w-7/12 pt-0 pb-0 text-center";
+  var contentMeasure = "md:w-10/12 pt-0 pb-0";
+  var home_page_default = () => /* @__PURE__ */ jsxs(layout_default, { currentPath: pathFor("Home"), children: [
+    /* @__PURE__ */ jsxs(
+      "section",
+      {
+        class: "grid-center grid-gutters min-h-half-screen pt-8",
+        "aria-labelledby": "home-title",
+        children: [
+          /* @__PURE__ */ jsx("p", { class: `${introMeasure} text-sm font-semibold mt-0 mb-2`, children: "Pure CSS framework" }),
+          /* @__PURE__ */ jsx(
+            "h1",
+            {
+              id: "home-title",
+              class: `${introMeasure} text-5xl font-bold leading-tight mt-0 mb-4`,
+              children: "App interfaces with readable HTML."
+            }
+          ),
+          /* @__PURE__ */ jsx("p", { class: `${introMeasure} text-lg leading-relaxed mt-0 mb-4`, children: "Dragonglass styles semantic HTML with readable data-* component variants, responsive layout primitives and focused utilities. It ships as plain CSS with no client-side framework dependency." }),
+          /* @__PURE__ */ jsxs("p", { class: `${introMeasure} mt-0 mb-0`, children: [
+            /* @__PURE__ */ jsx(
+              "a",
+              {
+                "data-button": true,
+                class: "bg-primary text-lg p-3 mr-2 mb-2",
+                href: pathFor("AppComponents"),
+                children: "Explore app components"
+              }
+            ),
+            /* @__PURE__ */ jsx(
+              "a",
+              {
+                "data-link": "standalone",
+                class: "text-lg p-3 mb-2",
+                href: pathFor("Layouts"),
+                children: "View layout"
+              }
+            )
+          ] }),
+          /* @__PURE__ */ jsx(
+            "h2",
+            {
+              class: `${contentMeasure} text-2xl font-semibold leading-tight mt-10 mb-3`,
+              children: "Add Dragonglass"
+            }
+          ),
+          /* @__PURE__ */ jsxs("figure", { class: "md:w-4/12", "aria-labelledby": "package-label", children: [
+            /* @__PURE__ */ jsx(
+              "h3",
+              {
+                id: "package-label",
+                class: "text-lg font-semibold leading-snug mt-0 mb-2",
+                children: "Package"
+              }
+            ),
+            /* @__PURE__ */ jsx(code_example_default, { code: installCode })
+          ] }),
+          /* @__PURE__ */ jsxs("figure", { class: "md:w-6/12", "aria-labelledby": "stylesheets-label", children: [
+            /* @__PURE__ */ jsx(
+              "h3",
+              {
+                id: "stylesheets-label",
+                class: "text-lg font-semibold leading-snug mt-0 mb-2",
+                children: "Stylesheets"
+              }
+            ),
+            /* @__PURE__ */ jsx("p", { class: "mt-0 mb-2", children: "Import the framework first, then one compiled theme." }),
+            /* @__PURE__ */ jsx(code_example_default, { code: importCode })
+          ] })
+        ]
+      }
+    ),
+    /* @__PURE__ */ jsx("hr", { class: "mt-8 mb-8" }),
+    /* @__PURE__ */ jsxs(
+      "section",
+      {
+        class: "grid-center grid-gutters",
+        "aria-labelledby": "composition-title",
+        children: [
+          /* @__PURE__ */ jsx("p", { class: `${contentMeasure} text-sm font-semibold mt-0 mb-2`, children: "Readable composition" }),
+          /* @__PURE__ */ jsx(
+            "h2",
+            {
+              id: "composition-title",
+              class: `${contentMeasure} text-2xl font-semibold leading-tight mt-0 mb-3`,
+              children: "Use attributes for components. Keep utilities focused."
+            }
+          ),
+          /* @__PURE__ */ jsx("p", { class: `${contentMeasure} mt-0 mb-6`, children: "Start with a native element. Add data-card for the component contract and p-4 for one explicit spacing adjustment." }),
+          /* @__PURE__ */ jsx("figure", { class: "md:w-7/12 lg:w-6/12", "aria-label": "README card markup", children: /* @__PURE__ */ jsx(code_example_default, { code: cardCode }) }),
+          /* @__PURE__ */ jsxs(
+            "figure",
+            {
+              class: "md:w-5/12 lg:w-4/12",
+              "aria-label": "Rendered card and markup annotations",
+              children: [
+                /* @__PURE__ */ jsxs("section", { "data-card": true, class: "p-4", children: [
+                  /* @__PURE__ */ jsx("h2", { children: "Website refresh" }),
+                  /* @__PURE__ */ jsx("p", { children: "The team is reviewing the final interface states." }),
+                  /* @__PURE__ */ jsx("button", { children: "Open project" })
+                ] }),
+                /* @__PURE__ */ jsxs("dl", { children: [
+                  /* @__PURE__ */ jsx("dt", { children: "HTML structure" }),
+                  /* @__PURE__ */ jsx("dd", { children: /* @__PURE__ */ jsx("code", { children: "section" }) }),
+                  /* @__PURE__ */ jsx("dt", { children: "Component contract" }),
+                  /* @__PURE__ */ jsx("dd", { children: /* @__PURE__ */ jsx("code", { children: "data-card" }) }),
+                  /* @__PURE__ */ jsx("dt", { children: "Focused utility" }),
+                  /* @__PURE__ */ jsx("dd", { children: /* @__PURE__ */ jsx("code", { children: "p-4" }) })
+                ] })
+              ]
+            }
+          )
+        ]
+      }
+    ),
+    /* @__PURE__ */ jsx("hr", { class: "mt-8 mb-8" }),
+    /* @__PURE__ */ jsxs(
+      "section",
+      {
+        class: "grid-center grid-gutters",
+        "aria-labelledby": "components-title",
+        children: [
+          /* @__PURE__ */ jsx("p", { class: `${contentMeasure} text-sm font-semibold mt-0 mb-2`, children: "App components" }),
+          /* @__PURE__ */ jsx(
+            "h2",
+            {
+              id: "components-title",
+              class: `${contentMeasure} text-2xl font-semibold leading-tight mt-0 mb-3`,
+              children: "Common app surfaces, grouped by purpose."
+            }
+          ),
+          /* @__PURE__ */ jsx("p", { class: `${contentMeasure} mt-0 mb-6`, children: "Each component guide pairs rendered examples with markup and an API table for its elements, attributes, variants, states and tokens." }),
+          /* @__PURE__ */ jsx("dl", { class: "md:w-10/12", children: componentGroups.flatMap(([group, contents]) => [
+            /* @__PURE__ */ jsx("dt", { children: group }),
+            /* @__PURE__ */ jsx("dd", { children: contents })
+          ]) }),
+          /* @__PURE__ */ jsx("h3", { class: "md:w-3/12 text-lg font-semibold leading-snug mt-0 mb-0", children: "Focused adjustments" }),
+          /* @__PURE__ */ jsx("p", { class: "md:w-4/12 mt-0 mb-0", children: "Spacing, layout, borders, typography, elevation and color." }),
+          /* @__PURE__ */ jsx("p", { class: "md:w-3/12 mt-0 mb-0", children: /* @__PURE__ */ jsx("a", { "data-button": true, class: "text-lg p-3", href: pathFor("Utilities"), children: "View utilities" }) })
+        ]
+      }
+    ),
+    /* @__PURE__ */ jsx("hr", { class: "mt-8 mb-8" }),
+    /* @__PURE__ */ jsxs(
+      "section",
+      {
+        class: "grid-center grid-gutters pb-8",
+        "aria-labelledby": "themes-title",
+        children: [
+          /* @__PURE__ */ jsx("p", { class: `${contentMeasure} text-sm font-semibold mt-0 mb-2`, children: "12 compiled themes" }),
+          /* @__PURE__ */ jsx(
+            "h2",
+            {
+              id: "themes-title",
+              class: `${contentMeasure} text-2xl font-semibold leading-tight mt-0 mb-3`,
+              children: "One semantic token contract across light and dark."
+            }
+          ),
+          /* @__PURE__ */ jsx("p", { class: `${contentMeasure} mt-0 mb-6`, children: "Each theme derives light and dark structural roles from the same primary and follows prefers-color-scheme automatically." }),
+          /* @__PURE__ */ jsxs("figure", { class: "lg:w-5/12", "aria-label": "Manual color scheme control", children: [
+            /* @__PURE__ */ jsxs("p", { "data-alert": "info", children: [
+              /* @__PURE__ */ jsx("strong", { children: "Manual control:" }),
+              " set ",
+              /* @__PURE__ */ jsx("code", { children: "data-color-scheme" }),
+              " to",
+              " ",
+              /* @__PURE__ */ jsx("code", { children: "light" }),
+              " or ",
+              /* @__PURE__ */ jsx("code", { children: "dark" }),
+              " on the root element."
+            ] }),
+            /* @__PURE__ */ jsx(code_example_default, { code: colorSchemeCode })
+          ] }),
+          /* @__PURE__ */ jsxs("figure", { class: "lg:w-5/12", "aria-labelledby": "custom-theme-title", children: [
+            /* @__PURE__ */ jsx(
+              "h3",
+              {
+                id: "custom-theme-title",
+                class: "text-lg font-semibold leading-snug mt-0 mb-2",
+                children: "Custom"
+              }
+            ),
+            /* @__PURE__ */ jsx("p", { class: "mt-0 mb-2", children: "Compile semantic families, foregrounds and progress colors from one supported opaque primary." }),
+            /* @__PURE__ */ jsx(code_example_default, { code: customThemeCode }),
+            /* @__PURE__ */ jsx("p", { class: "mt-4 mb-0", children: /* @__PURE__ */ jsx("a", { "data-button": true, class: "text-lg p-3", href: pathFor("Colors"), children: "Explore colors" }) })
+          ] })
+        ]
+      }
+    )
   ] });
 
   // site/src/docs/api_table.tsx
@@ -1962,8 +2149,29 @@ import "dragonglass/dist/themes/default.css";`;
   ] });
   var api_table_default = ApiTable;
 
+  // site/src/docs/demo_section.tsx
+  var DemoSection = ({ id, title }, ...children) => /* @__PURE__ */ jsxs("section", { "aria-labelledby": id, children: [
+    /* @__PURE__ */ jsx("h2", { id, children: title }),
+    children
+  ] });
+  var demo_section_default = DemoSection;
+
+  // site/src/docs/doc_page.tsx
+  var DocPage = ({ page }, ...children) => {
+    const route = routeByPage.get(page);
+    if (!route) {
+      throw new Error(`Documentation metadata not found for page: ${page}`);
+    }
+    return /* @__PURE__ */ jsxs(layout_default, { currentPath: route.path, children: [
+      /* @__PURE__ */ jsx("h1", { children: route.label }),
+      /* @__PURE__ */ jsx("p", { children: route.description }),
+      children
+    ] });
+  };
+  var doc_page_default = DocPage;
+
   // site/src/pages/layout_page.tsx
-  var appShellCode2 = `<article>
+  var appShellCode = `<article>
   <header>
     <h3>Project Atlas</h3>
     <nav data-toolbar aria-label="Project actions">
@@ -2008,8 +2216,8 @@ import "dragonglass/dist/themes/default.css";`;
     {
       name: "nav",
       type: "Element",
-      defaultValue: "Semantic navigation",
-      description: "Groups links or related actions and accepts an accessible label."
+      defaultValue: "Horizontal row",
+      description: "Applies a horizontal, non-wrapping layout to links and buttons."
     },
     {
       name: "data-toolbar",
@@ -2021,7 +2229,7 @@ import "dragonglass/dist/themes/default.css";`;
       name: 'aria-current="page"',
       type: "State",
       defaultValue: "Absent",
-      description: "Identifies the link for the current page to assistive technology."
+      description: "Applies the selected surface and text colors to a nav link."
     },
     {
       name: "--container-padding",
@@ -2047,7 +2255,7 @@ import "dragonglass/dist/themes/default.css";`;
           /* @__PURE__ */ jsx("a", { href: "/reports.html", children: "Reports" })
         ] }) })
       ] }),
-      /* @__PURE__ */ jsx(code_example_default, { code: appShellCode2 })
+      /* @__PURE__ */ jsx(code_example_default, { code: appShellCode })
     ] }),
     /* @__PURE__ */ jsxs(demo_section_default, { id: "layout-toolbar", title: "Standalone toolbar", children: [
       /* @__PURE__ */ jsxs("nav", { "data-toolbar": true, "aria-label": "Result actions", children: [
@@ -2071,30 +2279,12 @@ import "dragonglass/dist/themes/default.css";`;
         "children. The header and footer keep their natural height. The section receives the remaining height, padding and overflow."
       ] }),
       /* @__PURE__ */ jsxs("p", { children: [
-        "Use ",
-        /* @__PURE__ */ jsx("code", { children: "nav" }),
-        " for destination links. Add",
-        /* @__PURE__ */ jsx("code", { children: " data-toolbar" }),
-        " when the same row mixes compact links, buttons or chips as controls."
+        "The ",
+        /* @__PURE__ */ jsx("code", { children: "data-toolbar" }),
+        " attribute turns a nav into a wrapping row with toolbar spacing and a divider."
       ] })
     ] }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "layout-responsive", title: "Responsive behavior", children: /* @__PURE__ */ jsx("p", { children: "Standalone toolbars wrap when their actions need more room. A toolbar nested in a header or footer stays on one row, so keep those action sets short. Content sections scroll instead of forcing the page shell beyond the viewport." }) }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "layout-accessibility", title: "Accessibility", children: /* @__PURE__ */ jsxs("p", { children: [
-      "Give every navigation region a distinct ",
-      /* @__PURE__ */ jsx("code", { children: "aria-label" }),
-      " when a page contains more than one. Mark only the active destination with",
-      /* @__PURE__ */ jsx("code", { children: ' aria-current="page"' }),
-      ". Keep headings in document order and use buttons for actions rather than links without destinations."
-    ] }) }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "layout-errors", title: "Common mistakes", children: /* @__PURE__ */ jsxs("ul", { children: [
-      /* @__PURE__ */ jsx("li", { children: "Wrapping the content section in an extra element breaks the direct child container contract." }),
-      /* @__PURE__ */ jsxs("li", { children: [
-        "Using ",
-        /* @__PURE__ */ jsx("code", { children: "data-toolbar" }),
-        " for primary site navigation gives an action bar semantics it does not need."
-      ] }),
-      /* @__PURE__ */ jsx("li", { children: "Putting many actions in a header or footer toolbar can cause overflow because nested toolbars do not wrap." })
-    ] }) }),
+    /* @__PURE__ */ jsx(demo_section_default, { id: "layout-responsive", title: "Responsive behavior", children: /* @__PURE__ */ jsx("p", { children: "Standalone toolbars wrap when their actions exceed the current width. A toolbar nested in a header or footer stays on one row and overflows when its actions exceed the available width. Content sections own vertical scrolling and keep the page shell within the viewport." }) }),
     /* @__PURE__ */ jsx(demo_section_default, { id: "layout-api", title: "API", children: /* @__PURE__ */ jsx(
       api_table_default,
       {
@@ -2134,7 +2324,7 @@ import "dragonglass/dist/themes/default.css";`;
       name: "w-{part}/{whole}",
       type: "Width utility",
       defaultValue: "1 through whole - 1",
-      description: "Sets a fractional width. Both numbers range from 1 to 12 and part must be smaller than whole."
+      description: "Sets a fractional width. Both numbers range from 1 to 12, with part smaller than whole."
     },
     {
       name: "sm:w-{part}/{whole}",
@@ -2172,9 +2362,8 @@ import "dragonglass/dist/themes/default.css";`;
     ] }),
     /* @__PURE__ */ jsxs(demo_section_default, { id: "guttered-grid", title: "Guttered columns", children: [
       /* @__PURE__ */ jsxs("p", { children: [
-        "Use ",
         /* @__PURE__ */ jsx("code", { children: "grid-gutters" }),
-        " when columns need consistent spacing."
+        " adds consistent spacing between columns."
       ] }),
       /* @__PURE__ */ jsxs("div", { class: "grid-gutters", children: [
         /* @__PURE__ */ jsx("div", { class: "w-6/12", children: /* @__PURE__ */ jsx("div", { class: "p-3 shadow-xs", children: "First column" }) }),
@@ -2190,19 +2379,223 @@ import "dragonglass/dist/themes/default.css";`;
       ] }),
       /* @__PURE__ */ jsx(code_example_default, { code: responsiveExample })
     ] }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "grid-api", title: "Grid API and breakpoints", children: /* @__PURE__ */ jsx(api_table_default, { caption: "Grid classes and breakpoints", rows: gridRows }) }),
-    /* @__PURE__ */ jsx(
-      demo_section_default,
+    /* @__PURE__ */ jsx(demo_section_default, { id: "grid-api", title: "Grid API and breakpoints", children: /* @__PURE__ */ jsx(api_table_default, { caption: "Grid classes and breakpoints", rows: gridRows }) })
+  ] });
+
+  // site/src/pages/positioning_page.tsx
+  var fixedCode = `<aside data-position>Top right by default</aside>
+<aside data-position="top center">Top center</aside>
+<aside data-position="bottom left">Bottom left</aside>
+<aside data-position="center">Viewport center</aside>`;
+  var absoluteCode = `<section class="relative min-h-64 border">
+  <p data-position="absolute top left" class="bg-primary p-2">Top left</p>
+  <p data-position="absolute center" class="bg-info p-2">Center</p>
+  <p data-position="absolute bottom right" class="bg-success p-2">Bottom right</p>
+</section>`;
+  var apiRows2 = [
+    {
+      name: "data-position",
+      type: "Attribute",
+      defaultValue: "fixed top right",
+      description: "Activates viewport positioning with top-right offsets from the spacing scale."
+    },
+    {
+      name: "absolute",
+      type: "Attribute token",
+      defaultValue: "fixed",
+      description: "Changes only the position mode to absolute. The containing block comes from an ancestor positioned by the application."
+    },
+    {
+      name: "top | right | bottom | left",
+      type: "Attribute token",
+      defaultValue: "top right",
+      description: "Selects one vertical edge and one horizontal edge using the standard spacing offset."
+    },
+    {
+      name: "center",
+      type: "Attribute token",
+      defaultValue: "Absent",
+      description: "Centers both axes alone, or the remaining axis when paired with an edge token."
+    },
+    {
+      name: "Positioned ancestor",
+      type: "Composition requirement",
+      defaultValue: "Application controlled",
+      description: "Provides the containing block for absolute positioning, commonly through the relative utility."
+    }
+  ];
+  var positioning_page_default = () => /* @__PURE__ */ jsxs(doc_page_default, { page: "Positioning", children: [
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "positioning-fixed", title: "Fixed to the viewport", children: [
+      /* @__PURE__ */ jsxs("p", { children: [
+        "A bare ",
+        /* @__PURE__ */ jsx("code", { children: "data-position" }),
+        " uses fixed positioning at the top right. Combine one vertical token with one horizontal token. The following examples remain as markup so they do not cover this reference page."
+      ] }),
+      /* @__PURE__ */ jsx(code_example_default, { code: fixedCode })
+    ] }),
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "positioning-absolute", title: "Absolute inside a container", children: [
+      /* @__PURE__ */ jsxs("p", { children: [
+        "Add ",
+        /* @__PURE__ */ jsx("code", { children: "absolute" }),
+        " to change only the positioning mode. The parent below uses ",
+        /* @__PURE__ */ jsx("code", { children: "relative" }),
+        " to establish the containing block."
+      ] }),
+      /* @__PURE__ */ jsxs("section", { class: "relative min-h-64 border", children: [
+        /* @__PURE__ */ jsx("p", { "data-position": "absolute top left", class: "bg-primary p-2", children: "Top left" }),
+        /* @__PURE__ */ jsx("p", { "data-position": "absolute center", class: "bg-info p-2", children: "Center" }),
+        /* @__PURE__ */ jsx("p", { "data-position": "absolute bottom right", class: "bg-success p-2", children: "Bottom right" })
+      ] }),
+      /* @__PURE__ */ jsx(code_example_default, { code: absoluteCode })
+    ] }),
+    /* @__PURE__ */ jsx(demo_section_default, { id: "positioning-combinations", title: "Supported combinations", children: /* @__PURE__ */ jsxs("p", { children: [
+      "Use corners, ",
+      /* @__PURE__ */ jsx("code", { children: "top center" }),
+      ", ",
+      /* @__PURE__ */ jsx("code", { children: "bottom center" }),
+      ",",
+      /* @__PURE__ */ jsx("code", { children: "left center" }),
+      ", ",
+      /* @__PURE__ */ jsx("code", { children: "right center" }),
+      ", or",
+      /* @__PURE__ */ jsx("code", { children: "center" }),
+      ". Combinations with opposing edges are outside the contract."
+    ] }) }),
+    /* @__PURE__ */ jsx(demo_section_default, { id: "positioning-api", title: "API", children: /* @__PURE__ */ jsx(
+      api_table_default,
       {
-        id: "grid-accessibility",
-        title: "Accessibility and common errors",
-        children: /* @__PURE__ */ jsxs("ul", { children: [
-          /* @__PURE__ */ jsx("li", { children: "Keep the source order meaningful because width utilities only change presentation, not reading order." }),
-          /* @__PURE__ */ jsx("li", { children: "Do not use empty columns to create spacing. Use a guttered grid or spacing utilities instead." }),
-          /* @__PURE__ */ jsx("li", { children: "A prefixed width does not apply below its breakpoint, so provide an unprefixed fraction only when the mobile layout should also be split." })
-        ] })
+        caption: "Positioning attribute, tokens and composition requirements",
+        rows: apiRows2
       }
-    )
+    ) })
+  ] });
+
+  // site/src/pages/images_page.tsx
+  var imageSource = "https://picsum.photos/id/1018/1200/800";
+  var objectFitCode = `<img
+  src="${imageSource}"
+  alt="Mountain landscape"
+  class="w-full h-64 object-cover object-center"
+>`;
+  var objectPositionCode = `<img
+  src="${imageSource}"
+  alt="Mountain landscape"
+  class="w-full h-64 object-cover object-bottom-right"
+>`;
+  var backgroundCode = `<section
+  class="min-h-64 bg-cover bg-bottom-right bg-no-repeat"
+  style="background-image: url('${imageSource}')"
+  role="img"
+  aria-label="Mountain landscape"
+></section>`;
+  var apiRows3 = [
+    {
+      name: "w-full | h-full | h-auto",
+      type: "Sizing utility",
+      defaultValue: "width: auto; height: auto",
+      description: "Controls the media box width and height."
+    },
+    {
+      name: "object-cover | object-contain | object-fill | object-none | object-scale-down",
+      type: "Object-fit utility",
+      defaultValue: "fill",
+      description: "Controls how an img fits inside its content box."
+    },
+    {
+      name: "object-{position}",
+      type: "Object-position utility",
+      defaultValue: "center",
+      description: "Selects one of nine focal positions from top-left through bottom-right."
+    },
+    {
+      name: "bg-auto | bg-cover | bg-contain",
+      type: "Background-size utility",
+      defaultValue: "auto",
+      description: "Controls the rendered background image size."
+    },
+    {
+      name: "bg-{position}",
+      type: "Background-position utility",
+      defaultValue: "top-left",
+      description: "Selects one of the same nine focal positions for a background image."
+    },
+    {
+      name: "bg-repeat | bg-no-repeat",
+      type: "Background-repeat utility",
+      defaultValue: "repeat",
+      description: "Enables or disables background image repetition."
+    }
+  ];
+  var images_page_default = () => /* @__PURE__ */ jsxs(doc_page_default, { page: "Images", children: [
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "images-object-fit", title: "Fit an image inside its box", children: [
+      /* @__PURE__ */ jsxs("p", { children: [
+        "Set the image box dimensions, then use an ",
+        /* @__PURE__ */ jsx("code", { children: "object-*" }),
+        " utility to control the fit and focal point."
+      ] }),
+      /* @__PURE__ */ jsx(
+        "img",
+        {
+          src: imageSource,
+          alt: "Mountain landscape",
+          class: "w-full h-64 object-cover object-center"
+        }
+      ),
+      /* @__PURE__ */ jsx(code_example_default, { code: objectFitCode })
+    ] }),
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "images-object-position", title: "Move the image focal point", children: [
+      /* @__PURE__ */ jsx("p", { children: "Position utilities use a nine-point grid shared with background images." }),
+      /* @__PURE__ */ jsx(
+        "img",
+        {
+          src: imageSource,
+          alt: "Mountain landscape",
+          class: "w-full h-64 object-cover object-bottom-right"
+        }
+      ),
+      /* @__PURE__ */ jsx(code_example_default, { code: objectPositionCode })
+    ] }),
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "images-background", title: "Position a background image", children: [
+      /* @__PURE__ */ jsxs("p", { children: [
+        "Keep the image URL in the standard ",
+        /* @__PURE__ */ jsx("code", { children: "background-image" }),
+        " style. Utilities control size, position and repetition."
+      ] }),
+      /* @__PURE__ */ jsx(
+        "section",
+        {
+          class: "min-h-64 bg-cover bg-bottom-right bg-no-repeat",
+          style: `background-image: url('${imageSource}')`,
+          role: "img",
+          "aria-label": "Mountain landscape"
+        }
+      ),
+      /* @__PURE__ */ jsx(code_example_default, { code: backgroundCode })
+    ] }),
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "images-card-media", title: "Adjust card media", children: [
+      /* @__PURE__ */ jsxs("p", { children: [
+        "Background utilities load after card defaults, so they can move a",
+        /* @__PURE__ */ jsx("code", { children: " data-media" }),
+        " focal point without changing the card contract."
+      ] }),
+      /* @__PURE__ */ jsx(
+        code_example_default,
+        {
+          code: `<section
+  data-media
+  class="bg-cover bg-bottom-right bg-no-repeat"
+  style="background-image: url('${imageSource}')"
+></section>`
+        }
+      )
+    ] }),
+    /* @__PURE__ */ jsx(demo_section_default, { id: "images-api", title: "API", children: /* @__PURE__ */ jsx(
+      api_table_default,
+      {
+        caption: "Image sizing, fitting, position and background utilities",
+        rows: apiRows3
+      }
+    ) })
   ] });
 
   // site/src/pages/elevations_page.tsx
@@ -2212,6 +2605,10 @@ import "dragonglass/dist/themes/default.css";`;
   var stateExample = `<button type="button" class="shadow-base hover:shadow-3xl active:shadow-sm">Change elevation</button>
 <input aria-label="Focus elevation example" class="shadow-base focus:shadow-3xl bg-white" value="Focus this field">`;
   var shadowTokenExample = `<div class="shadow-base bg-white p-4">Token-backed surface</div>`;
+  var textShadowExample = `<p class="bg-primary text-white text-shadow-sm p-4">Small text shadow</p>
+<p class="bg-primary text-white text-shadow-base p-4">Base text shadow</p>
+<p class="bg-primary text-white text-shadow-lg p-4">Large text shadow</p>
+<p class="bg-primary text-white text-shadow-none p-4">No text shadow</p>`;
   var zIndexExample = `<div class="relative z-8">Navigation surface</div>
 <div class="relative z-auto">Natural stacking order</div>`;
   var shadowRows = shadowSizes.flatMap((size) => [
@@ -2239,7 +2636,7 @@ import "dragonglass/dist/themes/default.css";`;
         /* @__PURE__ */ jsx("code", { children: "shadow-2xs" }),
         " to",
         /* @__PURE__ */ jsx("code", { children: " shadow-3xl" }),
-        ". Use stronger levels sparingly to indicate a surface that sits above nearby content."
+        "."
       ] }),
       /* @__PURE__ */ jsx("div", { class: "shadow-base bg-white p-4", children: "Raised surface" }),
       /* @__PURE__ */ jsx(code_example_default, { code: shadowExample }),
@@ -2274,13 +2671,21 @@ import "dragonglass/dist/themes/default.css";`;
       ),
       /* @__PURE__ */ jsx(code_example_default, { code: stateExample })
     ] }),
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "text-shadows", title: "Text shadows", children: [
+      /* @__PURE__ */ jsx("p", { children: "Text shadows separate lettering from media. Keep a scrim or another sufficient contrast surface behind important text." }),
+      /* @__PURE__ */ jsx("p", { class: "bg-primary text-white text-shadow-sm p-4", children: "Small text shadow" }),
+      /* @__PURE__ */ jsx("p", { class: "bg-primary text-white text-shadow-base p-4", children: "Base text shadow" }),
+      /* @__PURE__ */ jsx("p", { class: "bg-primary text-white text-shadow-lg p-4", children: "Large text shadow" }),
+      /* @__PURE__ */ jsx("p", { class: "bg-primary text-white text-shadow-none p-4", children: "No text shadow" }),
+      /* @__PURE__ */ jsx(code_example_default, { code: textShadowExample })
+    ] }),
     /* @__PURE__ */ jsxs(demo_section_default, { id: "shadow-api", title: "Shadow tokens", children: [
       /* @__PURE__ */ jsxs("p", { children: [
         "Each outer utility reads its matching ",
         /* @__PURE__ */ jsx("code", { children: "--shadow-*" }),
         " token, and each inset utility reads the matching ",
         /* @__PURE__ */ jsx("code", { children: "--shadow-inner-*" }),
-        "token. Override a token only when the theme needs a different elevation value across every use of that utility."
+        "token. A token override changes that elevation value across every use of the utility."
       ] }),
       /* @__PURE__ */ jsx("div", { class: "shadow-base bg-white p-4", children: "Token-backed surface" }),
       /* @__PURE__ */ jsx(code_example_default, { code: shadowTokenExample }),
@@ -2288,10 +2693,10 @@ import "dragonglass/dist/themes/default.css";`;
     ] }),
     /* @__PURE__ */ jsxs(demo_section_default, { id: "z-index-scale", title: "Z-index scale", children: [
       /* @__PURE__ */ jsxs("p", { children: [
-        "Outer shadow utilities retain a z-index derived from their elevation level. Use ",
+        "Outer shadow utilities retain a z-index derived from their elevation level. Explicit stacking overrides include ",
         /* @__PURE__ */ jsx("code", { children: "z-auto" }),
-        ", ",
-        /* @__PURE__ */ jsx("code", { children: "z-negative-10" }),
+        ",",
+        /* @__PURE__ */ jsx("code", { children: " z-negative-10" }),
         ",",
         /* @__PURE__ */ jsx("code", { children: " z-negative-1" }),
         ", ",
@@ -2310,26 +2715,15 @@ import "dragonglass/dist/themes/default.css";`;
         /* @__PURE__ */ jsx("code", { children: " z-8" }),
         ", ",
         /* @__PURE__ */ jsx("code", { children: "z-12" }),
-        ", ",
+        ",",
+        " ",
         /* @__PURE__ */ jsx("code", { children: "z-16" }),
         " or",
         /* @__PURE__ */ jsx("code", { children: " z-1000" }),
-        " when stacking needs an explicit override."
+        "."
       ] }),
       /* @__PURE__ */ jsx(code_example_default, { code: zIndexExample })
-    ] }),
-    /* @__PURE__ */ jsx(
-      demo_section_default,
-      {
-        id: "shadow-accessibility",
-        title: "Accessibility and common errors",
-        children: /* @__PURE__ */ jsxs("ul", { children: [
-          /* @__PURE__ */ jsx("li", { children: "Do not rely on elevation alone to communicate focus, selection or an error. Preserve a visible outline, label or text state." }),
-          /* @__PURE__ */ jsx("li", { children: "State variants only change the shadow. They do not add keyboard behavior to a non-interactive element." }),
-          /* @__PURE__ */ jsx("li", { children: "Dragonglass currently transitions every elevation automatically and does not include a reduced-motion override in this component." })
-        ] })
-      }
-    )
+    ] })
   ] });
 
   // site/src/docs/theme_menu.tsx
@@ -2388,6 +2782,9 @@ import "dragonglass/dist/themes/default.css";`;
   ];
   var paletteExample = `<div class="bg-primary p-3">Primary background</div>
 <p class="text-primary-dark">Primary dark text</p>`;
+  var transparentBackgroundExample = `<div class="bg-transparent p-3">Transparent background</div>
+<div class="bg-scrim text-white p-3">Scrim background</div>
+<div class="bg-media-scrim text-white p-3">Media scrim background</div>`;
   var stateExample2 = `<button type="button" class="bg-primary-dark hover:bg-primary active:bg-primary-light">Background states</button>
 <input aria-label="Color focus example" class="p-3 text-primary-dark focus:text-primary" value="Focus this field">`;
   var buttonExample = colors.map((color) => `<button type="button" class="bg-${color}">${color}</button>`).join("\n");
@@ -2467,13 +2864,18 @@ import "dragonglass/dist/themes/default.css";`;
           weights.map((weight) => /* @__PURE__ */ jsx("div", { class: `text-${color}${weight} p-3`, children: `text-${color}${weight}` }))
         ] })) })
       ] }),
+      /* @__PURE__ */ jsxs(demo_section_default, { id: "transparent-backgrounds", title: "Transparent backgrounds", children: [
+        /* @__PURE__ */ jsx("p", { children: "These utilities change only the background color and preserve the current text color." }),
+        /* @__PURE__ */ jsx("div", { class: "bg-transparent p-3", children: "Transparent background" }),
+        /* @__PURE__ */ jsx("div", { class: "bg-scrim text-white p-3", children: "Scrim background" }),
+        /* @__PURE__ */ jsx("div", { class: "bg-media-scrim text-white p-3", children: "Media scrim background" }),
+        /* @__PURE__ */ jsx(code_example_default, { code: transparentBackgroundExample })
+      ] }),
       /* @__PURE__ */ jsxs(demo_section_default, { id: "color-buttons", title: "Buttons by color", children: [
-        /* @__PURE__ */ jsx("p", { children: "Each semantic family can style an action. The visible label preserves meaning when two colors look similar." }),
         colors.map((color) => /* @__PURE__ */ jsx("button", { type: "button", class: `bg-${color}`, children: color })),
         /* @__PURE__ */ jsx(code_example_default, { code: buttonExample })
       ] }),
       /* @__PURE__ */ jsxs(demo_section_default, { id: "color-fields", title: "Form fields by color", children: [
-        /* @__PURE__ */ jsx("p", { children: "Use colored fields for documented states or categories. Keep a label and supporting text because color alone cannot explain the state." }),
         /* @__PURE__ */ jsx("form", { "data-card": true, children: /* @__PURE__ */ jsx("section", { children: colors.map((color) => /* @__PURE__ */ jsxs("fieldset", { "data-field": color, children: [
           /* @__PURE__ */ jsxs("label", { for: `color-field-${color}`, children: [
             color,
@@ -2518,55 +2920,31 @@ import "dragonglass/dist/themes/default.css";`;
       ] }),
       /* @__PURE__ */ jsxs(demo_section_default, { id: "compile-theme", title: "Compile a theme from one color", children: [
         /* @__PURE__ */ jsxs("p", { children: [
-          "The Sass theme module derives every semantic family, weight, foreground and progress color from one opaque primary. Every base uses its lightest family token as foreground. The primary must have OKLCH lightness between 42% and 56%, and that pair must reach 4.5:1. Compile the result and load it after ",
-          /* @__PURE__ */ jsx("code", { children: "dragonglass.css" }),
+          "The Sass theme module derives every semantic family, weight, foreground and progress color from one opaque primary. Every base uses its lightest family token as foreground. The compiler accepts an OKLCH primary lightness from 42% through 56% and a contrast ratio of at least 4.5:1 for that pair. The compiled theme loads after",
+          /* @__PURE__ */ jsx("code", { children: " dragonglass.css" }),
           "."
         ] }),
         /* @__PURE__ */ jsx(code_example_default, { code: customThemeExample }),
         /* @__PURE__ */ jsx("pre", { children: /* @__PURE__ */ jsx("code", { children: "bunx sass --pkg-importer=node theme.scss theme.css --style=compressed" }) }),
-        /* @__PURE__ */ jsx("p", { children: "Place each mixin call inside a theme selector when one stylesheet must contain several themes." }),
+        /* @__PURE__ */ jsx("p", { children: "A theme selector around each mixin call lets one stylesheet contain several themes." }),
         /* @__PURE__ */ jsx(code_example_default, { code: scopedThemesExample })
       ] }),
       /* @__PURE__ */ jsxs(demo_section_default, { id: "dark-mode", title: "Automatic dark mode", children: [
         /* @__PURE__ */ jsxs("p", { children: [
           "Each theme derives dark structural roles from the same primary and follows ",
           /* @__PURE__ */ jsx("code", { children: "prefers-color-scheme" }),
-          " automatically. Set",
+          " automatically. The",
           /* @__PURE__ */ jsx("code", { children: " data-color-scheme" }),
-          " on the root element only when the application must force light or dark mode."
+          " attribute on the root element forces light or dark mode."
         ] }),
         /* @__PURE__ */ jsx(code_example_default, { code: darkModeExample })
       ] }),
       /* @__PURE__ */ jsxs(demo_section_default, { id: "color-api", title: "Color tokens", children: [
-        /* @__PURE__ */ jsx("p", { children: "Use the semantic custom properties when a component needs token values directly instead of a generated color utility class." }),
+        /* @__PURE__ */ jsx("p", { children: "Semantic custom properties expose token values directly as an alternative to generated color utility classes." }),
         /* @__PURE__ */ jsx("div", { style: "background-color: var(--primary); color: var(--primary-darker)", children: "Primary token preview" }),
         /* @__PURE__ */ jsx(code_example_default, { code: colorTokenExample }),
         /* @__PURE__ */ jsx(api_table_default, { caption: "Semantic color custom properties", rows: colorRows })
-      ] }),
-      /* @__PURE__ */ jsx(
-        demo_section_default,
-        {
-          id: "color-accessibility",
-          title: "Accessibility and common errors",
-          children: /* @__PURE__ */ jsxs("ul", { children: [
-            /* @__PURE__ */ jsx("li", { children: "Verify text and background combinations in context. A semantic token name does not guarantee sufficient contrast for every pairing." }),
-            /* @__PURE__ */ jsxs("li", { children: [
-              "Compile the theme again when its primary changes. Overriding only",
-              /* @__PURE__ */ jsx("code", { children: "--primary" }),
-              " does not recalculate the generated tokens."
-            ] }),
-            /* @__PURE__ */ jsx("li", { children: "Base colors always use their lightest family token as foreground. The compiler rejects a primary outside the 42% to 56% OKLCH lightness range or one that cannot support that direction." }),
-            /* @__PURE__ */ jsx("li", { children: "Never use color as the only signal for status, validation or an available action. Include text or another programmatic cue." }),
-            /* @__PURE__ */ jsxs("li", { children: [
-              "Use a generated class such as ",
-              /* @__PURE__ */ jsx("code", { children: "shadow-xs" }),
-              " for elevation. The unqualified ",
-              /* @__PURE__ */ jsx("code", { children: "shadow" }),
-              " class does not exist."
-            ] })
-          ] })
-        }
-      )
+      ] })
     ] });
   };
   var colors_page_default = ColorsPage;
@@ -2580,7 +2958,10 @@ import "dragonglass/dist/themes/default.css";`;
     ["lg", "1.25rem"],
     ["xl", "1.5rem"],
     ["2xl", "1.965rem"],
-    ["3xl", "2.25rem"]
+    ["3xl", "2.25rem"],
+    ["4xl", "3rem"],
+    ["5xl", "3.75rem"],
+    ["6xl", "4.5rem"]
   ];
   var styles = ["normal-style", "italic", "oblique"];
   var weights2 = [
@@ -2604,7 +2985,7 @@ import "dragonglass/dist/themes/default.css";`;
     "leading-loose"
   ];
   var alignments = ["text-left", "text-right", "text-center", "text-justify"];
-  var composedExample = `<p class="text-base italic font-light capitalize text-justify leading-loose">Readable type combines size, style, weight, casing, alignment and line height.</p>`;
+  var composedExample = `<p class="text-base italic font-light capitalize text-justify leading-loose">Dragonglass typography utility preview.</p>`;
   var sizeExample = sizes.map(([size, value]) => `<p class="text-${size}">text-${size} (${value})</p>`).join("\n");
   var fontRows = [
     ...sizes.map(([size, value]) => ({
@@ -2646,7 +3027,7 @@ import "dragonglass/dist/themes/default.css";`;
   ];
   var fonts_page_default = () => /* @__PURE__ */ jsxs(doc_page_default, { page: "Fonts", children: [
     /* @__PURE__ */ jsxs(demo_section_default, { id: "composed-type", title: "Composed typography", children: [
-      /* @__PURE__ */ jsx("p", { class: "text-base italic font-light capitalize text-justify leading-loose", children: "Readable type combines size, style, weight, casing, alignment and line height." }),
+      /* @__PURE__ */ jsx("p", { class: "text-base italic font-light capitalize text-justify leading-loose", children: "Dragonglass typography utility preview." }),
       /* @__PURE__ */ jsx(code_example_default, { code: composedExample })
     ] }),
     /* @__PURE__ */ jsxs(demo_section_default, { id: "font-sizes", title: "Font sizes", children: [
@@ -2677,23 +3058,7 @@ import "dragonglass/dist/themes/default.css";`;
         }
       )
     ] }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "font-api", title: "Typography API", children: /* @__PURE__ */ jsx(api_table_default, { caption: "Typography utilities and tokens", rows: fontRows }) }),
-    /* @__PURE__ */ jsx(
-      demo_section_default,
-      {
-        id: "font-accessibility",
-        title: "Accessibility and common errors",
-        children: /* @__PURE__ */ jsxs("ul", { children: [
-          /* @__PURE__ */ jsx("li", { children: "Keep body copy at a readable size and line height. Smaller utilities are better suited to short supporting labels." }),
-          /* @__PURE__ */ jsx("li", { children: "Visual casing does not replace meaningful source text. Avoid long uppercase passages because they are harder to scan." }),
-          /* @__PURE__ */ jsxs("li", { children: [
-            "Make the documented class match the rendered example. This page uses",
-            /* @__PURE__ */ jsx("code", { children: " text-base" }),
-            " in both the composed sample and its snippet."
-          ] })
-        ] })
-      }
-    )
+    /* @__PURE__ */ jsx(demo_section_default, { id: "font-api", title: "Typography API", children: /* @__PURE__ */ jsx(api_table_default, { caption: "Typography utilities and tokens", rows: fontRows }) })
   ] });
 
   // site/src/pages/badges_page.tsx
@@ -2721,47 +3086,26 @@ import "dragonglass/dist/themes/default.css";`;
     }
   ];
   var badges_page_default = () => /* @__PURE__ */ jsxs(doc_page_default, { page: "Badges", children: [
-    /* @__PURE__ */ jsxs(demo_section_default, { id: "badge-colors", title: "Badge colors", children: [
-      /* @__PURE__ */ jsx("p", { children: "Keep the value in real markup because generated pseudo-element content is not a reliable accessible name." }),
-      /* @__PURE__ */ jsx("div", { class: "grid-gutters", children: colors2.map((color) => {
-        const code = `<span data-badge="1" class="after:bg-${color}">1 notification</span>`;
-        return /* @__PURE__ */ jsxs("div", { class: "md:w-1/3", children: [
-          /* @__PURE__ */ jsx("span", { "data-badge": "1", class: `after:bg-${color}`, children: "1 notification" }),
-          /* @__PURE__ */ jsx(code_example_default, { code })
-        ] });
-      }) })
-    ] }),
+    /* @__PURE__ */ jsx(demo_section_default, { id: "badge-colors", title: "Badge colors", children: /* @__PURE__ */ jsx("div", { class: "grid-gutters", children: colors2.map((color) => {
+      const code = `<span data-badge="1" class="after:bg-${color}">1 notification</span>`;
+      return /* @__PURE__ */ jsxs("div", { class: "md:w-1/3", children: [
+        /* @__PURE__ */ jsx("span", { "data-badge": "1", class: `after:bg-${color}`, children: "1 notification" }),
+        /* @__PURE__ */ jsx(code_example_default, { code })
+      ] });
+    }) }) }),
     /* @__PURE__ */ jsx(demo_section_default, { id: "badge-api", title: "Badge API", children: /* @__PURE__ */ jsx(
       api_table_default,
       {
         caption: "Badge attributes and color utilities",
         rows: badgeRows
       }
-    ) }),
-    /* @__PURE__ */ jsx(
-      demo_section_default,
-      {
-        id: "badge-accessibility",
-        title: "Accessibility and common errors",
-        children: /* @__PURE__ */ jsxs("ul", { children: [
-          /* @__PURE__ */ jsxs("li", { children: [
-            "Include the count or status as real text. Do not leave important information only in ",
-            /* @__PURE__ */ jsx("code", { children: "data-badge" }),
-            " or ",
-            /* @__PURE__ */ jsx("code", { children: "::after" }),
-            "."
-          ] }),
-          /* @__PURE__ */ jsx("li", { children: "Keep badge values short because the current CSS uses a fixed circular area and does not expand for long text." }),
-          /* @__PURE__ */ jsx("li", { children: "A badge does not make its host interactive. Use a link or button only when the surrounding content performs an action." })
-        ] })
-      }
-    )
+    ) })
   ] });
 
   // site/src/pages/buttons_page.tsx
   var statesCode = `<button type="button">Plain button</button>
 <button type="button" disabled>Disabled button</button>
-<button type="button" aria-disabled="true">Unavailable but focusable</button>`;
+<button type="button" aria-disabled="true">ARIA-disabled button</button>`;
   var tonesCode = `<button type="button" class="bg-primary">Primary</button>
 <button type="button" class="bg-accent">Accent</button>
 <button type="button" class="bg-info">Info</button>
@@ -2792,24 +3136,24 @@ import "dragonglass/dist/themes/default.css";`;
 >
   <i class="material-icons" aria-hidden="true">edit</i>
 </button>`;
-  var apiRows2 = [
+  var apiRows4 = [
     {
       name: "button",
       type: "Element",
       defaultValue: "Plain",
-      description: "Provides native button semantics, keyboard behavior and styling."
+      description: "Receives the base button styling."
     },
     {
       name: "disabled",
       type: "State",
       defaultValue: "Absent",
-      description: "Removes a native button from interaction and sequential focus."
+      description: "Applies unavailable opacity, cursor and pointer-event styles."
     },
     {
       name: 'aria-disabled="true"',
       type: "State",
       defaultValue: "Absent",
-      description: "Announces an unavailable action while retaining focus. Application code must prevent activation."
+      description: "Applies the same visual unavailable state as disabled."
     },
     {
       name: 'data-button="fab"',
@@ -2852,7 +3196,7 @@ import "dragonglass/dist/themes/default.css";`;
     /* @__PURE__ */ jsxs(demo_section_default, { id: "button-states", title: "Plain and unavailable buttons", children: [
       /* @__PURE__ */ jsx("button", { type: "button", children: "Plain button" }),
       /* @__PURE__ */ jsx("button", { type: "button", disabled: true, children: "Disabled button" }),
-      /* @__PURE__ */ jsx("button", { type: "button", "aria-disabled": "true", children: "Unavailable but focusable" }),
+      /* @__PURE__ */ jsx("button", { type: "button", "aria-disabled": "true", children: "ARIA-disabled button" }),
       /* @__PURE__ */ jsx(code_example_default, { code: statesCode })
     ] }),
     /* @__PURE__ */ jsxs(demo_section_default, { id: "button-tones", title: "Semantic tones", children: [
@@ -2908,40 +3252,97 @@ import "dragonglass/dist/themes/default.css";`;
       ),
       /* @__PURE__ */ jsx(code_example_default, { code: fabCode })
     ] }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "button-composition", title: "Composition", children: /* @__PURE__ */ jsxs("p", { children: [
-      "Start with a native ",
-      /* @__PURE__ */ jsx("code", { children: "button" }),
-      ". Add one background or border utility for emphasis, then a text-size utility only when the surrounding interface needs a different scale. Reserve a FAB for the primary action associated with the current view."
-    ] }) }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "button-responsive", title: "Responsive behavior", children: /* @__PURE__ */ jsx("p", { children: "Buttons keep their labels on one line. Let a surrounding toolbar wrap when space is limited, and keep action labels concise instead of shrinking tap targets. FAB dimensions scale with their text size." }) }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "button-accessibility", title: "Accessibility", children: /* @__PURE__ */ jsxs("p", { children: [
-      "Use visible text for ordinary actions. Every icon-only button needs an",
-      /* @__PURE__ */ jsx("code", { children: " aria-label" }),
-      ", and its icon must use",
-      /* @__PURE__ */ jsx("code", { children: ' aria-hidden="true"' }),
-      ". Prefer ",
-      /* @__PURE__ */ jsx("code", { children: "disabled" }),
-      " when the action should leave the focus order. Use ",
-      /* @__PURE__ */ jsx("code", { children: "aria-disabled" }),
-      " only when people still need to discover the action, and suppress activation in application logic."
-    ] }) }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "button-errors", title: "Common mistakes", children: /* @__PURE__ */ jsxs("ul", { children: [
-      /* @__PURE__ */ jsx("li", { children: "Removing the focus outline without a visible replacement makes keyboard position impossible to track." }),
-      /* @__PURE__ */ jsxs("li", { children: [
-        "Using ",
-        /* @__PURE__ */ jsx("code", { children: "aria-disabled" }),
-        " alone does not prevent activation in the browser."
-      ] }),
-      /* @__PURE__ */ jsx("li", { children: "Applying multiple tone classes creates an order-dependent result and obscures the intended emphasis." }),
-      /* @__PURE__ */ jsx("li", { children: "Repeating FABs for secondary actions weakens the single prominent action pattern." })
-    ] }) }),
+    /* @__PURE__ */ jsx(demo_section_default, { id: "button-responsive", title: "Responsive behavior", children: /* @__PURE__ */ jsx("p", { children: "Buttons keep their labels on one line. A surrounding toolbar wraps when space is limited. FAB dimensions scale with their text size." }) }),
     /* @__PURE__ */ jsx(demo_section_default, { id: "button-api", title: "API", children: /* @__PURE__ */ jsx(
       api_table_default,
       {
         caption: "Button elements, attributes, states and tokens",
-        rows: apiRows2
+        rows: apiRows4
       }
     ) })
+  ] });
+
+  // site/src/pages/links_page.tsx
+  var inlineCode = `<p>Read the <a data-link href="/dragonglass/layout.html">layout guide</a> before composing a page.</p>`;
+  var standaloneCode = `<p>
+  <a data-link="standalone" href="/dragonglass/app-components.html">View all components</a>
+</p>`;
+  var quietCode = `<p>
+  Updated yesterday by <a data-link="quiet" href="/dragonglass">Ana</a>.
+  <a data-link="standalone quiet" href="/dragonglass/app-components.html">View activity</a>
+</p>`;
+  var apiRows5 = [
+    {
+      name: "a[data-link]",
+      type: "Element and attribute",
+      defaultValue: "Inline",
+      description: "Applies the persistent underline treatment to an anchor with an href."
+    },
+    {
+      name: "standalone",
+      type: "Attribute token",
+      defaultValue: "Absent",
+      description: "Adds emphasis for a standalone action and reveals its underline on interaction."
+    },
+    {
+      name: "quiet",
+      type: "Attribute token",
+      defaultValue: "Absent",
+      description: "Uses secondary text color until hover or focus restores primary text color."
+    },
+    {
+      name: "standalone quiet",
+      type: "Combined attribute tokens",
+      defaultValue: "Absent",
+      description: "Combines standalone emphasis with the quieter resting color."
+    },
+    {
+      name: "Focus state",
+      type: "State",
+      defaultValue: "Global link focus",
+      description: "Keeps the framework focus indicator in addition to each link treatment."
+    }
+  ];
+  var links_page_default = () => /* @__PURE__ */ jsxs(doc_page_default, { page: "Links", children: [
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "link-inline", title: "Inline link", children: [
+      /* @__PURE__ */ jsx("p", { children: "Inline links keep a visible underline so they remain identifiable inside surrounding copy." }),
+      /* @__PURE__ */ jsxs("p", { children: [
+        "Read the",
+        " ",
+        /* @__PURE__ */ jsx("a", { "data-link": true, href: "/dragonglass/layout.html", children: "layout guide" }),
+        " ",
+        "before composing a page."
+      ] }),
+      /* @__PURE__ */ jsx(code_example_default, { code: inlineCode })
+    ] }),
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "link-standalone", title: "Standalone link", children: [
+      /* @__PURE__ */ jsxs("p", { children: [
+        "The ",
+        /* @__PURE__ */ jsx("code", { children: "standalone" }),
+        " token presents a link as an independent action without giving it button semantics."
+      ] }),
+      /* @__PURE__ */ jsx("p", { children: /* @__PURE__ */ jsx("a", { "data-link": "standalone", href: "/dragonglass/app-components.html", children: "View all components" }) }),
+      /* @__PURE__ */ jsx(code_example_default, { code: standaloneCode })
+    ] }),
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "link-quiet", title: "Quiet and combined links", children: [
+      /* @__PURE__ */ jsxs("p", { children: [
+        "The ",
+        /* @__PURE__ */ jsx("code", { children: "quiet" }),
+        " token lowers resting emphasis. Tokens are space-separated and may be combined on the same ",
+        /* @__PURE__ */ jsx("code", { children: "data-link" }),
+        "attribute."
+      ] }),
+      /* @__PURE__ */ jsxs("p", { children: [
+        "Updated yesterday by",
+        " ",
+        /* @__PURE__ */ jsx("a", { "data-link": "quiet", href: "/dragonglass", children: "Ana" }),
+        ".",
+        " ",
+        /* @__PURE__ */ jsx("a", { "data-link": "standalone quiet", href: "/dragonglass/app-components.html", children: "View activity" })
+      ] }),
+      /* @__PURE__ */ jsx(code_example_default, { code: quietCode })
+    ] }),
+    /* @__PURE__ */ jsx(demo_section_default, { id: "link-api", title: "API", children: /* @__PURE__ */ jsx(api_table_default, { caption: "Link elements, variants and states", rows: apiRows5 }) })
   ] });
 
   // site/src/pages/cards_page.tsx
@@ -2954,7 +3355,7 @@ import "dragonglass/dist/themes/default.css";`;
   var elevatedCardExample = `<article data-card="elevated">
   <section>
     <h3>Elevated card</h3>
-    <p>Elevation adds emphasis without changing the content structure.</p>
+    <p>This card uses the elevated variant.</p>
   </section>
 </article>`;
   var structuredCardExample = `<article data-card>
@@ -2977,7 +3378,6 @@ import "dragonglass/dist/themes/default.css";`;
   <section data-media role="img" aria-label="Mountain ridge under a cloudy sky" style="background-image: url('https://picsum.photos/480/480')"></section>
   <section>
     <h3>Field report</h3>
-    <p>The background image has an equivalent accessible name.</p>
   </section>
 </article>`;
   var squareCardExample = `<article data-card="squared">
@@ -2993,7 +3393,7 @@ import "dragonglass/dist/themes/default.css";`;
     <h3>Documentation status</h3>
   </header>
   <section>
-    <p>Use the full available content width for longer summaries.</p>
+    <p>The summary spans the full available content width.</p>
   </section>
   <footer>
     <a href="/dragonglass">Browse documentation</a>
@@ -3001,7 +3401,7 @@ import "dragonglass/dist/themes/default.css";`;
 </article>`;
   var cards_page_default = () => /* @__PURE__ */ jsxs(doc_page_default, { page: "Cards", children: [
     /* @__PURE__ */ jsxs(demo_section_default, { id: "cards-basic-title", title: "Basic and elevated cards", children: [
-      /* @__PURE__ */ jsx("p", { children: "Use a basic card for grouped content in the normal page flow. Use the elevated variant when the same structure needs stronger visual emphasis." }),
+      /* @__PURE__ */ jsx("p", { children: "A basic card groups content in the normal page flow. The elevated variant adds stronger visual emphasis to the same structure." }),
       /* @__PURE__ */ jsx("article", { "data-card": true, children: /* @__PURE__ */ jsxs("section", { children: [
         /* @__PURE__ */ jsx("h3", { children: "Release notes" }),
         /* @__PURE__ */ jsx("p", { children: "Review the latest component changes." })
@@ -3009,12 +3409,12 @@ import "dragonglass/dist/themes/default.css";`;
       /* @__PURE__ */ jsx(code_example_default, { code: basicCardExample }),
       /* @__PURE__ */ jsx("article", { "data-card": "elevated", children: /* @__PURE__ */ jsxs("section", { children: [
         /* @__PURE__ */ jsx("h3", { children: "Elevated card" }),
-        /* @__PURE__ */ jsx("p", { children: "Elevation adds emphasis without changing the content structure." })
+        /* @__PURE__ */ jsx("p", { children: "This card uses the elevated variant." })
       ] }) }),
       /* @__PURE__ */ jsx(code_example_default, { code: elevatedCardExample })
     ] }),
     /* @__PURE__ */ jsxs(demo_section_default, { id: "cards-structured-title", title: "Header, content and footer", children: [
-      /* @__PURE__ */ jsx("p", { children: "Use direct header, section and footer regions when a card needs a title, supporting content and a separate action area." }),
+      /* @__PURE__ */ jsx("p", { children: "Direct header, section and footer regions separate the title, supporting content and action area." }),
       /* @__PURE__ */ jsxs("article", { "data-card": true, children: [
         /* @__PURE__ */ jsxs("header", { children: [
           /* @__PURE__ */ jsx("h3", { children: "Project update" }),
@@ -3034,7 +3434,7 @@ import "dragonglass/dist/themes/default.css";`;
       /* @__PURE__ */ jsx(code_example_default, { code: structuredCardExample })
     ] }),
     /* @__PURE__ */ jsxs(demo_section_default, { id: "cards-media-title", title: "Media and square cards", children: [
-      /* @__PURE__ */ jsx("p", { children: "Use a media region for an image that supports the card content. Use the squared variant for compact, equal-ratio tiles whose content fits the constrained shape." }),
+      /* @__PURE__ */ jsx("p", { children: "A media region adds an image to the card content. The squared variant creates compact, equal-ratio tiles." }),
       /* @__PURE__ */ jsxs("article", { "data-card": true, children: [
         /* @__PURE__ */ jsx(
           "section",
@@ -3045,10 +3445,7 @@ import "dragonglass/dist/themes/default.css";`;
             style: "background-image: url('https://picsum.photos/480/480')"
           }
         ),
-        /* @__PURE__ */ jsxs("section", { children: [
-          /* @__PURE__ */ jsx("h3", { children: "Field report" }),
-          /* @__PURE__ */ jsx("p", { children: "The background image has an equivalent accessible name." })
-        ] })
+        /* @__PURE__ */ jsx("section", { children: /* @__PURE__ */ jsx("h3", { children: "Field report" }) })
       ] }),
       /* @__PURE__ */ jsx(code_example_default, { code: mediaCardExample }),
       /* @__PURE__ */ jsx("article", { "data-card": "squared", children: /* @__PURE__ */ jsxs("section", { "data-media": true, class: "bg-primary", children: [
@@ -3058,10 +3455,10 @@ import "dragonglass/dist/themes/default.css";`;
       /* @__PURE__ */ jsx(code_example_default, { code: squareCardExample })
     ] }),
     /* @__PURE__ */ jsxs(demo_section_default, { id: "cards-full-width-title", title: "Full-width card", children: [
-      /* @__PURE__ */ jsx("p", { children: "Use the full-width variant for summaries that need the complete content row instead of a compact card column." }),
+      /* @__PURE__ */ jsx("p", { children: "The full-width variant gives summaries the complete content row instead of a compact card column." }),
       /* @__PURE__ */ jsxs("article", { "data-card": "full-width", children: [
         /* @__PURE__ */ jsx("header", { children: /* @__PURE__ */ jsx("h3", { children: "Documentation status" }) }),
-        /* @__PURE__ */ jsx("section", { children: /* @__PURE__ */ jsx("p", { children: "Use the full available content width for longer summaries." }) }),
+        /* @__PURE__ */ jsx("section", { children: /* @__PURE__ */ jsx("p", { children: "The summary spans the full available content width." }) }),
         /* @__PURE__ */ jsx("footer", { children: /* @__PURE__ */ jsx("a", { href: "/dragonglass", children: "Browse documentation" }) })
       ] }),
       /* @__PURE__ */ jsx(code_example_default, { code: fullWidthCardExample })
@@ -3071,12 +3468,6 @@ import "dragonglass/dist/themes/default.css";`;
       {
         caption: "Card elements, attributes, tokens and states",
         rows: [
-          {
-            name: "article / section",
-            type: "Element",
-            defaultValue: "Contextual",
-            description: "Use article for standalone content or section for grouped content."
-          },
           {
             name: "data-card",
             type: "Attribute",
@@ -3103,15 +3494,7 @@ import "dragonglass/dist/themes/default.css";`;
           }
         ]
       }
-    ) }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "cards-accessibility-title", title: "Accessibility", children: /* @__PURE__ */ jsxs("p", { children: [
-      "Preserve heading order inside each card. Give icon-only buttons an accessible name. A meaningful background image needs equivalent text, such as ",
-      /* @__PURE__ */ jsx("code", { children: 'role="img"' }),
-      " with ",
-      /* @__PURE__ */ jsx("code", { children: "aria-label" }),
-      ". Decorative media should be hidden from assistive technology instead."
-    ] }) }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "cards-errors-title", title: "Composition and common errors", children: /* @__PURE__ */ jsx("p", { children: "Keep media, content and actions as direct card regions so the component selectors apply. Do not make the entire card clickable when it also contains independent buttons or links." }) })
+    ) })
   ] });
 
   // site/src/pages/dialogs_page.tsx
@@ -3148,37 +3531,31 @@ import "dragonglass/dist/themes/default.css";`;
 
 <dialog open class="static" data-dialog="full-width" aria-labelledby="workspace-dialog-title">
   <header><h3 id="workspace-dialog-title">Workspace settings</h3></header>
-  <section>Settings can use the available viewport width.</section>
+  <section>Settings use the available viewport width.</section>
 </dialog>
 
 <dialog open class="static" data-dialog="no-shadow" aria-labelledby="embedded-dialog-title">
   <header><h3 id="embedded-dialog-title">Embedded decision</h3></header>
-  <section>Remove elevation when the surrounding surface supplies separation.</section>
+  <section>The surrounding surface supplies separation without elevation.</section>
 </dialog>`;
-  var apiRows3 = [
+  var apiRows6 = [
     {
       name: "dialog",
       type: "Element",
       defaultValue: "Closed",
-      description: "Provides native dialog semantics and a centered, elevated surface."
+      description: "Receives centered, elevated surface styling."
     },
     {
       name: "open",
       type: "State",
       defaultValue: "Absent",
-      description: "Makes a non-modal dialog visible. Use showModal() for modal behavior."
-    },
-    {
-      name: "aria-labelledby",
-      type: "Attribute",
-      defaultValue: "Required by guidance",
-      description: "Associates the dialog with the id of its visible heading."
+      description: "Displays the dialog with its flex layout."
     },
     {
       name: 'data-dialog="squared"',
       type: "Attribute token",
       defaultValue: "Standard shape",
-      description: "Creates a compact square surface suited to concise media or content."
+      description: "Applies the squared card dimensions and media layout."
     },
     {
       name: "full-width",
@@ -3190,7 +3567,7 @@ import "dragonglass/dist/themes/default.css";`;
       name: "no-shadow",
       type: "Attribute token",
       defaultValue: "--shadow-2xl",
-      description: "Removes dialog elevation when another boundary provides separation."
+      description: "Removes dialog elevation."
     },
     {
       name: "--dialog-radius",
@@ -3258,7 +3635,7 @@ import "dragonglass/dist/themes/default.css";`;
           "aria-labelledby": "workspace-dialog-title",
           children: [
             /* @__PURE__ */ jsx("header", { children: /* @__PURE__ */ jsx("h3", { id: "workspace-dialog-title", children: "Workspace settings" }) }),
-            /* @__PURE__ */ jsx("section", { children: "Settings can use the available viewport width." })
+            /* @__PURE__ */ jsx("section", { children: "Settings use the available viewport width." })
           ]
         }
       ),
@@ -3271,58 +3648,33 @@ import "dragonglass/dist/themes/default.css";`;
           "aria-labelledby": "embedded-dialog-title",
           children: [
             /* @__PURE__ */ jsx("header", { children: /* @__PURE__ */ jsx("h3", { id: "embedded-dialog-title", children: "Embedded decision" }) }),
-            /* @__PURE__ */ jsx("section", { children: "Remove elevation when the surrounding surface supplies separation." })
+            /* @__PURE__ */ jsx("section", { children: "The surrounding surface supplies separation without elevation." })
           ]
         }
       ),
       /* @__PURE__ */ jsx(code_example_default, { code: dialogVariantsCode })
     ] }),
     /* @__PURE__ */ jsx(demo_section_default, { id: "dialog-composition", title: "Composition", children: /* @__PURE__ */ jsxs("p", { children: [
-      "Compose a dialog from direct ",
+      "A dialog accepts direct ",
       /* @__PURE__ */ jsx("code", { children: "header" }),
       ", ",
       /* @__PURE__ */ jsx("code", { children: "section" }),
-      "and ",
+      " and",
       /* @__PURE__ */ jsx("code", { children: "footer" }),
-      " children. Keep the decision and its actions short. The ",
+      " children. The ",
       /* @__PURE__ */ jsx("code", { children: "static" }),
-      " utility in these previews only keeps several open examples in the document flow. Omit it when the dialog should use its default centered position."
+      " utility keeps these open previews in the document flow. The default position centers the dialog."
     ] }) }),
     /* @__PURE__ */ jsx(demo_section_default, { id: "dialog-responsive", title: "Responsive behavior", children: /* @__PURE__ */ jsxs("p", { children: [
       "Standard dialogs size to their content. The ",
       /* @__PURE__ */ jsx("code", { children: "full-width" }),
-      "token leaves a small viewport gap and works for wider tasks. Keep long content in the body section so it can scroll without moving the header or footer actions."
-    ] }) }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "dialog-accessibility", title: "Accessibility", children: /* @__PURE__ */ jsxs("p", { children: [
-      "Give every dialog a visible heading and connect it with",
-      /* @__PURE__ */ jsx("code", { children: " aria-labelledby" }),
-      ". Use the native ",
-      /* @__PURE__ */ jsx("code", { children: "showModal()" }),
-      "method when the rest of the page must be inert, move focus to a useful control after opening, support Escape and return focus to the trigger after closing. Icon-only actions need an ",
-      /* @__PURE__ */ jsx("code", { children: "aria-label" }),
-      " and a decorative icon marked ",
-      /* @__PURE__ */ jsx("code", { children: 'aria-hidden="true"' }),
-      "."
-    ] }) }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "dialog-errors", title: "Common mistakes", children: /* @__PURE__ */ jsxs("ul", { children: [
-      /* @__PURE__ */ jsxs("li", { children: [
-        "A ",
-        /* @__PURE__ */ jsx("code", { children: "details" }),
-        " element does not provide dialog focus, dismissal or modal semantics."
-      ] }),
-      /* @__PURE__ */ jsx("li", { children: "Styling an ordinary container to look modal leaves the background interactive and the surface unnamed." }),
-      /* @__PURE__ */ jsx("li", { children: "Opening several modal dialogs at once creates an ambiguous focus and dismissal order." }),
-      /* @__PURE__ */ jsxs("li", { children: [
-        "Using ",
-        /* @__PURE__ */ jsx("code", { children: "open" }),
-        " alone creates a non-modal dialog. Use the native modal method when interaction must stay inside the dialog."
-      ] })
+      "token leaves a one-rem viewport gap. Long body content scrolls without moving the header or footer actions."
     ] }) }),
     /* @__PURE__ */ jsx(demo_section_default, { id: "dialog-api", title: "API", children: /* @__PURE__ */ jsx(
       api_table_default,
       {
         caption: "Dialog elements, attributes, states and tokens",
-        rows: apiRows3
+        rows: apiRows6
       }
     ) })
   ] });
@@ -3472,13 +3824,13 @@ import "dragonglass/dist/themes/default.css";`;
       name: "ul[data-list]",
       type: "Element and attribute",
       defaultValue: "Unordered",
-      description: "Creates application rows whose order carries no meaning."
+      description: "Removes list markers and applies the application-row layout."
     },
     {
       name: "ol[data-list]",
       type: "Element and attribute",
       defaultValue: "Numbered",
-      description: "Creates numbered application rows whose sequence carries meaning."
+      description: "Generates numbered application rows with an internal counter."
     },
     {
       name: "li",
@@ -3496,7 +3848,7 @@ import "dragonglass/dist/themes/default.css";`;
       name: "a / button",
       type: "Interactive element",
       defaultValue: "Optional",
-      description: "Use a link for navigation and type=button for an action inside a row."
+      description: "Fills the primary row region or stays compact as the second child."
     }
   ];
   var lists_page_default = () => /* @__PURE__ */ jsxs(doc_page_default, { page: "Lists", children: [
@@ -3721,33 +4073,7 @@ import "dragonglass/dist/themes/default.css";`;
       ] }),
       /* @__PURE__ */ jsx(code_example_default, { code: definitionListExample })
     ] }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "list-api", title: "API", children: /* @__PURE__ */ jsx(api_table_default, { caption: "List elements and row regions", rows: listRows }) }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "list-accessibility", title: "Accessibility", children: /* @__PURE__ */ jsxs("p", { children: [
-      "Use unordered lists for collections and ordered lists for sequences. Use links for navigation and buttons for actions. Give icon-only secondary actions a specific accessible name and hide decorative icons with",
-      /* @__PURE__ */ jsx("code", { children: ' aria-hidden="true"' }),
-      "."
-    ] }) }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "list-errors", title: "Composition and common errors", children: /* @__PURE__ */ jsxs("ul", { children: [
-      /* @__PURE__ */ jsxs("li", { children: [
-        "Add ",
-        /* @__PURE__ */ jsx("code", { children: "data-list" }),
-        " to application lists that need row styling."
-      ] }),
-      /* @__PURE__ */ jsxs("li", { children: [
-        "Keep each styled row as a direct ",
-        /* @__PURE__ */ jsx("code", { children: "li" }),
-        " child of its list."
-      ] }),
-      /* @__PURE__ */ jsxs("li", { children: [
-        "Reserve ",
-        /* @__PURE__ */ jsx("code", { children: "dl" }),
-        " for direct ",
-        /* @__PURE__ */ jsx("code", { children: "dt" }),
-        " and ",
-        /* @__PURE__ */ jsx("code", { children: "dd" }),
-        "pairs."
-      ] })
-    ] }) })
+    /* @__PURE__ */ jsx(demo_section_default, { id: "list-api", title: "API", children: /* @__PURE__ */ jsx(api_table_default, { caption: "List elements and row regions", rows: listRows }) })
   ] });
 
   // site/src/pages/forms_page.tsx
@@ -3942,24 +4268,24 @@ import "dragonglass/dist/themes/default.css";`;
     </form>
   </search>
 </nav>`;
-  var apiRows4 = [
+  var apiRows7 = [
     {
       name: "input, select, textarea",
       type: "Element",
       defaultValue: "Full width",
-      description: "Provides the native control behavior and Dragonglass field styling."
+      description: "Receives full-width Dragonglass field styling."
     },
     {
       name: "label[for]",
       type: "Element",
-      defaultValue: "Required by guidance",
-      description: "Gives a control its visible, programmatic name through a matching id."
+      defaultValue: "for attribute present",
+      description: "Receives inline label spacing and a pointer cursor."
     },
     {
       name: "fieldset and legend",
       type: "Element",
       defaultValue: "No border",
-      description: "Groups related controls and names radio or checkbox groups."
+      description: "Removes the fieldset border and styles its direct legend."
     },
     {
       name: "data-floating",
@@ -3977,19 +4303,13 @@ import "dragonglass/dist/themes/default.css";`;
       name: "data-toggle",
       type: "Attribute",
       defaultValue: "Absent",
-      description: "Displays a checkbox as a switch while preserving native checkbox semantics."
+      description: "Displays a checkbox as a switch."
     },
     {
       name: 'aria-invalid="true"',
       type: "State",
       defaultValue: "Absent",
-      description: "Marks the control, not its wrapper, as invalid and applies the danger state."
-    },
-    {
-      name: "aria-describedby",
-      type: "Attribute",
-      defaultValue: "Absent",
-      description: "Connects a control to persistent help or its current error message."
+      description: "Applies danger colors to the control and matching wrapper content."
     },
     {
       name: "--control-accent",
@@ -4001,13 +4321,13 @@ import "dragonglass/dist/themes/default.css";`;
       name: "search / form[role=search]",
       type: "Element / attribute",
       defaultValue: "Contextual",
-      description: "Creates a search landmark and aligns a fieldset with its submit action."
+      description: "Aligns a fieldset and submit action in a flexible row."
     },
     {
       name: "input[type=search]",
       type: "Element / attribute",
       defaultValue: "Empty",
-      description: "Provides native search input and clear-button behavior."
+      description: "Fills the available width and removes the default bottom margin."
     }
   ];
   var forms_page_default = () => /* @__PURE__ */ jsxs(doc_page_default, { page: "Forms", children: [
@@ -4415,57 +4735,19 @@ import "dragonglass/dist/themes/default.css";`;
       ] }) }) }),
       /* @__PURE__ */ jsx(code_example_default, { code: toolbarSearchCode })
     ] }),
-    /* @__PURE__ */ jsxs(demo_section_default, { id: "forms-composition", title: "Composition", children: [
-      /* @__PURE__ */ jsxs("p", { children: [
-        "Wrap ordinary fields as needed and use ",
-        /* @__PURE__ */ jsx("code", { children: "fieldset" }),
-        " with",
-        /* @__PURE__ */ jsx("code", { children: "legend" }),
-        " for related control groups. Floating fields use a neutral ",
-        /* @__PURE__ */ jsx("code", { children: "data-floating" }),
-        " container and keep the control before its ",
-        /* @__PURE__ */ jsx("code", { children: "label" }),
-        " because that sibling order drives the visual label state."
-      ] }),
-      /* @__PURE__ */ jsxs("p", { children: [
-        "Radio buttons share a ",
-        /* @__PURE__ */ jsx("code", { children: "name" }),
-        " and a group legend. Checkboxes and toggles keep their native input so forms, keyboards and assistive technology receive the expected behavior."
-      ] })
-    ] }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "forms-responsive", title: "Responsive behavior", children: /* @__PURE__ */ jsx("p", { children: "Text controls fill the available width, textareas resize vertically and range inputs preserve their full track. Let the surrounding form or card control column width. Native date, time and select interfaces may vary by browser and operating system." }) }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "forms-accessibility", title: "Accessibility", children: /* @__PURE__ */ jsxs("p", { children: [
-      "Every control needs a stable ",
-      /* @__PURE__ */ jsx("code", { children: "name" }),
-      " for submission and an accessible name from a ",
-      /* @__PURE__ */ jsx("code", { children: "label" }),
-      " whose ",
-      /* @__PURE__ */ jsx("code", { children: "for" }),
-      " matches the control ID. Connect help and error text with",
-      /* @__PURE__ */ jsx("code", { children: "aria-describedby" }),
-      ". Put ",
-      /* @__PURE__ */ jsx("code", { children: ' aria-invalid="true"' }),
-      " on the invalid control after validation, and move focus to the first invalid field when submission fails."
+    /* @__PURE__ */ jsx(demo_section_default, { id: "forms-composition", title: "Composition", children: /* @__PURE__ */ jsxs("p", { children: [
+      "Inside ",
+      /* @__PURE__ */ jsx("code", { children: "data-floating" }),
+      ", the control precedes its",
+      /* @__PURE__ */ jsx("code", { children: " label" }),
+      " because the sibling selectors drive the visual label state."
     ] }) }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "forms-errors", title: "Common mistakes", children: /* @__PURE__ */ jsxs("ul", { children: [
-      /* @__PURE__ */ jsx("li", { children: "Placeholders do not replace persistent labels." }),
-      /* @__PURE__ */ jsxs("li", { children: [
-        "Putting ",
-        /* @__PURE__ */ jsx("code", { children: "aria-invalid" }),
-        " on a fieldset does not expose the invalid state on its control."
-      ] }),
-      /* @__PURE__ */ jsxs("li", { children: [
-        "Error text without ",
-        /* @__PURE__ */ jsx("code", { children: "aria-describedby" }),
-        " can be visually close while remaining disconnected to a screen reader."
-      ] }),
-      /* @__PURE__ */ jsx("li", { children: "Giving radio buttons different names prevents them from behaving as one exclusive group." })
-    ] }) }),
+    /* @__PURE__ */ jsx(demo_section_default, { id: "forms-responsive", title: "Responsive behavior", children: /* @__PURE__ */ jsx("p", { children: "Text controls fill the available width, textareas resize vertically and range inputs preserve their full track. The surrounding form or card controls column width." }) }),
     /* @__PURE__ */ jsx(demo_section_default, { id: "forms-api", title: "API", children: /* @__PURE__ */ jsx(
       api_table_default,
       {
         caption: "Form elements, attributes, states and tokens",
-        rows: apiRows4
+        rows: apiRows7
       }
     ) })
   ] });
@@ -4482,8 +4764,6 @@ import "dragonglass/dist/themes/default.css";`;
   ];
   var directions = ["bottom", "left", "right"];
   var spanExample = `<span data-tooltip="This is a tooltip" class="inline">This span has a tooltip</span>`;
-  var necessaryInformationExample = `<p id="publish-help">Publishing makes the current changes visible to everyone.</p>
-<button type="button" aria-describedby="publish-help" data-tooltip="Makes changes visible">Publish changes</button>`;
   var tooltipRows = [
     {
       name: "data-tooltip",
@@ -4495,7 +4775,7 @@ import "dragonglass/dist/themes/default.css";`;
       name: "data-tooltip-position",
       type: "HTML data attribute",
       defaultValue: "Top",
-      description: "Accepts top, bottom, left or right. Omit it for the top position."
+      description: "Accepts top, bottom, left or right. An absent attribute uses top."
     },
     {
       name: "after:bg-{color}",
@@ -4544,56 +4824,13 @@ import "dragonglass/dist/themes/default.css";`;
         /* @__PURE__ */ jsx(code_example_default, { code })
       ] });
     }) }),
-    /* @__PURE__ */ jsxs(
-      demo_section_default,
-      {
-        id: "necessary-tooltip-information",
-        title: "Necessary information",
-        children: [
-          /* @__PURE__ */ jsx("p", { id: "publish-help", children: "Publishing makes the current changes visible to everyone." }),
-          /* @__PURE__ */ jsx(
-            "button",
-            {
-              type: "button",
-              "aria-describedby": "publish-help",
-              "data-tooltip": "Makes changes visible",
-              children: "Publish changes"
-            }
-          ),
-          /* @__PURE__ */ jsx(code_example_default, { code: necessaryInformationExample })
-        ]
-      }
-    ),
     /* @__PURE__ */ jsx(demo_section_default, { id: "tooltip-api", title: "Tooltip API", children: /* @__PURE__ */ jsx(
       api_table_default,
       {
         caption: "Tooltip attributes and color utilities",
         rows: tooltipRows
       }
-    ) }),
-    /* @__PURE__ */ jsx(
-      demo_section_default,
-      {
-        id: "tooltip-accessibility",
-        title: "Accessibility and common errors",
-        children: /* @__PURE__ */ jsxs("ul", { children: [
-          /* @__PURE__ */ jsx("li", { children: "Focusable tooltip triggers reveal generated content on hover and keyboard focus. The pseudo-element still does not provide a dependable accessible description." }),
-          /* @__PURE__ */ jsxs("li", { children: [
-            "Put necessary information in real markup and associate it with a focusable control using ",
-            /* @__PURE__ */ jsx("code", { children: "aria-describedby" }),
-            ", as shown above."
-          ] }),
-          /* @__PURE__ */ jsxs("li", { children: [
-            "A plain ",
-            /* @__PURE__ */ jsx("code", { children: "span" }),
-            " is suitable only for optional visual detail. Adding ",
-            /* @__PURE__ */ jsx("code", { children: "data-tooltip" }),
-            " does not make it focusable."
-          ] }),
-          /* @__PURE__ */ jsx("li", { children: "The current CSS uses top by default and supports explicit bottom, left and right positions. It does not provide collision detection or touch-specific behavior." })
-        ] })
-      }
-    )
+    ) })
   ] });
 
   // site/src/pages/menus_page.tsx
@@ -4653,7 +4890,7 @@ import "dragonglass/dist/themes/default.css";`;
       /* @__PURE__ */ jsx(code_example_default, { code: menuExample })
     ] }),
     /* @__PURE__ */ jsxs(demo_section_default, { id: "menus-position-title", title: "Menu positions", children: [
-      /* @__PURE__ */ jsx("p", { children: "Use top or right when the default bottom-left placement lacks space. Use both tokens when the menu must open above the trigger and align to its right edge." }),
+      /* @__PURE__ */ jsx("p", { children: "The top and right tokens change the default bottom-left placement. Their combination opens the menu above the trigger and aligns it to the right edge." }),
       /* @__PURE__ */ jsxs("details", { "data-trigger": true, children: [
         /* @__PURE__ */ jsx("summary", { children: "Top menu" }),
         /* @__PURE__ */ jsx("menu", { "data-menu": "top", children: /* @__PURE__ */ jsx(MenuItem, {}) })
@@ -4677,7 +4914,7 @@ import "dragonglass/dist/themes/default.css";`;
             name: "details / summary / menu / li",
             type: "Element",
             defaultValue: "Required",
-            description: "Provide the trigger, positioned surface and native menu rows."
+            description: "Matches the trigger, its direct menu and the menu's direct rows."
           },
           {
             name: "data-trigger",
@@ -4705,21 +4942,7 @@ import "dragonglass/dist/themes/default.css";`;
           }
         ]
       }
-    ) }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "menus-accessibility-title", title: "Accessibility", children: /* @__PURE__ */ jsxs("p", { children: [
-      "Use links for navigation and buttons for commands. Give every icon-only button an accessible name and mark its decorative icon",
-      /* @__PURE__ */ jsx("code", { children: ' aria-hidden="true"' }),
-      ". The summary remains the keyboard control for opening and closing the menu."
-    ] }) }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "menus-errors-title", title: "Composition and common errors", children: /* @__PURE__ */ jsxs("p", { children: [
-      "Keep the menu inside ",
-      /* @__PURE__ */ jsx("code", { children: "details[data-trigger]" }),
-      ". Position it with space-separated ",
-      /* @__PURE__ */ jsx("code", { children: "data-menu" }),
-      " tokens. Keep visible items as direct ",
-      /* @__PURE__ */ jsx("code", { children: "li" }),
-      " children, and do not use an icon as the only unlabeled description of an action."
-    ] }) })
+    ) })
   ] });
 
   // site/src/pages/tables_page.tsx
@@ -4756,21 +4979,9 @@ import "dragonglass/dist/themes/default.css";`;
 </table>`;
   var tableRows = [
     {
-      name: "caption",
-      type: "Table element",
-      defaultValue: "Required for these examples",
-      description: "Names the table for readers and assistive technology."
-    },
-    {
-      name: "scope=col",
-      type: "th attribute",
-      defaultValue: "Column header",
-      description: "Associates each heading with the cells in its column."
-    },
-    {
       name: "data-label",
       type: "td attribute",
-      defaultValue: "Matching column heading",
+      defaultValue: "Absent",
       description: "Provides the visible mobile label generated by the responsive table CSS."
     },
     {
@@ -4819,35 +5030,7 @@ import "dragonglass/dist/themes/default.css";`;
       /* @__PURE__ */ jsx(Table, { color }),
       /* @__PURE__ */ jsx(code_example_default, { code: tableCode(color) })
     ] })) }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "table-api", title: "Table API", children: /* @__PURE__ */ jsx(api_table_default, { caption: "Responsive table attributes", rows: tableRows }) }),
-    /* @__PURE__ */ jsx(
-      demo_section_default,
-      {
-        id: "table-accessibility",
-        title: "Accessibility and common errors",
-        children: /* @__PURE__ */ jsxs("ul", { children: [
-          /* @__PURE__ */ jsxs("li", { children: [
-            "Keep a descriptive ",
-            /* @__PURE__ */ jsx("code", { children: "caption" }),
-            " and use",
-            " ",
-            /* @__PURE__ */ jsx("code", { children: 'scope="col"' }),
-            "on every column header."
-          ] }),
-          /* @__PURE__ */ jsxs("li", { children: [
-            "Make each ",
-            /* @__PURE__ */ jsx("code", { children: "data-label" }),
-            " match its column heading exactly so the compact layout preserves the same meaning."
-          ] }),
-          /* @__PURE__ */ jsx("li", { children: "Do not use a table only for visual alignment. Use it when rows and columns describe real data relationships." }),
-          /* @__PURE__ */ jsxs("li", { children: [
-            "The responsive CSS hides ",
-            /* @__PURE__ */ jsx("code", { children: "thead" }),
-            " only from view. Assistive technology retains the semantic headers, while data labels provide the compact visual headings."
-          ] })
-        ] })
-      }
-    )
+    /* @__PURE__ */ jsx(demo_section_default, { id: "table-api", title: "Table API", children: /* @__PURE__ */ jsx(api_table_default, { caption: "Responsive table attributes", rows: tableRows }) })
   ] });
 
   // site/src/pages/progress_page.tsx
@@ -4881,7 +5064,6 @@ import "dragonglass/dist/themes/default.css";`;
       /* @__PURE__ */ jsx(code_example_default, { code: progressExample })
     ] }),
     /* @__PURE__ */ jsxs(demo_section_default, { id: "progress-tones-title", title: "Supported tones", children: [
-      /* @__PURE__ */ jsx("p", { children: "Choose a supported tone that matches the status shown beside the bar. Keep a measurable value and maximum on every determinate example." }),
       /* @__PURE__ */ jsx(
         "progress",
         {
@@ -4951,9 +5133,9 @@ import "dragonglass/dist/themes/default.css";`;
         title: "Indeterminate progress",
         children: [
           /* @__PURE__ */ jsxs("p", { children: [
-            "Omit ",
+            "Without a ",
             /* @__PURE__ */ jsx("code", { children: "value" }),
-            " when the remaining duration or amount is unknown. An accessible name tells assistive technology which task is active."
+            ", Dragonglass applies the animated indeterminate bar."
           ] }),
           /* @__PURE__ */ jsx("progress", { "data-progress": "primary", "aria-label": "Loading results" }),
           /* @__PURE__ */ jsx("progress", { "data-progress": "warning", "aria-label": "Saving changes" }),
@@ -4963,9 +5145,9 @@ import "dragonglass/dist/themes/default.css";`;
     ),
     /* @__PURE__ */ jsxs(demo_section_default, { id: "progress-spinner-title", title: "Spinners", children: [
       /* @__PURE__ */ jsxs("p", { children: [
-        "Add the ",
+        "The ",
         /* @__PURE__ */ jsx("code", { children: "spinner" }),
-        " token for a compact circular indicator, then pair it with one supported tone and a name for the active task."
+        " token creates a compact circular indicator and combines with one supported tone."
       ] }),
       /* @__PURE__ */ jsx("progress", { "data-progress": "spinner primary", "aria-label": "Loading" }),
       /* @__PURE__ */ jsx("progress", { "data-progress": "spinner danger", "aria-label": "Retrying" }),
@@ -4980,13 +5162,13 @@ import "dragonglass/dist/themes/default.css";`;
             name: "progress",
             type: "Element",
             defaultValue: "Required",
-            description: "Provides native progress semantics."
+            description: "Receives the full-width base track."
           },
           {
-            name: "value / max",
+            name: "value",
             type: "Attribute",
-            defaultValue: "Indeterminate / 1",
-            description: "Define measurable completion and its upper bound."
+            defaultValue: "Absent",
+            description: "Its absence selects the animated indeterminate presentation."
           },
           {
             name: "data-progress",
@@ -5008,31 +5190,7 @@ import "dragonglass/dist/themes/default.css";`;
           }
         ]
       }
-    ) }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "progress-accessibility-title", title: "Accessibility", children: /* @__PURE__ */ jsxs("p", { children: [
-      "Give every progress element a visible label or an accessible name. Use",
-      /* @__PURE__ */ jsx("code", { children: " value" }),
-      " and ",
-      /* @__PURE__ */ jsx("code", { children: "max" }),
-      " only when progress is measurable. Omit ",
-      /* @__PURE__ */ jsx("code", { children: "value" }),
-      " for an unknown duration so assistive technology announces an indeterminate state."
-    ] }) }),
-    /* @__PURE__ */ jsx(
-      demo_section_default,
-      {
-        id: "progress-errors-title",
-        title: "Composition and common errors",
-        children: /* @__PURE__ */ jsxs("p", { children: [
-          "Choose only tones backed by existing variables. The documented set omits",
-          " ",
-          /* @__PURE__ */ jsx("code", { children: "secondary" }),
-          " because no ",
-          /* @__PURE__ */ jsx("code", { children: "--secondary" }),
-          " token is defined. Do not report a guessed percentage as determinate progress."
-        ] })
-      }
-    )
+    ) })
   ] });
 
   // site/src/pages/app_components_page.tsx
@@ -5048,7 +5206,12 @@ import "dragonglass/dist/themes/default.css";`;
     (category) => componentPages.some((route) => route.category === category)
   );
   var app_components_page_default = () => /* @__PURE__ */ jsxs(doc_page_default, { page: "AppComponents", children: [
-    /* @__PURE__ */ jsx("p", { children: "Browse component guides by purpose. Each guide documents the semantic markup, variants, and behavior for that component." }),
+    /* @__PURE__ */ jsx("p", { children: "Component guides are grouped by purpose. Each guide pairs rendered examples with their markup and an API table for the relevant elements, attributes, variants, states and tokens." }),
+    /* @__PURE__ */ jsxs("p", { children: [
+      "After choosing a component, open the",
+      /* @__PURE__ */ jsx("a", { href: routeByPage.get("Utilities").path, children: " utility reference" }),
+      " for focused spacing, color, typography, layout and elevation adjustments."
+    ] }),
     componentCategories.map((category) => /* @__PURE__ */ jsx(
       demo_section_default,
       {
@@ -5100,7 +5263,6 @@ import "dragonglass/dist/themes/default.css";`;
       /* @__PURE__ */ jsx(code_example_default, { code: toolbarExample })
     ] }),
     /* @__PURE__ */ jsxs(demo_section_default, { id: "toolbar-chips-title", title: "Filter chips", children: [
-      /* @__PURE__ */ jsx("p", { children: "Group related checkbox chips in a toolbar when users need to adjust several filters before they apply the result." }),
       /* @__PURE__ */ jsxs("nav", { "data-toolbar": true, "aria-label": "Issue filters", children: [
         /* @__PURE__ */ jsxs("label", { "data-chip": true, children: [
           /* @__PURE__ */ jsx("input", { type: "checkbox", checked: true }),
@@ -5123,7 +5285,7 @@ import "dragonglass/dist/themes/default.css";`;
           /* @__PURE__ */ jsxs("p", { children: [
             "A toolbar wraps by default. Inside a header or footer it uses",
             /* @__PURE__ */ jsx("code", { children: " flex-wrap: nowrap" }),
-            ", so keep labels short and avoid more actions than the available width can hold."
+            " and overflows when its actions exceed the available width."
           ] }),
           /* @__PURE__ */ jsxs("header", { children: [
             /* @__PURE__ */ jsx("h3", { children: "Project settings" }),
@@ -5149,7 +5311,7 @@ import "dragonglass/dist/themes/default.css";`;
             name: "nav",
             type: "Element",
             defaultValue: "Required",
-            description: "Provides navigation semantics for the toolbar."
+            description: "Provides the nav[data-toolbar] selector host."
           },
           {
             name: "data-toolbar",
@@ -5177,27 +5339,105 @@ import "dragonglass/dist/themes/default.css";`;
           }
         ]
       }
-    ) }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "toolbar-accessibility-title", title: "Accessibility", children: /* @__PURE__ */ jsx("p", { children: "Give every toolbar a specific accessible name. Use links for navigation, buttons for actions and labeled inputs for filters so each control keeps its native keyboard behavior." }) }),
-    /* @__PURE__ */ jsx(
-      demo_section_default,
-      {
-        id: "toolbar-composition-title",
-        title: "Composition and common errors",
-        children: /* @__PURE__ */ jsxs("p", { children: [
-          "Place direct links, buttons or chips inside",
-          " ",
-          /* @__PURE__ */ jsx("code", { children: "nav[data-toolbar]" }),
-          ". Do not use a toolbar as a generic visual row, and do not rely on a header or footer toolbar to wrap crowded actions."
-        ] })
-      }
-    )
+    ) })
+  ] });
+
+  // site/src/pages/breadcrumbs_page.tsx
+  var linksCode = `<nav data-breadcrumb aria-label="Breadcrumb">
+  <a href="/dragonglass/app-components.html">Components</a>
+  <a href="/dragonglass/layout.html">Foundations</a>
+  <a href="/dragonglass/breadcrumbs.html" aria-current="page">Breadcrumbs</a>
+</nav>`;
+  var mixedCode = `<nav data-breadcrumb aria-label="File location">
+  <button type="button">Workspace</button>
+  <a href="/dragonglass">Documents</a>
+  <button type="button" aria-current="page">Quarterly report</button>
+</nav>`;
+  var apiRows8 = [
+    {
+      name: "nav[data-breadcrumb]",
+      type: "Element and attribute",
+      defaultValue: "Required",
+      description: "Creates a wrapping breadcrumb trail with separators between segments."
+    },
+    {
+      name: "Direct a child",
+      type: "Supported child",
+      defaultValue: "None",
+      description: "Navigates to a location in the breadcrumb hierarchy."
+    },
+    {
+      name: "Direct button child",
+      type: "Supported child",
+      defaultValue: "None",
+      description: "Runs an in-page location action without adding a wrapper or list element."
+    },
+    {
+      name: 'aria-current="page"',
+      type: "State",
+      defaultValue: "Absent",
+      description: "Identifies the current breadcrumb segment."
+    },
+    {
+      name: "Child structure",
+      type: "Contract",
+      defaultValue: "Direct children only",
+      description: "Supports only anchors and buttons directly inside the nav, with no lists or wrappers."
+    }
+  ];
+  var breadcrumbs_page_default = () => /* @__PURE__ */ jsxs(doc_page_default, { page: "Breadcrumbs", children: [
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "breadcrumb-links", title: "Linked trail", children: [
+      /* @__PURE__ */ jsxs("p", { children: [
+        "Add ",
+        /* @__PURE__ */ jsx("code", { children: "data-breadcrumb" }),
+        " to a labeled ",
+        /* @__PURE__ */ jsx("code", { children: "nav" }),
+        ". Place each anchor directly inside the nav and mark the current location with",
+        /* @__PURE__ */ jsx("code", { children: ' aria-current="page"' }),
+        "."
+      ] }),
+      /* @__PURE__ */ jsxs("nav", { "data-breadcrumb": true, "aria-label": "Breadcrumb", children: [
+        /* @__PURE__ */ jsx("a", { href: "/dragonglass/app-components.html", children: "Components" }),
+        /* @__PURE__ */ jsx("a", { href: "/dragonglass/layout.html", children: "Foundations" }),
+        /* @__PURE__ */ jsx("a", { href: "/dragonglass/breadcrumbs.html", "aria-current": "page", children: "Breadcrumbs" })
+      ] }),
+      /* @__PURE__ */ jsx(code_example_default, { code: linksCode })
+    ] }),
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "breadcrumb-actions", title: "Links and actions", children: [
+      /* @__PURE__ */ jsx("p", { children: "A breadcrumb may mix direct anchors and buttons. Do not place lists, list items or wrapper elements inside the breadcrumb nav." }),
+      /* @__PURE__ */ jsxs("nav", { "data-breadcrumb": true, "aria-label": "File location", children: [
+        /* @__PURE__ */ jsx("button", { type: "button", children: "Workspace" }),
+        /* @__PURE__ */ jsx("a", { href: "/dragonglass", children: "Documents" }),
+        /* @__PURE__ */ jsx("button", { type: "button", "aria-current": "page", children: "Quarterly report" })
+      ] }),
+      /* @__PURE__ */ jsx(code_example_default, { code: mixedCode })
+    ] }),
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "breadcrumb-api", title: "API", children: [
+      /* @__PURE__ */ jsxs("p", { children: [
+        "The host supports only direct ",
+        /* @__PURE__ */ jsx("code", { children: "a" }),
+        " and ",
+        /* @__PURE__ */ jsx("code", { children: "button" }),
+        "children. Separators are visual borders, so source markup contains no generated separator text."
+      ] }),
+      /* @__PURE__ */ jsx(
+        api_table_default,
+        {
+          caption: "Breadcrumb elements, child contract and current state",
+          rows: apiRows8
+        }
+      )
+    ] })
   ] });
 
   // site/src/pages/chips_page.tsx
-  var chipExample = `<label data-chip="success">
-  <input type="checkbox" checked /> Active
-</label>`;
+  var chipExample = `<p>
+  <label data-chip="success">
+    <input type="checkbox" checked /> Active
+  </label>
+  <button data-chip type="button" aria-pressed="true">Pinned</button>
+  <a data-chip href="/dragonglass/chips.html" aria-current="true">Chips</a>
+</p>`;
   var chipElementsExample = `<p>
   <button data-chip type="button">Action</button>
   <a data-chip href="/dragonglass/forms.html">Forms</a>
@@ -5214,7 +5454,6 @@ import "dragonglass/dist/themes/default.css";`;
 </p>`;
   var chips_page_default = () => /* @__PURE__ */ jsxs(doc_page_default, { page: "Chips", children: [
     /* @__PURE__ */ jsxs(demo_section_default, { id: "chips-elements-title", title: "Actions, links and values", children: [
-      /* @__PURE__ */ jsx("p", { children: "Choose a button for an action, a link for navigation and a span for a read-only value so each chip keeps the correct native behavior." }),
       /* @__PURE__ */ jsxs("p", { children: [
         /* @__PURE__ */ jsx("button", { "data-chip": true, type: "button", children: "Action" }),
         " ",
@@ -5225,7 +5464,6 @@ import "dragonglass/dist/themes/default.css";`;
       /* @__PURE__ */ jsx(code_example_default, { code: chipElementsExample })
     ] }),
     /* @__PURE__ */ jsxs(demo_section_default, { id: "chips-tones-title", title: "Semantic tones", children: [
-      /* @__PURE__ */ jsx("p", { children: "Use semantic tones to reinforce a named state or category. Keep the text meaningful because color alone does not explain the value." }),
       /* @__PURE__ */ jsxs("p", { children: [
         /* @__PURE__ */ jsx("span", { "data-chip": "primary", children: "Primary" }),
         " ",
@@ -5265,7 +5503,7 @@ import "dragonglass/dist/themes/default.css";`;
             name: "button / a / label / span",
             type: "Element",
             defaultValue: "Contextual",
-            description: "Choose semantics that match an action, link, input or value."
+            description: "Receives chip styling from data-chip."
           },
           {
             name: "data-chip",
@@ -5289,24 +5527,11 @@ import "dragonglass/dist/themes/default.css";`;
             name: "input:checked / aria-pressed=true / aria-current=true",
             type: "State",
             defaultValue: "False",
-            description: "Apply the active chip appearance for supported semantics."
+            description: "Selects the active chip appearance."
           }
         ]
       }
-    ) }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "chips-accessibility-title", title: "Accessibility", children: /* @__PURE__ */ jsxs("p", { children: [
-      "Use a checkbox when a chip toggles a form value,",
-      " ",
-      /* @__PURE__ */ jsx("code", { children: "aria-pressed" }),
-      "for a toggle button and ",
-      /* @__PURE__ */ jsx("code", { children: 'aria-current="true"' }),
-      " only for the current link. Keep the visible label descriptive."
-    ] }) }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "chips-errors-title", title: "Composition and common errors", children: /* @__PURE__ */ jsxs("p", { children: [
-      "A plain ",
-      /* @__PURE__ */ jsx("code", { children: "span" }),
-      " is display-only and must not receive click behavior. Do not set active styling without exposing the same state in the checkbox, button or link semantics."
-    ] }) })
+    ) })
   ] });
 
   // site/src/pages/alerts_page.tsx
@@ -5328,7 +5553,6 @@ import "dragonglass/dist/themes/default.css";`;
 </div>`;
   var alerts_page_default = () => /* @__PURE__ */ jsxs(doc_page_default, { page: "Alerts", children: [
     /* @__PURE__ */ jsxs(demo_section_default, { id: "alerts-tones-title", title: "Semantic alerts", children: [
-      /* @__PURE__ */ jsx("p", { children: "Match the tone to the outcome, then choose status for routine updates or alert for urgent information that needs immediate attention." }),
       /* @__PURE__ */ jsx("div", { "data-alert": "info", role: "status", children: "Your profile has unsaved changes." }),
       /* @__PURE__ */ jsx("div", { "data-alert": "success", role: "status", children: "The invoice was paid successfully." }),
       /* @__PURE__ */ jsx("div", { "data-alert": "warning", role: "alert", children: "Your storage is almost full." }),
@@ -5355,22 +5579,10 @@ import "dragonglass/dist/themes/default.css";`;
         caption: "Alert elements, attributes, tokens and states",
         rows: [
           {
-            name: "div",
-            type: "Element",
-            defaultValue: "Example container",
-            description: "Provides a neutral container for the alert content."
-          },
-          {
             name: "data-alert",
             type: "Attribute",
             defaultValue: "Primary",
             description: "Accepts info, success, warning or danger."
-          },
-          {
-            name: "role=status / role=alert",
-            type: "Attribute",
-            defaultValue: "None",
-            description: "Selects polite status or urgent alert announcement behavior."
           },
           {
             name: "--alert-color / --alert-bg",
@@ -5386,19 +5598,7 @@ import "dragonglass/dist/themes/default.css";`;
           }
         ]
       }
-    ) }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "alerts-accessibility-title", title: "Accessibility", children: /* @__PURE__ */ jsxs("p", { children: [
-      "Use ",
-      /* @__PURE__ */ jsx("code", { children: 'role="status"' }),
-      " for non-urgent updates and",
-      /* @__PURE__ */ jsx("code", { children: ' role="alert"' }),
-      " for time-sensitive errors or warnings. Add a role when content appears dynamically, not merely to make static prose interrupt a screen reader."
-    ] }) }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "alerts-errors-title", title: "Composition and common errors", children: /* @__PURE__ */ jsxs("p", { children: [
-      "Apply ",
-      /* @__PURE__ */ jsx("code", { children: "data-alert" }),
-      " to a suitable container. Put the outcome first, add recovery guidance when useful and never communicate severity by color alone."
-    ] }) })
+    ) })
   ] });
 
   // site/src/pages/expansion_panels_page.tsx
@@ -5427,7 +5627,6 @@ import "dragonglass/dist/themes/default.css";`;
       /* @__PURE__ */ jsx(code_example_default, { code: expansionExample })
     ] }),
     /* @__PURE__ */ jsxs(demo_section_default, { id: "expansion-form-title", title: "Panel with form content", children: [
-      /* @__PURE__ */ jsx("p", { children: "Place related form controls inside the disclosed content so the summary names the task before the user opens it." }),
       /* @__PURE__ */ jsxs("details", { "data-expansion-panel": true, open: true, children: [
         /* @__PURE__ */ jsx("summary", { children: "Contact details" }),
         /* @__PURE__ */ jsxs("form", { children: [
@@ -5447,7 +5646,7 @@ import "dragonglass/dist/themes/default.css";`;
             name: "details / summary",
             type: "Element",
             defaultValue: "Required",
-            description: "Provide native disclosure behavior and its visible control."
+            description: "Matches details[data-expansion-panel] and its direct summary."
           },
           {
             name: "data-expansion-panel",
@@ -5459,7 +5658,7 @@ import "dragonglass/dist/themes/default.css";`;
             name: "open",
             type: "Attribute / state",
             defaultValue: "Absent",
-            description: "Shows the panel content and rotates the disclosure marker."
+            description: "Rotates the generated disclosure marker."
           },
           {
             name: "--card-radius / --default-light",
@@ -5475,22 +5674,7 @@ import "dragonglass/dist/themes/default.css";`;
           }
         ]
       }
-    ) }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "expansion-accessibility-title", title: "Accessibility", children: /* @__PURE__ */ jsxs("p", { children: [
-      "Keep ",
-      /* @__PURE__ */ jsx("code", { children: "summary" }),
-      " as the first child of ",
-      /* @__PURE__ */ jsx("code", { children: "details" }),
-      " and write a label that describes the hidden content. Native disclosure state and keyboard controls require no additional ARIA."
-    ] }) }),
-    /* @__PURE__ */ jsx(
-      demo_section_default,
-      {
-        id: "expansion-errors-title",
-        title: "Composition and common errors",
-        children: /* @__PURE__ */ jsx("p", { children: "Put interactive content after the summary. Do not replace the summary with a custom button, nest a second summary or add a competing click handler." })
-      }
-    )
+    ) })
   ] });
 
   // site/src/pages/notifications_page.tsx
@@ -5503,20 +5687,14 @@ import "dragonglass/dist/themes/default.css";`;
     <span aria-hidden="true">\xD7</span>
   </button>
   <strong>Export ready.</strong>
-  <p>Your report can be downloaded now.</p>
+  <p>Your report is ready to download.</p>
 </aside>`;
   var positionsCode = `<aside data-notification="info top right" role="status">Saved.</aside>
 <aside data-notification="warning bottom center" role="status">Storage is almost full.</aside>
 <aside data-notification="danger center left" role="alert">Connection lost.</aside>`;
   var shadowCode = `<aside data-notification="info inline" role="status">Default shadow</aside>
 <aside data-notification="info inline no-shadow" role="status">No shadow</aside>`;
-  var apiRows5 = [
-    {
-      name: "aside",
-      type: "Element",
-      defaultValue: "Fixed notification",
-      description: "Provides a complementary message container for notification content."
-    },
+  var apiRows9 = [
     {
       name: "data-notification",
       type: "Attribute",
@@ -5527,13 +5705,13 @@ import "dragonglass/dist/themes/default.css";`;
       name: "data-notification-close",
       type: "Button attribute",
       defaultValue: "Optional",
-      description: "Marks a direct child button as the close action without coupling styles to its accessible name."
+      description: "Selects and reserves space for a direct close button."
     },
     {
       name: "info|success|warning|danger",
       type: "Attribute token",
       defaultValue: "Primary",
-      description: "Sets the semantic border color without choosing announcement urgency."
+      description: "Sets the semantic border color."
     },
     {
       name: "inline",
@@ -5551,24 +5729,12 @@ import "dragonglass/dist/themes/default.css";`;
       name: "no-shadow",
       type: "Attribute token",
       defaultValue: "--shadow-lg",
-      description: "Removes elevation when a border or surrounding surface is sufficient."
-    },
-    {
-      name: 'role="status"',
-      type: "State",
-      defaultValue: "Recommended",
-      description: "Politely announces non-urgent updates without interrupting current speech."
-    },
-    {
-      name: 'role="alert"',
-      type: "State",
-      defaultValue: "Urgent errors only",
-      description: "Immediately announces a time-sensitive problem that needs attention."
+      description: "Removes elevation."
     },
     {
       name: "--notification-color",
       type: "Token",
-      defaultValue: "--primary",
+      defaultValue: "--primary-accent",
       description: "Controls the notification border and is set by semantic tone tokens."
     }
   ];
@@ -5584,12 +5750,12 @@ import "dragonglass/dist/themes/default.css";`;
       /* @__PURE__ */ jsxs("aside", { "data-notification": "success inline", role: "status", children: [
         /* @__PURE__ */ jsx("button", { type: "button", "data-notification-close": true, "aria-label": "Dismiss", children: /* @__PURE__ */ jsx("span", { "aria-hidden": "true", children: "\xD7" }) }),
         /* @__PURE__ */ jsx("strong", { children: "Export ready." }),
-        /* @__PURE__ */ jsx("p", { children: "Your report can be downloaded now." })
+        /* @__PURE__ */ jsx("p", { children: "Your report is ready to download." })
       ] }),
       /* @__PURE__ */ jsx(code_example_default, { code: contentNotificationCode })
     ] }),
     /* @__PURE__ */ jsxs(demo_section_default, { id: "notification-positions", title: "Fixed positions", children: [
-      /* @__PURE__ */ jsx("p", { children: "Combine one vertical token with one horizontal token. The default is top right. Center can stand alone or pair with top, right, bottom or left." }),
+      /* @__PURE__ */ jsx("p", { children: "Combine one vertical token with one horizontal token. The default is top right. Center stands alone or pairs with top, right, bottom or left." }),
       /* @__PURE__ */ jsx(code_example_default, { code: positionsCode })
     ] }),
     /* @__PURE__ */ jsxs(demo_section_default, { id: "notification-shadow", title: "Shadow", children: [
@@ -5598,37 +5764,16 @@ import "dragonglass/dist/themes/default.css";`;
       /* @__PURE__ */ jsx(code_example_default, { code: shadowCode })
     ] }),
     /* @__PURE__ */ jsx(demo_section_default, { id: "notification-composition", title: "Composition", children: /* @__PURE__ */ jsxs("p", { children: [
-      "Use short text for a single update. Add a ",
-      /* @__PURE__ */ jsx("code", { children: "strong" }),
-      " heading and paragraph when the message needs context. Place an optional close button with ",
+      "A direct close button with ",
       /* @__PURE__ */ jsx("code", { children: "data-notification-close" }),
-      " as a direct child so the notification reserves space for it. Application behavior must remove the message when that button is activated."
+      " receives absolute positioning and reserved space. Dragonglass does not remove the notification on activation."
     ] }) }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "notification-responsive", title: "Responsive behavior", children: /* @__PURE__ */ jsx("p", { children: "Fixed notifications stay within the viewport with a maximum width based on the page gap. Inline notifications use the available content width and remain in document flow. Prefer inline placement for persistent guidance or narrow layouts where fixed messages could cover controls." }) }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "notification-accessibility", title: "Accessibility", children: /* @__PURE__ */ jsxs("p", { children: [
-      "Use ",
-      /* @__PURE__ */ jsx("code", { children: 'role="status"' }),
-      " for successful, informational and most warning updates. Reserve ",
-      /* @__PURE__ */ jsx("code", { children: 'role="alert"' }),
-      " for urgent failures that need immediate attention. Insert the live region when the message changes instead of rendering it long before the update. Give the close button an accessible name and mark its visual symbol",
-      /* @__PURE__ */ jsx("code", { children: ' aria-hidden="true"' }),
-      "."
-    ] }) }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "notification-errors", title: "Common mistakes", children: /* @__PURE__ */ jsxs("ul", { children: [
-      /* @__PURE__ */ jsxs("li", { children: [
-        "Assigning ",
-        /* @__PURE__ */ jsx("code", { children: 'role="alert"' }),
-        " to every message interrupts screen reader users for routine updates."
-      ] }),
-      /* @__PURE__ */ jsx("li", { children: "Choosing a danger tone does not add alert semantics. Set the role from urgency, not color." }),
-      /* @__PURE__ */ jsx("li", { children: "Positioning several fixed messages in the same corner can cover content unless the application manages a stack." }),
-      /* @__PURE__ */ jsx("li", { children: "A close icon without an accessible name leaves its action unidentified." })
-    ] }) }),
+    /* @__PURE__ */ jsx(demo_section_default, { id: "notification-responsive", title: "Responsive behavior", children: /* @__PURE__ */ jsx("p", { children: "Fixed notifications stay within the viewport with a maximum width based on the page gap. Inline notifications use the available content width and remain in document flow." }) }),
     /* @__PURE__ */ jsx(demo_section_default, { id: "notification-api", title: "API", children: /* @__PURE__ */ jsx(
       api_table_default,
       {
         caption: "Notification elements, attributes, states and tokens",
-        rows: apiRows5
+        rows: apiRows9
       }
     ) })
   ] });
@@ -5665,11 +5810,10 @@ import "dragonglass/dist/themes/default.css";`;
     ] }),
     /* @__PURE__ */ jsxs(demo_section_default, { id: "stepper-error-title", title: "Error state", children: [
       /* @__PURE__ */ jsxs("p", { children: [
-        "Set ",
         /* @__PURE__ */ jsx("code", { children: 'data-step="error"' }),
-        " on the failed step and keep",
+        " changes the marker to the danger state.",
         /* @__PURE__ */ jsx("code", { children: ' aria-current="step"' }),
-        " when that step still requires the user's attention."
+        " adds the current-step color and weight."
       ] }),
       /* @__PURE__ */ jsxs("ol", { "data-stepper": true, children: [
         /* @__PURE__ */ jsx("li", { "data-step": "done", children: "Profile" }),
@@ -5684,7 +5828,7 @@ import "dragonglass/dist/themes/default.css";`;
         id: "stepper-layouts-title",
         title: "Vertical and numbers-only layouts",
         children: [
-          /* @__PURE__ */ jsx("p", { children: "Use the vertical layout when labels need more room. The numbers layout keeps the same text labels in the markup while CSS presents a compact sequence." }),
+          /* @__PURE__ */ jsx("p", { children: "The vertical layout gives labels more room. The numbers layout keeps the same text labels in the markup while CSS presents a compact sequence." }),
           /* @__PURE__ */ jsxs("ol", { "data-stepper": "vertical", children: [
             /* @__PURE__ */ jsx("li", { "data-step": "done", children: "Account" }),
             /* @__PURE__ */ jsx("li", { "aria-current": "step", children: "Billing" }),
@@ -5708,7 +5852,7 @@ import "dragonglass/dist/themes/default.css";`;
             name: "ol / li",
             type: "Element",
             defaultValue: "Required",
-            description: "Represent the ordered process and each step."
+            description: "Matches direct li children of ol[data-stepper]."
           },
           {
             name: "data-stepper",
@@ -5720,7 +5864,7 @@ import "dragonglass/dist/themes/default.css";`;
             name: "aria-current=step",
             type: "Attribute / state",
             defaultValue: "Absent",
-            description: "Identifies the single current step."
+            description: "Applies the current-step color and weight."
           },
           {
             name: "data-step=done / error",
@@ -5736,28 +5880,7 @@ import "dragonglass/dist/themes/default.css";`;
           }
         ]
       }
-    ) }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "stepper-accessibility-title", title: "Accessibility", children: /* @__PURE__ */ jsxs("p", { children: [
-      "Preserve the ordered list and set ",
-      /* @__PURE__ */ jsx("code", { children: 'aria-current="step"' }),
-      " on exactly one item. Keep text labels in numbers-only layouts because CSS hides them visually while assistive technology can still announce them."
-    ] }) }),
-    /* @__PURE__ */ jsx(
-      demo_section_default,
-      {
-        id: "stepper-errors-title",
-        title: "Composition and common errors",
-        children: /* @__PURE__ */ jsxs("p", { children: [
-          "Use ",
-          /* @__PURE__ */ jsx("code", { children: "data-step" }),
-          " only for ",
-          /* @__PURE__ */ jsx("code", { children: "done" }),
-          " and",
-          /* @__PURE__ */ jsx("code", { children: " error" }),
-          ". Do not mark every completed step as current, and do not remove labels to create a visual-only numbered sequence."
-        ] })
-      }
-    )
+    ) })
   ] });
 
   // site/src/pages/bottom_sheets_page.tsx
@@ -5790,9 +5913,9 @@ import "dragonglass/dist/themes/default.css";`;
         title: "Structured content and actions",
         children: [
           /* @__PURE__ */ jsxs("p", { children: [
-            "A bottom sheet can contain a header, a content section and a footer. The closed markup below remains hidden until the native",
-            /* @__PURE__ */ jsx("code", { children: " open" }),
-            " state is applied."
+            "The bottom sheet CSS targets direct header, section and footer children. The ",
+            /* @__PURE__ */ jsx("code", { children: "open" }),
+            " attribute displays the sheet."
           ] }),
           /* @__PURE__ */ jsx(
             code_example_default,
@@ -5816,7 +5939,7 @@ import "dragonglass/dist/themes/default.css";`;
             name: "dialog",
             type: "Element",
             defaultValue: "Required",
-            description: "Provides native dialog semantics and hidden state."
+            description: "Receives the base dialog and open-state styling."
           },
           {
             name: "data-dialog=bottom-sheet",
@@ -5834,7 +5957,7 @@ import "dragonglass/dist/themes/default.css";`;
             name: "open",
             type: "Attribute / state",
             defaultValue: "Absent",
-            description: "Displays the sheet. Modal behavior still requires showModal()."
+            description: "Displays the sheet."
           },
           {
             name: "--dialog-radius / --shadow-2xl",
@@ -5844,28 +5967,7 @@ import "dragonglass/dist/themes/default.css";`;
           }
         ]
       }
-    ) }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "bottom-sheet-accessibility-title", title: "Accessibility", children: /* @__PURE__ */ jsxs("p", { children: [
-      "Give every dialog an accessible name with ",
-      /* @__PURE__ */ jsx("code", { children: "aria-labelledby" }),
-      "or ",
-      /* @__PURE__ */ jsx("code", { children: "aria-label" }),
-      ". The static ",
-      /* @__PURE__ */ jsx("code", { children: "open" }),
-      " attribute shows a non-modal example. Production modal flows must also manage opening, closing and focus with the native dialog API."
-    ] }) }),
-    /* @__PURE__ */ jsx(
-      demo_section_default,
-      {
-        id: "bottom-sheet-errors-title",
-        title: "Composition and common errors",
-        children: /* @__PURE__ */ jsxs("p", { children: [
-          "Keep the heading inside the dialog and connect its identifier to the dialog. Do not present an unnamed sheet, and do not claim that the",
-          /* @__PURE__ */ jsx("code", { children: " open" }),
-          " attribute alone creates modal focus behavior."
-        ] })
-      }
-    )
+    ) })
   ] });
 
   // site/src/pages/tabs_page.tsx
@@ -5909,7 +6011,6 @@ import "dragonglass/dist/themes/default.css";`;
       /* @__PURE__ */ jsx(code_example_default, { code: tabsExample })
     ] }),
     /* @__PURE__ */ jsxs(demo_section_default, { id: "tabs-content-title", title: "Rich panel content", children: [
-      /* @__PURE__ */ jsx("p", { children: "Each disclosure can contain text or form controls. Give every sibling the same name so opening one panel closes the other panels in the group." }),
       /* @__PURE__ */ jsxs("section", { "data-tabs": true, children: [
         /* @__PURE__ */ jsxs("details", { name: "settings-tabs", open: true, children: [
           /* @__PURE__ */ jsx("summary", { children: "Profile" }),
@@ -5936,7 +6037,7 @@ import "dragonglass/dist/themes/default.css";`;
             name: "section / details / summary",
             type: "Element",
             defaultValue: "Required",
-            description: "Build the container, disclosure panels and controls."
+            description: "Matches direct details children and their direct summaries."
           },
           {
             name: "data-tabs",
@@ -5945,16 +6046,10 @@ import "dragonglass/dist/themes/default.css";`;
             description: "Aligns grouped details controls and places the open content below."
           },
           {
-            name: "name",
-            type: "Attribute",
-            defaultValue: "Ungrouped",
-            description: "A shared value lets the browser keep one details panel open."
-          },
-          {
             name: "open",
             type: "Attribute / state",
             defaultValue: "Absent",
-            description: "Marks the currently expanded disclosure."
+            description: "Applies the active summary color and border."
           },
           {
             name: "--primary / --default-light / --spacing-4",
@@ -5964,24 +6059,7 @@ import "dragonglass/dist/themes/default.css";`;
           }
         ]
       }
-    ) }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "tabs-accessibility-title", title: "Accessibility", children: /* @__PURE__ */ jsxs("p", { children: [
-      "This component uses native ",
-      /* @__PURE__ */ jsx("code", { children: "details" }),
-      " and",
-      /* @__PURE__ */ jsx("code", { children: " summary" }),
-      " disclosures. It is not an ARIA tablist and does not implement tab, arrow-key or tabpanel roles. Keep every summary descriptive and every panel available in the document."
-    ] }) }),
-    /* @__PURE__ */ jsxs(demo_section_default, { id: "tabs-errors-title", title: "Composition and common errors", children: [
-      /* @__PURE__ */ jsxs("p", { children: [
-        "Give sibling details the same non-empty ",
-        /* @__PURE__ */ jsx("code", { children: "name" }),
-        " when they must behave as a group. Keep only ",
-        /* @__PURE__ */ jsx("code", { children: "details" }),
-        " as direct children of the tabs container because the enhanced layout derives each tab position from that sibling order."
-      ] }),
-      /* @__PURE__ */ jsx("p", { children: "Browsers without the required modern CSS keep the native disclosures in a stacked layout. Do not add ARIA tab roles without implementing the complete keyboard and focus contract." })
-    ] })
+    ) })
   ] });
 
   // site/src/docs/utility_catalog.ts
@@ -6044,11 +6122,32 @@ import "dragonglass/dist/themes/default.css";`;
           description: "Uses inline-block display, resets positioned offsets and aligns the element vertically."
         },
         {
+          pattern: "w-full | h-full | h-auto",
+          type: "Full and automatic sizing",
+          values: "100% width, 100% height, automatic height",
+          variants: "Base only",
+          description: "Controls the media box before applying object-fit or background utilities."
+        },
+        {
+          pattern: "h-{size} | min-h-{size}",
+          type: "Height and minimum height",
+          values: "8 (2rem), 12 (3rem), 16 (4rem), 24 (6rem), 32 (8rem), 48 (12rem), 64 (16rem), 96 (24rem), 128 (32rem)",
+          variants: "Base only",
+          description: "Sets height or minimum height from the quarter-rem framework scale."
+        },
+        {
+          pattern: "h-{viewport} | min-h-{viewport}",
+          type: "Viewport height and minimum height",
+          values: "half-screen (50svh), three-quarter-screen (75svh), screen (100svh)",
+          variants: "Base only",
+          description: "Sets height or minimum height relative to the small viewport."
+        },
+        {
           pattern: "u-scrollable",
           type: "Height helper",
           values: "max-height: 360rem",
           variants: "Base only",
-          description: "Sets a maximum height. It does not add overflow behavior by itself."
+          description: "Sets a maximum height while overflow behavior remains unchanged."
         }
       ]
     },
@@ -6081,9 +6180,51 @@ import "dragonglass/dist/themes/default.css";`;
       ]
     },
     {
+      id: "media",
+      title: "Images and backgrounds",
+      description: "Media utilities control image fitting, focal position, background sizing and repetition.",
+      families: [
+        {
+          pattern: "object-{fit}",
+          type: "Object fit",
+          values: "cover, contain, fill, none, scale-down",
+          variants: "Base only",
+          description: "Sets object-fit on replaced elements such as img."
+        },
+        {
+          pattern: "object-{position}",
+          type: "Object position",
+          values: "top-left, top, top-right, left, center, right, bottom-left, bottom, bottom-right",
+          variants: "Base only",
+          description: "Selects the visible focal point inside an image box."
+        },
+        {
+          pattern: "bg-auto | bg-cover | bg-contain",
+          type: "Background size",
+          values: "auto, cover, contain",
+          variants: "Base only",
+          description: "Sets background-size without changing the image source."
+        },
+        {
+          pattern: "bg-{position}",
+          type: "Background position",
+          values: "top-left, top, top-right, left, center, right, bottom-left, bottom, bottom-right",
+          variants: "Base only",
+          description: "Selects the background image focal point."
+        },
+        {
+          pattern: "bg-repeat | bg-no-repeat",
+          type: "Background repeat",
+          values: "repeat, no-repeat",
+          variants: "Base only",
+          description: "Controls background image repetition."
+        }
+      ]
+    },
+    {
       id: "borders",
       title: "Borders and outlines",
-      description: "Border and outline utilities separate width, style, offset and color so each concern can be composed explicitly.",
+      description: "Border and outline utilities separate width, style, offset and color for explicit composition.",
       families: [
         {
           pattern: "border",
@@ -6111,7 +6252,7 @@ import "dragonglass/dist/themes/default.css";`;
           type: "Outline removal",
           values: "none",
           variants: interactiveVariants,
-          description: "Removes the outline. Provide another visible focus indicator before using this utility."
+          description: "Removes the outline."
         },
         {
           pattern: "outline-{size}",
@@ -6144,7 +6285,7 @@ import "dragonglass/dist/themes/default.css";`;
         {
           pattern: "text-{size}",
           type: "Font size",
-          values: "2xs, xs, sm, base, lg, xl, 2xl, 3xl",
+          values: "2xs, xs, sm, base, lg, xl, 2xl, 3xl, 4xl, 5xl, 6xl",
           variants: interactiveVariants,
           description: "Sets font size from the framework scale."
         },
@@ -6188,7 +6329,7 @@ import "dragonglass/dist/themes/default.css";`;
     {
       id: "elevation",
       title: "Elevation",
-      description: "Elevation utilities use token-backed outer and inset shadows and can react to interactive states.",
+      description: "Elevation utilities use token-backed outer and inset shadows with interactive state variants.",
       families: [
         {
           pattern: "shadow-{size}",
@@ -6210,6 +6351,20 @@ import "dragonglass/dist/themes/default.css";`;
           values: "none",
           variants: interactiveVariants,
           description: "Removes box shadow."
+        },
+        {
+          pattern: "text-shadow-sm | text-shadow-base | text-shadow-lg",
+          type: "Text shadow",
+          values: "sm, base, lg",
+          variants: "Base only",
+          description: "Applies a compact token-colored shadow to improve text separation over media."
+        },
+        {
+          pattern: "text-shadow-none",
+          type: "Text shadow removal",
+          values: "none",
+          variants: "Base only",
+          description: "Removes text shadow, including low-specificity defaults."
         },
         {
           pattern: "animated",
@@ -6237,7 +6392,14 @@ import "dragonglass/dist/themes/default.css";`;
           type: "Literal color",
           values: "kind: bg, border, outline, text",
           variants: colorVariants,
-          description: "Applies the literal white or black token. These utilities do not adapt between color schemes."
+          description: "Applies the literal white or black token. These utilities remain unchanged across color schemes."
+        },
+        {
+          pattern: "bg-transparent | bg-scrim | bg-media-scrim",
+          type: "Transparent background",
+          values: "transparent, var(--scrim), var(--media-scrim)",
+          variants: "Base only",
+          description: "Sets only the background color and preserves the current text color."
         }
       ]
     }
@@ -6255,8 +6417,12 @@ import "dragonglass/dist/themes/default.css";`;
   <section class="w-6/12 md:w-4/12 xl:w-3/12 p-4">Responsive column</section>
 </div>`;
   var utilities_page_default = () => /* @__PURE__ */ jsxs(doc_page_default, { page: "Utilities", children: [
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "utility-index", title: "Find a utility", children: [
+      /* @__PURE__ */ jsx("p", { children: "The reference groups every documented utility family by purpose. Each table shows the class pattern, accepted values and available variants." }),
+      /* @__PURE__ */ jsx("ul", { children: utilityGroups.map((group) => /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: `#utilities-${group.id}`, children: group.title }) })) })
+    ] }),
     /* @__PURE__ */ jsxs(demo_section_default, { id: "utility-composition", title: "Compose focused adjustments", children: [
-      /* @__PURE__ */ jsx("p", { children: "A utility class changes one focused visual concern. Combine utilities with semantic HTML and component attributes instead of replacing the underlying element or component contract." }),
+      /* @__PURE__ */ jsx("p", { children: "A utility class changes one visual property or a small related set." }),
       /* @__PURE__ */ jsx(code_example_default, { code: compositionExample })
     ] }),
     /* @__PURE__ */ jsxs(demo_section_default, { id: "utility-syntax", title: "Prefixes and special characters", children: [
@@ -6281,7 +6447,7 @@ import "dragonglass/dist/themes/default.css";`;
         /* @__PURE__ */ jsx("code", { children: "xl:" }),
         "."
       ] }),
-      /* @__PURE__ */ jsx("p", { children: "Colons and slashes are written directly inside the HTML class attribute. Escape them only when referencing the class from authored CSS or a DOM selector." }),
+      /* @__PURE__ */ jsx("p", { children: "Colons and slashes appear directly inside the HTML class attribute. Authored CSS and DOM selectors use their escaped forms." }),
       /* @__PURE__ */ jsx(code_example_default, { code: responsiveExample2 })
     ] }),
     utilityGroups.map((group) => /* @__PURE__ */ jsxs(demo_section_default, { id: `utilities-${group.id}`, title: group.title, children: [
@@ -6298,25 +6464,90 @@ import "dragonglass/dist/themes/default.css";`;
           }))
         }
       )
-    ] })),
-    /* @__PURE__ */ jsx(
-      demo_section_default,
-      {
-        id: "utility-accessibility",
-        title: "Accessibility and common errors",
-        children: /* @__PURE__ */ jsxs("ul", { children: [
-          /* @__PURE__ */ jsx("li", { children: "Utilities change presentation. They do not add semantics, keyboard behavior, labels or state announcements." }),
-          /* @__PURE__ */ jsxs("li", { children: [
-            "Never use ",
-            /* @__PURE__ */ jsx("code", { children: "outline-none" }),
-            " without another visible keyboard focus indicator."
-          ] }),
-          /* @__PURE__ */ jsx("li", { children: "Pair every hover-only treatment with a focus treatment when the element supports keyboard interaction." }),
-          /* @__PURE__ */ jsx("li", { children: "Do not communicate status through a color utility alone. Preserve a text label, icon with accessible text or another programmatic cue." }),
-          /* @__PURE__ */ jsx("li", { children: "Use the smallest z-index that solves the stacking problem. Arbitrary high values make overlays and dialogs harder to compose." })
+    ] }))
+  ] });
+
+  // site/src/pages/heroes_page.tsx
+  var centeredCode = `<section class="grid-center grid-gutters min-h-half-screen pt-8 pb-8 text-center">
+  <h2 class="md:w-10/12 text-5xl font-bold leading-tight mt-0 mb-4">Make the next decision clear.</h2>
+  <p class="md:w-8/12 text-lg leading-relaxed mt-0 mb-4">Use one focused message and a direct path forward.</p>
+  <p class="md:w-8/12 mt-0 mb-0">
+    <a data-button href="/dragonglass/app-components.html">Start now</a>
+    <a data-link="standalone" href="/dragonglass/layout.html">Read the details</a>
+  </p>
+</section>`;
+  var splitCode = `<section class="grid grid-gutters min-h-three-quarter-screen pt-8 pb-8">
+  <section class="md:w-7/12 pt-8 pb-8">
+    <h2 class="text-5xl font-bold leading-tight mt-0 mb-4">Plan the work. Keep the context.</h2>
+    <p class="text-lg leading-relaxed mt-0 mb-4">Bring the decision and its supporting details into one opening view.</p>
+    <p class="mt-0 mb-0">
+      <a data-button href="/dragonglass/app-components.html">Open workspace</a>
+    </p>
+  </section>
+  <section class="md:w-5/12 p-6 border">
+    <h3 class="text-2xl font-semibold leading-tight mt-0 mb-3">Today</h3>
+    <p class="mt-0 mb-4">Review the launch checklist and assign the remaining owners.</p>
+    <p class="mt-0 mb-0">
+      <a data-link="standalone quiet" href="/dragonglass/app-components.html">View checklist</a>
+    </p>
+  </section>
+</section>`;
+  var presentationCode = `<section class="grid-center grid-gutters min-h-screen pt-8 pb-8">
+  <p class="md:w-10/12 text-lg font-semibold mt-0 mb-3">Annual report</p>
+  <h2 class="md:w-10/12 text-6xl font-bold leading-none mt-0 mb-6">A year of steady progress.</h2>
+  <p class="md:w-8/12 text-xl leading-relaxed mt-0 mb-6">Present one major idea with enough space for deliberate pacing.</p>
+  <p class="md:w-8/12 mt-0 mb-0">
+    <a data-link="standalone" href="/dragonglass">Read the report</a>
+  </p>
+</section>`;
+  var heroes_page_default = () => /* @__PURE__ */ jsxs(doc_page_default, { page: "Heroes", children: [
+    /* @__PURE__ */ jsx("p", { children: "These recipes combine semantic sections with existing grid, height, typography, spacing, button and link primitives. They introduce no hero-specific attribute or stylesheet." }),
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "hero-centered", title: "Centered", children: [
+      /* @__PURE__ */ jsx("p", { children: "Use a half-screen minimum height and centered grid content for one message with primary and secondary actions." }),
+      /* @__PURE__ */ jsxs("section", { class: "grid-center grid-gutters min-h-half-screen pt-8 pb-8 text-center", children: [
+        /* @__PURE__ */ jsx("h2", { class: "md:w-10/12 text-5xl font-bold leading-tight mt-0 mb-4", children: "Make the next decision clear." }),
+        /* @__PURE__ */ jsx("p", { class: "md:w-8/12 text-lg leading-relaxed mt-0 mb-4", children: "Use one focused message and a direct path forward." }),
+        /* @__PURE__ */ jsxs("p", { class: "md:w-8/12 mt-0 mb-0", children: [
+          /* @__PURE__ */ jsx("a", { "data-button": true, href: "/dragonglass/app-components.html", children: "Start now" }),
+          " ",
+          /* @__PURE__ */ jsx("a", { "data-link": "standalone", href: "/dragonglass/layout.html", children: "Read the details" })
         ] })
-      }
-    )
+      ] }),
+      /* @__PURE__ */ jsx(code_example_default, { code: centeredCode })
+    ] }),
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "hero-split", title: "Split", children: [
+      /* @__PURE__ */ jsx("p", { children: "Use fractional grid widths to pair the opening message with a compact supporting section." }),
+      /* @__PURE__ */ jsxs("section", { class: "grid grid-gutters min-h-three-quarter-screen pt-8 pb-8", children: [
+        /* @__PURE__ */ jsxs("section", { class: "md:w-7/12 pt-8 pb-8", children: [
+          /* @__PURE__ */ jsx("h2", { class: "text-5xl font-bold leading-tight mt-0 mb-4", children: "Plan the work. Keep the context." }),
+          /* @__PURE__ */ jsx("p", { class: "text-lg leading-relaxed mt-0 mb-4", children: "Bring the decision and its supporting details into one opening view." }),
+          /* @__PURE__ */ jsx("p", { class: "mt-0 mb-0", children: /* @__PURE__ */ jsx("a", { "data-button": true, href: "/dragonglass/app-components.html", children: "Open workspace" }) })
+        ] }),
+        /* @__PURE__ */ jsxs("section", { class: "md:w-5/12 p-6 border", children: [
+          /* @__PURE__ */ jsx("h3", { class: "text-2xl font-semibold leading-tight mt-0 mb-3", children: "Today" }),
+          /* @__PURE__ */ jsx("p", { class: "mt-0 mb-4", children: "Review the launch checklist and assign the remaining owners." }),
+          /* @__PURE__ */ jsx("p", { class: "mt-0 mb-0", children: /* @__PURE__ */ jsx(
+            "a",
+            {
+              "data-link": "standalone quiet",
+              href: "/dragonglass/app-components.html",
+              children: "View checklist"
+            }
+          ) })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsx(code_example_default, { code: splitCode })
+    ] }),
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "hero-presentation", title: "Presentation", children: [
+      /* @__PURE__ */ jsx("p", { children: "Use the full small viewport and the largest display size when one idea should establish the page rhythm." }),
+      /* @__PURE__ */ jsxs("section", { class: "grid-center grid-gutters min-h-screen pt-8 pb-8", children: [
+        /* @__PURE__ */ jsx("p", { class: "md:w-10/12 text-lg font-semibold mt-0 mb-3", children: "Annual report" }),
+        /* @__PURE__ */ jsx("h2", { class: "md:w-10/12 text-6xl font-bold leading-none mt-0 mb-6", children: "A year of steady progress." }),
+        /* @__PURE__ */ jsx("p", { class: "md:w-8/12 text-xl leading-relaxed mt-0 mb-6", children: "Present one major idea with enough space for deliberate pacing." }),
+        /* @__PURE__ */ jsx("p", { class: "md:w-8/12 mt-0 mb-0", children: /* @__PURE__ */ jsx("a", { "data-link": "standalone", href: "/dragonglass", children: "Read the report" }) })
+      ] }),
+      /* @__PURE__ */ jsx(code_example_default, { code: presentationCode })
+    ] })
   ] });
 
   // site/src/pages/index.ts
@@ -6325,11 +6556,14 @@ import "dragonglass/dist/themes/default.css";`;
     Home: home_page_default,
     Layouts: layout_page_default,
     Grid: grid_page_default,
+    Positioning: positioning_page_default,
+    Images: images_page_default,
     Elevations: elevations_page_default,
     Colors: colors_page_default,
     Fonts: fonts_page_default,
     Badges: badges_page_default,
     Buttons: buttons_page_default,
+    Links: links_page_default,
     Cards: cards_page_default,
     Dialogs: dialogs_page_default,
     Lists: lists_page_default,
@@ -6340,6 +6574,7 @@ import "dragonglass/dist/themes/default.css";`;
     Progress: progress_page_default,
     AppComponents: app_components_page_default,
     Toolbars: toolbars_page_default,
+    Breadcrumbs: breadcrumbs_page_default,
     Chips: chips_page_default,
     Alerts: alerts_page_default,
     ExpansionPanels: expansion_panels_page_default,
@@ -6347,7 +6582,8 @@ import "dragonglass/dist/themes/default.css";`;
     Steppers: steppers_page_default,
     BottomSheets: bottom_sheets_page_default,
     Tabs: tabs_page_default,
-    Utilities: utilities_page_default
+    Utilities: utilities_page_default,
+    Heroes: heroes_page_default
   };
 
   // site/src/index.ts

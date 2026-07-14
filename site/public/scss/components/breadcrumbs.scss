@@ -1,0 +1,27 @@
+nav[data-breadcrumb] {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  > :is(a, button) {
+    padding: var(--spacing-1) var(--spacing-2);
+    line-height: inherit;
+  }
+
+  > :is(a, button) + :is(a, button) {
+    border-inline-start: var(--border-size-1) solid var(--border-subtle);
+  }
+
+  > button {
+    appearance: none;
+    min-width: 0;
+    border-radius: 0;
+    background: transparent;
+    font: inherit;
+  }
+
+  > :is(a, button)[aria-current="page"] {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+}

@@ -33,10 +33,6 @@ const badgeRows = [
 export default () => (
   <DocPage page="Badges">
     <DemoSection id="badge-colors" title="Badge colors">
-      <p>
-        Keep the value in real markup because generated pseudo-element content
-        is not a reliable accessible name.
-      </p>
       <div class="grid-gutters">
         {colors.map((color) => {
           const code = `<span data-badge="1" class="after:bg-${color}">1 notification</span>`;
@@ -58,26 +54,6 @@ export default () => (
         caption="Badge attributes and color utilities"
         rows={badgeRows}
       />
-    </DemoSection>
-
-    <DemoSection
-      id="badge-accessibility"
-      title="Accessibility and common errors"
-    >
-      <ul>
-        <li>
-          Include the count or status as real text. Do not leave important
-          information only in <code>data-badge</code> or <code>::after</code>.
-        </li>
-        <li>
-          Keep badge values short because the current CSS uses a fixed circular
-          area and does not expand for long text.
-        </li>
-        <li>
-          A badge does not make its host interactive. Use a link or button only
-          when the surrounding content performs an action.
-        </li>
-      </ul>
     </DemoSection>
   </DocPage>
 );

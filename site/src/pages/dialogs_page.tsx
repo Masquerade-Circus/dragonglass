@@ -37,12 +37,12 @@ const dialogVariantsCode = `<dialog open class="static" data-dialog="squared" ar
 
 <dialog open class="static" data-dialog="full-width" aria-labelledby="workspace-dialog-title">
   <header><h3 id="workspace-dialog-title">Workspace settings</h3></header>
-  <section>Settings can use the available viewport width.</section>
+  <section>Settings use the available viewport width.</section>
 </dialog>
 
 <dialog open class="static" data-dialog="no-shadow" aria-labelledby="embedded-dialog-title">
   <header><h3 id="embedded-dialog-title">Embedded decision</h3></header>
-  <section>Remove elevation when the surrounding surface supplies separation.</section>
+  <section>The surrounding surface supplies separation without elevation.</section>
 </dialog>`;
 
 const apiRows = [
@@ -50,28 +50,19 @@ const apiRows = [
     name: "dialog",
     type: "Element",
     defaultValue: "Closed",
-    description:
-      "Provides native dialog semantics and a centered, elevated surface.",
+    description: "Receives centered, elevated surface styling.",
   },
   {
     name: "open",
     type: "State",
     defaultValue: "Absent",
-    description:
-      "Makes a non-modal dialog visible. Use showModal() for modal behavior.",
-  },
-  {
-    name: "aria-labelledby",
-    type: "Attribute",
-    defaultValue: "Required by guidance",
-    description: "Associates the dialog with the id of its visible heading.",
+    description: "Displays the dialog with its flex layout.",
   },
   {
     name: 'data-dialog="squared"',
     type: "Attribute token",
     defaultValue: "Standard shape",
-    description:
-      "Creates a compact square surface suited to concise media or content.",
+    description: "Applies the squared card dimensions and media layout.",
   },
   {
     name: "full-width",
@@ -84,8 +75,7 @@ const apiRows = [
     name: "no-shadow",
     type: "Attribute token",
     defaultValue: "--shadow-2xl",
-    description:
-      "Removes dialog elevation when another boundary provides separation.",
+    description: "Removes dialog elevation.",
   },
   {
     name: "--dialog-radius",
@@ -163,7 +153,7 @@ export default () => (
         <header>
           <h3 id="workspace-dialog-title">Workspace settings</h3>
         </header>
-        <section>Settings can use the available viewport width.</section>
+        <section>Settings use the available viewport width.</section>
       </dialog>
 
       <dialog
@@ -176,7 +166,7 @@ export default () => (
           <h3 id="embedded-dialog-title">Embedded decision</h3>
         </header>
         <section>
-          Remove elevation when the surrounding surface supplies separation.
+          The surrounding surface supplies separation without elevation.
         </section>
       </dialog>
       <CodeExample code={dialogVariantsCode} />
@@ -184,53 +174,19 @@ export default () => (
 
     <DemoSection id="dialog-composition" title="Composition">
       <p>
-        Compose a dialog from direct <code>header</code>, <code>section</code>
-        and <code>footer</code> children. Keep the decision and its actions
-        short. The <code>static</code> utility in these previews only keeps
-        several open examples in the document flow. Omit it when the dialog
-        should use its default centered position.
+        A dialog accepts direct <code>header</code>, <code>section</code> and
+        <code>footer</code> children. The <code>static</code> utility keeps
+        these open previews in the document flow. The default position centers
+        the dialog.
       </p>
     </DemoSection>
 
     <DemoSection id="dialog-responsive" title="Responsive behavior">
       <p>
         Standard dialogs size to their content. The <code>full-width</code>
-        token leaves a small viewport gap and works for wider tasks. Keep long
-        content in the body section so it can scroll without moving the header
-        or footer actions.
+        token leaves a one-rem viewport gap. Long body content scrolls without
+        moving the header or footer actions.
       </p>
-    </DemoSection>
-
-    <DemoSection id="dialog-accessibility" title="Accessibility">
-      <p>
-        Give every dialog a visible heading and connect it with
-        <code> aria-labelledby</code>. Use the native <code>showModal()</code>
-        method when the rest of the page must be inert, move focus to a useful
-        control after opening, support Escape and return focus to the trigger
-        after closing. Icon-only actions need an <code>aria-label</code> and a
-        decorative icon marked <code>aria-hidden="true"</code>.
-      </p>
-    </DemoSection>
-
-    <DemoSection id="dialog-errors" title="Common mistakes">
-      <ul>
-        <li>
-          A <code>details</code> element does not provide dialog focus,
-          dismissal or modal semantics.
-        </li>
-        <li>
-          Styling an ordinary container to look modal leaves the background
-          interactive and the surface unnamed.
-        </li>
-        <li>
-          Opening several modal dialogs at once creates an ambiguous focus and
-          dismissal order.
-        </li>
-        <li>
-          Using <code>open</code> alone creates a non-modal dialog. Use the
-          native modal method when interaction must stay inside the dialog.
-        </li>
-      </ul>
     </DemoSection>
 
     <DemoSection id="dialog-api" title="API">

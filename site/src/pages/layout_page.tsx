@@ -53,9 +53,9 @@ const apiRows = [
   {
     name: "nav",
     type: "Element",
-    defaultValue: "Semantic navigation",
+    defaultValue: "Horizontal row",
     description:
-      "Groups links or related actions and accepts an accessible label.",
+      "Applies a horizontal, non-wrapping layout to links and buttons.",
   },
   {
     name: "data-toolbar",
@@ -68,8 +68,7 @@ const apiRows = [
     name: 'aria-current="page"',
     type: "State",
     defaultValue: "Absent",
-    description:
-      "Identifies the link for the current page to assistive technology.",
+    description: "Applies the selected surface and text colors to a nav link.",
   },
   {
     name: "--container-padding",
@@ -122,45 +121,18 @@ export default () => (
         receives the remaining height, padding and overflow.
       </p>
       <p>
-        Use <code>nav</code> for destination links. Add
-        <code> data-toolbar</code> when the same row mixes compact links,
-        buttons or chips as controls.
+        The <code>data-toolbar</code> attribute turns a nav into a wrapping row
+        with toolbar spacing and a divider.
       </p>
     </DemoSection>
 
     <DemoSection id="layout-responsive" title="Responsive behavior">
       <p>
-        Standalone toolbars wrap when their actions need more room. A toolbar
-        nested in a header or footer stays on one row, so keep those action sets
-        short. Content sections scroll instead of forcing the page shell beyond
-        the viewport.
+        Standalone toolbars wrap when their actions exceed the current width. A
+        toolbar nested in a header or footer stays on one row and overflows when
+        its actions exceed the available width. Content sections own vertical
+        scrolling and keep the page shell within the viewport.
       </p>
-    </DemoSection>
-
-    <DemoSection id="layout-accessibility" title="Accessibility">
-      <p>
-        Give every navigation region a distinct <code>aria-label</code> when a
-        page contains more than one. Mark only the active destination with
-        <code> aria-current="page"</code>. Keep headings in document order and
-        use buttons for actions rather than links without destinations.
-      </p>
-    </DemoSection>
-
-    <DemoSection id="layout-errors" title="Common mistakes">
-      <ul>
-        <li>
-          Wrapping the content section in an extra element breaks the direct
-          child container contract.
-        </li>
-        <li>
-          Using <code>data-toolbar</code> for primary site navigation gives an
-          action bar semantics it does not need.
-        </li>
-        <li>
-          Putting many actions in a header or footer toolbar can cause overflow
-          because nested toolbars do not wrap.
-        </li>
-      </ul>
     </DemoSection>
 
     <DemoSection id="layout-api" title="API">

@@ -1,6 +1,6 @@
 # Notifications
 
-Deliver timely, contextual messages with notifications.
+Fixed and inline notifications with tone, position and shadow tokens.
 
 ## Status and alert messages
 
@@ -19,13 +19,13 @@ Deliver timely, contextual messages with notifications.
     <span aria-hidden="true">×</span>
   </button>
   <strong>Export ready.</strong>
-  <p>Your report can be downloaded now.</p>
+  <p>Your report is ready to download.</p>
 </aside>
 ```
 
 ## Fixed positions
 
-Combine one vertical token with one horizontal token. The default is top right. Center can stand alone or pair with top, right, bottom or left.
+Combine one vertical token with one horizontal token. The default is top right. Center stands alone or pairs with top, right, bottom or left.
 
 ```html
 <aside data-notification="info top right" role="status">Saved.</aside>
@@ -42,17 +42,11 @@ Combine one vertical token with one horizontal token. The default is top right. 
 
 ## Composition
 
-Use short text for a single update. Add a `strong` heading and paragraph when the message needs context. Place an optional close button with `data-notification-close` as a direct child so the notification reserves space for it. Application behavior must remove the message when that button is activated.
+A direct close button with `data-notification-close` receives absolute positioning and reserved space. Dragonglass does not remove the notification on activation.
 
 ## Responsive behavior
 
-Fixed notifications stay within the viewport with a maximum width based on the page gap. Inline notifications use the available content width and remain in document flow. Prefer inline placement for persistent guidance or narrow layouts where fixed messages could cover controls.
-
-## Accessibility
-
-Use `role="status"` for successful, informational and most warning updates. Reserve `role="alert"` for urgent failures that need immediate attention. Insert the live region when the message changes instead of rendering it long before the update. Give the close button an accessible name and mark its visual symbol `aria-hidden="true"`.
-
-## Common mistakes
+Fixed notifications stay within the viewport with a maximum width based on the page gap. Inline notifications use the available content width and remain in document flow.
 
 ## API
 
@@ -60,13 +54,10 @@ Use `role="status"` for successful, informational and most warning updates. Rese
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| aside | Element | Fixed notification | Provides a complementary message container for notification content. |
 | data-notification | Attribute | Primary border, top right | Activates notification layout and accepts tone, position and shadow tokens. |
-| data-notification-close | Button attribute | Optional | Marks a direct child button as the close action without coupling styles to its accessible name. |
-| info\|success\|warning\|danger | Attribute token | Primary | Sets the semantic border color without choosing announcement urgency. |
+| data-notification-close | Button attribute | Optional | Selects and reserves space for a direct close button. |
+| info\|success\|warning\|danger | Attribute token | Primary | Sets the semantic border color. |
 | inline | Attribute token | Fixed | Keeps a notification in document flow and resets position transforms. |
 | top\|right\|bottom\|left\|center | Attribute token | top right | Combines vertical and horizontal placement for fixed notifications. |
-| no-shadow | Attribute token | --shadow-lg | Removes elevation when a border or surrounding surface is sufficient. |
-| role="status" | State | Recommended | Politely announces non-urgent updates without interrupting current speech. |
-| role="alert" | State | Urgent errors only | Immediately announces a time-sensitive problem that needs attention. |
-| --notification-color | Token | --primary | Controls the notification border and is set by semantic tone tokens. |
+| no-shadow | Attribute token | --shadow-lg | Removes elevation. |
+| --notification-color | Token | --primary-accent | Controls the notification border and is set by semantic tone tokens. |

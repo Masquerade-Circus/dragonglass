@@ -1,6 +1,6 @@
 # Grid
 
-Arrange content with the responsive grid system.
+Wrapping flex rows, gutters and responsive fractional widths.
 
 ## Fractional columns
 
@@ -15,7 +15,7 @@ A grid starts mobile-first with full-width children. Fraction utilities divide a
 
 ## Guttered columns
 
-Use `grid-gutters` when columns need consistent spacing.
+`grid-gutters` adds consistent spacing between columns.
 
 ```html
 <div class="grid-gutters">
@@ -43,10 +43,8 @@ Unprefixed fractions apply at every width. Prefixed fractions take effect at the
 | --- | --- | --- | --- |
 | grid | Container class | Full-width children | Creates a wrapping flex row without gutters. |
 | grid-gutters | Container class | 0.8rem gutters | Creates the same grid and adds horizontal container offsets plus 0.8rem child padding. |
-| w-{part}/{whole} | Width utility | 1 through whole - 1 | Sets a fractional width. Both numbers range from 1 to 12 and part must be smaller than whole. |
+| w-{part}/{whole} | Width utility | 1 through whole - 1 | Sets a fractional width. Both numbers range from 1 to 12, with part smaller than whole. |
 | sm:w-{part}/{whole} | Responsive width | min-width: 576px | Applies the fraction at the small breakpoint and above. |
 | md:w-{part}/{whole} | Responsive width | min-width: 768px | Applies the fraction at the medium breakpoint and above. |
 | lg:w-{part}/{whole} | Responsive width | min-width: 992px | Applies the fraction at the large breakpoint and above. |
 | xl:w-{part}/{whole} | Responsive width | min-width: 1200px | Applies the fraction at the extra-large breakpoint and above. |
-
-## Accessibility and common errors

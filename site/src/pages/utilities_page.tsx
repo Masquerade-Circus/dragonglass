@@ -18,12 +18,22 @@ const responsiveExample = `<div class="grid-gutters">
 
 export default () => (
   <DocPage page="Utilities">
-    <DemoSection id="utility-composition" title="Compose focused adjustments">
+    <DemoSection id="utility-index" title="Find a utility">
       <p>
-        A utility class changes one focused visual concern. Combine utilities
-        with semantic HTML and component attributes instead of replacing the
-        underlying element or component contract.
+        The reference groups every documented utility family by purpose. Each
+        table shows the class pattern, accepted values and available variants.
       </p>
+      <ul>
+        {utilityGroups.map((group) => (
+          <li>
+            <a href={`#utilities-${group.id}`}>{group.title}</a>
+          </li>
+        ))}
+      </ul>
+    </DemoSection>
+
+    <DemoSection id="utility-composition" title="Compose focused adjustments">
+      <p>A utility class changes one visual property or a small related set.</p>
       <CodeExample code={compositionExample} />
     </DemoSection>
 
@@ -36,9 +46,8 @@ export default () => (
         <code> lg:</code> and <code>xl:</code>.
       </p>
       <p>
-        Colons and slashes are written directly inside the HTML class attribute.
-        Escape them only when referencing the class from authored CSS or a DOM
-        selector.
+        Colons and slashes appear directly inside the HTML class attribute.
+        Authored CSS and DOM selectors use their escaped forms.
       </p>
       <CodeExample code={responsiveExample} />
     </DemoSection>
@@ -57,33 +66,5 @@ export default () => (
         />
       </DemoSection>
     ))}
-
-    <DemoSection
-      id="utility-accessibility"
-      title="Accessibility and common errors"
-    >
-      <ul>
-        <li>
-          Utilities change presentation. They do not add semantics, keyboard
-          behavior, labels or state announcements.
-        </li>
-        <li>
-          Never use <code>outline-none</code> without another visible keyboard
-          focus indicator.
-        </li>
-        <li>
-          Pair every hover-only treatment with a focus treatment when the
-          element supports keyboard interaction.
-        </li>
-        <li>
-          Do not communicate status through a color utility alone. Preserve a
-          text label, icon with accessible text or another programmatic cue.
-        </li>
-        <li>
-          Use the smallest z-index that solves the stacking problem. Arbitrary
-          high values make overlays and dialogs harder to compose.
-        </li>
-      </ul>
-    </DemoSection>
   </DocPage>
 );

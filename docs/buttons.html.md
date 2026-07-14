@@ -1,13 +1,13 @@
 # Buttons
 
-Present primary, secondary and floating actions with buttons.
+Base button styles, semantic color utilities and FAB variants.
 
 ## Plain and unavailable buttons
 
 ```html
 <button type="button">Plain button</button>
 <button type="button" disabled>Disabled button</button>
-<button type="button" aria-disabled="true">Unavailable but focusable</button>
+<button type="button" aria-disabled="true">ARIA-disabled button</button>
 ```
 
 ## Semantic tones
@@ -60,19 +60,9 @@ Present primary, secondary and floating actions with buttons.
 </button>
 ```
 
-## Composition
-
-Start with a native `button`. Add one background or border utility for emphasis, then a text-size utility only when the surrounding interface needs a different scale. Reserve a FAB for the primary action associated with the current view.
-
 ## Responsive behavior
 
-Buttons keep their labels on one line. Let a surrounding toolbar wrap when space is limited, and keep action labels concise instead of shrinking tap targets. FAB dimensions scale with their text size.
-
-## Accessibility
-
-Use visible text for ordinary actions. Every icon-only button needs an `aria-label`, and its icon must use `aria-hidden="true"`. Prefer `disabled` when the action should leave the focus order. Use `aria-disabled` only when people still need to discover the action, and suppress activation in application logic.
-
-## Common mistakes
+Buttons keep their labels on one line. A surrounding toolbar wraps when space is limited. FAB dimensions scale with their text size.
 
 ## API
 
@@ -80,9 +70,9 @@ Use visible text for ordinary actions. Every icon-only button needs an `aria-lab
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| button | Element | Plain | Provides native button semantics, keyboard behavior and styling. |
-| disabled | State | Absent | Removes a native button from interaction and sequential focus. |
-| aria-disabled="true" | State | Absent | Announces an unavailable action while retaining focus. Application code must prevent activation. |
+| button | Element | Plain | Receives the base button styling. |
+| disabled | State | Absent | Applies unavailable opacity, cursor and pointer-event styles. |
+| aria-disabled="true" | State | Absent | Applies the same visual unavailable state as disabled. |
 | data-button="fab" | Attribute | Absent | Creates a circular floating action button with default elevation. |
 | no-shadow | Attribute token | Shadow | Removes the default FAB elevation when included in data-button. |
 | bg-{tone} | Class token | Transparent | Applies a semantic background tone such as primary, success or danger. |

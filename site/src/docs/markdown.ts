@@ -227,7 +227,7 @@ function renderNode(node: MarkdownNode): string {
 
   if (
     (tagName === "ul" || tagName === "ol") &&
-    node.getAttribute?.("data-list") !== null
+    typeof node.getAttribute?.("data-list") === "string"
   ) {
     return "";
   }
@@ -322,8 +322,6 @@ const renderLlmsIndex = (documents: MarkdownDocument[]) => {
 
 > Dragonglass is an HTML5-first, pure CSS framework for semantic app interfaces, compiled color themes and focused utility classes.
 
-Use native HTML behavior first. Add Dragonglass component attributes for documented component contracts and utility classes only for focused visual adjustments. Load the core stylesheet and exactly one theme stylesheet.
-
 ${sections.join("\n\n")}
 
 ## Optional
@@ -335,10 +333,16 @@ const shiftHeadings = (markdown: string) =>
   markdown.replace(/^(#{1,5}) /gm, "$1# ");
 
 const renderLlmsFull = (documents: MarkdownDocument[]) => {
-  const pages = documents.map(
-    (document) =>
-      `---\n\nSource: ${markdownHref(document)}\n\n${shiftHeadings(document.markdown)}`,
-  );
+  const pages = documents
+    .filter(
+      ({ route }) =>
+        route.page !== "Theme" ||
+        (route.themeName === "default" && route.colorScheme === "light"),
+    )
+    .map(
+      (document) =>
+        `---\n\nSource: ${markdownHref(document)}\n\n${shiftHeadings(document.markdown)}`,
+    );
 
   return normalizeMarkdown(`# Dragonglass full documentation
 

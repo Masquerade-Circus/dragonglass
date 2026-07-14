@@ -80,12 +80,38 @@ const utilityGroups: UtilityGroup[] = [
           "Uses inline-block display, resets positioned offsets and aligns the element vertically.",
       },
       {
+        pattern: "w-full | h-full | h-auto",
+        type: "Full and automatic sizing",
+        values: "100% width, 100% height, automatic height",
+        variants: "Base only",
+        description:
+          "Controls the media box before applying object-fit or background utilities.",
+      },
+      {
+        pattern: "h-{size} | min-h-{size}",
+        type: "Height and minimum height",
+        values:
+          "8 (2rem), 12 (3rem), 16 (4rem), 24 (6rem), 32 (8rem), 48 (12rem), 64 (16rem), 96 (24rem), 128 (32rem)",
+        variants: "Base only",
+        description:
+          "Sets height or minimum height from the quarter-rem framework scale.",
+      },
+      {
+        pattern: "h-{viewport} | min-h-{viewport}",
+        type: "Viewport height and minimum height",
+        values:
+          "half-screen (50svh), three-quarter-screen (75svh), screen (100svh)",
+        variants: "Base only",
+        description:
+          "Sets height or minimum height relative to the small viewport.",
+      },
+      {
         pattern: "u-scrollable",
         type: "Height helper",
         values: "max-height: 360rem",
         variants: "Base only",
         description:
-          "Sets a maximum height. It does not add overflow behavior by itself.",
+          "Sets a maximum height while overflow behavior remains unchanged.",
       },
     ],
   },
@@ -120,10 +146,55 @@ const utilityGroups: UtilityGroup[] = [
     ],
   },
   {
+    id: "media",
+    title: "Images and backgrounds",
+    description:
+      "Media utilities control image fitting, focal position, background sizing and repetition.",
+    families: [
+      {
+        pattern: "object-{fit}",
+        type: "Object fit",
+        values: "cover, contain, fill, none, scale-down",
+        variants: "Base only",
+        description: "Sets object-fit on replaced elements such as img.",
+      },
+      {
+        pattern: "object-{position}",
+        type: "Object position",
+        values:
+          "top-left, top, top-right, left, center, right, bottom-left, bottom, bottom-right",
+        variants: "Base only",
+        description: "Selects the visible focal point inside an image box.",
+      },
+      {
+        pattern: "bg-auto | bg-cover | bg-contain",
+        type: "Background size",
+        values: "auto, cover, contain",
+        variants: "Base only",
+        description: "Sets background-size without changing the image source.",
+      },
+      {
+        pattern: "bg-{position}",
+        type: "Background position",
+        values:
+          "top-left, top, top-right, left, center, right, bottom-left, bottom, bottom-right",
+        variants: "Base only",
+        description: "Selects the background image focal point.",
+      },
+      {
+        pattern: "bg-repeat | bg-no-repeat",
+        type: "Background repeat",
+        values: "repeat, no-repeat",
+        variants: "Base only",
+        description: "Controls background image repetition.",
+      },
+    ],
+  },
+  {
     id: "borders",
     title: "Borders and outlines",
     description:
-      "Border and outline utilities separate width, style, offset and color so each concern can be composed explicitly.",
+      "Border and outline utilities separate width, style, offset and color for explicit composition.",
     families: [
       {
         pattern: "border",
@@ -151,8 +222,7 @@ const utilityGroups: UtilityGroup[] = [
         type: "Outline removal",
         values: "none",
         variants: interactiveVariants,
-        description:
-          "Removes the outline. Provide another visible focus indicator before using this utility.",
+        description: "Removes the outline.",
       },
       {
         pattern: "outline-{size}",
@@ -186,7 +256,7 @@ const utilityGroups: UtilityGroup[] = [
       {
         pattern: "text-{size}",
         type: "Font size",
-        values: "2xs, xs, sm, base, lg, xl, 2xl, 3xl",
+        values: "2xs, xs, sm, base, lg, xl, 2xl, 3xl, 4xl, 5xl, 6xl",
         variants: interactiveVariants,
         description: "Sets font size from the framework scale.",
       },
@@ -232,7 +302,7 @@ const utilityGroups: UtilityGroup[] = [
     id: "elevation",
     title: "Elevation",
     description:
-      "Elevation utilities use token-backed outer and inset shadows and can react to interactive states.",
+      "Elevation utilities use token-backed outer and inset shadows with interactive state variants.",
     families: [
       {
         pattern: "shadow-{size}",
@@ -254,6 +324,21 @@ const utilityGroups: UtilityGroup[] = [
         values: "none",
         variants: interactiveVariants,
         description: "Removes box shadow.",
+      },
+      {
+        pattern: "text-shadow-sm | text-shadow-base | text-shadow-lg",
+        type: "Text shadow",
+        values: "sm, base, lg",
+        variants: "Base only",
+        description:
+          "Applies a compact token-colored shadow to improve text separation over media.",
+      },
+      {
+        pattern: "text-shadow-none",
+        type: "Text shadow removal",
+        values: "none",
+        variants: "Base only",
+        description: "Removes text shadow, including low-specificity defaults.",
       },
       {
         pattern: "animated",
@@ -286,7 +371,15 @@ const utilityGroups: UtilityGroup[] = [
         values: "kind: bg, border, outline, text",
         variants: colorVariants,
         description:
-          "Applies the literal white or black token. These utilities do not adapt between color schemes.",
+          "Applies the literal white or black token. These utilities remain unchanged across color schemes.",
+      },
+      {
+        pattern: "bg-transparent | bg-scrim | bg-media-scrim",
+        type: "Transparent background",
+        values: "transparent, var(--scrim), var(--media-scrim)",
+        variants: "Base only",
+        description:
+          "Sets only the background color and preserves the current text color.",
       },
     ],
   },

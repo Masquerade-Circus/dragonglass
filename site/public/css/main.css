@@ -27,6 +27,9 @@
   --font-size-xl: 1.5rem;
   --font-size-2xl: 1.965rem;
   --font-size-3xl: 2.25rem;
+  --font-size-4xl: 3rem;
+  --font-size-5xl: 3.75rem;
+  --font-size-6xl: 4.5rem;
   --border-size-0: 0;
   --border-size-1: 0.06rem;
   --border-size-2: 0.13rem;
@@ -555,6 +558,22 @@ body > article > section {
   box-shadow: none;
 }
 
+.text-shadow-sm {
+  text-shadow: 0 1px 2px var(--scrim);
+}
+
+.text-shadow-base {
+  text-shadow: 0 2px 4px var(--scrim);
+}
+
+.text-shadow-lg {
+  text-shadow: 0 4px 8px var(--scrim);
+}
+
+.text-shadow-none {
+  text-shadow: none;
+}
+
 /*** Code ***/
 /*** Same as Card ***/
 pre,
@@ -588,6 +607,8 @@ code {
 pre > code {
   padding: 0;
   margin: 0;
+  border: 0;
+  overflow: visible;
   box-shadow: none;
   display: block;
 }
@@ -1116,6 +1137,124 @@ input[type=submit]:active::after,
 
 [data-button~=fab][data-button~=no-shadow] {
   box-shadow: none;
+}
+
+/*** Links ***/
+a[data-link] {
+  text-decoration-line: underline;
+  text-decoration-thickness: var(--border-size-1);
+  text-underline-offset: var(--spacing-1);
+}
+
+a[data-link~=standalone] {
+  font-weight: 600;
+  text-decoration-line: none;
+}
+a[data-link~=standalone]:hover, a[data-link~=standalone]:focus-visible {
+  text-decoration-line: underline;
+}
+
+a[data-link~=quiet] {
+  color: var(--text-secondary);
+}
+a[data-link~=quiet]:hover, a[data-link~=quiet]:focus-visible {
+  color: var(--text-primary);
+}
+
+/*** Breadcrumbs ***/
+nav[data-breadcrumb] {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+nav[data-breadcrumb] > :is(a, button) {
+  padding: var(--spacing-1) var(--spacing-2);
+  line-height: inherit;
+}
+nav[data-breadcrumb] > :is(a, button) + :is(a, button) {
+  border-inline-start: var(--border-size-1) solid var(--border-subtle);
+}
+nav[data-breadcrumb] > button {
+  appearance: none;
+  min-width: 0;
+  border-radius: 0;
+  background: transparent;
+  font: inherit;
+}
+nav[data-breadcrumb] > :is(a, button)[aria-current=page] {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/*** Positions ***/
+[data-position] {
+  position: fixed;
+  top: var(--spacing-4);
+  right: var(--spacing-4);
+  bottom: auto;
+  left: auto;
+  transform: none;
+}
+
+[data-position~=absolute] {
+  position: absolute;
+}
+
+[data-position~=top] {
+  top: var(--spacing-4);
+  bottom: auto;
+}
+
+[data-position~=right] {
+  right: var(--spacing-4);
+  left: auto;
+}
+
+[data-position~=bottom] {
+  top: auto;
+  bottom: var(--spacing-4);
+}
+
+[data-position~=left] {
+  right: auto;
+  left: var(--spacing-4);
+}
+
+[data-position~=center] {
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+[data-position~=top][data-position~=center] {
+  top: var(--spacing-4);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+[data-position~=bottom][data-position~=center] {
+  top: auto;
+  bottom: var(--spacing-4);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+[data-position~=left][data-position~=center] {
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  left: var(--spacing-4);
+  transform: translateY(-50%);
+}
+
+[data-position~=right][data-position~=center] {
+  top: 50%;
+  right: var(--spacing-4);
+  bottom: auto;
+  left: auto;
+  transform: translateY(-50%);
 }
 
 /*** ToolBar ***/
@@ -2166,9 +2305,6 @@ table[data-table~=default] td:before {
   padding: 0 0 56% 0;
   overflow: hidden;
   border: 0;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50% 0%;
   color: var(--text-on-media);
 }
 [data-card] > [data-media]:first-child, dialog > [data-media]:first-child {
@@ -2193,8 +2329,6 @@ table[data-table~=default] td:before {
   border: 0;
   height: auto;
   z-index: 1;
-  text-shadow: 0.06rem 0.06rem 0.13rem var(--scrim);
-  background-color: var(--media-scrim);
   overflow: visible;
   padding: 1rem;
 }
@@ -2212,12 +2346,16 @@ dialog > [data-media] > header > h3 {
   top: 0;
   right: 0;
 }
-[data-card] > [data-media] > header nav a, dialog > [data-media] > header nav a,
-[data-card] > [data-media] > header nav [data-button],
-dialog > [data-media] > header nav [data-button],
-[data-card] > [data-media] > header nav button,
-dialog > [data-media] > header nav button {
-  text-shadow: 0.06rem 0.06rem 0.13rem var(--scrim);
+
+:where([data-card] > [data-media], dialog > [data-media]) {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+:where([data-card] > [data-media] > header, dialog > [data-media] > header) {
+  background-color: var(--media-scrim);
+  text-shadow: 0 1px 2px var(--scrim);
 }
 
 [data-card~=elevated] {
@@ -2909,6 +3047,27 @@ input[type=submit] {
 .hover\:text-3xl:hover,
 .text-3xl {
   font-size: var(--font-size-3xl);
+}
+
+.focus\:text-4xl:focus,
+.active\:text-4xl:active,
+.hover\:text-4xl:hover,
+.text-4xl {
+  font-size: var(--font-size-4xl);
+}
+
+.focus\:text-5xl:focus,
+.active\:text-5xl:active,
+.hover\:text-5xl:hover,
+.text-5xl {
+  font-size: var(--font-size-5xl);
+}
+
+.focus\:text-6xl:focus,
+.active\:text-6xl:active,
+.hover\:text-6xl:hover,
+.text-6xl {
+  font-size: var(--font-size-6xl);
 }
 
 /* style */
@@ -5036,6 +5195,18 @@ input[type=submit] {
   color: var(--black);
 }
 
+.bg-transparent {
+  background-color: transparent;
+}
+
+.bg-scrim {
+  background-color: var(--scrim);
+}
+
+.bg-media-scrim {
+  background-color: var(--media-scrim);
+}
+
 .p-0 {
   padding: var(--spacing-0);
 }
@@ -5514,6 +5685,226 @@ input[type=submit] {
 
 .ml-16 {
   margin-left: var(--spacing-16);
+}
+
+.h-8 {
+  height: 2rem;
+}
+
+.min-h-8 {
+  min-height: 2rem;
+}
+
+.h-12 {
+  height: 3rem;
+}
+
+.min-h-12 {
+  min-height: 3rem;
+}
+
+.h-16 {
+  height: 4rem;
+}
+
+.min-h-16 {
+  min-height: 4rem;
+}
+
+.h-24 {
+  height: 6rem;
+}
+
+.min-h-24 {
+  min-height: 6rem;
+}
+
+.h-32 {
+  height: 8rem;
+}
+
+.min-h-32 {
+  min-height: 8rem;
+}
+
+.h-48 {
+  height: 12rem;
+}
+
+.min-h-48 {
+  min-height: 12rem;
+}
+
+.h-64 {
+  height: 16rem;
+}
+
+.min-h-64 {
+  min-height: 16rem;
+}
+
+.h-96 {
+  height: 24rem;
+}
+
+.min-h-96 {
+  min-height: 24rem;
+}
+
+.h-128 {
+  height: 32rem;
+}
+
+.min-h-128 {
+  min-height: 32rem;
+}
+
+.h-half-screen {
+  height: 50svh;
+}
+
+.min-h-half-screen {
+  min-height: 50svh;
+}
+
+.h-three-quarter-screen {
+  height: 75svh;
+}
+
+.min-h-three-quarter-screen {
+  min-height: 75svh;
+}
+
+.h-screen {
+  height: 100svh;
+}
+
+.min-h-screen {
+  min-height: 100svh;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.h-auto {
+  height: auto;
+}
+
+.object-cover {
+  object-fit: cover;
+}
+
+.object-contain {
+  object-fit: contain;
+}
+
+.object-fill {
+  object-fit: fill;
+}
+
+.object-none {
+  object-fit: none;
+}
+
+.object-scale-down {
+  object-fit: scale-down;
+}
+
+.object-top-left {
+  object-position: left top;
+}
+
+.bg-top-left {
+  background-position: left top;
+}
+
+.object-top {
+  object-position: center top;
+}
+
+.bg-top {
+  background-position: center top;
+}
+
+.object-top-right {
+  object-position: right top;
+}
+
+.bg-top-right {
+  background-position: right top;
+}
+
+.object-left {
+  object-position: left center;
+}
+
+.bg-left {
+  background-position: left center;
+}
+
+.object-center {
+  object-position: center center;
+}
+
+.bg-center {
+  background-position: center center;
+}
+
+.object-right {
+  object-position: right center;
+}
+
+.bg-right {
+  background-position: right center;
+}
+
+.object-bottom-left {
+  object-position: left bottom;
+}
+
+.bg-bottom-left {
+  background-position: left bottom;
+}
+
+.object-bottom {
+  object-position: center bottom;
+}
+
+.bg-bottom {
+  background-position: center bottom;
+}
+
+.object-bottom-right {
+  object-position: right bottom;
+}
+
+.bg-bottom-right {
+  background-position: right bottom;
+}
+
+.bg-auto {
+  background-size: auto;
+}
+
+.bg-cover {
+  background-size: cover;
+}
+
+.bg-contain {
+  background-size: contain;
+}
+
+.bg-repeat {
+  background-repeat: repeat;
+}
+
+.bg-no-repeat {
+  background-repeat: no-repeat;
 }
 
 .relative {

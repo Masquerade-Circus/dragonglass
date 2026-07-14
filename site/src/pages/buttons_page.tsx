@@ -5,7 +5,7 @@ import DocPage from "../docs/doc_page";
 
 const statesCode = `<button type="button">Plain button</button>
 <button type="button" disabled>Disabled button</button>
-<button type="button" aria-disabled="true">Unavailable but focusable</button>`;
+<button type="button" aria-disabled="true">ARIA-disabled button</button>`;
 
 const tonesCode = `<button type="button" class="bg-primary">Primary</button>
 <button type="button" class="bg-accent">Accent</button>
@@ -46,22 +46,20 @@ const apiRows = [
     name: "button",
     type: "Element",
     defaultValue: "Plain",
-    description:
-      "Provides native button semantics, keyboard behavior and styling.",
+    description: "Receives the base button styling.",
   },
   {
     name: "disabled",
     type: "State",
     defaultValue: "Absent",
     description:
-      "Removes a native button from interaction and sequential focus.",
+      "Applies unavailable opacity, cursor and pointer-event styles.",
   },
   {
     name: 'aria-disabled="true"',
     type: "State",
     defaultValue: "Absent",
-    description:
-      "Announces an unavailable action while retaining focus. Application code must prevent activation.",
+    description: "Applies the same visual unavailable state as disabled.",
   },
   {
     name: 'data-button="fab"',
@@ -113,7 +111,7 @@ export default () => (
         Disabled button
       </button>
       <button type="button" aria-disabled="true">
-        Unavailable but focusable
+        ARIA-disabled button
       </button>
       <CodeExample code={statesCode} />
     </DemoSection>
@@ -199,53 +197,11 @@ export default () => (
       <CodeExample code={fabCode} />
     </DemoSection>
 
-    <DemoSection id="button-composition" title="Composition">
-      <p>
-        Start with a native <code>button</code>. Add one background or border
-        utility for emphasis, then a text-size utility only when the surrounding
-        interface needs a different scale. Reserve a FAB for the primary action
-        associated with the current view.
-      </p>
-    </DemoSection>
-
     <DemoSection id="button-responsive" title="Responsive behavior">
       <p>
-        Buttons keep their labels on one line. Let a surrounding toolbar wrap
-        when space is limited, and keep action labels concise instead of
-        shrinking tap targets. FAB dimensions scale with their text size.
+        Buttons keep their labels on one line. A surrounding toolbar wraps when
+        space is limited. FAB dimensions scale with their text size.
       </p>
-    </DemoSection>
-
-    <DemoSection id="button-accessibility" title="Accessibility">
-      <p>
-        Use visible text for ordinary actions. Every icon-only button needs an
-        <code> aria-label</code>, and its icon must use
-        <code> aria-hidden="true"</code>. Prefer <code>disabled</code> when the
-        action should leave the focus order. Use <code>aria-disabled</code> only
-        when people still need to discover the action, and suppress activation
-        in application logic.
-      </p>
-    </DemoSection>
-
-    <DemoSection id="button-errors" title="Common mistakes">
-      <ul>
-        <li>
-          Removing the focus outline without a visible replacement makes
-          keyboard position impossible to track.
-        </li>
-        <li>
-          Using <code>aria-disabled</code> alone does not prevent activation in
-          the browser.
-        </li>
-        <li>
-          Applying multiple tone classes creates an order-dependent result and
-          obscures the intended emphasis.
-        </li>
-        <li>
-          Repeating FABs for secondary actions weakens the single prominent
-          action pattern.
-        </li>
-      </ul>
     </DemoSection>
 
     <DemoSection id="button-api" title="API">

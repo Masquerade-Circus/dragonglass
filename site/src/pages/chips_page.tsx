@@ -3,9 +3,13 @@ import CodeExample from "../docs/code_example";
 import DemoSection from "../docs/demo_section";
 import DocPage from "../docs/doc_page";
 
-const chipExample = `<label data-chip="success">
-  <input type="checkbox" checked /> Active
-</label>`;
+const chipExample = `<p>
+  <label data-chip="success">
+    <input type="checkbox" checked /> Active
+  </label>
+  <button data-chip type="button" aria-pressed="true">Pinned</button>
+  <a data-chip href="/dragonglass/chips.html" aria-current="true">Chips</a>
+</p>`;
 
 const chipElementsExample = `<p>
   <button data-chip type="button">Action</button>
@@ -27,10 +31,6 @@ export default () => (
   <DocPage page="Chips">
     <DemoSection id="chips-elements-title" title="Actions, links and values">
       <p>
-        Choose a button for an action, a link for navigation and a span for a
-        read-only value so each chip keeps the correct native behavior.
-      </p>
-      <p>
         <button data-chip type="button">
           Action
         </button>{" "}
@@ -43,10 +43,6 @@ export default () => (
     </DemoSection>
 
     <DemoSection id="chips-tones-title" title="Semantic tones">
-      <p>
-        Use semantic tones to reinforce a named state or category. Keep the text
-        meaningful because color alone does not explain the value.
-      </p>
       <p>
         <span data-chip="primary">Primary</span>{" "}
         <span data-chip="accent">Accent</span>{" "}
@@ -82,8 +78,7 @@ export default () => (
             name: "button / a / label / span",
             type: "Element",
             defaultValue: "Contextual",
-            description:
-              "Choose semantics that match an action, link, input or value.",
+            description: "Receives chip styling from data-chip.",
           },
           {
             name: "data-chip",
@@ -108,28 +103,10 @@ export default () => (
             name: "input:checked / aria-pressed=true / aria-current=true",
             type: "State",
             defaultValue: "False",
-            description:
-              "Apply the active chip appearance for supported semantics.",
+            description: "Selects the active chip appearance.",
           },
         ]}
       />
-    </DemoSection>
-
-    <DemoSection id="chips-accessibility-title" title="Accessibility">
-      <p>
-        Use a checkbox when a chip toggles a form value,{" "}
-        <code>aria-pressed</code>
-        for a toggle button and <code>aria-current="true"</code> only for the
-        current link. Keep the visible label descriptive.
-      </p>
-    </DemoSection>
-
-    <DemoSection id="chips-errors-title" title="Composition and common errors">
-      <p>
-        A plain <code>span</code> is display-only and must not receive click
-        behavior. Do not set active styling without exposing the same state in
-        the checkbox, button or link semantics.
-      </p>
     </DemoSection>
   </DocPage>
 );

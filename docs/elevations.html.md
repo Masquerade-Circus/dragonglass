@@ -1,10 +1,10 @@
 # Elevations
 
-Apply consistent depth and emphasis with elevation utilities.
+Outer shadows, inset shadows and explicit stacking utilities.
 
 ## Outer shadows
 
-Outer shadows range from `shadow-2xs` to `shadow-3xl`. Use stronger levels sparingly to indicate a surface that sits above nearby content.
+Outer shadows range from `shadow-2xs` to `shadow-3xl`.
 
 ```html
 <div class="shadow-base bg-white p-4">Raised surface</div>
@@ -25,9 +25,28 @@ Inner shadows use the same scale with the `shadow-inner-` prefix.
 <input aria-label="Focus elevation example" class="shadow-base focus:shadow-3xl bg-white" value="Focus this field">
 ```
 
+## Text shadows
+
+Text shadows separate lettering from media. Keep a scrim or another sufficient contrast surface behind important text.
+
+Small text shadow
+
+Base text shadow
+
+Large text shadow
+
+No text shadow
+
+```html
+<p class="bg-primary text-white text-shadow-sm p-4">Small text shadow</p>
+<p class="bg-primary text-white text-shadow-base p-4">Base text shadow</p>
+<p class="bg-primary text-white text-shadow-lg p-4">Large text shadow</p>
+<p class="bg-primary text-white text-shadow-none p-4">No text shadow</p>
+```
+
 ## Shadow tokens
 
-Each outer utility reads its matching `--shadow-*` token, and each inset utility reads the matching `--shadow-inner-*` token. Override a token only when the theme needs a different elevation value across every use of that utility.
+Each outer utility reads its matching `--shadow-*` token, and each inset utility reads the matching `--shadow-inner-*` token. A token override changes that elevation value across every use of the utility.
 
 ```html
 <div class="shadow-base bg-white p-4">Token-backed surface</div>
@@ -56,11 +75,9 @@ Each outer utility reads its matching `--shadow-*` token, and each inset utility
 
 ## Z-index scale
 
-Outer shadow utilities retain a z-index derived from their elevation level. Use `z-auto`, `z-negative-10`, `z-negative-1`, `z-0`, `z-1`, `z-2`, `z-3`, `z-4`, `z-6`, `z-8`, `z-12`, `z-16` or `z-1000` when stacking needs an explicit override.
+Outer shadow utilities retain a z-index derived from their elevation level. Explicit stacking overrides include `z-auto`, `z-negative-10`, `z-negative-1`, `z-0`, `z-1`, `z-2`, `z-3`, `z-4`, `z-6`, `z-8`, `z-12`, `z-16` or `z-1000`.
 
 ```html
 <div class="relative z-8">Navigation surface</div>
 <div class="relative z-auto">Natural stacking order</div>
 ```
-
-## Accessibility and common errors

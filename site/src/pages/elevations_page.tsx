@@ -10,6 +10,10 @@ const innerShadowExample = `<div class="shadow-inner-base bg-white p-4">Inset su
 const stateExample = `<button type="button" class="shadow-base hover:shadow-3xl active:shadow-sm">Change elevation</button>
 <input aria-label="Focus elevation example" class="shadow-base focus:shadow-3xl bg-white" value="Focus this field">`;
 const shadowTokenExample = `<div class="shadow-base bg-white p-4">Token-backed surface</div>`;
+const textShadowExample = `<p class="bg-primary text-white text-shadow-sm p-4">Small text shadow</p>
+<p class="bg-primary text-white text-shadow-base p-4">Base text shadow</p>
+<p class="bg-primary text-white text-shadow-lg p-4">Large text shadow</p>
+<p class="bg-primary text-white text-shadow-none p-4">No text shadow</p>`;
 const zIndexExample = `<div class="relative z-8">Navigation surface</div>
 <div class="relative z-auto">Natural stacking order</div>`;
 
@@ -47,8 +51,7 @@ export default () => (
     <DemoSection id="outer-shadows" title="Outer shadows">
       <p>
         Outer shadows range from <code>shadow-2xs</code> to
-        <code> shadow-3xl</code>. Use stronger levels sparingly to indicate a
-        surface that sits above nearby content.
+        <code> shadow-3xl</code>.
       </p>
       <div class="shadow-base bg-white p-4">Raised surface</div>
       <CodeExample code={shadowExample} />
@@ -80,12 +83,24 @@ export default () => (
       <CodeExample code={stateExample} />
     </DemoSection>
 
+    <DemoSection id="text-shadows" title="Text shadows">
+      <p>
+        Text shadows separate lettering from media. Keep a scrim or another
+        sufficient contrast surface behind important text.
+      </p>
+      <p class="bg-primary text-white text-shadow-sm p-4">Small text shadow</p>
+      <p class="bg-primary text-white text-shadow-base p-4">Base text shadow</p>
+      <p class="bg-primary text-white text-shadow-lg p-4">Large text shadow</p>
+      <p class="bg-primary text-white text-shadow-none p-4">No text shadow</p>
+      <CodeExample code={textShadowExample} />
+    </DemoSection>
+
     <DemoSection id="shadow-api" title="Shadow tokens">
       <p>
         Each outer utility reads its matching <code>--shadow-*</code> token, and
         each inset utility reads the matching <code>--shadow-inner-*</code>
-        token. Override a token only when the theme needs a different elevation
-        value across every use of that utility.
+        token. A token override changes that elevation value across every use of
+        the utility.
       </p>
       <div class="shadow-base bg-white p-4">Token-backed surface</div>
       <CodeExample code={shadowTokenExample} />
@@ -95,33 +110,14 @@ export default () => (
     <DemoSection id="z-index-scale" title="Z-index scale">
       <p>
         Outer shadow utilities retain a z-index derived from their elevation
-        level. Use <code>z-auto</code>, <code>z-negative-10</code>,
-        <code> z-negative-1</code>, <code>z-0</code>, <code>z-1</code>,
-        <code> z-2</code>, <code>z-3</code>, <code>z-4</code>, <code>z-6</code>,
-        <code> z-8</code>, <code>z-12</code>, <code>z-16</code> or
-        <code> z-1000</code> when stacking needs an explicit override.
+        level. Explicit stacking overrides include <code>z-auto</code>,
+        <code> z-negative-10</code>,<code> z-negative-1</code>, <code>z-0</code>
+        , <code>z-1</code>,<code> z-2</code>, <code>z-3</code>, <code>z-4</code>
+        , <code>z-6</code>,<code> z-8</code>, <code>z-12</code>,{" "}
+        <code>z-16</code> or
+        <code> z-1000</code>.
       </p>
       <CodeExample code={zIndexExample} />
-    </DemoSection>
-
-    <DemoSection
-      id="shadow-accessibility"
-      title="Accessibility and common errors"
-    >
-      <ul>
-        <li>
-          Do not rely on elevation alone to communicate focus, selection or an
-          error. Preserve a visible outline, label or text state.
-        </li>
-        <li>
-          State variants only change the shadow. They do not add keyboard
-          behavior to a non-interactive element.
-        </li>
-        <li>
-          Dragonglass currently transitions every elevation automatically and
-          does not include a reduced-motion override in this component.
-        </li>
-      </ul>
     </DemoSection>
   </DocPage>
 );

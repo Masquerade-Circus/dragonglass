@@ -32,10 +32,6 @@ export default () => (
     </DemoSection>
 
     <DemoSection id="expansion-form-title" title="Panel with form content">
-      <p>
-        Place related form controls inside the disclosed content so the summary
-        names the task before the user opens it.
-      </p>
       <details data-expansion-panel open>
         <summary>Contact details</summary>
         <form>
@@ -56,7 +52,7 @@ export default () => (
             type: "Element",
             defaultValue: "Required",
             description:
-              "Provide native disclosure behavior and its visible control.",
+              "Matches details[data-expansion-panel] and its direct summary.",
           },
           {
             name: "data-expansion-panel",
@@ -68,8 +64,7 @@ export default () => (
             name: "open",
             type: "Attribute / state",
             defaultValue: "Absent",
-            description:
-              "Shows the panel content and rotates the disclosure marker.",
+            description: "Rotates the generated disclosure marker.",
           },
           {
             name: "--card-radius / --default-light",
@@ -85,25 +80,6 @@ export default () => (
           },
         ]}
       />
-    </DemoSection>
-
-    <DemoSection id="expansion-accessibility-title" title="Accessibility">
-      <p>
-        Keep <code>summary</code> as the first child of <code>details</code> and
-        write a label that describes the hidden content. Native disclosure state
-        and keyboard controls require no additional ARIA.
-      </p>
-    </DemoSection>
-
-    <DemoSection
-      id="expansion-errors-title"
-      title="Composition and common errors"
-    >
-      <p>
-        Put interactive content after the summary. Do not replace the summary
-        with a custom button, nest a second summary or add a competing click
-        handler.
-      </p>
     </DemoSection>
   </DocPage>
 );

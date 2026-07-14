@@ -208,21 +208,19 @@ const apiRows = [
     name: "input, select, textarea",
     type: "Element",
     defaultValue: "Full width",
-    description:
-      "Provides the native control behavior and Dragonglass field styling.",
+    description: "Receives full-width Dragonglass field styling.",
   },
   {
     name: "label[for]",
     type: "Element",
-    defaultValue: "Required by guidance",
-    description:
-      "Gives a control its visible, programmatic name through a matching id.",
+    defaultValue: "for attribute present",
+    description: "Receives inline label spacing and a pointer cursor.",
   },
   {
     name: "fieldset and legend",
     type: "Element",
     defaultValue: "No border",
-    description: "Groups related controls and names radio or checkbox groups.",
+    description: "Removes the fieldset border and styles its direct legend.",
   },
   {
     name: "data-floating",
@@ -242,22 +240,14 @@ const apiRows = [
     name: "data-toggle",
     type: "Attribute",
     defaultValue: "Absent",
-    description:
-      "Displays a checkbox as a switch while preserving native checkbox semantics.",
+    description: "Displays a checkbox as a switch.",
   },
   {
     name: 'aria-invalid="true"',
     type: "State",
     defaultValue: "Absent",
     description:
-      "Marks the control, not its wrapper, as invalid and applies the danger state.",
-  },
-  {
-    name: "aria-describedby",
-    type: "Attribute",
-    defaultValue: "Absent",
-    description:
-      "Connects a control to persistent help or its current error message.",
+      "Applies danger colors to the control and matching wrapper content.",
   },
   {
     name: "--control-accent",
@@ -269,14 +259,14 @@ const apiRows = [
     name: "search / form[role=search]",
     type: "Element / attribute",
     defaultValue: "Contextual",
-    description:
-      "Creates a search landmark and aligns a fieldset with its submit action.",
+    description: "Aligns a fieldset and submit action in a flexible row.",
   },
   {
     name: "input[type=search]",
     type: "Element / attribute",
     defaultValue: "Empty",
-    description: "Provides native search input and clear-button behavior.",
+    description:
+      "Fills the available width and removes the default bottom margin.",
   },
 ];
 
@@ -667,55 +657,18 @@ export default () => (
 
     <DemoSection id="forms-composition" title="Composition">
       <p>
-        Wrap ordinary fields as needed and use <code>fieldset</code> with
-        <code>legend</code> for related control groups. Floating fields use a
-        neutral <code>data-floating</code> container and keep the control before
-        its <code>label</code> because that sibling order drives the visual
-        label state.
-      </p>
-      <p>
-        Radio buttons share a <code>name</code> and a group legend. Checkboxes
-        and toggles keep their native input so forms, keyboards and assistive
-        technology receive the expected behavior.
+        Inside <code>data-floating</code>, the control precedes its
+        <code> label</code> because the sibling selectors drive the visual label
+        state.
       </p>
     </DemoSection>
 
     <DemoSection id="forms-responsive" title="Responsive behavior">
       <p>
         Text controls fill the available width, textareas resize vertically and
-        range inputs preserve their full track. Let the surrounding form or card
-        control column width. Native date, time and select interfaces may vary
-        by browser and operating system.
+        range inputs preserve their full track. The surrounding form or card
+        controls column width.
       </p>
-    </DemoSection>
-
-    <DemoSection id="forms-accessibility" title="Accessibility">
-      <p>
-        Every control needs a stable <code>name</code> for submission and an
-        accessible name from a <code>label</code> whose <code>for</code> matches
-        the control ID. Connect help and error text with
-        <code>aria-describedby</code>. Put <code> aria-invalid="true"</code> on
-        the invalid control after validation, and move focus to the first
-        invalid field when submission fails.
-      </p>
-    </DemoSection>
-
-    <DemoSection id="forms-errors" title="Common mistakes">
-      <ul>
-        <li>Placeholders do not replace persistent labels.</li>
-        <li>
-          Putting <code>aria-invalid</code> on a fieldset does not expose the
-          invalid state on its control.
-        </li>
-        <li>
-          Error text without <code>aria-describedby</code> can be visually close
-          while remaining disconnected to a screen reader.
-        </li>
-        <li>
-          Giving radio buttons different names prevents them from behaving as
-          one exclusive group.
-        </li>
-      </ul>
     </DemoSection>
 
     <DemoSection id="forms-api" title="API">
