@@ -1875,6 +1875,9 @@
   var CodeExample = ({ code }) => /* @__PURE__ */ jsx("pre", { "data-markdown": "include", children: /* @__PURE__ */ jsx("code", { children: code }) });
   var code_example_default = CodeExample;
 
+  // package.json
+  var version = "1.0.2";
+
   // site/src/pages/layout.tsx
   var DrawerLink = ({
     path,
@@ -1914,13 +1917,16 @@
   var Layout = (props, ...content) => /* @__PURE__ */ jsxs(Fragment, { children: [
     /* @__PURE__ */ jsx(Header, { currentPath: props.currentPath }),
     /* @__PURE__ */ jsx("main", { id: "main-content", tabindex: "-1", children: /* @__PURE__ */ jsx("section", { class: props.contentClass ?? "container", children: content }) }),
-    /* @__PURE__ */ jsx("footer", {})
+    /* @__PURE__ */ jsx("footer", { "data-markdown": "exclude", children: /* @__PURE__ */ jsxs("small", { children: [
+      "Dragonglass v",
+      version
+    ] }) })
   ] });
   var layout_default = Layout;
 
   // site/src/pages/home_page.tsx
   var pathFor = (page) => routeByPage.get(page).path;
-  var installCode = `bun add dragonglass`;
+  var installCode = `npm install dragonglass`;
   var importCode = `import "dragonglass/dist/dragonglass.css";
 import "dragonglass/dist/themes/default.css";`;
   var firstSurfaceCode = `<article data-card>

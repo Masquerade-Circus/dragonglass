@@ -1,4 +1,5 @@
 import { catalog, catalogEntries, categoryOrder } from "../docs/catalog";
+import { version } from "../../../package.json";
 
 type LayoutProps = {
   contentClass?: string;
@@ -18,13 +19,13 @@ const DrawerLink = ({
   label,
   icon,
   color,
-  currentPath
+  currentPath,
 }: DrawerLinkProps) => {
   const content = [
     <i class={`material-icons ${color}`} aria-hidden="true">
       {icon}
     </i>,
-    label
+    label,
   ];
 
   if (currentPath === path) {
@@ -78,7 +79,9 @@ const Layout: any = (props: LayoutProps, ...content: any[]) => (
     <main id="main-content" tabindex="-1">
       <section class={props.contentClass ?? "container"}>{content}</section>
     </main>
-    <footer></footer>
+    <footer data-markdown="exclude">
+      <small>Dragonglass v{version}</small>
+    </footer>
   </>
 );
 

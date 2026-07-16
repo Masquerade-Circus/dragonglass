@@ -11,10 +11,10 @@ Dragonglass is an HTML5-first CSS framework for app interfaces. It styles semant
 
 ## Quick start
 
-Install Dragonglass with Bun:
+Install Dragonglass with npm:
 
 ```sh
-bun add dragonglass
+npm install dragonglass
 ```
 
 Import the distributed stylesheet from your application entry point:

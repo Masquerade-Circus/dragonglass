@@ -47,7 +47,7 @@ Import the theme after `dragonglass.css` so it can provide the color tokens.
 Step 1: Install the package
 
 ```sh
-bun add dragonglass
+npm install dragonglass
 ```
 
 Step 2: Import Dragonglass and a theme

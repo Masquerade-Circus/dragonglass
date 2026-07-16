@@ -88,7 +88,7 @@
       "publish": true
     },
     "hooks": {
-      "before:init": [
+      "after:bump": [
         "bun run build"
       ]
     }

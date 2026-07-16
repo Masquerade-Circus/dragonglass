@@ -5,7 +5,7 @@ import Layout from "./layout";
 
 const pathFor = (page: DocumentationPage) => routeByPage.get(page)!.path;
 
-const installCode = `bun add dragonglass`;
+const installCode = `npm install dragonglass`;
 
 const importCode = `import "dragonglass/dist/dragonglass.css";
 import "dragonglass/dist/themes/default.css";`;
