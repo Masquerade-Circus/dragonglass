@@ -49,6 +49,30 @@ const utilityGroups: UtilityGroup[] = [
       "Layout utilities control positioning, stacking, fractional width and compact display behavior.",
     families: [
       {
+        pattern: "container",
+        type: "Centered container",
+        values: "100% width, var(--container-max-width) maximum",
+        variants: "Base only",
+        description:
+          "Centers content with logical auto margins and adds no padding.",
+      },
+      {
+        pattern: "max-w-{size}",
+        type: "Maximum width",
+        values: "sm (36rem), md (48rem), lg (64rem), xl (80rem), prose (65ch)",
+        variants: "Base only",
+        description:
+          "Limits width without changing the element width or margins.",
+      },
+      {
+        pattern: "mx-auto",
+        type: "Horizontal centering",
+        values: "margin-inline: auto",
+        variants: "Base only",
+        description:
+          "Centers a width-constrained element without changing vertical margins.",
+      },
+      {
         pattern: "relative | static | absolute | fixed | sticky",
         type: "Position",
         values: "The class name is the position value",

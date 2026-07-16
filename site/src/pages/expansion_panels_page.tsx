@@ -17,6 +17,16 @@ const expansionFormExample = `<details data-expansion-panel open>
   </form>
 </details>`;
 
+const expansionPanelColorExample = `<details class="bg-primary" data-expansion-panel open>
+  <summary>Deployment status</summary>
+  <p>The latest release is available.</p>
+</details>`;
+
+const expansionSummaryColorExample = `<details data-expansion-panel open>
+  <summary class="bg-accent">Security settings</summary>
+  <p>Two-factor authentication is active.</p>
+</details>`;
+
 export default () => (
   <DocPage page="ExpansionPanels">
     <DemoSection id="expansion-basic-title" title="Collapsed and open panels">
@@ -43,6 +53,30 @@ export default () => (
       <CodeExample code={expansionFormExample} />
     </DemoSection>
 
+    <DemoSection id="expansion-panel-color-title" title="Colored panel">
+      <p>
+        Apply a <code>bg-*</code> utility to <code>details</code> to color the
+        complete panel, including its heading and content.
+      </p>
+      <details class="bg-primary" data-expansion-panel open>
+        <summary>Deployment status</summary>
+        <p>The latest release is available.</p>
+      </details>
+      <CodeExample code={expansionPanelColorExample} />
+    </DemoSection>
+
+    <DemoSection id="expansion-summary-color-title" title="Colored heading">
+      <p>
+        Apply a <code>bg-*</code> utility to <code>summary</code> when only the
+        panel heading needs a distinct color.
+      </p>
+      <details data-expansion-panel open>
+        <summary class="bg-accent">Security settings</summary>
+        <p>Two-factor authentication is active.</p>
+      </details>
+      <CodeExample code={expansionSummaryColorExample} />
+    </DemoSection>
+
     <DemoSection id="expansion-api-title" title="API">
       <ApiTable
         caption="Expansion panel elements, attributes, tokens and states"
@@ -67,7 +101,7 @@ export default () => (
             description: "Rotates the generated disclosure marker.",
           },
           {
-            name: "--card-radius / --default-light",
+            name: "--card-radius / --border-default",
             type: "Token",
             defaultValue: "Theme",
             description: "Control panel corners and border color.",

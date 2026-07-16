@@ -4,14 +4,6 @@ Styled unordered, ordered and definition-list layouts.
 
 ## Basic combinations
 
-### Simple row
-
-### Avatar
-
-### Secondary icon
-
-### Secondary icon and information
-
 ### Details
 
 ```html
@@ -48,10 +40,6 @@ Styled unordered, ordered and definition-list layouts.
 
 ## Combined display content
 
-### Avatar and secondary icon
-
-### Avatar, secondary icon and information
-
 ### Details, avatar, secondary icon and information
 
 ```html
@@ -81,20 +69,6 @@ Styled unordered, ordered and definition-list layouts.
 ```
 
 ## Action combinations
-
-### Primary action
-
-### Primary action with avatar
-
-### Primary and secondary actions
-
-### Secondary action with information
-
-### Primary action with details
-
-### Avatar and secondary action
-
-### Avatar, secondary action and information
 
 ### Details, avatar, secondary action and information
 

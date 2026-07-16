@@ -36,6 +36,8 @@ The build compiles the framework CSS and static documentation. Review the genera
 
 ## Documentation changes
 
+Documentation sources must preserve the same useful information across generated HTML, Markdown, llms.txt, and llms-full.txt. When a source changes an explanation, example, requirement, or API contract, every generated format must carry that information in a form its reader can use.
+
 - Keep route labels, paths, categories, and descriptions in `site/src/docs/catalog.ts` as the navigation source.
 - Use `DocPage` for each documentation page so the catalog supplies its title and description.
 - Use `DemoSection` for titled sections and `CodeExample` for code samples.

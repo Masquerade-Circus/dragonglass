@@ -3,7 +3,46 @@ import Pages from "./pages";
 import { routes, type DocumentationRoute } from "./docs/catalog";
 
 const router = new Router();
+const themeStylesheetPattern = /theme-[^/]+\.css$/;
+const syncDocumentationPresentation = (route: DocumentationRoute) => {
+  if (
+    typeof document === "undefined" ||
+    typeof document.querySelector !== "function"
+  ) {
+    return;
+  }
+
+  const stylesheet = document.querySelector<HTMLLinkElement>(
+    "#documentation-theme-stylesheet",
+  );
+
+  if (typeof stylesheet?.getAttribute !== "function") {
+    throw new Error("Documentation theme stylesheet not found");
+  }
+
+  const currentHref = stylesheet.getAttribute("href");
+
+  if (
+    typeof currentHref !== "string" ||
+    !themeStylesheetPattern.test(currentHref)
+  ) {
+    throw new Error("Documentation theme stylesheet path is invalid");
+  }
+
+  const themeName = route.themeName ?? "default";
+  const nextHref = currentHref.replace(
+    themeStylesheetPattern,
+    `theme-${themeName}.css`,
+  );
+  document.documentElement.dataset.colorScheme = route.colorScheme;
+
+  if (nextHref !== currentHref) {
+    stylesheet.setAttribute("href", nextHref);
+  }
+};
 const pageForRoute = (route: DocumentationRoute) => {
+  let renderPage: () => unknown;
+
   if (route.page === "Theme") {
     const themeName = route.themeName;
     const colorScheme = route.colorScheme;
@@ -15,11 +54,16 @@ const pageForRoute = (route: DocumentationRoute) => {
       throw new Error(`Theme metadata not found for route: ${route.path}`);
     }
 
-    return () => Pages.Colors({ colorScheme, themeName });
+    renderPage = () => Pages.Colors({ colorScheme, themeName });
+  } else {
+    const page = Pages[route.page];
+    renderPage = () => page();
   }
 
-  const page = Pages[route.page];
-  return () => page();
+  return () => {
+    syncDocumentationPresentation(route);
+    return renderPage();
+  };
 };
 const pagesByRoute = new Map(
   routes.map((route) => [route.path, pageForRoute(route)]),

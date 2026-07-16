@@ -35,6 +35,7 @@ let Html = function view({
           rel="stylesheet"
         />
         <link
+          id="documentation-theme-stylesheet"
           href={
             isDevelopment
               ? `/css/theme-${themeName}.css`

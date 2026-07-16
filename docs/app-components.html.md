@@ -18,12 +18,12 @@ After choosing a component, open the [utility reference](/dragonglass/utilities.
 
 ## Navigation
 
-- [Toolbars](/dragonglass/toolbars.html.md) Wrapping nav[data-toolbar] rows and container variants.
 - [Breadcrumbs](/dragonglass/breadcrumbs.html.md) Wrapping breadcrumb trails built from direct link and button children.
-- [Expansion panels](/dragonglass/expansion-panels.html.md) Full-width details panels with a generated open-state marker.
-- [Steppers](/dragonglass/steppers.html.md) Horizontal, vertical and numbers-only stepper presentations.
+- [Toolbars](/dragonglass/toolbars.html.md) Wrapping nav[data-toolbar] rows and container variants.
 - [Tabs](/dragonglass/tabs.html.md) Grouped details layout selected by data-tabs.
 - [Menus](/dragonglass/menus.html.md) Positioned menus inside details[data-trigger].
+- [Expansion panels](/dragonglass/expansion-panels.html.md) Full-width details panels with a generated open-state marker.
+- [Steppers](/dragonglass/steppers.html.md) Horizontal, vertical and numbers-only stepper presentations.
 
 ## Feedback
 
@@ -33,13 +33,13 @@ After choosing a component, open the [utility reference](/dragonglass/utilities.
 
 ## Surfaces
 
-- [Bottom sheets](/dragonglass/bottom-sheets.html.md) Bottom-anchored dialog layout with an optional shadow.
 - [Cards](/dragonglass/cards.html.md) Basic, elevated, squared and full-width card variants.
 - [Dialogs](/dragonglass/dialogs.html.md) Centered dialogs with shape, width and elevation variants.
+- [Bottom sheets](/dragonglass/bottom-sheets.html.md) Bottom-anchored dialog layout with an optional shadow.
 
 ## Data display
 
-- [Badges](/dragonglass/badges.html.md) Generated badge content selected by data-badge.
 - [Lists](/dragonglass/lists.html.md) Styled unordered, ordered and definition-list layouts.
-- [Tables](/dragonglass/tables.html.md) Responsive data-table layout with generated mobile cell labels.
+- [Badges](/dragonglass/badges.html.md) Generated badge content selected by data-badge.
 - [Tooltips](/dragonglass/tooltips.html.md) Generated tooltip content, positions and color utilities.
+- [Tables](/dragonglass/tables.html.md) Responsive data-table layout with generated mobile cell labels.

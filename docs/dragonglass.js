@@ -1483,7 +1483,7 @@
     "Data display",
     "Utilities"
   ];
-  var catalog = [
+  var catalogEntries = [
     {
       path: basePath,
       label: "Home",
@@ -1492,6 +1492,15 @@
       page: "Home",
       category: "Getting started",
       description: "Learn how Dragonglass styles semantic HTML and where to find each component."
+    },
+    {
+      path: `${basePath}/app-components.html`,
+      label: "App components",
+      icon: "widgets",
+      color: "bg-primary",
+      page: "AppComponents",
+      category: "Getting started",
+      description: "Find application components by purpose and open their examples and API."
     },
     {
       path: `${basePath}/layout.html`,
@@ -1510,6 +1519,195 @@
       page: "Heroes",
       category: "Foundations",
       description: "Centered, split and presentation hero recipes composed from existing primitives."
+    },
+    {
+      path: `${basePath}/buttons.html`,
+      label: "Buttons",
+      icon: "arrow_forward",
+      color: "bg-danger",
+      page: "Buttons",
+      category: "Actions",
+      description: "Base button styles, semantic color utilities and FAB variants."
+    },
+    {
+      path: `${basePath}/links.html`,
+      label: "Links",
+      icon: "link",
+      color: "bg-danger",
+      page: "Links",
+      category: "Actions",
+      description: "Inline, standalone and quiet link treatments for navigation and supporting actions."
+    },
+    {
+      path: `${basePath}/chips.html`,
+      label: "Chips",
+      icon: "label",
+      color: "bg-success",
+      page: "Chips",
+      category: "Actions",
+      description: "Chip tones and checked, pressed and current visual states."
+    },
+    {
+      path: `${basePath}/forms.html`,
+      label: "Forms",
+      icon: "font_download",
+      color: "bg-success",
+      page: "Forms",
+      category: "Forms",
+      description: "Field, floating-label, validation-state and toggle selectors."
+    },
+    {
+      path: `${basePath}/breadcrumbs.html`,
+      label: "Breadcrumbs",
+      icon: "chevron_right",
+      color: "bg-accent",
+      page: "Breadcrumbs",
+      category: "Navigation",
+      description: "Wrapping breadcrumb trails built from direct link and button children."
+    },
+    {
+      path: `${basePath}/toolbars.html`,
+      label: "Toolbars",
+      icon: "build",
+      color: "bg-accent",
+      page: "Toolbars",
+      category: "Navigation",
+      description: "Wrapping nav[data-toolbar] rows and container variants."
+    },
+    {
+      path: `${basePath}/tabs.html`,
+      label: "Tabs",
+      icon: "tab",
+      color: "bg-warning",
+      page: "Tabs",
+      category: "Navigation",
+      description: "Grouped details layout selected by data-tabs."
+    },
+    {
+      path: `${basePath}/menus.html`,
+      label: "Menus",
+      icon: "menu",
+      color: "bg-warning",
+      page: "Menus",
+      category: "Navigation",
+      description: "Positioned menus inside details[data-trigger]."
+    },
+    {
+      path: `${basePath}/expansion-panels.html`,
+      label: "Expansion panels",
+      icon: "unfold_more",
+      color: "bg-danger",
+      page: "ExpansionPanels",
+      category: "Navigation",
+      description: "Full-width details panels with a generated open-state marker."
+    },
+    {
+      path: `${basePath}/steppers.html`,
+      label: "Steppers",
+      icon: "linear_scale",
+      color: "bg-info",
+      page: "Steppers",
+      category: "Navigation",
+      description: "Horizontal, vertical and numbers-only stepper presentations."
+    },
+    {
+      path: `${basePath}/alerts.html`,
+      label: "Alerts",
+      icon: "priority_high",
+      color: "bg-warning",
+      page: "Alerts",
+      category: "Feedback",
+      description: "Alert surfaces with info, success, warning and danger tones."
+    },
+    {
+      path: `${basePath}/notifications.html`,
+      label: "Notifications",
+      icon: "notifications",
+      color: "bg-accent",
+      page: "Notifications",
+      category: "Feedback",
+      description: "Fixed and inline notifications with tone, position and shadow tokens."
+    },
+    {
+      path: `${basePath}/progress.html`,
+      label: "Progress",
+      icon: "trending_flat",
+      color: "bg-success",
+      page: "Progress",
+      category: "Feedback",
+      description: "Determinate, indeterminate and spinner styles for progress elements."
+    },
+    {
+      path: `${basePath}/cards.html`,
+      label: "Cards",
+      icon: "video_label",
+      color: "bg-primary",
+      page: "Cards",
+      category: "Surfaces",
+      description: "Basic, elevated, squared and full-width card variants."
+    },
+    {
+      path: `${basePath}/dialogs.html`,
+      label: "Dialogs",
+      icon: "web_asset",
+      color: "bg-accent",
+      page: "Dialogs",
+      category: "Surfaces",
+      description: "Centered dialogs with shape, width and elevation variants."
+    },
+    {
+      path: `${basePath}/bottom-sheets.html`,
+      label: "Bottom sheets",
+      icon: "vertical_align_bottom",
+      color: "bg-success",
+      page: "BottomSheets",
+      category: "Surfaces",
+      description: "Bottom-anchored dialog layout with an optional shadow."
+    },
+    {
+      path: `${basePath}/lists.html`,
+      label: "Lists",
+      icon: "list",
+      color: "bg-info",
+      page: "Lists",
+      category: "Data display",
+      description: "Styled unordered, ordered and definition-list layouts."
+    },
+    {
+      path: `${basePath}/badges.html`,
+      label: "Badges",
+      icon: "chat_bubble",
+      color: "bg-warning",
+      page: "Badges",
+      category: "Data display",
+      description: "Generated badge content selected by data-badge."
+    },
+    {
+      path: `${basePath}/tooltips.html`,
+      label: "Tooltips",
+      icon: "label",
+      color: "bg-info",
+      page: "Tooltips",
+      category: "Data display",
+      description: "Generated tooltip content, positions and color utilities."
+    },
+    {
+      path: `${basePath}/tables.html`,
+      label: "Tables",
+      icon: "view_list",
+      color: "bg-danger",
+      page: "Tables",
+      category: "Data display",
+      description: "Responsive data-table layout with generated mobile cell labels."
+    },
+    {
+      path: `${basePath}/utilities.html`,
+      label: "Utilities",
+      icon: "tune",
+      color: "bg-default",
+      page: "Utilities",
+      category: "Utilities",
+      description: "Find focused spacing, layout, border, typography, elevation and color adjustments."
     },
     {
       path: `${basePath}/grid.html`,
@@ -1539,15 +1737,6 @@
       description: "Object-fit, focal-position and background image utilities."
     },
     {
-      path: `${basePath}/utilities.html`,
-      label: "Utilities",
-      icon: "tune",
-      color: "bg-default",
-      page: "Utilities",
-      category: "Utilities",
-      description: "Find focused spacing, layout, border, typography, elevation and color adjustments."
-    },
-    {
       path: `${basePath}/elevations.html`,
       label: "Elevations",
       icon: "layers",
@@ -1563,7 +1752,7 @@
       color: "bg-info",
       page: "Colors",
       category: "Utilities",
-      description: "Semantic color tokens and background, border, outline and text utilities."
+      description: "Semantic color tokens, utility classes, bundled themes, and custom theme compilation."
     },
     {
       path: `${basePath}/fonts.html`,
@@ -1573,197 +1762,12 @@
       page: "Fonts",
       category: "Utilities",
       description: "Font size, style, weight, transform, line-height and alignment utilities."
-    },
-    {
-      path: `${basePath}/badges.html`,
-      label: "Badges",
-      icon: "chat_bubble",
-      color: "bg-warning",
-      page: "Badges",
-      category: "Data display",
-      description: "Generated badge content selected by data-badge."
-    },
-    {
-      path: `${basePath}/buttons.html`,
-      label: "Buttons",
-      icon: "arrow_forward",
-      color: "bg-danger",
-      page: "Buttons",
-      category: "Actions",
-      description: "Base button styles, semantic color utilities and FAB variants."
-    },
-    {
-      path: `${basePath}/links.html`,
-      label: "Links",
-      icon: "link",
-      color: "bg-danger",
-      page: "Links",
-      category: "Actions",
-      description: "Inline, standalone and quiet link treatments for navigation and supporting actions."
-    },
-    {
-      path: `${basePath}/app-components.html`,
-      label: "App components",
-      icon: "widgets",
-      color: "bg-primary",
-      page: "AppComponents",
-      category: "Getting started",
-      description: "Find application components by purpose and open their examples and API."
-    },
-    {
-      path: `${basePath}/toolbars.html`,
-      label: "Toolbars",
-      icon: "build",
-      color: "bg-accent",
-      page: "Toolbars",
-      category: "Navigation",
-      description: "Wrapping nav[data-toolbar] rows and container variants."
-    },
-    {
-      path: `${basePath}/breadcrumbs.html`,
-      label: "Breadcrumbs",
-      icon: "chevron_right",
-      color: "bg-accent",
-      page: "Breadcrumbs",
-      category: "Navigation",
-      description: "Wrapping breadcrumb trails built from direct link and button children."
-    },
-    {
-      path: `${basePath}/chips.html`,
-      label: "Chips",
-      icon: "label",
-      color: "bg-success",
-      page: "Chips",
-      category: "Actions",
-      description: "Chip tones and checked, pressed and current visual states."
-    },
-    {
-      path: `${basePath}/alerts.html`,
-      label: "Alerts",
-      icon: "priority_high",
-      color: "bg-warning",
-      page: "Alerts",
-      category: "Feedback",
-      description: "Alert surfaces with info, success, warning and danger tones."
-    },
-    {
-      path: `${basePath}/expansion-panels.html`,
-      label: "Expansion panels",
-      icon: "unfold_more",
-      color: "bg-danger",
-      page: "ExpansionPanels",
-      category: "Navigation",
-      description: "Full-width details panels with a generated open-state marker."
-    },
-    {
-      path: `${basePath}/notifications.html`,
-      label: "Notifications",
-      icon: "notifications",
-      color: "bg-accent",
-      page: "Notifications",
-      category: "Feedback",
-      description: "Fixed and inline notifications with tone, position and shadow tokens."
-    },
-    {
-      path: `${basePath}/steppers.html`,
-      label: "Steppers",
-      icon: "linear_scale",
-      color: "bg-info",
-      page: "Steppers",
-      category: "Navigation",
-      description: "Horizontal, vertical and numbers-only stepper presentations."
-    },
-    {
-      path: `${basePath}/bottom-sheets.html`,
-      label: "Bottom sheets",
-      icon: "vertical_align_bottom",
-      color: "bg-success",
-      page: "BottomSheets",
-      category: "Surfaces",
-      description: "Bottom-anchored dialog layout with an optional shadow."
-    },
-    {
-      path: `${basePath}/tabs.html`,
-      label: "Tabs",
-      icon: "tab",
-      color: "bg-warning",
-      page: "Tabs",
-      category: "Navigation",
-      description: "Grouped details layout selected by data-tabs."
-    },
-    {
-      path: `${basePath}/cards.html`,
-      label: "Cards",
-      icon: "video_label",
-      color: "bg-primary",
-      page: "Cards",
-      category: "Surfaces",
-      description: "Basic, elevated, squared and full-width card variants."
-    },
-    {
-      path: `${basePath}/dialogs.html`,
-      label: "Dialogs",
-      icon: "web_asset",
-      color: "bg-accent",
-      page: "Dialogs",
-      category: "Surfaces",
-      description: "Centered dialogs with shape, width and elevation variants."
-    },
-    {
-      path: `${basePath}/lists.html`,
-      label: "Lists",
-      icon: "list",
-      color: "bg-info",
-      page: "Lists",
-      category: "Data display",
-      description: "Styled unordered, ordered and definition-list layouts."
-    },
-    {
-      path: `${basePath}/forms.html`,
-      label: "Forms",
-      icon: "font_download",
-      color: "bg-success",
-      page: "Forms",
-      category: "Forms",
-      description: "Field, floating-label, validation-state and toggle selectors."
-    },
-    {
-      path: `${basePath}/menus.html`,
-      label: "Menus",
-      icon: "menu",
-      color: "bg-warning",
-      page: "Menus",
-      category: "Navigation",
-      description: "Positioned menus inside details[data-trigger]."
-    },
-    {
-      path: `${basePath}/tables.html`,
-      label: "Tables",
-      icon: "view_list",
-      color: "bg-danger",
-      page: "Tables",
-      category: "Data display",
-      description: "Responsive data-table layout with generated mobile cell labels."
-    },
-    {
-      path: `${basePath}/tooltips.html`,
-      label: "Tooltips",
-      icon: "label",
-      color: "bg-info",
-      page: "Tooltips",
-      category: "Data display",
-      description: "Generated tooltip content, positions and color utilities."
-    },
-    {
-      path: `${basePath}/progress.html`,
-      label: "Progress",
-      icon: "trending_flat",
-      color: "bg-success",
-      page: "Progress",
-      category: "Feedback",
-      description: "Determinate, indeterminate and spinner styles for progress elements."
     }
   ];
+  var catalog = catalogEntries.map((route) => ({
+    ...route,
+    colorScheme: "light"
+  }));
   var themeRoutes = bundledThemes.map((theme) => ({
     path: themeRoutePath(theme.name),
     label: `${theme.label} theme`,
@@ -1771,7 +1775,7 @@
     color: "bg-primary",
     page: "Theme",
     category: "Utilities",
-    description: `Preview the ${theme.label} theme across semantic colors and common components.`,
+    description: `Preview the ${theme.label} theme in light mode across semantic colors, components, and interactive states.`,
     themeName: theme.name,
     colorScheme: "light"
   }));
@@ -1782,7 +1786,7 @@
     color: "bg-primary",
     page: "Theme",
     category: "Utilities",
-    description: `Preview the ${theme.label} dark theme across semantic colors and common components.`,
+    description: `Preview the ${theme.label} theme in dark mode across semantic colors, components, and interactive states.`,
     themeName: theme.name,
     colorScheme: "dark"
   }));
@@ -1824,6 +1828,7 @@
     Reflect.deleteProperty(props, "children");
     return new Vnode(tag, props, children, key);
   }
+  var Fragment = fragment;
 
   // site/src/pages/html_page.tsx
   var Html = function view({
@@ -1855,6 +1860,7 @@
         /* @__PURE__ */ jsx(
           "link",
           {
+            id: "documentation-theme-stylesheet",
             href: isDevelopment ? `/css/theme-${themeName}.css` : documentationAssets.themeStylesheet(themeName).path,
             rel: "stylesheet"
           }
@@ -1866,7 +1872,7 @@
   var html_page_default = Html;
 
   // site/src/docs/code_example.tsx
-  var CodeExample = ({ code }) => /* @__PURE__ */ jsx("pre", { children: /* @__PURE__ */ jsx("code", { children: code }) });
+  var CodeExample = ({ code }) => /* @__PURE__ */ jsx("pre", { "data-markdown": "include", children: /* @__PURE__ */ jsx("code", { children: code }) });
   var code_example_default = CodeExample;
 
   // site/src/pages/layout.tsx
@@ -1889,10 +1895,9 @@
   var Header = ({ currentPath }) => /* @__PURE__ */ jsxs("header", { children: [
     /* @__PURE__ */ jsx("nav", { children: /* @__PURE__ */ jsxs("details", { "data-trigger": true, children: [
       /* @__PURE__ */ jsx("summary", { "aria-label": "Open documentation navigation", children: /* @__PURE__ */ jsx("span", { class: "material-icons", "aria-hidden": "true", children: "menu" }) }),
-      /* @__PURE__ */ jsx("section", { "data-drawer": true, children: categoryOrder.flatMap((category) => [
-        /* @__PURE__ */ jsx("header", { children: category }),
-        /* @__PURE__ */ jsx("hr", {}),
-        /* @__PURE__ */ jsx("ul", { "data-list": true, children: catalog.filter((route) => route.category === category).map(({ path, label, icon, color }) => /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(
+      /* @__PURE__ */ jsxs("section", { "data-drawer": true, children: [
+        /* @__PURE__ */ jsx("section", { class: "h-48 relative bg-primary", children: /* @__PURE__ */ jsx("h1", { "data-position": "absolute bottom left", children: "DragonGlass" }) }),
+        /* @__PURE__ */ jsx("ul", { "data-list": true, "v-for": catalogEntries, children: ({ path, label, icon, color }) => /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(
           DrawerLink,
           {
             path,
@@ -1901,235 +1906,346 @@
             color,
             currentPath
           }
-        ) })) })
-      ]) })
+        ) }) })
+      ] })
     ] }) }),
     /* @__PURE__ */ jsx("span", { children: "Dragonglass" })
   ] });
-  var Layout = (props, ...content) => [
+  var Layout = (props, ...content) => /* @__PURE__ */ jsxs(Fragment, { children: [
     /* @__PURE__ */ jsx(Header, { currentPath: props.currentPath }),
-    /* @__PURE__ */ jsx("main", { children: /* @__PURE__ */ jsx("section", { children: content }) })
-  ];
+    /* @__PURE__ */ jsx("main", { id: "main-content", tabindex: "-1", children: /* @__PURE__ */ jsx("section", { class: props.contentClass ?? "container", children: content }) }),
+    /* @__PURE__ */ jsx("footer", {})
+  ] });
   var layout_default = Layout;
 
   // site/src/pages/home_page.tsx
+  var pathFor = (page) => routeByPage.get(page).path;
   var installCode = `bun add dragonglass`;
   var importCode = `import "dragonglass/dist/dragonglass.css";
 import "dragonglass/dist/themes/default.css";`;
-  var cardCode = `<section data-card class="p-4">
-  <h2>Website refresh</h2>
+  var firstSurfaceCode = `<article data-card>
+  <header>
+    <h2>Project: Dragonglass</h2>
+  </header>
   <p>The team is reviewing the final interface states.</p>
-  <button>Open project</button>
-</section>`;
-  var colorSchemeCode = `<html data-color-scheme="light"></html>
-<html data-color-scheme="dark"></html>`;
+  <footer>
+    <a href="${pathFor("AppComponents")}">Open project</a>
+  </footer>
+</article>`;
   var customThemeCode = `@use "pkg:dragonglass/theme" as dragonglass;
 
 :root {
   @include dragonglass.tokens(#7c3aed);
 }`;
-  var componentGroups = [
-    ["Actions", "Buttons, links and chips."],
-    ["Forms", "Fields, floating labels, validation states and toggles."],
+  var mentalModel = [
+    [
+      "Semantic HTML",
+      "Define the interface structure with native HTML elements."
+    ],
+    [
+      "Component attributes",
+      "Select documented components, variants, and states with readable data-* attributes."
+    ],
+    [
+      "Focused utilities",
+      "Adjust layout and presentation while the underlying structure stays visible."
+    ]
+  ];
+  var frameworkSummary = [
+    "Plain CSS distribution",
+    "Responsive layout primitives",
+    "Twelve compiled themes"
+  ];
+  var componentCategories = [
+    ["Actions", "Buttons, links, and chips for the actions people can take."],
+    [
+      "Forms",
+      "Fields, validation states, toggles, native pickers, and search interfaces."
+    ],
     [
       "Navigation",
-      "Breadcrumbs, toolbars, expansion panels, steppers, tabs and menus."
+      "Toolbars, breadcrumbs, expansion panels, steppers, tabs, and menus."
     ],
-    ["Feedback", "Alerts, notifications and progress."],
-    ["Surfaces", "Bottom sheets, cards and dialogs."],
-    ["Data display", "Badges, lists, tables and tooltips."]
+    ["Feedback", "Alerts, notifications, and progress indicators."],
+    ["Surfaces", "Cards, dialogs, and bottom sheets."],
+    ["Data display", "Badges, lists, responsive tables, and tooltips."]
   ];
-  var pathFor = (page) => routeByPage.get(page).path;
-  var introMeasure = "md:w-10/12 lg:w-8/12 xl:w-7/12 pt-0 pb-0 text-center";
-  var contentMeasure = "md:w-10/12 pt-0 pb-0";
-  var home_page_default = () => /* @__PURE__ */ jsxs(layout_default, { currentPath: pathFor("Home"), children: [
-    /* @__PURE__ */ jsxs(
+  var documentationPaths = [
+    {
+      title: "Getting started",
+      body: "Install Dragonglass and build your first interface.",
+      href: "#quick-start"
+    },
+    {
+      title: "Components and API",
+      body: "Find components by purpose and inspect their markup, variants, and states.",
+      href: pathFor("AppComponents")
+    },
+    {
+      title: "Layout foundations",
+      body: "Build application shells, content regions, toolbars, and responsive layouts.",
+      href: pathFor("Layouts")
+    },
+    {
+      title: "Utilities",
+      body: "Find the available classes for layout, spacing, typography, color, borders, and elevation.",
+      href: pathFor("Utilities")
+    },
+    {
+      title: "Themes and colors",
+      body: "Choose a bundled theme or compile custom color tokens.",
+      href: pathFor("Colors")
+    },
+    {
+      title: "Forms",
+      body: "Review fields, validation states, toggles, pickers, and search layouts.",
+      href: pathFor("Forms")
+    }
+  ];
+  var home_page_default = () => /* @__PURE__ */ jsx(layout_default, { currentPath: pathFor("Home"), contentClass: "p-0", children: /* @__PURE__ */ jsxs("div", { "data-markdown": "include-descendants", children: [
+    /* @__PURE__ */ jsx(
       "section",
       {
-        class: "grid-center grid-gutters min-h-half-screen pt-8",
+        class: "min-h-half-screen bg-white pt-8 pb-8",
         "aria-labelledby": "home-title",
-        children: [
-          /* @__PURE__ */ jsx("p", { class: `${introMeasure} text-sm font-semibold mt-0 mb-2`, children: "Pure CSS framework" }),
+        children: /* @__PURE__ */ jsx("div", { class: "container pl-4 pr-4", children: /* @__PURE__ */ jsxs("div", { class: "grid grid-gutters", children: [
+          /* @__PURE__ */ jsxs("div", { class: "lg:w-7/12", children: [
+            /* @__PURE__ */ jsx("p", { class: "text-sm font-semibold mt-0 mb-2", children: "Pure CSS for app interfaces" }),
+            /* @__PURE__ */ jsx(
+              "h1",
+              {
+                id: "home-title",
+                class: "text-4xl font-bold leading-tight mt-0 mb-4",
+                style: "font-size: clamp(3rem, 4.2vw, 3.75rem)",
+                children: "Build app interfaces with HTML that stays readable"
+              }
+            ),
+            /* @__PURE__ */ jsx("p", { class: "max-w-prose text-lg leading-relaxed mt-0 mb-6", children: "Dragonglass is an HTML5-first CSS framework for app interfaces. It styles semantic HTML through readable data-* component contracts, responsive layout primitives, focused utilities, and compiled themes. Applications load plain CSS and keep their existing client-side stack." }),
+            /* @__PURE__ */ jsxs("p", { class: "mt-0 mb-0", children: [
+              /* @__PURE__ */ jsx(
+                "a",
+                {
+                  "data-button": true,
+                  class: "bg-primary text-lg p-3 mr-2 mb-2",
+                  href: "#quick-start",
+                  children: "Get started"
+                }
+              ),
+              /* @__PURE__ */ jsx(
+                "a",
+                {
+                  "data-link": "standalone",
+                  class: "text-lg p-3 mb-2",
+                  href: pathFor("AppComponents"),
+                  children: "Browse components"
+                }
+              )
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxs("figure", { class: "lg:w-5/12 mt-6", children: [
+            /* @__PURE__ */ jsx("figcaption", { class: "text-sm font-semibold mt-0 mb-2", children: "Markup and rendered result" }),
+            /* @__PURE__ */ jsx(code_example_default, { code: firstSurfaceCode }),
+            /* @__PURE__ */ jsxs("article", { "data-card": true, "data-markdown": "exclude", children: [
+              /* @__PURE__ */ jsx("header", { children: /* @__PURE__ */ jsx("h2", { children: "Project: Dragonglass" }) }),
+              /* @__PURE__ */ jsx("p", { children: "The team is reviewing the final interface states." }),
+              /* @__PURE__ */ jsx("footer", { children: /* @__PURE__ */ jsx("a", { href: pathFor("AppComponents"), children: "Open project" }) })
+            ] })
+          ] })
+        ] }) })
+      }
+    ),
+    /* @__PURE__ */ jsx(
+      "section",
+      {
+        class: "bg-default-lightest text-black pt-12 pb-12",
+        "aria-labelledby": "mental-model-title",
+        children: /* @__PURE__ */ jsxs("div", { class: "container pl-4 pr-4", children: [
           /* @__PURE__ */ jsx(
-            "h1",
+            "h2",
             {
-              id: "home-title",
-              class: `${introMeasure} text-5xl font-bold leading-tight mt-0 mb-4`,
-              children: "App interfaces with readable HTML."
+              id: "mental-model-title",
+              class: "max-w-prose text-3xl font-semibold leading-tight mt-0 mb-3",
+              children: "Structure the HTML. Select a component contract. Refine the result."
             }
           ),
-          /* @__PURE__ */ jsx("p", { class: `${introMeasure} text-lg leading-relaxed mt-0 mb-4`, children: "Dragonglass styles semantic HTML with readable data-* component variants, responsive layout primitives and focused utilities. It ships as plain CSS with no client-side framework dependency." }),
-          /* @__PURE__ */ jsxs("p", { class: `${introMeasure} mt-0 mb-0`, children: [
+          /* @__PURE__ */ jsx("p", { class: "max-w-prose text-lg mt-0 mb-8", children: "Dragonglass keeps the structure, component choice, and visual adjustments visible in your markup." }),
+          /* @__PURE__ */ jsx("div", { class: "grid grid-gutters", children: mentalModel.map(([title, body]) => /* @__PURE__ */ jsxs("div", { class: "md:w-4/12", children: [
+            /* @__PURE__ */ jsx("h3", { class: "text-lg font-semibold mt-0 mb-2", children: title }),
+            /* @__PURE__ */ jsx("p", { class: "mt-0 mb-4", children: body })
+          ] })) }),
+          /* @__PURE__ */ jsx("div", { class: "grid grid-gutters mt-4 mb-0", children: frameworkSummary.map((item) => /* @__PURE__ */ jsxs("span", { class: "md:w-4/12 font-semibold mb-2", children: [
+            item,
+            " "
+          ] })) })
+        ] })
+      }
+    ),
+    /* @__PURE__ */ jsx(
+      "section",
+      {
+        id: "quick-start",
+        class: "bg-white pt-12 pb-12",
+        "aria-labelledby": "quick-start-title",
+        children: /* @__PURE__ */ jsx("div", { class: "container pl-4 pr-4", children: /* @__PURE__ */ jsxs("div", { class: "grid grid-gutters", children: [
+          /* @__PURE__ */ jsxs("div", { class: "md:w-4/12", children: [
+            /* @__PURE__ */ jsx(
+              "h2",
+              {
+                id: "quick-start-title",
+                class: "text-3xl font-semibold leading-tight mt-0 mb-3",
+                children: "Install Dragonglass and build your first card"
+              }
+            ),
+            /* @__PURE__ */ jsx("p", { class: "text-lg mt-0 mb-4", children: "Install the package, import Dragonglass and one theme, then add semantic HTML." }),
+            /* @__PURE__ */ jsxs("p", { class: "mt-0 mb-4", children: [
+              "Import the theme after ",
+              /* @__PURE__ */ jsx("code", { children: "dragonglass.css" }),
+              " so it can provide the color tokens."
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxs("div", { class: "md:w-8/12", children: [
+            /* @__PURE__ */ jsxs("figure", { children: [
+              /* @__PURE__ */ jsx("figcaption", { class: "text-lg font-semibold mt-0 mb-2", children: "Step 1: Install the package" }),
+              /* @__PURE__ */ jsx(code_example_default, { code: installCode })
+            ] }),
+            /* @__PURE__ */ jsxs("figure", { children: [
+              /* @__PURE__ */ jsx("figcaption", { class: "text-lg font-semibold mt-0 mb-2", children: "Step 2: Import Dragonglass and a theme" }),
+              /* @__PURE__ */ jsx(code_example_default, { code: importCode })
+            ] }),
+            /* @__PURE__ */ jsxs("figure", { children: [
+              /* @__PURE__ */ jsx("figcaption", { class: "text-lg font-semibold mt-0 mb-2", children: "Step 3: Add your first card" }),
+              /* @__PURE__ */ jsx(code_example_default, { code: firstSurfaceCode })
+            ] }),
+            /* @__PURE__ */ jsx("p", { class: "mt-0 mb-4", children: "Dragonglass styles the semantic regions and applies the card contract through data-card." }),
+            /* @__PURE__ */ jsx("p", { class: "mt-0 mb-4", children: /* @__PURE__ */ jsx("a", { "data-button": true, class: "bg-primary p-4", href: pathFor("Cards"), children: "Explore card variants" }) }),
+            /* @__PURE__ */ jsx("p", { class: "mt-0 mb-0", children: /* @__PURE__ */ jsx("a", { "data-link": "standalone", href: pathFor("AppComponents"), children: "Browse all components" }) })
+          ] })
+        ] }) })
+      }
+    ),
+    /* @__PURE__ */ jsx(
+      "section",
+      {
+        class: "bg-default-lightest text-black pt-12 pb-12",
+        "aria-labelledby": "components-title",
+        children: /* @__PURE__ */ jsxs("div", { class: "container pl-4 pr-4", children: [
+          /* @__PURE__ */ jsx(
+            "h2",
+            {
+              id: "components-title",
+              class: "max-w-prose text-3xl font-semibold leading-tight mt-0 mb-3",
+              children: "Find components by what the interface needs to do"
+            }
+          ),
+          /* @__PURE__ */ jsx("p", { class: "max-w-prose text-lg mt-0 mb-8", children: "Component guides show the available markup, variants, and states." }),
+          /* @__PURE__ */ jsx("div", { class: "grid grid-gutters", children: componentCategories.map(([title, body]) => /* @__PURE__ */ jsxs("div", { class: "md:w-6/12", children: [
+            /* @__PURE__ */ jsx("h3", { class: "text-lg font-semibold mt-0 mb-2", children: title }),
+            /* @__PURE__ */ jsx("p", { class: "mt-0 mb-5", children: body })
+          ] })) }),
+          /* @__PURE__ */ jsx("p", { class: "max-w-prose mt-3 mb-4", children: "Use utilities for focused changes to spacing, layout, typography, color, borders, and elevation." }),
+          /* @__PURE__ */ jsxs("p", { class: "mt-0 mb-0", children: [
             /* @__PURE__ */ jsx(
               "a",
               {
                 "data-button": true,
-                class: "bg-primary text-lg p-3 mr-2 mb-2",
+                class: "bg-primary p-4 mr-2 mb-2",
                 href: pathFor("AppComponents"),
-                children: "Explore app components"
+                children: "Browse all components"
               }
             ),
             /* @__PURE__ */ jsx(
               "a",
               {
                 "data-link": "standalone",
-                class: "text-lg p-3 mb-2",
-                href: pathFor("Layouts"),
-                children: "View layout"
+                class: "p-3 mb-2",
+                href: pathFor("Utilities"),
+                children: "Open the utility reference"
               }
             )
-          ] }),
-          /* @__PURE__ */ jsx(
-            "h2",
-            {
-              class: `${contentMeasure} text-2xl font-semibold leading-tight mt-10 mb-3`,
-              children: "Add Dragonglass"
-            }
-          ),
-          /* @__PURE__ */ jsxs("figure", { class: "md:w-4/12", "aria-labelledby": "package-label", children: [
-            /* @__PURE__ */ jsx(
-              "h3",
-              {
-                id: "package-label",
-                class: "text-lg font-semibold leading-snug mt-0 mb-2",
-                children: "Package"
-              }
-            ),
-            /* @__PURE__ */ jsx(code_example_default, { code: installCode })
-          ] }),
-          /* @__PURE__ */ jsxs("figure", { class: "md:w-6/12", "aria-labelledby": "stylesheets-label", children: [
-            /* @__PURE__ */ jsx(
-              "h3",
-              {
-                id: "stylesheets-label",
-                class: "text-lg font-semibold leading-snug mt-0 mb-2",
-                children: "Stylesheets"
-              }
-            ),
-            /* @__PURE__ */ jsx("p", { class: "mt-0 mb-2", children: "Import the framework first, then one compiled theme." }),
-            /* @__PURE__ */ jsx(code_example_default, { code: importCode })
           ] })
-        ]
+        ] })
       }
     ),
-    /* @__PURE__ */ jsx("hr", { class: "mt-8 mb-8" }),
-    /* @__PURE__ */ jsxs(
+    /* @__PURE__ */ jsx(
       "section",
       {
-        class: "grid-center grid-gutters",
-        "aria-labelledby": "composition-title",
-        children: [
-          /* @__PURE__ */ jsx("p", { class: `${contentMeasure} text-sm font-semibold mt-0 mb-2`, children: "Readable composition" }),
-          /* @__PURE__ */ jsx(
-            "h2",
-            {
-              id: "composition-title",
-              class: `${contentMeasure} text-2xl font-semibold leading-tight mt-0 mb-3`,
-              children: "Use attributes for components. Keep utilities focused."
-            }
-          ),
-          /* @__PURE__ */ jsx("p", { class: `${contentMeasure} mt-0 mb-6`, children: "Start with a native element. Add data-card for the component contract and p-4 for one explicit spacing adjustment." }),
-          /* @__PURE__ */ jsx("figure", { class: "md:w-7/12 lg:w-6/12", "aria-label": "README card markup", children: /* @__PURE__ */ jsx(code_example_default, { code: cardCode }) }),
-          /* @__PURE__ */ jsxs(
-            "figure",
-            {
-              class: "md:w-5/12 lg:w-4/12",
-              "aria-label": "Rendered card and markup annotations",
-              children: [
-                /* @__PURE__ */ jsxs("section", { "data-card": true, class: "p-4", children: [
-                  /* @__PURE__ */ jsx("h2", { children: "Website refresh" }),
-                  /* @__PURE__ */ jsx("p", { children: "The team is reviewing the final interface states." }),
-                  /* @__PURE__ */ jsx("button", { children: "Open project" })
-                ] }),
-                /* @__PURE__ */ jsxs("dl", { children: [
-                  /* @__PURE__ */ jsx("dt", { children: "HTML structure" }),
-                  /* @__PURE__ */ jsx("dd", { children: /* @__PURE__ */ jsx("code", { children: "section" }) }),
-                  /* @__PURE__ */ jsx("dt", { children: "Component contract" }),
-                  /* @__PURE__ */ jsx("dd", { children: /* @__PURE__ */ jsx("code", { children: "data-card" }) }),
-                  /* @__PURE__ */ jsx("dt", { children: "Focused utility" }),
-                  /* @__PURE__ */ jsx("dd", { children: /* @__PURE__ */ jsx("code", { children: "p-4" }) })
-                ] })
-              ]
-            }
-          )
-        ]
-      }
-    ),
-    /* @__PURE__ */ jsx("hr", { class: "mt-8 mb-8" }),
-    /* @__PURE__ */ jsxs(
-      "section",
-      {
-        class: "grid-center grid-gutters",
-        "aria-labelledby": "components-title",
-        children: [
-          /* @__PURE__ */ jsx("p", { class: `${contentMeasure} text-sm font-semibold mt-0 mb-2`, children: "App components" }),
-          /* @__PURE__ */ jsx(
-            "h2",
-            {
-              id: "components-title",
-              class: `${contentMeasure} text-2xl font-semibold leading-tight mt-0 mb-3`,
-              children: "Common app surfaces, grouped by purpose."
-            }
-          ),
-          /* @__PURE__ */ jsx("p", { class: `${contentMeasure} mt-0 mb-6`, children: "Each component guide pairs rendered examples with markup and an API table for its elements, attributes, variants, states and tokens." }),
-          /* @__PURE__ */ jsx("dl", { class: "md:w-10/12", children: componentGroups.flatMap(([group, contents]) => [
-            /* @__PURE__ */ jsx("dt", { children: group }),
-            /* @__PURE__ */ jsx("dd", { children: contents })
-          ]) }),
-          /* @__PURE__ */ jsx("h3", { class: "md:w-3/12 text-lg font-semibold leading-snug mt-0 mb-0", children: "Focused adjustments" }),
-          /* @__PURE__ */ jsx("p", { class: "md:w-4/12 mt-0 mb-0", children: "Spacing, layout, borders, typography, elevation and color." }),
-          /* @__PURE__ */ jsx("p", { class: "md:w-3/12 mt-0 mb-0", children: /* @__PURE__ */ jsx("a", { "data-button": true, class: "text-lg p-3", href: pathFor("Utilities"), children: "View utilities" }) })
-        ]
-      }
-    ),
-    /* @__PURE__ */ jsx("hr", { class: "mt-8 mb-8" }),
-    /* @__PURE__ */ jsxs(
-      "section",
-      {
-        class: "grid-center grid-gutters pb-8",
+        class: "bg-default-darkest text-white pt-12 pb-12",
         "aria-labelledby": "themes-title",
-        children: [
-          /* @__PURE__ */ jsx("p", { class: `${contentMeasure} text-sm font-semibold mt-0 mb-2`, children: "12 compiled themes" }),
+        children: /* @__PURE__ */ jsx("div", { class: "container pl-4 pr-4", children: /* @__PURE__ */ jsxs("div", { class: "grid grid-gutters", children: [
+          /* @__PURE__ */ jsxs("div", { class: "md:w-4/12", children: [
+            /* @__PURE__ */ jsx(
+              "h2",
+              {
+                id: "themes-title",
+                class: "text-3xl font-semibold leading-tight mt-0 mb-3",
+                children: "Change the theme. Keep the component markup"
+              }
+            ),
+            /* @__PURE__ */ jsx("p", { class: "mt-0 mb-5", children: "Dragonglass includes twelve compiled themes built on the same semantic token contract. Each theme supports light and dark color schemes while the component markup stays unchanged." }),
+            /* @__PURE__ */ jsx("p", { class: "mt-0 mb-6", children: /* @__PURE__ */ jsx("a", { "data-button": true, class: "bg-primary p-4", href: pathFor("Colors"), children: "Explore themes and colors" }) })
+          ] }),
+          /* @__PURE__ */ jsxs("div", { class: "md:w-8/12", children: [
+            /* @__PURE__ */ jsx(
+              "ul",
+              {
+                "data-list": true,
+                class: "grid grid-gutters mt-0 mb-6",
+                "aria-label": "Bundled themes",
+                children: bundledThemes.map((theme) => /* @__PURE__ */ jsxs("li", { class: "w-1/2 md:w-1/4 mb-3", children: [
+                  /* @__PURE__ */ jsx(
+                    "span",
+                    {
+                      class: "h-8 border border-white mb-2 w-1/2",
+                      style: `display: block; background-color: ${theme.primary}`,
+                      "aria-hidden": "true"
+                    }
+                  ),
+                  /* @__PURE__ */ jsx("span", { class: "w-1/2", children: theme.label })
+                ] }))
+              }
+            ),
+            /* @__PURE__ */ jsxs("figure", { children: [
+              /* @__PURE__ */ jsx("figcaption", { class: "text-lg font-semibold mt-0 mb-2", children: "Compile a custom theme" }),
+              /* @__PURE__ */ jsx("div", { class: "text-black", children: /* @__PURE__ */ jsx(code_example_default, { code: customThemeCode }) })
+            ] })
+          ] })
+        ] }) })
+      }
+    ),
+    /* @__PURE__ */ jsx(
+      "section",
+      {
+        class: "bg-white pt-12 pb-12",
+        "aria-labelledby": "documentation-title",
+        children: /* @__PURE__ */ jsxs("div", { class: "container pl-4 pr-4", children: [
           /* @__PURE__ */ jsx(
             "h2",
             {
-              id: "themes-title",
-              class: `${contentMeasure} text-2xl font-semibold leading-tight mt-0 mb-3`,
-              children: "One semantic token contract across light and dark."
+              id: "documentation-title",
+              class: "max-w-prose text-3xl font-semibold leading-tight mt-0 mb-3",
+              children: "Choose where to continue"
             }
           ),
-          /* @__PURE__ */ jsx("p", { class: `${contentMeasure} mt-0 mb-6`, children: "Each theme derives light and dark structural roles from the same primary and follows prefers-color-scheme automatically." }),
-          /* @__PURE__ */ jsxs("figure", { class: "lg:w-5/12", "aria-label": "Manual color scheme control", children: [
-            /* @__PURE__ */ jsxs("p", { "data-alert": "info", children: [
-              /* @__PURE__ */ jsx("strong", { children: "Manual control:" }),
-              " set ",
-              /* @__PURE__ */ jsx("code", { children: "data-color-scheme" }),
-              " to",
-              " ",
-              /* @__PURE__ */ jsx("code", { children: "light" }),
-              " or ",
-              /* @__PURE__ */ jsx("code", { children: "dark" }),
-              " on the root element."
-            ] }),
-            /* @__PURE__ */ jsx(code_example_default, { code: colorSchemeCode })
-          ] }),
-          /* @__PURE__ */ jsxs("figure", { class: "lg:w-5/12", "aria-labelledby": "custom-theme-title", children: [
+          /* @__PURE__ */ jsx("p", { class: "max-w-prose text-lg mt-0 mb-8", children: "Go directly to the part of Dragonglass you need next." }),
+          /* @__PURE__ */ jsx("div", { class: "grid grid-gutters", children: documentationPaths.map(({ title, body, href }, index) => /* @__PURE__ */ jsxs("article", { class: "md:w-6/12 mb-6", children: [
             /* @__PURE__ */ jsx(
               "h3",
               {
-                id: "custom-theme-title",
-                class: "text-lg font-semibold leading-snug mt-0 mb-2",
-                children: "Custom"
+                class: `${index < 2 ? "text-xl" : "text-lg"} font-semibold mt-0 mb-2`,
+                children: /* @__PURE__ */ jsx("a", { "data-button": true, class: "bg-default p-3", href, children: title })
               }
             ),
-            /* @__PURE__ */ jsx("p", { class: "mt-0 mb-2", children: "Compile semantic families, foregrounds and progress colors from one supported opaque primary." }),
-            /* @__PURE__ */ jsx(code_example_default, { code: customThemeCode }),
-            /* @__PURE__ */ jsx("p", { class: "mt-4 mb-0", children: /* @__PURE__ */ jsx("a", { "data-button": true, class: "text-lg p-3", href: pathFor("Colors"), children: "Explore colors" }) })
+            /* @__PURE__ */ jsx("p", { class: "max-w-prose mt-0 mb-0", children: body })
+          ] })) }),
+          /* @__PURE__ */ jsx("hr", { class: "mt-4 mb-6" }),
+          /* @__PURE__ */ jsxs("div", { class: "max-w-prose", children: [
+            /* @__PURE__ */ jsx("h3", { class: "text-lg font-semibold mt-0 mb-2", children: "Browser support" }),
+            /* @__PURE__ */ jsx("p", { class: "mt-0 mb-0", children: "Dragonglass supports Chrome 119+, Edge 119+, Firefox 121+, Safari 16.5+, and iOS Safari 16.5+." })
           ] })
-        ]
+        ] })
       }
     )
-  ] });
+  ] }) });
 
   // site/src/docs/api_table.tsx
   var ApiTable = ({ caption, rows }) => /* @__PURE__ */ jsxs("table", { children: [
@@ -2736,9 +2852,9 @@ import "dragonglass/dist/themes/default.css";`;
     const content = theme.label;
     const path = themeRoutePath(theme.name, colorScheme);
     if (currentThemeName === theme.name && currentColorScheme === colorScheme) {
-      return /* @__PURE__ */ jsx("a", { href: path, "aria-current": "page", children: content });
+      return /* @__PURE__ */ jsx("span", { "data-markdown": "include-descendants", children: /* @__PURE__ */ jsx("a", { href: path, "aria-current": "page", children: content }) });
     }
-    return /* @__PURE__ */ jsx("a", { href: path, children: content });
+    return /* @__PURE__ */ jsx("span", { "data-markdown": "include-descendants", children: /* @__PURE__ */ jsx("a", { href: path, children: content }) });
   };
   var ThemeMenu = ({
     colorScheme,
@@ -2822,16 +2938,26 @@ import "dragonglass/dist/themes/default.css";`;
     }))
   );
   var ColorsPage = ({
-    colorScheme = "auto",
+    colorScheme = "light",
     themeName
   } = {}) => {
-    const route = routeByPage.get("Colors");
+    let route = routeByPage.get("Colors");
+    if (typeof themeName === "string") {
+      if (colorScheme !== "light" && colorScheme !== "dark") {
+        throw new Error(`Color scheme not found for theme: ${themeName}`);
+      }
+      route = routeByPath.get(themeRoutePath(themeName, colorScheme));
+    }
     if (!route) {
-      throw new Error("Documentation metadata not found for page: Colors");
+      throw new Error(
+        "Documentation metadata not found for Colors or theme page"
+      );
     }
     return /* @__PURE__ */ jsxs(layout_default, { currentPath: route.path, children: [
+      /* @__PURE__ */ jsx("h1", { children: route.label }),
+      /* @__PURE__ */ jsx("p", { children: route.description }),
       /* @__PURE__ */ jsxs("header", { children: [
-        /* @__PURE__ */ jsx("h1", { children: "Themes" }),
+        /* @__PURE__ */ jsx("h2", { children: "Browse light themes" }),
         /* @__PURE__ */ jsx(
           theme_menu_default,
           {
@@ -2842,7 +2968,7 @@ import "dragonglass/dist/themes/default.css";`;
         )
       ] }),
       /* @__PURE__ */ jsxs("header", { children: [
-        /* @__PURE__ */ jsx("h1", { children: "Dark themes" }),
+        /* @__PURE__ */ jsx("h2", { children: "Browse dark themes" }),
         /* @__PURE__ */ jsx(
           theme_menu_default,
           {
@@ -2852,12 +2978,10 @@ import "dragonglass/dist/themes/default.css";`;
           }
         )
       ] }),
-      /* @__PURE__ */ jsx("h1", { children: route.label }),
-      /* @__PURE__ */ jsx("p", { children: route.description }),
       /* @__PURE__ */ jsxs(demo_section_default, { id: "color-palette", title: "Background and text colors", children: [
         /* @__PURE__ */ jsx("p", { children: "Each semantic color includes lightest, lighter, light, base, dark, darker and darkest tokens. White and black remain the global contrast extremes." }),
         /* @__PURE__ */ jsx("div", { class: "bg-primary p-3", children: "Primary background" }),
-        /* @__PURE__ */ jsx("p", { class: "text-primary-dark", children: "Primary dark text" }),
+        /* @__PURE__ */ jsx("p", { class: "text-primary-dark", "data-markdown": "exclude", children: "Primary dark text" }),
         /* @__PURE__ */ jsx(code_example_default, { code: paletteExample }),
         /* @__PURE__ */ jsx("div", { class: "grid-gutters", children: colors.map((color) => /* @__PURE__ */ jsxs("div", { class: "md:w-1/4 lg:w-1/7", children: [
           weights.map((weight) => /* @__PURE__ */ jsx("div", { class: `bg-${color}${weight} p-3`, children: `bg-${color}${weight}` })),
@@ -4786,44 +4910,62 @@ import "dragonglass/dist/themes/default.css";`;
   ];
   var tooltips_page_default = () => /* @__PURE__ */ jsxs(doc_page_default, { page: "Tooltips", children: [
     /* @__PURE__ */ jsxs(demo_section_default, { id: "default-tooltip", title: "Default tooltip", children: [
-      /* @__PURE__ */ jsx("span", { "data-tooltip": "This is a tooltip", class: "inline", children: "This span has a tooltip" }),
+      /* @__PURE__ */ jsx(
+        "span",
+        {
+          "data-tooltip": "This is a tooltip",
+          "data-markdown": "exclude",
+          class: "inline",
+          children: "This span has a tooltip"
+        }
+      ),
       /* @__PURE__ */ jsx(code_example_default, { code: spanExample })
     ] }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "tooltip-colors", title: "Tooltip colors", children: colors3.map((color) => {
-      const code = `<span data-tooltip="This is a ${color} tooltip" class="inline after:bg-${color}">${color} tooltip</span>`;
-      return /* @__PURE__ */ jsxs("div", { children: [
-        /* @__PURE__ */ jsxs(
-          "span",
-          {
-            "data-tooltip": `This is a ${color} tooltip`,
-            class: `inline after:bg-${color}`,
-            children: [
-              color,
-              " tooltip"
-            ]
-          }
-        ),
-        /* @__PURE__ */ jsx(code_example_default, { code })
-      ] });
-    }) }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "tooltip-directions", title: "Tooltip directions", children: directions.map((direction) => {
-      const code = `<span data-tooltip="This tooltip opens ${direction}" data-tooltip-position="${direction}" class="inline ml-16">${direction} tooltip</span>`;
-      return /* @__PURE__ */ jsxs("div", { children: [
-        /* @__PURE__ */ jsxs(
-          "span",
-          {
-            "data-tooltip": `This tooltip opens ${direction}`,
-            "data-tooltip-position": direction,
-            class: "inline ml-16",
-            children: [
-              direction,
-              " tooltip"
-            ]
-          }
-        ),
-        /* @__PURE__ */ jsx(code_example_default, { code })
-      ] });
-    }) }),
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "tooltip-colors", title: "Tooltip colors", children: [
+      /* @__PURE__ */ jsxs("p", { children: [
+        "Apply after:bg-",
+        "{color}",
+        " to select a semantic tooltip background. Dragonglass supports primary, accent, info, success, warning, danger, and default."
+      ] }),
+      colors3.map((color) => {
+        const code = `<span data-tooltip="This is a ${color} tooltip" class="inline after:bg-${color}">${color} tooltip</span>`;
+        return /* @__PURE__ */ jsxs("div", { children: [
+          /* @__PURE__ */ jsxs(
+            "span",
+            {
+              "data-tooltip": `This is a ${color} tooltip`,
+              class: `inline after:bg-${color}`,
+              children: [
+                color,
+                " tooltip"
+              ]
+            }
+          ),
+          /* @__PURE__ */ jsx(code_example_default, { code })
+        ] });
+      })
+    ] }),
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "tooltip-directions", title: "Tooltip directions", children: [
+      /* @__PURE__ */ jsx("p", { children: "Set data-tooltip-position to bottom, left, or right. An omitted attribute places the tooltip above its trigger." }),
+      directions.map((direction) => {
+        const code = `<span data-tooltip="This tooltip opens ${direction}" data-tooltip-position="${direction}" class="inline ml-16">${direction} tooltip</span>`;
+        return /* @__PURE__ */ jsxs("div", { children: [
+          /* @__PURE__ */ jsxs(
+            "span",
+            {
+              "data-tooltip": `This tooltip opens ${direction}`,
+              "data-tooltip-position": direction,
+              class: "inline ml-16",
+              children: [
+                direction,
+                " tooltip"
+              ]
+            }
+          ),
+          /* @__PURE__ */ jsx(code_example_default, { code })
+        ] });
+      })
+    ] }),
     /* @__PURE__ */ jsx(demo_section_default, { id: "tooltip-api", title: "Tooltip API", children: /* @__PURE__ */ jsx(
       api_table_default,
       {
@@ -4995,7 +5137,7 @@ import "dragonglass/dist/themes/default.css";`;
     const attributes = {
       "data-table": typeof color === "string" ? color : ""
     };
-    return /* @__PURE__ */ jsxs("table", { ...attributes, children: [
+    return /* @__PURE__ */ jsxs("table", { ...attributes, "data-markdown": "exclude", children: [
       /* @__PURE__ */ jsx("caption", { children: "Food details" }),
       /* @__PURE__ */ jsx("thead", { children: /* @__PURE__ */ jsxs("tr", { children: [
         /* @__PURE__ */ jsx("th", { scope: "col", children: "Type of food" }),
@@ -5026,10 +5168,13 @@ import "dragonglass/dist/themes/default.css";`;
       /* @__PURE__ */ jsx(Table, {}),
       /* @__PURE__ */ jsx(code_example_default, { code: tableCode() })
     ] }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "table-colors", title: "Table colors", children: colors4.map((color) => /* @__PURE__ */ jsxs("div", { children: [
-      /* @__PURE__ */ jsx(Table, { color }),
-      /* @__PURE__ */ jsx(code_example_default, { code: tableCode(color) })
-    ] })) }),
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "table-colors", title: "Table colors", children: [
+      /* @__PURE__ */ jsx("p", { children: "Set data-table to a semantic color token to apply that tone to the responsive table. Dragonglass supports primary, accent, success, info, warning, danger, and default." }),
+      colors4.map((color) => /* @__PURE__ */ jsxs("div", { children: [
+        /* @__PURE__ */ jsx(Table, { color }),
+        /* @__PURE__ */ jsx(code_example_default, { code: tableCode(color) })
+      ] }))
+    ] }),
     /* @__PURE__ */ jsx(demo_section_default, { id: "table-api", title: "Table API", children: /* @__PURE__ */ jsx(api_table_default, { caption: "Responsive table attributes", rows: tableRows }) })
   ] });
 
@@ -5202,7 +5347,7 @@ import "dragonglass/dist/themes/default.css";`;
   var componentPages = catalog.filter(
     ({ category, page }) => !excludedCategories.has(category) && page !== "Home" && page !== "AppComponents"
   );
-  var componentCategories = categoryOrder.filter(
+  var componentCategories2 = categoryOrder.filter(
     (category) => componentPages.some((route) => route.category === category)
   );
   var app_components_page_default = () => /* @__PURE__ */ jsxs(doc_page_default, { page: "AppComponents", children: [
@@ -5212,7 +5357,7 @@ import "dragonglass/dist/themes/default.css";`;
       /* @__PURE__ */ jsx("a", { href: routeByPage.get("Utilities").path, children: " utility reference" }),
       " for focused spacing, color, typography, layout and elevation adjustments."
     ] }),
-    componentCategories.map((category) => /* @__PURE__ */ jsx(
+    componentCategories2.map((category) => /* @__PURE__ */ jsx(
       demo_section_default,
       {
         id: `${category.toLowerCase().replaceAll(" ", "-")}-components`,
@@ -5418,7 +5563,7 @@ import "dragonglass/dist/themes/default.css";`;
         /* @__PURE__ */ jsx("code", { children: "a" }),
         " and ",
         /* @__PURE__ */ jsx("code", { children: "button" }),
-        "children. Separators are visual borders, so source markup contains no generated separator text."
+        "children. Separators are visual chevrons, so source markup contains no generated separator text."
       ] }),
       /* @__PURE__ */ jsx(
         api_table_default,
@@ -5614,6 +5759,14 @@ import "dragonglass/dist/themes/default.css";`;
     <button type="submit">Save</button>
   </form>
 </details>`;
+  var expansionPanelColorExample = `<details class="bg-primary" data-expansion-panel open>
+  <summary>Deployment status</summary>
+  <p>The latest release is available.</p>
+</details>`;
+  var expansionSummaryColorExample = `<details data-expansion-panel open>
+  <summary class="bg-accent">Security settings</summary>
+  <p>Two-factor authentication is active.</p>
+</details>`;
   var expansion_panels_page_default = () => /* @__PURE__ */ jsxs(doc_page_default, { page: "ExpansionPanels", children: [
     /* @__PURE__ */ jsxs(demo_section_default, { id: "expansion-basic-title", title: "Collapsed and open panels", children: [
       /* @__PURE__ */ jsxs("details", { "data-expansion-panel": true, children: [
@@ -5636,6 +5789,34 @@ import "dragonglass/dist/themes/default.css";`;
         ] })
       ] }),
       /* @__PURE__ */ jsx(code_example_default, { code: expansionFormExample })
+    ] }),
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "expansion-panel-color-title", title: "Colored panel", children: [
+      /* @__PURE__ */ jsxs("p", { children: [
+        "Apply a ",
+        /* @__PURE__ */ jsx("code", { children: "bg-*" }),
+        " utility to ",
+        /* @__PURE__ */ jsx("code", { children: "details" }),
+        " to color the complete panel, including its heading and content."
+      ] }),
+      /* @__PURE__ */ jsxs("details", { class: "bg-primary", "data-expansion-panel": true, open: true, children: [
+        /* @__PURE__ */ jsx("summary", { children: "Deployment status" }),
+        /* @__PURE__ */ jsx("p", { children: "The latest release is available." })
+      ] }),
+      /* @__PURE__ */ jsx(code_example_default, { code: expansionPanelColorExample })
+    ] }),
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "expansion-summary-color-title", title: "Colored heading", children: [
+      /* @__PURE__ */ jsxs("p", { children: [
+        "Apply a ",
+        /* @__PURE__ */ jsx("code", { children: "bg-*" }),
+        " utility to ",
+        /* @__PURE__ */ jsx("code", { children: "summary" }),
+        " when only the panel heading needs a distinct color."
+      ] }),
+      /* @__PURE__ */ jsxs("details", { "data-expansion-panel": true, open: true, children: [
+        /* @__PURE__ */ jsx("summary", { class: "bg-accent", children: "Security settings" }),
+        /* @__PURE__ */ jsx("p", { children: "Two-factor authentication is active." })
+      ] }),
+      /* @__PURE__ */ jsx(code_example_default, { code: expansionSummaryColorExample })
     ] }),
     /* @__PURE__ */ jsx(demo_section_default, { id: "expansion-api-title", title: "API", children: /* @__PURE__ */ jsx(
       api_table_default,
@@ -5661,7 +5842,7 @@ import "dragonglass/dist/themes/default.css";`;
             description: "Rotates the generated disclosure marker."
           },
           {
-            name: "--card-radius / --default-light",
+            name: "--card-radius / --border-default",
             type: "Token",
             defaultValue: "Theme",
             description: "Control panel corners and border color."
@@ -6094,6 +6275,27 @@ import "dragonglass/dist/themes/default.css";`;
       description: "Layout utilities control positioning, stacking, fractional width and compact display behavior.",
       families: [
         {
+          pattern: "container",
+          type: "Centered container",
+          values: "100% width, var(--container-max-width) maximum",
+          variants: "Base only",
+          description: "Centers content with logical auto margins and adds no padding."
+        },
+        {
+          pattern: "max-w-{size}",
+          type: "Maximum width",
+          values: "sm (36rem), md (48rem), lg (64rem), xl (80rem), prose (65ch)",
+          variants: "Base only",
+          description: "Limits width without changing the element width or margins."
+        },
+        {
+          pattern: "mx-auto",
+          type: "Horizontal centering",
+          values: "margin-inline: auto",
+          variants: "Base only",
+          description: "Centers a width-constrained element without changing vertical margins."
+        },
+        {
           pattern: "relative | static | absolute | fixed | sticky",
           type: "Position",
           values: "The class name is the position value",
@@ -6416,6 +6618,14 @@ import "dragonglass/dist/themes/default.css";`;
   var responsiveExample2 = `<div class="grid-gutters">
   <section class="w-6/12 md:w-4/12 xl:w-3/12 p-4">Responsive column</section>
 </div>`;
+  var containerExample = `<section class="container">
+  <h2>Application content</h2>
+  <p>The container stays fluid until it reaches the configured maximum width.</p>
+</section>
+
+<p class="max-w-prose mx-auto">
+  This text measure stays readable and preserves its vertical margins.
+</p>`;
   var utilities_page_default = () => /* @__PURE__ */ jsxs(doc_page_default, { page: "Utilities", children: [
     /* @__PURE__ */ jsxs(demo_section_default, { id: "utility-index", title: "Find a utility", children: [
       /* @__PURE__ */ jsx("p", { children: "The reference groups every documented utility family by purpose. Each table shows the class pattern, accepted values and available variants." }),
@@ -6424,6 +6634,18 @@ import "dragonglass/dist/themes/default.css";`;
     /* @__PURE__ */ jsxs(demo_section_default, { id: "utility-composition", title: "Compose focused adjustments", children: [
       /* @__PURE__ */ jsx("p", { children: "A utility class changes one visual property or a small related set." }),
       /* @__PURE__ */ jsx(code_example_default, { code: compositionExample })
+    ] }),
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "utility-containers", title: "Constrain content width", children: [
+      /* @__PURE__ */ jsxs("p", { children: [
+        "Use ",
+        /* @__PURE__ */ jsx("code", { children: "container" }),
+        " for the common fluid and centered page width. Combine ",
+        /* @__PURE__ */ jsx("code", { children: "max-w-*" }),
+        " with ",
+        /* @__PURE__ */ jsx("code", { children: "mx-auto" }),
+        " when an element needs a different limit. These classes add no padding."
+      ] }),
+      /* @__PURE__ */ jsx(code_example_default, { code: containerExample })
     ] }),
     /* @__PURE__ */ jsxs(demo_section_default, { id: "utility-syntax", title: "Prefixes and special characters", children: [
       /* @__PURE__ */ jsxs("p", { children: [
@@ -6588,17 +6810,48 @@ import "dragonglass/dist/themes/default.css";`;
 
   // site/src/index.ts
   var router = new Router();
+  var themeStylesheetPattern = /theme-[^/]+\.css$/;
+  var syncDocumentationPresentation = (route) => {
+    if (typeof document === "undefined" || typeof document.querySelector !== "function") {
+      return;
+    }
+    const stylesheet = document.querySelector(
+      "#documentation-theme-stylesheet"
+    );
+    if (typeof stylesheet?.getAttribute !== "function") {
+      throw new Error("Documentation theme stylesheet not found");
+    }
+    const currentHref = stylesheet.getAttribute("href");
+    if (typeof currentHref !== "string" || !themeStylesheetPattern.test(currentHref)) {
+      throw new Error("Documentation theme stylesheet path is invalid");
+    }
+    const themeName = route.themeName ?? "default";
+    const nextHref = currentHref.replace(
+      themeStylesheetPattern,
+      `theme-${themeName}.css`
+    );
+    document.documentElement.dataset.colorScheme = route.colorScheme;
+    if (nextHref !== currentHref) {
+      stylesheet.setAttribute("href", nextHref);
+    }
+  };
   var pageForRoute = (route) => {
+    let renderPage;
     if (route.page === "Theme") {
       const themeName = route.themeName;
       const colorScheme = route.colorScheme;
       if (typeof themeName !== "string" || colorScheme !== "light" && colorScheme !== "dark") {
         throw new Error(`Theme metadata not found for route: ${route.path}`);
       }
-      return () => pages_default.Colors({ colorScheme, themeName });
+      renderPage = () => pages_default.Colors({ colorScheme, themeName });
+    } else {
+      const page = pages_default[route.page];
+      renderPage = () => page();
     }
-    const page = pages_default[route.page];
-    return () => page();
+    return () => {
+      syncDocumentationPresentation(route);
+      return renderPage();
+    };
   };
   var pagesByRoute = new Map(
     routes.map((route) => [route.path, pageForRoute(route)])

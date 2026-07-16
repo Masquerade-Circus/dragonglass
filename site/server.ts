@@ -78,7 +78,7 @@ const init = async () => {
 
         const routeHtml = await router.go(url.pathname);
         const html = renderHtml({
-          colorScheme: route.colorScheme ?? "auto",
+          colorScheme: route.colorScheme,
           scripts,
           content: String(routeHtml),
           isDevelopment: true,

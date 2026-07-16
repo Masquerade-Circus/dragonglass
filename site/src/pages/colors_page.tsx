@@ -1,7 +1,7 @@
 import ApiTable from "../docs/api_table";
 import CodeExample from "../docs/code_example";
 import DemoSection from "../docs/demo_section";
-import { routeByPage } from "../docs/catalog";
+import { routeByPage, routeByPath, themeRoutePath } from "../docs/catalog";
 import ThemeMenu from "../docs/theme_menu";
 import type { ColorScheme, ThemeName } from "../themes";
 import Layout from "./layout";
@@ -71,24 +71,36 @@ const colorRows = colors.flatMap((color) =>
 );
 
 type ColorsPageProps = {
-  colorScheme?: ColorScheme;
+  colorScheme?: Extract<ColorScheme, "light" | "dark">;
   themeName?: ThemeName;
 };
 
 const ColorsPage = ({
-  colorScheme = "auto",
+  colorScheme = "light",
   themeName,
 }: ColorsPageProps = {}) => {
-  const route = routeByPage.get("Colors");
+  let route = routeByPage.get("Colors");
+
+  if (typeof themeName === "string") {
+    if (colorScheme !== "light" && colorScheme !== "dark") {
+      throw new Error(`Color scheme not found for theme: ${themeName}`);
+    }
+
+    route = routeByPath.get(themeRoutePath(themeName, colorScheme));
+  }
 
   if (!route) {
-    throw new Error("Documentation metadata not found for page: Colors");
+    throw new Error(
+      "Documentation metadata not found for Colors or theme page",
+    );
   }
 
   return (
     <Layout currentPath={route.path}>
+      <h1>{route.label}</h1>
+      <p>{route.description}</p>
       <header>
-        <h1>Themes</h1>
+        <h2>Browse light themes</h2>
         <ThemeMenu
           colorScheme="light"
           currentColorScheme={colorScheme}
@@ -96,15 +108,13 @@ const ColorsPage = ({
         />
       </header>
       <header>
-        <h1>Dark themes</h1>
+        <h2>Browse dark themes</h2>
         <ThemeMenu
           colorScheme="dark"
           currentColorScheme={colorScheme}
           currentThemeName={themeName}
         />
       </header>
-      <h1>{route.label}</h1>
-      <p>{route.description}</p>
 
       <DemoSection id="color-palette" title="Background and text colors">
         <p>
@@ -113,7 +123,9 @@ const ColorsPage = ({
           extremes.
         </p>
         <div class="bg-primary p-3">Primary background</div>
-        <p class="text-primary-dark">Primary dark text</p>
+        <p class="text-primary-dark" data-markdown="exclude">
+          Primary dark text
+        </p>
         <CodeExample code={paletteExample} />
         <div class="grid-gutters">
           {colors.map((color) => (

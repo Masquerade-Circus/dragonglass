@@ -46,10 +46,6 @@ label[data-chip] {
   margin: 0;
 }
 
-[data-chip]:has(input:checked) > input {
-  --control-accent: var(--chip-active-text);
-}
-
 @each $name in $primaryColorNames {
   [data-chip~="#{$name}"] {
     --chip-border: var(--#{$name}-accent);

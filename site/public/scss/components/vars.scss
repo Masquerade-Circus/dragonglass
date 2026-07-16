@@ -33,6 +33,14 @@ $viewportHeights: (
   screen: 100svh,
 );
 
+$maxWidths: (
+  sm: 36rem,
+  md: 48rem,
+  lg: 64rem,
+  xl: 80rem,
+  prose: 65ch,
+);
+
 $mediaPositions: (
   top-left: left top,
   top: center top,

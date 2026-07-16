@@ -1,100 +1,134 @@
-Pure CSS framework
+Pure CSS for app interfaces
 
-# App interfaces with readable HTML.
+# Build app interfaces with HTML that stays readable
 
-Dragonglass styles semantic HTML with readable data-* component variants, responsive layout primitives and focused utilities. It ships as plain CSS with no client-side framework dependency.
+Dragonglass is an HTML5-first CSS framework for app interfaces. It styles semantic HTML through readable data-* component contracts, responsive layout primitives, focused utilities, and compiled themes. Applications load plain CSS and keep their existing client-side stack.
 
-[Explore app components](/dragonglass/app-components.html.md) [View layout](/dragonglass/layout.html.md)
+[Get started](#quick-start) [Browse components](/dragonglass/app-components.html.md)
 
-## Add Dragonglass
+Markup and rendered result
 
-### Package
+```html
+<article data-card>
+  <header>
+    <h2>Project: Dragonglass</h2>
+  </header>
+  <p>The team is reviewing the final interface states.</p>
+  <footer>
+    <a href="/dragonglass/app-components.html">Open project</a>
+  </footer>
+</article>
+```
+
+## Structure the HTML. Select a component contract. Refine the result.
+
+Dragonglass keeps the structure, component choice, and visual adjustments visible in your markup.
+
+### Semantic HTML
+
+Define the interface structure with native HTML elements.
+
+### Component attributes
+
+Select documented components, variants, and states with readable data-* attributes.
+
+### Focused utilities
+
+Adjust layout and presentation while the underlying structure stays visible.
+
+Plain CSS distribution Responsive layout primitives Twelve compiled themes
+
+## Install Dragonglass and build your first card
+
+Install the package, import Dragonglass and one theme, then add semantic HTML.
+
+Import the theme after `dragonglass.css` so it can provide the color tokens.
+
+Step 1: Install the package
 
 ```sh
 bun add dragonglass
 ```
 
-### Stylesheets
-
-Import the framework first, then one compiled theme.
+Step 2: Import Dragonglass and a theme
 
 ```js
 import "dragonglass/dist/dragonglass.css";
 import "dragonglass/dist/themes/default.css";
 ```
 
----
-
-Readable composition
-
-## Use attributes for components. Keep utilities focused.
-
-Start with a native element. Add data-card for the component contract and p-4 for one explicit spacing adjustment.
+Step 3: Add your first card
 
 ```html
-<section data-card class="p-4">
-  <h2>Website refresh</h2>
+<article data-card>
+  <header>
+    <h2>Project: Dragonglass</h2>
+  </header>
   <p>The team is reviewing the final interface states.</p>
-  <button>Open project</button>
-</section>
+  <footer>
+    <a href="/dragonglass/app-components.html">Open project</a>
+  </footer>
+</article>
 ```
 
-## Website refresh
+Dragonglass styles the semantic regions and applies the card contract through data-card.
 
-The team is reviewing the final interface states.
+[Explore card variants](/dragonglass/cards.html.md)
 
-- **HTML structure:**
-  `section`
-- **Component contract:**
-  `data-card`
-- **Focused utility:**
-  `p-4`
+[Browse all components](/dragonglass/app-components.html.md)
 
----
+## Find components by what the interface needs to do
 
-App components
+Component guides show the available markup, variants, and states.
 
-## Common app surfaces, grouped by purpose.
+### Actions
 
-Each component guide pairs rendered examples with markup and an API table for its elements, attributes, variants, states and tokens.
+Buttons, links, and chips for the actions people can take.
 
-- **Actions:**
-  Buttons, links and chips.
-- **Forms:**
-  Fields, floating labels, validation states and toggles.
-- **Navigation:**
-  Breadcrumbs, toolbars, expansion panels, steppers, tabs and menus.
-- **Feedback:**
-  Alerts, notifications and progress.
-- **Surfaces:**
-  Bottom sheets, cards and dialogs.
-- **Data display:**
-  Badges, lists, tables and tooltips.
+### Forms
 
-### Focused adjustments
+Fields, validation states, toggles, native pickers, and search interfaces.
 
-Spacing, layout, borders, typography, elevation and color.
+### Navigation
 
-[View utilities](/dragonglass/utilities.html.md)
+Toolbars, breadcrumbs, expansion panels, steppers, tabs, and menus.
 
----
+### Feedback
 
-12 compiled themes
+Alerts, notifications, and progress indicators.
 
-## One semantic token contract across light and dark.
+### Surfaces
 
-Each theme derives light and dark structural roles from the same primary and follows prefers-color-scheme automatically.
+Cards, dialogs, and bottom sheets.
 
-**Manual control:** set `data-color-scheme` to `light` or `dark` on the root element.
+### Data display
 
-```html
-<html data-color-scheme="light"></html>
-<html data-color-scheme="dark"></html>
-```
+Badges, lists, responsive tables, and tooltips.
 
-### Custom
+Use utilities for focused changes to spacing, layout, typography, color, borders, and elevation.
 
-Compile semantic families, foregrounds and progress colors from one supported opaque primary.
+[Browse all components](/dragonglass/app-components.html.md) [Open the utility reference](/dragonglass/utilities.html.md)
+
+## Change the theme. Keep the component markup
+
+Dragonglass includes twelve compiled themes built on the same semantic token contract. Each theme supports light and dark color schemes while the component markup stays unchanged.
+
+[Explore themes and colors](/dragonglass/colors.html.md)
+
+- Default
+- Indigo
+- Violet
+- Magenta
+- Ruby
+- Amber
+- Moss
+- Emerald
+- Teal
+- Ocean
+- Graphite
+- Stone
+
+Compile a custom theme
 
 ```scss
 @use "pkg:dragonglass/theme" as dragonglass;
@@ -104,4 +138,36 @@ Compile semantic families, foregrounds and progress colors from one supported op
 }
 ```
 
-[Explore colors](/dragonglass/colors.html.md)
+## Choose where to continue
+
+Go directly to the part of Dragonglass you need next.
+
+### [Getting started](#quick-start)
+
+Install Dragonglass and build your first interface.
+
+### [Components and API](/dragonglass/app-components.html.md)
+
+Find components by purpose and inspect their markup, variants, and states.
+
+### [Layout foundations](/dragonglass/layout.html.md)
+
+Build application shells, content regions, toolbars, and responsive layouts.
+
+### [Utilities](/dragonglass/utilities.html.md)
+
+Find the available classes for layout, spacing, typography, color, borders, and elevation.
+
+### [Themes and colors](/dragonglass/colors.html.md)
+
+Choose a bundled theme or compile custom color tokens.
+
+### [Forms](/dragonglass/forms.html.md)
+
+Review fields, validation states, toggles, pickers, and search layouts.
+
+---
+
+### Browser support
+
+Dragonglass supports Chrome 119+, Edge 119+, Firefox 121+, Safari 16.5+, and iOS Safari 16.5+.

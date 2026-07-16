@@ -15,7 +15,8 @@
   > * {
     z-index: 1;
   }
-  & > section {
+  & > section,
+  &:not(dialog) > p {
     padding: var(--card-padding);
   }
   & > [data-media] {

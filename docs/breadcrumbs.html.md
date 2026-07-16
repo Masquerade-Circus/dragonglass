@@ -28,7 +28,7 @@ A breadcrumb may mix direct anchors and buttons. Do not place lists, list items 
 
 ## API
 
-The host supports only direct `a` and `button` children. Separators are visual borders, so source markup contains no generated separator text.
+The host supports only direct `a` and `button` children. Separators are visual chevrons, so source markup contains no generated separator text.
 
 **Breadcrumb elements, child contract and current state**
 

@@ -1,16 +1,18 @@
-# Themes
+# Default theme
 
-# Dark themes
+Preview the Default theme in light mode across semantic colors, components, and interactive states.
 
-# Colors
+## Browse light themes
 
-Semantic color tokens and background, border, outline and text utilities.
+ [Default](/dragonglass/themes/default.html.md)  [Indigo](/dragonglass/themes/indigo.html.md)  [Violet](/dragonglass/themes/violet.html.md)  [Magenta](/dragonglass/themes/magenta.html.md)  [Ruby](/dragonglass/themes/ruby.html.md)  [Amber](/dragonglass/themes/amber.html.md)  [Moss](/dragonglass/themes/moss.html.md)  [Emerald](/dragonglass/themes/emerald.html.md)  [Teal](/dragonglass/themes/teal.html.md)  [Ocean](/dragonglass/themes/ocean.html.md)  [Graphite](/dragonglass/themes/graphite.html.md)  [Stone](/dragonglass/themes/stone.html.md)
+
+## Browse dark themes
+
+ [Default](/dragonglass/themes/dark/default.html.md)  [Indigo](/dragonglass/themes/dark/indigo.html.md)  [Violet](/dragonglass/themes/dark/violet.html.md)  [Magenta](/dragonglass/themes/dark/magenta.html.md)  [Ruby](/dragonglass/themes/dark/ruby.html.md)  [Amber](/dragonglass/themes/dark/amber.html.md)  [Moss](/dragonglass/themes/dark/moss.html.md)  [Emerald](/dragonglass/themes/dark/emerald.html.md)  [Teal](/dragonglass/themes/dark/teal.html.md)  [Ocean](/dragonglass/themes/dark/ocean.html.md)  [Graphite](/dragonglass/themes/dark/graphite.html.md)  [Stone](/dragonglass/themes/dark/stone.html.md)
 
 ## Background and text colors
 
 Each semantic color includes lightest, lighter, light, base, dark, darker and darkest tokens. White and black remain the global contrast extremes.
-
-Primary dark text
 
 ```html
 <div class="bg-primary p-3">Primary background</div>

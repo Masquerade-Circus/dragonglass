@@ -87,7 +87,7 @@ export default () => (
     <DemoSection id="breadcrumb-api" title="API">
       <p>
         The host supports only direct <code>a</code> and <code>button</code>
-        children. Separators are visual borders, so source markup contains no
+        children. Separators are visual chevrons, so source markup contains no
         generated separator text.
       </p>
       <ApiTable

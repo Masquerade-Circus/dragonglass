@@ -24,6 +24,28 @@ Full-width details panels with a generated open-state marker.
 </details>
 ```
 
+## Colored panel
+
+Apply a `bg-*` utility to `details` to color the complete panel, including its heading and content.
+
+```html
+<details class="bg-primary" data-expansion-panel open>
+  <summary>Deployment status</summary>
+  <p>The latest release is available.</p>
+</details>
+```
+
+## Colored heading
+
+Apply a `bg-*` utility to `summary` when only the panel heading needs a distinct color.
+
+```html
+<details data-expansion-panel open>
+  <summary class="bg-accent">Security settings</summary>
+  <p>Two-factor authentication is active.</p>
+</details>
+```
+
 ## API
 
 **Expansion panel elements, attributes, tokens and states**
@@ -33,5 +55,5 @@ Full-width details panels with a generated open-state marker.
 | details / summary | Element | Required | Matches details[data-expansion-panel] and its direct summary. |
 | data-expansion-panel | Attribute | Required | Applies the full-width expansion panel treatment. |
 | open | Attribute / state | Absent | Rotates the generated disclosure marker. |
-| --card-radius / --default-light | Token | Theme | Control panel corners and border color. |
+| --card-radius / --border-default | Token | Theme | Control panel corners and border color. |
 | --spacing-3 / --spacing-4 | Token | Theme | Control summary and content spacing. |

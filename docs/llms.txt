@@ -24,12 +24,12 @@
 
 ## Navigation
 
-- [Toolbars](./toolbars.html.md): Wrapping nav[data-toolbar] rows and container variants.
 - [Breadcrumbs](./breadcrumbs.html.md): Wrapping breadcrumb trails built from direct link and button children.
-- [Expansion panels](./expansion-panels.html.md): Full-width details panels with a generated open-state marker.
-- [Steppers](./steppers.html.md): Horizontal, vertical and numbers-only stepper presentations.
+- [Toolbars](./toolbars.html.md): Wrapping nav[data-toolbar] rows and container variants.
 - [Tabs](./tabs.html.md): Grouped details layout selected by data-tabs.
 - [Menus](./menus.html.md): Positioned menus inside details[data-trigger].
+- [Expansion panels](./expansion-panels.html.md): Full-width details panels with a generated open-state marker.
+- [Steppers](./steppers.html.md): Horizontal, vertical and numbers-only stepper presentations.
 
 ## Feedback
 
@@ -39,50 +39,50 @@
 
 ## Surfaces
 
-- [Bottom sheets](./bottom-sheets.html.md): Bottom-anchored dialog layout with an optional shadow.
 - [Cards](./cards.html.md): Basic, elevated, squared and full-width card variants.
 - [Dialogs](./dialogs.html.md): Centered dialogs with shape, width and elevation variants.
+- [Bottom sheets](./bottom-sheets.html.md): Bottom-anchored dialog layout with an optional shadow.
 
 ## Data display
 
-- [Badges](./badges.html.md): Generated badge content selected by data-badge.
 - [Lists](./lists.html.md): Styled unordered, ordered and definition-list layouts.
-- [Tables](./tables.html.md): Responsive data-table layout with generated mobile cell labels.
+- [Badges](./badges.html.md): Generated badge content selected by data-badge.
 - [Tooltips](./tooltips.html.md): Generated tooltip content, positions and color utilities.
+- [Tables](./tables.html.md): Responsive data-table layout with generated mobile cell labels.
 
 ## Utilities
 
+- [Utilities](./utilities.html.md): Find focused spacing, layout, border, typography, elevation and color adjustments.
 - [Grid](./grid.html.md): Wrapping flex rows, gutters and responsive fractional widths.
 - [Positioning](./positioning.html.md): Fixed and absolute placement through directional data-position tokens.
 - [Images](./images.html.md): Object-fit, focal-position and background image utilities.
-- [Utilities](./utilities.html.md): Find focused spacing, layout, border, typography, elevation and color adjustments.
 - [Elevations](./elevations.html.md): Outer shadows, inset shadows and explicit stacking utilities.
-- [Colors](./colors.html.md): Semantic color tokens and background, border, outline and text utilities.
+- [Colors](./colors.html.md): Semantic color tokens, utility classes, bundled themes, and custom theme compilation.
 - [Fonts](./fonts.html.md): Font size, style, weight, transform, line-height and alignment utilities.
 
 ## Optional
 
-- [Default theme](./themes/default.html.md): Preview the Default theme across semantic colors and common components.
-- [Indigo theme](./themes/indigo.html.md): Preview the Indigo theme across semantic colors and common components.
-- [Violet theme](./themes/violet.html.md): Preview the Violet theme across semantic colors and common components.
-- [Magenta theme](./themes/magenta.html.md): Preview the Magenta theme across semantic colors and common components.
-- [Ruby theme](./themes/ruby.html.md): Preview the Ruby theme across semantic colors and common components.
-- [Amber theme](./themes/amber.html.md): Preview the Amber theme across semantic colors and common components.
-- [Moss theme](./themes/moss.html.md): Preview the Moss theme across semantic colors and common components.
-- [Emerald theme](./themes/emerald.html.md): Preview the Emerald theme across semantic colors and common components.
-- [Teal theme](./themes/teal.html.md): Preview the Teal theme across semantic colors and common components.
-- [Ocean theme](./themes/ocean.html.md): Preview the Ocean theme across semantic colors and common components.
-- [Graphite theme](./themes/graphite.html.md): Preview the Graphite theme across semantic colors and common components.
-- [Stone theme](./themes/stone.html.md): Preview the Stone theme across semantic colors and common components.
-- [Default dark theme](./themes/dark/default.html.md): Preview the Default dark theme across semantic colors and common components.
-- [Indigo dark theme](./themes/dark/indigo.html.md): Preview the Indigo dark theme across semantic colors and common components.
-- [Violet dark theme](./themes/dark/violet.html.md): Preview the Violet dark theme across semantic colors and common components.
-- [Magenta dark theme](./themes/dark/magenta.html.md): Preview the Magenta dark theme across semantic colors and common components.
-- [Ruby dark theme](./themes/dark/ruby.html.md): Preview the Ruby dark theme across semantic colors and common components.
-- [Amber dark theme](./themes/dark/amber.html.md): Preview the Amber dark theme across semantic colors and common components.
-- [Moss dark theme](./themes/dark/moss.html.md): Preview the Moss dark theme across semantic colors and common components.
-- [Emerald dark theme](./themes/dark/emerald.html.md): Preview the Emerald dark theme across semantic colors and common components.
-- [Teal dark theme](./themes/dark/teal.html.md): Preview the Teal dark theme across semantic colors and common components.
-- [Ocean dark theme](./themes/dark/ocean.html.md): Preview the Ocean dark theme across semantic colors and common components.
-- [Graphite dark theme](./themes/dark/graphite.html.md): Preview the Graphite dark theme across semantic colors and common components.
-- [Stone dark theme](./themes/dark/stone.html.md): Preview the Stone dark theme across semantic colors and common components.
+- [Default theme](./themes/default.html.md): Preview the Default theme in light mode across semantic colors, components, and interactive states.
+- [Indigo theme](./themes/indigo.html.md): Preview the Indigo theme in light mode across semantic colors, components, and interactive states.
+- [Violet theme](./themes/violet.html.md): Preview the Violet theme in light mode across semantic colors, components, and interactive states.
+- [Magenta theme](./themes/magenta.html.md): Preview the Magenta theme in light mode across semantic colors, components, and interactive states.
+- [Ruby theme](./themes/ruby.html.md): Preview the Ruby theme in light mode across semantic colors, components, and interactive states.
+- [Amber theme](./themes/amber.html.md): Preview the Amber theme in light mode across semantic colors, components, and interactive states.
+- [Moss theme](./themes/moss.html.md): Preview the Moss theme in light mode across semantic colors, components, and interactive states.
+- [Emerald theme](./themes/emerald.html.md): Preview the Emerald theme in light mode across semantic colors, components, and interactive states.
+- [Teal theme](./themes/teal.html.md): Preview the Teal theme in light mode across semantic colors, components, and interactive states.
+- [Ocean theme](./themes/ocean.html.md): Preview the Ocean theme in light mode across semantic colors, components, and interactive states.
+- [Graphite theme](./themes/graphite.html.md): Preview the Graphite theme in light mode across semantic colors, components, and interactive states.
+- [Stone theme](./themes/stone.html.md): Preview the Stone theme in light mode across semantic colors, components, and interactive states.
+- [Default dark theme](./themes/dark/default.html.md): Preview the Default theme in dark mode across semantic colors, components, and interactive states.
+- [Indigo dark theme](./themes/dark/indigo.html.md): Preview the Indigo theme in dark mode across semantic colors, components, and interactive states.
+- [Violet dark theme](./themes/dark/violet.html.md): Preview the Violet theme in dark mode across semantic colors, components, and interactive states.
+- [Magenta dark theme](./themes/dark/magenta.html.md): Preview the Magenta theme in dark mode across semantic colors, components, and interactive states.
+- [Ruby dark theme](./themes/dark/ruby.html.md): Preview the Ruby theme in dark mode across semantic colors, components, and interactive states.
+- [Amber dark theme](./themes/dark/amber.html.md): Preview the Amber theme in dark mode across semantic colors, components, and interactive states.
+- [Moss dark theme](./themes/dark/moss.html.md): Preview the Moss theme in dark mode across semantic colors, components, and interactive states.
+- [Emerald dark theme](./themes/dark/emerald.html.md): Preview the Emerald theme in dark mode across semantic colors, components, and interactive states.
+- [Teal dark theme](./themes/dark/teal.html.md): Preview the Teal theme in dark mode across semantic colors, components, and interactive states.
+- [Ocean dark theme](./themes/dark/ocean.html.md): Preview the Ocean theme in dark mode across semantic colors, components, and interactive states.
+- [Graphite dark theme](./themes/dark/graphite.html.md): Preview the Graphite theme in dark mode across semantic colors, components, and interactive states.
+- [Stone dark theme](./themes/dark/stone.html.md): Preview the Stone theme in dark mode across semantic colors, components, and interactive states.

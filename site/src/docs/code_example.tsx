@@ -3,7 +3,7 @@ type CodeExampleProps = {
 };
 
 const CodeExample = ({ code }: CodeExampleProps) => (
-  <pre>
+  <pre data-markdown="include">
     <code>{code}</code>
   </pre>
 );

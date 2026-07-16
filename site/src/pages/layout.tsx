@@ -1,6 +1,7 @@
-import { catalog, categoryOrder } from "../docs/catalog";
+import { catalog, catalogEntries, categoryOrder } from "../docs/catalog";
 
 type LayoutProps = {
+  contentClass?: string;
   currentPath?: string;
 };
 
@@ -17,13 +18,13 @@ const DrawerLink = ({
   label,
   icon,
   color,
-  currentPath,
+  currentPath
 }: DrawerLinkProps) => {
   const content = [
     <i class={`material-icons ${color}`} aria-hidden="true">
       {icon}
     </i>,
-    label,
+    label
   ];
 
   if (currentPath === path) {
@@ -47,25 +48,23 @@ const Header = ({ currentPath }: LayoutProps) => (
           </span>
         </summary>
         <section data-drawer>
-          {categoryOrder.flatMap((category) => [
-            <header>{category}</header>,
-            <hr />,
-            <ul data-list>
-              {catalog
-                .filter((route) => route.category === category)
-                .map(({ path, label, icon, color }) => (
-                  <li>
-                    <DrawerLink
-                      path={path}
-                      label={label}
-                      icon={icon}
-                      color={color}
-                      currentPath={currentPath}
-                    />
-                  </li>
-                ))}
-            </ul>,
-          ])}
+          <section class="h-48 relative bg-primary">
+            <h1 data-position="absolute bottom left">DragonGlass</h1>
+          </section>
+
+          <ul data-list v-for={catalogEntries}>
+            {({ path, label, icon, color }) => (
+              <li>
+                <DrawerLink
+                  path={path}
+                  label={label}
+                  icon={icon}
+                  color={color}
+                  currentPath={currentPath}
+                />
+              </li>
+            )}
+          </ul>
         </section>
       </details>
     </nav>
@@ -73,11 +72,14 @@ const Header = ({ currentPath }: LayoutProps) => (
   </header>
 );
 
-const Layout: any = (props: LayoutProps, ...content: any[]) => [
-  <Header currentPath={props.currentPath} />,
-  <main>
-    <section>{content}</section>
-  </main>,
-];
+const Layout: any = (props: LayoutProps, ...content: any[]) => (
+  <>
+    <Header currentPath={props.currentPath} />
+    <main id="main-content" tabindex="-1">
+      <section class={props.contentClass ?? "container"}>{content}</section>
+    </main>
+    <footer></footer>
+  </>
+);
 
 export default Layout;

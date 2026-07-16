@@ -67,6 +67,22 @@
   height: auto;
 }
 
+:where(.container) {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-inline: auto;
+}
+
+.mx-auto {
+  margin-inline: auto;
+}
+
+@each $name, $value in $maxWidths {
+  .max-w-#{$name} {
+    max-width: $value;
+  }
+}
+
 @each $value in cover, contain, fill, none, scale-down {
   .object-#{$value} {
     object-fit: $value;

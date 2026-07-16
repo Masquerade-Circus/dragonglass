@@ -33,8 +33,32 @@ const decodeHtmlEntities = (value: string) =>
     .replaceAll("&amp;", "&");
 const textOf = (node: MarkdownNode) =>
   decodeHtmlEntities(node.textContent ?? "");
-const renderChildren = (node: MarkdownNode) =>
-  childrenOf(node).map(renderNode).join("");
+const renderChildren = (node: MarkdownNode, includeNeutralContainers = false) =>
+  childrenOf(node)
+    .map((child) => renderNode(child, includeNeutralContainers))
+    .join("");
+const renderIncludedDescendants = (node: MarkdownNode): string =>
+  childrenOf(node)
+    .map((child) => {
+      const markdownMode = child.getAttribute?.("data-markdown");
+
+      if (
+        child.getAttribute?.("aria-hidden") === "true" ||
+        markdownMode === "exclude"
+      ) {
+        return "";
+      }
+
+      if (
+        markdownMode === "include" ||
+        markdownMode === "include-descendants"
+      ) {
+        return renderNode(child);
+      }
+
+      return renderIncludedDescendants(child);
+    })
+    .join("");
 const inlineText = (value: string) =>
   value
     .replace(/\s+/g, " ")
@@ -113,11 +137,15 @@ const renderCodeBlock = (node: MarkdownNode) => {
   return `\n\n${fence}${language}\n${code}\n${fence}\n\n`;
 };
 
-const renderList = (node: MarkdownNode, ordered: boolean) => {
+const renderList = (
+  node: MarkdownNode,
+  ordered: boolean,
+  includeNeutralContainers = false,
+) => {
   const items = childrenOf(node).filter((child) => tagOf(child) === "li");
   const renderedItems = items.map((item, index) => {
     const marker = ordered ? `${index + 1}.` : "-";
-    const content = inlineText(renderChildren(item));
+    const content = inlineText(renderChildren(item, includeNeutralContainers));
     return `${marker} ${content}`;
   });
 
@@ -156,24 +184,35 @@ const renderTable = (node: MarkdownNode) => {
   return `${caption}${markdownRows}\n\n`;
 };
 
-function renderNode(node: MarkdownNode): string {
+function renderNode(
+  node: MarkdownNode,
+  includeNeutralContainers = false,
+): string {
   if (node.nodeType === 3) {
     return decodeHtmlEntities(node.nodeValue ?? "").replace(/\s+/g, " ");
   }
 
   const tagName = tagOf(node);
+  const markdownMode = node.getAttribute?.("data-markdown");
 
-  if (node.getAttribute?.("aria-hidden") === "true") {
+  if (
+    node.getAttribute?.("aria-hidden") === "true" ||
+    markdownMode === "exclude"
+  ) {
     return "";
+  }
+
+  if (markdownMode === "include-descendants") {
+    return renderChildren(node, true);
   }
 
   if (/^h[1-6]$/.test(tagName)) {
     const level = Number(tagName.slice(1));
-    return `\n\n${"#".repeat(level)} ${inlineText(renderChildren(node))}\n\n`;
+    return `\n\n${"#".repeat(level)} ${inlineText(renderChildren(node, includeNeutralContainers))}\n\n`;
   }
 
   if (tagName === "p") {
-    return `\n\n${inlineText(renderChildren(node))}\n\n`;
+    return `\n\n${inlineText(renderChildren(node, includeNeutralContainers))}\n\n`;
   }
 
   if (tagName === "pre") {
@@ -187,7 +226,7 @@ function renderNode(node: MarkdownNode): string {
   }
 
   if (tagName === "a") {
-    const label = inlineText(renderChildren(node));
+    const label = inlineText(renderChildren(node, includeNeutralContainers));
     const href = node.getAttribute?.("href") ?? "";
     const markdownHref =
       href === basePath
@@ -199,7 +238,11 @@ function renderNode(node: MarkdownNode): string {
   }
 
   if (tagName === "strong") {
-    return ` **${inlineText(renderChildren(node))}** `;
+    return ` **${inlineText(renderChildren(node, includeNeutralContainers))}** `;
+  }
+
+  if (includeNeutralContainers && ["article", "div"].includes(tagName)) {
+    return renderChildren(node, true);
   }
 
   if (
@@ -222,22 +265,23 @@ function renderNode(node: MarkdownNode): string {
       "textarea",
     ].includes(tagName)
   ) {
-    return "";
+    return renderIncludedDescendants(node);
   }
 
   if (
     (tagName === "ul" || tagName === "ol") &&
-    typeof node.getAttribute?.("data-list") === "string"
+    typeof node.getAttribute?.("data-list") === "string" &&
+    !includeNeutralContainers
   ) {
     return "";
   }
 
   if (tagName === "ul") {
-    return renderList(node, false);
+    return renderList(node, false, includeNeutralContainers);
   }
 
   if (tagName === "ol") {
-    return renderList(node, true);
+    return renderList(node, true, includeNeutralContainers);
   }
 
   if (tagName === "table") {
@@ -248,7 +292,9 @@ function renderNode(node: MarkdownNode): string {
     const entries = childrenOf(node)
       .filter((child) => ["dt", "dd"].includes(tagOf(child)))
       .map((child) => {
-        const content = inlineText(renderChildren(child));
+        const content = inlineText(
+          renderChildren(child, includeNeutralContainers),
+        );
         return tagOf(child) === "dt" ? `- **${content}:**` : `  ${content}`;
       });
     return `\n\n${entries.join("\n")}\n\n`;
@@ -262,11 +308,53 @@ function renderNode(node: MarkdownNode): string {
     return "  \n";
   }
 
-  return renderChildren(node);
+  return renderChildren(node, includeNeutralContainers);
 }
 
+const removeEmptyHeadings = (markdown: string) => {
+  const lines = markdown.split("\n");
+  let insideCodeFence = false;
+
+  return lines
+    .filter((line, index) => {
+      if (/^(`{3,}|~{3,})/.test(line)) {
+        insideCodeFence = !insideCodeFence;
+        return true;
+      }
+
+      if (insideCodeFence) {
+        return true;
+      }
+
+      const heading = /^(#{1,6})\s+/.exec(line);
+
+      if (!heading) {
+        return true;
+      }
+
+      let nextIndex = index + 1;
+
+      while (nextIndex < lines.length && lines[nextIndex].trim() === "") {
+        nextIndex += 1;
+      }
+
+      if (nextIndex === lines.length) {
+        return false;
+      }
+
+      const nextHeading = /^(#{1,6})\s+/.exec(lines[nextIndex]);
+      return !nextHeading || nextHeading[1].length > heading[1].length;
+    })
+    .join("\n");
+};
+
 const normalizeMarkdown = (markdown: string) =>
-  `${markdown.replace(/\n{3,}/g, "\n\n").trim()}\n`;
+  `${removeEmptyHeadings(markdown)
+    .replace(/[ \t]+$/gm, (whitespace) =>
+      whitespace === "  " ? whitespace : "",
+    )
+    .replace(/\n{3,}/g, "\n\n")
+    .trim()}\n`;
 
 const renderDocumentationMarkdown = (html: string) => {
   const root = htmlToDom(html) as MarkdownNode;

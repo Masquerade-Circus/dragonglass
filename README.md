@@ -1,6 +1,6 @@
 # Dragonglass
 
-Dragonglass is a pure CSS framework for app interfaces. It provides component variants through readable `data-*` attributes, responsive layout primitives, focused utilities and compiled color themes.
+Dragonglass is an HTML5-first CSS framework for app interfaces. It styles semantic HTML through readable data-* component contracts, responsive layout primitives, focused utilities, and compiled themes. Applications load plain CSS and keep their existing client-side stack.
 
 ## Why Dragonglass
 
@@ -27,32 +27,21 @@ import "dragonglass/dist/themes/default.css";
 The first file contains components and utilities. The second file supplies the
 color tokens. Load a theme after the framework stylesheet.
 
-Add an app shell to the page:
+Add your first card:
 
 ```html
-<body>
+<article data-card>
   <header>
-    <nav aria-label="Primary">
-      <a href="/projects" aria-current="page">Projects</a>
-      <a href="/teams">Teams</a>
-    </nav>
+    <h2>Project: Dragonglass</h2>
   </header>
-
-  <main>
-    <header>
-      <h1>Projects</h1>
-    </header>
-    <section data-card class="p-4">
-      <h2>Website refresh</h2>
-      <p>The team is reviewing the final interface states.</p>
-      <button>Open project</button>
-    </section>
-  </main>
-</body>
+  <p>The team is reviewing the final interface states.</p>
+  <footer>
+    <a href="/dragonglass/app-components.html">Open project</a>
+  </footer>
+</article>
 ```
 
-Dragonglass styles the shell and button. `data-card` selects the card contract,
-while `p-4` adds one explicit spacing adjustment.
+Dragonglass styles the semantic regions and applies the card contract through data-card.
 
 ## Choose a bundled theme
 
@@ -160,12 +149,13 @@ again to derive the complete token set from a new primary.
 - [Images and backgrounds](docs/images.html)
 - [Hero recipes](docs/heroes.html)
 - [Forms](docs/forms.html)
+- [llms.txt](docs/llms.txt)
+- [llms-full.txt](docs/llms-full.txt)
 - [Contributing](CONTRIBUTING.md)
 
 ## Browser baseline
 
-Dragonglass targets current browsers with modern HTML and CSS support. Its
-browser baseline excludes legacy compatibility layers.
+Dragonglass supports Chrome 119+, Edge 119+, Firefox 121+, Safari 16.5+, and iOS Safari 16.5+.
 
 ## License
 

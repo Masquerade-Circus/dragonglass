@@ -24,13 +24,19 @@ const ThemeLink = ({
 
   if (currentThemeName === theme.name && currentColorScheme === colorScheme) {
     return (
-      <a href={path} aria-current="page">
-        {content}
-      </a>
+      <span data-markdown="include-descendants">
+        <a href={path} aria-current="page">
+          {content}
+        </a>
+      </span>
     );
   }
 
-  return <a href={path}>{content}</a>;
+  return (
+    <span data-markdown="include-descendants">
+      <a href={path}>{content}</a>
+    </span>
+  );
 };
 
 const ThemeMenu = ({

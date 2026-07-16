@@ -157,7 +157,7 @@ const build = async () => {
     const markdown = renderDocumentationMarkdown(String(routeHtml));
     const markdownPath = markdownPathForRoute(path);
     const html = renderHtml({
-      colorScheme: route.colorScheme ?? "auto",
+      colorScheme: route.colorScheme,
       content: String(routeHtml),
       isDevelopment: false,
       themeName: route.themeName ?? "default",

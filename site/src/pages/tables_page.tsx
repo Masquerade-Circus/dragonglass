@@ -61,7 +61,7 @@ const Table = ({ color }: { color?: string }) => {
   };
 
   return (
-    <table {...attributes}>
+    <table {...attributes} data-markdown="exclude">
       <caption>Food details</caption>
       <thead>
         <tr>
@@ -98,6 +98,11 @@ export default () => (
     </DemoSection>
 
     <DemoSection id="table-colors" title="Table colors">
+      <p>
+        Set data-table to a semantic color token to apply that tone to the
+        responsive table. Dragonglass supports primary, accent, success, info,
+        warning, danger, and default.
+      </p>
       {colors.map((color) => (
         <div>
           <Table color={color} />
