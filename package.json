@@ -1,6 +1,6 @@
 {
   "name": "dragonglass",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "HTML5-first and pure CSS framework for fast UI building",
   "main": "dist/dragonglass.css",
   "style": "dist/dragonglass.css",
