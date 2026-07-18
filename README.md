@@ -140,11 +140,11 @@ again to derive the complete token set from a new primary.
 
 ## Documentation
 
-- [Getting started](docs/index.html)
-- [Components and API](docs/app-components.html)
-- [Themes and colors](docs/colors.html)
-- [Utilities](docs/utilities.html)
-- [llms-full.txt](docs/llms-full.txt)
+- [Getting started](https://masquerade-circus.github.io/dragonglass/)
+- [Components and API](https://masquerade-circus.github.io/dragonglass/app-components.html)
+- [Themes and colors](https://masquerade-circus.github.io/dragonglass/colors.html)
+- [Utilities](https://masquerade-circus.github.io/dragonglass/utilities.html)
+- [llms-full.txt](https://masquerade-circus.github.io/dragonglass/llms-full.txt)
 - [Contributing](CONTRIBUTING.md)
 
 ## Browser baseline
