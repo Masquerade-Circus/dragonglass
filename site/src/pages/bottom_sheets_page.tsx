@@ -68,21 +68,21 @@ export default () => (
 
     <DemoSection
       id="bottom-sheet-motion-title"
-      title="Motion, fallback and accessibility"
+      title="Motion and accessibility"
     >
       <p>
-        Browsers that support discrete transitions and starting styles reveal
-        the sheet through opacity and a short translation from the bottom. The
-        <code>data-closing</code> state uses the same properties for exit and
-        keeps the backdrop timing synchronized. Keep the modal open until those
-        animations finish, then call <code>close()</code>. Browsers without this
-        support open and close the sheet immediately.
+        Discrete transitions and starting styles reveal the sheet through
+        opacity and a short translation from the bottom. The
+        <code>data-closing</code> state reverses those properties and keeps the
+        backdrop synchronized. The modal stays open through the exit animation,
+        then <code>close()</code> completes the flow.
       </p>
       <p>
         When a user requests reduced motion, the sheet and its backdrop change
-        state without transitions or spatial movement. Give the sheet an
-        accessible name, use the native modal API when it blocks the page, and
-        return focus to the control that opened it after it closes.
+        state without transitions or spatial movement. The example connects the
+        sheet to its heading with <code>aria-labelledby</code>. A sheet opened
+        with <code>showModal()</code> blocks the page and supports Escape. Focus
+        behavior follows the native dialog API.
       </p>
     </DemoSection>
 

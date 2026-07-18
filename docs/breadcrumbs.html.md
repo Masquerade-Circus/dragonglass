@@ -16,7 +16,7 @@ Add `data-breadcrumb` to a labeled `nav`. Place each anchor directly inside the 
 
 ## Links and actions
 
-A breadcrumb may mix direct anchors and buttons. Do not place lists, list items or wrapper elements inside the breadcrumb nav.
+A breadcrumb combines anchors and buttons as direct children of the breadcrumb nav.
 
 ```html
 <nav data-breadcrumb aria-label="File location">

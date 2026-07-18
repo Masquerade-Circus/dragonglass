@@ -102,19 +102,16 @@ export default () => (
 
     <DemoSection id="menus-motion-title" title="Motion and accessibility">
       <p>
-        Browsers that support starting styles, inert CSS interactivity and the
-        native details content pseudo-element reveal the menu from
-        <code> opacity: 0</code> and <code>scale(.98)</code> on every opening,
-        then preserve its content long enough to animate each close without
-        keeping its actions interactive. The open state uses
-        <code> opacity: 1</code> and <code>scale(1)</code>. Browsers without
-        this support change state immediately.
+        Starting styles, inert CSS interactivity, and the native details content
+        pseudo-element reveal the menu from <code>opacity: 0</code> and
+        <code>scale(.98)</code>. The open state uses <code>opacity: 1</code> and
+        <code>scale(1)</code>. During close, the content remains visible for the
+        animation while its actions stay inactive.
       </p>
       <p>
-        When a user requests reduced motion, the menu changes state without a
-        transition or transform. Keep the native <code>details</code> and
-        <code>summary</code> relationship so keyboard users can operate the
-        disclosure, and give every icon-only action an accessible name.
+        Reduced motion changes the menu state without a transition or transform.
+        Native <code>details</code> and <code>summary</code> provide keyboard
+        operation. Every icon-only action has an accessible name.
       </p>
     </DemoSection>
 

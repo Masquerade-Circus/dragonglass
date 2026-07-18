@@ -196,14 +196,12 @@ export default () => (
       </p>
     </DemoSection>
 
-    <DemoSection id="dialog-motion" title="Motion and fallback behavior">
+    <DemoSection id="dialog-motion" title="Motion">
       <p>
-        Browsers that support transitions and starting styles reveal a
-        non-static dialog through opacity and a short vertical translation. To
-        animate its exit, keep the modal open, add <code>data-closing</code>,
-        wait for its surface and backdrop animations, and then call
-        <code> close()</code>. Browsers without this support close the dialog
-        immediately.
+        Transitions and starting styles reveal a non-static dialog through
+        opacity and a short vertical translation. The modal stays open with
+        <code>data-closing</code> while its surface and backdrop animate, then
+        <code>close()</code> completes the exit.
       </p>
       <p>
         The <code>static</code> utility excludes documentation previews and
@@ -215,11 +213,10 @@ export default () => (
 
     <DemoSection id="dialog-accessibility" title="Accessibility">
       <p>
-        Give every dialog an accessible name with
-        <code> aria-labelledby</code> or <code>aria-label</code>. Use the native
-        modal API when the dialog must block the page, move focus into the
-        dialog when it opens, keep focus inside the modal, support Escape, and
-        return focus to the control that opened it after it closes.
+        The examples connect each dialog to its heading with
+        <code>aria-labelledby</code>. A dialog opened with
+        <code>showModal()</code> blocks the page and supports Escape. Focus
+        behavior follows the native dialog API.
       </p>
     </DemoSection>
 

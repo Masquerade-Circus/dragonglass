@@ -10,7 +10,7 @@ Pure CSS for app interfaces
 
 ## Build app interfaces with HTML that stays readable
 
-Dragonglass is an HTML5-first CSS framework for app interfaces. It styles semantic HTML through readable data-* component contracts, responsive layout primitives, focused utilities, and compiled themes. Applications load plain CSS and keep their existing client-side stack.
+Dragonglass turns semantic HTML into app interfaces with readable data-* component contracts, responsive layouts, focused utilities, and compiled themes. Install the CSS and start building.
 
 [Get started](#quick-start) [Browse components](/dragonglass/app-components.html.md)
 
@@ -28,9 +28,9 @@ Markup and rendered result
 </article>
 ```
 
-### Structure the HTML. Select a component contract. Refine the result.
+### Write semantic HTML. Select a component. Refine the interface.
 
-Dragonglass keeps the structure, component choice, and visual adjustments visible in your markup.
+The markup keeps the structure, component, and visual adjustments easy to read.
 
 #### Semantic HTML
 
@@ -178,7 +178,7 @@ Review fields, validation states, toggles, pickers, and search layouts.
 
 #### Browser support
 
-Dragonglass supports Chrome 119+, Edge 119+, Firefox 121+, Safari 16.5+, and iOS Safari 16.5+ for functional component behavior. Enhanced disclosure layout, CSS-only exit retention, and native invoker behavior depend on browser support and may use the documented immediate fallback.
+Dragonglass supports Chrome 119+, Edge 119+, Firefox 121+, Safari 16.5+, and iOS Safari 16.5+.
 
 ---
 
@@ -885,7 +885,7 @@ Add `data-breadcrumb` to a labeled `nav`. Place each anchor directly inside the 
 
 ### Links and actions
 
-A breadcrumb may mix direct anchors and buttons. Do not place lists, list items or wrapper elements inside the breadcrumb nav.
+A breadcrumb combines anchors and buttons as direct children of the breadcrumb nav.
 
 ```html
 <nav data-breadcrumb aria-label="File location">
@@ -1018,9 +1018,9 @@ Grouped details layout selected by data-tabs.
 </section>
 ```
 
-### Layout fallback
+### Layout behavior
 
-Browsers that support `sibling-count()`, `sibling-index()`, and `::details-content` place the summaries in one tab row and align the open panel below them. Other baseline browsers keep the same markup as stacked native disclosures. The fallback preserves content and keyboard operation. It does not promise the enhanced tab-row layout or exclusive disclosure behavior.
+`sibling-count()`, `sibling-index()`, and `::details-content` place the summaries in one tab row and align the open panel below them. The same markup also forms stacked native disclosures with accessible content and keyboard operation.
 
 When a user requests reduced motion, summary color and border state changes occur without a transition.
 
@@ -1097,9 +1097,9 @@ The top and right tokens change the default bottom-left placement. Their combina
 
 ### Motion and accessibility
 
-Browsers that support starting styles, inert CSS interactivity and the native details content pseudo-element reveal the menu from `opacity: 0` and `scale(.98)` on every opening, then preserve its content long enough to animate each close without keeping its actions interactive. The open state uses `opacity: 1` and `scale(1)`. Browsers without this support change state immediately.
+Starting styles, inert CSS interactivity, and the native details content pseudo-element reveal the menu from `opacity: 0` and `scale(.98)`. The open state uses `opacity: 1` and `scale(1)`. During close, the content remains visible for the animation while its actions stay inactive.
 
-When a user requests reduced motion, the menu changes state without a transition or transform. Keep the native `details` and `summary` relationship so keyboard users can operate the disclosure, and give every icon-only action an accessible name.
+Reduced motion changes the menu state without a transition or transform. Native `details` and `summary` provide keyboard operation. Every icon-only action has an accessible name.
 
 ### API
 
@@ -1166,9 +1166,9 @@ Apply a `bg-*` utility to `summary` when only the panel heading needs a distinct
 </details>
 ```
 
-### Behavior and fallback
+### Behavior
 
-The native `details` element controls disclosure state. The open summary keeps a stable bottom border while its generated marker rotates. When a user requests reduced motion, the marker and summary change state without a transition. Content and keyboard operation do not depend on the animation.
+The native `details` element controls disclosure state. The open summary keeps a stable bottom border while its generated marker rotates. Reduced motion changes the marker and summary state without a transition.
 
 ### API
 
@@ -1350,7 +1350,7 @@ Combine one vertical token with one horizontal token. The default is top right. 
 
 ### Composition
 
-A direct close button with `data-notification-close` receives absolute positioning and reserved space. Dragonglass does not remove the notification on activation.
+A direct close button with `data-notification-close` receives absolute positioning and reserved space. The attribute provides the presentation and does not remove the notification.
 
 ### Responsive behavior
 
@@ -1363,7 +1363,7 @@ Fixed notifications stay within the viewport with a maximum width based on the p
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
 | data-notification | Attribute | Primary border, top right | Activates notification layout and accepts tone, position and shadow tokens. |
-| data-notification-close | Button attribute | Optional | Selects and reserves space for a direct close button. |
+| data-notification-close | Button attribute | Optional | Styles a direct close button and reserves its space without removing the notification. |
 | info\|success\|warning\|danger | Attribute token | Primary | Sets the semantic border color. |
 | inline | Attribute token | Fixed | Keeps a notification in document flow and resets position transforms. |
 | top\|right\|bottom\|left\|center | Attribute token | top right | Combines vertical and horizontal placement for fixed notifications. |
@@ -1608,15 +1608,15 @@ A dialog accepts direct `header`, `section` and `footer` children. The `static` 
 
 Standard dialogs size to their content. The `full-width` token leaves a one-rem viewport gap. Long body content scrolls without moving the header or footer actions.
 
-### Motion and fallback behavior
+### Motion
 
-Browsers that support transitions and starting styles reveal a non-static dialog through opacity and a short vertical translation. To animate its exit, keep the modal open, add `data-closing`, wait for its surface and backdrop animations, and then call `close()`. Browsers without this support close the dialog immediately.
+Transitions and starting styles reveal a non-static dialog through opacity and a short vertical translation. The modal stays open with `data-closing` while its surface and backdrop animate, then `close()` completes the exit.
 
 The `static` utility excludes documentation previews and embedded dialogs from this motion. When a user requests reduced motion, the dialog and its backdrop change state without transitions or spatial movement.
 
 ### Accessibility
 
-Give every dialog an accessible name with `aria-labelledby` or `aria-label`. Use the native modal API when the dialog must block the page, move focus into the dialog when it opens, keep focus inside the modal, support Escape, and return focus to the control that opened it after it closes.
+The examples connect each dialog to its heading with `aria-labelledby`. A dialog opened with `showModal()` blocks the page and supports Escape. Focus behavior follows the native dialog API.
 
 ### API
 
@@ -1670,11 +1670,11 @@ The bottom sheet CSS targets direct header, section and footer children. The `op
 </dialog>
 ```
 
-### Motion, fallback and accessibility
+### Motion and accessibility
 
-Browsers that support discrete transitions and starting styles reveal the sheet through opacity and a short translation from the bottom. The `data-closing` state uses the same properties for exit and keeps the backdrop timing synchronized. Keep the modal open until those animations finish, then call `close()`. Browsers without this support open and close the sheet immediately.
+Discrete transitions and starting styles reveal the sheet through opacity and a short translation from the bottom. The `data-closing` state reverses those properties and keeps the backdrop synchronized. The modal stays open through the exit animation, then `close()` completes the flow.
 
-When a user requests reduced motion, the sheet and its backdrop change state without transitions or spatial movement. Give the sheet an accessible name, use the native modal API when it blocks the page, and return focus to the control that opened it after it closes.
+When a user requests reduced motion, the sheet and its backdrop change state without transitions or spatial movement. The example connects the sheet to its heading with `aria-labelledby`. A sheet opened with `showModal()` blocks the page and supports Escape. Focus behavior follows the native dialog API.
 
 ### API
 
@@ -1719,9 +1719,9 @@ This preview stays inside its frame so you can inspect the drawer without coveri
 
 ### Temporary drawer
 
-Place a `summary` followed by a direct `aside data-drawer` inside a `details data-trigger data-drawer-trigger` disclosure. The `data-drawer-trigger` attribute is a CSS hook and adds no JavaScript behavior. The native `open` attribute is the only state and opens or closes the drawer with a mouse click, Enter, or Space. Touch activation remains pending direct verification across the browser baseline.
+Place a `summary` followed by a direct `aside data-drawer` inside a `details data-trigger data-drawer-trigger` disclosure. The `data-drawer-trigger` attribute is a CSS hook and adds no JavaScript behavior. The native `open` attribute is the only state and opens or closes the drawer with a click, Enter, or Space.
 
-A click outside the open drawer closes it and consumes that click, so a covered control does not activate by accident. Controls inside the drawer keep their native behavior. Give the complementary region a name with `aria-label` or `aria-labelledby`. This disclosure does not contain focus, restore focus, or promise Escape closure. Use it only when those limits fit the product flow.
+A click outside the open drawer closes it and consumes that click, so a covered control stays inactive. Controls inside the drawer keep their native behavior. The complementary region receives its accessible name from `aria-label` or `aria-labelledby`. Focus stays in the native document order. Escape leaves the disclosure open.
 
 The first preview remains visible for inspection. The interactive demo below starts closed and lets you open or close the temporary drawer.
 
@@ -1744,11 +1744,7 @@ The first preview remains visible for inspection. The interactive demo below sta
 
 ### Position and motion
 
-A drawer starts at the left edge. Add `data-drawer="right"` to anchor it to the right edge. Browsers with native details-content and inert CSS support animate each entrance and exit. Browsers in the supported baseline without those features retain the native disclosure and change state immediately. Reduced motion also changes state without a transition or spatial offset.
-
-### Migration for the next major release
-
-This is a breaking change for the next major release. The former `section data-drawer` and `dialog data-drawer` structures are no longer supported. Replace either structure with `aside data-drawer`. A drawer may contain navigation, but a `nav` element is optional. The next major release removes support for the generic `[data-drawer]` selector, which is intentionally not preserved.
+A drawer starts at the left edge. Add `data-drawer="right"` to anchor it to the right edge. The open state moves the drawer into view. Native details content and inert CSS define the entrance and exit transitions. Reduced motion changes state without a transition or spatial offset.
 
 ### API
 
@@ -1760,7 +1756,7 @@ This is a breaking change for the next major release. The former `section data-d
 | details[data-trigger][data-drawer-trigger] > summary + aside[data-drawer] | Structure | Required for temporary drawers | Marks the temporary drawer disclosure for CSS while native details state provides zero-JavaScript control. |
 | data-drawer="right" | Attribute token | Left | Anchors the drawer to the right viewport edge. |
 | open | Native details state | Absent | Shows the temporary drawer through its parent details. |
-| --motion-duration-base / --motion-duration-fast / --motion-easing-enter / --motion-easing-exit | Motion token | 200ms / theme value / ease-out / ease-in | Control enhanced entrance and exit transitions where the browser supports them. |
+| --motion-duration-base / --motion-duration-fast / --motion-easing-enter / --motion-easing-exit | Motion token | 200ms / theme value / ease-out / ease-in | Control the entrance and exit transition timing. |
 
 ---
 

@@ -2035,7 +2035,7 @@ import "dragonglass/dist/themes/default.css";`;
                 children: "Build app interfaces with HTML that stays readable"
               }
             ),
-            /* @__PURE__ */ jsx("p", { class: "max-w-prose text-lg leading-relaxed mt-0 mb-6", children: "Dragonglass is an HTML5-first CSS framework for app interfaces. It styles semantic HTML through readable data-* component contracts, responsive layout primitives, focused utilities, and compiled themes. Applications load plain CSS and keep their existing client-side stack." }),
+            /* @__PURE__ */ jsx("p", { class: "max-w-prose text-lg leading-relaxed mt-0 mb-6", children: "Dragonglass turns semantic HTML into app interfaces with readable data-* component contracts, responsive layouts, focused utilities, and compiled themes. Install the CSS and start building." }),
             /* @__PURE__ */ jsxs("p", { class: "mt-0 mb-0", children: [
               /* @__PURE__ */ jsx(
                 "a",
@@ -2080,10 +2080,10 @@ import "dragonglass/dist/themes/default.css";`;
             {
               id: "mental-model-title",
               class: "max-w-prose text-3xl font-semibold leading-tight mt-0 mb-3",
-              children: "Structure the HTML. Select a component contract. Refine the result."
+              children: "Write semantic HTML. Select a component. Refine the interface."
             }
           ),
-          /* @__PURE__ */ jsx("p", { class: "max-w-prose text-lg mt-0 mb-8", children: "Dragonglass keeps the structure, component choice, and visual adjustments visible in your markup." }),
+          /* @__PURE__ */ jsx("p", { class: "max-w-prose text-lg mt-0 mb-8", children: "The markup keeps the structure, component, and visual adjustments easy to read." }),
           /* @__PURE__ */ jsx("div", { class: "grid grid-gutters", children: mentalModel.map(([title, body]) => /* @__PURE__ */ jsxs("div", { class: "md:w-4/12", children: [
             /* @__PURE__ */ jsx("h3", { class: "text-lg font-semibold mt-0 mb-2", children: title }),
             /* @__PURE__ */ jsx("p", { class: "mt-0 mb-4", children: body })
@@ -2255,7 +2255,7 @@ import "dragonglass/dist/themes/default.css";`;
           /* @__PURE__ */ jsx("hr", { class: "mt-4 mb-6" }),
           /* @__PURE__ */ jsxs("div", { class: "max-w-prose", children: [
             /* @__PURE__ */ jsx("h3", { class: "text-lg font-semibold mt-0 mb-2", children: "Browser support" }),
-            /* @__PURE__ */ jsx("p", { class: "mt-0 mb-0", children: "Dragonglass supports Chrome 119+, Edge 119+, Firefox 121+, Safari 16.5+, and iOS Safari 16.5+ for functional component behavior. Enhanced disclosure layout, CSS-only exit retention, and native invoker behavior depend on browser support and may use the documented immediate fallback." })
+            /* @__PURE__ */ jsx("p", { class: "mt-0 mb-0", children: "Dragonglass supports Chrome 119+, Edge 119+, Firefox 121+, Safari 16.5+, and iOS Safari 16.5+." })
           ] })
         ] })
       }
@@ -3825,13 +3825,13 @@ import "dragonglass/dist/themes/default.css";`;
       /* @__PURE__ */ jsx("code", { children: "full-width" }),
       "token leaves a one-rem viewport gap. Long body content scrolls without moving the header or footer actions."
     ] }) }),
-    /* @__PURE__ */ jsxs(demo_section_default, { id: "dialog-motion", title: "Motion and fallback behavior", children: [
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "dialog-motion", title: "Motion", children: [
       /* @__PURE__ */ jsxs("p", { children: [
-        "Browsers that support transitions and starting styles reveal a non-static dialog through opacity and a short vertical translation. To animate its exit, keep the modal open, add ",
+        "Transitions and starting styles reveal a non-static dialog through opacity and a short vertical translation. The modal stays open with",
         /* @__PURE__ */ jsx("code", { children: "data-closing" }),
-        ", wait for its surface and backdrop animations, and then call",
-        /* @__PURE__ */ jsx("code", { children: " close()" }),
-        ". Browsers without this support close the dialog immediately."
+        " while its surface and backdrop animate, then",
+        /* @__PURE__ */ jsx("code", { children: "close()" }),
+        " completes the exit."
       ] }),
       /* @__PURE__ */ jsxs("p", { children: [
         "The ",
@@ -3840,11 +3840,11 @@ import "dragonglass/dist/themes/default.css";`;
       ] })
     ] }),
     /* @__PURE__ */ jsx(demo_section_default, { id: "dialog-accessibility", title: "Accessibility", children: /* @__PURE__ */ jsxs("p", { children: [
-      "Give every dialog an accessible name with",
-      /* @__PURE__ */ jsx("code", { children: " aria-labelledby" }),
-      " or ",
-      /* @__PURE__ */ jsx("code", { children: "aria-label" }),
-      ". Use the native modal API when the dialog must block the page, move focus into the dialog when it opens, keep focus inside the modal, support Escape, and return focus to the control that opened it after it closes."
+      "The examples connect each dialog to its heading with",
+      /* @__PURE__ */ jsx("code", { children: "aria-labelledby" }),
+      ". A dialog opened with",
+      /* @__PURE__ */ jsx("code", { children: "showModal()" }),
+      " blocks the page and supports Escape. Focus behavior follows the native dialog API."
     ] }) }),
     /* @__PURE__ */ jsx(demo_section_default, { id: "dialog-api", title: "API", children: /* @__PURE__ */ jsx(
       api_table_default,
@@ -5102,22 +5102,22 @@ import "dragonglass/dist/themes/default.css";`;
     ] }),
     /* @__PURE__ */ jsxs(demo_section_default, { id: "menus-motion-title", title: "Motion and accessibility", children: [
       /* @__PURE__ */ jsxs("p", { children: [
-        "Browsers that support starting styles, inert CSS interactivity and the native details content pseudo-element reveal the menu from",
-        /* @__PURE__ */ jsx("code", { children: " opacity: 0" }),
-        " and ",
+        "Starting styles, inert CSS interactivity, and the native details content pseudo-element reveal the menu from ",
+        /* @__PURE__ */ jsx("code", { children: "opacity: 0" }),
+        " and",
         /* @__PURE__ */ jsx("code", { children: "scale(.98)" }),
-        " on every opening, then preserve its content long enough to animate each close without keeping its actions interactive. The open state uses",
-        /* @__PURE__ */ jsx("code", { children: " opacity: 1" }),
-        " and ",
+        ". The open state uses ",
+        /* @__PURE__ */ jsx("code", { children: "opacity: 1" }),
+        " and",
         /* @__PURE__ */ jsx("code", { children: "scale(1)" }),
-        ". Browsers without this support change state immediately."
+        ". During close, the content remains visible for the animation while its actions stay inactive."
       ] }),
       /* @__PURE__ */ jsxs("p", { children: [
-        "When a user requests reduced motion, the menu changes state without a transition or transform. Keep the native ",
+        "Reduced motion changes the menu state without a transition or transform. Native ",
         /* @__PURE__ */ jsx("code", { children: "details" }),
-        " and",
+        " and ",
         /* @__PURE__ */ jsx("code", { children: "summary" }),
-        " relationship so keyboard users can operate the disclosure, and give every icon-only action an accessible name."
+        " provide keyboard operation. Every icon-only action has an accessible name."
       ] })
     ] }),
     /* @__PURE__ */ jsx(demo_section_default, { id: "menus-api-title", title: "API", children: /* @__PURE__ */ jsx(
@@ -5636,7 +5636,7 @@ import "dragonglass/dist/themes/default.css";`;
       /* @__PURE__ */ jsx(code_example_default, { code: linksCode })
     ] }),
     /* @__PURE__ */ jsxs(demo_section_default, { id: "breadcrumb-actions", title: "Links and actions", children: [
-      /* @__PURE__ */ jsx("p", { children: "A breadcrumb may mix direct anchors and buttons. Do not place lists, list items or wrapper elements inside the breadcrumb nav." }),
+      /* @__PURE__ */ jsx("p", { children: "A breadcrumb combines anchors and buttons as direct children of the breadcrumb nav." }),
       /* @__PURE__ */ jsxs("nav", { "data-breadcrumb": true, "aria-label": "File location", children: [
         /* @__PURE__ */ jsx("button", { type: "button", children: "Workspace" }),
         /* @__PURE__ */ jsx("a", { href: "/dragonglass", children: "Documents" }),
@@ -5905,10 +5905,10 @@ import "dragonglass/dist/themes/default.css";`;
       ] }),
       /* @__PURE__ */ jsx(code_example_default, { code: expansionSummaryColorExample })
     ] }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "expansion-behavior-title", title: "Behavior and fallback", children: /* @__PURE__ */ jsxs("p", { children: [
+    /* @__PURE__ */ jsx(demo_section_default, { id: "expansion-behavior-title", title: "Behavior", children: /* @__PURE__ */ jsxs("p", { children: [
       "The native ",
       /* @__PURE__ */ jsx("code", { children: "details" }),
-      " element controls disclosure state. The open summary keeps a stable bottom border while its generated marker rotates. When a user requests reduced motion, the marker and summary change state without a transition. Content and keyboard operation do not depend on the animation."
+      " element controls disclosure state. The open summary keeps a stable bottom border while its generated marker rotates. Reduced motion changes the marker and summary state without a transition."
     ] }) }),
     /* @__PURE__ */ jsx(demo_section_default, { id: "expansion-api-title", title: "API", children: /* @__PURE__ */ jsx(
       api_table_default,
@@ -5984,7 +5984,7 @@ import "dragonglass/dist/themes/default.css";`;
       name: "data-notification-close",
       type: "Button attribute",
       defaultValue: "Optional",
-      description: "Selects and reserves space for a direct close button."
+      description: "Styles a direct close button and reserves its space without removing the notification."
     },
     {
       name: "info|success|warning|danger",
@@ -6045,7 +6045,7 @@ import "dragonglass/dist/themes/default.css";`;
     /* @__PURE__ */ jsx(demo_section_default, { id: "notification-composition", title: "Composition", children: /* @__PURE__ */ jsxs("p", { children: [
       "A direct close button with ",
       /* @__PURE__ */ jsx("code", { children: "data-notification-close" }),
-      " receives absolute positioning and reserved space. Dragonglass does not remove the notification on activation."
+      " receives absolute positioning and reserved space. The attribute provides the presentation and does not remove the notification."
     ] }) }),
     /* @__PURE__ */ jsx(demo_section_default, { id: "notification-responsive", title: "Responsive behavior", children: /* @__PURE__ */ jsx("p", { children: "Fixed notifications stay within the viewport with a maximum width based on the page gap. Inline notifications use the available content width and remain in document flow." }) }),
     /* @__PURE__ */ jsx(demo_section_default, { id: "notification-api", title: "API", children: /* @__PURE__ */ jsx(
@@ -6231,16 +6231,22 @@ import "dragonglass/dist/themes/default.css";`;
       demo_section_default,
       {
         id: "bottom-sheet-motion-title",
-        title: "Motion, fallback and accessibility",
+        title: "Motion and accessibility",
         children: [
           /* @__PURE__ */ jsxs("p", { children: [
-            "Browsers that support discrete transitions and starting styles reveal the sheet through opacity and a short translation from the bottom. The",
+            "Discrete transitions and starting styles reveal the sheet through opacity and a short translation from the bottom. The",
             /* @__PURE__ */ jsx("code", { children: "data-closing" }),
-            " state uses the same properties for exit and keeps the backdrop timing synchronized. Keep the modal open until those animations finish, then call ",
+            " state reverses those properties and keeps the backdrop synchronized. The modal stays open through the exit animation, then ",
             /* @__PURE__ */ jsx("code", { children: "close()" }),
-            ". Browsers without this support open and close the sheet immediately."
+            " completes the flow."
           ] }),
-          /* @__PURE__ */ jsx("p", { children: "When a user requests reduced motion, the sheet and its backdrop change state without transitions or spatial movement. Give the sheet an accessible name, use the native modal API when it blocks the page, and return focus to the control that opened it after it closes." })
+          /* @__PURE__ */ jsxs("p", { children: [
+            "When a user requests reduced motion, the sheet and its backdrop change state without transitions or spatial movement. The example connects the sheet to its heading with ",
+            /* @__PURE__ */ jsx("code", { children: "aria-labelledby" }),
+            ". A sheet opened with ",
+            /* @__PURE__ */ jsx("code", { children: "showModal()" }),
+            " blocks the page and supports Escape. Focus behavior follows the native dialog API."
+          ] })
         ]
       }
     ),
@@ -6372,14 +6378,14 @@ import "dragonglass/dist/themes/default.css";`;
         /* @__PURE__ */ jsx("code", { children: " data-drawer-trigger" }),
         " attribute is a CSS hook and adds no JavaScript behavior. The native ",
         /* @__PURE__ */ jsx("code", { children: "open" }),
-        " attribute is the only state and opens or closes the drawer with a mouse click, Enter, or Space. Touch activation remains pending direct verification across the browser baseline."
+        " attribute is the only state and opens or closes the drawer with a click, Enter, or Space."
       ] }),
       /* @__PURE__ */ jsxs("p", { children: [
-        "A click outside the open drawer closes it and consumes that click, so a covered control does not activate by accident. Controls inside the drawer keep their native behavior. Give the complementary region a name with",
-        /* @__PURE__ */ jsx("code", { children: " aria-label" }),
+        "A click outside the open drawer closes it and consumes that click, so a covered control stays inactive. Controls inside the drawer keep their native behavior. The complementary region receives its accessible name from ",
+        /* @__PURE__ */ jsx("code", { children: "aria-label" }),
         " or ",
         /* @__PURE__ */ jsx("code", { children: "aria-labelledby" }),
-        ". This disclosure does not contain focus, restore focus, or promise Escape closure. Use it only when those limits fit the product flow."
+        ". Focus stays in the native document order. Escape leaves the disclosure open."
       ] }),
       /* @__PURE__ */ jsx("p", { children: "The first preview remains visible for inspection. The interactive demo below starts closed and lets you open or close the temporary drawer." }),
       /* @__PURE__ */ jsx(
@@ -6463,28 +6469,8 @@ import "dragonglass/dist/themes/default.css";`;
     /* @__PURE__ */ jsx(demo_section_default, { id: "drawer-position", title: "Position and motion", children: /* @__PURE__ */ jsxs("p", { children: [
       "A drawer starts at the left edge. Add",
       /* @__PURE__ */ jsx("code", { children: ' data-drawer="right"' }),
-      " to anchor it to the right edge. Browsers with native details-content and inert CSS support animate each entrance and exit. Browsers in the supported baseline without those features retain the native disclosure and change state immediately. Reduced motion also changes state without a transition or spatial offset."
+      " to anchor it to the right edge. The open state moves the drawer into view. Native details content and inert CSS define the entrance and exit transitions. Reduced motion changes state without a transition or spatial offset."
     ] }) }),
-    /* @__PURE__ */ jsx(
-      demo_section_default,
-      {
-        id: "drawer-migration",
-        title: "Migration for the next major release",
-        children: /* @__PURE__ */ jsxs("p", { children: [
-          "This is a breaking change for the next major release. The former",
-          /* @__PURE__ */ jsx("code", { children: " section data-drawer" }),
-          " and",
-          /* @__PURE__ */ jsx("code", { children: " dialog data-drawer" }),
-          " structures are no longer supported. Replace either structure with ",
-          /* @__PURE__ */ jsx("code", { children: "aside data-drawer" }),
-          ". A drawer may contain navigation, but a ",
-          /* @__PURE__ */ jsx("code", { children: "nav" }),
-          " element is optional. The next major release removes support for the generic",
-          /* @__PURE__ */ jsx("code", { children: " [data-drawer]" }),
-          " selector, which is intentionally not preserved."
-        ] })
-      }
-    ),
     /* @__PURE__ */ jsx(demo_section_default, { id: "drawer-api", title: "API", children: /* @__PURE__ */ jsx(
       api_table_default,
       {
@@ -6518,7 +6504,7 @@ import "dragonglass/dist/themes/default.css";`;
             name: "--motion-duration-base / --motion-duration-fast / --motion-easing-enter / --motion-easing-exit",
             type: "Motion token",
             defaultValue: "200ms / theme value / ease-out / ease-in",
-            description: "Control enhanced entrance and exit transitions where the browser supports them."
+            description: "Control the entrance and exit transition timing."
           }
         ]
       }
@@ -6583,15 +6569,14 @@ import "dragonglass/dist/themes/default.css";`;
       ] }),
       /* @__PURE__ */ jsx(code_example_default, { code: richTabsExample })
     ] }),
-    /* @__PURE__ */ jsxs(demo_section_default, { id: "tabs-fallback-title", title: "Layout fallback", children: [
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "tabs-fallback-title", title: "Layout behavior", children: [
       /* @__PURE__ */ jsxs("p", { children: [
-        "Browsers that support ",
         /* @__PURE__ */ jsx("code", { children: "sibling-count()" }),
-        ",",
+        ", ",
         /* @__PURE__ */ jsx("code", { children: "sibling-index()" }),
-        ", and ",
+        ", and",
         /* @__PURE__ */ jsx("code", { children: "::details-content" }),
-        " place the summaries in one tab row and align the open panel below them. Other baseline browsers keep the same markup as stacked native disclosures. The fallback preserves content and keyboard operation. It does not promise the enhanced tab-row layout or exclusive disclosure behavior."
+        " place the summaries in one tab row and align the open panel below them. The same markup also forms stacked native disclosures with accessible content and keyboard operation."
       ] }),
       /* @__PURE__ */ jsx("p", { children: "When a user requests reduced motion, summary color and border state changes occur without a transition." })
     ] }),

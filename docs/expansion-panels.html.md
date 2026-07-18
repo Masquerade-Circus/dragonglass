@@ -46,9 +46,9 @@ Apply a `bg-*` utility to `summary` when only the panel heading needs a distinct
 </details>
 ```
 
-## Behavior and fallback
+## Behavior
 
-The native `details` element controls disclosure state. The open summary keeps a stable bottom border while its generated marker rotates. When a user requests reduced motion, the marker and summary change state without a transition. Content and keyboard operation do not depend on the animation.
+The native `details` element controls disclosure state. The open summary keeps a stable bottom border while its generated marker rotates. Reduced motion changes the marker and summary state without a transition.
 
 ## API
 

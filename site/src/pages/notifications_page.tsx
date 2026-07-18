@@ -35,7 +35,8 @@ const apiRows = [
     name: "data-notification-close",
     type: "Button attribute",
     defaultValue: "Optional",
-    description: "Selects and reserves space for a direct close button.",
+    description:
+      "Styles a direct close button and reserves its space without removing the notification.",
   },
   {
     name: "info|success|warning|danger",
@@ -122,8 +123,8 @@ export default () => (
     <DemoSection id="notification-composition" title="Composition">
       <p>
         A direct close button with <code>data-notification-close</code> receives
-        absolute positioning and reserved space. Dragonglass does not remove the
-        notification on activation.
+        absolute positioning and reserved space. The attribute provides the
+        presentation and does not remove the notification.
       </p>
     </DemoSection>
 

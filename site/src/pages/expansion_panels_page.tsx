@@ -77,13 +77,12 @@ export default () => (
       <CodeExample code={expansionSummaryColorExample} />
     </DemoSection>
 
-    <DemoSection id="expansion-behavior-title" title="Behavior and fallback">
+    <DemoSection id="expansion-behavior-title" title="Behavior">
       <p>
         The native <code>details</code> element controls disclosure state. The
         open summary keeps a stable bottom border while its generated marker
-        rotates. When a user requests reduced motion, the marker and summary
-        change state without a transition. Content and keyboard operation do not
-        depend on the animation.
+        rotates. Reduced motion changes the marker and summary state without a
+        transition.
       </p>
     </DemoSection>
 

@@ -101,18 +101,14 @@ export default () => (
         <code> details data-trigger data-drawer-trigger</code> disclosure. The
         <code> data-drawer-trigger</code> attribute is a CSS hook and adds no
         JavaScript behavior. The native <code>open</code> attribute is the only
-        state and opens or closes the drawer with a mouse click, Enter, or
-        Space. Touch activation remains pending direct verification across the
-        browser baseline.
+        state and opens or closes the drawer with a click, Enter, or Space.
       </p>
       <p>
         A click outside the open drawer closes it and consumes that click, so a
-        covered control does not activate by accident. Controls inside the
-        drawer keep their native behavior. Give the complementary region a name
-        with
-        <code> aria-label</code> or <code>aria-labelledby</code>. This
-        disclosure does not contain focus, restore focus, or promise Escape
-        closure. Use it only when those limits fit the product flow.
+        covered control stays inactive. Controls inside the drawer keep their
+        native behavior. The complementary region receives its accessible name
+        from <code>aria-label</code> or <code>aria-labelledby</code>. Focus stays
+        in the native document order. Escape leaves the disclosure open.
       </p>
       <p>
         The first preview remains visible for inspection. The interactive demo
@@ -216,28 +212,10 @@ export default () => (
     <DemoSection id="drawer-position" title="Position and motion">
       <p>
         A drawer starts at the left edge. Add
-        <code> data-drawer="right"</code> to anchor it to the right edge.
-        Browsers with native details-content and inert CSS support animate each
-        entrance and exit. Browsers in the supported baseline without those
-        features retain the native disclosure and change state immediately.
-        Reduced motion also changes state without a transition or spatial
-        offset.
-      </p>
-    </DemoSection>
-
-    <DemoSection
-      id="drawer-migration"
-      title="Migration for the next major release"
-    >
-      <p>
-        This is a breaking change for the next major release. The former
-        <code> section data-drawer</code> and
-        <code> dialog data-drawer</code> structures are no longer supported.
-        Replace either structure with <code>aside data-drawer</code>. A drawer
-        may contain navigation, but a <code>nav</code> element is optional. The
-        next major release removes support for the generic
-        <code> [data-drawer]</code> selector, which is intentionally not
-        preserved.
+        <code> data-drawer="right"</code> to anchor it to the right edge. The
+        open state moves the drawer into view. Native details content and inert
+        CSS define the entrance and exit transitions. Reduced motion changes
+        state without a transition or spatial offset.
       </p>
     </DemoSection>
 
@@ -277,7 +255,7 @@ export default () => (
             type: "Motion token",
             defaultValue: "200ms / theme value / ease-out / ease-in",
             description:
-              "Control enhanced entrance and exit transitions where the browser supports them.",
+              "Control the entrance and exit transition timing.",
           },
         ]}
       />

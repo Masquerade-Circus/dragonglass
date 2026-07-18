@@ -60,15 +60,15 @@ A dialog accepts direct `header`, `section` and `footer` children. The `static` 
 
 Standard dialogs size to their content. The `full-width` token leaves a one-rem viewport gap. Long body content scrolls without moving the header or footer actions.
 
-## Motion and fallback behavior
+## Motion
 
-Browsers that support transitions and starting styles reveal a non-static dialog through opacity and a short vertical translation. To animate its exit, keep the modal open, add `data-closing`, wait for its surface and backdrop animations, and then call `close()`. Browsers without this support close the dialog immediately.
+Transitions and starting styles reveal a non-static dialog through opacity and a short vertical translation. The modal stays open with `data-closing` while its surface and backdrop animate, then `close()` completes the exit.
 
 The `static` utility excludes documentation previews and embedded dialogs from this motion. When a user requests reduced motion, the dialog and its backdrop change state without transitions or spatial movement.
 
 ## Accessibility
 
-Give every dialog an accessible name with `aria-labelledby` or `aria-label`. Use the native modal API when the dialog must block the page, move focus into the dialog when it opens, keep focus inside the modal, support Escape, and return focus to the control that opened it after it closes.
+The examples connect each dialog to its heading with `aria-labelledby`. A dialog opened with `showModal()` blocks the page and supports Escape. Focus behavior follows the native dialog API.
 
 ## API
 

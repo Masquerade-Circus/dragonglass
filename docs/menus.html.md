@@ -56,9 +56,9 @@ The top and right tokens change the default bottom-left placement. Their combina
 
 ## Motion and accessibility
 
-Browsers that support starting styles, inert CSS interactivity and the native details content pseudo-element reveal the menu from `opacity: 0` and `scale(.98)` on every opening, then preserve its content long enough to animate each close without keeping its actions interactive. The open state uses `opacity: 1` and `scale(1)`. Browsers without this support change state immediately.
+Starting styles, inert CSS interactivity, and the native details content pseudo-element reveal the menu from `opacity: 0` and `scale(.98)`. The open state uses `opacity: 1` and `scale(1)`. During close, the content remains visible for the animation while its actions stay inactive.
 
-When a user requests reduced motion, the menu changes state without a transition or transform. Keep the native `details` and `summary` relationship so keyboard users can operate the disclosure, and give every icon-only action an accessible name.
+Reduced motion changes the menu state without a transition or transform. Native `details` and `summary` provide keyboard operation. Every icon-only action has an accessible name.
 
 ## API
 

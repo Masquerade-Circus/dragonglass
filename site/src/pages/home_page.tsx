@@ -120,11 +120,10 @@ export default () => (
                 Build app interfaces with HTML that stays readable
               </h1>
               <p class="max-w-prose text-lg leading-relaxed mt-0 mb-6">
-                Dragonglass is an HTML5-first CSS framework for app interfaces.
-                It styles semantic HTML through readable data-* component
-                contracts, responsive layout primitives, focused utilities, and
-                compiled themes. Applications load plain CSS and keep their
-                existing client-side stack.
+                Dragonglass turns semantic HTML into app interfaces with
+                readable data-* component contracts, responsive layouts, focused
+                utilities, and compiled themes. Install the CSS and start
+                building.
               </p>
               <p class="mt-0 mb-0">
                 <a
@@ -172,11 +171,11 @@ export default () => (
             id="mental-model-title"
             class="max-w-prose text-3xl font-semibold leading-tight mt-0 mb-3"
           >
-            Structure the HTML. Select a component contract. Refine the result.
+            Write semantic HTML. Select a component. Refine the interface.
           </h2>
           <p class="max-w-prose text-lg mt-0 mb-8">
-            Dragonglass keeps the structure, component choice, and visual
-            adjustments visible in your markup.
+            The markup keeps the structure, component, and visual adjustments
+            easy to read.
           </p>
           <div class="grid grid-gutters">
             {mentalModel.map(([title, body]) => (
@@ -388,10 +387,7 @@ export default () => (
             <h3 class="text-lg font-semibold mt-0 mb-2">Browser support</h3>
             <p class="mt-0 mb-0">
               Dragonglass supports Chrome 119+, Edge 119+, Firefox 121+, Safari
-              16.5+, and iOS Safari 16.5+ for functional component behavior.
-              Enhanced disclosure layout, CSS-only exit retention, and native
-              invoker behavior depend on browser support and may use the
-              documented immediate fallback.
+              16.5+, and iOS Safari 16.5+.
             </p>
           </div>
         </div>

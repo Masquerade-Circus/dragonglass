@@ -42,7 +42,7 @@ Combine one vertical token with one horizontal token. The default is top right. 
 
 ## Composition
 
-A direct close button with `data-notification-close` receives absolute positioning and reserved space. Dragonglass does not remove the notification on activation.
+A direct close button with `data-notification-close` receives absolute positioning and reserved space. The attribute provides the presentation and does not remove the notification.
 
 ## Responsive behavior
 
@@ -55,7 +55,7 @@ Fixed notifications stay within the viewport with a maximum width based on the p
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
 | data-notification | Attribute | Primary border, top right | Activates notification layout and accepts tone, position and shadow tokens. |
-| data-notification-close | Button attribute | Optional | Selects and reserves space for a direct close button. |
+| data-notification-close | Button attribute | Optional | Styles a direct close button and reserves its space without removing the notification. |
 | info\|success\|warning\|danger | Attribute token | Primary | Sets the semantic border color. |
 | inline | Attribute token | Fixed | Keeps a notification in document flow and resets position transforms. |
 | top\|right\|bottom\|left\|center | Attribute token | top right | Combines vertical and horizontal placement for fixed notifications. |

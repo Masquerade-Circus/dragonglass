@@ -32,11 +32,11 @@ The bottom sheet CSS targets direct header, section and footer children. The `op
 </dialog>
 ```
 
-## Motion, fallback and accessibility
+## Motion and accessibility
 
-Browsers that support discrete transitions and starting styles reveal the sheet through opacity and a short translation from the bottom. The `data-closing` state uses the same properties for exit and keeps the backdrop timing synchronized. Keep the modal open until those animations finish, then call `close()`. Browsers without this support open and close the sheet immediately.
+Discrete transitions and starting styles reveal the sheet through opacity and a short translation from the bottom. The `data-closing` state reverses those properties and keeps the backdrop synchronized. The modal stays open through the exit animation, then `close()` completes the flow.
 
-When a user requests reduced motion, the sheet and its backdrop change state without transitions or spatial movement. Give the sheet an accessible name, use the native modal API when it blocks the page, and return focus to the control that opened it after it closes.
+When a user requests reduced motion, the sheet and its backdrop change state without transitions or spatial movement. The example connects the sheet to its heading with `aria-labelledby`. A sheet opened with `showModal()` blocks the page and supports Escape. Focus behavior follows the native dialog API.
 
 ## API
 

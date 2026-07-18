@@ -65,14 +65,12 @@ export default () => (
       <CodeExample code={richTabsExample} />
     </DemoSection>
 
-    <DemoSection id="tabs-fallback-title" title="Layout fallback">
+    <DemoSection id="tabs-fallback-title" title="Layout behavior">
       <p>
-        Browsers that support <code>sibling-count()</code>,
-        <code>sibling-index()</code>, and <code>::details-content</code> place
-        the summaries in one tab row and align the open panel below them. Other
-        baseline browsers keep the same markup as stacked native disclosures.
-        The fallback preserves content and keyboard operation. It does not
-        promise the enhanced tab-row layout or exclusive disclosure behavior.
+        <code>sibling-count()</code>, <code>sibling-index()</code>, and
+        <code>::details-content</code> place the summaries in one tab row and
+        align the open panel below them. The same markup also forms stacked
+        native disclosures with accessible content and keyboard operation.
       </p>
       <p>
         When a user requests reduced motion, summary color and border state

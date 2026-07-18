@@ -71,8 +71,8 @@ export default () => (
 
     <DemoSection id="breadcrumb-actions" title="Links and actions">
       <p>
-        A breadcrumb may mix direct anchors and buttons. Do not place lists,
-        list items or wrapper elements inside the breadcrumb nav.
+        A breadcrumb combines anchors and buttons as direct children of the
+        breadcrumb nav.
       </p>
       <nav data-breadcrumb aria-label="File location">
         <button type="button">Workspace</button>

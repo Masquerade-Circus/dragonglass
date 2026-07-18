@@ -24,9 +24,9 @@ This preview stays inside its frame so you can inspect the drawer without coveri
 
 ## Temporary drawer
 
-Place a `summary` followed by a direct `aside data-drawer` inside a `details data-trigger data-drawer-trigger` disclosure. The `data-drawer-trigger` attribute is a CSS hook and adds no JavaScript behavior. The native `open` attribute is the only state and opens or closes the drawer with a mouse click, Enter, or Space. Touch activation remains pending direct verification across the browser baseline.
+Place a `summary` followed by a direct `aside data-drawer` inside a `details data-trigger data-drawer-trigger` disclosure. The `data-drawer-trigger` attribute is a CSS hook and adds no JavaScript behavior. The native `open` attribute is the only state and opens or closes the drawer with a click, Enter, or Space.
 
-A click outside the open drawer closes it and consumes that click, so a covered control does not activate by accident. Controls inside the drawer keep their native behavior. Give the complementary region a name with `aria-label` or `aria-labelledby`. This disclosure does not contain focus, restore focus, or promise Escape closure. Use it only when those limits fit the product flow.
+A click outside the open drawer closes it and consumes that click, so a covered control stays inactive. Controls inside the drawer keep their native behavior. The complementary region receives its accessible name from `aria-label` or `aria-labelledby`. Focus stays in the native document order. Escape leaves the disclosure open.
 
 The first preview remains visible for inspection. The interactive demo below starts closed and lets you open or close the temporary drawer.
 
@@ -49,11 +49,7 @@ The first preview remains visible for inspection. The interactive demo below sta
 
 ## Position and motion
 
-A drawer starts at the left edge. Add `data-drawer="right"` to anchor it to the right edge. Browsers with native details-content and inert CSS support animate each entrance and exit. Browsers in the supported baseline without those features retain the native disclosure and change state immediately. Reduced motion also changes state without a transition or spatial offset.
-
-## Migration for the next major release
-
-This is a breaking change for the next major release. The former `section data-drawer` and `dialog data-drawer` structures are no longer supported. Replace either structure with `aside data-drawer`. A drawer may contain navigation, but a `nav` element is optional. The next major release removes support for the generic `[data-drawer]` selector, which is intentionally not preserved.
+A drawer starts at the left edge. Add `data-drawer="right"` to anchor it to the right edge. The open state moves the drawer into view. Native details content and inert CSS define the entrance and exit transitions. Reduced motion changes state without a transition or spatial offset.
 
 ## API
 
@@ -65,4 +61,4 @@ This is a breaking change for the next major release. The former `section data-d
 | details[data-trigger][data-drawer-trigger] > summary + aside[data-drawer] | Structure | Required for temporary drawers | Marks the temporary drawer disclosure for CSS while native details state provides zero-JavaScript control. |
 | data-drawer="right" | Attribute token | Left | Anchors the drawer to the right viewport edge. |
 | open | Native details state | Absent | Shows the temporary drawer through its parent details. |
-| --motion-duration-base / --motion-duration-fast / --motion-easing-enter / --motion-easing-exit | Motion token | 200ms / theme value / ease-out / ease-in | Control enhanced entrance and exit transitions where the browser supports them. |
+| --motion-duration-base / --motion-duration-fast / --motion-easing-enter / --motion-easing-exit | Motion token | 200ms / theme value / ease-out / ease-in | Control the entrance and exit transition timing. |

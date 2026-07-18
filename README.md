@@ -1,13 +1,13 @@
 # Dragonglass
 
-Dragonglass is an HTML5-first CSS framework for app interfaces. It styles semantic HTML through readable data-* component contracts, responsive layout primitives, focused utilities, and compiled themes. Applications load plain CSS and keep their existing client-side stack.
+Dragonglass turns semantic HTML into app interfaces with readable `data-*` component contracts, responsive layouts, focused utilities, and compiled themes. Install the CSS and start building.
 
 ## Why Dragonglass
 
-- Common app surfaces without utility-heavy markup.
-- Component variants selected through readable `data-*` attributes.
-- Focused utilities for spacing, color, elevation and typography.
-- Plain CSS distribution without a client-side framework dependency.
+- Build common app surfaces with readable semantic markup.
+- Select component variants through clear `data-*` attributes.
+- Refine spacing, color, elevation, and typography with focused utilities.
+- Ship plain CSS with your application.
 
 ## Quick start
 
@@ -24,8 +24,8 @@ import "dragonglass/dist/dragonglass.css";
 import "dragonglass/dist/themes/default.css";
 ```
 
-The first file contains components and utilities. The second file supplies the
-color tokens. Load a theme after the framework stylesheet.
+The first file provides components and utilities. The second provides the color
+tokens and loads after the framework stylesheet.
 
 Add your first card:
 
@@ -45,8 +45,8 @@ Dragonglass styles the semantic regions and applies the card contract through da
 
 ## Choose a bundled theme
 
-Dragonglass ships twelve compiled themes. Replace `default` in the theme import
-with any name from the table. One theme loads after the framework stylesheet.
+Dragonglass includes twelve compiled themes. Replace `default` with any theme
+name from the table and load it after the framework stylesheet.
 
 | Theme      | Primary   |
 | ---------- | --------- |
@@ -144,35 +144,12 @@ again to derive the complete token set from a new primary.
 - [Components and API](docs/app-components.html)
 - [Themes and colors](docs/colors.html)
 - [Utilities](docs/utilities.html)
-- [Layout foundations](docs/layout.html)
-- [Positioning](docs/positioning.html)
-- [Images and backgrounds](docs/images.html)
-- [Hero recipes](docs/heroes.html)
-- [Forms](docs/forms.html)
-- [Drawers](docs/drawers.html)
-- [llms.txt](docs/llms.txt)
 - [llms-full.txt](docs/llms-full.txt)
 - [Contributing](CONTRIBUTING.md)
 
 ## Browser baseline
 
 Dragonglass supports Chrome 119+, Edge 119+, Firefox 121+, Safari 16.5+, and iOS Safari 16.5+.
-
-This baseline covers functional component behavior. Enhanced motion and layout
-do not have equal support across those browsers. Features such as
-`::details-content`, CSS `interactivity`, `sibling-count()`, `sibling-index()`,
-and native invoker attributes activate only where the browser implements them.
-Menus and grouped disclosures remain operable through native `details` and
-`summary`. Tabs fall back to stacked disclosures. Temporary drawers use the same
-native disclosure state with a direct `aside` and keep the page behind them
-interactive. Dialogs and bottom sheets open through `showModal()` and close
-through `close()`. Their consumer-side closing helper preserves an animated exit
-where the browser exposes one and closes immediately otherwise. The `invoker`
-and `closedby` attributes remain optional progressive enhancements.
-
-Observed animation parity in one browser does not establish parity across the
-baseline. Test the functional fallback in every supported engine when a change
-depends on one of these features.
 
 ## License
 
