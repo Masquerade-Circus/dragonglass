@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.0.1](https://github.com/Masquerade-Circus/dragonglass/compare/2.0.0...2.0.1) (2026-07-18)
+
+### Bug Fixes
+
+* preserve SPA navigation and simplify CSS build ([2a69e10](https://github.com/Masquerade-Circus/dragonglass/commit/2a69e10b081d0c748485e3e464f12c69c2f57281))
+
 ## [2.0.0](https://github.com/Masquerade-Circus/dragonglass/compare/1.0.2...2.0.0) (2026-07-18)
 
 ### Features
