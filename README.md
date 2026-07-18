@@ -88,7 +88,7 @@ between the primary and its lightest family token:
 Compile it with Dart Sass:
 
 ```sh
-bunx sass --pkg-importer=node theme.scss theme.css --style=compressed
+npx sass --pkg-importer=node theme.scss theme.css --style=compressed
 ```
 
 Load the generated theme after `dragonglass.css`. The mixin derives accent,
@@ -149,6 +149,7 @@ again to derive the complete token set from a new primary.
 - [Images and backgrounds](docs/images.html)
 - [Hero recipes](docs/heroes.html)
 - [Forms](docs/forms.html)
+- [Drawers](docs/drawers.html)
 - [llms.txt](docs/llms.txt)
 - [llms-full.txt](docs/llms-full.txt)
 - [Contributing](CONTRIBUTING.md)
@@ -156,6 +157,22 @@ again to derive the complete token set from a new primary.
 ## Browser baseline
 
 Dragonglass supports Chrome 119+, Edge 119+, Firefox 121+, Safari 16.5+, and iOS Safari 16.5+.
+
+This baseline covers functional component behavior. Enhanced motion and layout
+do not have equal support across those browsers. Features such as
+`::details-content`, CSS `interactivity`, `sibling-count()`, `sibling-index()`,
+and native invoker attributes activate only where the browser implements them.
+Menus and grouped disclosures remain operable through native `details` and
+`summary`. Tabs fall back to stacked disclosures. Temporary drawers use the same
+native disclosure state with a direct `aside` and keep the page behind them
+interactive. Dialogs and bottom sheets open through `showModal()` and close
+through `close()`. Their consumer-side closing helper preserves an animated exit
+where the browser exposes one and closes immediately otherwise. The `invoker`
+and `closedby` attributes remain optional progressive enhancements.
+
+Observed animation parity in one browser does not establish parity across the
+baseline. Test the functional fallback in every supported engine when a change
+depends on one of these features.
 
 ## License
 

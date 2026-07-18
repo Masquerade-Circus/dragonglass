@@ -83,6 +83,13 @@ const apiRows = [
     defaultValue: "Theme value",
     description: "Controls the corner radius of standard dialogs.",
   },
+  {
+    name: "--motion-duration-base / --motion-easing-enter / --motion-easing-exit",
+    type: "Motion token",
+    defaultValue: "200ms / ease-out / ease-in",
+    description:
+      "Control supported opening and closing transitions for the dialog surface and backdrop.",
+  },
 ];
 
 export default () => (
@@ -186,6 +193,33 @@ export default () => (
         Standard dialogs size to their content. The <code>full-width</code>
         token leaves a one-rem viewport gap. Long body content scrolls without
         moving the header or footer actions.
+      </p>
+    </DemoSection>
+
+    <DemoSection id="dialog-motion" title="Motion and fallback behavior">
+      <p>
+        Browsers that support transitions and starting styles reveal a
+        non-static dialog through opacity and a short vertical translation. To
+        animate its exit, keep the modal open, add <code>data-closing</code>,
+        wait for its surface and backdrop animations, and then call
+        <code> close()</code>. Browsers without this support close the dialog
+        immediately.
+      </p>
+      <p>
+        The <code>static</code> utility excludes documentation previews and
+        embedded dialogs from this motion. When a user requests reduced motion,
+        the dialog and its backdrop change state without transitions or spatial
+        movement.
+      </p>
+    </DemoSection>
+
+    <DemoSection id="dialog-accessibility" title="Accessibility">
+      <p>
+        Give every dialog an accessible name with
+        <code> aria-labelledby</code> or <code>aria-label</code>. Use the native
+        modal API when the dialog must block the page, move focus into the
+        dialog when it opens, keep focus inside the modal, support Escape, and
+        return focus to the control that opened it after it closes.
       </p>
     </DemoSection>
 

@@ -42,6 +42,7 @@
 - [Cards](./cards.html.md): Basic, elevated, squared and full-width card variants.
 - [Dialogs](./dialogs.html.md): Centered dialogs with shape, width and elevation variants.
 - [Bottom sheets](./bottom-sheets.html.md): Bottom-anchored dialog layout with an optional shadow.
+- [Drawers](./drawers.html.md): Persistent and temporary complementary regions at either viewport edge.
 
 ## Data display
 

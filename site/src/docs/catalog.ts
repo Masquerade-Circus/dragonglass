@@ -3,7 +3,7 @@ import { bundledThemes, type ColorScheme, type ThemeName } from "../themes";
 const basePath = "/dragonglass";
 const themeRoutePath = (
   themeName: ThemeName,
-  colorScheme: Extract<ColorScheme, "light" | "dark"> = "light"
+  colorScheme: Extract<ColorScheme, "light" | "dark"> = "light",
 ) =>
   colorScheme === "dark"
     ? `${basePath}/themes/dark/${themeName}.html`
@@ -18,7 +18,7 @@ const categoryOrder = [
   "Feedback",
   "Surfaces",
   "Data display",
-  "Utilities"
+  "Utilities",
 ] as const;
 
 type DocumentationCategory = (typeof categoryOrder)[number];
@@ -44,6 +44,7 @@ type DocumentationPage =
   | "Notifications"
   | "Steppers"
   | "BottomSheets"
+  | "Drawers"
   | "Tabs"
   | "Cards"
   | "Dialogs"
@@ -79,7 +80,7 @@ export const catalogEntries: Omit<DocumentationRoute, "colorScheme">[] = [
     page: "Home",
     category: "Getting started",
     description:
-      "Learn how Dragonglass styles semantic HTML and where to find each component."
+      "Learn how Dragonglass styles semantic HTML and where to find each component.",
   },
   {
     path: `${basePath}/app-components.html`,
@@ -89,7 +90,7 @@ export const catalogEntries: Omit<DocumentationRoute, "colorScheme">[] = [
     page: "AppComponents",
     category: "Getting started",
     description:
-      "Find application components by purpose and open their examples and API."
+      "Find application components by purpose and open their examples and API.",
   },
   {
     path: `${basePath}/layout.html`,
@@ -99,7 +100,7 @@ export const catalogEntries: Omit<DocumentationRoute, "colorScheme">[] = [
     page: "Layouts",
     category: "Foundations",
     description:
-      "Responsive containers, direct-child content regions and toolbar layouts."
+      "Responsive containers, direct-child content regions and toolbar layouts.",
   },
   {
     path: `${basePath}/heroes.html`,
@@ -109,7 +110,7 @@ export const catalogEntries: Omit<DocumentationRoute, "colorScheme">[] = [
     page: "Heroes",
     category: "Foundations",
     description:
-      "Centered, split and presentation hero recipes composed from existing primitives."
+      "Centered, split and presentation hero recipes composed from existing primitives.",
   },
   {
     path: `${basePath}/buttons.html`,
@@ -119,7 +120,7 @@ export const catalogEntries: Omit<DocumentationRoute, "colorScheme">[] = [
     page: "Buttons",
     category: "Actions",
     description:
-      "Base button styles, semantic color utilities and FAB variants."
+      "Base button styles, semantic color utilities and FAB variants.",
   },
   {
     path: `${basePath}/links.html`,
@@ -129,7 +130,7 @@ export const catalogEntries: Omit<DocumentationRoute, "colorScheme">[] = [
     page: "Links",
     category: "Actions",
     description:
-      "Inline, standalone and quiet link treatments for navigation and supporting actions."
+      "Inline, standalone and quiet link treatments for navigation and supporting actions.",
   },
   {
     path: `${basePath}/chips.html`,
@@ -138,7 +139,7 @@ export const catalogEntries: Omit<DocumentationRoute, "colorScheme">[] = [
     color: "bg-success",
     page: "Chips",
     category: "Actions",
-    description: "Chip tones and checked, pressed and current visual states."
+    description: "Chip tones and checked, pressed and current visual states.",
   },
   {
     path: `${basePath}/forms.html`,
@@ -147,7 +148,8 @@ export const catalogEntries: Omit<DocumentationRoute, "colorScheme">[] = [
     color: "bg-success",
     page: "Forms",
     category: "Forms",
-    description: "Field, floating-label, validation-state and toggle selectors."
+    description:
+      "Field, floating-label, validation-state and toggle selectors.",
   },
   {
     path: `${basePath}/breadcrumbs.html`,
@@ -157,7 +159,7 @@ export const catalogEntries: Omit<DocumentationRoute, "colorScheme">[] = [
     page: "Breadcrumbs",
     category: "Navigation",
     description:
-      "Wrapping breadcrumb trails built from direct link and button children."
+      "Wrapping breadcrumb trails built from direct link and button children.",
   },
   {
     path: `${basePath}/toolbars.html`,
@@ -166,7 +168,7 @@ export const catalogEntries: Omit<DocumentationRoute, "colorScheme">[] = [
     color: "bg-accent",
     page: "Toolbars",
     category: "Navigation",
-    description: "Wrapping nav[data-toolbar] rows and container variants."
+    description: "Wrapping nav[data-toolbar] rows and container variants.",
   },
   {
     path: `${basePath}/tabs.html`,
@@ -175,7 +177,7 @@ export const catalogEntries: Omit<DocumentationRoute, "colorScheme">[] = [
     color: "bg-warning",
     page: "Tabs",
     category: "Navigation",
-    description: "Grouped details layout selected by data-tabs."
+    description: "Grouped details layout selected by data-tabs.",
   },
   {
     path: `${basePath}/menus.html`,
@@ -184,7 +186,7 @@ export const catalogEntries: Omit<DocumentationRoute, "colorScheme">[] = [
     color: "bg-warning",
     page: "Menus",
     category: "Navigation",
-    description: "Positioned menus inside details[data-trigger]."
+    description: "Positioned menus inside details[data-trigger].",
   },
   {
     path: `${basePath}/expansion-panels.html`,
@@ -193,7 +195,8 @@ export const catalogEntries: Omit<DocumentationRoute, "colorScheme">[] = [
     color: "bg-danger",
     page: "ExpansionPanels",
     category: "Navigation",
-    description: "Full-width details panels with a generated open-state marker."
+    description:
+      "Full-width details panels with a generated open-state marker.",
   },
   {
     path: `${basePath}/steppers.html`,
@@ -202,7 +205,7 @@ export const catalogEntries: Omit<DocumentationRoute, "colorScheme">[] = [
     color: "bg-info",
     page: "Steppers",
     category: "Navigation",
-    description: "Horizontal, vertical and numbers-only stepper presentations."
+    description: "Horizontal, vertical and numbers-only stepper presentations.",
   },
   {
     path: `${basePath}/alerts.html`,
@@ -211,7 +214,7 @@ export const catalogEntries: Omit<DocumentationRoute, "colorScheme">[] = [
     color: "bg-warning",
     page: "Alerts",
     category: "Feedback",
-    description: "Alert surfaces with info, success, warning and danger tones."
+    description: "Alert surfaces with info, success, warning and danger tones.",
   },
   {
     path: `${basePath}/notifications.html`,
@@ -221,7 +224,7 @@ export const catalogEntries: Omit<DocumentationRoute, "colorScheme">[] = [
     page: "Notifications",
     category: "Feedback",
     description:
-      "Fixed and inline notifications with tone, position and shadow tokens."
+      "Fixed and inline notifications with tone, position and shadow tokens.",
   },
   {
     path: `${basePath}/progress.html`,
@@ -231,7 +234,7 @@ export const catalogEntries: Omit<DocumentationRoute, "colorScheme">[] = [
     page: "Progress",
     category: "Feedback",
     description:
-      "Determinate, indeterminate and spinner styles for progress elements."
+      "Determinate, indeterminate and spinner styles for progress elements.",
   },
   {
     path: `${basePath}/cards.html`,
@@ -240,7 +243,7 @@ export const catalogEntries: Omit<DocumentationRoute, "colorScheme">[] = [
     color: "bg-primary",
     page: "Cards",
     category: "Surfaces",
-    description: "Basic, elevated, squared and full-width card variants."
+    description: "Basic, elevated, squared and full-width card variants.",
   },
   {
     path: `${basePath}/dialogs.html`,
@@ -249,7 +252,7 @@ export const catalogEntries: Omit<DocumentationRoute, "colorScheme">[] = [
     color: "bg-accent",
     page: "Dialogs",
     category: "Surfaces",
-    description: "Centered dialogs with shape, width and elevation variants."
+    description: "Centered dialogs with shape, width and elevation variants.",
   },
   {
     path: `${basePath}/bottom-sheets.html`,
@@ -258,7 +261,17 @@ export const catalogEntries: Omit<DocumentationRoute, "colorScheme">[] = [
     color: "bg-success",
     page: "BottomSheets",
     category: "Surfaces",
-    description: "Bottom-anchored dialog layout with an optional shadow."
+    description: "Bottom-anchored dialog layout with an optional shadow.",
+  },
+  {
+    path: `${basePath}/drawers.html`,
+    label: "Drawers",
+    icon: "vertical_split",
+    color: "bg-info",
+    page: "Drawers",
+    category: "Surfaces",
+    description:
+      "Persistent and temporary complementary regions at either viewport edge.",
   },
   {
     path: `${basePath}/lists.html`,
@@ -267,7 +280,7 @@ export const catalogEntries: Omit<DocumentationRoute, "colorScheme">[] = [
     color: "bg-info",
     page: "Lists",
     category: "Data display",
-    description: "Styled unordered, ordered and definition-list layouts."
+    description: "Styled unordered, ordered and definition-list layouts.",
   },
   {
     path: `${basePath}/badges.html`,
@@ -276,7 +289,7 @@ export const catalogEntries: Omit<DocumentationRoute, "colorScheme">[] = [
     color: "bg-warning",
     page: "Badges",
     category: "Data display",
-    description: "Generated badge content selected by data-badge."
+    description: "Generated badge content selected by data-badge.",
   },
   {
     path: `${basePath}/tooltips.html`,
@@ -285,7 +298,7 @@ export const catalogEntries: Omit<DocumentationRoute, "colorScheme">[] = [
     color: "bg-info",
     page: "Tooltips",
     category: "Data display",
-    description: "Generated tooltip content, positions and color utilities."
+    description: "Generated tooltip content, positions and color utilities.",
   },
   {
     path: `${basePath}/tables.html`,
@@ -295,7 +308,7 @@ export const catalogEntries: Omit<DocumentationRoute, "colorScheme">[] = [
     page: "Tables",
     category: "Data display",
     description:
-      "Responsive data-table layout with generated mobile cell labels."
+      "Responsive data-table layout with generated mobile cell labels.",
   },
   {
     path: `${basePath}/utilities.html`,
@@ -305,7 +318,7 @@ export const catalogEntries: Omit<DocumentationRoute, "colorScheme">[] = [
     page: "Utilities",
     category: "Utilities",
     description:
-      "Find focused spacing, layout, border, typography, elevation and color adjustments."
+      "Find focused spacing, layout, border, typography, elevation and color adjustments.",
   },
   {
     path: `${basePath}/grid.html`,
@@ -314,7 +327,8 @@ export const catalogEntries: Omit<DocumentationRoute, "colorScheme">[] = [
     color: "bg-primary",
     page: "Grid",
     category: "Utilities",
-    description: "Wrapping flex rows, gutters and responsive fractional widths."
+    description:
+      "Wrapping flex rows, gutters and responsive fractional widths.",
   },
   {
     path: `${basePath}/positioning.html`,
@@ -324,7 +338,7 @@ export const catalogEntries: Omit<DocumentationRoute, "colorScheme">[] = [
     page: "Positioning",
     category: "Utilities",
     description:
-      "Fixed and absolute placement through directional data-position tokens."
+      "Fixed and absolute placement through directional data-position tokens.",
   },
   {
     path: `${basePath}/images.html`,
@@ -333,7 +347,7 @@ export const catalogEntries: Omit<DocumentationRoute, "colorScheme">[] = [
     color: "bg-primary",
     page: "Images",
     category: "Utilities",
-    description: "Object-fit, focal-position and background image utilities."
+    description: "Object-fit, focal-position and background image utilities.",
   },
   {
     path: `${basePath}/elevations.html`,
@@ -342,7 +356,8 @@ export const catalogEntries: Omit<DocumentationRoute, "colorScheme">[] = [
     color: "bg-accent",
     page: "Elevations",
     category: "Utilities",
-    description: "Outer shadows, inset shadows and explicit stacking utilities."
+    description:
+      "Outer shadows, inset shadows and explicit stacking utilities.",
   },
   {
     path: `${basePath}/colors.html`,
@@ -352,7 +367,7 @@ export const catalogEntries: Omit<DocumentationRoute, "colorScheme">[] = [
     page: "Colors",
     category: "Utilities",
     description:
-      "Semantic color tokens, utility classes, bundled themes, and custom theme compilation."
+      "Semantic color tokens, utility classes, bundled themes, and custom theme compilation.",
   },
   {
     path: `${basePath}/fonts.html`,
@@ -362,12 +377,12 @@ export const catalogEntries: Omit<DocumentationRoute, "colorScheme">[] = [
     page: "Fonts",
     category: "Utilities",
     description:
-      "Font size, style, weight, transform, line-height and alignment utilities."
-  }
+      "Font size, style, weight, transform, line-height and alignment utilities.",
+  },
 ];
 const catalog: DocumentationRoute[] = catalogEntries.map((route) => ({
   ...route,
-  colorScheme: "light"
+  colorScheme: "light",
 }));
 
 const themeRoutes: DocumentationRoute[] = bundledThemes.map((theme) => ({
@@ -379,7 +394,7 @@ const themeRoutes: DocumentationRoute[] = bundledThemes.map((theme) => ({
   category: "Utilities",
   description: `Preview the ${theme.label} theme in light mode across semantic colors, components, and interactive states.`,
   themeName: theme.name,
-  colorScheme: "light"
+  colorScheme: "light",
 }));
 const darkThemeRoutes: DocumentationRoute[] = bundledThemes.map((theme) => ({
   path: themeRoutePath(theme.name, "dark"),
@@ -390,14 +405,14 @@ const darkThemeRoutes: DocumentationRoute[] = bundledThemes.map((theme) => ({
   category: "Utilities",
   description: `Preview the ${theme.label} theme in dark mode across semantic colors, components, and interactive states.`,
   themeName: theme.name,
-  colorScheme: "dark"
+  colorScheme: "dark",
 }));
 const routes = [...catalog, ...themeRoutes, ...darkThemeRoutes];
 const routeByPage = new Map<DocumentationPage, DocumentationRoute>(
-  catalog.map((route) => [route.page, route])
+  catalog.map((route) => [route.page, route]),
 );
 const routeByPath = new Map<DocumentationPath, DocumentationRoute>(
-  routes.map((route) => [route.path, route])
+  routes.map((route) => [route.path, route]),
 );
 
 export {
@@ -413,5 +428,5 @@ export {
   type DocumentationCategory,
   type DocumentationPage,
   type DocumentationPath,
-  type DocumentationRoute
+  type DocumentationRoute,
 };

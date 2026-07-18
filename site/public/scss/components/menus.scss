@@ -1,16 +1,16 @@
 [data-trigger] > menu {
   position: absolute;
-  z-index: -1;
+  z-index: 8;
   opacity: 0;
   overflow: hidden;
-  transition: all 0.2s ease-in-out;
+  pointer-events: none;
   border-radius: var(--card-radius);
   background-color: var(--surface-raised);
   color: var(--text-primary);
   list-style: none;
   margin: 0;
   padding: 0;
-  transform: scale(0);
+  transform: scale(0.98);
   transform-origin: top left;
   min-width: 20rem;
   border: var(--border-size-1) solid var(--border-default);
@@ -34,6 +34,50 @@
 [data-trigger][open] > menu {
   display: block;
   opacity: 1;
-  z-index: 8;
+  pointer-events: auto;
   transform: scale(1);
+}
+
+@supports selector(details::details-content) and (interactivity: inert) {
+  [data-trigger] > menu {
+    transition:
+      opacity var(--motion-duration-fast) var(--motion-easing-exit),
+      transform var(--motion-duration-fast) var(--motion-easing-exit);
+  }
+
+  [data-trigger]::details-content {
+    content-visibility: hidden;
+    interactivity: inert;
+    transition: content-visibility var(--motion-duration-fast) allow-discrete;
+  }
+
+  [data-trigger][open] > menu {
+    transition:
+      opacity var(--motion-duration-base) var(--motion-easing-enter),
+      transform var(--motion-duration-base) var(--motion-easing-enter);
+  }
+
+  [data-trigger][open]::details-content {
+    content-visibility: visible;
+    interactivity: auto;
+  }
+
+  @starting-style {
+    [data-trigger][open] > menu {
+      opacity: 0;
+      transform: scale(0.98);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-trigger] > menu,
+  [data-trigger][open] > menu {
+    transition: none;
+    transform: none;
+  }
+
+  [data-trigger]::details-content {
+    transition: none;
+  }
 }

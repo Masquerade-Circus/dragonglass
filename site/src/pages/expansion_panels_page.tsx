@@ -77,6 +77,16 @@ export default () => (
       <CodeExample code={expansionSummaryColorExample} />
     </DemoSection>
 
+    <DemoSection id="expansion-behavior-title" title="Behavior and fallback">
+      <p>
+        The native <code>details</code> element controls disclosure state. The
+        open summary keeps a stable bottom border while its generated marker
+        rotates. When a user requests reduced motion, the marker and summary
+        change state without a transition. Content and keyboard operation do not
+        depend on the animation.
+      </p>
+    </DemoSection>
+
     <DemoSection id="expansion-api-title" title="API">
       <ApiTable
         caption="Expansion panel elements, attributes, tokens and states"
@@ -111,6 +121,13 @@ export default () => (
             type: "Token",
             defaultValue: "Theme",
             description: "Control summary and content spacing.",
+          },
+          {
+            name: "--motion-duration-fast / --motion-easing-standard",
+            type: "Motion token",
+            defaultValue: "120ms / ease-in-out",
+            description:
+              "Control the marker, border and summary state transitions.",
           },
         ]}
       />

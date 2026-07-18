@@ -248,6 +248,10 @@ Inside `data-floating`, the control precedes its `label` because the sibling sel
 
 Text controls fill the available width, textareas resize vertically and range inputs preserve their full track. The surrounding form or card controls column width.
 
+## State motion
+
+Fields transition only their border and text color. Toggle thumbs communicate checked states through color and horizontal movement, while floating labels use transforms for focus states. When a user requests reduced motion, toggle thumbs and floating labels change state without a transition. Their checked, focused, valid, and invalid states remain visible.
+
 ## API
 
 **Form elements, attributes, states and tokens**

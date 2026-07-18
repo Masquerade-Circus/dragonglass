@@ -671,6 +671,17 @@ export default () => (
       </p>
     </DemoSection>
 
+    <DemoSection id="forms-motion" title="State motion">
+      <p>
+        Fields transition only their border and text color. Toggle thumbs
+        communicate checked states through color and horizontal movement, while
+        floating labels use transforms for focus states. When a user requests
+        reduced motion, toggle thumbs and floating labels change state without a
+        transition. Their checked, focused, valid, and invalid states remain
+        visible.
+      </p>
+    </DemoSection>
+
     <DemoSection id="forms-api" title="API">
       <ApiTable
         caption="Form elements, attributes, states and tokens"

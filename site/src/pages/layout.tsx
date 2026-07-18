@@ -42,13 +42,13 @@ const DrawerLink = ({
 const Header = ({ currentPath }: LayoutProps) => (
   <header>
     <nav>
-      <details data-trigger>
-        <summary aria-label="Open documentation navigation">
+      <details data-trigger data-drawer-trigger>
+        <summary aria-label="Documentation navigation">
           <span class="material-icons" aria-hidden="true">
             menu
           </span>
         </summary>
-        <section data-drawer>
+        <aside data-drawer aria-label="Documentation navigation">
           <section class="h-48 relative bg-primary">
             <h1 data-position="absolute bottom left">DragonGlass</h1>
           </section>
@@ -66,7 +66,7 @@ const Header = ({ currentPath }: LayoutProps) => (
               </li>
             )}
           </ul>
-        </section>
+        </aside>
       </details>
     </nav>
     <span>Dragonglass</span>

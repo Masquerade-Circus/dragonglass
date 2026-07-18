@@ -99,7 +99,7 @@ Alerts, notifications, and progress indicators.
 
 ### Surfaces
 
-Cards, dialogs, and bottom sheets.
+Cards, dialogs, bottom sheets, and drawers.
 
 ### Data display
 
@@ -170,4 +170,4 @@ Review fields, validation states, toggles, pickers, and search layouts.
 
 ### Browser support
 
-Dragonglass supports Chrome 119+, Edge 119+, Firefox 121+, Safari 16.5+, and iOS Safari 16.5+.
+Dragonglass supports Chrome 119+, Edge 119+, Firefox 121+, Safari 16.5+, and iOS Safari 16.5+ for functional component behavior. Enhanced disclosure layout, CSS-only exit retention, and native invoker behavior depend on browser support and may use the documented immediate fallback.

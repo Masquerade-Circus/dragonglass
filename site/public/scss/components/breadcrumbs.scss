@@ -1,3 +1,7 @@
+:where(nav[data-breadcrumb]) > :is(a, button) {
+  color: inherit;
+}
+
 nav[data-breadcrumb] {
   display: flex;
   flex-wrap: wrap;
@@ -38,13 +42,11 @@ nav[data-breadcrumb] {
   }
 
   > :is(a, button):is(:hover, :focus-visible) {
-    color: var(--control-accent);
     text-decoration: underline;
     text-underline-offset: 0.2em;
   }
 
   > :is(a, button)[aria-current="page"] {
-    color: var(--text-primary);
     font-weight: 600;
   }
 }

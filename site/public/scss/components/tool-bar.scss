@@ -48,7 +48,7 @@ footer {
   border-bottom: none;
 }
 
-nav {
+nav[data-toolbar] {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -74,7 +74,9 @@ nav {
     text-align: center;
     text-decoration: none;
     white-space: nowrap;
-    transition: var(--animate-all-fastest);
+    transition:
+      background-color var(--motion-duration-fast) var(--motion-easing-standard),
+      color var(--motion-duration-fast) var(--motion-easing-standard);
 
     &:hover {
       background-color: var(--surface-muted);

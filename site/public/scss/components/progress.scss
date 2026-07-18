@@ -63,7 +63,14 @@ progress:not([value])::-webkit-progress-value {
 }
 
 progress:not([value])::-moz-progress-bar {
-  background-color: var(--progress-color);
+  background-color: var(--progress-track);
+  background-image: linear-gradient(
+    90deg,
+    var(--progress-track) 0 35%,
+    var(--progress-color) 50%,
+    var(--progress-track) 65% 100%
+  );
+  background-size: 200% 100%;
   animation: dragonglass-progress-indeterminate 1.2s ease-in-out infinite;
 }
 
@@ -86,6 +93,33 @@ progress[data-progress~="spinner"]::-webkit-progress-value {
 
 progress[data-progress~="spinner"]::-moz-progress-bar {
   background: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  progress:not([value]),
+  progress[data-progress~="spinner"] {
+    animation: none;
+  }
+
+  progress:not([value])::-webkit-progress-bar {
+    animation: none;
+  }
+
+  progress:not([value])::-moz-progress-bar {
+    animation: none;
+  }
+
+  progress:not([value]) {
+    background-position: 50% 0;
+  }
+
+  progress:not([value])::-webkit-progress-bar {
+    background-position: 50% 0;
+  }
+
+  progress:not([value])::-moz-progress-bar {
+    background-position: 50% 0;
+  }
 }
 
 @keyframes dragonglass-progress-indeterminate {

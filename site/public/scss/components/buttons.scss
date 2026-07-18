@@ -21,7 +21,9 @@ button,
   vertical-align: middle;
   margin: 0;
   background-color: transparent;
-  transition: var(--animate-all-fastest);
+  transition:
+    box-shadow var(--motion-duration-fast) var(--motion-easing-standard),
+    opacity var(--motion-duration-fast) var(--motion-easing-standard);
   width: auto;
 
   &:disabled,
@@ -31,12 +33,19 @@ button,
     cursor: not-allowed;
     pointer-events: none;
   }
+}
 
+:where(button, [data-button]) {
   @include hover();
 }
 
 [data-button~="fab"] {
   border-radius: 50%;
+
+  &::after {
+    border-radius: 50%;
+  }
+
   font-size: var(--font-size-xl);
   height: 2.5em;
   width: 2.5em;

@@ -1,17 +1,24 @@
 @use "./buttons";
 @use "./vars" as *;
 
+:root {
+  --form-control-accent: var(--control-accent);
+}
+
 input,
 select,
 textarea {
-  transition: var(--animate-all-fastest);
+  transition:
+    border-color var(--motion-duration-fast) var(--motion-easing-standard),
+    color var(--motion-duration-fast) var(--motion-easing-standard);
   border: 0;
   border-bottom: var(--border-size-1) solid var(--control-border);
   border-radius: 0;
+  outline: none;
   z-index: 1;
   position: relative;
   width: 100%;
-  background: var(--control-bg);
+  background: inherit;
   margin-bottom: var(--spacing-2);
   color: inherit;
   min-height: 2.25em;
@@ -19,11 +26,6 @@ textarea {
 
   &:focus {
     border-color: var(--control-accent);
-  }
-
-  &:focus-visible {
-    outline: var(--border-size-2) solid var(--focus-ring);
-    outline-offset: var(--spacing-1);
   }
 
   &:disabled,
@@ -53,22 +55,19 @@ label[for] {
 }
 
 [type="checkbox"],
-[type="radio"],
-label {
+[type="radio"] {
   width: auto;
   display: inline-block;
   vertical-align: middle;
   min-height: 1em;
   position: relative;
   margin: 0;
-  margin-top: 0.5em;
 }
 
 [type="checkbox"],
 [type="radio"] {
   appearance: none;
   cursor: pointer;
-  will-change: transform;
   width: 1.5em;
   height: 1.5em;
   overflow: hidden;
@@ -79,11 +78,6 @@ label {
     border-color: var(--control-accent);
   }
 
-  &:focus-visible {
-    outline: var(--border-size-2) solid var(--focus-ring);
-    outline-offset: var(--spacing-1);
-  }
-
   &:after {
     content: " ";
     display: block;
@@ -91,7 +85,8 @@ label {
     margin-left: 0.23em;
     width: 0.75em;
     height: 0.75em;
-    transition: var(--animate-all-fast);
+    transition: background-color var(--motion-duration-base)
+      var(--motion-easing-standard);
     opacity: 0;
   }
   &:checked {
@@ -110,12 +105,23 @@ label {
   }
 }
 
+label[data-chip]:has(> input:checked) {
+  border-color: var(--chip-active, var(--form-control-accent));
+}
+
 [type="checkbox"][data-toggle] {
   background-color: var(--surface-muted);
   width: 4em;
   height: 2em;
   border-radius: 1em;
   border: 0;
+  &:focus {
+    border: 0;
+  }
+  &:user-invalid,
+  &[aria-invalid="true"] {
+    border-color: var(--danger-accent);
+  }
   &:after {
     background-color: var(--border-default);
     width: 2em;
@@ -123,18 +129,28 @@ label {
     border-radius: 1em;
     margin: 0;
     opacity: 1;
+    transition:
+      background-color var(--motion-duration-base) var(--motion-easing-standard),
+      transform var(--motion-duration-base) var(--motion-easing-standard);
+    transform: translateX(0);
   }
   &:checked:after {
-    margin-left: 2em;
     background-color: var(--control-accent);
+    background-color: var(--control-accent, var(--primary-accent));
+    transform: translateX(2em);
   }
 }
 
 input[type="range"] {
   accent-color: var(--control-accent);
+  border-bottom: 0;
   width: 100%;
   padding: var(--spacing-2) 0;
   cursor: pointer;
+}
+
+input[type="range"]:focus-visible {
+  box-shadow: 0 0 0 var(--border-size-2) var(--focus-ring);
 }
 
 input[type="range"]:disabled {
@@ -198,6 +214,9 @@ textarea {
 }
 
 fieldset {
+  transition:
+    border-color var(--motion-duration-fast) var(--motion-easing-standard),
+    color var(--motion-duration-fast) var(--motion-easing-standard);
   position: relative;
   padding: 0;
   margin: 0;
@@ -206,6 +225,7 @@ fieldset {
   margin-bottom: 1.5em;
 
   > legend {
+    transition: color var(--motion-duration-fast) var(--motion-easing-standard);
     display: block;
     width: auto;
     margin-bottom: var(--spacing-1);
@@ -217,6 +237,7 @@ fieldset {
   }
 
   > small {
+    transition: color var(--motion-duration-fast) var(--motion-easing-standard);
     display: block;
     width: auto;
     margin-top: calc(var(--spacing-2) * -1);
@@ -255,6 +276,9 @@ fieldset {
 }
 
 [data-floating] {
+  transition:
+    border-color var(--motion-duration-fast) var(--motion-easing-standard),
+    color var(--motion-duration-fast) var(--motion-easing-standard);
   position: relative;
   padding: 0;
   margin: 0 0 1.5em;
@@ -285,18 +309,12 @@ fieldset {
       opacity: 0;
     }
     &:placeholder-shown ~ label[for] {
-      font-size: 1em;
-      top: 0;
       opacity: 0.6;
-      padding: 0;
-      left: 0.5em;
+      transform: translate3d(0.5em, 1em, 0) scale(1.25);
     }
     &:focus ~ label[for] {
-      padding: 0;
-      top: -1em;
       opacity: 1;
-      left: 0;
-      font-size: 0.8em;
+      transform: translate3d(0, 0, 0) scale(1);
       &::after {
         width: 100%;
       }
@@ -314,7 +332,10 @@ fieldset {
   }
 
   > label[for] {
-    transition: var(--animate-all-fastest);
+    transition:
+      color var(--motion-duration-fast) var(--motion-easing-standard),
+      opacity var(--motion-duration-fast) var(--motion-easing-standard),
+      transform var(--motion-duration-fast) var(--motion-easing-standard);
     z-index: 0;
     width: auto;
     border: 0;
@@ -327,12 +348,13 @@ fieldset {
     opacity: 1;
     left: 0;
     font-size: 0.8em;
+    transform-origin: left center;
     min-height: 0;
     margin: 0;
   }
 
   > small {
-    transition: var(--animate-all-fastest);
+    transition: color var(--motion-duration-fast) var(--motion-easing-standard);
     z-index: 1;
     width: auto;
     color: inherit;
@@ -364,4 +386,11 @@ fieldset {
 input[type="submit"] {
   @extend [data-button];
   width: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [type="checkbox"][data-toggle]:after,
+  [data-floating] > label[for] {
+    transition: none;
+  }
 }

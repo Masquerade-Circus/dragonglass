@@ -20,10 +20,14 @@ Inner shadows use the same scale with the `shadow-inner-` prefix.
 
 ## Interactive states
 
+State precedence follows interaction intent instead of shadow size. A hover or focus utility overrides the base elevation, and an active utility overrides both while the control is pressed.
+
 ```html
 <button type="button" class="shadow-base hover:shadow-3xl active:shadow-sm">Change elevation</button>
 <input aria-label="Focus elevation example" class="shadow-base focus:shadow-3xl bg-white" value="Focus this field">
 ```
+
+Elevation changes transition only `box-shadow` with `--motion-duration-base` and `--motion-easing-standard`.
 
 ## Text shadows
 

@@ -7,13 +7,25 @@ const bottomSheetExample = `<dialog data-dialog="bottom-sheet" open aria-labelle
   <header>
     <h3 id="filter-sheet-title">Filters</h3>
   </header>
-  <section><p>Choose the results to include.</p></section>
+  <section>
+    <p>Choose the results to include.</p>
+    <label class="mr-2"><input type="checkbox" name="availability"> Available now</label>
+    <label class="mr-2"><input type="checkbox" name="delivery"> Free delivery</label>
+  </section>
+  <footer><button type="button">Apply filters</button></footer>
 </dialog>`;
 
 export default () => (
   <DocPage page="BottomSheets">
     <DemoSection id="bottom-sheet-open-title" title="Open bottom sheet">
+      <p>
+        This preview stays in the page flow so its content remains visible above
+        the footer. In an app, mount the dialog as a direct child of the
+        document root so fixed positioning and layering are not constrained by
+        an ancestor stacking context.
+      </p>
       <dialog
+        class="static"
         data-dialog="bottom-sheet"
         open
         aria-labelledby="filter-sheet-title"
@@ -23,7 +35,16 @@ export default () => (
         </header>
         <section>
           <p>Choose the results to include.</p>
+          <label class="mr-2">
+            <input type="checkbox" name="availability" /> Available now
+          </label>
+          <label class="mr-2">
+            <input type="checkbox" name="delivery" /> Free delivery
+          </label>
         </section>
+        <footer>
+          <button type="button">Apply filters</button>
+        </footer>
       </dialog>
       <CodeExample code={bottomSheetExample} />
     </DemoSection>
@@ -43,6 +64,26 @@ export default () => (
   <footer><button type="button">Copy link</button></footer>
 </dialog>`}
       />
+    </DemoSection>
+
+    <DemoSection
+      id="bottom-sheet-motion-title"
+      title="Motion, fallback and accessibility"
+    >
+      <p>
+        Browsers that support discrete transitions and starting styles reveal
+        the sheet through opacity and a short translation from the bottom. The
+        <code>data-closing</code> state uses the same properties for exit and
+        keeps the backdrop timing synchronized. Keep the modal open until those
+        animations finish, then call <code>close()</code>. Browsers without this
+        support open and close the sheet immediately.
+      </p>
+      <p>
+        When a user requests reduced motion, the sheet and its backdrop change
+        state without transitions or spatial movement. Give the sheet an
+        accessible name, use the native modal API when it blocks the page, and
+        return focus to the control that opened it after it closes.
+      </p>
     </DemoSection>
 
     <DemoSection id="bottom-sheet-api-title" title="API">
@@ -78,6 +119,13 @@ export default () => (
             type: "Token",
             defaultValue: "Theme",
             description: "Control the top corners and default elevation.",
+          },
+          {
+            name: "--motion-duration-base / --motion-easing-enter / --motion-easing-exit",
+            type: "Motion token",
+            defaultValue: "200ms / ease-out / ease-in",
+            description:
+              "Control supported opening and closing transitions for the sheet and backdrop.",
           },
         ]}
       />

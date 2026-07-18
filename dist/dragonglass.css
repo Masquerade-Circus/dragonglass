@@ -2,11 +2,13 @@
 /************************** Main styles **************************/
 /*** Helpers ***/
 :root {
-  --animate-all: all 0.3s ease-in-out;
-  --animate-all-fastest: all 0.1s ease-in-out;
-  --animate-all-fast: all 0.2s ease-in-out;
-  --animate-all-slow: all 0.4s ease-in-out;
-  --animate-all-slowest: all 0.6s ease-in-out;
+  --motion-duration-instant: 0ms;
+  --motion-duration-fast: 120ms;
+  --motion-duration-base: 200ms;
+  --motion-duration-deliberate: 280ms;
+  --motion-easing-standard: ease-in-out;
+  --motion-easing-enter: ease-out;
+  --motion-easing-exit: ease-in;
   --spacing-0: 0;
   --spacing-px: 1px;
   --spacing-1: 0.25rem;
@@ -161,7 +163,6 @@ small,
 button {
   display: inline-block;
   vertical-align: middle;
-  transition: var(--animate-all);
 }
 
 body {
@@ -191,12 +192,6 @@ small {
   font-size: 0.9em;
   opacity: 0.8;
   padding: 0;
-}
-
-[class*="focus:"],
-[class*="active:"],
-[class*="hover:"] {
-  transition: var(--animate-all-fast);
 }
 
 [class*=icon] {
@@ -395,166 +390,375 @@ body > article > section {
     0 16px 24px 0 var(--shadow-color), 0 24px 16px -24px var(--shadow-color);
 }
 
-.animated {
-  transition: var(--animate-all);
+.active\:shadow-inner-3xl:active, .active\:shadow-inner-2xl:active, .active\:shadow-inner-xl:active, .active\:shadow-inner-lg:active, .active\:shadow-inner-base:active, .active\:shadow-inner-sm:active, .active\:shadow-inner-xs:active, .active\:shadow-inner-2xs:active, .active\:shadow-3xl:active, .active\:shadow-2xl:active, .active\:shadow-xl:active, .active\:shadow-lg:active, .active\:shadow-base:active, .active\:shadow-sm:active, .active\:shadow-xs:active, .active\:shadow-2xs:active, .focus\:shadow-inner-3xl:focus, .focus\:shadow-inner-2xl:focus, .focus\:shadow-inner-xl:focus, .focus\:shadow-inner-lg:focus, .focus\:shadow-inner-base:focus, .focus\:shadow-inner-sm:focus, .focus\:shadow-inner-xs:focus, .focus\:shadow-inner-2xs:focus, .focus\:shadow-3xl:focus, .focus\:shadow-2xl:focus, .focus\:shadow-xl:focus, .focus\:shadow-lg:focus, .focus\:shadow-base:focus, .focus\:shadow-sm:focus, .focus\:shadow-xs:focus, .focus\:shadow-2xs:focus, .hover\:shadow-inner-3xl:hover, .hover\:shadow-inner-2xl:hover, .hover\:shadow-inner-xl:hover, .hover\:shadow-inner-lg:hover, .hover\:shadow-inner-base:hover, .hover\:shadow-inner-sm:hover, .hover\:shadow-inner-xs:hover, .hover\:shadow-inner-2xs:hover, .hover\:shadow-3xl:hover, .hover\:shadow-2xl:hover, .hover\:shadow-xl:hover, .hover\:shadow-lg:hover, .hover\:shadow-base:hover, .hover\:shadow-sm:hover, .hover\:shadow-xs:hover, .hover\:shadow-2xs:hover, .shadow-inner-3xl, .shadow-inner-2xl, .shadow-inner-xl, .shadow-inner-lg, .shadow-inner-base, .shadow-inner-sm, .shadow-inner-xs, .shadow-inner-2xs, .shadow-3xl, .shadow-2xl, .shadow-xl, .shadow-lg, .shadow-base, .shadow-sm, .shadow-xs, .shadow-2xs {
+  transition: box-shadow var(--motion-duration-base) var(--motion-easing-standard);
 }
 
-.focus\:shadow-2xs:focus,
-.active\:shadow-2xs:active,
-.hover\:shadow-2xs:hover,
 .shadow-2xs {
   position: relative;
-  transition: var(--animate-all);
   z-index: 1;
   box-shadow: var(--shadow-2xs);
 }
 
-.focus\:shadow-xs:focus,
-.active\:shadow-xs:active,
-.hover\:shadow-xs:hover,
 .shadow-xs {
   position: relative;
-  transition: var(--animate-all);
   z-index: 1;
   box-shadow: var(--shadow-xs);
 }
 
-.focus\:shadow-sm:focus,
-.active\:shadow-sm:active,
-.hover\:shadow-sm:hover,
 .shadow-sm {
   position: relative;
-  transition: var(--animate-all);
   z-index: 2;
   box-shadow: var(--shadow-sm);
 }
 
-.focus\:shadow-base:focus,
-.active\:shadow-base:active,
-.hover\:shadow-base:hover,
 .shadow-base {
   position: relative;
-  transition: var(--animate-all);
   z-index: 4;
   box-shadow: var(--shadow-base);
 }
 
-.focus\:shadow-lg:focus,
-.active\:shadow-lg:active,
-.hover\:shadow-lg:hover,
 .shadow-lg {
   position: relative;
-  transition: var(--animate-all);
   z-index: 6;
   box-shadow: var(--shadow-lg);
 }
 
-.focus\:shadow-xl:focus,
-.active\:shadow-xl:active,
-.hover\:shadow-xl:hover,
 .shadow-xl {
   position: relative;
-  transition: var(--animate-all);
   z-index: 8;
   box-shadow: var(--shadow-xl);
 }
 
-.focus\:shadow-2xl:focus,
-.active\:shadow-2xl:active,
-.hover\:shadow-2xl:hover,
 .shadow-2xl {
   position: relative;
-  transition: var(--animate-all);
   z-index: 12;
   box-shadow: var(--shadow-2xl);
 }
 
-.focus\:shadow-3xl:focus,
-.active\:shadow-3xl:active,
-.hover\:shadow-3xl:hover,
 .shadow-3xl {
   position: relative;
-  transition: var(--animate-all);
   z-index: 16;
   box-shadow: var(--shadow-3xl);
 }
 
-.focus\:shadow-inner-2xs:focus,
-.active\:shadow-inner-2xs:active,
-.hover\:shadow-inner-2xs:hover,
 .shadow-inner-2xs {
   position: relative;
-  transition: var(--animate-all);
   box-shadow: var(--shadow-inner-2xs);
 }
 
-.focus\:shadow-inner-xs:focus,
-.active\:shadow-inner-xs:active,
-.hover\:shadow-inner-xs:hover,
 .shadow-inner-xs {
   position: relative;
-  transition: var(--animate-all);
   box-shadow: var(--shadow-inner-xs);
 }
 
-.focus\:shadow-inner-sm:focus,
-.active\:shadow-inner-sm:active,
-.hover\:shadow-inner-sm:hover,
 .shadow-inner-sm {
   position: relative;
-  transition: var(--animate-all);
   box-shadow: var(--shadow-inner-sm);
 }
 
-.focus\:shadow-inner-base:focus,
-.active\:shadow-inner-base:active,
-.hover\:shadow-inner-base:hover,
 .shadow-inner-base {
   position: relative;
-  transition: var(--animate-all);
   box-shadow: var(--shadow-inner-base);
 }
 
-.focus\:shadow-inner-lg:focus,
-.active\:shadow-inner-lg:active,
-.hover\:shadow-inner-lg:hover,
 .shadow-inner-lg {
   position: relative;
-  transition: var(--animate-all);
   box-shadow: var(--shadow-inner-lg);
 }
 
-.focus\:shadow-inner-xl:focus,
-.active\:shadow-inner-xl:active,
-.hover\:shadow-inner-xl:hover,
 .shadow-inner-xl {
   position: relative;
-  transition: var(--animate-all);
   box-shadow: var(--shadow-inner-xl);
 }
 
-.focus\:shadow-inner-2xl:focus,
-.active\:shadow-inner-2xl:active,
-.hover\:shadow-inner-2xl:hover,
 .shadow-inner-2xl {
   position: relative;
-  transition: var(--animate-all);
   box-shadow: var(--shadow-inner-2xl);
 }
 
-.focus\:shadow-inner-3xl:focus,
-.active\:shadow-inner-3xl:active,
-.hover\:shadow-inner-3xl:hover,
 .shadow-inner-3xl {
   position: relative;
-  transition: var(--animate-all);
   box-shadow: var(--shadow-inner-3xl);
 }
 
-.focus\:shadow-none:focus,
-.active\:shadow-none:active,
-.hover\:shadow-none:hover,
 .shadow-none {
+  box-shadow: none;
+}
+
+.hover\:shadow-2xs:hover {
+  position: relative;
+  z-index: 1;
+  box-shadow: var(--shadow-2xs);
+}
+
+.hover\:shadow-xs:hover {
+  position: relative;
+  z-index: 1;
+  box-shadow: var(--shadow-xs);
+}
+
+.hover\:shadow-sm:hover {
+  position: relative;
+  z-index: 2;
+  box-shadow: var(--shadow-sm);
+}
+
+.hover\:shadow-base:hover {
+  position: relative;
+  z-index: 4;
+  box-shadow: var(--shadow-base);
+}
+
+.hover\:shadow-lg:hover {
+  position: relative;
+  z-index: 6;
+  box-shadow: var(--shadow-lg);
+}
+
+.hover\:shadow-xl:hover {
+  position: relative;
+  z-index: 8;
+  box-shadow: var(--shadow-xl);
+}
+
+.hover\:shadow-2xl:hover {
+  position: relative;
+  z-index: 12;
+  box-shadow: var(--shadow-2xl);
+}
+
+.hover\:shadow-3xl:hover {
+  position: relative;
+  z-index: 16;
+  box-shadow: var(--shadow-3xl);
+}
+
+.hover\:shadow-inner-2xs:hover {
+  position: relative;
+  box-shadow: var(--shadow-inner-2xs);
+}
+
+.hover\:shadow-inner-xs:hover {
+  position: relative;
+  box-shadow: var(--shadow-inner-xs);
+}
+
+.hover\:shadow-inner-sm:hover {
+  position: relative;
+  box-shadow: var(--shadow-inner-sm);
+}
+
+.hover\:shadow-inner-base:hover {
+  position: relative;
+  box-shadow: var(--shadow-inner-base);
+}
+
+.hover\:shadow-inner-lg:hover {
+  position: relative;
+  box-shadow: var(--shadow-inner-lg);
+}
+
+.hover\:shadow-inner-xl:hover {
+  position: relative;
+  box-shadow: var(--shadow-inner-xl);
+}
+
+.hover\:shadow-inner-2xl:hover {
+  position: relative;
+  box-shadow: var(--shadow-inner-2xl);
+}
+
+.hover\:shadow-inner-3xl:hover {
+  position: relative;
+  box-shadow: var(--shadow-inner-3xl);
+}
+
+.hover\:shadow-none:hover {
+  box-shadow: none;
+}
+
+.focus\:shadow-2xs:focus {
+  position: relative;
+  z-index: 1;
+  box-shadow: var(--shadow-2xs);
+}
+
+.focus\:shadow-xs:focus {
+  position: relative;
+  z-index: 1;
+  box-shadow: var(--shadow-xs);
+}
+
+.focus\:shadow-sm:focus {
+  position: relative;
+  z-index: 2;
+  box-shadow: var(--shadow-sm);
+}
+
+.focus\:shadow-base:focus {
+  position: relative;
+  z-index: 4;
+  box-shadow: var(--shadow-base);
+}
+
+.focus\:shadow-lg:focus {
+  position: relative;
+  z-index: 6;
+  box-shadow: var(--shadow-lg);
+}
+
+.focus\:shadow-xl:focus {
+  position: relative;
+  z-index: 8;
+  box-shadow: var(--shadow-xl);
+}
+
+.focus\:shadow-2xl:focus {
+  position: relative;
+  z-index: 12;
+  box-shadow: var(--shadow-2xl);
+}
+
+.focus\:shadow-3xl:focus {
+  position: relative;
+  z-index: 16;
+  box-shadow: var(--shadow-3xl);
+}
+
+.focus\:shadow-inner-2xs:focus {
+  position: relative;
+  box-shadow: var(--shadow-inner-2xs);
+}
+
+.focus\:shadow-inner-xs:focus {
+  position: relative;
+  box-shadow: var(--shadow-inner-xs);
+}
+
+.focus\:shadow-inner-sm:focus {
+  position: relative;
+  box-shadow: var(--shadow-inner-sm);
+}
+
+.focus\:shadow-inner-base:focus {
+  position: relative;
+  box-shadow: var(--shadow-inner-base);
+}
+
+.focus\:shadow-inner-lg:focus {
+  position: relative;
+  box-shadow: var(--shadow-inner-lg);
+}
+
+.focus\:shadow-inner-xl:focus {
+  position: relative;
+  box-shadow: var(--shadow-inner-xl);
+}
+
+.focus\:shadow-inner-2xl:focus {
+  position: relative;
+  box-shadow: var(--shadow-inner-2xl);
+}
+
+.focus\:shadow-inner-3xl:focus {
+  position: relative;
+  box-shadow: var(--shadow-inner-3xl);
+}
+
+.focus\:shadow-none:focus {
+  box-shadow: none;
+}
+
+.active\:shadow-2xs:active {
+  position: relative;
+  z-index: 1;
+  box-shadow: var(--shadow-2xs);
+}
+
+.active\:shadow-xs:active {
+  position: relative;
+  z-index: 1;
+  box-shadow: var(--shadow-xs);
+}
+
+.active\:shadow-sm:active {
+  position: relative;
+  z-index: 2;
+  box-shadow: var(--shadow-sm);
+}
+
+.active\:shadow-base:active {
+  position: relative;
+  z-index: 4;
+  box-shadow: var(--shadow-base);
+}
+
+.active\:shadow-lg:active {
+  position: relative;
+  z-index: 6;
+  box-shadow: var(--shadow-lg);
+}
+
+.active\:shadow-xl:active {
+  position: relative;
+  z-index: 8;
+  box-shadow: var(--shadow-xl);
+}
+
+.active\:shadow-2xl:active {
+  position: relative;
+  z-index: 12;
+  box-shadow: var(--shadow-2xl);
+}
+
+.active\:shadow-3xl:active {
+  position: relative;
+  z-index: 16;
+  box-shadow: var(--shadow-3xl);
+}
+
+.active\:shadow-inner-2xs:active {
+  position: relative;
+  box-shadow: var(--shadow-inner-2xs);
+}
+
+.active\:shadow-inner-xs:active {
+  position: relative;
+  box-shadow: var(--shadow-inner-xs);
+}
+
+.active\:shadow-inner-sm:active {
+  position: relative;
+  box-shadow: var(--shadow-inner-sm);
+}
+
+.active\:shadow-inner-base:active {
+  position: relative;
+  box-shadow: var(--shadow-inner-base);
+}
+
+.active\:shadow-inner-lg:active {
+  position: relative;
+  box-shadow: var(--shadow-inner-lg);
+}
+
+.active\:shadow-inner-xl:active {
+  position: relative;
+  box-shadow: var(--shadow-inner-xl);
+}
+
+.active\:shadow-inner-2xl:active {
+  position: relative;
+  box-shadow: var(--shadow-inner-2xl);
+}
+
+.active\:shadow-inner-3xl:active {
+  position: relative;
+  box-shadow: var(--shadow-inner-3xl);
+}
+
+.active\:shadow-none:active {
   box-shadow: none;
 }
 
@@ -705,7 +909,9 @@ progress:not([value])::-webkit-progress-value {
 }
 
 progress:not([value])::-moz-progress-bar {
-  background-color: var(--progress-color);
+  background-color: var(--progress-track);
+  background-image: linear-gradient(90deg, var(--progress-track) 0 35%, var(--progress-color) 50%, var(--progress-track) 65% 100%);
+  background-size: 200% 100%;
   animation: dragonglass-progress-indeterminate 1.2s ease-in-out infinite;
 }
 
@@ -726,6 +932,27 @@ progress[data-progress~=spinner]::-moz-progress-bar {
   background: transparent;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  progress:not([value]),
+  progress[data-progress~=spinner] {
+    animation: none;
+  }
+  progress:not([value])::-webkit-progress-bar {
+    animation: none;
+  }
+  progress:not([value])::-moz-progress-bar {
+    animation: none;
+  }
+  progress:not([value]) {
+    background-position: 50% 0;
+  }
+  progress:not([value])::-webkit-progress-bar {
+    background-position: 50% 0;
+  }
+  progress:not([value])::-moz-progress-bar {
+    background-position: 50% 0;
+  }
+}
 @keyframes dragonglass-progress-indeterminate {
   from {
     background-position: 100% 0;
@@ -829,7 +1056,7 @@ label[data-chip] {
   margin: 0;
 }
 
-:is(a, button, label)[data-chip]:hover {
+:where(a, button, label)[data-chip]:hover {
   border-color: var(--chip-active);
   color: var(--chip-active);
 }
@@ -1058,7 +1285,7 @@ input[type=submit],
   vertical-align: middle;
   margin: 0;
   background-color: transparent;
-  transition: var(--animate-all-fastest);
+  transition: box-shadow var(--motion-duration-fast) var(--motion-easing-standard), opacity var(--motion-duration-fast) var(--motion-easing-standard);
   width: auto;
 }
 button:disabled, button[disabled], button[aria-disabled=true],
@@ -1075,19 +1302,14 @@ input[aria-disabled=true][type=submit],
   cursor: not-allowed;
   pointer-events: none;
 }
-button,
-[data-button],
-input[type=submit],
-[data-trigger] > summary {
+
+:where(button, [data-button], input[type=submit], [data-trigger] > summary) {
   cursor: pointer;
 }
-button::after,
-[data-button]::after,
-input[type=submit]::after,
-[data-trigger] > summary::after {
+:where(button, [data-button], input[type=submit], [data-trigger] > summary)::after {
   content: " ";
   opacity: 0;
-  transition: var(--animate-all-fastest);
+  transition: opacity var(--motion-duration-fast) var(--motion-easing-standard);
   background-color: var(--hover-overlay);
   display: block;
   position: absolute;
@@ -1097,27 +1319,23 @@ input[type=submit]::after,
   bottom: 0;
   border-radius: var(--radius-base);
 }
-button:hover::after,
-[data-button]:hover::after,
-input[type=submit]:hover::after,
-[data-trigger] > summary:hover::after {
+:where(button, [data-button], input[type=submit], [data-trigger] > summary):hover::after {
   opacity: 0.1;
 }
-button:active,
-[data-button]:active,
-input[type=submit]:active,
-[data-trigger] > summary:active {
+:where(button, [data-button], input[type=submit], [data-trigger] > summary):active {
   box-shadow: none;
 }
-button:active::after,
-[data-button]:active::after,
-input[type=submit]:active::after,
-[data-trigger] > summary:active::after {
+:where(button, [data-button], input[type=submit], [data-trigger] > summary):active::after {
   opacity: 0;
 }
 
 [data-button~=fab] {
   border-radius: 50%;
+}
+[data-button~=fab]::after {
+  border-radius: 50%;
+}
+[data-button~=fab] {
   font-size: var(--font-size-xl);
   height: 2.5em;
   width: 2.5em;
@@ -1158,6 +1376,10 @@ a[data-link~=quiet]:hover, a[data-link~=quiet]:focus-visible {
 }
 
 /*** Breadcrumbs ***/
+:where(nav[data-breadcrumb]) > :is(a, button) {
+  color: inherit;
+}
+
 nav[data-breadcrumb] {
   display: flex;
   flex-wrap: wrap;
@@ -1192,12 +1414,10 @@ nav[data-breadcrumb] > button::after {
   content: none;
 }
 nav[data-breadcrumb] > :is(a, button):is(:hover, :focus-visible) {
-  color: var(--control-accent);
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
 nav[data-breadcrumb] > :is(a, button)[aria-current=page] {
-  color: var(--text-primary);
   font-weight: 600;
 }
 
@@ -1331,7 +1551,7 @@ footer > h3 {
   border-bottom: none;
 }
 
-nav {
+nav[data-toolbar] {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -1343,7 +1563,7 @@ nav {
   overflow: visible;
   color: inherit;
 }
-nav :where(a, button) {
+nav[data-toolbar] :where(a, button) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1357,17 +1577,17 @@ nav :where(a, button) {
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
-  transition: var(--animate-all-fastest);
+  transition: background-color var(--motion-duration-fast) var(--motion-easing-standard), color var(--motion-duration-fast) var(--motion-easing-standard);
 }
-nav :where(a, button):hover {
+nav[data-toolbar] :where(a, button):hover {
   background-color: var(--surface-muted);
   color: var(--text-primary);
 }
-nav :where(a, button)[aria-current=page] {
+nav[data-toolbar] :where(a, button)[aria-current=page] {
   background-color: var(--surface-selected);
   color: var(--surface-selected-text);
 }
-nav > [data-button~=fab] {
+nav[data-toolbar] > [data-button~=fab] {
   box-shadow: none;
   position: relative;
   display: inline-block;
@@ -1530,66 +1750,6 @@ menu > li > a,
 menu > li > button,
 menu > li > [data-trigger],
 menu > li > [data-button] {
-  cursor: pointer;
-}
-:is(ul, ol)[data-list] > li > a::after,
-:is(ul, ol)[data-list] > li > button::after,
-:is(ul, ol)[data-list] > li > [data-trigger]::after,
-:is(ul, ol)[data-list] > li > [data-button]::after,
-menu > li > a::after,
-menu > li > button::after,
-menu > li > [data-trigger]::after,
-menu > li > [data-button]::after {
-  content: " ";
-  opacity: 0;
-  transition: var(--animate-all-fastest);
-  background-color: var(--hover-overlay);
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: var(--radius-base);
-}
-:is(ul, ol)[data-list] > li > a:hover::after,
-:is(ul, ol)[data-list] > li > button:hover::after,
-:is(ul, ol)[data-list] > li > [data-trigger]:hover::after,
-:is(ul, ol)[data-list] > li > [data-button]:hover::after,
-menu > li > a:hover::after,
-menu > li > button:hover::after,
-menu > li > [data-trigger]:hover::after,
-menu > li > [data-button]:hover::after {
-  opacity: 0.1;
-}
-:is(ul, ol)[data-list] > li > a:active,
-:is(ul, ol)[data-list] > li > button:active,
-:is(ul, ol)[data-list] > li > [data-trigger]:active,
-:is(ul, ol)[data-list] > li > [data-button]:active,
-menu > li > a:active,
-menu > li > button:active,
-menu > li > [data-trigger]:active,
-menu > li > [data-button]:active {
-  box-shadow: none;
-}
-:is(ul, ol)[data-list] > li > a:active::after,
-:is(ul, ol)[data-list] > li > button:active::after,
-:is(ul, ol)[data-list] > li > [data-trigger]:active::after,
-:is(ul, ol)[data-list] > li > [data-button]:active::after,
-menu > li > a:active::after,
-menu > li > button:active::after,
-menu > li > [data-trigger]:active::after,
-menu > li > [data-button]:active::after {
-  opacity: 0;
-}
-:is(ul, ol)[data-list] > li > a,
-:is(ul, ol)[data-list] > li > button,
-:is(ul, ol)[data-list] > li > [data-trigger],
-:is(ul, ol)[data-list] > li > [data-button],
-menu > li > a,
-menu > li > button,
-menu > li > [data-trigger],
-menu > li > [data-button] {
   justify-content: flex-start;
   margin: 0;
   width: 100%;
@@ -1614,6 +1774,37 @@ menu > li > [data-button]:nth-child(2) {
   flex-grow: 0;
   text-align: center;
   white-space: nowrap;
+}
+
+:where(:is(ul, ol)[data-list] > li > :is(a, [data-trigger]),
+menu > li > :is(a, [data-trigger])) {
+  cursor: pointer;
+}
+:where(:is(ul, ol)[data-list] > li > :is(a, [data-trigger]),
+menu > li > :is(a, [data-trigger]))::after {
+  content: " ";
+  opacity: 0;
+  transition: opacity var(--motion-duration-fast) var(--motion-easing-standard);
+  background-color: var(--hover-overlay);
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: var(--radius-base);
+}
+:where(:is(ul, ol)[data-list] > li > :is(a, [data-trigger]),
+menu > li > :is(a, [data-trigger])):hover::after {
+  opacity: 0.1;
+}
+:where(:is(ul, ol)[data-list] > li > :is(a, [data-trigger]),
+menu > li > :is(a, [data-trigger])):active {
+  box-shadow: none;
+}
+:where(:is(ul, ol)[data-list] > li > :is(a, [data-trigger]),
+menu > li > :is(a, [data-trigger])):active::after {
+  opacity: 0;
 }
 
 dl {
@@ -1641,15 +1832,25 @@ dl > :nth-last-child(-n+2) {
 }
 
 /*** Details ***/
-details:not([data-trigger]):not([data-expansion-panel]) {
+@property --dragonglass-tab-index {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 1;
+}
+@property --dragonglass-tab-count {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 1;
+}
+:where(details:not([data-trigger]):not([data-expansion-panel])) {
   background-color: var(--surface-muted);
-  border: var(--border-size-1) solid var(--border-default);
+  border: 0;
   border-radius: var(--card-radius);
   box-shadow: none;
-  overflow: hidden;
+  overflow: visible;
 }
 
-details:not([data-trigger]):not([data-expansion-panel]) summary {
+:where(details:not([data-trigger]):not([data-expansion-panel]) summary) {
   position: relative;
   padding: var(--button-padding-y) var(--button-padding-x);
   line-height: 1;
@@ -1659,13 +1860,13 @@ details:not([data-trigger]):not([data-expansion-panel]) summary {
   text-decoration: none;
   text-align: left;
   background-color: var(--surface);
-  transition: var(--animate-all-fastest);
-  overflow: hidden;
+  transition: border-color var(--motion-duration-fast) var(--motion-easing-standard), color var(--motion-duration-fast) var(--motion-easing-standard);
+  overflow: visible;
   cursor: pointer;
   color: var(--control-accent);
 }
 
-details:not([data-trigger]):not([data-expansion-panel]) > :not(summary) {
+:where(details:not([data-trigger]):not([data-expansion-panel]) > :not(summary)) {
   padding: 0 var(--spacing-4) var(--spacing-4);
 }
 
@@ -1688,9 +1889,10 @@ details:not([data-trigger]):not([data-expansion-panel]) > :not(summary) {
   color: inherit;
   font-weight: 600;
   line-height: 1.5;
+  border-block-end: var(--border-size-1) solid transparent;
   list-style: none;
   cursor: pointer;
-  transition: box-shadow 0.15s ease-in-out;
+  transition: box-shadow var(--motion-duration-fast) var(--motion-easing-standard);
 }
 
 :where(details[data-expansion-panel] > summary)::-webkit-details-marker {
@@ -1707,7 +1909,7 @@ details:not([data-trigger]):not([data-expansion-panel]) > :not(summary) {
 }
 
 :where(details[data-expansion-panel][open] > summary) {
-  border-block-end: var(--border-size-1) solid var(--border-default);
+  border-block-end-color: var(--border-default);
 }
 
 :where(details[data-expansion-panel] > summary)::after {
@@ -1721,7 +1923,7 @@ details:not([data-trigger]):not([data-expansion-panel]) > :not(summary) {
   border-block-end: var(--border-size-2) solid currentColor;
   color: currentColor;
   transform: translateY(-50%) rotate(-45deg);
-  transition: transform 0.15s ease-in-out;
+  transition: transform var(--motion-duration-fast) var(--motion-easing-standard);
 }
 
 :where(details[data-expansion-panel][open] > summary)::after {
@@ -1732,21 +1934,13 @@ details:not([data-trigger]):not([data-expansion-panel]) > :not(summary) {
   padding: var(--spacing-4);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  :where(details[data-expansion-panel] > summary)::after {
-    transition: none;
-  }
+[data-tabs] > details {
+  overflow: visible;
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
 }
-@property --dragonglass-tab-index {
-  syntax: "<integer>";
-  inherits: true;
-  initial-value: 1;
-}
-@property --dragonglass-tab-count {
-  syntax: "<integer>";
-  inherits: true;
-  initial-value: 1;
-}
+
 @supports (width: calc(100% / sibling-count())) and selector(details::details-content) {
   [data-tabs]::after {
     content: "";
@@ -1758,10 +1952,6 @@ details:not([data-trigger]):not([data-expansion-panel]) > :not(summary) {
     --dragonglass-tab-count: sibling-count();
     float: left;
     width: calc(100% / var(--dragonglass-tab-count));
-    overflow: visible;
-    background-color: transparent;
-    border: 0;
-    border-radius: 0;
   }
   [data-tabs] > details > summary {
     box-sizing: border-box;
@@ -1770,6 +1960,7 @@ details:not([data-trigger]):not([data-expansion-panel]) > :not(summary) {
     border-bottom: var(--border-size-2) solid var(--border-default);
     list-style: none;
     text-align: center;
+    transition: border-color var(--motion-duration-fast) var(--motion-easing-standard), color var(--motion-duration-fast) var(--motion-easing-standard);
   }
   [data-tabs] > details > summary::-webkit-details-marker {
     display: none;
@@ -1788,6 +1979,17 @@ details:not([data-trigger]):not([data-expansion-panel]) > :not(summary) {
     box-sizing: border-box;
     width: calc(100% * var(--dragonglass-tab-count));
     padding: var(--spacing-4) 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  :where(details[data-expansion-panel] > summary) {
+    transition: none;
+  }
+  :where(details[data-expansion-panel] > summary)::after {
+    transition: none;
+  }
+  [data-tabs] > details:not([data-trigger]):not([data-expansion-panel]) > summary {
+    transition: none;
   }
 }
 /*** Notifications ***/
@@ -2060,17 +2262,17 @@ ol[data-stepper~=numbers] > li::before {
 /*** Menus ***/
 [data-trigger] > menu {
   position: absolute;
-  z-index: -1;
+  z-index: 8;
   opacity: 0;
   overflow: hidden;
-  transition: all 0.2s ease-in-out;
+  pointer-events: none;
   border-radius: var(--card-radius);
   background-color: var(--surface-raised);
   color: var(--text-primary);
   list-style: none;
   margin: 0;
   padding: 0;
-  transform: scale(0);
+  transform: scale(0.98);
   transform-origin: top left;
   min-width: 20rem;
   border: var(--border-size-1) solid var(--border-default);
@@ -2092,10 +2294,43 @@ ol[data-stepper~=numbers] > li::before {
 [data-trigger][open] > menu {
   display: block;
   opacity: 1;
-  z-index: 8;
+  pointer-events: auto;
   transform: scale(1);
 }
 
+@supports selector(details::details-content) and (interactivity: inert) {
+  [data-trigger] > menu {
+    transition: opacity var(--motion-duration-fast) var(--motion-easing-exit), transform var(--motion-duration-fast) var(--motion-easing-exit);
+  }
+  [data-trigger]::details-content {
+    content-visibility: hidden;
+    interactivity: inert;
+    transition: content-visibility var(--motion-duration-fast) allow-discrete;
+  }
+  [data-trigger][open] > menu {
+    transition: opacity var(--motion-duration-base) var(--motion-easing-enter), transform var(--motion-duration-base) var(--motion-easing-enter);
+  }
+  [data-trigger][open]::details-content {
+    content-visibility: visible;
+    interactivity: auto;
+  }
+  @starting-style {
+    [data-trigger][open] > menu {
+      opacity: 0;
+      transform: scale(0.98);
+    }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-trigger] > menu,
+  [data-trigger][open] > menu {
+    transition: none;
+    transform: none;
+  }
+  [data-trigger]::details-content {
+    transition: none;
+  }
+}
 /*** Tables ***/
 table {
   position: relative;
@@ -2204,7 +2439,7 @@ table[data-table~=primary] caption,
 table[data-table~=primary] thead {
   background-color: var(--primary-accent);
   color: var(--primary-accent-text);
-  border-color: var(--primary-accent);
+  border-color: var(--primary-dark);
 }
 table[data-table~=primary] tbody > tr {
   border-color: var(--primary-lighter);
@@ -2222,7 +2457,7 @@ table[data-table~=accent] caption,
 table[data-table~=accent] thead {
   background-color: var(--accent-accent);
   color: var(--accent-accent-text);
-  border-color: var(--accent-accent);
+  border-color: var(--accent-dark);
 }
 table[data-table~=accent] tbody > tr {
   border-color: var(--accent-lighter);
@@ -2240,7 +2475,7 @@ table[data-table~=success] caption,
 table[data-table~=success] thead {
   background-color: var(--success-accent);
   color: var(--success-accent-text);
-  border-color: var(--success-accent);
+  border-color: var(--success-dark);
 }
 table[data-table~=success] tbody > tr {
   border-color: var(--success-lighter);
@@ -2258,7 +2493,7 @@ table[data-table~=info] caption,
 table[data-table~=info] thead {
   background-color: var(--info-accent);
   color: var(--info-accent-text);
-  border-color: var(--info-accent);
+  border-color: var(--info-dark);
 }
 table[data-table~=info] tbody > tr {
   border-color: var(--info-lighter);
@@ -2276,7 +2511,7 @@ table[data-table~=warning] caption,
 table[data-table~=warning] thead {
   background-color: var(--warning-accent);
   color: var(--warning-accent-text);
-  border-color: var(--warning-accent);
+  border-color: var(--warning-dark);
 }
 table[data-table~=warning] tbody > tr {
   border-color: var(--warning-lighter);
@@ -2294,7 +2529,7 @@ table[data-table~=danger] caption,
 table[data-table~=danger] thead {
   background-color: var(--danger-accent);
   color: var(--danger-accent-text);
-  border-color: var(--danger-accent);
+  border-color: var(--danger-dark);
 }
 table[data-table~=danger] tbody > tr {
   border-color: var(--danger-lighter);
@@ -2312,7 +2547,7 @@ table[data-table~=default] caption,
 table[data-table~=default] thead {
   background-color: var(--default-accent);
   color: var(--default-accent-text);
-  border-color: var(--default-accent);
+  border-color: var(--default-dark);
 }
 table[data-table~=default] tbody > tr {
   border-color: var(--default-lighter);
@@ -2473,7 +2708,6 @@ dialog[data-dialog~=squared] > [data-media] > header > h3 {
   display: none;
 }
 [data-trigger] > summary::after {
-  transition: var(--animate-all);
   z-index: -10;
   background: var(--scrim);
   position: fixed;
@@ -2512,7 +2746,6 @@ details[data-trigger] {
 
 /*** Cards ***/
 dialog {
-  transition: var(--animate-all);
   opacity: 0;
   position: fixed;
   top: 50%;
@@ -2562,10 +2795,19 @@ dialog:not([open]) {
   display: none;
 }
 
+dialog:not([open]):not(.static):not([data-dialog~=bottom-sheet]) {
+  transform: translate(-50%, calc(-50% + 0.5rem));
+}
+
 dialog[open] {
   display: flex;
   z-index: 1000;
   opacity: 1;
+}
+
+dialog[open][data-closing]:not(.static):not([data-dialog~=bottom-sheet]) {
+  opacity: 0;
+  transform: translate(-50%, calc(-50% + 0.5rem));
 }
 
 dialog.static {
@@ -2596,27 +2838,97 @@ dialog[data-dialog~=bottom-sheet] {
   transform: none;
 }
 
-dialog[data-dialog~=bottom-sheet][open] {
-  display: flex;
+dialog[data-dialog~=bottom-sheet]:not([open]) {
+  transform: translateY(0.5rem);
 }
 
-dialog[data-dialog~=bottom-sheet]::backdrop {
+dialog[data-dialog~=bottom-sheet][open][data-closing] {
+  opacity: 0;
+  transform: translateY(0.5rem);
+}
+
+dialog::backdrop {
   background-color: var(--scrim);
+  opacity: 0;
 }
 
+dialog[open]::backdrop {
+  opacity: 1;
+}
+
+dialog[open][data-closing]::backdrop {
+  opacity: 0;
+}
+
+@supports (transition-behavior: allow-discrete) {
+  dialog:not(.static) {
+    transition-property: opacity, transform;
+    transition-duration: var(--motion-duration-base);
+    transition-timing-function: var(--motion-easing-exit);
+    transition-behavior: allow-discrete;
+  }
+  dialog[open]:not(.static) {
+    transition-timing-function: var(--motion-easing-enter);
+  }
+  dialog[open][data-closing]:not(.static) {
+    transition-timing-function: var(--motion-easing-exit);
+  }
+  dialog:not(.static)::backdrop {
+    transition-property: opacity;
+    transition-duration: var(--motion-duration-base);
+    transition-timing-function: var(--motion-easing-exit);
+    transition-behavior: allow-discrete;
+  }
+  dialog[open]:not(.static)::backdrop {
+    transition-timing-function: var(--motion-easing-enter);
+  }
+  dialog[open][data-closing]:not(.static)::backdrop {
+    transition-timing-function: var(--motion-easing-exit);
+  }
+  @starting-style {
+    dialog[open]:not(.static):not([data-dialog~=bottom-sheet]) {
+      opacity: 0;
+      transform: translate(-50%, calc(-50% + 0.5rem));
+    }
+    dialog[open]:not(.static)[data-dialog~=bottom-sheet] {
+      opacity: 0;
+      transform: translateY(0.5rem);
+    }
+    dialog[open]:not(.static)::backdrop {
+      opacity: 0;
+    }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  dialog:not(.static),
+  dialog:not(.static)::backdrop {
+    transition: none;
+  }
+  dialog[open]:not(.static):not([data-dialog~=bottom-sheet]) {
+    transform: translate(-50%, -50%);
+  }
+  dialog[open]:not(.static)[data-dialog~=bottom-sheet] {
+    transform: none;
+  }
+}
 /*** Forms ***/
 /*** Buttons ***/
+:root {
+  --form-control-accent: var(--control-accent);
+}
+
 input,
 select,
 textarea {
-  transition: var(--animate-all-fastest);
+  transition: border-color var(--motion-duration-fast) var(--motion-easing-standard), color var(--motion-duration-fast) var(--motion-easing-standard);
   border: 0;
   border-bottom: var(--border-size-1) solid var(--control-border);
   border-radius: 0;
+  outline: none;
   z-index: 1;
   position: relative;
   width: 100%;
-  background: var(--control-bg);
+  background: inherit;
   margin-bottom: var(--spacing-2);
   color: inherit;
   min-height: 2.25em;
@@ -2626,12 +2938,6 @@ input:focus,
 select:focus,
 textarea:focus {
   border-color: var(--control-accent);
-}
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
-  outline: var(--border-size-2) solid var(--focus-ring);
-  outline-offset: var(--spacing-1);
 }
 input:disabled, input[disabled], input[aria-disabled=true],
 select:disabled,
@@ -2667,22 +2973,19 @@ label[for] {
 }
 
 [type=checkbox],
-[type=radio],
-label {
+[type=radio] {
   width: auto;
   display: inline-block;
   vertical-align: middle;
   min-height: 1em;
   position: relative;
   margin: 0;
-  margin-top: 0.5em;
 }
 
 [type=checkbox],
 [type=radio] {
   appearance: none;
   cursor: pointer;
-  will-change: transform;
   width: 1.5em;
   height: 1.5em;
   overflow: hidden;
@@ -2693,11 +2996,6 @@ label {
 [type=radio]:focus {
   border-color: var(--control-accent);
 }
-[type=checkbox]:focus-visible,
-[type=radio]:focus-visible {
-  outline: var(--border-size-2) solid var(--focus-ring);
-  outline-offset: var(--spacing-1);
-}
 [type=checkbox]:after,
 [type=radio]:after {
   content: " ";
@@ -2706,7 +3004,7 @@ label {
   margin-left: 0.23em;
   width: 0.75em;
   height: 0.75em;
-  transition: var(--animate-all-fast);
+  transition: background-color var(--motion-duration-base) var(--motion-easing-standard);
   opacity: 0;
 }
 [type=checkbox]:checked,
@@ -2726,12 +3024,22 @@ label {
   border-radius: 2em;
 }
 
+label[data-chip]:has(> input:checked) {
+  border-color: var(--chip-active, var(--form-control-accent));
+}
+
 [type=checkbox][data-toggle] {
   background-color: var(--surface-muted);
   width: 4em;
   height: 2em;
   border-radius: 1em;
   border: 0;
+}
+[type=checkbox][data-toggle]:focus {
+  border: 0;
+}
+[type=checkbox][data-toggle]:user-invalid, [type=checkbox][data-toggle][aria-invalid=true] {
+  border-color: var(--danger-accent);
 }
 [type=checkbox][data-toggle]:after {
   background-color: var(--border-default);
@@ -2740,17 +3048,25 @@ label {
   border-radius: 1em;
   margin: 0;
   opacity: 1;
+  transition: background-color var(--motion-duration-base) var(--motion-easing-standard), transform var(--motion-duration-base) var(--motion-easing-standard);
+  transform: translateX(0);
 }
 [type=checkbox][data-toggle]:checked:after {
-  margin-left: 2em;
   background-color: var(--control-accent);
+  background-color: var(--control-accent, var(--primary-accent));
+  transform: translateX(2em);
 }
 
 input[type=range] {
   accent-color: var(--control-accent);
+  border-bottom: 0;
   width: 100%;
   padding: var(--spacing-2) 0;
   cursor: pointer;
+}
+
+input[type=range]:focus-visible {
+  box-shadow: 0 0 0 var(--border-size-2) var(--focus-ring);
 }
 
 input[type=range]:disabled {
@@ -2817,6 +3133,7 @@ textarea {
 }
 
 fieldset {
+  transition: border-color var(--motion-duration-fast) var(--motion-easing-standard), color var(--motion-duration-fast) var(--motion-easing-standard);
   position: relative;
   padding: 0;
   margin: 0;
@@ -2825,6 +3142,7 @@ fieldset {
   margin-bottom: 1.5em;
 }
 fieldset > legend {
+  transition: color var(--motion-duration-fast) var(--motion-easing-standard);
   display: block;
   width: auto;
   margin-bottom: var(--spacing-1);
@@ -2835,6 +3153,7 @@ fieldset > legend {
   line-height: 1.25;
 }
 fieldset > small {
+  transition: color var(--motion-duration-fast) var(--motion-easing-standard);
   display: block;
   width: auto;
   margin-top: calc(var(--spacing-2) * -1);
@@ -2894,6 +3213,7 @@ fieldset:has(:user-invalid) > textarea {
 }
 
 [data-floating] {
+  transition: border-color var(--motion-duration-fast) var(--motion-easing-standard), color var(--motion-duration-fast) var(--motion-easing-standard);
   position: relative;
   padding: 0;
   margin: 0 0 1.5em;
@@ -2935,20 +3255,14 @@ fieldset:has(:user-invalid) > textarea {
 [data-floating] > input:placeholder-shown ~ label[for],
 [data-floating] > select:placeholder-shown ~ label[for],
 [data-floating] > textarea:placeholder-shown ~ label[for] {
-  font-size: 1em;
-  top: 0;
   opacity: 0.6;
-  padding: 0;
-  left: 0.5em;
+  transform: translate3d(0.5em, 1em, 0) scale(1.25);
 }
 [data-floating] > input:focus ~ label[for],
 [data-floating] > select:focus ~ label[for],
 [data-floating] > textarea:focus ~ label[for] {
-  padding: 0;
-  top: -1em;
   opacity: 1;
-  left: 0;
-  font-size: 0.8em;
+  transform: translate3d(0, 0, 0) scale(1);
 }
 [data-floating] > input:focus ~ label[for]::after,
 [data-floating] > select:focus ~ label[for]::after,
@@ -2964,7 +3278,7 @@ fieldset:has(:user-invalid) > textarea {
   margin-top: 0.5em;
 }
 [data-floating] > label[for] {
-  transition: var(--animate-all-fastest);
+  transition: color var(--motion-duration-fast) var(--motion-easing-standard), opacity var(--motion-duration-fast) var(--motion-easing-standard), transform var(--motion-duration-fast) var(--motion-easing-standard);
   z-index: 0;
   width: auto;
   border: 0;
@@ -2977,11 +3291,12 @@ fieldset:has(:user-invalid) > textarea {
   opacity: 1;
   left: 0;
   font-size: 0.8em;
+  transform-origin: left center;
   min-height: 0;
   margin: 0;
 }
 [data-floating] > small {
-  transition: var(--animate-all-fastest);
+  transition: color var(--motion-duration-fast) var(--motion-easing-standard);
   z-index: 1;
   width: auto;
   color: inherit;
@@ -3013,24 +3328,30 @@ input[type=submit] {
   width: auto;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  [type=checkbox][data-toggle]:after,
+  [data-floating] > label[for] {
+    transition: none;
+  }
+}
 /*** Drawers ***/
-[data-drawer] {
+:where(aside)[data-drawer] {
   position: fixed;
   z-index: 8;
-  overflow: hidden;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
   width: 20rem;
   max-width: 100vw;
+  max-height: 100%;
   border-right: var(--border-size-1) solid var(--border-default);
   box-shadow: none;
-  top: 0rem;
-  bottom: 0;
-  max-height: 100%;
-  overflow-y: auto;
-  left: 0;
   color: var(--text-primary);
   background-color: var(--surface-raised);
 }
-[data-drawer] a {
+:where(aside)[data-drawer] a {
   justify-content: flex-start;
   width: 100%;
   min-height: 4em;
@@ -3038,13 +3359,93 @@ input[type=submit] {
   border-radius: 0;
   text-align: left;
 }
-[data-drawer][data-drawer~=right] {
+:where(aside)[data-drawer][data-drawer~=right] {
   right: 0;
   left: auto;
   border-right: 0;
   border-left: var(--border-size-1) solid var(--border-default);
 }
 
+details[data-trigger][data-drawer-trigger] {
+  position: relative;
+  z-index: 10;
+}
+
+details[data-trigger][data-drawer-trigger][open] {
+  z-index: 11;
+}
+
+details[data-trigger] > summary:has(+ aside[data-drawer]) {
+  box-sizing: border-box;
+  min-inline-size: 1.5rem;
+  min-block-size: 1.5rem;
+  max-inline-size: calc(100vw - 1rem);
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+header details[data-trigger][data-drawer-trigger] > summary:has(+ aside[data-drawer]) {
+  margin: 0 1em;
+  padding: 0;
+}
+
+details[data-trigger] > aside[data-drawer] {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-0.5rem);
+}
+
+details[data-trigger] > aside[data-drawer~=right] {
+  transform: translateX(0.5rem);
+}
+
+details[data-trigger][open] > aside[data-drawer] {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
+  outline: var(--border-size-2) solid var(--focus-ring);
+  outline-offset: calc(-1 * var(--border-size-2));
+}
+
+@supports selector(details::details-content) and (interactivity: inert) {
+  details[data-trigger] > aside[data-drawer] {
+    transition: opacity var(--motion-duration-fast) var(--motion-easing-exit), transform var(--motion-duration-fast) var(--motion-easing-exit);
+  }
+  details[data-trigger]:has(> aside[data-drawer])::details-content {
+    content-visibility: hidden;
+    interactivity: inert;
+    transition: content-visibility var(--motion-duration-fast) allow-discrete;
+  }
+  details[data-trigger][open] > aside[data-drawer] {
+    transition: opacity var(--motion-duration-base) var(--motion-easing-enter), transform var(--motion-duration-base) var(--motion-easing-enter);
+  }
+  details[data-trigger][open]:has(> aside[data-drawer])::details-content {
+    content-visibility: visible;
+    interactivity: auto;
+  }
+  @starting-style {
+    details[data-trigger][open] > aside[data-drawer] {
+      opacity: 0;
+      transform: translateX(-0.5rem);
+    }
+    details[data-trigger][open] > aside[data-drawer~=right] {
+      transform: translateX(0.5rem);
+    }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  details[data-trigger] > aside[data-drawer],
+  details[data-trigger][open] > aside[data-drawer] {
+    transition: none;
+    transform: none;
+  }
+  details[data-trigger]:has(> aside[data-drawer])::details-content {
+    transition: none;
+  }
+}
 /*** Fonts ***/
 /*** Fonts Start ***/
 /* font-size */

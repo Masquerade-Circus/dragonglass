@@ -58,7 +58,7 @@ const componentCategories = [
     "Toolbars, breadcrumbs, expansion panels, steppers, tabs, and menus.",
   ],
   ["Feedback", "Alerts, notifications, and progress indicators."],
-  ["Surfaces", "Cards, dialogs, and bottom sheets."],
+  ["Surfaces", "Cards, dialogs, bottom sheets, and drawers."],
   ["Data display", "Badges, lists, responsive tables, and tooltips."],
 ] as const;
 
@@ -388,7 +388,10 @@ export default () => (
             <h3 class="text-lg font-semibold mt-0 mb-2">Browser support</h3>
             <p class="mt-0 mb-0">
               Dragonglass supports Chrome 119+, Edge 119+, Firefox 121+, Safari
-              16.5+, and iOS Safari 16.5+.
+              16.5+, and iOS Safari 16.5+ for functional component behavior.
+              Enhanced disclosure layout, CSS-only exit retention, and native
+              invoker behavior depend on browser support and may use the
+              documented immediate fallback.
             </p>
           </div>
         </div>

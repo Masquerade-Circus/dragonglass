@@ -12,13 +12,14 @@
   }
 }
 
-.animated {
-  transition: var(--animate-all);
+%elevation-transition {
+  transition: box-shadow var(--motion-duration-base)
+    var(--motion-easing-standard);
 }
 
 @mixin elevation($base, $isInset: false, $color: "") {
   position: relative;
-  transition: var(--animate-all);
+  @extend %elevation-transition;
   @if $isInset {
     box-shadow: var(--shadow-inner-#{$base}#{$color});
   } @else {
@@ -28,27 +29,66 @@
 }
 
 @each $size, $base in $shadowSizes {
-  .focus\:shadow-#{$size}:focus,
-  .active\:shadow-#{$size}:active,
-  .hover\:shadow-#{$size}:hover,
   .shadow-#{$size} {
     @include elevation($size);
   }
 }
 
 @each $size, $base in $shadowSizes {
-  .focus\:shadow-inner-#{$size}:focus,
-  .active\:shadow-inner-#{$size}:active,
-  .hover\:shadow-inner-#{$size}:hover,
   .shadow-inner-#{$size} {
     @include elevation($size, true);
   }
 }
 
-.focus\:shadow-none:focus,
-.active\:shadow-none:active,
-.hover\:shadow-none:hover,
 .shadow-none {
+  box-shadow: none;
+}
+
+@each $size, $base in $shadowSizes {
+  .hover\:shadow-#{$size}:hover {
+    @include elevation($size);
+  }
+}
+
+@each $size, $base in $shadowSizes {
+  .hover\:shadow-inner-#{$size}:hover {
+    @include elevation($size, true);
+  }
+}
+
+.hover\:shadow-none:hover {
+  box-shadow: none;
+}
+
+@each $size, $base in $shadowSizes {
+  .focus\:shadow-#{$size}:focus {
+    @include elevation($size);
+  }
+}
+
+@each $size, $base in $shadowSizes {
+  .focus\:shadow-inner-#{$size}:focus {
+    @include elevation($size, true);
+  }
+}
+
+.focus\:shadow-none:focus {
+  box-shadow: none;
+}
+
+@each $size, $base in $shadowSizes {
+  .active\:shadow-#{$size}:active {
+    @include elevation($size);
+  }
+}
+
+@each $size, $base in $shadowSizes {
+  .active\:shadow-inner-#{$size}:active {
+    @include elevation($size, true);
+  }
+}
+
+.active\:shadow-none:active {
   box-shadow: none;
 }
 

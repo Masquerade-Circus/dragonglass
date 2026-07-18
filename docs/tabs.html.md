@@ -37,6 +37,12 @@ Grouped details layout selected by data-tabs.
 </section>
 ```
 
+## Layout fallback
+
+Browsers that support `sibling-count()`, `sibling-index()`, and `::details-content` place the summaries in one tab row and align the open panel below them. Other baseline browsers keep the same markup as stacked native disclosures. The fallback preserves content and keyboard operation. It does not promise the enhanced tab-row layout or exclusive disclosure behavior.
+
+When a user requests reduced motion, summary color and border state changes occur without a transition.
+
 ## API
 
 **Tab disclosure elements, attributes, tokens and states**

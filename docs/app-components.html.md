@@ -36,6 +36,7 @@ After choosing a component, open the [utility reference](/dragonglass/utilities.
 - [Cards](/dragonglass/cards.html.md) Basic, elevated, squared and full-width card variants.
 - [Dialogs](/dragonglass/dialogs.html.md) Centered dialogs with shape, width and elevation variants.
 - [Bottom sheets](/dragonglass/bottom-sheets.html.md) Bottom-anchored dialog layout with an optional shadow.
+- [Drawers](/dragonglass/drawers.html.md) Persistent and temporary complementary regions at either viewport edge.
 
 ## Data display
 

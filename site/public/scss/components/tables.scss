@@ -113,7 +113,7 @@ table[data-table] td::before {
     thead {
       background-color: var(--#{$name}-accent);
       color: var(--#{$name}-accent-text);
-      border-color: var(--#{$name}-accent);
+      border-color: var(--#{$name}-dark);
     }
     tbody > tr {
       border-color: var(--#{$name}-lighter);

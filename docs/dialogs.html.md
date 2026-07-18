@@ -60,6 +60,16 @@ A dialog accepts direct `header`, `section` and `footer` children. The `static` 
 
 Standard dialogs size to their content. The `full-width` token leaves a one-rem viewport gap. Long body content scrolls without moving the header or footer actions.
 
+## Motion and fallback behavior
+
+Browsers that support transitions and starting styles reveal a non-static dialog through opacity and a short vertical translation. To animate its exit, keep the modal open, add `data-closing`, wait for its surface and backdrop animations, and then call `close()`. Browsers without this support close the dialog immediately.
+
+The `static` utility excludes documentation previews and embedded dialogs from this motion. When a user requests reduced motion, the dialog and its backdrop change state without transitions or spatial movement.
+
+## Accessibility
+
+Give every dialog an accessible name with `aria-labelledby` or `aria-label`. Use the native modal API when the dialog must block the page, move focus into the dialog when it opens, keep focus inside the modal, support Escape, and return focus to the control that opened it after it closes.
+
 ## API
 
 **Dialog elements, attributes, states and tokens**
@@ -72,3 +82,4 @@ Standard dialogs size to their content. The `full-width` token leaves a one-rem 
 | full-width | Attribute token | Content width | Expands the dialog to the available viewport width with an outer gap. |
 | no-shadow | Attribute token | --shadow-2xl | Removes dialog elevation. |
 | --dialog-radius | Token | Theme value | Controls the corner radius of standard dialogs. |
+| --motion-duration-base / --motion-easing-enter / --motion-easing-exit | Motion token | 200ms / ease-out / ease-in | Control supported opening and closing transitions for the dialog surface and backdrop. |

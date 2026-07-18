@@ -46,6 +46,10 @@ Apply a `bg-*` utility to `summary` when only the panel heading needs a distinct
 </details>
 ```
 
+## Behavior and fallback
+
+The native `details` element controls disclosure state. The open summary keeps a stable bottom border while its generated marker rotates. When a user requests reduced motion, the marker and summary change state without a transition. Content and keyboard operation do not depend on the animation.
+
 ## API
 
 **Expansion panel elements, attributes, tokens and states**
@@ -57,3 +61,4 @@ Apply a `bg-*` utility to `summary` when only the panel heading needs a distinct
 | open | Attribute / state | Absent | Rotates the generated disclosure marker. |
 | --card-radius / --border-default | Token | Theme | Control panel corners and border color. |
 | --spacing-3 / --spacing-4 | Token | Theme | Control summary and content spacing. |
+| --motion-duration-fast / --motion-easing-standard | Motion token | 120ms / ease-in-out | Control the marker, border and summary state transitions. |

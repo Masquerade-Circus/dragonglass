@@ -23,7 +23,6 @@ small,
 button {
   display: inline-block;
   vertical-align: middle;
-  transition: var(--animate-all);
 }
 
 body {
@@ -52,12 +51,6 @@ small {
   font-size: 0.9em;
   opacity: 0.8;
   padding: 0;
-}
-
-[class*="focus:"],
-[class*="active:"],
-[class*="hover:"] {
-  transition: var(--animate-all-fast);
 }
 
 [class*="icon"] {

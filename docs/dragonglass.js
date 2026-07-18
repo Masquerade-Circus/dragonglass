@@ -1665,6 +1665,15 @@
       description: "Bottom-anchored dialog layout with an optional shadow."
     },
     {
+      path: `${basePath}/drawers.html`,
+      label: "Drawers",
+      icon: "vertical_split",
+      color: "bg-info",
+      page: "Drawers",
+      category: "Surfaces",
+      description: "Persistent and temporary complementary regions at either viewport edge."
+    },
+    {
       path: `${basePath}/lists.html`,
       label: "Lists",
       icon: "list",
@@ -1896,9 +1905,9 @@
     return /* @__PURE__ */ jsx("a", { href: path, children: content });
   };
   var Header = ({ currentPath }) => /* @__PURE__ */ jsxs("header", { children: [
-    /* @__PURE__ */ jsx("nav", { children: /* @__PURE__ */ jsxs("details", { "data-trigger": true, children: [
-      /* @__PURE__ */ jsx("summary", { "aria-label": "Open documentation navigation", children: /* @__PURE__ */ jsx("span", { class: "material-icons", "aria-hidden": "true", children: "menu" }) }),
-      /* @__PURE__ */ jsxs("section", { "data-drawer": true, children: [
+    /* @__PURE__ */ jsx("nav", { children: /* @__PURE__ */ jsxs("details", { "data-trigger": true, "data-drawer-trigger": true, children: [
+      /* @__PURE__ */ jsx("summary", { "aria-label": "Documentation navigation", children: /* @__PURE__ */ jsx("span", { class: "material-icons", "aria-hidden": "true", children: "menu" }) }),
+      /* @__PURE__ */ jsxs("aside", { "data-drawer": true, "aria-label": "Documentation navigation", children: [
         /* @__PURE__ */ jsx("section", { class: "h-48 relative bg-primary", children: /* @__PURE__ */ jsx("h1", { "data-position": "absolute bottom left", children: "DragonGlass" }) }),
         /* @__PURE__ */ jsx("ul", { "data-list": true, "v-for": catalogEntries, children: ({ path, label, icon, color }) => /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(
           DrawerLink,
@@ -1973,7 +1982,7 @@ import "dragonglass/dist/themes/default.css";`;
       "Toolbars, breadcrumbs, expansion panels, steppers, tabs, and menus."
     ],
     ["Feedback", "Alerts, notifications, and progress indicators."],
-    ["Surfaces", "Cards, dialogs, and bottom sheets."],
+    ["Surfaces", "Cards, dialogs, bottom sheets, and drawers."],
     ["Data display", "Badges, lists, responsive tables, and tooltips."]
   ];
   var documentationPaths = [
@@ -2246,7 +2255,7 @@ import "dragonglass/dist/themes/default.css";`;
           /* @__PURE__ */ jsx("hr", { class: "mt-4 mb-6" }),
           /* @__PURE__ */ jsxs("div", { class: "max-w-prose", children: [
             /* @__PURE__ */ jsx("h3", { class: "text-lg font-semibold mt-0 mb-2", children: "Browser support" }),
-            /* @__PURE__ */ jsx("p", { class: "mt-0 mb-0", children: "Dragonglass supports Chrome 119+, Edge 119+, Firefox 121+, Safari 16.5+, and iOS Safari 16.5+." })
+            /* @__PURE__ */ jsx("p", { class: "mt-0 mb-0", children: "Dragonglass supports Chrome 119+, Edge 119+, Firefox 121+, Safari 16.5+, and iOS Safari 16.5+ for functional component behavior. Enhanced disclosure layout, CSS-only exit retention, and native invoker behavior depend on browser support and may use the documented immediate fallback." })
           ] })
         ] })
       }
@@ -2775,6 +2784,7 @@ import "dragonglass/dist/themes/default.css";`;
       /* @__PURE__ */ jsx(ElevationSamples, { inner: true })
     ] }),
     /* @__PURE__ */ jsxs(demo_section_default, { id: "shadow-states", title: "Interactive states", children: [
+      /* @__PURE__ */ jsx("p", { children: "State precedence follows interaction intent instead of shadow size. A hover or focus utility overrides the base elevation, and an active utility overrides both while the control is pressed." }),
       /* @__PURE__ */ jsx(
         "button",
         {
@@ -2791,7 +2801,16 @@ import "dragonglass/dist/themes/default.css";`;
           value: "Focus this field"
         }
       ),
-      /* @__PURE__ */ jsx(code_example_default, { code: stateExample })
+      /* @__PURE__ */ jsx(code_example_default, { code: stateExample }),
+      /* @__PURE__ */ jsxs("p", { children: [
+        "Elevation changes transition only ",
+        /* @__PURE__ */ jsx("code", { children: "box-shadow" }),
+        " with",
+        /* @__PURE__ */ jsx("code", { children: " --motion-duration-base" }),
+        " and",
+        /* @__PURE__ */ jsx("code", { children: " --motion-easing-standard" }),
+        "."
+      ] })
     ] }),
     /* @__PURE__ */ jsxs(demo_section_default, { id: "text-shadows", title: "Text shadows", children: [
       /* @__PURE__ */ jsx("p", { children: "Text shadows separate lettering from media. Keep a scrim or another sufficient contrast surface behind important text." }),
@@ -3704,6 +3723,12 @@ import "dragonglass/dist/themes/default.css";`;
       type: "Token",
       defaultValue: "Theme value",
       description: "Controls the corner radius of standard dialogs."
+    },
+    {
+      name: "--motion-duration-base / --motion-easing-enter / --motion-easing-exit",
+      type: "Motion token",
+      defaultValue: "200ms / ease-out / ease-in",
+      description: "Control supported opening and closing transitions for the dialog surface and backdrop."
     }
   ];
   var dialogs_page_default = () => /* @__PURE__ */ jsxs(doc_page_default, { page: "Dialogs", children: [
@@ -3799,6 +3824,27 @@ import "dragonglass/dist/themes/default.css";`;
       "Standard dialogs size to their content. The ",
       /* @__PURE__ */ jsx("code", { children: "full-width" }),
       "token leaves a one-rem viewport gap. Long body content scrolls without moving the header or footer actions."
+    ] }) }),
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "dialog-motion", title: "Motion and fallback behavior", children: [
+      /* @__PURE__ */ jsxs("p", { children: [
+        "Browsers that support transitions and starting styles reveal a non-static dialog through opacity and a short vertical translation. To animate its exit, keep the modal open, add ",
+        /* @__PURE__ */ jsx("code", { children: "data-closing" }),
+        ", wait for its surface and backdrop animations, and then call",
+        /* @__PURE__ */ jsx("code", { children: " close()" }),
+        ". Browsers without this support close the dialog immediately."
+      ] }),
+      /* @__PURE__ */ jsxs("p", { children: [
+        "The ",
+        /* @__PURE__ */ jsx("code", { children: "static" }),
+        " utility excludes documentation previews and embedded dialogs from this motion. When a user requests reduced motion, the dialog and its backdrop change state without transitions or spatial movement."
+      ] })
+    ] }),
+    /* @__PURE__ */ jsx(demo_section_default, { id: "dialog-accessibility", title: "Accessibility", children: /* @__PURE__ */ jsxs("p", { children: [
+      "Give every dialog an accessible name with",
+      /* @__PURE__ */ jsx("code", { children: " aria-labelledby" }),
+      " or ",
+      /* @__PURE__ */ jsx("code", { children: "aria-label" }),
+      ". Use the native modal API when the dialog must block the page, move focus into the dialog when it opens, keep focus inside the modal, support Escape, and return focus to the control that opened it after it closes."
     ] }) }),
     /* @__PURE__ */ jsx(demo_section_default, { id: "dialog-api", title: "API", children: /* @__PURE__ */ jsx(
       api_table_default,
@@ -4873,6 +4919,7 @@ import "dragonglass/dist/themes/default.css";`;
       " because the sibling selectors drive the visual label state."
     ] }) }),
     /* @__PURE__ */ jsx(demo_section_default, { id: "forms-responsive", title: "Responsive behavior", children: /* @__PURE__ */ jsx("p", { children: "Text controls fill the available width, textareas resize vertically and range inputs preserve their full track. The surrounding form or card controls column width." }) }),
+    /* @__PURE__ */ jsx(demo_section_default, { id: "forms-motion", title: "State motion", children: /* @__PURE__ */ jsx("p", { children: "Fields transition only their border and text color. Toggle thumbs communicate checked states through color and horizontal movement, while floating labels use transforms for focus states. When a user requests reduced motion, toggle thumbs and floating labels change state without a transition. Their checked, focused, valid, and invalid states remain visible." }) }),
     /* @__PURE__ */ jsx(demo_section_default, { id: "forms-api", title: "API", children: /* @__PURE__ */ jsx(
       api_table_default,
       {
@@ -5053,6 +5100,26 @@ import "dragonglass/dist/themes/default.css";`;
       ] }),
       /* @__PURE__ */ jsx(code_example_default, { code: positionedMenusExample })
     ] }),
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "menus-motion-title", title: "Motion and accessibility", children: [
+      /* @__PURE__ */ jsxs("p", { children: [
+        "Browsers that support starting styles, inert CSS interactivity and the native details content pseudo-element reveal the menu from",
+        /* @__PURE__ */ jsx("code", { children: " opacity: 0" }),
+        " and ",
+        /* @__PURE__ */ jsx("code", { children: "scale(.98)" }),
+        " on every opening, then preserve its content long enough to animate each close without keeping its actions interactive. The open state uses",
+        /* @__PURE__ */ jsx("code", { children: " opacity: 1" }),
+        " and ",
+        /* @__PURE__ */ jsx("code", { children: "scale(1)" }),
+        ". Browsers without this support change state immediately."
+      ] }),
+      /* @__PURE__ */ jsxs("p", { children: [
+        "When a user requests reduced motion, the menu changes state without a transition or transform. Keep the native ",
+        /* @__PURE__ */ jsx("code", { children: "details" }),
+        " and",
+        /* @__PURE__ */ jsx("code", { children: "summary" }),
+        " relationship so keyboard users can operate the disclosure, and give every icon-only action an accessible name."
+      ] })
+    ] }),
     /* @__PURE__ */ jsx(demo_section_default, { id: "menus-api-title", title: "API", children: /* @__PURE__ */ jsx(
       api_table_default,
       {
@@ -5083,10 +5150,16 @@ import "dragonglass/dist/themes/default.css";`;
             description: "Shows the menu through the parent details state."
           },
           {
-            name: "--card-radius / --default-light / --white",
+            name: "--card-radius / --surface-raised / --text-primary / --border-default",
             type: "Token",
             defaultValue: "Theme",
-            description: "Control menu corners, border and background."
+            description: "Control menu corners, surface, text and border colors."
+          },
+          {
+            name: "--motion-duration-fast / --motion-duration-base / --motion-easing-enter / --motion-easing-exit",
+            type: "Motion token",
+            defaultValue: "120ms / 200ms / ease-out / ease-in",
+            description: "Control the menu's opacity and transform transition without changing its state contract."
           }
         ]
       }
@@ -5201,6 +5274,13 @@ import "dragonglass/dist/themes/default.css";`;
 <progress data-progress="spinner danger" aria-label="Retrying"></progress>`;
   var progress_page_default = () => /* @__PURE__ */ jsxs(doc_page_default, { page: "Progress", children: [
     /* @__PURE__ */ jsxs(demo_section_default, { id: "progress-determinate-title", title: "Determinate progress", children: [
+      /* @__PURE__ */ jsxs("p", { children: [
+        "Use ",
+        /* @__PURE__ */ jsx("code", { children: "value" }),
+        " and ",
+        /* @__PURE__ */ jsx("code", { children: "max" }),
+        " when the operation exposes measurable progress. Associate the element with a label or give it an accessible name."
+      ] }),
       /* @__PURE__ */ jsx("label", { for: "upload-progress", children: "Upload progress" }),
       /* @__PURE__ */ jsx(
         "progress",
@@ -5286,7 +5366,7 @@ import "dragonglass/dist/themes/default.css";`;
           /* @__PURE__ */ jsxs("p", { children: [
             "Without a ",
             /* @__PURE__ */ jsx("code", { children: "value" }),
-            ", Dragonglass applies the animated indeterminate bar."
+            ", Dragonglass displays a continuous indeterminate bar. Give it an accessible name that describes the work in progress."
           ] }),
           /* @__PURE__ */ jsx("progress", { "data-progress": "primary", "aria-label": "Loading results" }),
           /* @__PURE__ */ jsx("progress", { "data-progress": "warning", "aria-label": "Saving changes" }),
@@ -5298,12 +5378,13 @@ import "dragonglass/dist/themes/default.css";`;
       /* @__PURE__ */ jsxs("p", { children: [
         "The ",
         /* @__PURE__ */ jsx("code", { children: "spinner" }),
-        " token creates a compact circular indicator and combines with one supported tone."
+        " token creates a compact circular indicator and combines with one supported tone. Its accessible name must describe the operation instead of the visual spinner."
       ] }),
       /* @__PURE__ */ jsx("progress", { "data-progress": "spinner primary", "aria-label": "Loading" }),
       /* @__PURE__ */ jsx("progress", { "data-progress": "spinner danger", "aria-label": "Retrying" }),
       /* @__PURE__ */ jsx(code_example_default, { code: spinnerExample })
     ] }),
+    /* @__PURE__ */ jsx(demo_section_default, { id: "progress-reduced-motion-title", title: "Reduced motion", children: /* @__PURE__ */ jsx("p", { children: "When a user requests reduced motion, indeterminate bars stop on a visible pulse and circular spinners remain visible without rotation. Dragonglass applies the same static result to WebKit and Gecko progress parts. The static indicator still means that work is in progress, not that the operation has completed." }) }),
     /* @__PURE__ */ jsx(demo_section_default, { id: "progress-api-title", title: "API", children: /* @__PURE__ */ jsx(
       api_table_default,
       {
@@ -5319,7 +5400,7 @@ import "dragonglass/dist/themes/default.css";`;
             name: "value",
             type: "Attribute",
             defaultValue: "Absent",
-            description: "Its absence selects the animated indeterminate presentation."
+            description: "Its absence selects the continuous indeterminate presentation."
           },
           {
             name: "data-progress",
@@ -5337,7 +5418,7 @@ import "dragonglass/dist/themes/default.css";`;
             name: "determinate / indeterminate / spinner",
             type: "State",
             defaultValue: "Indeterminate without value",
-            description: "Selects measured, animated bar or circular presentation."
+            description: "Selects a measured bar, continuous bar or circular presentation. Continuous indicators become static when reduced motion is requested."
           }
         ]
       }
@@ -5824,6 +5905,11 @@ import "dragonglass/dist/themes/default.css";`;
       ] }),
       /* @__PURE__ */ jsx(code_example_default, { code: expansionSummaryColorExample })
     ] }),
+    /* @__PURE__ */ jsx(demo_section_default, { id: "expansion-behavior-title", title: "Behavior and fallback", children: /* @__PURE__ */ jsxs("p", { children: [
+      "The native ",
+      /* @__PURE__ */ jsx("code", { children: "details" }),
+      " element controls disclosure state. The open summary keeps a stable bottom border while its generated marker rotates. When a user requests reduced motion, the marker and summary change state without a transition. Content and keyboard operation do not depend on the animation."
+    ] }) }),
     /* @__PURE__ */ jsx(demo_section_default, { id: "expansion-api-title", title: "API", children: /* @__PURE__ */ jsx(
       api_table_default,
       {
@@ -5858,6 +5944,12 @@ import "dragonglass/dist/themes/default.css";`;
             type: "Token",
             defaultValue: "Theme",
             description: "Control summary and content spacing."
+          },
+          {
+            name: "--motion-duration-fast / --motion-easing-standard",
+            type: "Motion token",
+            defaultValue: "120ms / ease-in-out",
+            description: "Control the marker, border and summary state transitions."
           }
         ]
       }
@@ -6075,19 +6167,37 @@ import "dragonglass/dist/themes/default.css";`;
   <header>
     <h3 id="filter-sheet-title">Filters</h3>
   </header>
-  <section><p>Choose the results to include.</p></section>
+  <section>
+    <p>Choose the results to include.</p>
+    <label class="mr-2"><input type="checkbox" name="availability"> Available now</label>
+    <label class="mr-2"><input type="checkbox" name="delivery"> Free delivery</label>
+  </section>
+  <footer><button type="button">Apply filters</button></footer>
 </dialog>`;
   var bottom_sheets_page_default = () => /* @__PURE__ */ jsxs(doc_page_default, { page: "BottomSheets", children: [
     /* @__PURE__ */ jsxs(demo_section_default, { id: "bottom-sheet-open-title", title: "Open bottom sheet", children: [
+      /* @__PURE__ */ jsx("p", { children: "This preview stays in the page flow so its content remains visible above the footer. In an app, mount the dialog as a direct child of the document root so fixed positioning and layering are not constrained by an ancestor stacking context." }),
       /* @__PURE__ */ jsxs(
         "dialog",
         {
+          class: "static",
           "data-dialog": "bottom-sheet",
           open: true,
           "aria-labelledby": "filter-sheet-title",
           children: [
             /* @__PURE__ */ jsx("header", { children: /* @__PURE__ */ jsx("h3", { id: "filter-sheet-title", children: "Filters" }) }),
-            /* @__PURE__ */ jsx("section", { children: /* @__PURE__ */ jsx("p", { children: "Choose the results to include." }) })
+            /* @__PURE__ */ jsxs("section", { children: [
+              /* @__PURE__ */ jsx("p", { children: "Choose the results to include." }),
+              /* @__PURE__ */ jsxs("label", { class: "mr-2", children: [
+                /* @__PURE__ */ jsx("input", { type: "checkbox", name: "availability" }),
+                " Available now"
+              ] }),
+              /* @__PURE__ */ jsxs("label", { class: "mr-2", children: [
+                /* @__PURE__ */ jsx("input", { type: "checkbox", name: "delivery" }),
+                " Free delivery"
+              ] })
+            ] }),
+            /* @__PURE__ */ jsx("footer", { children: /* @__PURE__ */ jsx("button", { type: "button", children: "Apply filters" }) })
           ]
         }
       ),
@@ -6114,6 +6224,23 @@ import "dragonglass/dist/themes/default.css";`;
 </dialog>`
             }
           )
+        ]
+      }
+    ),
+    /* @__PURE__ */ jsxs(
+      demo_section_default,
+      {
+        id: "bottom-sheet-motion-title",
+        title: "Motion, fallback and accessibility",
+        children: [
+          /* @__PURE__ */ jsxs("p", { children: [
+            "Browsers that support discrete transitions and starting styles reveal the sheet through opacity and a short translation from the bottom. The",
+            /* @__PURE__ */ jsx("code", { children: "data-closing" }),
+            " state uses the same properties for exit and keeps the backdrop timing synchronized. Keep the modal open until those animations finish, then call ",
+            /* @__PURE__ */ jsx("code", { children: "close()" }),
+            ". Browsers without this support open and close the sheet immediately."
+          ] }),
+          /* @__PURE__ */ jsx("p", { children: "When a user requests reduced motion, the sheet and its backdrop change state without transitions or spatial movement. Give the sheet an accessible name, use the native modal API when it blocks the page, and return focus to the control that opened it after it closes." })
         ]
       }
     ),
@@ -6151,6 +6278,247 @@ import "dragonglass/dist/themes/default.css";`;
             type: "Token",
             defaultValue: "Theme",
             description: "Control the top corners and default elevation."
+          },
+          {
+            name: "--motion-duration-base / --motion-easing-enter / --motion-easing-exit",
+            type: "Motion token",
+            defaultValue: "200ms / ease-out / ease-in",
+            description: "Control supported opening and closing transitions for the sheet and backdrop."
+          }
+        ]
+      }
+    ) })
+  ] });
+
+  // site/src/pages/drawers_page.tsx
+  var persistentDrawerCode = `<aside data-drawer aria-label="Workspace shortcuts">
+  <section class="h-48 relative bg-primary">
+    <h2 data-position="absolute bottom left">Workspace</h2>
+  </section>
+  <nav aria-label="Workspace shortcuts">
+    <ul data-list>
+      <li><a href="/projects"><i class="material-icons" aria-hidden="true">folder</i> Projects</a></li>
+      <li><a href="/activity"><i class="material-icons" aria-hidden="true">history</i> Recent activity</a></li>
+    </ul>
+  </nav>
+</aside>`;
+  var temporaryDrawerCode = `<details data-trigger data-drawer-trigger>
+  <summary>Open filters</summary>
+  <aside data-drawer="right" aria-labelledby="project-filters-title">
+    <section class="h-48 relative bg-primary">
+      <h2 id="project-filters-title" data-position="absolute bottom left">Filter projects</h2>
+    </section>
+    <form aria-label="Project filters">
+      <ul data-list>
+        <li><label><i class="material-icons" aria-hidden="true">check_circle</i><input type="checkbox" name="active"> Active projects</label></li>
+        <li><label><i class="material-icons" aria-hidden="true">group</i><input type="checkbox" name="shared"> Shared with me</label></li>
+      </ul>
+    </form>
+  </aside>
+</details>`;
+  var drawers_page_default = () => /* @__PURE__ */ jsxs(doc_page_default, { page: "Drawers", children: [
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "drawer-persistent", title: "Persistent drawer", children: [
+      /* @__PURE__ */ jsxs("p", { children: [
+        "Use ",
+        /* @__PURE__ */ jsx("code", { children: "aside data-drawer" }),
+        " for a persistent complementary region. The drawer may contain navigation, controls, or supporting content and stays fixed at the requested viewport edge. Navigation is optional."
+      ] }),
+      /* @__PURE__ */ jsx("p", { children: "This preview stays inside its frame so you can inspect the drawer without covering the rest of the page." }),
+      /* @__PURE__ */ jsx(
+        "section",
+        {
+          "aria-label": "Contained persistent drawer preview",
+          class: "relative border border-default",
+          style: "min-height: 22rem; overflow: hidden; border-radius: var(--card-radius); background-color: var(--surface);",
+          children: /* @__PURE__ */ jsxs(
+            "aside",
+            {
+              "data-drawer": true,
+              "aria-labelledby": "drawer-preview-title",
+              class: "absolute z-auto h-full",
+              style: "width: min(20rem, 80%);",
+              children: [
+                /* @__PURE__ */ jsx("section", { class: "h-48 relative bg-primary", children: /* @__PURE__ */ jsx("h3", { id: "drawer-preview-title", "data-position": "absolute bottom left", children: "Workspace" }) }),
+                /* @__PURE__ */ jsx("nav", { "aria-label": "Workspace shortcuts", children: /* @__PURE__ */ jsxs("ul", { "data-list": true, children: [
+                  /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsxs("a", { href: "#drawer-persistent", children: [
+                    /* @__PURE__ */ jsx("i", { class: "material-icons bg-info", "aria-hidden": "true", children: "folder" }),
+                    "Projects"
+                  ] }) }),
+                  /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsxs("a", { href: "#drawer-position", children: [
+                    /* @__PURE__ */ jsx("i", { class: "material-icons bg-primary", "aria-hidden": "true", children: "history" }),
+                    "Recent activity"
+                  ] }) })
+                ] }) }),
+                /* @__PURE__ */ jsx("ul", { "data-list": true, children: /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsxs("button", { type: "button", children: [
+                  /* @__PURE__ */ jsx("i", { class: "material-icons bg-success", "aria-hidden": "true", children: "add" }),
+                  "Create project"
+                ] }) }) })
+              ]
+            }
+          )
+        }
+      ),
+      /* @__PURE__ */ jsx(code_example_default, { code: persistentDrawerCode })
+    ] }),
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "drawer-temporary", title: "Temporary drawer", children: [
+      /* @__PURE__ */ jsxs("p", { children: [
+        "Place a ",
+        /* @__PURE__ */ jsx("code", { children: "summary" }),
+        " followed by a direct",
+        /* @__PURE__ */ jsx("code", { children: " aside data-drawer" }),
+        " inside a",
+        /* @__PURE__ */ jsx("code", { children: " details data-trigger data-drawer-trigger" }),
+        " disclosure. The",
+        /* @__PURE__ */ jsx("code", { children: " data-drawer-trigger" }),
+        " attribute is a CSS hook and adds no JavaScript behavior. The native ",
+        /* @__PURE__ */ jsx("code", { children: "open" }),
+        " attribute is the only state and opens or closes the drawer with a mouse click, Enter, or Space. Touch activation remains pending direct verification across the browser baseline."
+      ] }),
+      /* @__PURE__ */ jsxs("p", { children: [
+        "A click outside the open drawer closes it and consumes that click, so a covered control does not activate by accident. Controls inside the drawer keep their native behavior. Give the complementary region a name with",
+        /* @__PURE__ */ jsx("code", { children: " aria-label" }),
+        " or ",
+        /* @__PURE__ */ jsx("code", { children: "aria-labelledby" }),
+        ". This disclosure does not contain focus, restore focus, or promise Escape closure. Use it only when those limits fit the product flow."
+      ] }),
+      /* @__PURE__ */ jsx("p", { children: "The first preview remains visible for inspection. The interactive demo below starts closed and lets you open or close the temporary drawer." }),
+      /* @__PURE__ */ jsx(
+        "section",
+        {
+          "aria-label": "Static temporary drawer preview",
+          class: "relative border border-default",
+          style: "min-height: 22rem; overflow: hidden; border-radius: var(--card-radius); background-color: var(--surface);",
+          children: /* @__PURE__ */ jsxs(
+            "aside",
+            {
+              "data-drawer": "right",
+              "aria-labelledby": "static-temporary-drawer-title",
+              class: "absolute z-auto h-full",
+              style: "width: min(20rem, 80%);",
+              children: [
+                /* @__PURE__ */ jsx("section", { class: "h-48 relative bg-primary", children: /* @__PURE__ */ jsx(
+                  "h3",
+                  {
+                    id: "static-temporary-drawer-title",
+                    "data-position": "absolute bottom left",
+                    children: "Project filters preview"
+                  }
+                ) }),
+                /* @__PURE__ */ jsx("form", { "aria-label": "Project filters preview", children: /* @__PURE__ */ jsxs("ul", { "data-list": true, children: [
+                  /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsxs("label", { children: [
+                    /* @__PURE__ */ jsx("i", { class: "material-icons bg-success", "aria-hidden": "true", children: "check_circle" }),
+                    /* @__PURE__ */ jsx("input", { type: "checkbox", name: "preview-active-projects" }),
+                    "Active projects"
+                  ] }) }),
+                  /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsxs("label", { children: [
+                    /* @__PURE__ */ jsx("i", { class: "material-icons bg-info", "aria-hidden": "true", children: "group" }),
+                    /* @__PURE__ */ jsx("input", { type: "checkbox", name: "preview-shared-projects" }),
+                    "Shared with me"
+                  ] }) })
+                ] }) })
+              ]
+            }
+          )
+        }
+      ),
+      /* @__PURE__ */ jsx(
+        "section",
+        {
+          "aria-label": "Interactive temporary drawer demo",
+          class: "p-4 border border-default",
+          style: "border-radius: var(--card-radius); background-color: var(--surface);",
+          children: /* @__PURE__ */ jsxs("details", { "data-trigger": true, "data-drawer-trigger": true, children: [
+            /* @__PURE__ */ jsx("summary", { children: "Open filters" }),
+            /* @__PURE__ */ jsxs("aside", { "data-drawer": "right", "aria-labelledby": "temporary-drawer-title", children: [
+              /* @__PURE__ */ jsx("section", { class: "h-48 relative bg-primary", children: /* @__PURE__ */ jsx(
+                "h3",
+                {
+                  id: "temporary-drawer-title",
+                  "data-position": "absolute bottom left",
+                  children: "Filter projects"
+                }
+              ) }),
+              /* @__PURE__ */ jsx("form", { "aria-label": "Project filters", children: /* @__PURE__ */ jsxs("ul", { "data-list": true, children: [
+                /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsxs("label", { children: [
+                  /* @__PURE__ */ jsx("i", { class: "material-icons bg-success", "aria-hidden": "true", children: "check_circle" }),
+                  /* @__PURE__ */ jsx("input", { type: "checkbox", name: "active-projects" }),
+                  " Active projects"
+                ] }) }),
+                /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsxs("label", { children: [
+                  /* @__PURE__ */ jsx("i", { class: "material-icons bg-info", "aria-hidden": "true", children: "group" }),
+                  /* @__PURE__ */ jsx("input", { type: "checkbox", name: "shared-projects" }),
+                  " Shared with me"
+                ] }) }),
+                /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsxs("a", { href: "#drawer-position", children: [
+                  /* @__PURE__ */ jsx("i", { class: "material-icons bg-primary", "aria-hidden": "true", children: "open_in_new" }),
+                  "Learn where drawers appear"
+                ] }) })
+              ] }) })
+            ] })
+          ] })
+        }
+      ),
+      /* @__PURE__ */ jsx(code_example_default, { code: temporaryDrawerCode })
+    ] }),
+    /* @__PURE__ */ jsx(demo_section_default, { id: "drawer-position", title: "Position and motion", children: /* @__PURE__ */ jsxs("p", { children: [
+      "A drawer starts at the left edge. Add",
+      /* @__PURE__ */ jsx("code", { children: ' data-drawer="right"' }),
+      " to anchor it to the right edge. Browsers with native details-content and inert CSS support animate each entrance and exit. Browsers in the supported baseline without those features retain the native disclosure and change state immediately. Reduced motion also changes state without a transition or spatial offset."
+    ] }) }),
+    /* @__PURE__ */ jsx(
+      demo_section_default,
+      {
+        id: "drawer-migration",
+        title: "Migration for the next major release",
+        children: /* @__PURE__ */ jsxs("p", { children: [
+          "This is a breaking change for the next major release. The former",
+          /* @__PURE__ */ jsx("code", { children: " section data-drawer" }),
+          " and",
+          /* @__PURE__ */ jsx("code", { children: " dialog data-drawer" }),
+          " structures are no longer supported. Replace either structure with ",
+          /* @__PURE__ */ jsx("code", { children: "aside data-drawer" }),
+          ". A drawer may contain navigation, but a ",
+          /* @__PURE__ */ jsx("code", { children: "nav" }),
+          " element is optional. The next major release removes support for the generic",
+          /* @__PURE__ */ jsx("code", { children: " [data-drawer]" }),
+          " selector, which is intentionally not preserved."
+        ] })
+      }
+    ),
+    /* @__PURE__ */ jsx(demo_section_default, { id: "drawer-api", title: "API", children: /* @__PURE__ */ jsx(
+      api_table_default,
+      {
+        caption: "Drawer elements, attributes and states",
+        rows: [
+          {
+            name: "aside[data-drawer]",
+            type: "Element",
+            defaultValue: "Persistent",
+            description: "Creates a standalone persistent drawer or a temporary drawer inside the required disclosure structure."
+          },
+          {
+            name: "details[data-trigger][data-drawer-trigger] > summary + aside[data-drawer]",
+            type: "Structure",
+            defaultValue: "Required for temporary drawers",
+            description: "Marks the temporary drawer disclosure for CSS while native details state provides zero-JavaScript control."
+          },
+          {
+            name: 'data-drawer="right"',
+            type: "Attribute token",
+            defaultValue: "Left",
+            description: "Anchors the drawer to the right viewport edge."
+          },
+          {
+            name: "open",
+            type: "Native details state",
+            defaultValue: "Absent",
+            description: "Shows the temporary drawer through its parent details."
+          },
+          {
+            name: "--motion-duration-base / --motion-duration-fast / --motion-easing-enter / --motion-easing-exit",
+            type: "Motion token",
+            defaultValue: "200ms / theme value / ease-out / ease-in",
+            description: "Control enhanced entrance and exit transitions where the browser supports them."
           }
         ]
       }
@@ -6215,6 +6583,18 @@ import "dragonglass/dist/themes/default.css";`;
       ] }),
       /* @__PURE__ */ jsx(code_example_default, { code: richTabsExample })
     ] }),
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "tabs-fallback-title", title: "Layout fallback", children: [
+      /* @__PURE__ */ jsxs("p", { children: [
+        "Browsers that support ",
+        /* @__PURE__ */ jsx("code", { children: "sibling-count()" }),
+        ",",
+        /* @__PURE__ */ jsx("code", { children: "sibling-index()" }),
+        ", and ",
+        /* @__PURE__ */ jsx("code", { children: "::details-content" }),
+        " place the summaries in one tab row and align the open panel below them. Other baseline browsers keep the same markup as stacked native disclosures. The fallback preserves content and keyboard operation. It does not promise the enhanced tab-row layout or exclusive disclosure behavior."
+      ] }),
+      /* @__PURE__ */ jsx("p", { children: "When a user requests reduced motion, summary color and border state changes occur without a transition." })
+    ] }),
     /* @__PURE__ */ jsx(demo_section_default, { id: "tabs-api-title", title: "API", children: /* @__PURE__ */ jsx(
       api_table_default,
       {
@@ -6254,6 +6634,27 @@ import "dragonglass/dist/themes/default.css";`;
   var colorVariants = `${interactiveVariants}, before:, after:`;
   var spacingValues = "0, px, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16";
   var utilityGroups = [
+    {
+      id: "motion",
+      title: "Motion",
+      description: "Motion tokens give components shared timing semantics. Components transition only their documented properties and honor the user's reduced-motion preference.",
+      families: [
+        {
+          pattern: "--motion-duration-{speed}",
+          type: "Duration token",
+          values: "instant (0ms), fast (120ms), base (200ms), deliberate (280ms)",
+          variants: "CSS custom property",
+          description: "Selects an instant, compact, standard or emphasized duration. Override a token at an appropriate scope to tune component motion without applying a transition to every property."
+        },
+        {
+          pattern: "--motion-easing-{intent}",
+          type: "Easing token",
+          values: "standard (ease-in-out), enter (ease-out), exit (ease-in)",
+          variants: "CSS custom property",
+          description: "Selects the easing for a state change, an entering surface or an exiting surface."
+        }
+      ]
+    },
     {
       id: "spacing",
       title: "Spacing",
@@ -6573,13 +6974,6 @@ import "dragonglass/dist/themes/default.css";`;
           values: "none",
           variants: "Base only",
           description: "Removes text shadow, including low-specificity defaults."
-        },
-        {
-          pattern: "animated",
-          type: "Transition",
-          values: "var(--animate-all)",
-          variants: "Base only",
-          description: "Applies the framework transition to all animatable properties."
         }
       ]
     },
@@ -6809,6 +7203,7 @@ import "dragonglass/dist/themes/default.css";`;
     Notifications: notifications_page_default,
     Steppers: steppers_page_default,
     BottomSheets: bottom_sheets_page_default,
+    Drawers: drawers_page_default,
     Tabs: tabs_page_default,
     Utilities: utilities_page_default,
     Heroes: heroes_page_default

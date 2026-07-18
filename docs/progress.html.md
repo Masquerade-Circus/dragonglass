@@ -4,6 +4,8 @@ Determinate, indeterminate and spinner styles for progress elements.
 
 ## Determinate progress
 
+Use `value` and `max` when the operation exposes measurable progress. Associate the element with a label or give it an accessible name.
+
 Upload progress
 
 ```html
@@ -26,7 +28,7 @@ Upload progress
 
 ## Indeterminate progress
 
-Without a `value`, Dragonglass applies the animated indeterminate bar.
+Without a `value`, Dragonglass displays a continuous indeterminate bar. Give it an accessible name that describes the work in progress.
 
 ```html
 <progress data-progress="primary" aria-label="Loading results"></progress>
@@ -35,12 +37,16 @@ Without a `value`, Dragonglass applies the animated indeterminate bar.
 
 ## Spinners
 
-The `spinner` token creates a compact circular indicator and combines with one supported tone.
+The `spinner` token creates a compact circular indicator and combines with one supported tone. Its accessible name must describe the operation instead of the visual spinner.
 
 ```html
 <progress data-progress="spinner primary" aria-label="Loading"></progress>
 <progress data-progress="spinner danger" aria-label="Retrying"></progress>
 ```
+
+## Reduced motion
+
+When a user requests reduced motion, indeterminate bars stop on a visible pulse and circular spinners remain visible without rotation. Dragonglass applies the same static result to WebKit and Gecko progress parts. The static indicator still means that work is in progress, not that the operation has completed.
 
 ## API
 
@@ -49,7 +55,7 @@ The `spinner` token creates a compact circular indicator and combines with one s
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
 | progress | Element | Required | Receives the full-width base track. |
-| value | Attribute | Absent | Its absence selects the animated indeterminate presentation. |
+| value | Attribute | Absent | Its absence selects the continuous indeterminate presentation. |
 | data-progress | Attribute | Primary bar | Accepts primary, accent, info, success, warning, danger and spinner. |
 | --progress-color / --progress-track | Token | Primary / default-lighter | Set the indicator and track colors. |
-| determinate / indeterminate / spinner | State | Indeterminate without value | Selects measured, animated bar or circular presentation. |
+| determinate / indeterminate / spinner | State | Indeterminate without value | Selects a measured bar, continuous bar or circular presentation. Continuous indicators become static when reduced motion is requested. |

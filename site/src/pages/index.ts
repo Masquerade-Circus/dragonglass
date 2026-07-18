@@ -27,6 +27,7 @@ import ExpansionPanels from "./expansion_panels_page";
 import Notifications from "./notifications_page";
 import Steppers from "./steppers_page";
 import BottomSheets from "./bottom_sheets_page";
+import Drawers from "./drawers_page";
 import Tabs from "./tabs_page";
 import Utilities from "./utilities_page";
 import Heroes from "./heroes_page";
@@ -61,6 +62,7 @@ export default {
   Notifications,
   Steppers,
   BottomSheets,
+  Drawers,
   Tabs,
   Utilities,
   Heroes,

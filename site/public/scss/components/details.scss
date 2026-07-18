@@ -1,12 +1,24 @@
-details:not([data-trigger]):not([data-expansion-panel]) {
-  background-color: var(--surface-muted);
-  border: var(--border-size-1) solid var(--border-default);
-  border-radius: var(--card-radius);
-  box-shadow: none;
-  overflow: hidden;
+@property --dragonglass-tab-index {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 1;
 }
 
-details:not([data-trigger]):not([data-expansion-panel]) summary {
+@property --dragonglass-tab-count {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 1;
+}
+
+:where(details:not([data-trigger]):not([data-expansion-panel])) {
+  background-color: var(--surface-muted);
+  border: 0;
+  border-radius: var(--card-radius);
+  box-shadow: none;
+  overflow: visible;
+}
+
+:where(details:not([data-trigger]):not([data-expansion-panel]) summary) {
   position: relative;
   padding: var(--button-padding-y) var(--button-padding-x);
   line-height: 1;
@@ -16,13 +28,17 @@ details:not([data-trigger]):not([data-expansion-panel]) summary {
   text-decoration: none;
   text-align: left;
   background-color: var(--surface);
-  transition: var(--animate-all-fastest);
-  overflow: hidden;
+  transition:
+    border-color var(--motion-duration-fast) var(--motion-easing-standard),
+    color var(--motion-duration-fast) var(--motion-easing-standard);
+  overflow: visible;
   cursor: pointer;
   color: var(--control-accent);
 }
 
-details:not([data-trigger]):not([data-expansion-panel]) > :not(summary) {
+:where(
+  details:not([data-trigger]):not([data-expansion-panel]) > :not(summary)
+) {
   padding: 0 var(--spacing-4) var(--spacing-4);
 }
 
@@ -46,9 +62,11 @@ details:not([data-trigger]):not([data-expansion-panel]) > :not(summary) {
   color: inherit;
   font-weight: 600;
   line-height: 1.5;
+  border-block-end: var(--border-size-1) solid transparent;
   list-style: none;
   cursor: pointer;
-  transition: box-shadow 0.15s ease-in-out;
+  transition: box-shadow var(--motion-duration-fast)
+    var(--motion-easing-standard);
 }
 
 :where(details[data-expansion-panel] > summary)::-webkit-details-marker {
@@ -66,7 +84,7 @@ details:not([data-trigger]):not([data-expansion-panel]) > :not(summary) {
 }
 
 :where(details[data-expansion-panel][open] > summary) {
-  border-block-end: var(--border-size-1) solid var(--border-default);
+  border-block-end-color: var(--border-default);
 }
 
 :where(details[data-expansion-panel] > summary)::after {
@@ -80,7 +98,8 @@ details:not([data-trigger]):not([data-expansion-panel]) > :not(summary) {
   border-block-end: var(--border-size-2) solid currentColor;
   color: currentColor;
   transform: translateY(-50%) rotate(-45deg);
-  transition: transform 0.15s ease-in-out;
+  transition: transform var(--motion-duration-fast)
+    var(--motion-easing-standard);
 }
 
 :where(details[data-expansion-panel][open] > summary)::after {
@@ -91,22 +110,11 @@ details:not([data-trigger]):not([data-expansion-panel]) > :not(summary) {
   padding: var(--spacing-4);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  :where(details[data-expansion-panel] > summary)::after {
-    transition: none;
-  }
-}
-
-@property --dragonglass-tab-index {
-  syntax: "<integer>";
-  inherits: true;
-  initial-value: 1;
-}
-
-@property --dragonglass-tab-count {
-  syntax: "<integer>";
-  inherits: true;
-  initial-value: 1;
+[data-tabs] > details {
+  overflow: visible;
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
 }
 
 @supports (width: calc(100% / sibling-count())) and
@@ -122,10 +130,6 @@ details:not([data-trigger]):not([data-expansion-panel]) > :not(summary) {
     --dragonglass-tab-count: sibling-count();
     float: left;
     width: calc(100% / var(--dragonglass-tab-count));
-    overflow: visible;
-    background-color: transparent;
-    border: 0;
-    border-radius: 0;
   }
 
   [data-tabs] > details > summary {
@@ -135,6 +139,9 @@ details:not([data-trigger]):not([data-expansion-panel]) > :not(summary) {
     border-bottom: var(--border-size-2) solid var(--border-default);
     list-style: none;
     text-align: center;
+    transition:
+      border-color var(--motion-duration-fast) var(--motion-easing-standard),
+      color var(--motion-duration-fast) var(--motion-easing-standard);
   }
 
   [data-tabs] > details > summary::-webkit-details-marker {
@@ -157,5 +164,21 @@ details:not([data-trigger]):not([data-expansion-panel]) > :not(summary) {
     box-sizing: border-box;
     width: calc(100% * var(--dragonglass-tab-count));
     padding: var(--spacing-4) 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :where(details[data-expansion-panel] > summary) {
+    transition: none;
+  }
+
+  :where(details[data-expansion-panel] > summary)::after {
+    transition: none;
+  }
+
+  [data-tabs]
+    > details:not([data-trigger]):not([data-expansion-panel])
+    > summary {
+    transition: none;
   }
 }

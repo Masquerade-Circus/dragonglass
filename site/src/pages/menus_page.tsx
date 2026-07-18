@@ -100,6 +100,24 @@ export default () => (
       <CodeExample code={positionedMenusExample} />
     </DemoSection>
 
+    <DemoSection id="menus-motion-title" title="Motion and accessibility">
+      <p>
+        Browsers that support starting styles, inert CSS interactivity and the
+        native details content pseudo-element reveal the menu from
+        <code> opacity: 0</code> and <code>scale(.98)</code> on every opening,
+        then preserve its content long enough to animate each close without
+        keeping its actions interactive. The open state uses
+        <code> opacity: 1</code> and <code>scale(1)</code>. Browsers without
+        this support change state immediately.
+      </p>
+      <p>
+        When a user requests reduced motion, the menu changes state without a
+        transition or transform. Keep the native <code>details</code> and
+        <code>summary</code> relationship so keyboard users can operate the
+        disclosure, and give every icon-only action an accessible name.
+      </p>
+    </DemoSection>
+
     <DemoSection id="menus-api-title" title="API">
       <ApiTable
         caption="Menu elements, attributes, tokens and states"
@@ -130,10 +148,18 @@ export default () => (
             description: "Shows the menu through the parent details state.",
           },
           {
-            name: "--card-radius / --default-light / --white",
+            name: "--card-radius / --surface-raised / --text-primary / --border-default",
             type: "Token",
             defaultValue: "Theme",
-            description: "Control menu corners, border and background.",
+            description:
+              "Control menu corners, surface, text and border colors.",
+          },
+          {
+            name: "--motion-duration-fast / --motion-duration-base / --motion-easing-enter / --motion-easing-exit",
+            type: "Motion token",
+            defaultValue: "120ms / 200ms / ease-out / ease-in",
+            description:
+              "Control the menu's opacity and transform transition without changing its state contract.",
           },
         ]}
       />

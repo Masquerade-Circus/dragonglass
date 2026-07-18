@@ -29,7 +29,7 @@ label[data-chip] {
   margin: 0;
 }
 
-:is(a, button, label)[data-chip]:hover {
+:where(a, button, label)[data-chip]:hover {
   border-color: var(--chip-active);
   color: var(--chip-active);
 }

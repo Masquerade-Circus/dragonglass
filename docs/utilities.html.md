@@ -6,6 +6,7 @@ Find focused spacing, layout, border, typography, elevation and color adjustment
 
 The reference groups every documented utility family by purpose. Each table shows the class pattern, accepted values and available variants.
 
+- [Motion](#utilities-motion)
 - [Spacing](#utilities-spacing)
 - [Layout and stacking](#utilities-layout)
 - [Grid containers](#utilities-grid)
@@ -55,6 +56,17 @@ Colons and slashes appear directly inside the HTML class attribute. Authored CSS
   <section class="w-6/12 md:w-4/12 xl:w-3/12 p-4">Responsive column</section>
 </div>
 ```
+
+## Motion
+
+Motion tokens give components shared timing semantics. Components transition only their documented properties and honor the user's reduced-motion preference.
+
+**Motion utility families**
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| --motion-duration-{speed} | Duration token | instant (0ms), fast (120ms), base (200ms), deliberate (280ms) | Selects an instant, compact, standard or emphasized duration. Override a token at an appropriate scope to tune component motion without applying a transition to every property. Variants: CSS custom property |
+| --motion-easing-{intent} | Easing token | standard (ease-in-out), enter (ease-out), exit (ease-in) | Selects the easing for a state change, an entering surface or an exiting surface. Variants: CSS custom property |
 
 ## Spacing
 
@@ -157,7 +169,6 @@ Elevation utilities use token-backed outer and inset shadows with interactive st
 | shadow-none | Shadow removal | none | Removes box shadow. Variants: Base, focus:, active:, hover: |
 | text-shadow-sm \| text-shadow-base \| text-shadow-lg | Text shadow | sm, base, lg | Applies a compact token-colored shadow to improve text separation over media. Variants: Base only |
 | text-shadow-none | Text shadow removal | none | Removes text shadow, including low-specificity defaults. Variants: Base only |
-| animated | Transition | var(--animate-all) | Applies the framework transition to all animatable properties. Variants: Base only |
 
 ## Colors
 

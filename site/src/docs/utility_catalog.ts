@@ -19,6 +19,30 @@ const spacingValues = "0, px, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16";
 
 const utilityGroups: UtilityGroup[] = [
   {
+    id: "motion",
+    title: "Motion",
+    description:
+      "Motion tokens give components shared timing semantics. Components transition only their documented properties and honor the user's reduced-motion preference.",
+    families: [
+      {
+        pattern: "--motion-duration-{speed}",
+        type: "Duration token",
+        values: "instant (0ms), fast (120ms), base (200ms), deliberate (280ms)",
+        variants: "CSS custom property",
+        description:
+          "Selects an instant, compact, standard or emphasized duration. Override a token at an appropriate scope to tune component motion without applying a transition to every property.",
+      },
+      {
+        pattern: "--motion-easing-{intent}",
+        type: "Easing token",
+        values: "standard (ease-in-out), enter (ease-out), exit (ease-in)",
+        variants: "CSS custom property",
+        description:
+          "Selects the easing for a state change, an entering surface or an exiting surface.",
+      },
+    ],
+  },
+  {
     id: "spacing",
     title: "Spacing",
     description:
@@ -363,14 +387,6 @@ const utilityGroups: UtilityGroup[] = [
         values: "none",
         variants: "Base only",
         description: "Removes text shadow, including low-specificity defaults.",
-      },
-      {
-        pattern: "animated",
-        type: "Transition",
-        values: "var(--animate-all)",
-        variants: "Base only",
-        description:
-          "Applies the framework transition to all animatable properties.",
       },
     ],
   },

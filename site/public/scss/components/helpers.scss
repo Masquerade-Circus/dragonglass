@@ -1,10 +1,12 @@
 @use "./vars" as *;
 :root {
-  --animate-all: all 0.3s ease-in-out;
-  --animate-all-fastest: all 0.1s ease-in-out;
-  --animate-all-fast: all 0.2s ease-in-out;
-  --animate-all-slow: all 0.4s ease-in-out;
-  --animate-all-slowest: all 0.6s ease-in-out;
+  --motion-duration-instant: 0ms;
+  --motion-duration-fast: 120ms;
+  --motion-duration-base: 200ms;
+  --motion-duration-deliberate: 280ms;
+  --motion-easing-standard: ease-in-out;
+  --motion-easing-enter: ease-out;
+  --motion-easing-exit: ease-in;
 
   @each $name, $val in $spacing {
     --spacing-#{$name}: #{$val};
@@ -50,7 +52,8 @@
   &::after {
     content: " ";
     opacity: 0;
-    transition: var(--animate-all-fastest);
+    transition: opacity var(--motion-duration-fast)
+      var(--motion-easing-standard);
     background-color: var(--hover-overlay);
     display: block;
     position: absolute;
@@ -72,7 +75,6 @@
 }
 
 @mixin overlay() {
-  transition: var(--animate-all);
   z-index: -10;
   background: var(--scrim);
   position: fixed;

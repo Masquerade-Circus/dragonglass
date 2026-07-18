@@ -4,7 +4,6 @@
 
 dialog {
   @extend [data-card];
-  transition: var(--animate-all);
   opacity: 0;
   position: fixed;
   top: calc(50%);
@@ -54,10 +53,19 @@ dialog:not([open]) {
   display: none;
 }
 
+dialog:not([open]):not(.static):not([data-dialog~="bottom-sheet"]) {
+  transform: translate(-50%, calc(-50% + 0.5rem));
+}
+
 dialog[open] {
   display: flex;
   z-index: 1000;
   opacity: 1;
+}
+
+dialog[open][data-closing]:not(.static):not([data-dialog~="bottom-sheet"]) {
+  opacity: 0;
+  transform: translate(-50%, calc(-50% + 0.5rem));
 }
 
 dialog.static {
@@ -93,10 +101,87 @@ dialog[data-dialog~="bottom-sheet"] {
   transform: none;
 }
 
-dialog[data-dialog~="bottom-sheet"][open] {
-  display: flex;
+dialog[data-dialog~="bottom-sheet"]:not([open]) {
+  transform: translateY(0.5rem);
 }
 
-dialog[data-dialog~="bottom-sheet"]::backdrop {
+dialog[data-dialog~="bottom-sheet"][open][data-closing] {
+  opacity: 0;
+  transform: translateY(0.5rem);
+}
+
+dialog::backdrop {
   background-color: var(--scrim);
+  opacity: 0;
+}
+
+dialog[open]::backdrop {
+  opacity: 1;
+}
+
+dialog[open][data-closing]::backdrop {
+  opacity: 0;
+}
+
+@supports (transition-behavior: allow-discrete) {
+  dialog:not(.static) {
+    transition-property: opacity, transform;
+    transition-duration: var(--motion-duration-base);
+    transition-timing-function: var(--motion-easing-exit);
+    transition-behavior: allow-discrete;
+  }
+
+  dialog[open]:not(.static) {
+    transition-timing-function: var(--motion-easing-enter);
+  }
+
+  dialog[open][data-closing]:not(.static) {
+    transition-timing-function: var(--motion-easing-exit);
+  }
+
+  dialog:not(.static)::backdrop {
+    transition-property: opacity;
+    transition-duration: var(--motion-duration-base);
+    transition-timing-function: var(--motion-easing-exit);
+    transition-behavior: allow-discrete;
+  }
+
+  dialog[open]:not(.static)::backdrop {
+    transition-timing-function: var(--motion-easing-enter);
+  }
+
+  dialog[open][data-closing]:not(.static)::backdrop {
+    transition-timing-function: var(--motion-easing-exit);
+  }
+
+  @starting-style {
+    dialog[open]:not(.static):not([data-dialog~="bottom-sheet"]) {
+      opacity: 0;
+      transform: translate(-50%, calc(-50% + 0.5rem));
+    }
+
+    dialog[open]:not(.static)[data-dialog~="bottom-sheet"] {
+      opacity: 0;
+      transform: translateY(0.5rem);
+    }
+
+    dialog[open]:not(.static)::backdrop {
+      opacity: 0;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  dialog:not(.static),
+  dialog:not(.static)::backdrop {
+    transition: none;
+  }
+
+  dialog[open]:not(.static):not([data-dialog~="bottom-sheet"]) {
+    transform: translate(-50%, -50%);
+  }
+
+  dialog[open]:not(.static)[data-dialog~="bottom-sheet"] {
+    transform: none;
+  }
 }

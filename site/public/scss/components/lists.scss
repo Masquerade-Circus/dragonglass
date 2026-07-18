@@ -128,7 +128,6 @@ menu > li {
   > button,
   > [data-trigger],
   > [data-button] {
-    @include hover();
     justify-content: flex-start;
     margin: 0;
     width: 100%;
@@ -151,6 +150,13 @@ menu > li {
     text-align: center;
     white-space: nowrap;
   }
+}
+
+:where(
+  :is(ul, ol)[data-list] > li > :is(a, [data-trigger]),
+  menu > li > :is(a, [data-trigger])
+) {
+  @include hover();
 }
 
 dl {

@@ -69,6 +69,11 @@ export default () => (
     </DemoSection>
 
     <DemoSection id="shadow-states" title="Interactive states">
+      <p>
+        State precedence follows interaction intent instead of shadow size. A
+        hover or focus utility overrides the base elevation, and an active
+        utility overrides both while the control is pressed.
+      </p>
       <button
         type="button"
         class="shadow-base hover:shadow-3xl active:shadow-sm"
@@ -81,6 +86,11 @@ export default () => (
         value="Focus this field"
       />
       <CodeExample code={stateExample} />
+      <p>
+        Elevation changes transition only <code>box-shadow</code> with
+        <code> --motion-duration-base</code> and
+        <code> --motion-easing-standard</code>.
+      </p>
     </DemoSection>
 
     <DemoSection id="text-shadows" title="Text shadows">
