@@ -60,9 +60,20 @@ export default () => (
         <code> aria-current=&quot;page&quot;</code>.
       </p>
       <nav data-breadcrumb aria-label="Breadcrumb">
-        <a href="/dragonglass/app-components.html">Components</a>
-        <a href="/dragonglass/layout.html">Foundations</a>
-        <a href="/dragonglass/breadcrumbs.html" aria-current="page">
+        <a
+          href="/dragonglass/app-components.html"
+          v-route="/dragonglass/app-components.html"
+        >
+          Components
+        </a>
+        <a href="/dragonglass/layout.html" v-route="/dragonglass/layout.html">
+          Foundations
+        </a>
+        <a
+          href="/dragonglass/breadcrumbs.html"
+          v-route="/dragonglass/breadcrumbs.html"
+          aria-current="page"
+        >
           Breadcrumbs
         </a>
       </nav>
@@ -76,7 +87,9 @@ export default () => (
       </p>
       <nav data-breadcrumb aria-label="File location">
         <button type="button">Workspace</button>
-        <a href="/dragonglass">Documents</a>
+        <a href="/dragonglass" v-route="/dragonglass">
+          Documents
+        </a>
         <button type="button" aria-current="page">
           Quarterly report
         </button>

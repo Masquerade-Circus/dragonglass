@@ -109,7 +109,9 @@ export default () => (
           <p>The accessibility review is ready.</p>
         </section>
         <footer>
-          <a href="/dragonglass/alerts.html">Review alerts</a>
+          <a href="/dragonglass/alerts.html" v-route="/dragonglass/alerts.html">
+            Review alerts
+          </a>
         </footer>
       </article>
       <CodeExample code={structuredCardExample} />
@@ -156,7 +158,9 @@ export default () => (
           <p>The summary spans the full available content width.</p>
         </section>
         <footer>
-          <a href="/dragonglass">Browse documentation</a>
+          <a href="/dragonglass" v-route="/dragonglass">
+            Browse documentation
+          </a>
         </footer>
       </article>
       <CodeExample code={fullWidthCardExample} />

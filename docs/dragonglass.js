@@ -1900,9 +1900,9 @@
       label
     ];
     if (currentPath === path) {
-      return /* @__PURE__ */ jsx("a", { href: path, "aria-current": "page", children: content });
+      return /* @__PURE__ */ jsx("a", { href: path, "v-route": path, "aria-current": "page", children: content });
     }
-    return /* @__PURE__ */ jsx("a", { href: path, children: content });
+    return /* @__PURE__ */ jsx("a", { href: path, "v-route": path, children: content });
   };
   var Header = ({ currentPath }) => /* @__PURE__ */ jsxs("header", { children: [
     /* @__PURE__ */ jsx("nav", { children: /* @__PURE__ */ jsxs("details", { "data-trigger": true, "data-drawer-trigger": true, children: [
@@ -2052,6 +2052,7 @@ import "dragonglass/dist/themes/default.css";`;
                   "data-link": "standalone",
                   class: "text-lg p-3 mb-2",
                   href: pathFor("AppComponents"),
+                  "v-route": pathFor("AppComponents"),
                   children: "Browse components"
                 }
               )
@@ -2063,7 +2064,14 @@ import "dragonglass/dist/themes/default.css";`;
             /* @__PURE__ */ jsxs("article", { "data-card": true, "data-markdown": "exclude", children: [
               /* @__PURE__ */ jsx("header", { children: /* @__PURE__ */ jsx("h2", { children: "Project: Dragonglass" }) }),
               /* @__PURE__ */ jsx("p", { children: "The team is reviewing the final interface states." }),
-              /* @__PURE__ */ jsx("footer", { children: /* @__PURE__ */ jsx("a", { href: pathFor("AppComponents"), children: "Open project" }) })
+              /* @__PURE__ */ jsx("footer", { children: /* @__PURE__ */ jsx(
+                "a",
+                {
+                  href: pathFor("AppComponents"),
+                  "v-route": pathFor("AppComponents"),
+                  children: "Open project"
+                }
+              ) })
             ] })
           ] })
         ] }) })
@@ -2132,8 +2140,25 @@ import "dragonglass/dist/themes/default.css";`;
               /* @__PURE__ */ jsx(code_example_default, { code: firstSurfaceCode })
             ] }),
             /* @__PURE__ */ jsx("p", { class: "mt-0 mb-4", children: "Dragonglass styles the semantic regions and applies the card contract through data-card." }),
-            /* @__PURE__ */ jsx("p", { class: "mt-0 mb-4", children: /* @__PURE__ */ jsx("a", { "data-button": true, class: "bg-primary p-4", href: pathFor("Cards"), children: "Explore card variants" }) }),
-            /* @__PURE__ */ jsx("p", { class: "mt-0 mb-0", children: /* @__PURE__ */ jsx("a", { "data-link": "standalone", href: pathFor("AppComponents"), children: "Browse all components" }) })
+            /* @__PURE__ */ jsx("p", { class: "mt-0 mb-4", children: /* @__PURE__ */ jsx(
+              "a",
+              {
+                "data-button": true,
+                class: "bg-primary p-4",
+                href: pathFor("Cards"),
+                "v-route": pathFor("Cards"),
+                children: "Explore card variants"
+              }
+            ) }),
+            /* @__PURE__ */ jsx("p", { class: "mt-0 mb-0", children: /* @__PURE__ */ jsx(
+              "a",
+              {
+                "data-link": "standalone",
+                href: pathFor("AppComponents"),
+                "v-route": pathFor("AppComponents"),
+                children: "Browse all components"
+              }
+            ) })
           ] })
         ] }) })
       }
@@ -2165,6 +2190,7 @@ import "dragonglass/dist/themes/default.css";`;
                 "data-button": true,
                 class: "bg-primary p-4 mr-2 mb-2",
                 href: pathFor("AppComponents"),
+                "v-route": pathFor("AppComponents"),
                 children: "Browse all components"
               }
             ),
@@ -2174,6 +2200,7 @@ import "dragonglass/dist/themes/default.css";`;
                 "data-link": "standalone",
                 class: "p-3 mb-2",
                 href: pathFor("Utilities"),
+                "v-route": pathFor("Utilities"),
                 children: "Open the utility reference"
               }
             )
@@ -2197,7 +2224,16 @@ import "dragonglass/dist/themes/default.css";`;
               }
             ),
             /* @__PURE__ */ jsx("p", { class: "mt-0 mb-5", children: "Dragonglass includes twelve compiled themes built on the same semantic token contract. Each theme supports light and dark color schemes while the component markup stays unchanged." }),
-            /* @__PURE__ */ jsx("p", { class: "mt-0 mb-6", children: /* @__PURE__ */ jsx("a", { "data-button": true, class: "bg-primary p-4", href: pathFor("Colors"), children: "Explore themes and colors" }) })
+            /* @__PURE__ */ jsx("p", { class: "mt-0 mb-6", children: /* @__PURE__ */ jsx(
+              "a",
+              {
+                "data-button": true,
+                class: "bg-primary p-4",
+                href: pathFor("Colors"),
+                "v-route": pathFor("Colors"),
+                children: "Explore themes and colors"
+              }
+            ) })
           ] }),
           /* @__PURE__ */ jsxs("div", { class: "md:w-8/12", children: [
             /* @__PURE__ */ jsx(
@@ -2247,7 +2283,16 @@ import "dragonglass/dist/themes/default.css";`;
               "h3",
               {
                 class: `${index < 2 ? "text-xl" : "text-lg"} font-semibold mt-0 mb-2`,
-                children: /* @__PURE__ */ jsx("a", { "data-button": true, class: "bg-default p-3", href, children: title })
+                children: href.startsWith("/") ? /* @__PURE__ */ jsx(
+                  "a",
+                  {
+                    "data-button": true,
+                    class: "bg-default p-3",
+                    href,
+                    "v-route": href,
+                    children: title
+                  }
+                ) : /* @__PURE__ */ jsx("a", { "data-button": true, class: "bg-default p-3", href, children: title })
               }
             ),
             /* @__PURE__ */ jsx("p", { class: "max-w-prose mt-0 mb-0", children: body })
@@ -2877,9 +2922,9 @@ import "dragonglass/dist/themes/default.css";`;
     const content = theme.label;
     const path = themeRoutePath(theme.name, colorScheme);
     if (currentThemeName === theme.name && currentColorScheme === colorScheme) {
-      return /* @__PURE__ */ jsx("span", { "data-markdown": "include-descendants", children: /* @__PURE__ */ jsx("a", { href: path, "aria-current": "page", children: content }) });
+      return /* @__PURE__ */ jsx("span", { "data-markdown": "include-descendants", children: /* @__PURE__ */ jsx("a", { href: path, "v-route": path, "aria-current": "page", children: content }) });
     }
-    return /* @__PURE__ */ jsx("span", { "data-markdown": "include-descendants", children: /* @__PURE__ */ jsx("a", { href: path, children: content }) });
+    return /* @__PURE__ */ jsx("span", { "data-markdown": "include-descendants", children: /* @__PURE__ */ jsx("a", { href: path, "v-route": path, children: content }) });
   };
   var ThemeMenu = ({
     colorScheme,
@@ -3458,7 +3503,15 @@ import "dragonglass/dist/themes/default.css";`;
       /* @__PURE__ */ jsxs("p", { children: [
         "Read the",
         " ",
-        /* @__PURE__ */ jsx("a", { "data-link": true, href: "/dragonglass/layout.html", children: "layout guide" }),
+        /* @__PURE__ */ jsx(
+          "a",
+          {
+            "data-link": true,
+            href: "/dragonglass/layout.html",
+            "v-route": "/dragonglass/layout.html",
+            children: "layout guide"
+          }
+        ),
         " ",
         "before composing a page."
       ] }),
@@ -3470,7 +3523,15 @@ import "dragonglass/dist/themes/default.css";`;
         /* @__PURE__ */ jsx("code", { children: "standalone" }),
         " token presents a link as an independent action without giving it button semantics."
       ] }),
-      /* @__PURE__ */ jsx("p", { children: /* @__PURE__ */ jsx("a", { "data-link": "standalone", href: "/dragonglass/app-components.html", children: "View all components" }) }),
+      /* @__PURE__ */ jsx("p", { children: /* @__PURE__ */ jsx(
+        "a",
+        {
+          "data-link": "standalone",
+          href: "/dragonglass/app-components.html",
+          "v-route": "/dragonglass/app-components.html",
+          children: "View all components"
+        }
+      ) }),
       /* @__PURE__ */ jsx(code_example_default, { code: standaloneCode })
     ] }),
     /* @__PURE__ */ jsxs(demo_section_default, { id: "link-quiet", title: "Quiet and combined links", children: [
@@ -3484,10 +3545,18 @@ import "dragonglass/dist/themes/default.css";`;
       /* @__PURE__ */ jsxs("p", { children: [
         "Updated yesterday by",
         " ",
-        /* @__PURE__ */ jsx("a", { "data-link": "quiet", href: "/dragonglass", children: "Ana" }),
+        /* @__PURE__ */ jsx("a", { "data-link": "quiet", href: "/dragonglass", "v-route": "/dragonglass", children: "Ana" }),
         ".",
         " ",
-        /* @__PURE__ */ jsx("a", { "data-link": "standalone quiet", href: "/dragonglass/app-components.html", children: "View activity" })
+        /* @__PURE__ */ jsx(
+          "a",
+          {
+            "data-link": "standalone quiet",
+            href: "/dragonglass/app-components.html",
+            "v-route": "/dragonglass/app-components.html",
+            children: "View activity"
+          }
+        )
       ] }),
       /* @__PURE__ */ jsx(code_example_default, { code: quietCode })
     ] }),
@@ -3578,7 +3647,7 @@ import "dragonglass/dist/themes/default.css";`;
           ) })
         ] }),
         /* @__PURE__ */ jsx("section", { children: /* @__PURE__ */ jsx("p", { children: "The accessibility review is ready." }) }),
-        /* @__PURE__ */ jsx("footer", { children: /* @__PURE__ */ jsx("a", { href: "/dragonglass/alerts.html", children: "Review alerts" }) })
+        /* @__PURE__ */ jsx("footer", { children: /* @__PURE__ */ jsx("a", { href: "/dragonglass/alerts.html", "v-route": "/dragonglass/alerts.html", children: "Review alerts" }) })
       ] }),
       /* @__PURE__ */ jsx(code_example_default, { code: structuredCardExample })
     ] }),
@@ -3608,7 +3677,7 @@ import "dragonglass/dist/themes/default.css";`;
       /* @__PURE__ */ jsxs("article", { "data-card": "full-width", children: [
         /* @__PURE__ */ jsx("header", { children: /* @__PURE__ */ jsx("h3", { children: "Documentation status" }) }),
         /* @__PURE__ */ jsx("section", { children: /* @__PURE__ */ jsx("p", { children: "The summary spans the full available content width." }) }),
-        /* @__PURE__ */ jsx("footer", { children: /* @__PURE__ */ jsx("a", { href: "/dragonglass", children: "Browse documentation" }) })
+        /* @__PURE__ */ jsx("footer", { children: /* @__PURE__ */ jsx("a", { href: "/dragonglass", "v-route": "/dragonglass", children: "Browse documentation" }) })
       ] }),
       /* @__PURE__ */ jsx(code_example_default, { code: fullWidthCardExample })
     ] }),
@@ -5070,7 +5139,7 @@ import "dragonglass/dist/themes/default.css";`;
   </menu>
 </details>`;
   var MenuItem = () => /* @__PURE__ */ jsxs("li", { children: [
-    /* @__PURE__ */ jsx("a", { href: "/dragonglass/forms.html", children: "Profile settings" }),
+    /* @__PURE__ */ jsx("a", { href: "/dragonglass/forms.html", "v-route": "/dragonglass/forms.html", children: "Profile settings" }),
     /* @__PURE__ */ jsx("button", { type: "button", "aria-label": "Add profile to favorites", children: /* @__PURE__ */ jsx("i", { class: "material-icons", "aria-hidden": "true", children: "star" }) })
   ] });
   var menus_page_default = () => /* @__PURE__ */ jsxs(doc_page_default, { page: "Menus", children: [
@@ -5078,7 +5147,7 @@ import "dragonglass/dist/themes/default.css";`;
       /* @__PURE__ */ jsxs("details", { "data-trigger": true, open: true, children: [
         /* @__PURE__ */ jsx("summary", { children: "Account menu" }),
         /* @__PURE__ */ jsxs("menu", { children: [
-          /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "/dragonglass/forms.html", children: "Profile settings" }) }),
+          /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "/dragonglass/forms.html", "v-route": "/dragonglass/forms.html", children: "Profile settings" }) }),
           /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("button", { type: "button", children: "Sign out" }) })
         ] })
       ] }),
@@ -5441,8 +5510,19 @@ import "dragonglass/dist/themes/default.css";`;
     /* @__PURE__ */ jsx("p", { children: "Component guides are grouped by purpose. Each guide pairs rendered examples with their markup and an API table for the relevant elements, attributes, variants, states and tokens." }),
     /* @__PURE__ */ jsxs("p", { children: [
       "After choosing a component, open the",
-      /* @__PURE__ */ jsx("a", { href: routeByPage.get("Utilities").path, children: " utility reference" }),
-      " for focused spacing, color, typography, layout and elevation adjustments."
+      /* @__PURE__ */ jsxs(
+        "a",
+        {
+          href: routeByPage.get("Utilities").path,
+          "v-route": routeByPage.get("Utilities").path,
+          children: [
+            " ",
+            "utility reference"
+          ]
+        }
+      ),
+      " ",
+      "for focused spacing, color, typography, layout and elevation adjustments."
     ] }),
     componentCategories2.map((category) => /* @__PURE__ */ jsx(
       demo_section_default,
@@ -5450,7 +5530,7 @@ import "dragonglass/dist/themes/default.css";`;
         id: `${category.toLowerCase().replaceAll(" ", "-")}-components`,
         title: category,
         children: /* @__PURE__ */ jsx("ul", { children: componentPages.filter((route) => route.category === category).map(({ path, label, description }) => /* @__PURE__ */ jsxs("li", { children: [
-          /* @__PURE__ */ jsx("a", { href: path, children: label }),
+          /* @__PURE__ */ jsx("a", { href: path, "v-route": path, children: label }),
           /* @__PURE__ */ jsx("p", { children: description })
         ] })) })
       }
@@ -5490,7 +5570,7 @@ import "dragonglass/dist/themes/default.css";`;
       /* @__PURE__ */ jsxs("nav", { "data-toolbar": true, "aria-label": "Editor actions", children: [
         /* @__PURE__ */ jsx("button", { type: "button", children: "Save" }),
         /* @__PURE__ */ jsx("button", { type: "button", children: "Preview" }),
-        /* @__PURE__ */ jsx("a", { href: "/dragonglass/cards.html", children: "Cards" })
+        /* @__PURE__ */ jsx("a", { href: "/dragonglass/cards.html", "v-route": "/dragonglass/cards.html", children: "Cards" })
       ] }),
       /* @__PURE__ */ jsx(code_example_default, { code: toolbarExample })
     ] }),
@@ -5629,9 +5709,24 @@ import "dragonglass/dist/themes/default.css";`;
         "."
       ] }),
       /* @__PURE__ */ jsxs("nav", { "data-breadcrumb": true, "aria-label": "Breadcrumb", children: [
-        /* @__PURE__ */ jsx("a", { href: "/dragonglass/app-components.html", children: "Components" }),
-        /* @__PURE__ */ jsx("a", { href: "/dragonglass/layout.html", children: "Foundations" }),
-        /* @__PURE__ */ jsx("a", { href: "/dragonglass/breadcrumbs.html", "aria-current": "page", children: "Breadcrumbs" })
+        /* @__PURE__ */ jsx(
+          "a",
+          {
+            href: "/dragonglass/app-components.html",
+            "v-route": "/dragonglass/app-components.html",
+            children: "Components"
+          }
+        ),
+        /* @__PURE__ */ jsx("a", { href: "/dragonglass/layout.html", "v-route": "/dragonglass/layout.html", children: "Foundations" }),
+        /* @__PURE__ */ jsx(
+          "a",
+          {
+            href: "/dragonglass/breadcrumbs.html",
+            "v-route": "/dragonglass/breadcrumbs.html",
+            "aria-current": "page",
+            children: "Breadcrumbs"
+          }
+        )
       ] }),
       /* @__PURE__ */ jsx(code_example_default, { code: linksCode })
     ] }),
@@ -5639,7 +5734,7 @@ import "dragonglass/dist/themes/default.css";`;
       /* @__PURE__ */ jsx("p", { children: "A breadcrumb combines anchors and buttons as direct children of the breadcrumb nav." }),
       /* @__PURE__ */ jsxs("nav", { "data-breadcrumb": true, "aria-label": "File location", children: [
         /* @__PURE__ */ jsx("button", { type: "button", children: "Workspace" }),
-        /* @__PURE__ */ jsx("a", { href: "/dragonglass", children: "Documents" }),
+        /* @__PURE__ */ jsx("a", { href: "/dragonglass", "v-route": "/dragonglass", children: "Documents" }),
         /* @__PURE__ */ jsx("button", { type: "button", "aria-current": "page", children: "Quarterly report" })
       ] }),
       /* @__PURE__ */ jsx(code_example_default, { code: mixedCode })
@@ -5689,7 +5784,15 @@ import "dragonglass/dist/themes/default.css";`;
       /* @__PURE__ */ jsxs("p", { children: [
         /* @__PURE__ */ jsx("button", { "data-chip": true, type: "button", children: "Action" }),
         " ",
-        /* @__PURE__ */ jsx("a", { "data-chip": true, href: "/dragonglass/forms.html", children: "Forms" }),
+        /* @__PURE__ */ jsx(
+          "a",
+          {
+            "data-chip": true,
+            href: "/dragonglass/forms.html",
+            "v-route": "/dragonglass/forms.html",
+            children: "Forms"
+          }
+        ),
         " ",
         /* @__PURE__ */ jsx("span", { "data-chip": true, children: "Read only" })
       ] }),
@@ -5722,7 +5825,16 @@ import "dragonglass/dist/themes/default.css";`;
         " ",
         /* @__PURE__ */ jsx("button", { "data-chip": true, type: "button", "aria-pressed": "true", children: "Pinned" }),
         " ",
-        /* @__PURE__ */ jsx("a", { "data-chip": true, href: "/dragonglass/chips.html", "aria-current": "true", children: "Chips" })
+        /* @__PURE__ */ jsx(
+          "a",
+          {
+            "data-chip": true,
+            href: "/dragonglass/chips.html",
+            "v-route": "/dragonglass/chips.html",
+            "aria-current": "true",
+            children: "Chips"
+          }
+        )
       ] }),
       /* @__PURE__ */ jsx(code_example_default, { code: chipExample })
     ] }),
@@ -7115,9 +7227,25 @@ import "dragonglass/dist/themes/default.css";`;
         /* @__PURE__ */ jsx("h2", { class: "md:w-10/12 text-5xl font-bold leading-tight mt-0 mb-4", children: "Make the next decision clear." }),
         /* @__PURE__ */ jsx("p", { class: "md:w-8/12 text-lg leading-relaxed mt-0 mb-4", children: "Use one focused message and a direct path forward." }),
         /* @__PURE__ */ jsxs("p", { class: "md:w-8/12 mt-0 mb-0", children: [
-          /* @__PURE__ */ jsx("a", { "data-button": true, href: "/dragonglass/app-components.html", children: "Start now" }),
+          /* @__PURE__ */ jsx(
+            "a",
+            {
+              "data-button": true,
+              href: "/dragonglass/app-components.html",
+              "v-route": "/dragonglass/app-components.html",
+              children: "Start now"
+            }
+          ),
           " ",
-          /* @__PURE__ */ jsx("a", { "data-link": "standalone", href: "/dragonglass/layout.html", children: "Read the details" })
+          /* @__PURE__ */ jsx(
+            "a",
+            {
+              "data-link": "standalone",
+              href: "/dragonglass/layout.html",
+              "v-route": "/dragonglass/layout.html",
+              children: "Read the details"
+            }
+          )
         ] })
       ] }),
       /* @__PURE__ */ jsx(code_example_default, { code: centeredCode })
@@ -7128,7 +7256,15 @@ import "dragonglass/dist/themes/default.css";`;
         /* @__PURE__ */ jsxs("section", { class: "md:w-7/12 pt-8 pb-8", children: [
           /* @__PURE__ */ jsx("h2", { class: "text-5xl font-bold leading-tight mt-0 mb-4", children: "Plan the work. Keep the context." }),
           /* @__PURE__ */ jsx("p", { class: "text-lg leading-relaxed mt-0 mb-4", children: "Bring the decision and its supporting details into one opening view." }),
-          /* @__PURE__ */ jsx("p", { class: "mt-0 mb-0", children: /* @__PURE__ */ jsx("a", { "data-button": true, href: "/dragonglass/app-components.html", children: "Open workspace" }) })
+          /* @__PURE__ */ jsx("p", { class: "mt-0 mb-0", children: /* @__PURE__ */ jsx(
+            "a",
+            {
+              "data-button": true,
+              href: "/dragonglass/app-components.html",
+              "v-route": "/dragonglass/app-components.html",
+              children: "Open workspace"
+            }
+          ) })
         ] }),
         /* @__PURE__ */ jsxs("section", { class: "md:w-5/12 p-6 border", children: [
           /* @__PURE__ */ jsx("h3", { class: "text-2xl font-semibold leading-tight mt-0 mb-3", children: "Today" }),
@@ -7138,6 +7274,7 @@ import "dragonglass/dist/themes/default.css";`;
             {
               "data-link": "standalone quiet",
               href: "/dragonglass/app-components.html",
+              "v-route": "/dragonglass/app-components.html",
               children: "View checklist"
             }
           ) })
@@ -7151,7 +7288,7 @@ import "dragonglass/dist/themes/default.css";`;
         /* @__PURE__ */ jsx("p", { class: "md:w-10/12 text-lg font-semibold mt-0 mb-3", children: "Annual report" }),
         /* @__PURE__ */ jsx("h2", { class: "md:w-10/12 text-6xl font-bold leading-none mt-0 mb-6", children: "A year of steady progress." }),
         /* @__PURE__ */ jsx("p", { class: "md:w-8/12 text-xl leading-relaxed mt-0 mb-6", children: "Present one major idea with enough space for deliberate pacing." }),
-        /* @__PURE__ */ jsx("p", { class: "md:w-8/12 mt-0 mb-0", children: /* @__PURE__ */ jsx("a", { "data-link": "standalone", href: "/dragonglass", children: "Read the report" }) })
+        /* @__PURE__ */ jsx("p", { class: "md:w-8/12 mt-0 mb-0", children: /* @__PURE__ */ jsx("a", { "data-link": "standalone", href: "/dragonglass", "v-route": "/dragonglass", children: "Read the report" }) })
       ] }),
       /* @__PURE__ */ jsx(code_example_default, { code: presentationCode })
     ] })

@@ -30,13 +30,17 @@ const DrawerLink = ({
 
   if (currentPath === path) {
     return (
-      <a href={path} aria-current="page">
+      <a href={path} v-route={path} aria-current="page">
         {content}
       </a>
     );
   }
 
-  return <a href={path}>{content}</a>;
+  return (
+    <a href={path} v-route={path}>
+      {content}
+    </a>
+  );
 };
 
 const Header = ({ currentPath }: LayoutProps) => (

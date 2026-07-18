@@ -60,7 +60,11 @@ export default () => (
       </p>
       <p>
         Read the{" "}
-        <a data-link href="/dragonglass/layout.html">
+        <a
+          data-link
+          href="/dragonglass/layout.html"
+          v-route="/dragonglass/layout.html"
+        >
           layout guide
         </a>{" "}
         before composing a page.
@@ -74,7 +78,11 @@ export default () => (
         action without giving it button semantics.
       </p>
       <p>
-        <a data-link="standalone" href="/dragonglass/app-components.html">
+        <a
+          data-link="standalone"
+          href="/dragonglass/app-components.html"
+          v-route="/dragonglass/app-components.html"
+        >
           View all components
         </a>
       </p>
@@ -89,11 +97,15 @@ export default () => (
       </p>
       <p>
         Updated yesterday by{" "}
-        <a data-link="quiet" href="/dragonglass">
+        <a data-link="quiet" href="/dragonglass" v-route="/dragonglass">
           Ana
         </a>
         .{" "}
-        <a data-link="standalone quiet" href="/dragonglass/app-components.html">
+        <a
+          data-link="standalone quiet"
+          href="/dragonglass/app-components.html"
+          v-route="/dragonglass/app-components.html"
+        >
           View activity
         </a>
       </p>

@@ -39,7 +39,9 @@ export default () => (
       <nav data-toolbar aria-label="Editor actions">
         <button type="button">Save</button>
         <button type="button">Preview</button>
-        <a href="/dragonglass/cards.html">Cards</a>
+        <a href="/dragonglass/cards.html" v-route="/dragonglass/cards.html">
+          Cards
+        </a>
       </nav>
       <CodeExample code={toolbarExample} />
     </DemoSection>

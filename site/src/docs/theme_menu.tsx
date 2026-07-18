@@ -25,7 +25,7 @@ const ThemeLink = ({
   if (currentThemeName === theme.name && currentColorScheme === colorScheme) {
     return (
       <span data-markdown="include-descendants">
-        <a href={path} aria-current="page">
+        <a href={path} v-route={path} aria-current="page">
           {content}
         </a>
       </span>
@@ -34,7 +34,9 @@ const ThemeLink = ({
 
   return (
     <span data-markdown="include-descendants">
-      <a href={path}>{content}</a>
+      <a href={path} v-route={path}>
+        {content}
+      </a>
     </span>
   );
 };

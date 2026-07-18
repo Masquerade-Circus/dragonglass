@@ -34,7 +34,11 @@ export default () => (
         <button data-chip type="button">
           Action
         </button>{" "}
-        <a data-chip href="/dragonglass/forms.html">
+        <a
+          data-chip
+          href="/dragonglass/forms.html"
+          v-route="/dragonglass/forms.html"
+        >
           Forms
         </a>{" "}
         <span data-chip>Read only</span>
@@ -63,7 +67,12 @@ export default () => (
         <button data-chip type="button" aria-pressed="true">
           Pinned
         </button>{" "}
-        <a data-chip href="/dragonglass/chips.html" aria-current="true">
+        <a
+          data-chip
+          href="/dragonglass/chips.html"
+          v-route="/dragonglass/chips.html"
+          aria-current="true"
+        >
           Chips
         </a>
       </p>

@@ -137,6 +137,7 @@ export default () => (
                   data-link="standalone"
                   class="text-lg p-3 mb-2"
                   href={pathFor("AppComponents")}
+                  v-route={pathFor("AppComponents")}
                 >
                   Browse components
                 </a>
@@ -154,7 +155,12 @@ export default () => (
                 </header>
                 <p>The team is reviewing the final interface states.</p>
                 <footer>
-                  <a href={pathFor("AppComponents")}>Open project</a>
+                  <a
+                    href={pathFor("AppComponents")}
+                    v-route={pathFor("AppComponents")}
+                  >
+                    Open project
+                  </a>
                 </footer>
               </article>
             </figure>
@@ -240,12 +246,21 @@ export default () => (
                 contract through data-card.
               </p>
               <p class="mt-0 mb-4">
-                <a data-button class="bg-primary p-4" href={pathFor("Cards")}>
+                <a
+                  data-button
+                  class="bg-primary p-4"
+                  href={pathFor("Cards")}
+                  v-route={pathFor("Cards")}
+                >
                   Explore card variants
                 </a>
               </p>
               <p class="mt-0 mb-0">
-                <a data-link="standalone" href={pathFor("AppComponents")}>
+                <a
+                  data-link="standalone"
+                  href={pathFor("AppComponents")}
+                  v-route={pathFor("AppComponents")}
+                >
                   Browse all components
                 </a>
               </p>
@@ -285,6 +300,7 @@ export default () => (
               data-button
               class="bg-primary p-4 mr-2 mb-2"
               href={pathFor("AppComponents")}
+              v-route={pathFor("AppComponents")}
             >
               Browse all components
             </a>
@@ -292,6 +308,7 @@ export default () => (
               data-link="standalone"
               class="p-3 mb-2"
               href={pathFor("Utilities")}
+              v-route={pathFor("Utilities")}
             >
               Open the utility reference
             </a>
@@ -318,7 +335,12 @@ export default () => (
                 color schemes while the component markup stays unchanged.
               </p>
               <p class="mt-0 mb-6">
-                <a data-button class="bg-primary p-4" href={pathFor("Colors")}>
+                <a
+                  data-button
+                  class="bg-primary p-4"
+                  href={pathFor("Colors")}
+                  v-route={pathFor("Colors")}
+                >
                   Explore themes and colors
                 </a>
               </p>
@@ -373,9 +395,20 @@ export default () => (
                 <h3
                   class={`${index < 2 ? "text-xl" : "text-lg"} font-semibold mt-0 mb-2`}
                 >
-                  <a data-button class="bg-default p-3" href={href}>
-                    {title}
-                  </a>
+                  {href.startsWith("/") ? (
+                    <a
+                      data-button
+                      class="bg-default p-3"
+                      href={href}
+                      v-route={href}
+                    >
+                      {title}
+                    </a>
+                  ) : (
+                    <a data-button class="bg-default p-3" href={href}>
+                      {title}
+                    </a>
+                  )}
                 </h3>
                 <p class="max-w-prose mt-0 mb-0">{body}</p>
               </article>

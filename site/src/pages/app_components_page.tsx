@@ -33,8 +33,14 @@ export default () => (
     </p>
     <p>
       After choosing a component, open the
-      <a href={routeByPage.get("Utilities")!.path}> utility reference</a> for
-      focused spacing, color, typography, layout and elevation adjustments.
+      <a
+        href={routeByPage.get("Utilities")!.path}
+        v-route={routeByPage.get("Utilities")!.path}
+      >
+        {" "}
+        utility reference
+      </a>{" "}
+      for focused spacing, color, typography, layout and elevation adjustments.
     </p>
 
     {componentCategories.map((category) => (
@@ -47,7 +53,9 @@ export default () => (
             .filter((route) => route.category === category)
             .map(({ path, label, description }) => (
               <li>
-                <a href={path}>{label}</a>
+                <a href={path} v-route={path}>
+                  {label}
+                </a>
                 <p>{description}</p>
               </li>
             ))}

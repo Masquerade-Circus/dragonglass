@@ -58,10 +58,18 @@ export default () => (
           Use one focused message and a direct path forward.
         </p>
         <p class="md:w-8/12 mt-0 mb-0">
-          <a data-button href="/dragonglass/app-components.html">
+          <a
+            data-button
+            href="/dragonglass/app-components.html"
+            v-route="/dragonglass/app-components.html"
+          >
             Start now
           </a>{" "}
-          <a data-link="standalone" href="/dragonglass/layout.html">
+          <a
+            data-link="standalone"
+            href="/dragonglass/layout.html"
+            v-route="/dragonglass/layout.html"
+          >
             Read the details
           </a>
         </p>
@@ -83,7 +91,11 @@ export default () => (
             Bring the decision and its supporting details into one opening view.
           </p>
           <p class="mt-0 mb-0">
-            <a data-button href="/dragonglass/app-components.html">
+            <a
+              data-button
+              href="/dragonglass/app-components.html"
+              v-route="/dragonglass/app-components.html"
+            >
               Open workspace
             </a>
           </p>
@@ -97,6 +109,7 @@ export default () => (
             <a
               data-link="standalone quiet"
               href="/dragonglass/app-components.html"
+              v-route="/dragonglass/app-components.html"
             >
               View checklist
             </a>
@@ -120,7 +133,7 @@ export default () => (
           Present one major idea with enough space for deliberate pacing.
         </p>
         <p class="md:w-8/12 mt-0 mb-0">
-          <a data-link="standalone" href="/dragonglass">
+          <a data-link="standalone" href="/dragonglass" v-route="/dragonglass">
             Read the report
           </a>
         </p>

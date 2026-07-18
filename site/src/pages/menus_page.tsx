@@ -47,7 +47,9 @@ const positionedMenusExample = `<details data-trigger>
 
 const MenuItem = () => (
   <li>
-    <a href="/dragonglass/forms.html">Profile settings</a>
+    <a href="/dragonglass/forms.html" v-route="/dragonglass/forms.html">
+      Profile settings
+    </a>
     <button type="button" aria-label="Add profile to favorites">
       <i class="material-icons" aria-hidden="true">
         star
@@ -63,7 +65,9 @@ export default () => (
         <summary>Account menu</summary>
         <menu>
           <li>
-            <a href="/dragonglass/forms.html">Profile settings</a>
+            <a href="/dragonglass/forms.html" v-route="/dragonglass/forms.html">
+              Profile settings
+            </a>
           </li>
           <li>
             <button type="button">Sign out</button>

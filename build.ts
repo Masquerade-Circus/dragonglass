@@ -1,5 +1,4 @@
 import fs from "fs-extra";
-import CleanCSS from "clean-css";
 import { gzipSync } from "node:zlib";
 import * as sass from "sass";
 import { inline } from "valyrian.js/node";
@@ -26,23 +25,13 @@ const build = async () => {
       sourceMap: false,
       style: "expanded",
     });
-    const minified = new CleanCSS({
+    const { css: minifiedCss } = sass.compile(path, {
+      loadPaths: ["site/", "node_modules/"],
       sourceMap: false,
-      level: {
-        1: {
-          roundingPrecision: "all=3",
-        },
-        2: {
-          restructureRules: true,
-        },
-      },
-    }).minify(css);
+      style: "compressed",
+    });
 
-    if (minified.errors.length > 0) {
-      throw new Error(minified.errors.join("\n"));
-    }
-
-    return { css, minifiedCss: minified.styles };
+    return { css, minifiedCss };
   };
 
   const core = compileStylesheet("./site/public/scss/main.scss");
