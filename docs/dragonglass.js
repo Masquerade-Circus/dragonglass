@@ -1885,7 +1885,7 @@
   var code_example_default = CodeExample;
 
   // package.json
-  var version = "2.0.1";
+  var version = "2.1.0";
 
   // site/src/pages/layout.tsx
   var DrawerLink = ({

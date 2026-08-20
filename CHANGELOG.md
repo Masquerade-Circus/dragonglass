@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.1.0](https://github.com/Masquerade-Circus/dragonglass/compare/2.0.1...2.1.0) (2026-08-20)
+
+### Features
+
+* Add minimum-contrast flag to allow 3:1 contrast ([289ff8a](https://github.com/Masquerade-Circus/dragonglass/commit/289ff8a8cbc474302841889430f77f8fbc7636b8))
+
 ## [2.0.1](https://github.com/Masquerade-Circus/dragonglass/compare/2.0.0...2.0.1) (2026-07-18)
 
 ### Bug Fixes
