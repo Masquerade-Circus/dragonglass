@@ -74,8 +74,9 @@ that meet the configured text and progress contrast thresholds.
 ## Compile a custom theme
 
 Create `theme.scss` with one opaque primary color whose OKLCH lightness falls
-between `42%` and `56%`. The compiler also requires a `4.5:1` contrast ratio
-between the primary and its lightest family token:
+between `30%` and `70%`. This range keeps the generated color family balanced.
+The compiler also requires a `4.5:1` contrast ratio between the primary and its
+lightest family token:
 
 ```scss
 @use "pkg:dragonglass/theme" as dragonglass;

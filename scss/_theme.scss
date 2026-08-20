@@ -5,8 +5,8 @@
 @use "sass:meta";
 
 $default-primary: #1d4ed8 !default;
-$_primary-lightness-minimum: 42%;
-$_primary-lightness-maximum: 56%;
+$_primary-lightness-minimum: 30%;
+$_primary-lightness-maximum: 70%;
 $primary-color-names: (
   "primary",
   "accent",
