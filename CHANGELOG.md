@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.1.1](https://github.com/Masquerade-Circus/dragonglass/compare/2.1.0...2.1.1) (2026-08-20)
+
+### Bug Fixes
+
+* Fix lightness range ([5ce363c](https://github.com/Masquerade-Circus/dragonglass/commit/5ce363c38a0e100b94ff5147b7a186d468789ee3))
+
 ## [2.1.0](https://github.com/Masquerade-Circus/dragonglass/compare/2.0.1...2.1.0) (2026-08-20)
 
 ### Features
