@@ -197,7 +197,7 @@ $luminous-foreground-color-weights: ("-light", "-lighter", "-lightest");
   @error "Theme family '#{$name}' cannot reach #{$minimum}:1 contrast against its lightest token.";
 }
 
-@function palette($primary) {
+@function palette($primary, $minimum: 4.5) {
   $base-colors: base-colors($primary);
   $palette: (
     "white": #ffffff,
@@ -206,9 +206,9 @@ $luminous-foreground-color-weights: ("-light", "-lighter", "-lightest");
 
   @each $name, $base-color in $base-colors {
     @if $name == "primary" {
-      $base-color: _validated-base-primary($base-color);
+      $base-color: _validated-base-primary($base-color, $minimum);
     } @else {
-      $base-color: _normalized-derived-base($base-color, $name);
+      $base-color: _normalized-derived-base($base-color, $name, $minimum);
     }
 
     $palette: map.merge(
@@ -398,7 +398,7 @@ $luminous-foreground-color-weights: ("-light", "-lighter", "-lightest");
   }
 }
 
-@mixin _dark-scheme-roles($primary, $palette) {
+@mixin _dark-scheme-roles($primary, $palette, $minimum) {
   $canvas: _scheme-color($primary, 14%, 0.12, 0.008, 0.025);
   $surface: _scheme-color($primary, 18%, 0.12, 0.008, 0.025);
   $control-bg: _scheme-color($primary, 16%, 0.12, 0.008, 0.025);
@@ -415,19 +415,19 @@ $luminous-foreground-color-weights: ("-light", "-lighter", "-lightest");
   $text-primary: _validated-role-color(
     $text-primary,
     $canvas,
-    4.5,
+    $minimum,
     "dark text-primary/canvas"
   );
   $text-primary: _validated-role-color(
     $text-primary,
     $surface-muted,
-    4.5,
+    $minimum,
     "dark text-primary/surface-muted"
   );
   $text-secondary: _validated-role-color(
     $text-secondary,
     $surface,
-    4.5,
+    $minimum,
     "dark text-secondary/surface"
   );
   $border-default: _validated-role-color(
@@ -486,8 +486,18 @@ $luminous-foreground-color-weights: ("-light", "-lighter", "-lightest");
   }
 }
 
-@mixin tokens($primary: $default-primary) {
-  $palette: palette($primary);
+@mixin tokens($primary: $default-primary, $minimum-contrast: false) {
+  @if meta.type-of($minimum-contrast) != "bool" {
+    @error "Dragonglass theme minimum contrast option must be a boolean.";
+  }
+
+  $minimum: 4.5;
+
+  @if $minimum-contrast {
+    $minimum: 3;
+  }
+
+  $palette: palette($primary, $minimum);
 
   @each $name, $value in $palette {
     --#{$name}: #{$value};
@@ -507,6 +517,7 @@ $luminous-foreground-color-weights: ("-light", "-lighter", "-lightest");
           $name,
           $value,
           $token-name,
+          $minimum: $minimum,
           $candidate-weights: $dark-foreground-color-weights,
           $allow-secondary: false
         );
@@ -516,6 +527,7 @@ $luminous-foreground-color-weights: ("-light", "-lighter", "-lightest");
           $name,
           $value,
           $token-name,
+          $minimum: $minimum,
           $candidate-weights: $luminous-foreground-color-weights,
           $allow-secondary: false
         );
@@ -529,7 +541,7 @@ $luminous-foreground-color-weights: ("-light", "-lighter", "-lightest");
   }
 
   @each $name in $secondary-color-names {
-    $on-token: _secondary-contrast-token($palette, $name);
+    $on-token: _secondary-contrast-token($palette, $name, $minimum);
     --on-#{$name}: var(--#{$on-token});
   }
 
@@ -549,12 +561,12 @@ $luminous-foreground-color-weights: ("-light", "-lighter", "-lightest");
   @include _light-scheme-roles($palette);
 
   &[data-color-scheme="dark"] {
-    @include _dark-scheme-roles($primary, $palette);
+    @include _dark-scheme-roles($primary, $palette, $minimum);
   }
 
   @media (prefers-color-scheme: dark) {
     &:not([data-color-scheme="light"]) {
-      @include _dark-scheme-roles($primary, $palette);
+      @include _dark-scheme-roles($primary, $palette, $minimum);
     }
   }
 }

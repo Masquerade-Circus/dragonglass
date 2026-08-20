@@ -2921,10 +2921,11 @@ import "dragonglass/dist/themes/default.css";`;
   }) => {
     const content = theme.label;
     const path = themeRoutePath(theme.name, colorScheme);
-    if (currentThemeName === theme.name && currentColorScheme === colorScheme) {
-      return /* @__PURE__ */ jsx("span", { "data-markdown": "include-descendants", children: /* @__PURE__ */ jsx("a", { href: path, "v-route": path, "aria-current": "page", children: content }) });
-    }
-    return /* @__PURE__ */ jsx("span", { "data-markdown": "include-descendants", children: /* @__PURE__ */ jsx("a", { href: path, "v-route": path, children: content }) });
+    const isCurrentTheme = currentThemeName === theme.name && currentColorScheme === colorScheme;
+    return /* @__PURE__ */ jsxs("span", { "data-markdown": "include-descendants", class: "p-1", children: [
+      /* @__PURE__ */ jsx("a", { "v-if": isCurrentTheme, href: path, "v-route": path, "aria-current": "page", children: content }),
+      /* @__PURE__ */ jsx("a", { "v-if": !isCurrentTheme, href: path, "v-route": path, children: content })
+    ] });
   };
   var ThemeMenu = ({
     colorScheme,
@@ -2934,7 +2935,8 @@ import "dragonglass/dist/themes/default.css";`;
     "nav",
     {
       "aria-label": colorScheme === "dark" ? "Dark theme previews" : "Theme previews",
-      children: bundledThemes.map((theme) => /* @__PURE__ */ jsx(
+      "v-for": bundledThemes,
+      children: (theme) => /* @__PURE__ */ jsx(
         ThemeLink,
         {
           colorScheme,
@@ -2942,7 +2944,7 @@ import "dragonglass/dist/themes/default.css";`;
           currentThemeName,
           theme
         }
-      ))
+      )
     }
   );
   var theme_menu_default = ThemeMenu;
@@ -3119,6 +3121,13 @@ import "dragonglass/dist/themes/default.css";`;
           "."
         ] }),
         /* @__PURE__ */ jsx(code_example_default, { code: customThemeExample }),
+        /* @__PURE__ */ jsxs("p", { children: [
+          "Pass ",
+          /* @__PURE__ */ jsx("code", { children: "$minimum-contrast: true" }),
+          " to use a 3:1 text contrast threshold. Omitting the option or passing ",
+          /* @__PURE__ */ jsx("code", { children: "false" }),
+          " keeps 4.5:1."
+        ] }),
         /* @__PURE__ */ jsx("pre", { children: /* @__PURE__ */ jsx("code", { children: "bunx sass --pkg-importer=node theme.scss theme.css --style=compressed" }) }),
         /* @__PURE__ */ jsx("p", { children: "A theme selector around each mixin call lets one stylesheet contain several themes." }),
         /* @__PURE__ */ jsx(code_example_default, { code: scopedThemesExample })

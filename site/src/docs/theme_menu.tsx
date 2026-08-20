@@ -11,7 +11,7 @@ const ThemeLink = ({
   currentThemeName,
   colorScheme,
   currentColorScheme,
-  theme,
+  theme
 }: {
   colorScheme: Extract<ColorScheme, "light" | "dark">;
   currentColorScheme?: ColorScheme;
@@ -21,20 +21,15 @@ const ThemeLink = ({
   const content = theme.label;
 
   const path = themeRoutePath(theme.name, colorScheme);
-
-  if (currentThemeName === theme.name && currentColorScheme === colorScheme) {
-    return (
-      <span data-markdown="include-descendants">
-        <a href={path} v-route={path} aria-current="page">
-          {content}
-        </a>
-      </span>
-    );
-  }
+  const isCurrentTheme =
+    currentThemeName === theme.name && currentColorScheme === colorScheme;
 
   return (
-    <span data-markdown="include-descendants">
-      <a href={path} v-route={path}>
+    <span data-markdown="include-descendants" class="p-1">
+      <a v-if={isCurrentTheme} href={path} v-route={path} aria-current="page">
+        {content}
+      </a>
+      <a v-if={!isCurrentTheme} href={path} v-route={path}>
         {content}
       </a>
     </span>
@@ -44,21 +39,22 @@ const ThemeLink = ({
 const ThemeMenu = ({
   colorScheme,
   currentColorScheme,
-  currentThemeName,
+  currentThemeName
 }: ThemeMenuProps) => (
   <nav
     aria-label={
       colorScheme === "dark" ? "Dark theme previews" : "Theme previews"
     }
+    v-for={bundledThemes}
   >
-    {bundledThemes.map((theme) => (
+    {(theme: any) => (
       <ThemeLink
         colorScheme={colorScheme}
         currentColorScheme={currentColorScheme}
         currentThemeName={currentThemeName}
         theme={theme}
       />
-    ))}
+    )}
   </nav>
 );
 

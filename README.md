@@ -99,6 +99,15 @@ foreground. Dragonglass darkens the six derived bases until that pair reaches
 opaque primary within the supported lightness range and satisfy the configured
 contrast thresholds.
 
+Pass `$minimum-contrast: true` when a theme should use `3:1` as its text
+contrast threshold. Omitting the option or passing `false` keeps `4.5:1`:
+
+```scss
+:root {
+  @include dragonglass.tokens(#7c3aed, $minimum-contrast: true);
+}
+```
+
 ## Dark mode
 
 Every compiled theme derives light and dark structural roles from the same

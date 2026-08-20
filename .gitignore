@@ -104,3 +104,7 @@ typings/
 
 tmp
 plans
+/.tmp/
+/tmp/
+/docs/plans/
+/docs/issues/

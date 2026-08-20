@@ -100,6 +100,8 @@ The Sass theme module derives every semantic family, weight, foreground and prog
 }
 ```
 
+Pass `$minimum-contrast: true` to use a 3:1 text contrast threshold. Omitting the option or passing `false` keeps 4.5:1.
+
 ```sh
 bunx sass --pkg-importer=node theme.scss theme.css --style=compressed
 ```

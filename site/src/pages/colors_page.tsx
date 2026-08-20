@@ -213,6 +213,11 @@ const ColorsPage = ({
           <code> dragonglass.css</code>.
         </p>
         <CodeExample code={customThemeExample} />
+        <p>
+          Pass <code>$minimum-contrast: true</code> to use a 3:1 text contrast
+          threshold. Omitting the option or passing <code>false</code> keeps
+          4.5:1.
+        </p>
         <pre>
           <code>
             bunx sass --pkg-importer=node theme.scss theme.css
