@@ -1,5 +1,7 @@
 # Changelog
 
+## [2.1.2](https://github.com/Masquerade-Circus/dragonglass/compare/2.1.1...2.1.2) (2026-08-26)
+
 ## [2.1.1](https://github.com/Masquerade-Circus/dragonglass/compare/2.1.0...2.1.1) (2026-08-20)
 
 ### Bug Fixes
