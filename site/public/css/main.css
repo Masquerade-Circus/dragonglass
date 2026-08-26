@@ -275,11 +275,14 @@ body > section {
   padding: var(--container-padding);
 }
 
+body > main > section,
+body > main > article,
 body > article > section {
   flex: 1 1 auto;
   min-height: 0;
   overflow: auto;
   padding: var(--container-padding);
+  display: block;
 }
 
 :where(article, dialog, [data-card]) > section {
@@ -1535,19 +1538,19 @@ footer > h3 {
   font-size: 1rem;
 }
 
-:where(body, main, article, dialog, [data-card]) > footer:last-child {
+:where(body, main, article, dialog, [data-card], section) > footer:last-child {
   border-top: 0.06em solid var(--border-subtle);
 }
 
-:where(body, main, article, dialog, [data-card]) > footer:first-child {
+:where(body, main, article, dialog, [data-card], section) > footer:first-child {
   border-top: none;
 }
 
-:where(body, main, article, dialog, [data-card]) > header:first-child {
+:where(body, main, article, dialog, [data-card], section) > header:first-child {
   border-bottom: 0.06em solid var(--border-subtle);
 }
 
-:where(body, main, article, dialog, [data-card]) > header:last-child {
+:where(body, main, article, dialog, [data-card], section) > header:last-child {
   border-bottom: none;
 }
 
@@ -1663,7 +1666,6 @@ menu > li:last-child {
 :is(ul, ol)[data-list] > li > *,
 menu > li > * {
   position: relative;
-  color: inherit;
   padding: 0.5em;
   line-height: inherit;
   align-self: auto;

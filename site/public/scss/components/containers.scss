@@ -40,11 +40,14 @@ body > section {
   padding: var(--container-padding);
 }
 
+body > main > section,
+body > main > article,
 body > article > section {
   flex: 1 1 auto;
   min-height: 0;
   overflow: auto;
   padding: var(--container-padding);
+  display: block;
 }
 
 :where(article, dialog, [data-card]) > section {
