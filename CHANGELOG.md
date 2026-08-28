@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.3](https://github.com/Masquerade-Circus/dragonglass/compare/2.1.2...2.1.3) (2026-08-28)
+
+### Features
+
+* add compact and bordered table variants ([8c50ebe](https://github.com/Masquerade-Circus/dragonglass/commit/8c50ebe0384b0fcf0c0d81fc186b94899ef5f956))
+* standardize layout and navigation primitives ([6ab9ded](https://github.com/Masquerade-Circus/dragonglass/commit/6ab9ded2ab1263221204e09943a09c6f9b852f8c))
+
 ## [2.1.2](https://github.com/Masquerade-Circus/dragonglass/compare/2.1.1...2.1.2) (2026-08-26)
 
 ## [2.1.1](https://github.com/Masquerade-Circus/dragonglass/compare/2.1.0...2.1.1) (2026-08-20)
