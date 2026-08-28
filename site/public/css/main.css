@@ -2419,6 +2419,54 @@ table[data-table] td::before {
     width: 100%;
   }
 }
+table[data-table~=compact] caption,
+table[data-table~=compact] th,
+table[data-table~=compact] td {
+  padding: 0.5rem;
+}
+
+table[data-table~=border] {
+  --table-cell-border-color: var(--border-default);
+}
+table[data-table~=border] td + td {
+  border-inline-start: 0.06em solid var(--table-cell-border-color);
+}
+table[data-table~=border] tbody > tr + tr > td {
+  border-top: 0.06em solid var(--table-cell-border-color);
+}
+
+@media (max-width: 800px) {
+  table[data-table~=border] tbody > tr {
+    border: 0;
+  }
+  table[data-table~=border] td {
+    border-bottom: 0;
+    margin-bottom: 0;
+  }
+  table[data-table~=border] td + td {
+    border-inline-start: 0;
+  }
+  table[data-table~=border] tbody > tr + tr > td {
+    border-top: 0;
+  }
+  table[data-table~=border] td:nth-child(even) {
+    border-inline-start: 0.06em solid var(--table-cell-border-color);
+  }
+  table[data-table~=border] td:nth-child(n+3) {
+    border-top: 0.06em solid var(--table-cell-border-color);
+  }
+}
+@media (max-width: 480px) {
+  table[data-table~=border] td:nth-child(even) {
+    border-inline-start: 0;
+  }
+  table[data-table~=border] td + td {
+    border-top: 0.06em solid var(--table-cell-border-color);
+  }
+}
+table[data-table~=primary] {
+  --table-cell-border-color: var(--primary-lighter);
+}
 table[data-table~=primary] caption,
 table[data-table~=primary] thead {
   background-color: var(--primary-accent);
@@ -2437,6 +2485,9 @@ table[data-table~=primary] td:before {
   color: var(--primary-accent-text);
 }
 
+table[data-table~=accent] {
+  --table-cell-border-color: var(--accent-lighter);
+}
 table[data-table~=accent] caption,
 table[data-table~=accent] thead {
   background-color: var(--accent-accent);
@@ -2455,6 +2506,9 @@ table[data-table~=accent] td:before {
   color: var(--accent-accent-text);
 }
 
+table[data-table~=success] {
+  --table-cell-border-color: var(--success-lighter);
+}
 table[data-table~=success] caption,
 table[data-table~=success] thead {
   background-color: var(--success-accent);
@@ -2473,6 +2527,9 @@ table[data-table~=success] td:before {
   color: var(--success-accent-text);
 }
 
+table[data-table~=info] {
+  --table-cell-border-color: var(--info-lighter);
+}
 table[data-table~=info] caption,
 table[data-table~=info] thead {
   background-color: var(--info-accent);
@@ -2491,6 +2548,9 @@ table[data-table~=info] td:before {
   color: var(--info-accent-text);
 }
 
+table[data-table~=warning] {
+  --table-cell-border-color: var(--warning-lighter);
+}
 table[data-table~=warning] caption,
 table[data-table~=warning] thead {
   background-color: var(--warning-accent);
@@ -2509,6 +2569,9 @@ table[data-table~=warning] td:before {
   color: var(--warning-accent-text);
 }
 
+table[data-table~=danger] {
+  --table-cell-border-color: var(--danger-lighter);
+}
 table[data-table~=danger] caption,
 table[data-table~=danger] thead {
   background-color: var(--danger-accent);
@@ -2527,6 +2590,9 @@ table[data-table~=danger] td:before {
   color: var(--danger-accent-text);
 }
 
+table[data-table~=default] {
+  --table-cell-border-color: var(--default-lighter);
+}
 table[data-table~=default] caption,
 table[data-table~=default] thead {
   background-color: var(--default-accent);

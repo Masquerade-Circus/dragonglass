@@ -308,7 +308,7 @@ export const catalogEntries: Omit<DocumentationRoute, "colorScheme">[] = [
     page: "Tables",
     category: "Data display",
     description:
-      "Responsive data-table layout with generated mobile cell labels.",
+      "Responsive data tables with semantic tones, compact spacing, internal separators and generated mobile cell labels.",
   },
   {
     path: `${basePath}/utilities.html`,

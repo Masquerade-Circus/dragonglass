@@ -14,8 +14,8 @@ const colors = [
 ];
 
 const tableCode = (
-  color?: string,
-) => `<table data-table${color ? `="${color}"` : ""}>
+  tokens?: string,
+) => `<table data-table${tokens ? `="${tokens}"` : ""}>
   <caption>Food details</caption>
   <thead>
     <tr>
@@ -49,15 +49,15 @@ const tableRows = [
   {
     name: "data-table",
     type: "Table attribute",
-    defaultValue: "Required for compact layout",
+    defaultValue: "Absent",
     description:
-      "Its presence enables the responsive layout. It accepts primary, accent, success, info, warning, danger or default for an optional tone.",
+      "Its presence enables responsive table behavior. It accepts primary, accent, success, info, warning, danger or default for a semantic tone, plus compact for 0.5rem cell padding and border for internal body-cell separators. Tokens compose in any order.",
   },
 ];
 
-const Table = ({ color }: { color?: string }) => {
+const Table = ({ tokens }: { tokens?: string }) => {
   const attributes = {
-    "data-table": typeof color === "string" ? color : "",
+    "data-table": typeof tokens === "string" ? tokens : "",
   };
 
   return (
@@ -105,10 +105,32 @@ export default () => (
       </p>
       {colors.map((color) => (
         <div>
-          <Table color={color} />
+          <Table tokens={color} />
           <CodeExample code={tableCode(color)} />
         </div>
       ))}
+    </DemoSection>
+
+    <DemoSection
+      id="table-spacing-and-borders"
+      title="Compact spacing and internal borders"
+    >
+      <p>
+        Add <code>compact</code> to set <code>0.5rem</code> padding on the
+        caption, column headers, and cells. The compact spacing remains in
+        effect when the table switches to its responsive presentation.
+      </p>
+      <p>
+        Add <code>border</code> to draw separators only between body cells. The
+        separators follow the selected semantic color family. Without a color
+        token, they use the default border color.
+      </p>
+      <p>
+        Tokens compose in any order. This example combines the primary tone with
+        compact spacing and internal separators.
+      </p>
+      <Table tokens="primary compact border" />
+      <CodeExample code={tableCode("primary compact border")} />
     </DemoSection>
 
     <DemoSection id="table-api" title="Table API">

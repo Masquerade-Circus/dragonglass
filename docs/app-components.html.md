@@ -43,4 +43,4 @@ After choosing a component, open the [utility reference](/dragonglass/utilities.
 - [Lists](/dragonglass/lists.html.md) Styled unordered, ordered and definition-list layouts.
 - [Badges](/dragonglass/badges.html.md) Generated badge content selected by data-badge.
 - [Tooltips](/dragonglass/tooltips.html.md) Generated tooltip content, positions and color utilities.
-- [Tables](/dragonglass/tables.html.md) Responsive data-table layout with generated mobile cell labels.
+- [Tables](/dragonglass/tables.html.md) Responsive data tables with semantic tones, compact spacing, internal separators and generated mobile cell labels.

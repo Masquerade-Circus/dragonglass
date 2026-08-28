@@ -1707,7 +1707,7 @@
       color: "bg-danger",
       page: "Tables",
       category: "Data display",
-      description: "Responsive data-table layout with generated mobile cell labels."
+      description: "Responsive data tables with semantic tones, compact spacing, internal separators and generated mobile cell labels."
     },
     {
       path: `${basePath}/utilities.html`,
@@ -5393,7 +5393,7 @@ import "dragonglass/dist/themes/default.css";`;
     "danger",
     "default"
   ];
-  var tableCode = (color) => `<table data-table${color ? `="${color}"` : ""}>
+  var tableCode = (tokens) => `<table data-table${tokens ? `="${tokens}"` : ""}>
   <caption>Food details</caption>
   <thead>
     <tr>
@@ -5425,13 +5425,13 @@ import "dragonglass/dist/themes/default.css";`;
     {
       name: "data-table",
       type: "Table attribute",
-      defaultValue: "Required for compact layout",
-      description: "Its presence enables the responsive layout. It accepts primary, accent, success, info, warning, danger or default for an optional tone."
+      defaultValue: "Absent",
+      description: "Its presence enables responsive table behavior. It accepts primary, accent, success, info, warning, danger or default for a semantic tone, plus compact for 0.5rem cell padding and border for internal body-cell separators. Tokens compose in any order."
     }
   ];
-  var Table = ({ color }) => {
+  var Table = ({ tokens }) => {
     const attributes = {
-      "data-table": typeof color === "string" ? color : ""
+      "data-table": typeof tokens === "string" ? tokens : ""
     };
     return /* @__PURE__ */ jsxs("table", { ...attributes, "data-markdown": "exclude", children: [
       /* @__PURE__ */ jsx("caption", { children: "Food details" }),
@@ -5467,10 +5467,34 @@ import "dragonglass/dist/themes/default.css";`;
     /* @__PURE__ */ jsxs(demo_section_default, { id: "table-colors", title: "Table colors", children: [
       /* @__PURE__ */ jsx("p", { children: "Set data-table to a semantic color token to apply that tone to the responsive table. Dragonglass supports primary, accent, success, info, warning, danger, and default." }),
       colors4.map((color) => /* @__PURE__ */ jsxs("div", { children: [
-        /* @__PURE__ */ jsx(Table, { color }),
+        /* @__PURE__ */ jsx(Table, { tokens: color }),
         /* @__PURE__ */ jsx(code_example_default, { code: tableCode(color) })
       ] }))
     ] }),
+    /* @__PURE__ */ jsxs(
+      demo_section_default,
+      {
+        id: "table-spacing-and-borders",
+        title: "Compact spacing and internal borders",
+        children: [
+          /* @__PURE__ */ jsxs("p", { children: [
+            "Add ",
+            /* @__PURE__ */ jsx("code", { children: "compact" }),
+            " to set ",
+            /* @__PURE__ */ jsx("code", { children: "0.5rem" }),
+            " padding on the caption, column headers, and cells. The compact spacing remains in effect when the table switches to its responsive presentation."
+          ] }),
+          /* @__PURE__ */ jsxs("p", { children: [
+            "Add ",
+            /* @__PURE__ */ jsx("code", { children: "border" }),
+            " to draw separators only between body cells. The separators follow the selected semantic color family. Without a color token, they use the default border color."
+          ] }),
+          /* @__PURE__ */ jsx("p", { children: "Tokens compose in any order. This example combines the primary tone with compact spacing and internal separators." }),
+          /* @__PURE__ */ jsx(Table, { tokens: "primary compact border" }),
+          /* @__PURE__ */ jsx(code_example_default, { code: tableCode("primary compact border") })
+        ]
+      }
+    ),
     /* @__PURE__ */ jsx(demo_section_default, { id: "table-api", title: "Table API", children: /* @__PURE__ */ jsx(api_table_default, { caption: "Responsive table attributes", rows: tableRows }) })
   ] });
 

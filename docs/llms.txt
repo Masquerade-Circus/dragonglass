@@ -49,7 +49,7 @@
 - [Lists](./lists.html.md): Styled unordered, ordered and definition-list layouts.
 - [Badges](./badges.html.md): Generated badge content selected by data-badge.
 - [Tooltips](./tooltips.html.md): Generated tooltip content, positions and color utilities.
-- [Tables](./tables.html.md): Responsive data-table layout with generated mobile cell labels.
+- [Tables](./tables.html.md): Responsive data tables with semantic tones, compact spacing, internal separators and generated mobile cell labels.
 
 ## Utilities
 

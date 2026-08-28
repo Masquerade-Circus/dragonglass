@@ -107,8 +107,71 @@ table[data-table] td::before {
   }
 }
 
+table[data-table~="compact"] {
+  caption,
+  th,
+  td {
+    padding: 0.5rem;
+  }
+}
+
+table[data-table~="border"] {
+  --table-cell-border-color: var(--border-default);
+
+  td + td {
+    border-inline-start: 0.06em solid var(--table-cell-border-color);
+  }
+
+  tbody > tr + tr > td {
+    border-top: 0.06em solid var(--table-cell-border-color);
+  }
+}
+
+@media (max-width: 800px) {
+  table[data-table~="border"] {
+    tbody > tr {
+      border: 0;
+    }
+
+    td {
+      border-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    td + td {
+      border-inline-start: 0;
+    }
+
+    tbody > tr + tr > td {
+      border-top: 0;
+    }
+
+    td:nth-child(even) {
+      border-inline-start: 0.06em solid var(--table-cell-border-color);
+    }
+
+    td:nth-child(n + 3) {
+      border-top: 0.06em solid var(--table-cell-border-color);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  table[data-table~="border"] {
+    td:nth-child(even) {
+      border-inline-start: 0;
+    }
+
+    td + td {
+      border-top: 0.06em solid var(--table-cell-border-color);
+    }
+  }
+}
+
 @each $name in $primaryColorNames {
   table[data-table~="#{$name}"] {
+    --table-cell-border-color: var(--#{$name}-lighter);
+
     caption,
     thead {
       background-color: var(--#{$name}-accent);
