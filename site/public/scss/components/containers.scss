@@ -1,57 +1,52 @@
-:where(body, main, article, dialog, [data-card]) {
+:where(body, main, article, dialog, [data-card], [data-layout]) {
   display: flex;
   flex-direction: column;
   min-width: 0;
+  overflow: hidden;
+
+  > * {
+    flex: 1 1 auto;
+  }
+
+  > section {
+    min-width: 0;
+    min-height: 0;
+    overflow: auto;
+    padding: var(--container-padding);
+  }
+
+  > header,
+  > footer {
+    flex: 0 0 auto;
+    height: auto;
+    min-height: 3.5rem;
+    padding: 1rem;
+  }
+
+  > footer > nav {
+    margin: 0;
+  }
 }
 
 :where(body, main) {
   min-height: 0;
 }
 
-body {
-  overflow: hidden;
-}
-
 body > :where(main, article, section) {
-  flex: 1 1 auto;
   min-height: 0;
 }
 
 body > :where(main, article) {
   width: 100%;
   height: 100%;
-  overflow: auto;
 }
 
-body > section {
-  overflow: auto;
-  padding: var(--container-padding);
-}
-
-:where(body, main, article, dialog, [data-card]) > header,
-:where(body, main, article, dialog, [data-card]) > footer {
-  flex: 0 0 auto;
-}
-
-:where(main) > section {
-  flex: 1 1 auto;
-  min-width: 0;
+body > main > article {
   min-height: 0;
   padding: var(--container-padding);
-}
-
-body > main > section,
-body > main > article,
-body > article > section {
-  flex: 1 1 auto;
-  min-height: 0;
-  overflow: auto;
-  padding: var(--container-padding);
-  display: block;
 }
 
 :where(article, dialog, [data-card]) > section {
-  min-width: 0;
   padding: var(--card-padding);
 }
 

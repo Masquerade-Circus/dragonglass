@@ -195,7 +195,7 @@ After choosing a component, open the [utility reference](/dragonglass/utilities.
 ### Actions
 
 - [Buttons](/dragonglass/buttons.html.md) Base button styles, semantic color utilities and FAB variants.
-- [Links](/dragonglass/links.html.md) Inline, standalone and quiet link treatments for navigation and supporting actions.
+- [Links](/dragonglass/links.html.md) Base anchors and data-link treatments for navigation and supporting actions.
 - [Chips](/dragonglass/chips.html.md) Chip tones and checked, pressed and current visual states.
 
 ### Forms
@@ -205,7 +205,7 @@ After choosing a component, open the [utility reference](/dragonglass/utilities.
 ### Navigation
 
 - [Breadcrumbs](/dragonglass/breadcrumbs.html.md) Wrapping breadcrumb trails built from direct link and button children.
-- [Toolbars](/dragonglass/toolbars.html.md) Wrapping nav[data-toolbar] rows and container variants.
+- [Toolbars](/dragonglass/toolbars.html.md) Wrapping nav action rows and compact container variants.
 - [Tabs](/dragonglass/tabs.html.md) Grouped details layout selected by data-tabs.
 - [Menus](/dragonglass/menus.html.md) Positioned menus inside details[data-trigger].
 - [Expansion panels](/dragonglass/expansion-panels.html.md) Full-width details panels with a generated open-state marker.
@@ -245,7 +245,7 @@ Responsive containers, direct-child content regions and toolbar layouts.
 <article>
   <header>
     <h3>Project Atlas</h3>
-    <nav data-toolbar aria-label="Project actions">
+    <nav aria-label="Project actions">
       <a href="/projects.html">All projects</a>
       <button type="button">New task</button>
     </nav>
@@ -266,21 +266,39 @@ Responsive containers, direct-child content regions and toolbar layouts.
 ### Standalone toolbar
 
 ```html
-<nav data-toolbar aria-label="Result actions">
+<nav aria-label="Result actions">
   <button type="button">Filter</button>
   <a href="/exports.html">View exports</a>
 </nav>
 ```
 
-### Composition
+### Shared container contract
 
-A container is a `main` or `article` with direct `header`, `section` and `footer` children. The header and footer keep their natural height. The section receives the remaining height, padding and overflow.
+`body`, `main`, `article`, `dialog`, `[data-card]` and `[data-layout]` share one structural contract. Each container creates a vertical flex layout, hides its own overflow and lets its direct children use the available space.
 
-The `data-toolbar` attribute turns a nav into a wrapping row with toolbar spacing and a divider.
+A direct `section` fills the remaining space and owns the scroll when the container has a limited height. It receives `var(--container-padding)` by default. Add `.p-0` to that section when its content must reach the container edges.
+
+Direct `header` and `footer` regions remain outside the scrolling section. They use their natural height, `1rem` padding and a minimum height of `3.5rem`. A navigation region directly inside the footer has no outer margin.
+
+```html
+<div data-layout class="h-48">
+  <header>
+    <h3>Review queue</h3>
+  </header>
+  <section>
+    <p>Items that are ready for review appear here.</p>
+  </section>
+  <footer>
+    <nav aria-label="Queue actions">
+      <button type="button">Refresh queue</button>
+    </nav>
+  </footer>
+</div>
+```
 
 ### Responsive behavior
 
-Standalone toolbars wrap when their actions exceed the current width. A toolbar nested in a header or footer stays on one row and overflows when its actions exceed the available width. Content sections own vertical scrolling and keep the page shell within the viewport.
+A standalone `nav` wraps when its actions exceed the current width. Inside a header or footer, it stays on one row, removes its padding and divider, and overflows when its actions exceed the available width. Specialized navigation components, including breadcrumbs, replace the base presentation where their contract requires it. Content sections own vertical scrolling and keep the page shell within the viewport.
 
 ### API
 
@@ -288,11 +306,12 @@ Standalone toolbars wrap when their actions exceed the current width. A toolbar 
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| main, article | Element | Column container | Establishes the container contract for direct header, section and footer children. |
-| header, footer | Element | Intrinsic height | Keeps page-level or container-level chrome outside the scrolling content region. |
+| body, main, article, dialog, [data-card] | Element or selector | Column container | Applies the shared vertical layout contract to direct children. |
+| data-layout | Attribute | Absent | Applies the shared vertical layout contract to another element. |
+| header, footer | Element | 1rem padding, 3.5rem minimum height | Keeps direct container chrome at its natural height and outside the scrolling content region. |
 | section | Element | Flexible and scrollable | Fills the remaining container space and owns content padding when it is a direct child. |
-| nav | Element | Horizontal row | Applies a horizontal, non-wrapping layout to links and buttons. |
-| data-toolbar | Attribute | Absent | Turns a nav into a wrapping action row. Toolbars inside a header or footer stay on one row. |
+| .p-0 | Utility | Absent | Removes the default padding from a direct content section. |
+| nav | Element | Wrapping action row | Lays out direct links and buttons with shared geometry and interactive states. Inside a header or footer, the row does not wrap and has no padding or divider. |
 | aria-current="page" | State | Absent | Applies the selected surface and text colors to a nav link. |
 | --container-padding | Token | Theme value | Controls padding on the direct, scrollable content section. |
 
@@ -415,6 +434,8 @@ Base button styles, semantic color utilities and FAB variants.
 
 ### Borders and focus outlines
 
+Border color utilities also color the button label. See [Border color utilities](/dragonglass/colors.html#border-color-utilities) for the shared token behavior, interactive variants and link example.
+
 ```html
 <button type="button" class="border-primary">Primary outline</button>
 <button type="button" class="border-success-dark">Success outline</button>
@@ -467,7 +488,7 @@ Buttons keep their labels on one line. A surrounding toolbar wraps when space is
 | data-button="fab" | Attribute | Absent | Creates a circular floating action button with default elevation. |
 | no-shadow | Attribute token | Shadow | Removes the default FAB elevation when included in data-button. |
 | bg-{tone} | Class token | Transparent | Applies a semantic background tone such as primary, success or danger. |
-| border-{tone}{weight} | Class token | No border | Creates an outlined treatment with an optional light or dark weight. |
+| border-{tone}{weight} | Class token | No border | Applies a semantic tone to the button border and label, with an optional light or dark weight. |
 | text-{size} | Class token | Inherited | Scales button text and the em-based button dimensions. |
 | --button-disabled-opacity | Token | Theme value | Controls the visual emphasis of unavailable buttons. |
 
@@ -477,7 +498,17 @@ Source: ./links.html.md
 
 ## Links
 
-Inline, standalone and quiet link treatments for navigation and supporting actions.
+Base anchors and data-link treatments for navigation and supporting actions.
+
+### Base link
+
+A plain anchor with an `href` provides semantic navigation and standard browser link behavior. Use `data-link` for the documented treatments below.
+
+[Read the getting started guide](/dragonglass/).
+
+```html
+<p><a href="/dragonglass/">Read the getting started guide</a>.</p>
+```
 
 ### Inline link
 
@@ -821,7 +852,7 @@ Field, floating-label, validation-state and toggle selectors.
 #### Search inside a toolbar
 
 ```html
-<nav data-toolbar aria-label="Documentation tools">
+<nav aria-label="Documentation tools">
   <search aria-label="Component filters">
     <form action="/dragonglass/forms.html">
       <fieldset>
@@ -875,6 +906,8 @@ Wrapping breadcrumb trails built from direct link and button children.
 
 Add `data-breadcrumb` to a labeled `nav`. Place each anchor directly inside the nav and mark the current location with `aria-current="page"`.
 
+Breadcrumbs keep the wrapping behavior of the base `nav` and replace its action geometry with compact segments, transparent surfaces and breadcrumb-specific current and hover states.
+
 ```html
 <nav data-breadcrumb aria-label="Breadcrumb">
   <a href="/dragonglass/app-components.html">Components</a>
@@ -915,12 +948,14 @@ Source: ./toolbars.html.md
 
 ## Toolbars
 
-Wrapping nav[data-toolbar] rows and container variants.
+Wrapping nav action rows and compact container variants.
 
 ### Actions and links
 
+Every `nav` provides a wrapping action row. Direct links and buttons share the same height, spacing, alignment, hover treatment and current-page state. Give each navigation region an accessible name, as these examples do with `aria-label`.
+
 ```html
-<nav data-toolbar aria-label="Editor actions">
+<nav aria-label="Editor actions">
   <button type="button">Save</button>
   <button type="button">Preview</button>
   <a href="/dragonglass/cards.html">Cards</a>
@@ -930,7 +965,7 @@ Wrapping nav[data-toolbar] rows and container variants.
 ### Filter chips
 
 ```html
-<nav data-toolbar aria-label="Issue filters">
+<nav aria-label="Issue filters">
   <label data-chip>
     <input type="checkbox" checked> Open
   </label>
@@ -943,20 +978,20 @@ Wrapping nav[data-toolbar] rows and container variants.
 
 ### Header and footer toolbars
 
-A toolbar wraps by default. Inside a header or footer it uses `flex-wrap: nowrap` and overflows when its actions exceed the available width.
+A toolbar wraps by default. Inside a header or footer it uses `flex-wrap: nowrap`, removes its padding and divider, and overflows when its actions exceed the available width.
 
 #### Project settings
 
 ```html
 <header>
   <h3>Project settings</h3>
-  <nav data-toolbar aria-label="Project actions">
+  <nav aria-label="Project actions">
     <button type="button">Share</button>
     <button type="button">Export</button>
   </nav>
 </header>
 <footer>
-  <nav data-toolbar aria-label="Form actions">
+  <nav aria-label="Form actions">
     <button type="button">Cancel</button>
     <button type="submit">Save changes</button>
   </nav>
@@ -965,15 +1000,15 @@ A toolbar wraps by default. Inside a header or footer it uses `flex-wrap: nowrap
 
 ### API
 
-**Toolbar elements, attributes, tokens and states**
+**Toolbar elements, tokens, contexts and overrides**
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| nav | Element | Required | Provides the nav[data-toolbar] selector host. |
-| data-toolbar | Attribute | Required | Applies the flexible toolbar layout to a nav. |
+| nav | Element | Required | Creates a wrapping action row with shared geometry and states for direct links and buttons. |
 | --spacing-2 / --spacing-3 | Token | Theme | Control the gap and default toolbar padding. |
-| --border-size-1 / --default-light | Token | Theme | Control the toolbar divider. |
-| header or footer ancestor | State | Wrapping | Removes padding and divider and prevents wrapping. |
+| --border-size-1 / --border-default | Token | Theme | Control the toolbar divider. |
+| header or footer ancestor | State | Wrapping | Prevents wrapping and removes the nav padding and divider. |
+| Specialized nav component | Override | Base nav presentation | Replaces the base presentation where a component such as breadcrumbs defines its own geometry and states. |
 
 ---
 
@@ -2795,6 +2830,30 @@ These utilities change only the background color and preserve the current text c
 <div class="bg-media-scrim text-white p-3">Media scrim background</div>
 ```
 
+### Border color utilities
+
+On a normal element, a semantic `border-*` utility changes only `border-color`. Pair it with `border` to add the width and solid style that make the border visible.
+
+On `button` and `a` elements, the base, `hover:`, `focus:` and `active:` border color utilities also set the text to the same tone through the matching `--border-text-*` token. The `before:` and `after:` variants color their pseudo-element borders without changing the host element text.
+
+```html
+<div class="border border-primary-lightest p-3">
+  Normal element keeps its inherited text color
+</div>
+<button
+  type="button"
+  class="border border-primary-lightest hover:border-primary-lighter focus:border-primary-light active:border-primary"
+>
+  Button text follows the border tone
+</button>
+<a
+  href="#border-color-utilities"
+  class="inline border border-primary-lightest hover:border-primary-lighter focus:border-primary-light active:border-primary p-3"
+>
+  Link text follows the border tone
+</a>
+```
+
 ### Buttons by color
 
 ```html
@@ -3138,6 +3197,30 @@ These utilities change only the background color and preserve the current text c
 <div class="bg-transparent p-3">Transparent background</div>
 <div class="bg-scrim text-white p-3">Scrim background</div>
 <div class="bg-media-scrim text-white p-3">Media scrim background</div>
+```
+
+### Border color utilities
+
+On a normal element, a semantic `border-*` utility changes only `border-color`. Pair it with `border` to add the width and solid style that make the border visible.
+
+On `button` and `a` elements, the base, `hover:`, `focus:` and `active:` border color utilities also set the text to the same tone through the matching `--border-text-*` token. The `before:` and `after:` variants color their pseudo-element borders without changing the host element text.
+
+```html
+<div class="border border-primary-lightest p-3">
+  Normal element keeps its inherited text color
+</div>
+<button
+  type="button"
+  class="border border-primary-lightest hover:border-primary-lighter focus:border-primary-light active:border-primary"
+>
+  Button text follows the border tone
+</button>
+<a
+  href="#border-color-utilities"
+  class="inline border border-primary-lightest hover:border-primary-lighter focus:border-primary-light active:border-primary p-3"
+>
+  Link text follows the border tone
+</a>
 ```
 
 ### Buttons by color

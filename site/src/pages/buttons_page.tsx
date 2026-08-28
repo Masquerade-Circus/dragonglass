@@ -87,7 +87,7 @@ const apiRows = [
     type: "Class token",
     defaultValue: "No border",
     description:
-      "Creates an outlined treatment with an optional light or dark weight.",
+      "Applies a semantic tone to the button border and label, with an optional light or dark weight.",
   },
   {
     name: "text-{size}",
@@ -142,6 +142,13 @@ export default () => (
     </DemoSection>
 
     <DemoSection id="button-outlines" title="Borders and focus outlines">
+      <p>
+        Border color utilities also color the button label. See{" "}
+        <a href="/dragonglass/colors.html#border-color-utilities">
+          Border color utilities
+        </a>{" "}
+        for the shared token behavior, interactive variants and link example.
+      </p>
       <button type="button" class="border-primary">
         Primary outline
       </button>

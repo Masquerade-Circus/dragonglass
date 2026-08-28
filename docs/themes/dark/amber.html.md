@@ -29,6 +29,30 @@ These utilities change only the background color and preserve the current text c
 <div class="bg-media-scrim text-white p-3">Media scrim background</div>
 ```
 
+## Border color utilities
+
+On a normal element, a semantic `border-*` utility changes only `border-color`. Pair it with `border` to add the width and solid style that make the border visible.
+
+On `button` and `a` elements, the base, `hover:`, `focus:` and `active:` border color utilities also set the text to the same tone through the matching `--border-text-*` token. The `before:` and `after:` variants color their pseudo-element borders without changing the host element text.
+
+```html
+<div class="border border-primary-lightest p-3">
+  Normal element keeps its inherited text color
+</div>
+<button
+  type="button"
+  class="border border-primary-lightest hover:border-primary-lighter focus:border-primary-light active:border-primary"
+>
+  Button text follows the border tone
+</button>
+<a
+  href="#border-color-utilities"
+  class="inline border border-primary-lightest hover:border-primary-lighter focus:border-primary-light active:border-primary p-3"
+>
+  Link text follows the border tone
+</a>
+```
+
 ## Buttons by color
 
 ```html

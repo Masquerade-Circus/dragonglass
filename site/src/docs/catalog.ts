@@ -130,7 +130,7 @@ export const catalogEntries: Omit<DocumentationRoute, "colorScheme">[] = [
     page: "Links",
     category: "Actions",
     description:
-      "Inline, standalone and quiet link treatments for navigation and supporting actions.",
+      "Base anchors and data-link treatments for navigation and supporting actions.",
   },
   {
     path: `${basePath}/chips.html`,
@@ -168,7 +168,7 @@ export const catalogEntries: Omit<DocumentationRoute, "colorScheme">[] = [
     color: "bg-accent",
     page: "Toolbars",
     category: "Navigation",
-    description: "Wrapping nav[data-toolbar] rows and container variants.",
+    description: "Wrapping nav action rows and compact container variants.",
   },
   {
     path: `${basePath}/tabs.html`,

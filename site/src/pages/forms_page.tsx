@@ -191,7 +191,7 @@ const searchFormCode = `<form action="/dragonglass/forms.html" role="search" ari
   <button type="submit">Find</button>
 </form>`;
 
-const toolbarSearchCode = `<nav data-toolbar aria-label="Documentation tools">
+const toolbarSearchCode = `<nav aria-label="Documentation tools">
   <search aria-label="Component filters">
     <form action="/dragonglass/forms.html">
       <fieldset>
@@ -641,7 +641,7 @@ export default () => (
       <CodeExample code={searchFormCode} />
 
       <h3>Search inside a toolbar</h3>
-      <nav data-toolbar aria-label="Documentation tools">
+      <nav aria-label="Documentation tools">
         <search aria-label="Component filters">
           <form action="/dragonglass/forms.html">
             <fieldset>

@@ -10,6 +10,12 @@
     .before\:border-#{$name}#{$weight}::before,
     .border-#{$name}#{$weight} {
       border-color: var(--#{$name}#{$weight});
+    }
+
+    :where(button, a).focus\:border-#{$name}#{$weight}:focus,
+    :where(button, a).active\:border-#{$name}#{$weight}:active,
+    :where(button, a).hover\:border-#{$name}#{$weight}:hover,
+    :where(button, a).border-#{$name}#{$weight} {
       color: var(--border-text-#{$name}#{$weight});
     }
 

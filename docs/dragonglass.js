@@ -1536,7 +1536,7 @@
       color: "bg-danger",
       page: "Links",
       category: "Actions",
-      description: "Inline, standalone and quiet link treatments for navigation and supporting actions."
+      description: "Base anchors and data-link treatments for navigation and supporting actions."
     },
     {
       path: `${basePath}/chips.html`,
@@ -1572,7 +1572,7 @@
       color: "bg-accent",
       page: "Toolbars",
       category: "Navigation",
-      description: "Wrapping nav[data-toolbar] rows and container variants."
+      description: "Wrapping nav action rows and compact container variants."
     },
     {
       path: `${basePath}/tabs.html`,
@@ -1925,7 +1925,7 @@
   ] });
   var Layout = (props, ...content) => /* @__PURE__ */ jsxs(Fragment, { children: [
     /* @__PURE__ */ jsx(Header, { currentPath: props.currentPath }),
-    /* @__PURE__ */ jsx("main", { id: "main-content", tabindex: "-1", children: /* @__PURE__ */ jsx("section", { class: props.contentClass ?? "container", children: content }) }),
+    /* @__PURE__ */ jsx("main", { id: "main-content", tabindex: "-1", children: /* @__PURE__ */ jsx("section", { class: props.contentClass ?? "", children: /* @__PURE__ */ jsx("section", { class: "container", children: content }) }) }),
     /* @__PURE__ */ jsx("footer", { "data-markdown": "exclude", children: /* @__PURE__ */ jsxs("small", { children: [
       "Dragonglass v",
       version
@@ -2350,7 +2350,7 @@ import "dragonglass/dist/themes/default.css";`;
   var appShellCode = `<article>
   <header>
     <h3>Project Atlas</h3>
-    <nav data-toolbar aria-label="Project actions">
+    <nav aria-label="Project actions">
       <a href="/projects.html">All projects</a>
       <button type="button">New task</button>
     </nav>
@@ -2366,22 +2366,41 @@ import "dragonglass/dist/themes/default.css";`;
     </nav>
   </footer>
 </article>`;
-  var standaloneToolbarCode = `<nav data-toolbar aria-label="Result actions">
+  var sharedLayoutCode = `<div data-layout class="h-48">
+  <header>
+    <h3>Review queue</h3>
+  </header>
+  <section>
+    <p>Items that are ready for review appear here.</p>
+  </section>
+  <footer>
+    <nav aria-label="Queue actions">
+      <button type="button">Refresh queue</button>
+    </nav>
+  </footer>
+</div>`;
+  var standaloneToolbarCode = `<nav aria-label="Result actions">
   <button type="button">Filter</button>
   <a href="/exports.html">View exports</a>
 </nav>`;
   var apiRows = [
     {
-      name: "main, article",
-      type: "Element",
+      name: "body, main, article, dialog, [data-card]",
+      type: "Element or selector",
       defaultValue: "Column container",
-      description: "Establishes the container contract for direct header, section and footer children."
+      description: "Applies the shared vertical layout contract to direct children."
+    },
+    {
+      name: "data-layout",
+      type: "Attribute",
+      defaultValue: "Absent",
+      description: "Applies the shared vertical layout contract to another element."
     },
     {
       name: "header, footer",
       type: "Element",
-      defaultValue: "Intrinsic height",
-      description: "Keeps page-level or container-level chrome outside the scrolling content region."
+      defaultValue: "1rem padding, 3.5rem minimum height",
+      description: "Keeps direct container chrome at its natural height and outside the scrolling content region."
     },
     {
       name: "section",
@@ -2390,16 +2409,16 @@ import "dragonglass/dist/themes/default.css";`;
       description: "Fills the remaining container space and owns content padding when it is a direct child."
     },
     {
-      name: "nav",
-      type: "Element",
-      defaultValue: "Horizontal row",
-      description: "Applies a horizontal, non-wrapping layout to links and buttons."
+      name: ".p-0",
+      type: "Utility",
+      defaultValue: "Absent",
+      description: "Removes the default padding from a direct content section."
     },
     {
-      name: "data-toolbar",
-      type: "Attribute",
-      defaultValue: "Absent",
-      description: "Turns a nav into a wrapping action row. Toolbars inside a header or footer stay on one row."
+      name: "nav",
+      type: "Element",
+      defaultValue: "Wrapping action row",
+      description: "Lays out direct links and buttons with shared geometry and interactive states. Inside a header or footer, the row does not wrap and has no padding or divider."
     },
     {
       name: 'aria-current="page"',
@@ -2419,7 +2438,7 @@ import "dragonglass/dist/themes/default.css";`;
       /* @__PURE__ */ jsxs("article", { children: [
         /* @__PURE__ */ jsxs("header", { children: [
           /* @__PURE__ */ jsx("h3", { children: "Project Atlas" }),
-          /* @__PURE__ */ jsxs("nav", { "data-toolbar": true, "aria-label": "Project actions", children: [
+          /* @__PURE__ */ jsxs("nav", { "aria-label": "Project actions", children: [
             /* @__PURE__ */ jsx("a", { href: "/projects.html", children: "All projects" }),
             /* @__PURE__ */ jsx("button", { type: "button", children: "New task" })
           ] })
@@ -2434,33 +2453,64 @@ import "dragonglass/dist/themes/default.css";`;
       /* @__PURE__ */ jsx(code_example_default, { code: appShellCode })
     ] }),
     /* @__PURE__ */ jsxs(demo_section_default, { id: "layout-toolbar", title: "Standalone toolbar", children: [
-      /* @__PURE__ */ jsxs("nav", { "data-toolbar": true, "aria-label": "Result actions", children: [
+      /* @__PURE__ */ jsxs("nav", { "aria-label": "Result actions", children: [
         /* @__PURE__ */ jsx("button", { type: "button", children: "Filter" }),
         /* @__PURE__ */ jsx("a", { href: "/exports.html", children: "View exports" })
       ] }),
       /* @__PURE__ */ jsx(code_example_default, { code: standaloneToolbarCode })
     ] }),
-    /* @__PURE__ */ jsxs(demo_section_default, { id: "layout-composition", title: "Composition", children: [
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "layout-composition", title: "Shared container contract", children: [
       /* @__PURE__ */ jsxs("p", { children: [
-        "A container is a ",
-        /* @__PURE__ */ jsx("code", { children: "main" }),
-        " or ",
-        /* @__PURE__ */ jsx("code", { children: "article" }),
-        " with direct",
-        /* @__PURE__ */ jsx("code", { children: " header" }),
+        /* @__PURE__ */ jsx("code", { children: "body" }),
         ", ",
-        /* @__PURE__ */ jsx("code", { children: "section" }),
-        " and ",
-        /* @__PURE__ */ jsx("code", { children: "footer" }),
-        "children. The header and footer keep their natural height. The section receives the remaining height, padding and overflow."
+        /* @__PURE__ */ jsx("code", { children: "main" }),
+        ", ",
+        /* @__PURE__ */ jsx("code", { children: "article" }),
+        ",",
+        " ",
+        /* @__PURE__ */ jsx("code", { children: "dialog" }),
+        ", ",
+        /* @__PURE__ */ jsx("code", { children: "[data-card]" }),
+        " and",
+        " ",
+        /* @__PURE__ */ jsx("code", { children: "[data-layout]" }),
+        " share one structural contract. Each container creates a vertical flex layout, hides its own overflow and lets its direct children use the available space."
       ] }),
       /* @__PURE__ */ jsxs("p", { children: [
-        "The ",
-        /* @__PURE__ */ jsx("code", { children: "data-toolbar" }),
-        " attribute turns a nav into a wrapping row with toolbar spacing and a divider."
-      ] })
+        "A direct ",
+        /* @__PURE__ */ jsx("code", { children: "section" }),
+        " fills the remaining space and owns the scroll when the container has a limited height. It receives",
+        " ",
+        /* @__PURE__ */ jsx("code", { children: "var(--container-padding)" }),
+        " by default. Add ",
+        /* @__PURE__ */ jsx("code", { children: ".p-0" }),
+        " ",
+        "to that section when its content must reach the container edges."
+      ] }),
+      /* @__PURE__ */ jsxs("p", { children: [
+        "Direct ",
+        /* @__PURE__ */ jsx("code", { children: "header" }),
+        " and ",
+        /* @__PURE__ */ jsx("code", { children: "footer" }),
+        " regions remain outside the scrolling section. They use their natural height,",
+        " ",
+        /* @__PURE__ */ jsx("code", { children: "1rem" }),
+        " padding and a minimum height of ",
+        /* @__PURE__ */ jsx("code", { children: "3.5rem" }),
+        ". A navigation region directly inside the footer has no outer margin."
+      ] }),
+      /* @__PURE__ */ jsxs("div", { "data-layout": true, class: "h-48", children: [
+        /* @__PURE__ */ jsx("header", { children: /* @__PURE__ */ jsx("h3", { children: "Review queue" }) }),
+        /* @__PURE__ */ jsx("section", { children: /* @__PURE__ */ jsx("p", { children: "Items that are ready for review appear here." }) }),
+        /* @__PURE__ */ jsx("footer", { children: /* @__PURE__ */ jsx("nav", { "aria-label": "Queue actions", children: /* @__PURE__ */ jsx("button", { type: "button", children: "Refresh queue" }) }) })
+      ] }),
+      /* @__PURE__ */ jsx(code_example_default, { code: sharedLayoutCode })
     ] }),
-    /* @__PURE__ */ jsx(demo_section_default, { id: "layout-responsive", title: "Responsive behavior", children: /* @__PURE__ */ jsx("p", { children: "Standalone toolbars wrap when their actions exceed the current width. A toolbar nested in a header or footer stays on one row and overflows when its actions exceed the available width. Content sections own vertical scrolling and keep the page shell within the viewport." }) }),
+    /* @__PURE__ */ jsx(demo_section_default, { id: "layout-responsive", title: "Responsive behavior", children: /* @__PURE__ */ jsxs("p", { children: [
+      "A standalone ",
+      /* @__PURE__ */ jsx("code", { children: "nav" }),
+      " wraps when its actions exceed the current width. Inside a header or footer, it stays on one row, removes its padding and divider, and overflows when its actions exceed the available width. Specialized navigation components, including breadcrumbs, replace the base presentation where their contract requires it. Content sections own vertical scrolling and keep the page shell within the viewport."
+    ] }) }),
     /* @__PURE__ */ jsx(demo_section_default, { id: "layout-api", title: "API", children: /* @__PURE__ */ jsx(
       api_table_default,
       {
@@ -2973,6 +3023,21 @@ import "dragonglass/dist/themes/default.css";`;
   var transparentBackgroundExample = `<div class="bg-transparent p-3">Transparent background</div>
 <div class="bg-scrim text-white p-3">Scrim background</div>
 <div class="bg-media-scrim text-white p-3">Media scrim background</div>`;
+  var borderColorExample = `<div class="border border-primary-lightest p-3">
+  Normal element keeps its inherited text color
+</div>
+<button
+  type="button"
+  class="border border-primary-lightest hover:border-primary-lighter focus:border-primary-light active:border-primary"
+>
+  Button text follows the border tone
+</button>
+<a
+  href="#border-color-utilities"
+  class="inline border border-primary-lightest hover:border-primary-lighter focus:border-primary-light active:border-primary p-3"
+>
+  Link text follows the border tone
+</a>`;
   var stateExample2 = `<button type="button" class="bg-primary-dark hover:bg-primary active:bg-primary-light">Background states</button>
 <input aria-label="Color focus example" class="p-3 text-primary-dark focus:text-primary" value="Focus this field">`;
   var buttonExample = colors.map((color) => `<button type="button" class="bg-${color}">${color}</button>`).join("\n");
@@ -3066,6 +3131,58 @@ import "dragonglass/dist/themes/default.css";`;
         /* @__PURE__ */ jsx("div", { class: "bg-scrim text-white p-3", children: "Scrim background" }),
         /* @__PURE__ */ jsx("div", { class: "bg-media-scrim text-white p-3", children: "Media scrim background" }),
         /* @__PURE__ */ jsx(code_example_default, { code: transparentBackgroundExample })
+      ] }),
+      /* @__PURE__ */ jsxs(demo_section_default, { id: "border-color-utilities", title: "Border color utilities", children: [
+        /* @__PURE__ */ jsxs("p", { children: [
+          "On a normal element, a semantic ",
+          /* @__PURE__ */ jsx("code", { children: "border-*" }),
+          " utility changes only ",
+          /* @__PURE__ */ jsx("code", { children: "border-color" }),
+          ". Pair it with ",
+          /* @__PURE__ */ jsx("code", { children: "border" }),
+          " to add the width and solid style that make the border visible."
+        ] }),
+        /* @__PURE__ */ jsxs("p", { children: [
+          "On ",
+          /* @__PURE__ */ jsx("code", { children: "button" }),
+          " and ",
+          /* @__PURE__ */ jsx("code", { children: "a" }),
+          " elements, the base,",
+          " ",
+          /* @__PURE__ */ jsx("code", { children: "hover:" }),
+          ", ",
+          /* @__PURE__ */ jsx("code", { children: "focus:" }),
+          " and ",
+          /* @__PURE__ */ jsx("code", { children: "active:" }),
+          " ",
+          "border color utilities also set the text to the same tone through the matching ",
+          /* @__PURE__ */ jsx("code", { children: "--border-text-*" }),
+          " token. The ",
+          /* @__PURE__ */ jsx("code", { children: "before:" }),
+          " ",
+          "and ",
+          /* @__PURE__ */ jsx("code", { children: "after:" }),
+          " variants color their pseudo-element borders without changing the host element text."
+        ] }),
+        /* @__PURE__ */ jsx("div", { class: "border border-primary-lightest p-3", children: "Normal element keeps its inherited text color" }),
+        /* @__PURE__ */ jsx(
+          "button",
+          {
+            type: "button",
+            class: "border border-primary-lightest hover:border-primary-lighter focus:border-primary-light active:border-primary",
+            children: "Button text follows the border tone"
+          }
+        ),
+        /* @__PURE__ */ jsx(
+          "a",
+          {
+            href: "#border-color-utilities",
+            class: "inline border border-primary-lightest hover:border-primary-lighter focus:border-primary-light active:border-primary p-3",
+            "data-markdown": "exclude",
+            children: "Link text follows the border tone"
+          }
+        ),
+        /* @__PURE__ */ jsx(code_example_default, { code: borderColorExample })
       ] }),
       /* @__PURE__ */ jsxs(demo_section_default, { id: "color-buttons", title: "Buttons by color", children: [
         colors.map((color) => /* @__PURE__ */ jsx("button", { type: "button", class: `bg-${color}`, children: color })),
@@ -3380,7 +3497,7 @@ import "dragonglass/dist/themes/default.css";`;
       name: "border-{tone}{weight}",
       type: "Class token",
       defaultValue: "No border",
-      description: "Creates an outlined treatment with an optional light or dark weight."
+      description: "Applies a semantic tone to the button border and label, with an optional light or dark weight."
     },
     {
       name: "text-{size}",
@@ -3413,6 +3530,13 @@ import "dragonglass/dist/themes/default.css";`;
       /* @__PURE__ */ jsx(code_example_default, { code: tonesCode })
     ] }),
     /* @__PURE__ */ jsxs(demo_section_default, { id: "button-outlines", title: "Borders and focus outlines", children: [
+      /* @__PURE__ */ jsxs("p", { children: [
+        "Border color utilities also color the button label. See",
+        " ",
+        /* @__PURE__ */ jsx("a", { href: "/dragonglass/colors.html#border-color-utilities", children: "Border color utilities" }),
+        " ",
+        "for the shared token behavior, interactive variants and link example."
+      ] }),
       /* @__PURE__ */ jsx("button", { type: "button", class: "border-primary", children: "Primary outline" }),
       /* @__PURE__ */ jsx("button", { type: "button", class: "border-success-dark", children: "Success outline" }),
       /* @__PURE__ */ jsx("button", { type: "button", class: "border-danger-light", children: "Danger outline" }),
@@ -3466,6 +3590,7 @@ import "dragonglass/dist/themes/default.css";`;
   ] });
 
   // site/src/pages/links_page.tsx
+  var baseCode = `<p><a href="/dragonglass/">Read the getting started guide</a>.</p>`;
   var inlineCode = `<p>Read the <a data-link href="/dragonglass/layout.html">layout guide</a> before composing a page.</p>`;
   var standaloneCode = `<p>
   <a data-link="standalone" href="/dragonglass/app-components.html">View all components</a>
@@ -3507,6 +3632,20 @@ import "dragonglass/dist/themes/default.css";`;
     }
   ];
   var links_page_default = () => /* @__PURE__ */ jsxs(doc_page_default, { page: "Links", children: [
+    /* @__PURE__ */ jsxs(demo_section_default, { id: "link-base", title: "Base link", children: [
+      /* @__PURE__ */ jsxs("p", { children: [
+        "A plain anchor with an ",
+        /* @__PURE__ */ jsx("code", { children: "href" }),
+        " provides semantic navigation and standard browser link behavior. Use ",
+        /* @__PURE__ */ jsx("code", { children: "data-link" }),
+        " for the documented treatments below."
+      ] }),
+      /* @__PURE__ */ jsxs("p", { children: [
+        /* @__PURE__ */ jsx("a", { href: "/dragonglass/", "v-route": "/dragonglass/", children: "Read the getting started guide" }),
+        "."
+      ] }),
+      /* @__PURE__ */ jsx(code_example_default, { code: baseCode })
+    ] }),
     /* @__PURE__ */ jsxs(demo_section_default, { id: "link-inline", title: "Inline link", children: [
       /* @__PURE__ */ jsx("p", { children: "Inline links keep a visible underline so they remain identifiable inside surrounding copy." }),
       /* @__PURE__ */ jsxs("p", { children: [
@@ -4511,7 +4650,7 @@ import "dragonglass/dist/themes/default.css";`;
   </fieldset>
   <button type="submit">Find</button>
 </form>`;
-  var toolbarSearchCode = `<nav data-toolbar aria-label="Documentation tools">
+  var toolbarSearchCode = `<nav aria-label="Documentation tools">
   <search aria-label="Component filters">
     <form action="/dragonglass/forms.html">
       <fieldset>
@@ -4980,7 +5119,7 @@ import "dragonglass/dist/themes/default.css";`;
       ),
       /* @__PURE__ */ jsx(code_example_default, { code: searchFormCode }),
       /* @__PURE__ */ jsx("h3", { children: "Search inside a toolbar" }),
-      /* @__PURE__ */ jsx("nav", { "data-toolbar": true, "aria-label": "Documentation tools", children: /* @__PURE__ */ jsx("search", { "aria-label": "Component filters", children: /* @__PURE__ */ jsxs("form", { action: "/dragonglass/forms.html", children: [
+      /* @__PURE__ */ jsx("nav", { "aria-label": "Documentation tools", children: /* @__PURE__ */ jsx("search", { "aria-label": "Component filters", children: /* @__PURE__ */ jsxs("form", { action: "/dragonglass/forms.html", children: [
         /* @__PURE__ */ jsxs("fieldset", { children: [
           /* @__PURE__ */ jsx("label", { for: "filter-search", children: "Filter components" }),
           /* @__PURE__ */ jsx("input", { id: "filter-search", type: "search", name: "filter" })
@@ -5547,12 +5686,12 @@ import "dragonglass/dist/themes/default.css";`;
   ] });
 
   // site/src/pages/toolbars_page.tsx
-  var toolbarExample = `<nav data-toolbar aria-label="Editor actions">
+  var toolbarExample = `<nav aria-label="Editor actions">
   <button type="button">Save</button>
   <button type="button">Preview</button>
   <a href="/dragonglass/cards.html">Cards</a>
 </nav>`;
-  var filterToolbarExample = `<nav data-toolbar aria-label="Issue filters">
+  var filterToolbarExample = `<nav aria-label="Issue filters">
   <label data-chip>
     <input type="checkbox" checked> Open
   </label>
@@ -5563,20 +5702,27 @@ import "dragonglass/dist/themes/default.css";`;
 </nav>`;
   var containerToolbarsExample = `<header>
   <h3>Project settings</h3>
-  <nav data-toolbar aria-label="Project actions">
+  <nav aria-label="Project actions">
     <button type="button">Share</button>
     <button type="button">Export</button>
   </nav>
 </header>
 <footer>
-  <nav data-toolbar aria-label="Form actions">
+  <nav aria-label="Form actions">
     <button type="button">Cancel</button>
     <button type="submit">Save changes</button>
   </nav>
 </footer>`;
   var toolbars_page_default = () => /* @__PURE__ */ jsxs(doc_page_default, { page: "Toolbars", children: [
     /* @__PURE__ */ jsxs(demo_section_default, { id: "toolbar-actions-title", title: "Actions and links", children: [
-      /* @__PURE__ */ jsxs("nav", { "data-toolbar": true, "aria-label": "Editor actions", children: [
+      /* @__PURE__ */ jsxs("p", { children: [
+        "Every ",
+        /* @__PURE__ */ jsx("code", { children: "nav" }),
+        " provides a wrapping action row. Direct links and buttons share the same height, spacing, alignment, hover treatment and current-page state. Give each navigation region an accessible name, as these examples do with ",
+        /* @__PURE__ */ jsx("code", { children: "aria-label" }),
+        "."
+      ] }),
+      /* @__PURE__ */ jsxs("nav", { "aria-label": "Editor actions", children: [
         /* @__PURE__ */ jsx("button", { type: "button", children: "Save" }),
         /* @__PURE__ */ jsx("button", { type: "button", children: "Preview" }),
         /* @__PURE__ */ jsx("a", { href: "/dragonglass/cards.html", "v-route": "/dragonglass/cards.html", children: "Cards" })
@@ -5584,7 +5730,7 @@ import "dragonglass/dist/themes/default.css";`;
       /* @__PURE__ */ jsx(code_example_default, { code: toolbarExample })
     ] }),
     /* @__PURE__ */ jsxs(demo_section_default, { id: "toolbar-chips-title", title: "Filter chips", children: [
-      /* @__PURE__ */ jsxs("nav", { "data-toolbar": true, "aria-label": "Issue filters", children: [
+      /* @__PURE__ */ jsxs("nav", { "aria-label": "Issue filters", children: [
         /* @__PURE__ */ jsxs("label", { "data-chip": true, children: [
           /* @__PURE__ */ jsx("input", { type: "checkbox", checked: true }),
           " Open"
@@ -5606,16 +5752,16 @@ import "dragonglass/dist/themes/default.css";`;
           /* @__PURE__ */ jsxs("p", { children: [
             "A toolbar wraps by default. Inside a header or footer it uses",
             /* @__PURE__ */ jsx("code", { children: " flex-wrap: nowrap" }),
-            " and overflows when its actions exceed the available width."
+            ", removes its padding and divider, and overflows when its actions exceed the available width."
           ] }),
           /* @__PURE__ */ jsxs("header", { children: [
             /* @__PURE__ */ jsx("h3", { children: "Project settings" }),
-            /* @__PURE__ */ jsxs("nav", { "data-toolbar": true, "aria-label": "Project actions", children: [
+            /* @__PURE__ */ jsxs("nav", { "aria-label": "Project actions", children: [
               /* @__PURE__ */ jsx("button", { type: "button", children: "Share" }),
               /* @__PURE__ */ jsx("button", { type: "button", children: "Export" })
             ] })
           ] }),
-          /* @__PURE__ */ jsx("footer", { children: /* @__PURE__ */ jsxs("nav", { "data-toolbar": true, "aria-label": "Form actions", children: [
+          /* @__PURE__ */ jsx("footer", { children: /* @__PURE__ */ jsxs("nav", { "aria-label": "Form actions", children: [
             /* @__PURE__ */ jsx("button", { type: "button", children: "Cancel" }),
             /* @__PURE__ */ jsx("button", { type: "submit", children: "Save changes" })
           ] }) }),
@@ -5626,19 +5772,13 @@ import "dragonglass/dist/themes/default.css";`;
     /* @__PURE__ */ jsx(demo_section_default, { id: "toolbar-api-title", title: "API", children: /* @__PURE__ */ jsx(
       api_table_default,
       {
-        caption: "Toolbar elements, attributes, tokens and states",
+        caption: "Toolbar elements, tokens, contexts and overrides",
         rows: [
           {
             name: "nav",
             type: "Element",
             defaultValue: "Required",
-            description: "Provides the nav[data-toolbar] selector host."
-          },
-          {
-            name: "data-toolbar",
-            type: "Attribute",
-            defaultValue: "Required",
-            description: "Applies the flexible toolbar layout to a nav."
+            description: "Creates a wrapping action row with shared geometry and states for direct links and buttons."
           },
           {
             name: "--spacing-2 / --spacing-3",
@@ -5647,7 +5787,7 @@ import "dragonglass/dist/themes/default.css";`;
             description: "Control the gap and default toolbar padding."
           },
           {
-            name: "--border-size-1 / --default-light",
+            name: "--border-size-1 / --border-default",
             type: "Token",
             defaultValue: "Theme",
             description: "Control the toolbar divider."
@@ -5656,7 +5796,13 @@ import "dragonglass/dist/themes/default.css";`;
             name: "header or footer ancestor",
             type: "State",
             defaultValue: "Wrapping",
-            description: "Removes padding and divider and prevents wrapping."
+            description: "Prevents wrapping and removes the nav padding and divider."
+          },
+          {
+            name: "Specialized nav component",
+            type: "Override",
+            defaultValue: "Base nav presentation",
+            description: "Replaces the base presentation where a component such as breadcrumbs defines its own geometry and states."
           }
         ]
       }
@@ -5716,6 +5862,11 @@ import "dragonglass/dist/themes/default.css";`;
         ". Place each anchor directly inside the nav and mark the current location with",
         /* @__PURE__ */ jsx("code", { children: ' aria-current="page"' }),
         "."
+      ] }),
+      /* @__PURE__ */ jsxs("p", { children: [
+        "Breadcrumbs keep the wrapping behavior of the base ",
+        /* @__PURE__ */ jsx("code", { children: "nav" }),
+        " and replace its action geometry with compact segments, transparent surfaces and breadcrumb-specific current and hover states."
       ] }),
       /* @__PURE__ */ jsxs("nav", { "data-breadcrumb": true, "aria-label": "Breadcrumb", children: [
         /* @__PURE__ */ jsx(

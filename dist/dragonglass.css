@@ -233,60 +233,51 @@ hr:after, hr::before {
 }
 
 /*** Containers ***/
-:where(body, main, article, dialog, [data-card]) {
+:where(body, main, article, dialog, [data-card], [data-layout]) {
   display: flex;
   flex-direction: column;
   min-width: 0;
+  overflow: hidden;
+}
+:where(body, main, article, dialog, [data-card], [data-layout]) > * {
+  flex: 1 1 auto;
+}
+:where(body, main, article, dialog, [data-card], [data-layout]) > section {
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  padding: var(--container-padding);
+}
+:where(body, main, article, dialog, [data-card], [data-layout]) > header,
+:where(body, main, article, dialog, [data-card], [data-layout]) > footer {
+  flex: 0 0 auto;
+  height: auto;
+  min-height: 3.5rem;
+  padding: 1rem;
+}
+:where(body, main, article, dialog, [data-card], [data-layout]) > footer > nav {
+  margin: 0;
 }
 
 :where(body, main) {
   min-height: 0;
 }
 
-body {
-  overflow: hidden;
-}
-
 body > :where(main, article, section) {
-  flex: 1 1 auto;
   min-height: 0;
 }
 
 body > :where(main, article) {
   width: 100%;
   height: 100%;
-  overflow: auto;
 }
 
-body > section {
-  overflow: auto;
-  padding: var(--container-padding);
-}
-
-:where(body, main, article, dialog, [data-card]) > header,
-:where(body, main, article, dialog, [data-card]) > footer {
-  flex: 0 0 auto;
-}
-
-:where(main) > section {
-  flex: 1 1 auto;
-  min-width: 0;
+body > main > article {
   min-height: 0;
   padding: var(--container-padding);
-}
-
-body > main > section,
-body > main > article,
-body > article > section {
-  flex: 1 1 auto;
-  min-height: 0;
-  overflow: auto;
-  padding: var(--container-padding);
-  display: block;
 }
 
 :where(article, dialog, [data-card]) > section {
-  min-width: 0;
   padding: var(--card-padding);
 }
 
@@ -969,38 +960,6 @@ progress[data-progress~=spinner]::-moz-progress-bar {
     transform: rotate(1turn);
   }
 }
-/*** Toolbars ***/
-nav[data-toolbar] {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--spacing-2);
-  padding: var(--spacing-3);
-  border-bottom: var(--border-size-1) solid var(--border-default);
-}
-
-nav[data-toolbar] > button,
-nav[data-toolbar] > a,
-nav[data-toolbar] > [data-chip] {
-  margin: 0;
-}
-
-header > nav[data-toolbar],
-footer > nav[data-toolbar],
-header nav[data-toolbar],
-footer nav[data-toolbar] {
-  flex-wrap: nowrap;
-  padding: 0;
-  border-bottom: 0;
-}
-
-header nav[data-toolbar] > button,
-footer nav[data-toolbar] > button,
-header nav[data-toolbar] > a,
-footer nav[data-toolbar] > a {
-  margin-bottom: 0;
-}
-
 /*** Search ***/
 search,
 form[role=search] {
@@ -1291,7 +1250,10 @@ input[type=submit],
   transition: box-shadow var(--motion-duration-fast) var(--motion-easing-standard), opacity var(--motion-duration-fast) var(--motion-easing-standard);
   width: auto;
 }
-button:disabled, button[disabled], button[aria-disabled=true],
+
+button:disabled,
+button[disabled],
+button[aria-disabled=true],
 [data-button]:disabled,
 input[type=submit]:disabled,
 [data-trigger] > summary:disabled,
@@ -1300,7 +1262,8 @@ input[disabled][type=submit],
 [data-trigger] > summary[disabled],
 [data-button][aria-disabled=true],
 input[aria-disabled=true][type=submit],
-[data-trigger] > summary[aria-disabled=true] {
+[data-trigger] > summary[aria-disabled=true],
+a[aria-disabled=true] {
   opacity: var(--button-disabled-opacity);
   cursor: not-allowed;
   pointer-events: none;
@@ -1378,11 +1341,66 @@ a[data-link~=quiet]:hover, a[data-link~=quiet]:focus-visible {
   color: var(--text-primary);
 }
 
-/*** Breadcrumbs ***/
-:where(nav[data-breadcrumb]) > :is(a, button) {
+/*** Toolbars ***/
+nav {
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--spacing-2);
+  padding: var(--spacing-3);
+  border-bottom: var(--border-size-1) solid var(--border-default);
+  overflow: visible;
   color: inherit;
 }
 
+nav > :where(a, button) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.25rem;
+  margin: 0;
+  padding: 0 var(--spacing-3);
+  border-radius: 0.25rem;
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color var(--motion-duration-fast) var(--motion-easing-standard), color var(--motion-duration-fast) var(--motion-easing-standard);
+}
+nav > :where(a, button):hover {
+  background-color: var(--surface-muted);
+  color: var(--text-primary);
+}
+nav > :where(a, button)[aria-current=page] {
+  background-color: var(--surface-selected);
+  color: var(--surface-selected-text);
+}
+
+nav > [data-chip] {
+  margin: 0;
+}
+
+:where(header, footer) nav {
+  flex-wrap: nowrap;
+  padding: 0;
+  border-bottom: 0;
+}
+
+nav > [data-button~=fab] {
+  position: relative;
+  inset: auto;
+  display: inline-block;
+  box-shadow: none;
+  vertical-align: middle;
+  font-size: 1em;
+}
+
+/*** Breadcrumbs ***/
 nav[data-breadcrumb] {
   display: flex;
   flex-wrap: wrap;
@@ -1393,7 +1411,11 @@ nav[data-breadcrumb] > :is(a, button) {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-2);
+  min-height: auto;
   padding: var(--spacing-1);
+  border-radius: 0;
+  background-color: transparent;
+  color: inherit;
   line-height: inherit;
 }
 nav[data-breadcrumb] > :is(a, button) + :is(a, button)::before {
@@ -1505,16 +1527,12 @@ footer {
   align-items: stretch;
   overflow: hidden;
   overflow: visible;
-  height: 3.5rem;
+  height: auto;
+  min-height: 3.5rem;
   padding: 1rem;
-}
-header > nav:first-child,
-footer > nav:first-child {
-  margin-left: -1rem;
 }
 header > nav:last-child,
 footer > nav:last-child {
-  margin-right: -1rem;
   justify-content: flex-end;
   flex: 1;
 }
@@ -1538,67 +1556,32 @@ footer > h3 {
   font-size: 1rem;
 }
 
-:where(body, main, article, dialog, [data-card], section) > footer:last-child {
+header > nav:first-child {
+  margin-left: -1rem;
+}
+
+header > nav:last-child {
+  margin-right: -1rem;
+}
+
+footer > nav {
+  margin: 0;
+}
+
+:where(body, main, article, dialog, [data-card], [data-layout], section) > footer:last-child {
   border-top: 0.06em solid var(--border-subtle);
 }
 
-:where(body, main, article, dialog, [data-card], section) > footer:first-child {
+:where(body, main, article, dialog, [data-card], [data-layout], section) > footer:first-child {
   border-top: none;
 }
 
-:where(body, main, article, dialog, [data-card], section) > header:first-child {
+:where(body, main, article, dialog, [data-card], [data-layout], section) > header:first-child {
   border-bottom: 0.06em solid var(--border-subtle);
 }
 
-:where(body, main, article, dialog, [data-card], section) > header:last-child {
+:where(body, main, article, dialog, [data-card], [data-layout], section) > header:last-child {
   border-bottom: none;
-}
-
-nav[data-toolbar] {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  gap: var(--spacing-1);
-  padding: var(--spacing-1);
-  flex: 0 1 auto;
-  overflow: visible;
-  color: inherit;
-}
-nav[data-toolbar] :where(a, button) {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 2.25rem;
-  padding: 0 var(--spacing-3);
-  border-radius: 0.25rem;
-  font-size: 1em;
-  font-weight: 500;
-  line-height: 1;
-  text-align: center;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: background-color var(--motion-duration-fast) var(--motion-easing-standard), color var(--motion-duration-fast) var(--motion-easing-standard);
-}
-nav[data-toolbar] :where(a, button):hover {
-  background-color: var(--surface-muted);
-  color: var(--text-primary);
-}
-nav[data-toolbar] :where(a, button)[aria-current=page] {
-  background-color: var(--surface-selected);
-  color: var(--surface-selected-text);
-}
-nav[data-toolbar] > [data-button~=fab] {
-  box-shadow: none;
-  position: relative;
-  display: inline-block;
-  top: auto;
-  left: auto;
-  right: auto;
-  bottom: auto;
-  vertical-align: middle;
-  font-size: 1em;
 }
 
 body > header,
@@ -1607,15 +1590,15 @@ body > footer {
   color: var(--text-primary);
 }
 
-:where(body, main, article, dialog, [data-card]) > :is(main, section, article) {
+:where(body, main, article, dialog, [data-card], [data-layout]) > :is(main, section, article) {
   z-index: 1;
 }
 
-:where(body, main, article, dialog, [data-card]) > header {
+:where(body, main, article, dialog, [data-card], [data-layout]) > header {
   z-index: 3;
 }
 
-:where(body, main, article, dialog, [data-card]) > footer {
+:where(body, main, article, dialog, [data-card], [data-layout]) > footer {
   z-index: 2;
 }
 
@@ -3723,6 +3706,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-primary-lightest::before,
 .border-primary-lightest {
   border-color: var(--primary-lightest);
+}
+
+:where(button, a).focus\:border-primary-lightest:focus,
+:where(button, a).active\:border-primary-lightest:active,
+:where(button, a).hover\:border-primary-lightest:hover,
+:where(button, a).border-primary-lightest {
   color: var(--border-text-primary-lightest);
 }
 
@@ -3761,6 +3750,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-primary-lighter::before,
 .border-primary-lighter {
   border-color: var(--primary-lighter);
+}
+
+:where(button, a).focus\:border-primary-lighter:focus,
+:where(button, a).active\:border-primary-lighter:active,
+:where(button, a).hover\:border-primary-lighter:hover,
+:where(button, a).border-primary-lighter {
   color: var(--border-text-primary-lighter);
 }
 
@@ -3799,6 +3794,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-primary-light::before,
 .border-primary-light {
   border-color: var(--primary-light);
+}
+
+:where(button, a).focus\:border-primary-light:focus,
+:where(button, a).active\:border-primary-light:active,
+:where(button, a).hover\:border-primary-light:hover,
+:where(button, a).border-primary-light {
   color: var(--border-text-primary-light);
 }
 
@@ -3837,6 +3838,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-primary::before,
 .border-primary {
   border-color: var(--primary);
+}
+
+:where(button, a).focus\:border-primary:focus,
+:where(button, a).active\:border-primary:active,
+:where(button, a).hover\:border-primary:hover,
+:where(button, a).border-primary {
   color: var(--border-text-primary);
 }
 
@@ -3875,6 +3882,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-primary-dark::before,
 .border-primary-dark {
   border-color: var(--primary-dark);
+}
+
+:where(button, a).focus\:border-primary-dark:focus,
+:where(button, a).active\:border-primary-dark:active,
+:where(button, a).hover\:border-primary-dark:hover,
+:where(button, a).border-primary-dark {
   color: var(--border-text-primary-dark);
 }
 
@@ -3913,6 +3926,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-primary-darker::before,
 .border-primary-darker {
   border-color: var(--primary-darker);
+}
+
+:where(button, a).focus\:border-primary-darker:focus,
+:where(button, a).active\:border-primary-darker:active,
+:where(button, a).hover\:border-primary-darker:hover,
+:where(button, a).border-primary-darker {
   color: var(--border-text-primary-darker);
 }
 
@@ -3951,6 +3970,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-primary-darkest::before,
 .border-primary-darkest {
   border-color: var(--primary-darkest);
+}
+
+:where(button, a).focus\:border-primary-darkest:focus,
+:where(button, a).active\:border-primary-darkest:active,
+:where(button, a).hover\:border-primary-darkest:hover,
+:where(button, a).border-primary-darkest {
   color: var(--border-text-primary-darkest);
 }
 
@@ -3989,6 +4014,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-accent-lightest::before,
 .border-accent-lightest {
   border-color: var(--accent-lightest);
+}
+
+:where(button, a).focus\:border-accent-lightest:focus,
+:where(button, a).active\:border-accent-lightest:active,
+:where(button, a).hover\:border-accent-lightest:hover,
+:where(button, a).border-accent-lightest {
   color: var(--border-text-accent-lightest);
 }
 
@@ -4027,6 +4058,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-accent-lighter::before,
 .border-accent-lighter {
   border-color: var(--accent-lighter);
+}
+
+:where(button, a).focus\:border-accent-lighter:focus,
+:where(button, a).active\:border-accent-lighter:active,
+:where(button, a).hover\:border-accent-lighter:hover,
+:where(button, a).border-accent-lighter {
   color: var(--border-text-accent-lighter);
 }
 
@@ -4065,6 +4102,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-accent-light::before,
 .border-accent-light {
   border-color: var(--accent-light);
+}
+
+:where(button, a).focus\:border-accent-light:focus,
+:where(button, a).active\:border-accent-light:active,
+:where(button, a).hover\:border-accent-light:hover,
+:where(button, a).border-accent-light {
   color: var(--border-text-accent-light);
 }
 
@@ -4103,6 +4146,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-accent::before,
 .border-accent {
   border-color: var(--accent);
+}
+
+:where(button, a).focus\:border-accent:focus,
+:where(button, a).active\:border-accent:active,
+:where(button, a).hover\:border-accent:hover,
+:where(button, a).border-accent {
   color: var(--border-text-accent);
 }
 
@@ -4141,6 +4190,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-accent-dark::before,
 .border-accent-dark {
   border-color: var(--accent-dark);
+}
+
+:where(button, a).focus\:border-accent-dark:focus,
+:where(button, a).active\:border-accent-dark:active,
+:where(button, a).hover\:border-accent-dark:hover,
+:where(button, a).border-accent-dark {
   color: var(--border-text-accent-dark);
 }
 
@@ -4179,6 +4234,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-accent-darker::before,
 .border-accent-darker {
   border-color: var(--accent-darker);
+}
+
+:where(button, a).focus\:border-accent-darker:focus,
+:where(button, a).active\:border-accent-darker:active,
+:where(button, a).hover\:border-accent-darker:hover,
+:where(button, a).border-accent-darker {
   color: var(--border-text-accent-darker);
 }
 
@@ -4217,6 +4278,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-accent-darkest::before,
 .border-accent-darkest {
   border-color: var(--accent-darkest);
+}
+
+:where(button, a).focus\:border-accent-darkest:focus,
+:where(button, a).active\:border-accent-darkest:active,
+:where(button, a).hover\:border-accent-darkest:hover,
+:where(button, a).border-accent-darkest {
   color: var(--border-text-accent-darkest);
 }
 
@@ -4255,6 +4322,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-success-lightest::before,
 .border-success-lightest {
   border-color: var(--success-lightest);
+}
+
+:where(button, a).focus\:border-success-lightest:focus,
+:where(button, a).active\:border-success-lightest:active,
+:where(button, a).hover\:border-success-lightest:hover,
+:where(button, a).border-success-lightest {
   color: var(--border-text-success-lightest);
 }
 
@@ -4293,6 +4366,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-success-lighter::before,
 .border-success-lighter {
   border-color: var(--success-lighter);
+}
+
+:where(button, a).focus\:border-success-lighter:focus,
+:where(button, a).active\:border-success-lighter:active,
+:where(button, a).hover\:border-success-lighter:hover,
+:where(button, a).border-success-lighter {
   color: var(--border-text-success-lighter);
 }
 
@@ -4331,6 +4410,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-success-light::before,
 .border-success-light {
   border-color: var(--success-light);
+}
+
+:where(button, a).focus\:border-success-light:focus,
+:where(button, a).active\:border-success-light:active,
+:where(button, a).hover\:border-success-light:hover,
+:where(button, a).border-success-light {
   color: var(--border-text-success-light);
 }
 
@@ -4369,6 +4454,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-success::before,
 .border-success {
   border-color: var(--success);
+}
+
+:where(button, a).focus\:border-success:focus,
+:where(button, a).active\:border-success:active,
+:where(button, a).hover\:border-success:hover,
+:where(button, a).border-success {
   color: var(--border-text-success);
 }
 
@@ -4407,6 +4498,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-success-dark::before,
 .border-success-dark {
   border-color: var(--success-dark);
+}
+
+:where(button, a).focus\:border-success-dark:focus,
+:where(button, a).active\:border-success-dark:active,
+:where(button, a).hover\:border-success-dark:hover,
+:where(button, a).border-success-dark {
   color: var(--border-text-success-dark);
 }
 
@@ -4445,6 +4542,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-success-darker::before,
 .border-success-darker {
   border-color: var(--success-darker);
+}
+
+:where(button, a).focus\:border-success-darker:focus,
+:where(button, a).active\:border-success-darker:active,
+:where(button, a).hover\:border-success-darker:hover,
+:where(button, a).border-success-darker {
   color: var(--border-text-success-darker);
 }
 
@@ -4483,6 +4586,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-success-darkest::before,
 .border-success-darkest {
   border-color: var(--success-darkest);
+}
+
+:where(button, a).focus\:border-success-darkest:focus,
+:where(button, a).active\:border-success-darkest:active,
+:where(button, a).hover\:border-success-darkest:hover,
+:where(button, a).border-success-darkest {
   color: var(--border-text-success-darkest);
 }
 
@@ -4521,6 +4630,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-info-lightest::before,
 .border-info-lightest {
   border-color: var(--info-lightest);
+}
+
+:where(button, a).focus\:border-info-lightest:focus,
+:where(button, a).active\:border-info-lightest:active,
+:where(button, a).hover\:border-info-lightest:hover,
+:where(button, a).border-info-lightest {
   color: var(--border-text-info-lightest);
 }
 
@@ -4559,6 +4674,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-info-lighter::before,
 .border-info-lighter {
   border-color: var(--info-lighter);
+}
+
+:where(button, a).focus\:border-info-lighter:focus,
+:where(button, a).active\:border-info-lighter:active,
+:where(button, a).hover\:border-info-lighter:hover,
+:where(button, a).border-info-lighter {
   color: var(--border-text-info-lighter);
 }
 
@@ -4597,6 +4718,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-info-light::before,
 .border-info-light {
   border-color: var(--info-light);
+}
+
+:where(button, a).focus\:border-info-light:focus,
+:where(button, a).active\:border-info-light:active,
+:where(button, a).hover\:border-info-light:hover,
+:where(button, a).border-info-light {
   color: var(--border-text-info-light);
 }
 
@@ -4635,6 +4762,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-info::before,
 .border-info {
   border-color: var(--info);
+}
+
+:where(button, a).focus\:border-info:focus,
+:where(button, a).active\:border-info:active,
+:where(button, a).hover\:border-info:hover,
+:where(button, a).border-info {
   color: var(--border-text-info);
 }
 
@@ -4673,6 +4806,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-info-dark::before,
 .border-info-dark {
   border-color: var(--info-dark);
+}
+
+:where(button, a).focus\:border-info-dark:focus,
+:where(button, a).active\:border-info-dark:active,
+:where(button, a).hover\:border-info-dark:hover,
+:where(button, a).border-info-dark {
   color: var(--border-text-info-dark);
 }
 
@@ -4711,6 +4850,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-info-darker::before,
 .border-info-darker {
   border-color: var(--info-darker);
+}
+
+:where(button, a).focus\:border-info-darker:focus,
+:where(button, a).active\:border-info-darker:active,
+:where(button, a).hover\:border-info-darker:hover,
+:where(button, a).border-info-darker {
   color: var(--border-text-info-darker);
 }
 
@@ -4749,6 +4894,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-info-darkest::before,
 .border-info-darkest {
   border-color: var(--info-darkest);
+}
+
+:where(button, a).focus\:border-info-darkest:focus,
+:where(button, a).active\:border-info-darkest:active,
+:where(button, a).hover\:border-info-darkest:hover,
+:where(button, a).border-info-darkest {
   color: var(--border-text-info-darkest);
 }
 
@@ -4787,6 +4938,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-warning-lightest::before,
 .border-warning-lightest {
   border-color: var(--warning-lightest);
+}
+
+:where(button, a).focus\:border-warning-lightest:focus,
+:where(button, a).active\:border-warning-lightest:active,
+:where(button, a).hover\:border-warning-lightest:hover,
+:where(button, a).border-warning-lightest {
   color: var(--border-text-warning-lightest);
 }
 
@@ -4825,6 +4982,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-warning-lighter::before,
 .border-warning-lighter {
   border-color: var(--warning-lighter);
+}
+
+:where(button, a).focus\:border-warning-lighter:focus,
+:where(button, a).active\:border-warning-lighter:active,
+:where(button, a).hover\:border-warning-lighter:hover,
+:where(button, a).border-warning-lighter {
   color: var(--border-text-warning-lighter);
 }
 
@@ -4863,6 +5026,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-warning-light::before,
 .border-warning-light {
   border-color: var(--warning-light);
+}
+
+:where(button, a).focus\:border-warning-light:focus,
+:where(button, a).active\:border-warning-light:active,
+:where(button, a).hover\:border-warning-light:hover,
+:where(button, a).border-warning-light {
   color: var(--border-text-warning-light);
 }
 
@@ -4901,6 +5070,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-warning::before,
 .border-warning {
   border-color: var(--warning);
+}
+
+:where(button, a).focus\:border-warning:focus,
+:where(button, a).active\:border-warning:active,
+:where(button, a).hover\:border-warning:hover,
+:where(button, a).border-warning {
   color: var(--border-text-warning);
 }
 
@@ -4939,6 +5114,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-warning-dark::before,
 .border-warning-dark {
   border-color: var(--warning-dark);
+}
+
+:where(button, a).focus\:border-warning-dark:focus,
+:where(button, a).active\:border-warning-dark:active,
+:where(button, a).hover\:border-warning-dark:hover,
+:where(button, a).border-warning-dark {
   color: var(--border-text-warning-dark);
 }
 
@@ -4977,6 +5158,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-warning-darker::before,
 .border-warning-darker {
   border-color: var(--warning-darker);
+}
+
+:where(button, a).focus\:border-warning-darker:focus,
+:where(button, a).active\:border-warning-darker:active,
+:where(button, a).hover\:border-warning-darker:hover,
+:where(button, a).border-warning-darker {
   color: var(--border-text-warning-darker);
 }
 
@@ -5015,6 +5202,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-warning-darkest::before,
 .border-warning-darkest {
   border-color: var(--warning-darkest);
+}
+
+:where(button, a).focus\:border-warning-darkest:focus,
+:where(button, a).active\:border-warning-darkest:active,
+:where(button, a).hover\:border-warning-darkest:hover,
+:where(button, a).border-warning-darkest {
   color: var(--border-text-warning-darkest);
 }
 
@@ -5053,6 +5246,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-danger-lightest::before,
 .border-danger-lightest {
   border-color: var(--danger-lightest);
+}
+
+:where(button, a).focus\:border-danger-lightest:focus,
+:where(button, a).active\:border-danger-lightest:active,
+:where(button, a).hover\:border-danger-lightest:hover,
+:where(button, a).border-danger-lightest {
   color: var(--border-text-danger-lightest);
 }
 
@@ -5091,6 +5290,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-danger-lighter::before,
 .border-danger-lighter {
   border-color: var(--danger-lighter);
+}
+
+:where(button, a).focus\:border-danger-lighter:focus,
+:where(button, a).active\:border-danger-lighter:active,
+:where(button, a).hover\:border-danger-lighter:hover,
+:where(button, a).border-danger-lighter {
   color: var(--border-text-danger-lighter);
 }
 
@@ -5129,6 +5334,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-danger-light::before,
 .border-danger-light {
   border-color: var(--danger-light);
+}
+
+:where(button, a).focus\:border-danger-light:focus,
+:where(button, a).active\:border-danger-light:active,
+:where(button, a).hover\:border-danger-light:hover,
+:where(button, a).border-danger-light {
   color: var(--border-text-danger-light);
 }
 
@@ -5167,6 +5378,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-danger::before,
 .border-danger {
   border-color: var(--danger);
+}
+
+:where(button, a).focus\:border-danger:focus,
+:where(button, a).active\:border-danger:active,
+:where(button, a).hover\:border-danger:hover,
+:where(button, a).border-danger {
   color: var(--border-text-danger);
 }
 
@@ -5205,6 +5422,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-danger-dark::before,
 .border-danger-dark {
   border-color: var(--danger-dark);
+}
+
+:where(button, a).focus\:border-danger-dark:focus,
+:where(button, a).active\:border-danger-dark:active,
+:where(button, a).hover\:border-danger-dark:hover,
+:where(button, a).border-danger-dark {
   color: var(--border-text-danger-dark);
 }
 
@@ -5243,6 +5466,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-danger-darker::before,
 .border-danger-darker {
   border-color: var(--danger-darker);
+}
+
+:where(button, a).focus\:border-danger-darker:focus,
+:where(button, a).active\:border-danger-darker:active,
+:where(button, a).hover\:border-danger-darker:hover,
+:where(button, a).border-danger-darker {
   color: var(--border-text-danger-darker);
 }
 
@@ -5281,6 +5510,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-danger-darkest::before,
 .border-danger-darkest {
   border-color: var(--danger-darkest);
+}
+
+:where(button, a).focus\:border-danger-darkest:focus,
+:where(button, a).active\:border-danger-darkest:active,
+:where(button, a).hover\:border-danger-darkest:hover,
+:where(button, a).border-danger-darkest {
   color: var(--border-text-danger-darkest);
 }
 
@@ -5319,6 +5554,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-default-lightest::before,
 .border-default-lightest {
   border-color: var(--default-lightest);
+}
+
+:where(button, a).focus\:border-default-lightest:focus,
+:where(button, a).active\:border-default-lightest:active,
+:where(button, a).hover\:border-default-lightest:hover,
+:where(button, a).border-default-lightest {
   color: var(--border-text-default-lightest);
 }
 
@@ -5357,6 +5598,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-default-lighter::before,
 .border-default-lighter {
   border-color: var(--default-lighter);
+}
+
+:where(button, a).focus\:border-default-lighter:focus,
+:where(button, a).active\:border-default-lighter:active,
+:where(button, a).hover\:border-default-lighter:hover,
+:where(button, a).border-default-lighter {
   color: var(--border-text-default-lighter);
 }
 
@@ -5395,6 +5642,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-default-light::before,
 .border-default-light {
   border-color: var(--default-light);
+}
+
+:where(button, a).focus\:border-default-light:focus,
+:where(button, a).active\:border-default-light:active,
+:where(button, a).hover\:border-default-light:hover,
+:where(button, a).border-default-light {
   color: var(--border-text-default-light);
 }
 
@@ -5433,6 +5686,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-default::before,
 .border-default {
   border-color: var(--default);
+}
+
+:where(button, a).focus\:border-default:focus,
+:where(button, a).active\:border-default:active,
+:where(button, a).hover\:border-default:hover,
+:where(button, a).border-default {
   color: var(--border-text-default);
 }
 
@@ -5471,6 +5730,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-default-dark::before,
 .border-default-dark {
   border-color: var(--default-dark);
+}
+
+:where(button, a).focus\:border-default-dark:focus,
+:where(button, a).active\:border-default-dark:active,
+:where(button, a).hover\:border-default-dark:hover,
+:where(button, a).border-default-dark {
   color: var(--border-text-default-dark);
 }
 
@@ -5509,6 +5774,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-default-darker::before,
 .border-default-darker {
   border-color: var(--default-darker);
+}
+
+:where(button, a).focus\:border-default-darker:focus,
+:where(button, a).active\:border-default-darker:active,
+:where(button, a).hover\:border-default-darker:hover,
+:where(button, a).border-default-darker {
   color: var(--border-text-default-darker);
 }
 
@@ -5547,6 +5818,12 @@ details[data-trigger][open]:has(> summary:focus-visible) > aside[data-drawer] {
 .before\:border-default-darkest::before,
 .border-default-darkest {
   border-color: var(--default-darkest);
+}
+
+:where(button, a).focus\:border-default-darkest:focus,
+:where(button, a).active\:border-default-darkest:active,
+:where(button, a).hover\:border-default-darkest:hover,
+:where(button, a).border-default-darkest {
   color: var(--border-text-default-darkest);
 }
 

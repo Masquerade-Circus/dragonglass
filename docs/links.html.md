@@ -1,6 +1,16 @@
 # Links
 
-Inline, standalone and quiet link treatments for navigation and supporting actions.
+Base anchors and data-link treatments for navigation and supporting actions.
+
+## Base link
+
+A plain anchor with an `href` provides semantic navigation and standard browser link behavior. Use `data-link` for the documented treatments below.
+
+[Read the getting started guide](/dragonglass/).
+
+```html
+<p><a href="/dragonglass/">Read the getting started guide</a>.</p>
+```
 
 ## Inline link
 

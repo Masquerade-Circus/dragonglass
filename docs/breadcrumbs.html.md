@@ -6,6 +6,8 @@ Wrapping breadcrumb trails built from direct link and button children.
 
 Add `data-breadcrumb` to a labeled `nav`. Place each anchor directly inside the nav and mark the current location with `aria-current="page"`.
 
+Breadcrumbs keep the wrapping behavior of the base `nav` and replace its action geometry with compact segments, transparent surfaces and breadcrumb-specific current and hover states.
+
 ```html
 <nav data-breadcrumb aria-label="Breadcrumb">
   <a href="/dragonglass/app-components.html">Components</a>

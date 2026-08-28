@@ -19,13 +19,13 @@ const DrawerLink = ({
   label,
   icon,
   color,
-  currentPath,
+  currentPath
 }: DrawerLinkProps) => {
   const content = [
     <i class={`material-icons ${color}`} aria-hidden="true">
       {icon}
     </i>,
-    label,
+    label
   ];
 
   if (currentPath === path) {
@@ -81,7 +81,9 @@ const Layout: any = (props: LayoutProps, ...content: any[]) => (
   <>
     <Header currentPath={props.currentPath} />
     <main id="main-content" tabindex="-1">
-      <section class={props.contentClass ?? "container"}>{content}</section>
+      <section class={props.contentClass ?? ""}>
+        <section class="container">{content}</section>
+      </section>
     </main>
     <footer data-markdown="exclude">
       <small>Dragonglass v{version}</small>

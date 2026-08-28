@@ -9,7 +9,7 @@ After choosing a component, open the [utility reference](/dragonglass/utilities.
 ## Actions
 
 - [Buttons](/dragonglass/buttons.html.md) Base button styles, semantic color utilities and FAB variants.
-- [Links](/dragonglass/links.html.md) Inline, standalone and quiet link treatments for navigation and supporting actions.
+- [Links](/dragonglass/links.html.md) Base anchors and data-link treatments for navigation and supporting actions.
 - [Chips](/dragonglass/chips.html.md) Chip tones and checked, pressed and current visual states.
 
 ## Forms
@@ -19,7 +19,7 @@ After choosing a component, open the [utility reference](/dragonglass/utilities.
 ## Navigation
 
 - [Breadcrumbs](/dragonglass/breadcrumbs.html.md) Wrapping breadcrumb trails built from direct link and button children.
-- [Toolbars](/dragonglass/toolbars.html.md) Wrapping nav[data-toolbar] rows and container variants.
+- [Toolbars](/dragonglass/toolbars.html.md) Wrapping nav action rows and compact container variants.
 - [Tabs](/dragonglass/tabs.html.md) Grouped details layout selected by data-tabs.
 - [Menus](/dragonglass/menus.html.md) Positioned menus inside details[data-trigger].
 - [Expansion panels](/dragonglass/expansion-panels.html.md) Full-width details panels with a generated open-state marker.

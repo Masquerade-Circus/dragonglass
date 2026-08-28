@@ -3,6 +3,8 @@ import CodeExample from "../docs/code_example";
 import DemoSection from "../docs/demo_section";
 import DocPage from "../docs/doc_page";
 
+const baseCode = `<p><a href="/dragonglass/">Read the getting started guide</a>.</p>`;
+
 const inlineCode = `<p>Read the <a data-link href="/dragonglass/layout.html">layout guide</a> before composing a page.</p>`;
 
 const standaloneCode = `<p>
@@ -53,6 +55,21 @@ const apiRows = [
 
 export default () => (
   <DocPage page="Links">
+    <DemoSection id="link-base" title="Base link">
+      <p>
+        A plain anchor with an <code>href</code> provides semantic navigation
+        and standard browser link behavior. Use <code>data-link</code> for the
+        documented treatments below.
+      </p>
+      <p>
+        <a href="/dragonglass/" v-route="/dragonglass/">
+          Read the getting started guide
+        </a>
+        .
+      </p>
+      <CodeExample code={baseCode} />
+    </DemoSection>
+
     <DemoSection id="link-inline" title="Inline link">
       <p>
         Inline links keep a visible underline so they remain identifiable inside

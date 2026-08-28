@@ -29,6 +29,21 @@ const paletteExample = `<div class="bg-primary p-3">Primary background</div>
 const transparentBackgroundExample = `<div class="bg-transparent p-3">Transparent background</div>
 <div class="bg-scrim text-white p-3">Scrim background</div>
 <div class="bg-media-scrim text-white p-3">Media scrim background</div>`;
+const borderColorExample = `<div class="border border-primary-lightest p-3">
+  Normal element keeps its inherited text color
+</div>
+<button
+  type="button"
+  class="border border-primary-lightest hover:border-primary-lighter focus:border-primary-light active:border-primary"
+>
+  Button text follows the border tone
+</button>
+<a
+  href="#border-color-utilities"
+  class="inline border border-primary-lightest hover:border-primary-lighter focus:border-primary-light active:border-primary p-3"
+>
+  Link text follows the border tone
+</a>`;
 const stateExample = `<button type="button" class="bg-primary-dark hover:bg-primary active:bg-primary-light">Background states</button>
 <input aria-label="Color focus example" class="p-3 text-primary-dark focus:text-primary" value="Focus this field">`;
 const buttonExample = colors
@@ -154,6 +169,39 @@ const ColorsPage = ({
         <div class="bg-scrim text-white p-3">Scrim background</div>
         <div class="bg-media-scrim text-white p-3">Media scrim background</div>
         <CodeExample code={transparentBackgroundExample} />
+      </DemoSection>
+
+      <DemoSection id="border-color-utilities" title="Border color utilities">
+        <p>
+          On a normal element, a semantic <code>border-*</code> utility changes
+          only <code>border-color</code>. Pair it with <code>border</code> to
+          add the width and solid style that make the border visible.
+        </p>
+        <p>
+          On <code>button</code> and <code>a</code> elements, the base,{" "}
+          <code>hover:</code>, <code>focus:</code> and <code>active:</code>{" "}
+          border color utilities also set the text to the same tone through the
+          matching <code>--border-text-*</code> token. The <code>before:</code>{" "}
+          and <code>after:</code> variants color their pseudo-element borders
+          without changing the host element text.
+        </p>
+        <div class="border border-primary-lightest p-3">
+          Normal element keeps its inherited text color
+        </div>
+        <button
+          type="button"
+          class="border border-primary-lightest hover:border-primary-lighter focus:border-primary-light active:border-primary"
+        >
+          Button text follows the border tone
+        </button>
+        <a
+          href="#border-color-utilities"
+          class="inline border border-primary-lightest hover:border-primary-lighter focus:border-primary-light active:border-primary p-3"
+          data-markdown="exclude"
+        >
+          Link text follows the border tone
+        </a>
+        <CodeExample code={borderColorExample} />
       </DemoSection>
 
       <DemoSection id="color-buttons" title="Buttons by color">

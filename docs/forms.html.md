@@ -227,7 +227,7 @@ Field, floating-label, validation-state and toggle selectors.
 ### Search inside a toolbar
 
 ```html
-<nav data-toolbar aria-label="Documentation tools">
+<nav aria-label="Documentation tools">
   <search aria-label="Component filters">
     <form action="/dragonglass/forms.html">
       <fieldset>

@@ -24,6 +24,8 @@ Base button styles, semantic color utilities and FAB variants.
 
 ## Borders and focus outlines
 
+Border color utilities also color the button label. See [Border color utilities](/dragonglass/colors.html#border-color-utilities) for the shared token behavior, interactive variants and link example.
+
 ```html
 <button type="button" class="border-primary">Primary outline</button>
 <button type="button" class="border-success-dark">Success outline</button>
@@ -76,6 +78,6 @@ Buttons keep their labels on one line. A surrounding toolbar wraps when space is
 | data-button="fab" | Attribute | Absent | Creates a circular floating action button with default elevation. |
 | no-shadow | Attribute token | Shadow | Removes the default FAB elevation when included in data-button. |
 | bg-{tone} | Class token | Transparent | Applies a semantic background tone such as primary, success or danger. |
-| border-{tone}{weight} | Class token | No border | Creates an outlined treatment with an optional light or dark weight. |
+| border-{tone}{weight} | Class token | No border | Applies a semantic tone to the button border and label, with an optional light or dark weight. |
 | text-{size} | Class token | Inherited | Scales button text and the em-based button dimensions. |
 | --button-disabled-opacity | Token | Theme value | Controls the visual emphasis of unavailable buttons. |

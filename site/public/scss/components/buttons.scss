@@ -25,14 +25,18 @@ button,
     box-shadow var(--motion-duration-fast) var(--motion-easing-standard),
     opacity var(--motion-duration-fast) var(--motion-easing-standard);
   width: auto;
+}
 
-  &:disabled,
-  &[disabled],
-  &[aria-disabled="true"] {
-    opacity: var(--button-disabled-opacity);
-    cursor: not-allowed;
-    pointer-events: none;
-  }
+button:disabled,
+button[disabled],
+button[aria-disabled="true"],
+[data-button]:disabled,
+[data-button][disabled],
+[data-button][aria-disabled="true"],
+a[aria-disabled="true"] {
+  opacity: var(--button-disabled-opacity);
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 :where(button, [data-button]) {

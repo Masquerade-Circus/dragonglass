@@ -1,30 +1,61 @@
-nav[data-toolbar] {
+nav {
   display: flex;
+  flex: 0 1 auto;
+  flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: flex-start;
   gap: var(--spacing-2);
   padding: var(--spacing-3);
   border-bottom: var(--border-size-1) solid var(--border-default);
+  overflow: visible;
+  color: inherit;
 }
 
-nav[data-toolbar] > button,
-nav[data-toolbar] > a,
-nav[data-toolbar] > [data-chip] {
+nav > :where(a, button) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.25rem;
+  margin: 0;
+  padding: 0 var(--spacing-3);
+  border-radius: 0.25rem;
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background-color var(--motion-duration-fast) var(--motion-easing-standard),
+    color var(--motion-duration-fast) var(--motion-easing-standard);
+
+  &:hover {
+    background-color: var(--surface-muted);
+    color: var(--text-primary);
+  }
+
+  &[aria-current="page"] {
+    background-color: var(--surface-selected);
+    color: var(--surface-selected-text);
+  }
+}
+
+nav > [data-chip] {
   margin: 0;
 }
 
-header > nav[data-toolbar],
-footer > nav[data-toolbar],
-header nav[data-toolbar],
-footer nav[data-toolbar] {
+:where(header, footer) nav {
   flex-wrap: nowrap;
   padding: 0;
   border-bottom: 0;
 }
 
-header nav[data-toolbar] > button,
-footer nav[data-toolbar] > button,
-header nav[data-toolbar] > a,
-footer nav[data-toolbar] > a {
-  margin-bottom: 0;
+nav > [data-button~="fab"] {
+  position: relative;
+  inset: auto;
+  display: inline-block;
+  box-shadow: none;
+  vertical-align: middle;
+  font-size: 1em;
 }

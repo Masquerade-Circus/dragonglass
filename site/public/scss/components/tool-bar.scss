@@ -4,14 +4,11 @@ header,
 footer {
   @include flexContainer(row);
   overflow: visible;
-  height: 3.5rem;
+  height: auto;
+  min-height: 3.5rem;
   padding: 1rem;
   & > nav {
-    &:first-child {
-      margin-left: -1rem;
-    }
     &:last-child {
-      margin-right: -1rem;
       justify-content: flex-end;
       flex: 1;
     }
@@ -32,73 +29,36 @@ footer {
   }
 }
 
-:where(body, main, article, dialog, [data-card], section) > footer:last-child {
+header > nav:first-child {
+  margin-left: -1rem;
+}
+
+header > nav:last-child {
+  margin-right: -1rem;
+}
+
+footer > nav {
+  margin: 0;
+}
+
+:where(body, main, article, dialog, [data-card], [data-layout], section)
+  > footer:last-child {
   border-top: 0.06em solid var(--border-subtle);
 }
 
-:where(body, main, article, dialog, [data-card], section) > footer:first-child {
+:where(body, main, article, dialog, [data-card], [data-layout], section)
+  > footer:first-child {
   border-top: none;
 }
 
-:where(body, main, article, dialog, [data-card], section) > header:first-child {
+:where(body, main, article, dialog, [data-card], [data-layout], section)
+  > header:first-child {
   border-bottom: 0.06em solid var(--border-subtle);
 }
 
-:where(body, main, article, dialog, [data-card], section) > header:last-child {
+:where(body, main, article, dialog, [data-card], [data-layout], section)
+  > header:last-child {
   border-bottom: none;
-}
-
-nav[data-toolbar] {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  gap: var(--spacing-1);
-  padding: var(--spacing-1);
-  flex: 0 1 auto;
-  overflow: visible;
-  color: inherit;
-
-  :where(a, button) {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 2.25rem;
-    padding: 0 var(--spacing-3);
-    border-radius: 0.25rem;
-    font-size: 1em;
-    font-weight: 500;
-    line-height: 1;
-    text-align: center;
-    text-decoration: none;
-    white-space: nowrap;
-    transition:
-      background-color var(--motion-duration-fast) var(--motion-easing-standard),
-      color var(--motion-duration-fast) var(--motion-easing-standard);
-
-    &:hover {
-      background-color: var(--surface-muted);
-      color: var(--text-primary);
-    }
-
-    &[aria-current="page"] {
-      background-color: var(--surface-selected);
-      color: var(--surface-selected-text);
-    }
-  }
-
-  > [data-button~="fab"] {
-    box-shadow: none;
-    position: relative;
-    display: inline-block;
-    top: auto;
-    left: auto;
-    right: auto;
-    bottom: auto;
-    vertical-align: middle;
-    font-size: 1em;
-  }
 }
 
 body > header,
@@ -106,13 +66,14 @@ body > footer {
   background-color: var(--surface);
   color: var(--text-primary);
 }
-:where(body, main, article, dialog, [data-card]) > :is(main, section, article) {
+:where(body, main, article, dialog, [data-card], [data-layout])
+  > :is(main, section, article) {
   z-index: 1;
 }
 
-:where(body, main, article, dialog, [data-card]) > header {
+:where(body, main, article, dialog, [data-card], [data-layout]) > header {
   z-index: 3;
 }
-:where(body, main, article, dialog, [data-card]) > footer {
+:where(body, main, article, dialog, [data-card], [data-layout]) > footer {
   z-index: 2;
 }

@@ -321,17 +321,6 @@ $luminous-foreground-color-weights: ("-light", "-lighter", "-lightest");
   @return $opposite-name;
 }
 
-@function _border-text-token($palette, $name, $weight) {
-  $token-name: "#{$name}#{$weight}";
-  $value: map.get($palette, $token-name);
-
-  @if color.channel($value, "lightness", $space: hsl) < 55% {
-    @return $token-name;
-  }
-
-  @return $name;
-}
-
 @function _scheme-color(
   $primary,
   $lightness,
@@ -533,10 +522,8 @@ $luminous-foreground-color-weights: ("-light", "-lighter", "-lightest");
         );
       }
 
-      $border-text-token: _border-text-token($palette, $name, $weight);
-
       --on-#{$token-name}: var(--#{$on-token});
-      --border-text-#{$token-name}: var(--#{$border-text-token});
+      --border-text-#{$token-name}: var(--#{$token-name});
     }
   }
 

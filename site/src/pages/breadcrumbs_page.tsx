@@ -59,6 +59,11 @@ export default () => (
         each anchor directly inside the nav and mark the current location with
         <code> aria-current=&quot;page&quot;</code>.
       </p>
+      <p>
+        Breadcrumbs keep the wrapping behavior of the base <code>nav</code> and
+        replace its action geometry with compact segments, transparent surfaces
+        and breadcrumb-specific current and hover states.
+      </p>
       <nav data-breadcrumb aria-label="Breadcrumb">
         <a
           href="/dragonglass/app-components.html"
